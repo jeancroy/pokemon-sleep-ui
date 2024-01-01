@@ -2,6 +2,7 @@ import React from 'react';
 
 import {useSession} from 'next-auth/react';
 
+import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
 import {PokeboxImporterView} from '@/components/shared/pokebox/importer/pokebox';
@@ -24,6 +25,7 @@ export const PokeboxImporter = ({show, setShow, isPokeInBoxIncluded, ...props}: 
     <PopupCommon show={show} setShow={setShow}>
       <Flex className="gap-1.5 sm:w-[60vw] md:w-[50vw] lg:w-[40vw] xl:w-[35vw] 2xl:w-[25vw]">
         <PokeboxImporterViaUuid {...props}/>
+        <AdsUnit/>
         <UserDataLazyLoadPokeboxSorted
           sessionOverride={session}
           actDeps={[show]}
