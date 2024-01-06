@@ -328,16 +328,16 @@
       "Analysis": {
         "Period": "Analysezeitraum",
         "Control": {
-          "ExportToPokebox": "Export to Pokebox",
-          "ShareableLink": "Sharable Link",
-          "Rating": "Rating",
-          "DetailedStats": "Detailed Stats",
-          "StrengthGrowth": "Strength Growth Curve",
-          "Edit": "Edit"
+          "ExportToPokebox": "Export zur Pokebox",
+          "ShareableLink": "Teilbarer Link",
+          "Rating": "Bewertung",
+          "DetailedStats": "Detaillierte Werte",
+          "StrengthGrowth": "Stärkewachstums-Graph",
+          "Edit": "Bearbeiten"
         },
         "Message": {
-          "ShareableLink": "This link is bound to the team and the slot, not the Pokemon itself.",
-          "StrengthGrowth": "Results here assume every other Pokemon on the team does not change."
+          "ShareableLink": "Dieser Link ist is an das Team und den Teamplatz gebunden, nicht an das Pokemon selbst.",
+          "StrengthGrowth": "Die Ergebnisse hier setzen voraus, dass die anderen Pokemon im Team ungeändert bleiben."
         }
       },
       "CurrentEnergy": "Stärke",
@@ -449,9 +449,9 @@
       "MainSkill": "Haupttalent"
     },
     "VanillaPreset": {
-      "Mode": "Mode",
-      "Shared": "Shared",
-      "BySpecialty": "By Specialty"
+      "Mode": "Modus",
+      "Shared": "Geteilt",
+      "BySpecialty": "Nach Spezialität"
     }
   },
   "Rating": {
