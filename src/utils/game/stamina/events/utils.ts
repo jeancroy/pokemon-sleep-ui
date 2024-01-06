@@ -1,5 +1,7 @@
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/config';
 import {StaminaEventLog} from '@/types/game/stamina/event';
+import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
+import {toSum} from '@/utils/array';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 
 
@@ -82,4 +84,18 @@ type GetActualRecoveryAmountOpts = GetFinalRecoveryRateOpts & {
 
 export const getActualRecoveryAmount = ({amount, ...opts}: GetActualRecoveryAmountOpts) => {
   return Math.ceil(amount * getFinalRecoveryRate(opts));
+};
+
+type GetTotalDailyRecoveryAmountOpts = {
+  skillTriggers: StaminaSkillTriggerData[],
+  recoveryRate: StaminaRecoveryRateConfig,
+};
+
+export const getTotalDailyRecoveryAmount = ({
+  skillTriggers,
+  recoveryRate,
+}: GetTotalDailyRecoveryAmountOpts) => {
+  return toSum(skillTriggers.map(({dailyCount, amount}) => (
+    dailyCount * getActualRecoveryAmount({amount, recoveryRate, isSleep: false})
+  )));
 };

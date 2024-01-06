@@ -242,7 +242,7 @@ describe('Stamina Event Log (+Secondary)', () => {
       strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
-      {dailyCount: 3, amount: 9},
+      {dailyCount: 0, amount: 9},
     ];
 
     let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
@@ -264,6 +264,40 @@ describe('Stamina Event Log (+Secondary)', () => {
     expect(logs[3].timing).toBe(63000);
     expect(logs[3].stamina.before).toBe(3);
     expect(logs[3].staminaUnderlying.before).toBe(3);
+    expect(logs.length).toBe(4);
+  });
+
+  it('is correct with < 1 recovery rate under conservative with skill recovery', () => {
+    const recoveryRate: StaminaRecoveryRateConfig = {
+      general: 0.8,
+      sleep: 1,
+    };
+    const skillRecovery: StaminaSkillRecoveryConfig = {
+      strategy: 'conservative',
+    };
+    const skillTriggers: StaminaSkillTriggerData[] = [
+      {dailyCount: 1, amount: 9},
+    ];
+
+    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sessionInfo, logs, recoveryRate});
+
+    expect(logs[0].type).toBe('wakeup');
+    expect(logs[0].timing).toBe(0);
+    expect(logs[0].stamina.after).toBe(92);
+    expect(logs[0].staminaUnderlying.after).toBe(92);
+    expect(logs[1].type).toBe('sleep');
+    expect(logs[1].timing).toBe(25200);
+    expect(logs[1].stamina.before).toBe(50);
+    expect(logs[1].staminaUnderlying.before).toBe(50);
+    expect(logs[2].type).toBe('wakeup');
+    expect(logs[2].timing).toBe(30600);
+    expect(logs[2].stamina.after).toBe(65);
+    expect(logs[2].staminaUnderlying.after).toBe(65);
+    expect(logs[3].type).toBe('sleep');
+    expect(logs[3].timing).toBe(63000);
+    expect(logs[3].stamina.before).toBe(11);
+    expect(logs[3].staminaUnderlying.before).toBe(11);
     expect(logs.length).toBe(4);
   });
 

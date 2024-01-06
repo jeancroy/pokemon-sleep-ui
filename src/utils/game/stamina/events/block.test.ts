@@ -248,8 +248,8 @@ describe('Stamina Event Log (+Efficiency Block)', () => {
     };
     const sessionInfo = getSleepSessionInfo({
       primary: {
-        start: 75600, // 21:00
-        end: 79200, // 22:00
+        start: 82800, // 23:00
+        end: 0, // 00:00
       },
       secondary: null,
     });
@@ -257,7 +257,7 @@ describe('Stamina Event Log (+Efficiency Block)', () => {
       strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
-      {dailyCount: 2, amount: 9},
+      {dailyCount: 2, amount: 11},
     ];
 
     let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
@@ -267,37 +267,37 @@ describe('Stamina Event Log (+Efficiency Block)', () => {
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(62);
+    expect(logs[0].stamina.after).toBe(84);
     expect(logs[1].type).toBe('efficiencyBlock');
-    expect(logs[1].timing).toBe(1200);
-    expect(logs[1].stamina.before).toBe(60);
-    expect(logs[1].stamina.after).toBe(60);
+    expect(logs[1].timing).toBe(2400);
+    expect(logs[1].stamina.before).toBe(80);
+    expect(logs[1].stamina.after).toBe(80);
     expect(logs[2].type).toBe('efficiencyBlock');
-    expect(logs[2].timing).toBe(13200);
-    expect(logs[2].stamina.before).toBe(40);
-    expect(logs[2].stamina.after).toBe(40);
+    expect(logs[2].timing).toBe(14400);
+    expect(logs[2].stamina.before).toBe(60);
+    expect(logs[2].stamina.after).toBe(60);
     expect(logs[3].type).toBe('efficiencyBlock');
-    expect(logs[3].timing).toBe(25200);
-    expect(logs[3].stamina.before).toBe(20);
-    expect(logs[3].stamina.after).toBe(20);
+    expect(logs[3].timing).toBe(26400);
+    expect(logs[3].stamina.before).toBe(40);
+    expect(logs[3].stamina.after).toBe(40);
     expect(logs[4].type).toBe('skillRecovery');
     expect(logs[4].timing).toBe(27600);
-    expect(logs[4].stamina.before).toBe(16);
-    expect(logs[4].stamina.after).toBe(25);
+    expect(logs[4].stamina.before).toBe(38);
+    expect(logs[4].stamina.after).toBe(49);
     expect(logs[5].type).toBe('efficiencyBlock');
-    expect(logs[5].timing).toBe(30600);
-    expect(logs[5].stamina.before).toBe(20);
-    expect(logs[5].stamina.after).toBe(20);
+    expect(logs[5].timing).toBe(33000);
+    expect(logs[5].stamina.before).toBe(40);
+    expect(logs[5].stamina.after).toBe(40);
     expect(logs[6].type).toBe('efficiencyBlock');
-    expect(logs[6].timing).toBe(42600);
-    expect(logs[6].stamina.before).toBe(0);
-    expect(logs[6].stamina.after).toBe(0);
+    expect(logs[6].timing).toBe(45000);
+    expect(logs[6].stamina.before).toBe(20);
+    expect(logs[6].stamina.after).toBe(20);
     expect(logs[7].type).toBe('skillRecovery');
     expect(logs[7].timing).toBe(55200);
-    expect(logs[7].stamina.before).toBe(0);
-    expect(logs[7].stamina.after).toBe(9);
+    expect(logs[7].stamina.before).toBe(3);
+    expect(logs[7].stamina.after).toBe(14);
     expect(logs[8].type).toBe('efficiencyBlock');
-    expect(logs[8].timing).toBe(60600);
+    expect(logs[8].timing).toBe(63600);
     expect(logs[8].stamina.before).toBe(0);
     expect(logs[8].stamina.after).toBe(0);
     expect(logs[9].type).toBe('sleep');
