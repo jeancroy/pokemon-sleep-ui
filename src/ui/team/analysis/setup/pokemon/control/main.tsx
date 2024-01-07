@@ -7,6 +7,7 @@ import PencilIcon from '@heroicons/react/24/outline/PencilIcon';
 import PresentationChartLineIcon from '@heroicons/react/24/outline/PresentationChartLineIcon';
 import ShareIcon from '@heroicons/react/24/outline/ShareIcon';
 import ChartBarIcon from '@heroicons/react/24/solid/ChartBarIcon';
+import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {DropDown} from '@/components/dropdown/main';
@@ -47,11 +48,13 @@ export const TeamAnalysisPokemonControl = ({
 
   return (
     <DropDown
-      button={
-        <button className="button-clickable-bg h-7 w-7 !rounded-full p-1" disabled={status === 'processing'}>
+      renderButton={(DropdownMenuButton) => (
+        <DropdownMenuButton disabled={status === 'processing'} className={clsx(
+          'button-clickable-bg h-7 w-7 !rounded-full p-1',
+        )}>
           <UserActionStatusIcon status={status} onWaitingOverride={<EllipsisVerticalIcon/>}/>
-        </button>
-      }
+        </DropdownMenuButton>
+      )}
       itemList={[
         [
           () => (

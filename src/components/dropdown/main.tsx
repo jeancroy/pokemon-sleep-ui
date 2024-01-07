@@ -9,17 +9,15 @@ import {Flex} from '@/components/layout/flex/common';
 
 
 type Props = {
-  button: React.ReactNode,
   itemList: DropdownItemList,
   origin: DropdownExpandOrigin,
+  renderButton: (DropdownMenuButton: typeof Menu['Button']) => React.ReactNode,
 };
 
-export const DropDown = ({button, itemList, origin}: Props) => {
+export const DropDown = ({renderButton, itemList, origin}: Props) => {
   return (
     <Menu as="div" className="relative w-fit">
-      <Menu.Button>
-        {button}
-      </Menu.Button>
+      {renderButton(Menu.Button)}
       <Transition
         as={React.Fragment}
         enter="transition ease-out duration-100"
