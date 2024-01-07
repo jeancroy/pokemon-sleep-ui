@@ -10002,12 +10002,10 @@ __metadata:
     remark-gfm: "npm:^4.0.0"
     remark-math: "npm:^6.0.0"
     remark-toc: "npm:^9.0.0"
-    semver: "npm:^7.5.4"
     sharp: "npm:^0.33.1"
     stylelint: "npm:^16.1.0"
     stylelint-config-standard: "npm:^36.0.0"
     stylelint-config-tailwindcss: "npm:^0.0.7"
-    systeminformation: "npm:^5.21.22"
     tailwindcss: "npm:^3.4.1"
     tesseract.js: "npm:5.0.4"
     threads: "npm:^1.7.0"
@@ -11734,16 +11732,6 @@ __metadata:
   version: 1.0.0
   resolution: "svg-tags@npm:1.0.0"
   checksum: 5867e29e8f431bf7aecf5a244d1af5725f80a1086187dbc78f26d8433b5e96b8fe9361aeb10d1699ff483b9afec785a10916b9312fe9d734d1a7afd48226c954
-  languageName: node
-  linkType: hard
-
-"systeminformation@npm:^5.21.22":
-  version: 5.21.22
-  resolution: "systeminformation@npm:5.21.22"
-  bin:
-    systeminformation: lib/cli.js
-  checksum: 483141ce10cd3e7e8f6734d9f7a63557ead5646530a955b2ed42057790b3338964eb365f89cbdf733a16192680de31a4f4f4a80b079d07ea093cb0d7fdb7967c
-  conditions: (os=darwin | os=linux | os=win32 | os=freebsd | os=openbsd | os=netbsd | os=sunos | os=android)
   languageName: node
   linkType: hard
 
