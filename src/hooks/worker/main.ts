@@ -11,8 +11,9 @@ export const useWorker = <TWorkerMessage, TWorkerResult>({
   workerName,
   generateWorker,
   onError,
-  onCompleted,
   isCanceled,
+  workerDeps,
+  onCompleted,
 }: UseWorkerOpts<TWorkerResult>) => {
   const worker = React.useRef<Worker>();
 
@@ -32,7 +33,7 @@ export const useWorker = <TWorkerMessage, TWorkerResult>({
     };
 
     return () => worker.current?.terminate();
-  }, [isCanceled]);
+  }, [isCanceled, ...(workerDeps ?? [])]);
 
   const work = React.useCallback((message: TWorkerMessage) => {
     const webWorker = worker.current;

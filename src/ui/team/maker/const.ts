@@ -3,7 +3,7 @@ import {TeamMakerSource} from '@/ui/team/maker/type/input';
 import {TeamMakerStatus} from '@/ui/team/maker/type/state';
 
 
-export const teamMakerMaxResultCount = 15;
+export const defaultTeamMakerMaxResultCount = 15;
 
 export const teamMakerCompCountWarningThreshold = 20000;
 

@@ -1,6 +1,5 @@
 import {PokemonProducingRateStage} from '@/types/game/producing/rate';
 import {getTeamMakerDataSorter} from '@/ui/team/maker/calc/getSorter';
-import {teamMakerMaxResultCount} from '@/ui/team/maker/const';
 import {TeamMakerBasisValue, TeamMakerIntermediateRate} from '@/ui/team/maker/type/common';
 import {TeamMakerBasis} from '@/ui/team/maker/type/input';
 import {TeamMakerResultComp} from '@/ui/team/maker/type/result';
@@ -11,18 +10,20 @@ import {isNotNullish} from '@/utils/type';
 type ReduceTeamMakerResultCompOpts = {
   comps: TeamMakerResultComp[],
   basis: TeamMakerBasis,
+  count: number,
 };
 
 export const reduceTeamMakerResultComp = ({
   comps,
   basis,
+  count,
 }: ReduceTeamMakerResultCompOpts): TeamMakerResultComp[] => {
   const sorter = getTeamMakerDataSorter<TeamMakerResultComp>({
     basis,
     getBasisValue: ({basisValue}) => basisValue,
   });
 
-  return comps.sort(sorter).slice(0, teamMakerMaxResultCount);
+  return comps.sort(sorter).slice(0, count);
 };
 
 export const sumTeamMakerBasisValue = (values: TeamMakerBasisValue[]): TeamMakerBasisValue => {

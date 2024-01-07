@@ -17,6 +17,7 @@ import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/uti
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {useUserSettings} from '@/hooks/userData/settings';
 import {
+  defaultTeamMakerMaxResultCount,
   teamMakerCompCountWarningThreshold,
   teamMakerStatusI18nId,
   teamMakerStatusStyle,
@@ -63,13 +64,16 @@ export const TeamMakerLoadedClient = (props: TeamMakerDataProps) => {
     previewFinalEvolution: false,
     target: preloaded.cooking.target,
     showInsufficientIngredients: true,
+    teamCompsToShow: defaultTeamMakerMaxResultCount,
   });
   const {
     state,
     calculateTeam,
     cancelCalculation,
     resultsRef,
-  } = useTeamMaker();
+  } = useTeamMaker({
+    teamCompsToShow: input.teamCompsToShow,
+  });
 
   const {
     status,

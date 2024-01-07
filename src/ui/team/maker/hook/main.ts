@@ -19,7 +19,11 @@ import {TeamMakerState} from '@/ui/team/maker/type/state';
 import {getCombinationCount} from '@/utils/compute';
 
 
-export const useTeamMaker = () => {
+type UseTeamMakerOpts = {
+  teamCompsToShow: number,
+};
+
+export const useTeamMaker = ({teamCompsToShow}: UseTeamMakerOpts) => {
   const [state, setState] = React.useState<TeamMakerState>({
     status: 'standby',
     result: null,
@@ -29,7 +33,7 @@ export const useTeamMaker = () => {
   });
   const resultsRef = React.useRef<HTMLButtonElement>(null);
 
-  const workerCommonOpts: Pick<UseWorkerCommonOpts, 'onError' | 'isCanceled'> = {
+  const workerCommonOpts: Pick<UseWorkerCommonOpts, 'onError' | 'isCanceled' | 'workerDeps'> = {
     onError: () => setState({
       status: 'error',
       result: null,
@@ -38,6 +42,7 @@ export const useTeamMaker = () => {
       cancel: false,
     }),
     isCanceled: state.cancel,
+    workerDeps: [teamCompsToShow],
   };
 
   const {work: workInit} = useWorker<TeamMakerCalcInitOpts, TeamMakerCalcInitReturn>({
@@ -131,6 +136,7 @@ export const useTeamMaker = () => {
                   comps: reduceTeamMakerResultComp({
                     basis,
                     comps: [...(original.result?.comps ?? []), ...result.comps],
+                    count: teamCompsToShow,
                   }),
                 },
                 teamCompsCalculated,

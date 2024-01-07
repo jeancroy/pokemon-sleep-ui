@@ -30,4 +30,5 @@ export type TeamMakerInput = Pick<UserCookingPreset, 'mealType' | 'target' | 're
   vanillaPresets: PokemonVanillaPreset,
   previewFinalEvolution: boolean,
   showInsufficientIngredients: boolean,
+  teamCompsToShow: number,
 };

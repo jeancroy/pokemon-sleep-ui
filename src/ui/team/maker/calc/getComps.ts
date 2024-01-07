@@ -27,6 +27,8 @@ export const getTeamMakerComps = ({
     snorlaxFavorite,
     ingredientCount,
     showInsufficientIngredients,
+    teamCompsToShow,
+    basis,
   } = input;
 
   const comps: TeamMakerResultComp[] = [];
@@ -85,5 +87,9 @@ export const getTeamMakerComps = ({
     });
   }
 
-  return reduceTeamMakerResultComp({comps, basis: input.basis});
+  return reduceTeamMakerResultComp({
+    comps,
+    basis,
+    count: teamCompsToShow,
+  });
 };
