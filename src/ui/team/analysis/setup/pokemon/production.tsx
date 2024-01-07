@@ -60,7 +60,7 @@ export const TeamAnalysisPokemonProduction = (props: TeamAnalysisPokemonProps) =
       <Flex center className={clsx(specialty === specialtyIdMap.berry && 'info-highlight')}>
         <PokemonBerryProduction
           id={berryData.id}
-          rate={toProducingRateOfState({rate: stats.berry, state: 'equivalent'})}
+          rate={toProducingRateOfState({rate: stats.berry, state: stateOfRateToShow})}
         />
       </Flex>
       <HorizontalSplitter className="w-full"/>
@@ -69,7 +69,7 @@ export const TeamAnalysisPokemonProduction = (props: TeamAnalysisPokemonProps) =
           <PokemonIngredientProduction
             key={rate.id}
             id={rate.id}
-            rate={toProducingRateOfState({rate, state: 'equivalent'})}
+            rate={toProducingRateOfState({rate, state: stateOfRateToShow})}
           />
         ))}
       </Flex>
@@ -77,7 +77,7 @@ export const TeamAnalysisPokemonProduction = (props: TeamAnalysisPokemonProps) =
       <Flex center className={clsx(specialty === specialtyIdMap.skill && 'info-highlight')}>
         <PokemonSkillProduction
           id={skill}
-          rate={toProducingRateOfState({rate: stats.skill, state: 'equivalent'})}
+          rate={toProducingRateOfState({rate: stats.skill, state: stateOfRateToShow})}
         />
         <PokemonProbabilityOfNoSkill
           rate={stats}

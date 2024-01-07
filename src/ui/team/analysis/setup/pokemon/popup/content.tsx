@@ -11,6 +11,7 @@ import {PokemonDetailedProducingStats} from '@/components/shared/pokemon/product
 import {PokemonSpecialtyIcon} from '@/components/shared/pokemon/specialty/icon';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
+import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
 import {TeamAnalysisPokemonMemberConfig} from '@/ui/team/analysis/setup/pokemon/popup/config';
 import {
   TeamAnalysisPokemonPopupCommonProps,
@@ -87,7 +88,7 @@ export const TeamAnalysisPokemonPopupContent = ({
           })].map((level): StrengthGrowthDataEntry<TeamAnalysisStrengthGrowthDataType> | null => {
             const rate = getTeamCompCalcResult({
               period: currentTeam.analysisPeriod,
-              state: 'equivalent',
+              state: stateOfRateToShow,
               overrideLevel: level,
               ...props,
             }).bySlot[slotName];
@@ -103,7 +104,7 @@ export const TeamAnalysisPokemonPopupContent = ({
                 ingredient: getTotalIngredientRateOfPokemon({
                   rate,
                   target: 'energy',
-                  state: 'equivalent',
+                  state: stateOfRateToShow,
                 }),
                 skill: rate.skill.energy.equivalent,
                 total: getTotalEnergyOfPokemonProducingRate(rate),
