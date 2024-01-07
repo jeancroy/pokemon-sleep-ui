@@ -31,8 +31,9 @@ export const getTeamCompCalcResult = ({
     rateOpts: teamAnalysisSlotName
       .map((slotName) => {
         const producingStatsOpts = getTeamProducingStatsSlot({
-          slotName,
+          // `slotName` has to be after `opts` because `opts` got `slotName` in it as well
           ...opts,
+          slotName,
         });
 
         if (!producingStatsOpts) {
