@@ -31,7 +31,12 @@
     /* Strict Type-Checking Options */
     "strict": true,
     /* Module Resolution Options */
-    "moduleResolution": "bundler",
+    /*
+      This has to be `node` instead of `bundler` despite `bundler` saves about 3 minutes build time,
+      because the package `threads` does not work with `bundler` resolution.
+      See https://github.com/RaenonX-PokemonSleep/pokemon-sleep-ui/pull/667.
+     */
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     /* Advanced Options */
     "skipLibCheck": true,
