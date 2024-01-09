@@ -29,9 +29,14 @@ export const subtractIngredientCount = (
   }).filter(isNotNullish))
 );
 
-export const addIngredientCount = (addends: IngredientCounter[]): IngredientCounter => {
+type ReduceIngredientCountersOpts = {
+  counters: IngredientCounter[],
+  reducer: (values: number[]) => number,
+};
+
+const reduceIngredientCounters = ({counters, reducer}: ReduceIngredientCountersOpts): IngredientCounter => {
   const grouped = groupBy(
-    addends.flatMap((addend) => (
+    counters.flatMap((addend) => (
       Object.entries(addend)
         .map(([id, quantity]) => {
           if (quantity == null) {
@@ -47,9 +52,30 @@ export const addIngredientCount = (addends: IngredientCounter[]): IngredientCoun
 
   return Object.fromEntries(
     Object.entries(grouped).map(([id, data]) => (
-      [id, toSum(data.map(({quantity}) => quantity))]
+      [id, reducer(data.map(({quantity}) => quantity))]
     )),
   );
+};
+
+export const addIngredientCount = (addends: IngredientCounter[]): IngredientCounter => {
+  return reduceIngredientCounters({
+    counters: addends,
+    reducer: toSum,
+  });
+};
+
+export const maxIngredientCounters = (counters: IngredientCounter[]): IngredientCounter => {
+  return reduceIngredientCounters({
+    counters,
+    reducer: (values) => Math.max(...values),
+  });
+};
+
+export const minIngredientCounters = (counters: IngredientCounter[]): IngredientCounter => {
+  return reduceIngredientCounters({
+    counters,
+    reducer: (values) => Math.min(...values),
+  });
 };
 
 export const isIngredientCounterEmpty = (counter: IngredientCounter): boolean => {
