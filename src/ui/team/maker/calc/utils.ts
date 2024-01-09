@@ -1,6 +1,5 @@
-import {PokemonProducingRateStage} from '@/types/game/producing/rate';
 import {getTeamMakerDataSorter} from '@/ui/team/maker/calc/getSorter';
-import {TeamMakerBasisValue, TeamMakerIntermediateRate} from '@/ui/team/maker/type/common';
+import {TeamMakerBasisValue, TeamMakerPokemonLimits} from '@/ui/team/maker/type/common';
 import {TeamMakerBasis} from '@/ui/team/maker/type/input';
 import {TeamMakerResultComp} from '@/ui/team/maker/type/result';
 import {addIngredientCount, subtractIngredientCount} from '@/utils/game/ingredientCounter';
@@ -77,21 +76,21 @@ export const isCurrentTeamMakerBasisValueWorse = ({
   throw new Error(`Unhandled team maker basis of ${basis satisfies never} during data comparison`);
 };
 
-type GetSortedTeamMakerIntermediateRateOpts = {
+type GetSortedTeamMakerPokemonLimitsOpts = {
   basis: TeamMakerBasis,
-  stage: PokemonProducingRateStage,
-  rates: TeamMakerIntermediateRate[],
+  pokemonLimits: TeamMakerPokemonLimits[],
+  getBasisValue: (limits: TeamMakerPokemonLimits) => TeamMakerBasisValue,
 };
 
-export const getSortedTeamMakerIntermediateRate = ({
+export const getSortedTeamMakerPokemonLimits = ({
   basis,
-  stage,
-  rates,
-}: GetSortedTeamMakerIntermediateRateOpts): TeamMakerIntermediateRate[] => {
-  const originalRateSorter = getTeamMakerDataSorter<TeamMakerIntermediateRate>({
+  pokemonLimits,
+  getBasisValue,
+}: GetSortedTeamMakerPokemonLimitsOpts): TeamMakerPokemonLimits[] => {
+  const originalRateSorter = getTeamMakerDataSorter<TeamMakerPokemonLimits>({
     basis,
-    getBasisValue: ({basisValueAtStage}) => basisValueAtStage[stage],
+    getBasisValue,
   });
 
-  return rates.sort(originalRateSorter);
+  return pokemonLimits.sort(originalRateSorter);
 };

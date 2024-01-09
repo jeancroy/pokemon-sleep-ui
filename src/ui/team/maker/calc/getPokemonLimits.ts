@@ -1,11 +1,12 @@
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils';
-import {pokemonProducingRateStage} from '@/types/game/producing/rate';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {CookingUserSettings, UserSettings} from '@/types/userData/settings';
 import {teamMakerProductionPeriod} from '@/ui/team/maker/calc/const';
 import {getTeamMakerBasisValue} from '@/ui/team/maker/calc/getBasisValue';
 import {TeamMakerCalcInitOpts} from '@/ui/team/maker/type/calc';
-import {TeamMakerBasisValueAtStage, TeamMakerIntermediateRate} from '@/ui/team/maker/type/common';
+import {
+  TeamMakerPokemonLimits,
+} from '@/ui/team/maker/type/common';
 import {getPokemonFinalEvolutionIds} from '@/utils/game/pokemon/evolution';
 import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
@@ -27,7 +28,7 @@ type GetTeamMakerCalcIntermediateOpts = Omit<TeamMakerCalcInitOpts, 'pokeboxList
   cookingSettings: CookingUserSettings,
 };
 
-export const getTeamMakerCalcIntermediate = ({
+export const getTeamMakerPokemonLimits = ({
   pokeboxSource,
   pokedexMap,
   pokemonProducingParamsMap,
@@ -39,8 +40,10 @@ export const getTeamMakerCalcIntermediate = ({
   input,
   settings,
   cookingSettings,
-}: GetTeamMakerCalcIntermediateOpts): TeamMakerIntermediateRate[] => {
-  const toTeamMakerFirstPassData = (pokeInBox: PokeInBox): TeamMakerIntermediateRate | null => {
+}: GetTeamMakerCalcIntermediateOpts): TeamMakerPokemonLimits[] => {
+  const {targetMeals} = cookingSettings;
+
+  const toTeamMakerPokemonLimits = (pokeInBox: PokeInBox): TeamMakerPokemonLimits | null => {
     const pokemon = pokedexMap[pokeInBox.pokemon];
 
     if (!pokemon || !isPokemonIncludedFromFilter({
@@ -86,7 +89,7 @@ export const getTeamMakerCalcIntermediate = ({
       // Override `ingredients` in `pokeInBox`
       ingredients: getEffectiveIngredientProductions(pokeInBox),
     };
-    const rate = getPokemonProducingRateSingle({
+    const {atStage} = getPokemonProducingRateSingle({
       snorlaxFavorite: input.snorlaxFavorite,
       period: teamMakerProductionPeriod,
       cookingSettings,
@@ -94,19 +97,21 @@ export const getTeamMakerCalcIntermediate = ({
     });
 
     return {
-      rate,
-      refData: {
-        pokeInBox,
-        levelUsed: level,
+      best: getTeamMakerBasisValue({
+        pokemonRate: atStage.final,
+        targetMeals,
+      }),
+      worst: getTeamMakerBasisValue({
+        pokemonRate: atStage.original,
+        targetMeals,
+      }),
+      payload: {
+        refData: {
+          pokeInBox,
+          levelUsed: level,
+        },
+        calcOpts,
       },
-      calcOpts,
-      basisValueAtStage: Object.fromEntries(pokemonProducingRateStage.map((stage) => [
-        stage,
-        getTeamMakerBasisValue({
-          pokemonRate: rate.atStage[stage],
-          targetMeals: cookingSettings.targetMeals,
-        }),
-      ])) as TeamMakerBasisValueAtStage,
     };
   };
 
@@ -126,6 +131,6 @@ export const getTeamMakerCalcIntermediate = ({
         evolutionCount,
       }));
     })
-    .map(toTeamMakerFirstPassData)
+    .map(toTeamMakerPokemonLimits)
     .filter(isNotNullish);
 };

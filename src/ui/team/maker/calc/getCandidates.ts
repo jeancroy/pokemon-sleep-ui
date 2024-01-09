@@ -1,79 +1,69 @@
-import {CookingUserSettings} from '@/types/userData/settings';
-import {getTeamMakerBasisValue} from '@/ui/team/maker/calc/getBasisValue';
 import {
-  getSortedTeamMakerIntermediateRate,
+  getSortedTeamMakerPokemonLimits,
   isCurrentTeamMakerBasisValueWorse,
   sumTeamMakerBasisValue,
 } from '@/ui/team/maker/calc/utils';
-import {TeamMakerIntermediateRate} from '@/ui/team/maker/type/common';
+import {TeamMakerCandidateData, TeamMakerPokemonLimits} from '@/ui/team/maker/type/common';
 import {TeamMakerInput} from '@/ui/team/maker/type/input';
 import {generateSegments} from '@/utils/array';
 
 
 type GetTeamMakerCandidatesOpts = {
   input: TeamMakerInput,
-  cookingSettings: CookingUserSettings,
-  rates: TeamMakerIntermediateRate[],
+  pokemonLimits: TeamMakerPokemonLimits[],
 };
 
 export const getTeamMakerCandidates = ({
   input,
-  cookingSettings,
-  rates,
-}: GetTeamMakerCandidatesOpts): TeamMakerIntermediateRate[] => {
+  pokemonLimits,
+}: GetTeamMakerCandidatesOpts): TeamMakerCandidateData[] => {
   const {basis, memberCount} = input;
 
-  if (rates.length <= memberCount) {
-    return rates;
+  if (pokemonLimits.length <= memberCount) {
+    return pokemonLimits.map(({payload}) => ({payload}));
   }
 
-  const sortedOriginalRates = getSortedTeamMakerIntermediateRate({
+  const sortedWorst = getSortedTeamMakerPokemonLimits({
     basis: input.basis,
-    stage: 'original',
-    rates,
+    pokemonLimits,
+    getBasisValue: ({worst}) => worst,
   });
-  const topCompAtOriginal = sortedOriginalRates.slice(0, memberCount);
+  const topWorst = sortedWorst.slice(0, memberCount);
 
-  const sortedFinalRates = getSortedTeamMakerIntermediateRate({
+  const sortedBest = getSortedTeamMakerPokemonLimits({
     basis: input.basis,
-    stage: 'final',
-    rates,
+    pokemonLimits,
+    getBasisValue: ({best}) => best,
+
   });
-  const topCompAtFinal = rates.slice(0, memberCount);
+  const topBest = pokemonLimits.slice(0, memberCount);
 
-  const stopThreshold = sumTeamMakerBasisValue(topCompAtOriginal.map(({rate}) => (
-    getTeamMakerBasisValue({
-      pokemonRate: rate.atStage.original,
-      targetMeals: cookingSettings.targetMeals,
-    })
-  )));
+  const stopThreshold = sumTeamMakerBasisValue(topWorst.map(({worst}) => worst));
 
-  const ret: Map<string, TeamMakerIntermediateRate> = new Map();
-  for (const rate of [...topCompAtOriginal, ...topCompAtFinal]) {
-    ret.set(rate.refData.pokeInBox.uuid, rate);
+  const candidateData: Map<string, TeamMakerCandidateData> = new Map();
+  for (const {payload} of [...topWorst, ...topBest]) {
+    candidateData.set(payload.refData.pokeInBox.uuid, {payload});
   }
 
-  for (const currentComp of generateSegments(memberCount, sortedFinalRates)) {
+  for (const currentComp of generateSegments(memberCount, sortedBest)) {
     const tail = currentComp.at(-1);
     if (!tail) {
       continue;
     }
 
-    const currentCompBasisValue = sumTeamMakerBasisValue(currentComp.map(({rate}) => getTeamMakerBasisValue({
-      pokemonRate: rate.atStage.final,
-      targetMeals: cookingSettings.targetMeals,
-    })));
-
     if (isCurrentTeamMakerBasisValueWorse({
       basis,
-      current: currentCompBasisValue,
+      current: sumTeamMakerBasisValue(currentComp.map(({best}) => best)),
       baseline: stopThreshold,
     })) {
       break;
     }
 
-    ret.set(tail.refData.pokeInBox.uuid, tail);
+    candidateData.set(
+      tail.payload.refData.pokeInBox.uuid,
+      {payload: tail.payload},
+    );
   }
 
-  return [...ret.values()];
+  return [...candidateData.values()];
 };

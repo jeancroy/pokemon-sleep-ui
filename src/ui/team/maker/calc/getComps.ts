@@ -34,9 +34,9 @@ export const getTeamMakerComps = ({
   const comps: TeamMakerResultComp[] = [];
   for (const teamComp of teamComps) {
     const rates = getPokemonProducingRateMulti({
-      rateOpts: teamComp.map(({calcOpts, refData}) => ({
-        opts: calcOpts,
-        payload: refData,
+      rateOpts: teamComp.map(({payload}) => ({
+        opts: payload.calcOpts,
+        payload: payload.refData,
       })),
       sharedOpts: {
         snorlaxFavorite,

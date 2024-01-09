@@ -1,6 +1,6 @@
 import {CookingUserSettings, UserSettings} from '@/types/userData/settings';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
-import {TeamMakerIntermediateRate} from '@/ui/team/maker/type/common';
+import {TeamMakerCandidateData} from '@/ui/team/maker/type/common';
 import {TeamMakerInput} from '@/ui/team/maker/type/input';
 
 
@@ -11,15 +11,15 @@ export type TeamMakerCalcInitOpts = TeamMakerDataProps & {
 
 export type TeamMakerCalcGenerateCompOpts = TeamMakerCalcInitOpts & {
   cookingSettings: CookingUserSettings,
-  candidates: TeamMakerIntermediateRate[],
+  candidates: TeamMakerCandidateData[],
 };
 
 export type TeamMakerCalcResultsOpts = TeamMakerCalcGenerateCompOpts & {
-  teamComps: TeamMakerIntermediateRate[][],
+  teamComps: TeamMakerCandidateData[][],
 };
 
 export type TeamMakerCalcInitReturn = TeamMakerCalcGenerateCompOpts;
 
 export type TeamMakerCalcGenerateCompReturn = TeamMakerCalcGenerateCompOpts & {
-  allPossibleTeamComps: TeamMakerIntermediateRate[][],
+  allPossibleTeamComps: TeamMakerCandidateData[][],
 };

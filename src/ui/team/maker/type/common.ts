@@ -1,6 +1,5 @@
 import {MealCoverage} from '@/types/game/cooking';
 import {IngredientCounter} from '@/types/game/ingredient';
-import {PokemonProducingRateStage, PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {GetPokemonProducingRateOpts} from '@/utils/game/producing/main/type';
 
@@ -20,18 +19,24 @@ export type TeamMakerBasisValue = {
   mealCoverage: MealCoverage,
 };
 
-export type TeamMakerBasisValueAtStage = {[stage in PokemonProducingRateStage]: TeamMakerBasisValue};
-
 export type TeamMakerReferenceUnit = {
   pokeInBox: PokeInBox,
   levelUsed: number,
 };
 
-export type TeamMakerIntermediateRate = {
-  rate: PokemonProducingRateWithPayload<null>,
+export type TeamMakerCalcPayload = {
   refData: TeamMakerReferenceUnit,
   calcOpts: GetPokemonProducingRateOpts,
-  basisValueAtStage: TeamMakerBasisValueAtStage,
+};
+
+export type TeamMakerPokemonLimits = {
+  best: TeamMakerBasisValue,
+  worst: TeamMakerBasisValue,
+  payload: TeamMakerCalcPayload,
+};
+
+export type TeamMakerCandidateData = {
+  payload: TeamMakerCalcPayload,
 };
 
 export type TeamMakerIngredientStats = {
