@@ -1,8 +1,6 @@
-import {
-  getSortedTeamMakerPokemonLimits,
-  isCurrentTeamMakerBasisValueWorse,
-  sumTeamMakerBasisValue,
-} from '@/ui/team/maker/calc/utils';
+import {isCurrentTeamMakerBasisValueWorse} from '@/ui/team/maker/calc/utils/compare';
+import {getSortedTeamMakerPokemonLimits} from '@/ui/team/maker/calc/utils/limits';
+import {sumTeamMakerBasisValue} from '@/ui/team/maker/calc/utils/reducer';
 import {TeamMakerCandidateData, TeamMakerPokemonLimits} from '@/ui/team/maker/type/common';
 import {TeamMakerInput} from '@/ui/team/maker/type/input';
 import {generateSegments} from '@/utils/array';

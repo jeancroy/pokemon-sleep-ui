@@ -1,6 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {isCurrentTeamMakerBasisValueWorse} from '@/ui/team/maker/calc/utils';
+import {isCurrentTeamMakerBasisValueWorse} from '@/ui/team/maker/calc/utils/compare';
 
 
 describe('Team Maker Calculation / Basis Value Comparison', () => {

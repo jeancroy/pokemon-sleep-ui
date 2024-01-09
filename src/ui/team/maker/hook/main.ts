@@ -3,7 +3,7 @@ import React from 'react';
 
 import {useWorker} from '@/hooks/worker/main';
 import {UseWorkerCommonOpts} from '@/hooks/worker/type';
-import {reduceTeamMakerResultComp} from '@/ui/team/maker/calc/utils';
+import {reduceTeamMakerResultComp} from '@/ui/team/maker/calc/utils/reducer';
 import {teamMakerCalcCompSegmentSize} from '@/ui/team/maker/const';
 import {
   regenerateTeamMakerFinalResultWorkerPool,

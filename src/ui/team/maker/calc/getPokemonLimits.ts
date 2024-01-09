@@ -4,9 +4,7 @@ import {CookingUserSettings, UserSettings} from '@/types/userData/settings';
 import {teamMakerProductionPeriod} from '@/ui/team/maker/calc/const';
 import {getTeamMakerBasisValue} from '@/ui/team/maker/calc/getBasisValue';
 import {TeamMakerCalcInitOpts} from '@/ui/team/maker/type/calc';
-import {
-  TeamMakerPokemonLimits,
-} from '@/ui/team/maker/type/common';
+import {TeamMakerPokemonLimits} from '@/ui/team/maker/type/common';
 import {getPokemonFinalEvolutionIds} from '@/utils/game/pokemon/evolution';
 import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
