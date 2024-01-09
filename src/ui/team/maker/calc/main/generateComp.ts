@@ -33,7 +33,7 @@ export const getTeamMakerCalcGenerateCompOpts = (opts: TeamMakerCalcInitOpts): T
 
   return {
     cookingSettings,
-    candidates,
+    candidates: [...candidates.values()],
     ...opts,
   };
 };

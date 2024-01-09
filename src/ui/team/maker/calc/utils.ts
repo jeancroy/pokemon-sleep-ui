@@ -60,6 +60,12 @@ export const isCurrentTeamMakerBasisValueWorse = ({
   }
 
   if (basis === 'mealCoverage') {
+    // If `current` total meal coverage is > 1, meaning that the requirements is likely satisfied,
+    // then `current` shouldn't get excluded by this checking function
+    if (current.mealCoverage.total > 1) {
+      return false;
+    }
+
     const coverageDiff = Math.max(...Object.values(subtractIngredientCount(
       current.mealCoverage.byIngredient,
       baseline.mealCoverage.byIngredient,

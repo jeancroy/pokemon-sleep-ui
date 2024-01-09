@@ -52,4 +52,13 @@ describe('Team Maker Calculation / Basis Value Comparison', () => {
       baseline: {strength: 1, mealCoverage: {byIngredient: {4: 0.5, 5: 0.5}, total: 1}},
     })).toBeTruthy();
   });
+
+  it('is correct comparing meal coverage when the requirements are satisfied even if current is worse', () => {
+    // Check #670
+    expect(isCurrentTeamMakerBasisValueWorse({
+      basis: 'mealCoverage',
+      current: {strength: 1, mealCoverage: {byIngredient: {4: 0.5, 5: 1.2}, total: 1.1}},
+      baseline: {strength: 1, mealCoverage: {byIngredient: {4: 0.97, 5: 2.27}, total: 1.9}},
+    })).toBeFalsy();
+  });
 });

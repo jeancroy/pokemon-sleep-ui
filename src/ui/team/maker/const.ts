@@ -5,7 +5,7 @@ import {TeamMakerStatus} from '@/ui/team/maker/type/state';
 
 export const defaultTeamMakerMaxResultCount = 15;
 
-export const teamMakerCompCountWarningThreshold = 20000;
+export const teamMakerCompCountWarningThreshold = 50000;
 
 export const teamMakerCalcCompSegmentSize = 5000;
 
