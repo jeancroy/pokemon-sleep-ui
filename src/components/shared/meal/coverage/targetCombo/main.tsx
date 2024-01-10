@@ -8,11 +8,14 @@ import {Flex} from '@/components/layout/flex/common';
 import {MealTypeInput} from '@/components/shared/input/mealType';
 import {MealCoverageTargetComboEntry} from '@/components/shared/meal/coverage/targetCombo/entry';
 import {
-  MealCoverageTargetComboInput,
+  MealCoverageComboData,
   MealCoverageTargetComboCommonProps,
+  MealCoverageTargetComboInput,
 } from '@/components/shared/meal/coverage/targetCombo/type';
 import {usePossibleMealTypes} from '@/hooks/meal';
+import {toSum} from '@/utils/array';
 import {getMealCoverage} from '@/utils/game/cooking';
+import {getMealIngredientCount} from '@/utils/game/meal/count';
 import {generateTargetMeals} from '@/utils/game/meal/generate';
 import {isNotNullish} from '@/utils/type';
 
@@ -30,7 +33,7 @@ export const MealCoverageTargetCombo = ({
 
   const {mealType, resultCount} = filter;
 
-  const data = [...generateTargetMeals({
+  const data: MealCoverageComboData[] = [...generateTargetMeals({
     mealType,
     mealMap,
   })]
@@ -41,10 +44,23 @@ export const MealCoverageTargetCombo = ({
         period,
       }),
       meals,
+      mealIngredientCounts: {
+        byMeal: Object.fromEntries(meals.map((meal) => [
+          meal.id,
+          getMealIngredientCount(meal),
+        ])),
+        total: toSum(meals.map(getMealIngredientCount)),
+      },
     }))
-    .sort((a, b) => (
-      b.coverage.total - a.coverage.total
-    ))
+    .sort((a, b) => {
+      const coverageDiff = b.coverage.total - a.coverage.total;
+
+      if (!coverageDiff) {
+        return b.mealIngredientCounts.total - a.mealIngredientCounts.total;
+      }
+
+      return coverageDiff;
+    })
     .slice(0, resultCount);
 
   return (
@@ -73,11 +89,10 @@ export const MealCoverageTargetCombo = ({
           allowNull: false,
         })}
       />
-      {data.map(({coverage, meals}) => (
+      {data.map((entry) => (
         <MealCoverageTargetComboEntry
-          key={meals.map(({id}) => id).join('-')}
-          targets={meals}
-          coverage={coverage}
+          key={entry.meals.map(({id}) => id).join('-')}
+          data={entry}
         />
       ))}
     </Flex>
