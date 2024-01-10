@@ -114,7 +114,8 @@ const config: Config = {
   },
   plugins: [
     require('@savvywombat/tailwindcss-grid-areas'),
-    plugin(({addUtilities, matchUtilities, theme}) => {
+    plugin(({addVariant, addUtilities, matchUtilities, theme}) => {
+      addVariant('not-last', '&:not(:last-child)');
       matchUtilities(
         {
           'text-shadow': (value) => ({
