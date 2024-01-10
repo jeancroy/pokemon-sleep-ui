@@ -22,8 +22,7 @@ export const MealLink = (props: MealLinkProps) => {
   return (
     <FlexLink
       href={`/meal/${id}`}
-      direction='col'
-      center
+      direction="col"
       className={clsx(
         'relative h-20 w-full items-end rounded-lg',
         mealTypeBackgroundStyle[type],
