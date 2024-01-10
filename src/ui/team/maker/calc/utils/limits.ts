@@ -20,7 +20,8 @@ export const getSortedTeamMakerPokemonLimits = ({
     getBasisValue,
   });
 
-  return pokemonLimits.sort(originalRateSorter);
+  // Create another array to avoid mutating `pokemonLimits`
+  return [...pokemonLimits].sort(originalRateSorter);
 };
 
 export const mergeTeamMakerPokemonLimits = (limits: TeamMakerPokemonLimits[]): TeamMakerPokemonLimits => {

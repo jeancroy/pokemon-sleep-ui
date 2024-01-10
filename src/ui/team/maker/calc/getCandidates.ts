@@ -49,7 +49,6 @@ export const getTeamMakerCandidates = (opts: GetTeamMakerCandidatesOpts): Map<st
     basis,
     pokemonLimits,
     getBasisValue: ({best}) => best,
-
   });
   const topBest = pokemonLimits.slice(0, memberCount);
 
