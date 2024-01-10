@@ -14,7 +14,7 @@ type Props = {
   targets: Meal[],
 };
 
-export const MealCoverageAllRecipesTargetInfo = ({targets}: Props) => {
+export const MealCoverageTargetComboMealInfo = ({targets}: Props) => {
   const t = useTranslations('Game.Food');
 
   return (

@@ -5,8 +5,8 @@ import ChartBarIcon from '@heroicons/react/24/solid/ChartBarIcon';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
-import {MealCoverageAllRecipes} from '@/components/shared/meal/coverage/allRecipes/main';
 import {MealCoverageDetails} from '@/components/shared/meal/coverage/details/main';
+import {MealCoverageTargetComboCollapsible} from '@/components/shared/meal/coverage/targetCombo/collapsible';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
@@ -70,7 +70,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
       />
       <AdsUnit/>
       <PokemonGroupedProduction grouped={statsOfTeam.grouped}/>
-      <MealCoverageAllRecipes
+      <MealCoverageTargetComboCollapsible
         mealMap={mealMap}
         ingredientProduction={Object.fromEntries(
           Object.entries(statsOfTeam.grouped.ingredient)
@@ -83,7 +83,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
           <CursorArrowRaysIcon className="h-6 w-6"/>
           <ChartBarIcon className="h-6 w-6"/>
         </Flex>
-      </MealCoverageAllRecipes>
+      </MealCoverageTargetComboCollapsible>
       <TeamAnalysisSummary
         period="weekly"
         stats={statsOfTeam}

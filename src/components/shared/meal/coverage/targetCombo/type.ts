@@ -9,7 +9,7 @@ export type MealCoverageTargetComboCommonProps = {
   period: ProductionPeriod,
 };
 
-export type MealCoverageAllRecipesInput = {
+export type MealCoverageTargetComboInput = {
   mealType: MealTypeId,
   resultCount: number,
 };

@@ -6,24 +6,24 @@ import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {Flex} from '@/components/layout/flex/common';
 import {MealTypeInput} from '@/components/shared/input/mealType';
-import {MealCoverageAllRecipesEntry} from '@/components/shared/meal/coverage/allRecipes/entry';
+import {MealCoverageTargetComboEntry} from '@/components/shared/meal/coverage/targetCombo/entry';
 import {
-  MealCoverageAllRecipesInput,
+  MealCoverageTargetComboInput,
   MealCoverageTargetComboCommonProps,
-} from '@/components/shared/meal/coverage/allRecipes/type';
+} from '@/components/shared/meal/coverage/targetCombo/type';
 import {usePossibleMealTypes} from '@/hooks/meal';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {generateTargetMeals} from '@/utils/game/meal/generate';
 import {isNotNullish} from '@/utils/type';
 
 
-export const MealCoverageAllRecipesContent = ({
+export const MealCoverageTargetCombo = ({
   mealMap,
   ingredientProduction,
   period,
 }: MealCoverageTargetComboCommonProps) => {
   const mealTypes = usePossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
-  const [filter, setFilter] = React.useState<MealCoverageAllRecipesInput>({
+  const [filter, setFilter] = React.useState<MealCoverageTargetComboInput>({
     mealType: mealTypes[0],
     resultCount: 15,
   });
@@ -74,7 +74,7 @@ export const MealCoverageAllRecipesContent = ({
         })}
       />
       {data.map(({coverage, meals}) => (
-        <MealCoverageAllRecipesEntry
+        <MealCoverageTargetComboEntry
           key={meals.map(({id}) => id).join('-')}
           targets={meals}
           coverage={coverage}
