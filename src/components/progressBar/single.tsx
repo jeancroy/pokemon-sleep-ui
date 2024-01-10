@@ -9,9 +9,7 @@ type Props = {
   classBarHeight?: `h-${number}`,
 };
 
-export const ProgressBar = ({percent, className, classBarHeight}: Props) => {
-  classBarHeight ??= 'h-2.5';
-
+export const ProgressBarSingle = ({percent, className, classBarHeight = 'h-2.5'}: Props) => {
   return (
     <div className={clsx(
       'transform-smooth w-full rounded-full bg-gray-400/50 dark:bg-gray-700/50',

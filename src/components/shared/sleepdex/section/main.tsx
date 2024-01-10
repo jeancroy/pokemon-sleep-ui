@@ -7,7 +7,7 @@ import {CollapsibleFull} from '@/components/layout/collapsible/full';
 import {useCollapsible} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
-import {ProgressBar} from '@/components/progressBar';
+import {ProgressBarSingle} from '@/components/progressBar/single';
 import {CompletionResultUI} from '@/components/shared/completion/main';
 import {useSleepdexSection} from '@/components/shared/sleepdex/section/hook';
 import {SleepdexPokemonInSection} from '@/components/shared/sleepdex/section/pokemon';
@@ -33,7 +33,7 @@ export const SleepdexSection = (props: SleepdexSectionProps) => {
             {title}
             <CompletionResultUI completed={unlockedSleepStyles} total={totalSleepStyles}/>
           </Flex>
-          <ProgressBar percent={unlockedSleepStyles / totalSleepStyles * 100}/>
+          <ProgressBarSingle percent={unlockedSleepStyles / totalSleepStyles * 100}/>
         </Flex>
       }>
         <Grid className={clsx(

@@ -3,7 +3,7 @@ import React from 'react';
 import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ProgressBar} from '@/components/progressBar';
+import {ProgressBarSingle} from '@/components/progressBar/single';
 import {formatFloat} from '@/utils/number/format';
 
 
@@ -30,7 +30,7 @@ export const RankingResultPercentage = ({
       )}>
         {isNaN(percentage) ? '-' : `${formatFloat(percentage)}%`}
       </Flex>
-      <ProgressBar percent={percentage} classBarHeight={classBarHeight}/>
+      <ProgressBarSingle percent={percentage} classBarHeight={classBarHeight}/>
     </Flex>
   );
 };

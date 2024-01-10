@@ -4,7 +4,7 @@ import {clsx} from 'clsx';
 
 import {LoadingText} from '@/components/icons/loading';
 import {Flex} from '@/components/layout/flex/common';
-import {ProgressBar} from '@/components/progressBar';
+import {ProgressBarSingle} from '@/components/progressBar/single';
 import {ratingMarkThresholdByPr} from '@/components/shared/pokemon/rating/const';
 import {classOfMarkStyle} from '@/styles/text/mark/style';
 import {getMarkByThreshold} from '@/styles/text/mark/utils';
@@ -26,7 +26,7 @@ export const PokeInBoxRatingStats = ({loading, result}: Props) => {
             <LoadingText dimension="h-4 w-4" text="PR"/> :
             isNaN(percentile) ? '-' : `PR ${formatInt(percentile)}`}
         </div>
-        <ProgressBar className="w-full" percent={percentile}/>
+        <ProgressBarSingle className="w-full" percent={percentile}/>
       </Flex>
       <Flex center className="gap-1">
         <div>
@@ -34,7 +34,7 @@ export const PokeInBoxRatingStats = ({loading, result}: Props) => {
             <LoadingText dimension="h-4 w-4" text="%"/> :
             isNaN(percentage) ? '-' : `${formatFloat(percentage)}%`}
         </div>
-        <ProgressBar className="w-full" percent={percentage}/>
+        <ProgressBarSingle className="w-full" percent={percentage}/>
       </Flex>
     </Flex>
   );

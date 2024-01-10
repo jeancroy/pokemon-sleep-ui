@@ -5,7 +5,7 @@ import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
-import {ProgressBar} from '@/components/progressBar';
+import {ProgressBarSingle} from '@/components/progressBar/single';
 import {LevelIcon} from '@/components/shared/icon/lv';
 import {NumberInputRequired} from '@/components/shared/input/number/required/main';
 import {ratingConfigWeightExpressButtonStyle} from '@/components/shared/pokemon/rating/config/const';
@@ -83,7 +83,7 @@ export const RatingConfigPopup = ({initial, activeKeyLevels, show, setShow, onCl
                   1
                 </button>
               </Flex>
-              <ProgressBar percent={currentWeight / maxWeight * 100} classBarHeight="h-1.5"/>
+              <ProgressBarSingle percent={currentWeight / maxWeight * 100} classBarHeight="h-1.5"/>
             </Flex>
           );
         })}

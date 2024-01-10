@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ProgressBar} from '@/components/progressBar';
+import {ProgressBarSingle} from '@/components/progressBar/single';
 import {CompletionResultUI} from '@/components/shared/completion/main';
 import {SleepdexMap} from '@/types/game/sleepdex';
 import {SleepStyleNormalMap, SleepStyleSpecialMap} from '@/types/game/sleepStyle';
@@ -29,7 +29,7 @@ export const SleepdexRecordUnlockedCount = ({sleepStyleMap, sleepStyleSpecialMap
   return (
     <Flex className="info-section">
       <CompletionResultUI completed={count} total={total} className="self-end"/>
-      <ProgressBar percent={count / total * 100}/>
+      <ProgressBarSingle percent={count / total * 100}/>
     </Flex>
   );
 };

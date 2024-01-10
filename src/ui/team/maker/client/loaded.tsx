@@ -10,7 +10,7 @@ import {AdsUnit} from '@/components/ads/main';
 import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQuick';
 import {Flex} from '@/components/layout/flex/common';
 import {LazyLoad} from '@/components/layout/lazyLoad';
-import {ProgressBar} from '@/components/progressBar';
+import {ProgressBarSingle} from '@/components/progressBar/single';
 import {ButtonToStartTheSorcery} from '@/components/shared/common/button/sorcery';
 import {CompletionResultUI} from '@/components/shared/completion/main';
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils';
@@ -118,7 +118,7 @@ export const TeamMakerLoadedClient = (props: TeamMakerDataProps) => {
         </Flex>
       </AnimatedCollapseQuick>
       <AnimatedCollapseQuick show={teamCompsCalculated !== null && teamCompsTotal !== null}>
-        <ProgressBar percent={(teamCompsCalculated ?? NaN) / (teamCompsTotal ?? NaN) * 100}/>
+        <ProgressBarSingle percent={(teamCompsCalculated ?? NaN) / (teamCompsTotal ?? NaN) * 100}/>
       </AnimatedCollapseQuick>
       <AnimatedCollapseQuick
         show={teamCompsTotal !== null && teamCompsTotal > teamMakerCompCountWarningThreshold}

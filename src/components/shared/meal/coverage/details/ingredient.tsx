@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ProgressBar} from '@/components/progressBar';
+import {ProgressBarSingle} from '@/components/progressBar/single';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
 import {IngredientId} from '@/types/game/ingredient';
 import {formatFloat3} from '@/utils/number/format';
@@ -20,7 +20,7 @@ export const MealCoverageOfIngredient = ({id, coverage}: Props) => {
       <PokemonIngredientIcon id={id} noLink/>
       <Flex center className="text-xs">
         <div>{formatFloat3(percent)}%</div>
-        <ProgressBar percent={percent} classBarHeight="h-1"/>
+        <ProgressBarSingle percent={percent} classBarHeight="h-1"/>
       </Flex>
     </Flex>
   );

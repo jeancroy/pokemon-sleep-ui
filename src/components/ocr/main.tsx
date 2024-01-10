@@ -12,7 +12,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {ocrStatusToI18nId} from '@/components/ocr/const';
 import {useOcr} from '@/components/ocr/hook';
 import {OcrCommonProps, OcrSettings} from '@/components/ocr/type';
-import {ProgressBar} from '@/components/progressBar';
+import {ProgressBarSingle} from '@/components/progressBar/single';
 import {NextImage} from '@/components/shared/common/image/main';
 import {InfoSlider} from '@/components/shared/input/infoSlider';
 import {localeName} from '@/const/website';
@@ -113,7 +113,7 @@ export const Ocr = <TData, >({buttonText, textToData, renderData, getWhitelistCh
           {t('Tolerance.Tips')}
         </Flex>
       </InfoSlider>
-      <ProgressBar percent={progress}/>
+      <ProgressBarSingle percent={progress}/>
       <AnimatedCollapse show={!!text && status === 'completed'}>
         {text && renderData({
           data: textToData(text, settings.locale),

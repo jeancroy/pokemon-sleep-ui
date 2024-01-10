@@ -3,7 +3,7 @@ import React from 'react';
 import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ProgressBar} from '@/components/progressBar';
+import {ProgressBarSingle} from '@/components/progressBar/single';
 import {ratingMarkThresholdByPr} from '@/components/shared/pokemon/rating/const';
 import {classOfMarkStyle} from '@/styles/text/mark/style';
 import {getMarkByThreshold} from '@/styles/text/mark/utils';
@@ -38,7 +38,7 @@ export const RankingResultPercentile = ({
       )}>
         {isNaN(percentile) ? '-' : <><span className={classOfMark}>PR</span>{formatInt(percentile)}</>}
       </Flex>
-      <ProgressBar percent={percentile} classBarHeight={classBarHeight}/>
+      <ProgressBarSingle percent={percentile} classBarHeight={classBarHeight}/>
     </Flex>
   );
 };
