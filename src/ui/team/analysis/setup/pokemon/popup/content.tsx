@@ -7,6 +7,7 @@ import {Copyable} from '@/components/layout/copyable/main';
 import {Flex} from '@/components/layout/flex/common';
 import {StrengthGrowthChart} from '@/components/shared/chart/strength/main';
 import {StrengthGrowthDataEntry} from '@/components/shared/chart/strength/type';
+import {MealCoverageTargetCombo} from '@/components/shared/meal/coverage/targetCombo/main';
 import {PokemonDetailedProducingStats} from '@/components/shared/pokemon/production/stats/main';
 import {PokemonSpecialtyIcon} from '@/components/shared/pokemon/specialty/icon';
 import {specialtyIdMap} from '@/const/game/pokemon';
@@ -36,6 +37,7 @@ export const TeamAnalysisPokemonPopupContent = ({
     currentTeam,
     slotName,
     stats,
+    mealMap,
     pokemon,
     pokemonMaxLevel,
   } = props;
@@ -120,6 +122,21 @@ export const TeamAnalysisPokemonPopupContent = ({
           formatTicks={formatFloat}
           leftMargin={15}
           currentLevel={stats.level}
+        />
+      </Flex>
+    );
+  }
+
+  if (type === 'mealCoverage') {
+    return (
+      <Flex className="h-[60vh] sm:w-[80vw]">
+        <MealCoverageTargetCombo
+          mealMap={mealMap}
+          ingredientProduction={Object.fromEntries(
+            Object.entries(stats.ingredient)
+              .map(([id, rate]) => [id, rate?.quantity[stateOfRateToShow] ?? 0]),
+          )}
+          period={currentTeam.analysisPeriod}
         />
       </Flex>
     );

@@ -333,6 +333,7 @@
           "Rating": "個体評価",
           "DetailedStats": "詳細分析",
           "StrengthGrowth": "エナジー成長グラフ",
+          "MealCoverage": "レシピカバー率",
           "Edit": "編集"
         },
         "Message": {

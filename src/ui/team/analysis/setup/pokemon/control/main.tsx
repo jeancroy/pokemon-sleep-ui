@@ -12,6 +12,7 @@ import {useTranslations} from 'next-intl';
 
 import {DropDown} from '@/components/dropdown/main';
 import {FlexButton} from '@/components/layout/flex/button';
+import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
 import {RatingPopupControl} from '@/components/shared/pokemon/rating/type';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {PremiumIcon} from '@/components/static/premium/icon';
@@ -115,6 +116,15 @@ export const TeamAnalysisPokemonControl = ({
               <PresentationChartLineIcon className={teamAnalysisPokemonIconStyle}/>
               {!isPremium && <PremiumIcon/>}
               <div>{t('Control.StrengthGrowth')}</div>
+            </FlexButton>
+          ),
+          () => (
+            <FlexButton
+              className={clsx('group', teamAnalysisPokemonControlButtonStyle)}
+              onClick={() => onPopupButtonClick('mealCoverage', true)}
+            >
+              <MealCoverageIcon alt={t('Control.MealCoverage')} className={teamAnalysisPokemonIconStyle}/>
+              <div>{t('Control.MealCoverage')}</div>
             </FlexButton>
           ),
         ],

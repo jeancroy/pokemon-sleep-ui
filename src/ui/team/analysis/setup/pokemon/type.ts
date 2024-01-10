@@ -11,4 +11,5 @@ export type TeamAnalysisPokemonPopupType =
   'memberConfig' |
   'detailedStats' |
   'growthChart' |
+  'mealCoverage' |
   'sharableLink';
