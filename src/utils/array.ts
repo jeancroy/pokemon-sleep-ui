@@ -10,6 +10,17 @@ export function* toAccumulated(arr: number[]): Generator<number> {
   }
 }
 
+type ToNormalizedOpts = {
+  arr: number[],
+  targetSum: number,
+};
+
+export const toNormalized = ({arr, targetSum}: ToNormalizedOpts) => {
+  const multiplier = targetSum / toSum(arr);
+
+  return arr.map((num) => num * multiplier);
+};
+
 export function* generateSegments<T>(size: number, arr: T[]): Generator<T[]> {
   for (let idx = 0; idx <= arr.length; idx++) {
     yield arr.slice(idx, idx + size);

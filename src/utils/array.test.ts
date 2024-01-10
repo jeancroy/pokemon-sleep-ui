@@ -1,6 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {generateSegments, toAccumulated} from '@/utils/array';
+import {generateSegments, toAccumulated, toNormalized} from '@/utils/array';
 
 
 describe('Array / Generate Segments', () => {
@@ -48,5 +48,31 @@ describe('Array / To Accumulated', () => {
     expect(result[1]).toEqual(1);
     expect(result[2]).toEqual(1);
     expect(result[3]).toEqual(1);
+  });
+});
+
+describe('Array / To Normalized', () => {
+  it('is correct amplifying', () => {
+    const result = toNormalized({
+      arr: [1, 2, 3, 4],
+      targetSum: 100,
+    });
+
+    expect(result[0]).toEqual(10);
+    expect(result[1]).toEqual(20);
+    expect(result[2]).toEqual(30);
+    expect(result[3]).toEqual(40);
+  });
+
+  it('is correct shrinking', () => {
+    const result = toNormalized({
+      arr: [10, 20, 30, 40],
+      targetSum: 10,
+    });
+
+    expect(result[0]).toEqual(1);
+    expect(result[1]).toEqual(2);
+    expect(result[2]).toEqual(3);
+    expect(result[3]).toEqual(4);
   });
 });
