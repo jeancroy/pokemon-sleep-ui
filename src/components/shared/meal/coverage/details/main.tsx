@@ -4,7 +4,7 @@ import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
 import {ProgressBar} from '@/components/progressBar';
-import {MealCoverageDetailsSingle} from '@/components/shared/meal/coverage/details/single';
+import {MealCoverageOfIngredient} from '@/components/shared/meal/coverage/details/ingredient';
 import {MealCoverageSummary} from '@/components/shared/meal/coverage/summary';
 import {MealCoverage} from '@/types/game/cooking';
 
@@ -24,7 +24,7 @@ export const MealCoverageDetails = ({coverage, className}: Props) => {
               return null;
             }
 
-            return <MealCoverageDetailsSingle key={id} id={parseInt(id)} coverage={coverage}/>;
+            return <MealCoverageOfIngredient key={id} id={parseInt(id)} coverage={coverage}/>;
           })}
         </Flex>
         <ProgressBar percent={coverage.total * 100} classBarHeight="h-2"/>

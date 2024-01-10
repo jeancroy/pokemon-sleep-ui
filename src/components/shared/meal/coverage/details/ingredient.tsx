@@ -12,7 +12,7 @@ type Props = {
   coverage: number,
 };
 
-export const MealCoverageDetailsSingle = ({id, coverage}: Props) => {
+export const MealCoverageOfIngredient = ({id, coverage}: Props) => {
   const percent = coverage * 100;
 
   return (
