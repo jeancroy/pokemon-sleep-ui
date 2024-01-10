@@ -1,6 +1,11 @@
 import React from 'react';
 
+import CursorArrowRaysIcon from '@heroicons/react/24/outline/CursorArrowRaysIcon';
+import ChartBarIcon from '@heroicons/react/24/solid/ChartBarIcon';
+
 import {AdsUnit} from '@/components/ads/main';
+import {Flex} from '@/components/layout/flex/common';
+import {MealCoverageAllRecipes} from '@/components/shared/meal/coverage/allRecipes/main';
 import {MealCoverageDetails} from '@/components/shared/meal/coverage/details/main';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
@@ -65,7 +70,20 @@ export const TeamAnalysisSetupView = (props: Props) => {
       />
       <AdsUnit/>
       <PokemonGroupedProduction grouped={statsOfTeam.grouped}/>
-      <MealCoverageDetails coverage={statsOfTeam.mealCoverage} className="button-bg rounded-lg p-2"/>
+      <MealCoverageAllRecipes
+        mealMap={mealMap}
+        ingredientProduction={Object.fromEntries(
+          Object.entries(statsOfTeam.grouped.ingredient)
+            .map(([id, rate]) => [id, rate?.quantity ?? 0]),
+        )}
+        period={currentTeam.analysisPeriod}
+      >
+        <MealCoverageDetails coverage={statsOfTeam.mealCoverage} className="p-2"/>
+        <Flex direction="row" center className="gap-1 p-0.5">
+          <CursorArrowRaysIcon className="h-6 w-6"/>
+          <ChartBarIcon className="h-6 w-6"/>
+        </Flex>
+      </MealCoverageAllRecipes>
       <TeamAnalysisSummary
         period="weekly"
         stats={statsOfTeam}

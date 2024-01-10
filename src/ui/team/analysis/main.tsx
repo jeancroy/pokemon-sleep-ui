@@ -71,6 +71,7 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
       <I18nProvider locale={locale} namespaces={[
         'Game',
         'UI.Common',
+        'UI.InPage.Cooking',
         'UI.InPage.Pokedex',
         'UI.InPage.Team',
         'UI.Metadata',
