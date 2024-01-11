@@ -3,7 +3,7 @@ import {FilterInclusionMap} from '@/components/input/filter/type';
 
 export const packetRecordingType = [
   'lotteryInfo',
-  'updateData',
+  'updatePokemonData',
 ] as const;
 
 export type PacketRecordingType = typeof packetRecordingType[number];

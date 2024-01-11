@@ -4,11 +4,11 @@ import {PacketRecordingSettings, PacketRecordingType} from '@/types/packet/setti
 export const defaultPacketRecordingSettings: PacketRecordingSettings = {
   enabled: {
     lotteryInfo: true,
-    updateData: true,
+    updatePokemonData: true,
   },
 };
 
 export const packetRecordingSettingsText: {[type in PacketRecordingType]: string} = {
   lotteryInfo: 'Lottery Info (lotif)',
-  updateData: 'Update Data (UD)',
+  updatePokemonData: 'Update Data / Pokemon (UD.pokemon.upd)',
 };
