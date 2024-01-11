@@ -50,7 +50,7 @@ export const getTeamMakerCandidates = (opts: GetTeamMakerCandidatesOpts): Map<st
     pokemonLimits,
     getBasisValue: ({best}) => best,
   });
-  const topBest = pokemonLimits.slice(0, memberCount);
+  const topBest = sortedBest.slice(0, memberCount);
 
   const stopThreshold = sumTeamMakerBasisValue(topWorst.map(({worst}) => worst));
 
