@@ -9,6 +9,7 @@ export const calculateRatingValueIntraSpeciesSegmented = (
 ): RatingDataPoint[] => {
   const {
     level,
+    pokemon,
     friendshipLevel,
     ingredients,
     subSkillData,
@@ -22,6 +23,7 @@ export const calculateRatingValueIntraSpeciesSegmented = (
   })].flatMap((subSkill) => (
     natureIds.flatMap((nature): RatingDataPoint => {
       const combination: RatingCombination = {
+        pokemonId: pokemon.id,
         ingredients,
         subSkill,
         nature,

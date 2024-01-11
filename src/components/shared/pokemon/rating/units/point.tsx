@@ -6,6 +6,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {HorizontalSplitter, VerticalSplitter} from '@/components/shared/common/splitter';
 import {CompletionResultUI} from '@/components/shared/completion/main';
+import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {RatingBasisIcon} from '@/components/shared/pokemon/rating/basis/icon';
@@ -55,20 +56,35 @@ export const RatingDataPointUI = ({level, extrema, subSkillMap, icon, basis, cla
       />
       <Grid className={clsx(
         'gap-1.5',
-        'grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3',
+        'grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3',
         'xl:grid-cols-4 2xl:grid-cols-5 3xl:grid-cols-6',
       )}>
-        {combinations.slice(0, 50).map(({ingredients, nature, subSkill}, idx) => (
-          <Flex key={idx} center className="bg-plate gap-1">
-            <div className="h-6">
-              <PokemonIngredientIcons ingredients={[ingredients]}/>
+        {combinations.slice(0, 50).map(({
+          pokemonId,
+          ingredients,
+          nature,
+          subSkill,
+        }, idx) => (
+          <Flex key={idx} direction="row" center className="bg-plate gap-1.5">
+            <div className="relative h-12 w-12 shrink-0">
+              <PokemonImage
+                pokemonId={pokemonId}
+                image={{type: 'default', image: 'icon'}}
+                isShiny={false}
+                className="rounded-lg"
+              />
             </div>
-            <div className="h-6">
-              <PokemonNatureIndicator nature={nature}/>
-            </div>
-            <div className="h-6">
-              <PokemonSubSkillIndicator subSkill={subSkill} subSkillMap={subSkillMap} level={level}/>
-            </div>
+            <Flex center noFullWidth className="gap-1">
+              <div className="h-6">
+                <PokemonIngredientIcons ingredients={[ingredients]}/>
+              </div>
+              <div className="h-6">
+                <PokemonNatureIndicator nature={nature}/>
+              </div>
+              <div className="h-6">
+                <PokemonSubSkillIndicator subSkill={subSkill} subSkillMap={subSkillMap} level={level}/>
+              </div>
+            </Flex>
           </Flex>
         ))}
       </Grid>

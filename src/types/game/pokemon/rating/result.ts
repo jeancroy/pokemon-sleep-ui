@@ -1,9 +1,11 @@
+import {PokemonId} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {NatureId} from '@/types/game/pokemon/nature';
 import {PokemonSubSkill} from '@/types/game/pokemon/subSkill';
 
 
 export type RatingCombination = {
+  pokemonId: PokemonId,
   ingredients: IngredientProduction[],
   subSkill: PokemonSubSkill,
   nature: NatureId | null,

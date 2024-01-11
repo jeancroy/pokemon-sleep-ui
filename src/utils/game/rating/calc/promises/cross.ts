@@ -22,6 +22,7 @@ export const calculateRatingResultOfCrossSpecies = ({
     berryDataMap,
     mainSkillMap,
   } = opts;
+  const {nature, subSkill} = currentCombination;
 
   return [
     new Promise<RatingDataPoint[]>((resolve) => (
@@ -36,9 +37,11 @@ export const calculateRatingResultOfCrossSpecies = ({
         return [...generatePossibleIngredientProductions({
           level,
           chain,
-        })].map((ingredients) => {
+        })].map((ingredients): RatingDataPoint => {
           const combination: RatingCombination = {
-            ...currentCombination,
+            pokemonId: pokemon.id,
+            nature,
+            subSkill,
             ingredients,
           };
 

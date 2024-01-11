@@ -35,6 +35,7 @@ export const calculateRatingResultOfCategory = async ({
     ingredients,
   });
   const currentCombination: RatingCombination = {
+    pokemonId: pokemon.id,
     ingredients: currentProductions,
     subSkill,
     nature,
