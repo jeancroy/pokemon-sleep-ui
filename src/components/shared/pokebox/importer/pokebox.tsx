@@ -25,6 +25,7 @@ import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/ind
 import {pokeInBoxFavoriteStyle} from '@/styles/game/pokebox';
 import {imageIconSizes, imageSmallIconSizes} from '@/styles/image';
 import {PokeInBox} from '@/types/userData/pokebox/main';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -100,7 +101,7 @@ export const PokeboxImporterView = ({
             />
           </InputRowWithTitle>
           <PokemonFilter
-            pokemonList={Object.values(pokedexMap).filter(isNotNullish)}
+            pokemonList={toPokemonList(pokedexMap)}
             filter={filter}
             setFilter={(getUpdated) => setFilter((original) => getUpdated(original))}
             {...props}

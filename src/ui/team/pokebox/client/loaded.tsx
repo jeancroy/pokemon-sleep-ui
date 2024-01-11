@@ -14,6 +14,7 @@ import {PokeInBoxEditorState} from '@/ui/team/pokebox/editor/type';
 import {PokeboxPickerInput} from '@/ui/team/pokebox/filter/main';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerInput} from '@/ui/team/pokebox/viewer/main';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getSortedSubSkills} from '@/utils/game/subSkill/sort';
 import {isNotNullish} from '@/utils/type';
 
@@ -50,7 +51,7 @@ export const PokeboxLoadedClient = (props: Props) => {
   });
 
   const pokemonList = React.useMemo(
-    () => Object.values(pokedexMap).filter(isNotNullish),
+    () => toPokemonList(pokedexMap),
     [pokedexMap],
   );
   const subSkillList = React.useMemo(

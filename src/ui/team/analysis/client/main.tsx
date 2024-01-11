@@ -5,13 +5,13 @@ import {UserDataLazyLoad} from '@/components/shared/userData/lazyLoad/main';
 import {TeamAnalysisLoadedClient} from '@/ui/team/analysis/client/loaded';
 import {TeamAnalysisServerDataProps} from '@/ui/team/analysis/type';
 import {getPokemonMaxEvolutionCount} from '@/utils/game/pokemon/evolution';
-import {isNotNullish} from '@/utils/type';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
   const {pokedexMap} = props;
 
-  const maxEvolutionCount = getPokemonMaxEvolutionCount(Object.values(pokedexMap).filter(isNotNullish));
+  const maxEvolutionCount = getPokemonMaxEvolutionCount(toPokemonList(pokedexMap));
 
   return (
     <UserDataLazyLoad

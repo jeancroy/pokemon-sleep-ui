@@ -9,10 +9,11 @@ import {TeamAnalysisSetupView} from '@/ui/team/analysis/setup/main';
 import {TeamAnalysisCompDependentInput} from '@/ui/team/analysis/setup/team/input';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {generateEmptyTeam, getCurrentTeam} from '@/ui/team/analysis/utils';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {migrate} from '@/utils/migrate/main';
 import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';
 import {teamAnalysisConfigMigrators} from '@/utils/migrate/teamAnalysis/config/migrators';
-import {DeepPartial, isNotNullish} from '@/utils/type';
+import {DeepPartial} from '@/utils/type';
 
 
 type Props = TeamAnalysisDataProps & {
@@ -24,7 +25,7 @@ export const TeamAnalysisLoadedClient = (props: Props) => {
     pokedexMap,
     data,
   } = props;
-  const pokemonList = Object.values(pokedexMap).filter(isNotNullish);
+  const pokemonList = toPokemonList(pokedexMap);
 
   const initialSetup = React.useMemo((): TeamAnalysisSetup => {
     // Migrate first for older data version

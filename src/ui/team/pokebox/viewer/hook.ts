@@ -7,6 +7,7 @@ import {Pokebox} from '@/types/userData/pokebox/main';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxPokemonForView, PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 import {generatePokeboxViewerFilter, isPokeInBoxIncluded} from '@/ui/team/pokebox/viewer/utils';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -54,7 +55,7 @@ export const usePokeboxViewerFilter = ({
       original,
       updated,
       config: {
-        mainSkill: {key: 'mainSkill', defaultValue: {[Object.values(pokedexMap).filter(isNotNullish)[0].skill]: true}},
+        mainSkill: {key: 'mainSkill', defaultValue: {[toPokemonList(pokedexMap)[0].skill]: true}},
         sort: [
           {key: 'sort', defaultValue: defaultPokemonSort},
         ],

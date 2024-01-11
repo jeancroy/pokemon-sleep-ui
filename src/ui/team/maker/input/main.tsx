@@ -9,7 +9,7 @@ import {TeamMakerInputGeneral} from '@/ui/team/maker/input/general';
 import {TeamMakerInputToggles} from '@/ui/team/maker/input/toggle';
 import {TeamMakerInputCommonProps} from '@/ui/team/maker/input/type';
 import {TeamMakerInputVanillaPresets} from '@/ui/team/maker/input/vanillaPresets';
-import {isNotNullish} from '@/utils/type';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 export const TeamMakerInputUI = (props: TeamMakerInputCommonProps) => {
@@ -19,11 +19,13 @@ export const TeamMakerInputUI = (props: TeamMakerInputCommonProps) => {
     pokedexMap,
     mapMeta,
   } = props;
-  const {
-    pokemon,
-  } = input;
+  const {pokemon} = input;
 
   const collapsible = useCollapsible();
+  const pokemonList = React.useMemo(
+    () => toPokemonList(pokedexMap),
+    [pokedexMap],
+  );
 
   return (
     <Flex className="gap-1">
@@ -31,13 +33,13 @@ export const TeamMakerInputUI = (props: TeamMakerInputCommonProps) => {
         filter={input}
         setFilter={setInput}
         filterKey="snorlaxFavorite"
-        pokemonList={Object.values(pokedexMap).filter(isNotNullish)}
+        pokemonList={pokemonList}
         mapMeta={mapMeta}
       />
       <TeamMakerInputCooking {...props}/>
       <PokemonCollapsibleFilter
         collapsibleState={collapsible}
-        pokemonList={Object.values(pokedexMap).filter(isNotNullish)}
+        pokemonList={pokemonList}
         filter={pokemon}
         setFilter={(getUpdated) => setInput(({pokemon, ...original}) => ({
           ...original,

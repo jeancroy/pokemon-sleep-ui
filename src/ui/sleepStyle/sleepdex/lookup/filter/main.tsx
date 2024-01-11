@@ -23,7 +23,7 @@ import {textFilterButtonStyle} from '@/styles/input';
 import {SleepdexLookupFilter, sleepdexLookupSortType} from '@/ui/sleepStyle/sleepdex/lookup/filter/type';
 import {SleepdexLookupSortTypeUi} from '@/ui/sleepStyle/sleepdex/lookup/sort/main';
 import {SleepdexLookupServerDataProps} from '@/ui/sleepStyle/sleepdex/lookup/type';
-import {isNotNullish} from '@/utils/type';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 type Props = SleepdexLookupServerDataProps & FilterWithUpdaterProps<SleepdexLookupFilter> & {
@@ -91,7 +91,7 @@ export const SleepdexLookupInput = ({
           step={drowsyPowerMultiplier}
         />
         <PokemonFilter
-          pokemonList={Object.values(pokedexMap).filter(isNotNullish)}
+          pokemonList={toPokemonList(pokedexMap)}
           {...props}
         />
         <FilterExpandedInput

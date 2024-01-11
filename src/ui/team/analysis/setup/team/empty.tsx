@@ -15,7 +15,7 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {TeamAnalysisMember} from '@/types/teamAnalysis';
 import {TeamAnalysisCloudPull} from '@/ui/team/analysis/popup/cloudPull';
 import {TeamAnalysisEmptySlotPopupType} from '@/ui/team/analysis/setup/team/type';
-import {isNotNullish} from '@/utils/type';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 type Props = PokeboxImporterCommonProps & {
@@ -52,7 +52,7 @@ export const TeamAnalysisEmptySlot = ({
       <PokemonVanillaPopup
         show={popup === 'vanilla'}
         setShow={(show) => setPopup(show ? 'vanilla' : null)}
-        pokemonList={Object.values(pokedexMap).filter(isNotNullish)}
+        pokemonList={toPokemonList(pokedexMap)}
         onPokemonSelected={onPokemonSelected}
         {...props}
       />

@@ -15,7 +15,7 @@ import {
 } from '@/ui/team/mainskill/type';
 import {toSkillTriggerAnalysisUnit} from '@/ui/team/mainskill/utils';
 import {getPokemonMaxEvolutionCount} from '@/utils/game/pokemon/evolution';
-import {isNotNullish} from '@/utils/type';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 export const SkillTriggerAnalysisClient = (props: SkillTriggerAnalysisServerDataProps) => {
@@ -36,7 +36,7 @@ export const SkillTriggerAnalysisClient = (props: SkillTriggerAnalysisServerData
 
   const {setBase} = stateControl;
 
-  const pokemonList = Object.values(pokedexMap).filter(isNotNullish);
+  const pokemonList = toPokemonList(pokedexMap);
   const data: SkillTriggerAnalysisDataProps = {
     pokemonList,
     maxEvolutionCount: getPokemonMaxEvolutionCount(pokemonList),

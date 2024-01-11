@@ -21,9 +21,9 @@ import {RatingOnDeskState, RatingRequest} from '@/types/game/pokemon/rating/requ
 import {RatingDataProps, RatingServerDataProps} from '@/ui/rating/type';
 import {toRatingRequest} from '@/ui/rating/utils';
 import {getPokemonMaxEvolutionCount} from '@/utils/game/pokemon/evolution';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getPokemonProducingParams} from '@/utils/game/producing/params';
 import {getDefaultRatingBasis} from '@/utils/game/rating/utils';
-import {isNotNullish} from '@/utils/type';
 
 
 export const RatingClient = (props: RatingServerDataProps) => {
@@ -47,7 +47,7 @@ export const RatingClient = (props: RatingServerDataProps) => {
 
   const resultRef = React.useRef<HTMLDivElement>(null);
 
-  const pokemonList = Object.values(pokedexMap).filter(isNotNullish);
+  const pokemonList = toPokemonList(pokedexMap);
   const data: RatingDataProps = {
     pokemonList,
     maxEvolutionCount: getPokemonMaxEvolutionCount(pokemonList),

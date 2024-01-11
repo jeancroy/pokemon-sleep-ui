@@ -14,8 +14,8 @@ import {PokeInBoxViewCommonProps} from '@/ui/team/pokebox/content/pokeInBox/type
 import {PokeboxViewStatus} from '@/ui/team/pokebox/content/status';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getPokemonProducingParams} from '@/utils/game/producing/params';
-import {isNotNullish} from '@/utils/type';
 
 
 type Props = PokeboxCommonProps & PokeInBoxViewCommonProps & {
@@ -47,7 +47,7 @@ export const PokeboxContent = (props: Props) => {
         ratingControl.state.request &&
         <RatingResultPopup
           pokemon={ratingControl.state.request.setup.pokemon}
-          pokemonList={Object.values(pokedexMap).filter(isNotNullish)}
+          pokemonList={toPokemonList(pokedexMap)}
           pokemonProducingParams={getPokemonProducingParams({
             pokemonId: ratingControl.state.request.setup.pokemon.id,
             pokemonProducingParamsMap,

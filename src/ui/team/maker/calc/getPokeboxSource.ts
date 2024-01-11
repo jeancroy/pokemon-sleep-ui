@@ -1,8 +1,8 @@
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {TeamMakerCalcInitOpts} from '@/ui/team/maker/type/calc';
 import {getEffectivePokemonIndividualParamsFromVanillaPreset} from '@/utils/game/pokemon/individual';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {generatePokeboxFromBase} from '@/utils/team/pokebox/generateFromBase';
-import {isNotNullish} from '@/utils/type';
 
 
 export const getPokeboxSource = ({
@@ -20,7 +20,7 @@ export const getPokeboxSource = ({
   if (source === 'vanilla') {
     return generatePokeboxFromBase({
       ingredientChainMap,
-      pokemonList: Object.values(pokedexMap).filter(isNotNullish),
+      pokemonList: toPokemonList(pokedexMap),
       generateIndividualParams: ({
         specialty,
       }) => getEffectivePokemonIndividualParamsFromVanillaPreset({

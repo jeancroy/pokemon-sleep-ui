@@ -30,8 +30,8 @@ import {PokeInBox} from '@/types/userData/pokebox/main';
 import {PokeInBoxEditCommonProps, PokeInBoxEditStateProps} from '@/ui/team/pokebox/editor/type';
 import {toIsoDateString} from '@/utils/date';
 import {getPokemonMaxEvolutionCount} from '@/utils/game/pokemon/evolution';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getSubSkillBonus} from '@/utils/game/subSkill/effect';
-import {isNotNullish} from '@/utils/type';
 
 
 type Props = PokeInBoxEditCommonProps & PokeInBoxEditStateProps & {
@@ -72,7 +72,7 @@ export const PokeInBoxEditLayout = ({
   const isFavoriteActive = isFavorite ?? false;
   const seeds = pokeInBox.seeds ?? defaultSeedUsage;
   const iconDimension: Dimension = 'h-5 w-5';
-  const maxEvolutionCount = getPokemonMaxEvolutionCount(Object.values(pokedexMap).filter(isNotNullish));
+  const maxEvolutionCount = getPokemonMaxEvolutionCount(toPokemonList(pokedexMap));
 
   return (
     <Flex className="gap-1.5">

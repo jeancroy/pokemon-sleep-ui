@@ -11,7 +11,7 @@ import {MapInputLockedOnlyToggle} from '@/components/shared/sleepStyle/page/inpu
 import {MapInputSleepdexStatsToggle} from '@/components/shared/sleepStyle/page/input/toggleOfSleepdexStats';
 import {MapInputWithDataProps} from '@/components/shared/sleepStyle/page/input/type';
 import {toUnique} from '@/utils/array';
-import {isNotNullish} from '@/utils/type';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 export const MapInfoInput = (props: MapInputWithDataProps) => {
@@ -25,7 +25,7 @@ export const MapInfoInput = (props: MapInputWithDataProps) => {
   return (
     <Flex className="gap-1">
       <PokemonFilter
-        pokemonList={Object.values(pokedexMap).filter(isNotNullish)}
+        pokemonList={toPokemonList(pokedexMap)}
         {...props}
       />
       <MapInputSleepStyleToggle
