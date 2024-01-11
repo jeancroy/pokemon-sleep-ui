@@ -11,7 +11,7 @@ import {PokeInBoxTableDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/ta
 export const PokeInBoxTableRating = (props: PokeInBoxTableDetailsProps) => {
   const ratingReturn = useCalculatePokeInBoxRating(props);
 
-  const {baseDiffPercent} = ratingReturn.result[pokeInBoxRatingCategory];
+  const {baseDiffPercent} = ratingReturn.result.result[pokeInBoxRatingCategory];
 
   return (
     <Flex direction="row" center noFullWidth className="w-72 gap-1.5">

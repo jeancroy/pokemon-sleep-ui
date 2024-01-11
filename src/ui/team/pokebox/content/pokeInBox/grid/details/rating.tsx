@@ -11,7 +11,7 @@ import {useCalculatePokeInBoxRating} from '@/ui/team/pokebox/content/pokeInBox/h
 export const PokeInBoxGridRating = (props: PokeInBoxGridDetailsProps) => {
   const ratingReturn = useCalculatePokeInBoxRating(props);
 
-  const {baseDiffPercent} = ratingReturn.result[pokeInBoxRatingCategory];
+  const {baseDiffPercent} = ratingReturn.result.result[pokeInBoxRatingCategory];
 
   return (
     <Flex>
