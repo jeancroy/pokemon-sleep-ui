@@ -31,7 +31,7 @@ export const TeamMakerResultButton = ({comp, basis}: Props) => {
             <div key={payload.pokeInBox.uuid} className="relative h-8 w-8">
               <PokemonImage
                 pokemonId={payload.pokeInBox.pokemon}
-                image="icon"
+                image={{type: 'default', image: 'icon'}}
                 isShiny={false}
                 alt={payload.pokeInBox.name ?? undefined}
               />

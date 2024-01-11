@@ -11,42 +11,58 @@ import {PokemonGalleryButton} from '@/components/shared/pokemon/gallery/button';
 import {gallerySize} from '@/components/shared/pokemon/gallery/const';
 import {PokemonGalleryCommonProps} from '@/components/shared/pokemon/gallery/type';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonImageType} from '@/components/shared/pokemon/image/type';
+import {PokemonImageType, PokemonImageTypeOfSleepStyle} from '@/components/shared/pokemon/image/type';
+import {getPokemonImageTypeAsKey, isPokemonImageTypeEqual} from '@/components/shared/pokemon/image/utils';
 import {textFilterButtonStyle} from '@/styles/input';
 import {getAvailableSleepStylesFromNormal, getAvailableSleepStylesFromSpecial} from '@/utils/game/sleepdex';
 
 
 export const PokemonGallery = ({
   pokemon,
-  pokemonBranch,
   sleepStyles,
   sleepStylesSpecial,
 }: PokemonGalleryCommonProps) => {
   const t = useTranslations('UI.Common');
 
   const imageOptions: PokemonImageType[] = React.useMemo(() => [
-    'portrait',
+    {type: 'default', image: 'portrait'},
     ...getAvailableSleepStylesFromNormal({
       sleepStyles,
-      extractor: ({i18nKey}) => i18nKey,
+      extractor: ({i18nKey, style}): PokemonImageTypeOfSleepStyle => ({
+        type: 'sleepStyle',
+        sleepStyleId: style,
+        i18nKey,
+      }),
+      getKey: ({sleepStyleId}) => sleepStyleId,
     }),
     ...getAvailableSleepStylesFromSpecial({
       sleepStyles: sleepStylesSpecial,
-      extractor: ({i18nKey}) => i18nKey,
+      extractor: ({i18nKey, style}): PokemonImageTypeOfSleepStyle => ({
+        type: 'sleepStyle',
+        sleepStyleId: style,
+        i18nKey,
+      }),
+      getKey: ({sleepStyleId}) => sleepStyleId,
     }),
   ], [sleepStyles, sleepStylesSpecial]);
   const [isShiny, setShiny] = React.useState(false);
-  const [currentImage, setCurrentImage] = React.useState<PokemonImageType>('portrait');
+  const [currentImage, setCurrentImage] = React.useState<PokemonImageType>({
+    type: 'default',
+    image: 'portrait',
+  });
 
   return (
     <Flex center>
       <Flex center noFullWidth className={clsx('relative', gallerySize)}>
         {imageOptions
-          .flatMap<[PokemonImageType, boolean]>((image) => [[image, true], [image, false]])
-          .map(([image, imageShiny]) => (
+          .flatMap((image) => [
+            {image, isImageShiny: true},
+            {image, isImageShiny: false},
+          ])
+          .map(({image, isImageShiny}) => (
             <Transition
-              key={`${image}-${imageShiny}`}
-              show={image === currentImage && isShiny === imageShiny}
+              key={`${getPokemonImageTypeAsKey(image)}-${isImageShiny}`}
+              show={isPokemonImageTypeEqual(image, currentImage) && isImageShiny === isShiny}
               enter="transition-opacity duration-500"
               enterFrom="opacity-0"
               enterTo="opacity-100"
@@ -55,7 +71,7 @@ export const PokemonGallery = ({
               leaveTo="opacity-0"
               className={clsx('absolute', gallerySize)}
             >
-              <PokemonImage pokemonId={pokemon.id} image={image} isShiny={imageShiny}/>
+              <PokemonImage pokemonId={pokemon.id} image={image} isShiny={isImageShiny}/>
             </Transition>
           ))}
       </Flex>
@@ -68,18 +84,17 @@ export const PokemonGallery = ({
           {t('Shiny')}
         </ToggleButton>
         {imageOptions.map((image) => {
-          const isActive = currentImage === image;
+          const isActive = isPokemonImageTypeEqual(image, currentImage);
 
           return (
             <ToggleButton
-              key={image}
+              key={getPokemonImageTypeAsKey(image)}
               active={isActive}
               onClick={() => setCurrentImage(image)}
               className={textFilterButtonStyle}
             >
               <PokemonGalleryButton
                 pokemonId={pokemon.id}
-                pokemonBranch={pokemonBranch}
                 image={image}
                 isActive={isActive}
               />

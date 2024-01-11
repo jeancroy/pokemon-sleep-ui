@@ -9,7 +9,7 @@ import {SleepdexSection} from '@/components/shared/sleepdex/section/main';
 import {useUpdateSleepdex} from '@/hooks/sleepdex/update';
 import {SleepdexRecordUnlockedCount} from '@/ui/sleepStyle/sleepdex/record/count';
 import {SleepdexRecordDataProps} from '@/ui/sleepStyle/sleepdex/record/type';
-import {toUnique} from '@/utils/array';
+import {toUnique, toUniqueWithKey} from '@/utils/array';
 import {getAvailableSleepStylesFromNormal, getAvailableSleepStylesFromSpecial} from '@/utils/game/sleepdex';
 
 
@@ -57,16 +57,21 @@ export const SleepdexRecordClient = (props: SleepdexRecordDataProps) => {
           updateSleepdex={updateSleepdex}
           showPokemon={showPokemon}
           pokemonListToShow={pokemonListOfSleepType[sleepType]}
-          getSleepStylesFromPokemon={(pokemon) => toUnique([
-            ...getAvailableSleepStylesFromNormal({
-              sleepStyles: sleepStyleMap[pokemon.id],
-              extractor: ({style}) => style,
-            }),
-            ...getAvailableSleepStylesFromSpecial({
-              sleepStyles: sleepStyleSpecialMap[pokemon.id],
-              extractor: ({style}) => style,
-            }),
-          ])}
+          getSleepStylesFromPokemon={(pokemon) => toUniqueWithKey({
+            arr: [
+              ...getAvailableSleepStylesFromNormal({
+                sleepStyles: sleepStyleMap[pokemon.id],
+                extractor: (sleepStyle) => sleepStyle,
+                getKey: ({style}) => style,
+              }),
+              ...getAvailableSleepStylesFromSpecial({
+                sleepStyles: sleepStyleSpecialMap[pokemon.id],
+                extractor: (sleepStyle) => sleepStyle,
+                getKey: ({style}) => style,
+              }),
+            ],
+            getKey: ({style}) => style,
+          })}
           sleepStyleDependencies={[sleepStyleMap]}
         />
       ))}

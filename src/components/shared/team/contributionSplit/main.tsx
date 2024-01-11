@@ -24,7 +24,7 @@ export const TeamContributionSplitIndicator = ({data}: Props) => {
             <div className="relative h-6 w-6">
               <PokemonImage
                 pokemonId={pokemonId}
-                image="icon"
+                image={{type: 'default', image: 'icon'}}
                 isShiny={false}
                 className="relative h-6 w-6 rounded-full"
                 alt={t(pokemonId.toString())}

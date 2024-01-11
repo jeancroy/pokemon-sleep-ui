@@ -358,610 +358,370 @@
     "4": "Meister"
   },
   "SleepFace": {
-    "1": {
-      "3": "Rankenpose",
-      "2": "Standhaftpose",
-      "1": "Sonnenbadpose"
-    },
-    "10": {
-      "3": "Fadenschusspose",
-      "2": "Kopfschaukelpose",
-      "1": "Komfortpose"
-    },
-    "104": {
-      "3": "Knochenkissen-pose",
-      "2": "Knochenkratzpose",
-      "1": "Kummerpose"
-    },
-    "105": {
-      "3": "Knochenkissen-pose",
-      "2": "Knochenkratzpose",
-      "1": "Schmuseknochen-pose"
-    },
-    "11": {
-      "3": "Härtnerpose",
-      "2": "Wackelpose",
-      "1": "Friedlichpose"
-    },
-    "115": {
-      "3": "Frühaufsteher-pose",
-      "2": "Synchronpose",
-      "1": "Familienbandepose"
-    },
-    "12": {
-      "3": "Streupose",
-      "2": "Schwebepose",
-      "1": "Schwebesitzpose"
-    },
-    "122": {
-      "3": "Barrierebettpose",
-      "2": "Kieselwurfpose",
-      "1": "Barrierepose"
-    },
-    "127": {
-      "3": "Verbuddelpose",
-      "2": "Aufrechtpose",
-      "1": "Furchtlospose"
-    },
-    "132": {
-      "6": "Schiggy-Pose",
-      "7": "Glumanda-Pose",
-      "5": "Bisasam-Pose",
-      "3": "Pikachu-Pose",
-      "2": "Ausgangsform-pose",
-      "8": "Glaziola-Pose",
-      "11": "Larvitar-Pose",
-      "10": "Dragoran-Pose",
-      "1": "Steinformpose"
-    },
-    "133": {
-      "3": "Fidelpose",
-      "2": "Hängeohrenpose",
-      "1": "Einkugelpose"
-    },
-    "134": {
-      "3": "Komfortpose",
-      "2": "Sitzpose",
-      "1": "Flossenwedelpose"
-    },
-    "135": {
-      "3": "Traumsprintpose",
-      "2": "Sitzpose",
-      "1": "Liegepose"
-    },
-    "136": {
-      "3": "Schweifumhüll-pose",
-      "2": "Kauerpose",
-      "1": "Schweifwedelpose"
-    },
-    "147": {
-      "3": "Entrollpose",
-      "2": "Windepose",
-      "1": "Einrollpose"
-    },
-    "148": {
-      "3": "Entrollpose",
-      "2": "Windepose",
-      "1": "Einrollpose"
-    },
-    "149": {
-      "3": "Bäuchleinpose",
-      "2": "Päuschenpose",
-      "1": "Einkugelpose"
-    },
-    "152": {
-      "3": "Bauchhochpose",
-      "2": "Hängeblattpose",
-      "1": "Blattdrehpose"
-    },
-    "153": {
-      "3": "Aromapose",
-      "2": "Knospenschüttel-pose",
-      "1": "Streckpose"
-    },
-    "154": {
-      "3": "Blumenmeerpose",
-      "2": "Kopfnickpose",
-      "1": "Sorglospose"
-    },
-    "155": {
-      "3": "Feuersprühpose",
-      "2": "Beugepose",
-      "1": "Komfortpose"
-    },
-    "156": {
-      "3": "Feuersprühpose",
-      "2": "Flachpose",
-      "1": "Armkissenpose"
-    },
-    "157": {
-      "3": "Feuersprühpose",
-      "2": "Putzpose",
-      "1": "Armkissenpose"
-    },
-    "158": {
-      "3": "Maulaufsperrpose",
-      "2": "Knabberpose",
-      "1": "Einaugenpose"
-    },
-    "159": {
-      "3": "Maulaufsperrpose",
-      "2": "Zahnbleckpose",
-      "1": "Einaugenpose"
-    },
-    "160": {
-      "3": "Maulaufsperrpose",
-      "2": "Bedroherpose",
-      "1": "Einaugenpose"
-    },
-    "172": {
-      "3": "Ladepose",
-      "2": "Päuschenpose",
-      "1": "Sorglospose"
-    },
-    "173": {
-      "3": "Andersrumpose",
-      "2": "Wegnickpose",
-      "1": "Wiegepose"
-    },
-    "174": {
-      "3": "Gesangspose",
-      "2": "Döspose",
-      "1": "Sprungpose"
-    },
-    "175": {
-      "3": "Schalenpose",
-      "2": "Andersrumpose",
-      "1": "Wiegepose"
-    },
-    "176": {
-      "3": "Flugflatterpose",
-      "2": "Stehflatterpose",
-      "1": "Sitzflatterpose"
-    },
-    "179": {
-      "3": "Lichtschweifpose",
-      "2": "Scharrpose",
-      "1": "Flauschpose"
-    },
-    "180": {
-      "3": "Lichtschweifpose",
-      "2": "Flauschpose",
-      "1": "Komfortpose"
-    },
-    "181": {
-      "3": "Glühschweifpose",
-      "2": "Kopfnickpose",
-      "1": "Schweifkratzpose"
-    },
-    "185": {
-      "3": "Nichtstuerpose",
-      "2": "Trägbaumpose",
-      "1": "Täuschbaumpose"
-    },
-    "19": {
-      "3": "Nagepose",
-      "2": "Pendelpose",
-      "1": "Kopfkratzpose"
-    },
-    "196": {
-      "3": "Bauchhochpose",
-      "2": "Sitzpose",
-      "1": "Hellsehpose"
-    },
-    "197": {
-      "3": "Bauchhochpose",
-      "2": "Sitzpose",
-      "1": "Halbmondpose"
-    },
-    "199": {
-      "3": "Geistesblitzpose",
-      "2": "Weisheitspose",
-      "1": "Fläzpose"
-    },
-    "2": {
-      "3": "Rankenpose",
-      "2": "Standhaftpose",
-      "1": "Sonnenbadpose"
-    },
-    "20": {
-      "3": "Nagepose",
-      "2": "Aufrechtpose",
-      "1": "Zahnknirschpose"
-    },
-    "202": {
-      "3": "Markenzeichen-pose",
-      "2": "Geduldspose",
-      "1": "Schweifversteck-pose"
-    },
-    "208": {
-      "3": "Tunnelpose",
-      "2": "Taumelpose",
-      "1": "Spiralpose"
-    },
-    "214": {
-      "3": "Harznaschpose",
-      "2": "Aufrechtpose",
-      "1": "Hornschüttelpose"
-    },
-    "225": {
-      "3": "Geschenkpose",
-      "2": "Aufrechtpose",
-      "1": "Sorglospose"
-    },
-    "228": {
-      "3": "Bauchhochpose",
-      "2": "Streckpose",
-      "1": "Jaulerpose"
-    },
-    "229": {
-      "3": "Feueratempose",
-      "2": "Standhaftpose",
-      "1": "Liegepose"
-    },
-    "23": {
-      "3": "Entrollpose",
-      "2": "Sprungfederpose",
-      "1": "Einrollpose"
-    },
-    "24": {
-      "3": "Entrollpose",
-      "2": "Neigepose",
-      "1": "Einrollpose"
-    },
-    "246": {
-      "3": "Erdmampfpose",
-      "2": "Gesichtrubbelpose",
-      "1": "Streckpose"
-    },
-    "247": {
-      "3": "Gasausstoßpose",
-      "2": "Zitterpose",
-      "1": "Umstürzpose"
-    },
-    "248": {
-      "3": "Breitmachpose",
-      "2": "Imposanzpose",
-      "1": "Bauchpose"
-    },
-    "25": {
-      "3": "Ladepose",
-      "2": "Hängeohrenpose",
-      "1": "Einkugelpose"
-    },
-    "26": {
-      "3": "Erdungspose",
-      "2": "Päuschenpose",
-      "1": "Schweifwogepose"
-    },
-    "287": {
-      "3": "Häppchenpose",
-      "2": "Putzpose",
-      "1": "Tagediebpose"
-    },
-    "288": {
-      "3": "Tagediebpose",
-      "2": "Gymnastikpose",
-      "1": "Ungeduldspose"
-    },
-    "289": {
-      "3": "Häppchenpose",
-      "2": "Fläzpose",
-      "1": "Breitmachpose"
-    },
-    "3": {
-      "3": "Rankenpose",
-      "2": "Standhaftpose",
-      "1": "Sonnenbadpose"
-    },
-    "302": {
-      "3": "Edelsteinmampf-pose",
-      "2": "Zuckpose",
-      "1": "Breitmachpose"
-    },
-    "316": {
-      "3": "Maulaufsperrpose",
-      "2": "Einnickpose",
-      "1": "Ballonpose"
-    },
-    "317": {
-      "3": "Maulaufsperrpose",
-      "2": "Einnickpose",
-      "1": "Umfallpose"
-    },
-    "333": {
-      "3": "Wölkchenpose",
-      "2": "Flatterpose",
-      "1": "Ruhepose"
-    },
-    "334": {
-      "3": "Wölkchenpose",
-      "2": "Ruhepose",
-      "1": "Federnestpose"
-    },
-    "35": {
-      "3": "Metronompose",
-      "2": "Wegnickpose",
-      "1": "Sorglospose"
-    },
-    "353": {
-      "3": "Kopfüberpose",
-      "2": "Schwebenickpose",
-      "1": "Schwebeplumpspose"
-    },
-    "354": {
-      "3": "Große Lachpose",
-      "2": "Armschwingpose",
-      "1": "Nackendrehpose"
-    },
-    "359": {
-      "3": "Bauchhochpose",
-      "2": "Gefahrenspürpose",
-      "1": "Kauerpose"
-    },
-    "36": {
-      "3": "Metronompose",
-      "2": "Wegnickpose",
-      "1": "Sorglospose"
-    },
-    "360": {
-      "3": "Markenzeichen-pose",
-      "2": "Geduldspose",
-      "1": "Schweifwackel-pose"
-    },
-    "363": {
-      "3": "Applauspose",
-      "2": "Gähnpose",
-      "1": "Plumpspose"
-    },
-    "364": {
-      "3": "Andersrumpose",
-      "2": "Gähnpose",
-      "1": "Bodenklatschpose"
-    },
-    "365": {
-      "3": "Zahnfeststeck-pose",
-      "2": "Majestätspose",
-      "1": "Fläzpose"
-    },
-    "39": {
-      "3": "Gesangspose",
-      "2": "Döspose",
-      "1": "Päuschenpose"
-    },
-    "4": {
-      "3": "Bäuchleinpose",
-      "2": "Bauchrubbelpose",
-      "1": "Knisterpose"
-    },
-    "40": {
-      "3": "Aufbauschpose",
-      "2": "Erstauntpose",
-      "1": "Lächelpose"
-    },
-    "438": {
-      "3": "Tränaugenpose",
-      "2": "Aufrechtpose",
-      "1": "Plumpspose"
-    },
-    "439": {
-      "3": "Barrierebettpose",
-      "2": "Aufrechtpose",
-      "1": "Armstreckpose"
-    },
-    "447": {
-      "3": "Kniehochpose",
-      "2": "Trainingspose",
-      "1": "Knieklammerpose"
-    },
-    "448": {
-      "3": "Trainingspausen-pose",
-      "2": "Trainingspose",
-      "1": "Kniehochpose"
-    },
-    "453": {
-      "3": "Geradlinienpose",
-      "2": "Pausbackenpose",
-      "1": "Fläzpose"
-    },
-    "454": {
-      "3": "Giftbeutelpose",
-      "2": "Kehlblähpose",
-      "1": "Fläzpose"
-    },
-    "459": {
-      "3": "Beerenträgerpose",
-      "2": "Aufrechtpose",
-      "1": "Päuschenpose"
-    },
-    "460": {
-      "3": "Schneesturmpose",
-      "2": "Bedroherpose",
-      "1": "Seufzerpose"
-    },
-    "462": {
-      "3": "Kopfüberpose",
-      "2": "Wachsampose",
-      "1": "Schaukelpose"
-    },
-    "468": {
-      "3": "Akrobatikflug-pose",
-      "2": "Stehflatterpose",
-      "1": "Freiflugpose"
-    },
-    "470": {
-      "3": "Blattkuschelpose",
-      "2": "Standhaftpose",
-      "1": "Schweifwedelpose"
-    },
-    "471": {
-      "3": "Komfortpose",
-      "2": "Standhaftpose",
-      "1": "Armkissenpose"
-    },
-    "5": {
-      "3": "Fläzpose",
-      "2": "Päuschenpose",
-      "1": "Armkissenpose"
-    },
-    "50": {
-      "3": "Halbschauflerpose",
-      "2": "Übererdpose",
-      "1": "Untererdpose"
-    },
-    "51": {
-      "3": "Kuscheltriopose",
-      "2": "Übererdpose",
-      "1": "Untererdpose"
-    },
-    "52": {
-      "3": "Zahltagpose",
-      "2": "Päuschenpose",
-      "1": "Einkugelpose"
-    },
-    "53": {
-      "3": "Versteckpose",
-      "2": "Standhaftpose",
-      "1": "Eleganzpose"
-    },
-    "54": {
-      "3": "Trotzpose",
-      "2": "Gähnpose",
-      "1": "Kopfwehpose"
-    },
-    "55": {
-      "3": "Schwimmpose",
-      "2": "Hinterteilkratz-pose",
-      "1": "Armkissenpose"
-    },
-    "56": {
-      "3": "Sorglospose",
-      "2": "Aufrechtpose",
-      "1": "Wutpose"
-    },
-    "57": {
-      "3": "Sorglospose",
-      "2": "Fruststampfer-pose",
-      "1": "Wutpose"
-    },
-    "58": {
-      "3": "Bauchhochpose",
-      "2": "Sitzpose",
-      "1": "Streckpose"
-    },
-    "59": {
-      "3": "Bauchhochpose",
-      "2": "Sitzpose",
-      "1": "Liegepose"
-    },
-    "6": {
-      "3": "Bäuchleinpose",
-      "2": "Armkreuzpose",
-      "1": "Bauchpose"
-    },
-    "69": {
-      "3": "Einwurzelpose",
-      "2": "Säurepose",
-      "1": "Räkelpose"
-    },
-    "7": {
-      "3": "Andersrumpose",
-      "2": "Schutzlospose",
-      "1": "Rückzugspose"
-    },
-    "70": {
-      "3": "Saugpose",
-      "2": "Schwebepose",
-      "1": "Säurepose"
-    },
-    "700": {
-      "3": "Wirrwarrpose",
-      "2": "Standhaftpose",
-      "1": "Einkugelpose"
-    },
-    "71": {
-      "3": "Andersrumpose",
-      "2": "Rankenstützpose",
-      "1": "Schauderpose"
-    },
-    "74": {
-      "3": "Kuhlenpose",
-      "2": "Geduldspose",
-      "1": "Armkreuzpose"
-    },
-    "75": {
-      "3": "Rollpose",
-      "2": "Innigpose",
-      "1": "Faulenzpose"
-    },
-    "76": {
-      "3": "Rollpose",
-      "2": "Imposanzpose",
-      "1": "Robustpose"
-    },
-    "79": {
-      "3": "Einfältigpose",
-      "2": "Dämmerschlafpose",
-      "1": "Fix-und-Fertig-Pose"
-    },
-    "8": {
-      "3": "Flachpose",
-      "2": "Schutzlospose",
-      "1": "Rückzugspose"
-    },
-    "80": {
-      "3": "Schweifbisspose",
-      "2": "Sabberpose",
-      "1": "Kuschelduopose"
-    },
-    "81": {
-      "3": "Kopfüberpose",
-      "2": "Magnetflugpose",
-      "1": "Sinkflugpose"
-    },
-    "82": {
-      "3": "Abkoppelpose",
-      "2": "Herabschwebepose",
-      "1": "Koppelpose"
-    },
-    "84": {
-      "3": "Duopose",
-      "2": "Achtlospose",
-      "1": "Achtsampose"
-    },
-    "85": {
-      "3": "Triopose",
-      "2": "Achtlospose",
-      "1": "Achtsampose"
-    },
-    "9": {
-      "3": "Andersrumpose",
-      "2": "Schutzlospose",
-      "1": "Rückzugspose"
-    },
-    "92": {
-      "3": "Zunge-Raus-Pose",
-      "2": "Schwebegaspose",
-      "1": "Kicherpose"
-    },
-    "93": {
-      "3": "Zunge-Raus-Pose",
-      "2": "Schwebegaspose",
-      "1": "Pendelpose"
-    },
-    "94": {
-      "3": "Zunge-Raus-Pose",
-      "2": "Grinsepose",
-      "1": "Schabernackpose"
-    },
-    "95": {
-      "3": "Tunnelpose",
-      "2": "Taumelpose",
-      "1": "Spiralpose"
-    },
-    "onSnorlax": {
-      "Default": "Bauchkissenpose"
-    }
+    "1-1": "Sonnenbadpose",
+    "1-2": "Standhaftpose",
+    "1-3": "Rankenpose",
+    "10-1": "Komfortpose",
+    "10-2": "Kopfschaukelpose",
+    "10-3": "Fadenschusspose",
+    "104-1": "Kummerpose",
+    "104-2": "Knochenkratzpose",
+    "104-3": "Knochenkissen-pose",
+    "105-1": "Schmuseknochen-pose",
+    "105-2": "Knochenkratzpose",
+    "105-3": "Knochenkissen-pose",
+    "11-1": "Friedlichpose",
+    "11-2": "Wackelpose",
+    "11-3": "Härtnerpose",
+    "115-1": "Familienbandepose",
+    "115-2": "Synchronpose",
+    "115-3": "Frühaufsteher-pose",
+    "12-1": "Schwebesitzpose",
+    "12-2": "Schwebepose",
+    "12-3": "Streupose",
+    "122-1": "Barrierepose",
+    "122-2": "Kieselwurfpose",
+    "122-3": "Barrierebettpose",
+    "127-1": "Furchtlospose",
+    "127-2": "Aufrechtpose",
+    "127-3": "Verbuddelpose",
+    "132-1": "Steinformpose",
+    "132-10": "Dragoran-Pose",
+    "132-11": "Larvitar-Pose",
+    "132-8": "Glaziola-Pose",
+    "132-2": "Ausgangsform-pose",
+    "132-3": "Pikachu-Pose",
+    "132-5": "Bisasam-Pose",
+    "132-7": "Glumanda-Pose",
+    "132-6": "Schiggy-Pose",
+    "133-1": "Einkugelpose",
+    "133-2": "Hängeohrenpose",
+    "133-3": "Fidelpose",
+    "134-1": "Flossenwedelpose",
+    "134-2": "Sitzpose",
+    "134-3": "Komfortpose",
+    "135-1": "Liegepose",
+    "135-2": "Sitzpose",
+    "135-3": "Traumsprintpose",
+    "136-1": "Schweifwedelpose",
+    "136-2": "Kauerpose",
+    "136-3": "Schweifumhüll-pose",
+    "147-1": "Einrollpose",
+    "147-2": "Windepose",
+    "147-3": "Entrollpose",
+    "148-1": "Einrollpose",
+    "148-2": "Windepose",
+    "148-3": "Entrollpose",
+    "149-1": "Einkugelpose",
+    "149-2": "Päuschenpose",
+    "149-3": "Bäuchleinpose",
+    "152-1": "Blattdrehpose",
+    "152-2": "Hängeblattpose",
+    "152-3": "Bauchhochpose",
+    "153-1": "Streckpose",
+    "153-2": "Knospenschüttel-pose",
+    "153-3": "Aromapose",
+    "154-1": "Sorglospose",
+    "154-2": "Kopfnickpose",
+    "154-3": "Blumenmeerpose",
+    "155-1": "Komfortpose",
+    "155-2": "Beugepose",
+    "155-3": "Feuersprühpose",
+    "156-1": "Armkissenpose",
+    "156-2": "Flachpose",
+    "156-3": "Feuersprühpose",
+    "157-1": "Armkissenpose",
+    "157-2": "Putzpose",
+    "157-3": "Feuersprühpose",
+    "158-1": "Einaugenpose",
+    "158-2": "Knabberpose",
+    "158-3": "Maulaufsperrpose",
+    "159-1": "Einaugenpose",
+    "159-2": "Zahnbleckpose",
+    "159-3": "Maulaufsperrpose",
+    "160-1": "Einaugenpose",
+    "160-2": "Bedroherpose",
+    "160-3": "Maulaufsperrpose",
+    "172-1": "Sorglospose",
+    "172-2": "Päuschenpose",
+    "172-3": "Ladepose",
+    "173-1": "Wiegepose",
+    "173-2": "Wegnickpose",
+    "173-3": "Andersrumpose",
+    "174-1": "Sprungpose",
+    "174-2": "Döspose",
+    "174-3": "Gesangspose",
+    "175-1": "Wiegepose",
+    "175-2": "Andersrumpose",
+    "175-3": "Schalenpose",
+    "176-1": "Sitzflatterpose",
+    "176-2": "Stehflatterpose",
+    "176-3": "Flugflatterpose",
+    "179-1": "Flauschpose",
+    "179-2": "Scharrpose",
+    "179-3": "Lichtschweifpose",
+    "180-1": "Komfortpose",
+    "180-2": "Flauschpose",
+    "180-3": "Lichtschweifpose",
+    "181-1": "Schweifkratzpose",
+    "181-2": "Kopfnickpose",
+    "181-3": "Glühschweifpose",
+    "185-1": "Täuschbaumpose",
+    "185-2": "Trägbaumpose",
+    "185-3": "Nichtstuerpose",
+    "19-1": "Kopfkratzpose",
+    "19-2": "Pendelpose",
+    "19-3": "Nagepose",
+    "196-1": "Hellsehpose",
+    "196-2": "Sitzpose",
+    "196-3": "Bauchhochpose",
+    "197-1": "Halbmondpose",
+    "197-2": "Sitzpose",
+    "197-3": "Bauchhochpose",
+    "199-1": "Fläzpose",
+    "199-2": "Weisheitspose",
+    "199-3": "Geistesblitzpose",
+    "2-1": "Sonnenbadpose",
+    "2-2": "Standhaftpose",
+    "2-3": "Rankenpose",
+    "20-1": "Zahnknirschpose",
+    "20-2": "Aufrechtpose",
+    "20-3": "Nagepose",
+    "202-1": "Schweifversteck-pose",
+    "202-2": "Geduldspose",
+    "202-3": "Markenzeichen-pose",
+    "208-1": "Spiralpose",
+    "208-2": "Taumelpose",
+    "208-3": "Tunnelpose",
+    "214-1": "Hornschüttelpose",
+    "214-2": "Aufrechtpose",
+    "214-3": "Harznaschpose",
+    "225-1": "Sorglospose",
+    "225-2": "Aufrechtpose",
+    "225-3": "Geschenkpose",
+    "228-1": "Jaulerpose",
+    "228-2": "Streckpose",
+    "228-3": "Bauchhochpose",
+    "229-1": "Liegepose",
+    "229-2": "Standhaftpose",
+    "229-3": "Feueratempose",
+    "23-1": "Einrollpose",
+    "23-2": "Sprungfederpose",
+    "23-3": "Entrollpose",
+    "24-1": "Einrollpose",
+    "24-2": "Neigepose",
+    "24-3": "Entrollpose",
+    "246-1": "Streckpose",
+    "246-2": "Gesichtrubbelpose",
+    "246-3": "Erdmampfpose",
+    "247-1": "Umstürzpose",
+    "247-2": "Zitterpose",
+    "247-3": "Gasausstoßpose",
+    "248-1": "Bauchpose",
+    "248-2": "Imposanzpose",
+    "248-3": "Breitmachpose",
+    "25-1": "Einkugelpose",
+    "25-2": "Hängeohrenpose",
+    "25-3": "Ladepose",
+    "26-1": "Schweifwogepose",
+    "26-2": "Päuschenpose",
+    "26-3": "Erdungspose",
+    "287-1": "Tagediebpose",
+    "287-2": "Putzpose",
+    "287-3": "Häppchenpose",
+    "288-1": "Ungeduldspose",
+    "288-2": "Gymnastikpose",
+    "288-3": "Tagediebpose",
+    "289-1": "Breitmachpose",
+    "289-2": "Fläzpose",
+    "289-3": "Häppchenpose",
+    "3-1": "Sonnenbadpose",
+    "3-2": "Standhaftpose",
+    "3-3": "Rankenpose",
+    "302-1": "Breitmachpose",
+    "302-2": "Zuckpose",
+    "302-3": "Edelsteinmampf-pose",
+    "316-1": "Ballonpose",
+    "316-2": "Einnickpose",
+    "316-3": "Maulaufsperrpose",
+    "317-1": "Umfallpose",
+    "317-2": "Einnickpose",
+    "317-3": "Maulaufsperrpose",
+    "333-1": "Ruhepose",
+    "333-2": "Flatterpose",
+    "333-3": "Wölkchenpose",
+    "334-1": "Federnestpose",
+    "334-2": "Ruhepose",
+    "334-3": "Wölkchenpose",
+    "35-1": "Sorglospose",
+    "35-2": "Wegnickpose",
+    "35-3": "Metronompose",
+    "353-1": "Schwebeplumpspose",
+    "353-2": "Schwebenickpose",
+    "353-3": "Kopfüberpose",
+    "354-1": "Nackendrehpose",
+    "354-2": "Armschwingpose",
+    "354-3": "Große Lachpose",
+    "359-1": "Kauerpose",
+    "359-2": "Gefahrenspürpose",
+    "359-3": "Bauchhochpose",
+    "36-1": "Sorglospose",
+    "36-2": "Wegnickpose",
+    "36-3": "Metronompose",
+    "360-1": "Schweifwackel-pose",
+    "360-2": "Geduldspose",
+    "360-3": "Markenzeichen-pose",
+    "363-1": "Plumpspose",
+    "363-2": "Gähnpose",
+    "363-3": "Applauspose",
+    "364-1": "Bodenklatschpose",
+    "364-2": "Gähnpose",
+    "364-3": "Andersrumpose",
+    "365-1": "Fläzpose",
+    "365-2": "Majestätspose",
+    "365-3": "Zahnfeststeck-pose",
+    "39-1": "Päuschenpose",
+    "39-2": "Döspose",
+    "39-3": "Gesangspose",
+    "4-1": "Knisterpose",
+    "4-2": "Bauchrubbelpose",
+    "4-3": "Bäuchleinpose",
+    "40-1": "Lächelpose",
+    "40-2": "Erstauntpose",
+    "40-3": "Aufbauschpose",
+    "438-1": "Plumpspose",
+    "438-2": "Aufrechtpose",
+    "438-3": "Tränaugenpose",
+    "439-1": "Armstreckpose",
+    "439-2": "Aufrechtpose",
+    "439-3": "Barrierebettpose",
+    "447-1": "Knieklammerpose",
+    "447-2": "Trainingspose",
+    "447-3": "Kniehochpose",
+    "448-1": "Kniehochpose",
+    "448-2": "Trainingspose",
+    "448-3": "Trainingspausen-pose",
+    "453-1": "Fläzpose",
+    "453-2": "Pausbackenpose",
+    "453-3": "Geradlinienpose",
+    "454-1": "Fläzpose",
+    "454-2": "Kehlblähpose",
+    "454-3": "Giftbeutelpose",
+    "459-1": "Päuschenpose",
+    "459-2": "Aufrechtpose",
+    "459-3": "Beerenträgerpose",
+    "460-1": "Seufzerpose",
+    "460-2": "Bedroherpose",
+    "460-3": "Schneesturmpose",
+    "462-1": "Schaukelpose",
+    "462-2": "Wachsampose",
+    "462-3": "Kopfüberpose",
+    "468-1": "Freiflugpose",
+    "468-2": "Stehflatterpose",
+    "468-3": "Akrobatikflug-pose",
+    "470-1": "Schweifwedelpose",
+    "470-2": "Standhaftpose",
+    "470-3": "Blattkuschelpose",
+    "471-1": "Armkissenpose",
+    "471-2": "Standhaftpose",
+    "471-3": "Komfortpose",
+    "5-1": "Armkissenpose",
+    "5-2": "Päuschenpose",
+    "5-3": "Fläzpose",
+    "50-1": "Untererdpose",
+    "50-2": "Übererdpose",
+    "50-3": "Halbschauflerpose",
+    "51-1": "Untererdpose",
+    "51-2": "Übererdpose",
+    "51-3": "Kuscheltriopose",
+    "52-1": "Einkugelpose",
+    "52-2": "Päuschenpose",
+    "52-3": "Zahltagpose",
+    "53-1": "Eleganzpose",
+    "53-2": "Standhaftpose",
+    "53-3": "Versteckpose",
+    "54-1": "Kopfwehpose",
+    "54-2": "Gähnpose",
+    "54-3": "Trotzpose",
+    "55-1": "Armkissenpose",
+    "55-2": "Hinterteilkratz-pose",
+    "55-3": "Schwimmpose",
+    "56-1": "Wutpose",
+    "56-2": "Aufrechtpose",
+    "56-3": "Sorglospose",
+    "57-1": "Wutpose",
+    "57-2": "Fruststampfer-pose",
+    "57-3": "Sorglospose",
+    "58-1": "Streckpose",
+    "58-2": "Sitzpose",
+    "58-3": "Bauchhochpose",
+    "59-1": "Liegepose",
+    "59-2": "Sitzpose",
+    "59-3": "Bauchhochpose",
+    "6-1": "Bauchpose",
+    "6-2": "Armkreuzpose",
+    "6-3": "Bäuchleinpose",
+    "69-1": "Räkelpose",
+    "69-2": "Säurepose",
+    "69-3": "Einwurzelpose",
+    "7-1": "Rückzugspose",
+    "7-2": "Schutzlospose",
+    "7-3": "Andersrumpose",
+    "70-1": "Säurepose",
+    "70-2": "Schwebepose",
+    "70-3": "Saugpose",
+    "700-1": "Einkugelpose",
+    "700-2": "Standhaftpose",
+    "700-3": "Wirrwarrpose",
+    "71-1": "Schauderpose",
+    "71-2": "Rankenstützpose",
+    "71-3": "Andersrumpose",
+    "74-1": "Armkreuzpose",
+    "74-2": "Geduldspose",
+    "74-3": "Kuhlenpose",
+    "75-1": "Faulenzpose",
+    "75-2": "Innigpose",
+    "75-3": "Rollpose",
+    "76-1": "Robustpose",
+    "76-2": "Imposanzpose",
+    "76-3": "Rollpose",
+    "79-1": "Fix-und-Fertig-Pose",
+    "79-2": "Dämmerschlafpose",
+    "79-3": "Einfältigpose",
+    "8-1": "Rückzugspose",
+    "8-2": "Schutzlospose",
+    "8-3": "Flachpose",
+    "80-1": "Kuschelduopose",
+    "80-2": "Sabberpose",
+    "80-3": "Schweifbisspose",
+    "81-1": "Sinkflugpose",
+    "81-2": "Magnetflugpose",
+    "81-3": "Kopfüberpose",
+    "82-1": "Koppelpose",
+    "82-2": "Herabschwebepose",
+    "82-3": "Abkoppelpose",
+    "84-1": "Achtsampose",
+    "84-2": "Achtlospose",
+    "84-3": "Duopose",
+    "85-1": "Achtsampose",
+    "85-2": "Achtlospose",
+    "85-3": "Triopose",
+    "9-1": "Rückzugspose",
+    "9-2": "Schutzlospose",
+    "9-3": "Andersrumpose",
+    "92-1": "Kicherpose",
+    "92-2": "Schwebegaspose",
+    "92-3": "Zunge-Raus-Pose",
+    "93-1": "Pendelpose",
+    "93-2": "Schwebegaspose",
+    "93-3": "Zunge-Raus-Pose",
+    "94-1": "Schabernackpose",
+    "94-2": "Grinsepose",
+    "94-3": "Zunge-Raus-Pose",
+    "95-1": "Spiralpose",
+    "95-2": "Taumelpose",
+    "95-3": "Tunnelpose",
+    "onSnorlax": "Bauchkissenpose"
   },
   "SleepType": {
     "0": "Tiefschlaf",

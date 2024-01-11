@@ -21,7 +21,7 @@ export const RatingResultTarget = ({request, subSkillMap}: Props) => {
   return (
     <Flex direction="row" className="info-section items-center">
       <div className="relative h-14 w-14">
-        <PokemonImage pokemonId={pokemon.id} image="icon" isShiny={false}/>
+        <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'icon'}} isShiny={false}/>
       </div>
       <Flex center className="gap-1">
         <PokemonIngredientIcons

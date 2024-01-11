@@ -32,31 +32,41 @@ export const PokemonImage = ({pokemonId, image, isShiny, alt, className}: Props)
 
   const actualAlt = alt ?? `Pokemon #${pokemonId}`;
 
-  if (image === 'portrait') {
+  const {type} = image;
+
+  if (type === 'default') {
+    if (image.image === 'portrait') {
+      return (
+        <NextImage
+          {...commonImageProps}
+          src={`/images/pokemon/portrait/${isShiny ? 'shiny/' : ''}${pokemonId}.png`}
+          alt={actualAlt}
+        />
+      );
+    }
+
+    if (image.image === 'icon') {
+      return (
+        <NextImage
+          {...commonImageProps}
+          src={`/images/pokemon/icons/${pokemonId}.png`}
+          alt={actualAlt}
+        />
+      );
+    }
+
+    throw new Error(`Unhandled Pokemon default image [${image.image satisfies never}]`);
+  }
+
+  if (type === 'sleepStyle') {
     return (
       <NextImage
         {...commonImageProps}
-        src={`/images/pokemon/portrait/${isShiny ? 'shiny/' : ''}${pokemonId}.png`}
+        src={`/images/sleep/${image.sleepStyleId}/${isShiny ? 'shiny/' : ''}${pokemonId}.png`}
         alt={actualAlt}
       />
     );
   }
 
-  if (image === 'icon') {
-    return (
-      <NextImage
-        {...commonImageProps}
-        src={`/images/pokemon/icons/${pokemonId}.png`}
-        alt={actualAlt}
-      />
-    );
-  }
-
-  return (
-    <NextImage
-      {...commonImageProps}
-      src={`/images/sleep/${image}/${isShiny ? 'shiny/' : ''}${pokemonId}.png`}
-      alt={actualAlt}
-    />
-  );
+  throw new Error(`Unhandled Pokemon image type [${type satisfies never}]`);
 };

@@ -34,7 +34,7 @@ export const PokemonLinkPopupContent = ({pokemon}: Props) => {
         <PokemonSpecialtyIcon specialty={specialty} dimension="h-5 w-5"/>
       </Flex>
       <div className="relative h-60 w-60">
-        <PokemonImage pokemonId={pokemon.id} image="portrait" isShiny={false}/>
+        <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
       </div>
       <Flex direction="row" className="gap-2">
         <Flex>

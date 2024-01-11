@@ -10,12 +10,12 @@ import {PokemonNameSmall} from '@/components/shared/pokemon/name/small';
 import {SleepdexSectionSleepStyle} from '@/components/shared/sleepdex/section/style';
 import {SleepdexSectionProps} from '@/components/shared/sleepdex/section/type';
 import {PokemonInfo} from '@/types/game/pokemon';
-import {SleepStyleId} from '@/types/game/sleepStyle';
+import {SleepStyleCommon} from '@/types/game/sleepStyle';
 
 
 type Props = SleepdexSectionProps & {
   pokemon: PokemonInfo,
-  sleepStyles: SleepStyleId[],
+  sleepStyles: SleepStyleCommon[],
 };
 
 export const SleepdexPokemonInSection = (props: Props) => {
@@ -31,6 +31,7 @@ export const SleepdexPokemonInSection = (props: Props) => {
 
   const pokemonId = pokemon.id;
   const pokemonName = t(pokemonId.toString());
+  const defaultSleepStyle = sleepStyles.at(0);
 
   return (
     <Flex className="info-section relative items-center">
@@ -44,18 +45,22 @@ export const SleepdexPokemonInSection = (props: Props) => {
         <PokemonImage
           pokemonId={pokemonId}
           isShiny={false}
-          image={1}
+          image={
+            defaultSleepStyle ?
+              {type: 'sleepStyle', sleepStyleId: defaultSleepStyle.style, i18nKey: defaultSleepStyle.i18nKey} :
+              {type: 'default', image: 'icon'}
+          }
         />
       </div>
       {
         !hideButtons &&
         <Flex direction="row" wrap className="justify-center gap-1.5">
-          {sleepStyles.map((styleId) => (
+          {sleepStyles.map(({style}) => (
             <SleepdexSectionSleepStyle
-              key={styleId}
+              key={style}
               {...props}
               pokemonId={pokemonId}
-              styleId={styleId}
+              styleId={style}
             />
           ))}
         </Flex>

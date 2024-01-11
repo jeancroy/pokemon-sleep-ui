@@ -429,10 +429,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
     PokemonType: GameObjectIdToString,
     PokemonName: GameObjectIdToString,
     RankTitle: GameObjectIdToString,
-    SleepFace: {
-      onSnorlax: {Default: string},
-      [pokemonId: string]: GameObjectIdToString
-    },
+    SleepFace: GameObjectIdToString,
     SleepType: GameObjectIdToString,
     Specialty: GameObjectIdToString,
     SubSkill: {

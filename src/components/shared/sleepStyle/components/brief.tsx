@@ -2,19 +2,14 @@ import React from 'react';
 
 import {StarIcon} from '@heroicons/react/24/solid';
 import {clsx} from 'clsx';
+import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {useSleepStyleName} from '@/hooks/sleepdex/name';
-import {PokemonId} from '@/types/game/pokemon';
-import {PokemonBranchData} from '@/types/game/pokemon/branch';
 import {SleepStyleCommon} from '@/types/game/sleepStyle';
 import {Dimension} from '@/types/style';
-import {Nullable} from '@/utils/type';
 
 
 type Props<TSleepStyle extends SleepStyleCommon> = {
-  pokemonId: PokemonId,
-  pokemonBranch: Nullable<PokemonBranchData>,
   sleepStyle: TSleepStyle,
   className?: string,
   iconDimension?: Dimension,
@@ -22,19 +17,14 @@ type Props<TSleepStyle extends SleepStyleCommon> = {
 };
 
 export const SleepStyleBrief = <TSleepStyle extends SleepStyleCommon>({
-  pokemonId,
-  pokemonBranch,
   sleepStyle,
   className,
   iconDimension,
   textShadow,
 }: Props<TSleepStyle>) => {
+  const t = useTranslations('Game.SleepFace');
+
   const {rarity} = sleepStyle;
-  const sleepStyleName = useSleepStyleName({
-    pokemonId,
-    pokemonBranch,
-    sleepStyleId: sleepStyle.style,
-  });
 
   return (
     <Flex direction="row" className={clsx('items-center gap-1.5 whitespace-nowrap', className)}>
@@ -43,7 +33,7 @@ export const SleepStyleBrief = <TSleepStyle extends SleepStyleCommon>({
         <div>{rarity}</div>
       </Flex>
       <div className={clsx('truncate', textShadow && 'text-shadow-preset')}>
-        {sleepStyleName}
+        {t(sleepStyle.i18nKey)}
       </div>
     </Flex>
   );

@@ -35,7 +35,10 @@ export const useSleepdexSection = ({
   const unlockedSleepStyles = React.useMemo(
     () => toSum(availableSleepStyles.map(({pokemon, sleepStyles}) => (
       sleepStyles
-        .filter((styleId) => !!sleepdex[toSleepdexStyleId({pokemonId: pokemon.id, styleId})])
+        .filter(({style}) => !!sleepdex[toSleepdexStyleId({
+          pokemonId: pokemon.id,
+          styleId: style,
+        })])
         .length
     ))),
     [availableSleepStyles, sleepdex],

@@ -25,7 +25,6 @@ export const PokemonSingleSleepStyle = <TSleepStyle extends SleepStyleCommon>({
 }: Props<TSleepStyle>) => {
   const {
     pokemon,
-    pokemonBranch,
     sleepdex,
     setSleepdex,
   } = props;
@@ -54,8 +53,6 @@ export const PokemonSingleSleepStyle = <TSleepStyle extends SleepStyleCommon>({
       </button>
       <Flex className="gap-1">
         <SleepStyleBrief
-          pokemonId={pokemonId}
-          pokemonBranch={pokemonBranch}
           sleepStyle={sleepStyle}
           className="justify-center"
         />

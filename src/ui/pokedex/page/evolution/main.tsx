@@ -27,7 +27,7 @@ export const PokemonEvolution = ({pokedex, pokemon, showPokemon}: PokemonDataPro
         <ArrowRightIcon className="hidden lg:block"/>
       </div>
       <div className="relative h-52 w-52 shrink-0">
-        <PokemonImage pokemonId={pokemon.id} image="portrait" isShiny={false}/>
+        <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
       </div>
       {
         !!evolution.next.length &&

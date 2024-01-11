@@ -51,7 +51,7 @@ export const ProducingParamsSingle = ({
           dataCount < trustedDataCount && 'text-danger',
         )}>
           <Flex noFullWidth className="relative h-10 w-10 shrink-0">
-            <PokemonImage pokemonId={pokemonInfo.id} image="icon" isShiny={false}/>
+            <PokemonImage pokemonId={pokemonInfo.id} image={{type: 'default', image: 'icon'}} isShiny={false}/>
           </Flex>
           <Flex center className="gap-1">
             <Flex direction="row" className="justify-between gap-1">

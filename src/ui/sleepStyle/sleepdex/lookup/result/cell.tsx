@@ -17,7 +17,7 @@ type Props = SleepdexLookupResultCommonProps & {
   onClick: () => void,
 };
 
-export const SleepdexLookupResultCell = ({pokemonBranchMapByLeaf, display, data, onClick}: Props) => {
+export const SleepdexLookupResultCell = ({display, data, onClick}: Props) => {
   const {id} = data.pokemon;
 
   const t = useTranslations('Game');
@@ -36,8 +36,6 @@ export const SleepdexLookupResultCell = ({pokemonBranchMapByLeaf, display, data,
         )}
       >
         <SleepStyleBrief
-          pokemonId={id}
-          pokemonBranch={pokemonBranchMapByLeaf[id]}
           sleepStyle={data.sleepStyle}
           className="absolute left-1 top-1 z-10 text-sm"
           iconDimension="h-4 w-4"
@@ -46,7 +44,7 @@ export const SleepdexLookupResultCell = ({pokemonBranchMapByLeaf, display, data,
         <div className="relative h-16 w-16 opacity-70">
           <PokemonImage
             pokemonId={id}
-            image="icon"
+            image={{type: 'default', image: 'icon'}}
             isShiny={false}
             alt={t(`PokemonName.${id}`)}
             className="rounded-lg"

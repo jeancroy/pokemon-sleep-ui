@@ -20,7 +20,6 @@ type Props = PokemonDataCommonProps & {
 
 export const PokemonSleepStylesLoaded = ({
   pokemon,
-  pokemonBranch,
   sleepStyles,
   sleepStylesSpecial,
   snorlaxDataMap,
@@ -79,7 +78,6 @@ export const PokemonSleepStylesLoaded = ({
             setSleepdex={setSleepdex}
             drowsyPowerMultiplier={drowsyPowerMultiplier}
             pokemon={pokemon}
-            pokemonBranch={pokemonBranch}
             calculatedSettings={translatedSettings.calculatedSettings}
             snorlaxData={snorlaxDataMap[sleepStyleOfMap.mapId]}
             sleepStyleOfMap={sleepStyleOfMap}
@@ -87,7 +85,6 @@ export const PokemonSleepStylesLoaded = ({
         ))}
         <PokemonSleepStylesIncenseOnly
           pokemon={pokemon}
-          pokemonBranch={pokemonBranch}
           sleepdex={sleepdex}
           setSleepdex={setSleepdex}
           drowsyPowerMultiplier={drowsyPowerMultiplier}

@@ -52,7 +52,7 @@ export const TeamAnalysisPokemon = (props: TeamAnalysisPokemonProps) => {
         <PokemonNameSimple pokemon={pokemon} override={member.name}/>
         <Flex center className="relative">
           <div className="relative h-28 w-28">
-            <PokemonImage pokemonId={pokemon.id} image="portrait" isShiny={false}/>
+            <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
             <InfoIcon className="absolute bottom-0 right-0">
               {level}
             </InfoIcon>

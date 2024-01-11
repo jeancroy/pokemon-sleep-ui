@@ -10,7 +10,8 @@ import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {SleepdexSection} from '@/components/shared/sleepdex/section/main';
 import {useUpdateSleepdex} from '@/hooks/sleepdex/update';
-import {PokemonId} from '@/types/game/pokemon';
+import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
+import {SleepStyleCommon} from '@/types/game/sleepStyle';
 import {SleepStyleSpecialServerDataProps} from '@/ui/sleepStyle/special/type';
 import {getAvailableSleepStylesFromSpecial} from '@/utils/game/sleepdex';
 import {isNotNullish} from '@/utils/type';
@@ -24,6 +25,8 @@ export const SleepStyleSpecialClient = ({
   const [sleepdex, setSleepdex] = React.useState(sleepdexMap);
 
   const t = useTranslations('UI.SleepStyle');
+  const updateSleepdex = useUpdateSleepdex({sleepdex, setSleepdex});
+  const {state, setState, showPokemon} = usePokemonLinkPopup();
   const {
     pokemonIdWithIncenseOnly,
     pokemonIdWithUnreleased,
@@ -46,8 +49,13 @@ export const SleepStyleSpecialClient = ({
       pokemonIdWithUnreleased,
     };
   }, [sleepStyleSpecialMap]);
-  const updateSleepdex = useUpdateSleepdex({sleepdex, setSleepdex});
-  const {state, setState, showPokemon} = usePokemonLinkPopup();
+  const getSleepStylesFromPokemon = React.useCallback((pokemon: PokemonInfo): SleepStyleCommon[] => (
+    getAvailableSleepStylesFromSpecial({
+      sleepStyles: sleepStyleSpecialMap[pokemon.id],
+      extractor: (sleepStyle) => sleepStyle,
+      getKey: ({style}) => style,
+    })
+  ), [sleepStyleSpecialMap]);
 
   return (
     <Flex className="gap-1">
@@ -63,12 +71,7 @@ export const SleepStyleSpecialClient = ({
         updateSleepdex={updateSleepdex}
         showPokemon={showPokemon}
         pokemonListToShow={[...pokemonIdWithIncenseOnly].map((pokemonId) => pokedex[pokemonId]).filter(isNotNullish)}
-        getSleepStylesFromPokemon={(pokemon) => (
-          getAvailableSleepStylesFromSpecial({
-            sleepStyles: sleepStyleSpecialMap[pokemon.id],
-            extractor: ({style}) => style,
-          })
-        )}
+        getSleepStylesFromPokemon={getSleepStylesFromPokemon}
         sleepStyleDependencies={[sleepStyleSpecialMap]}
       />
       <SleepdexSection
@@ -82,12 +85,7 @@ export const SleepStyleSpecialClient = ({
         updateSleepdex={updateSleepdex}
         showPokemon={showPokemon}
         pokemonListToShow={[...pokemonIdWithUnreleased].map((pokemonId) => pokedex[pokemonId]).filter(isNotNullish)}
-        getSleepStylesFromPokemon={(pokemon) => (
-          getAvailableSleepStylesFromSpecial({
-            sleepStyles: sleepStyleSpecialMap[pokemon.id],
-            extractor: ({style}) => style,
-          })
-        )}
+        getSleepStylesFromPokemon={getSleepStylesFromPokemon}
         sleepStyleDependencies={[sleepStyleSpecialMap]}
         hideButtons
       />

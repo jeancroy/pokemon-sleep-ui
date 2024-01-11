@@ -71,7 +71,7 @@ export const SkillTriggerAnalysisTarget = (props: Props) => {
           <PokemonNameSimple pokemon={pokemon}/>
           <Flex direction="row" center>
             <div className="relative h-28 w-28">
-              <PokemonImage pokemonId={pokemon.id} image="portrait" isShiny={false}/>
+              <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
               <InfoIcon className="absolute bottom-0 right-0">
                 {level}
               </InfoIcon>

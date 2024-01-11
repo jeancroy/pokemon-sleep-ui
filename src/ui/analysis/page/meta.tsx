@@ -16,7 +16,7 @@ export const AnalysisMeta = ({pokemon}: Props) => {
     <Flex center className="info-section">
       <PokemonNameBig pokemon={pokemon}/>
       <div className="relative h-60 w-60">
-        <PokemonImage pokemonId={pokemon.id} image="portrait" isShiny={false}/>
+        <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
         <NextLink
           href={`/pokedex/${pokemon.id}`}
           className="button-clickable absolute bottom-0 right-0 h-7 w-7 rounded-full"

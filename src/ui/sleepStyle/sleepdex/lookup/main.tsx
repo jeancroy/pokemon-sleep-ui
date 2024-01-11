@@ -5,7 +5,6 @@ import {getEventDrowsyPowerMultiplierData} from '@/controller/event/drowsyPowerM
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMapIds} from '@/controller/mapMeta';
-import {getPokemonBranchMapByLeaf} from '@/controller/pokemon/branch';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getSleepStyleNormalFlattenedList} from '@/controller/sleepStyle';
 import {getSleepStyleSpecialList} from '@/controller/sleepStyleSpecial';
@@ -23,7 +22,6 @@ export const SleepdexLookup = async ({params}: DefaultPageProps) => {
     ingredientMap,
     ingredientChainMap,
     pokedexMap,
-    pokemonBranchMapByLeaf,
     snorlaxDataMap,
     eventDrowsyPowerMultiplierData,
     mapIds,
@@ -33,7 +31,6 @@ export const SleepdexLookup = async ({params}: DefaultPageProps) => {
     getIngredientMap(),
     getIngredientChainMap(),
     getPokedexMap(),
-    getPokemonBranchMapByLeaf(),
     getSnorlaxDataMap(),
     getEventDrowsyPowerMultiplierData(),
     getMapIds(),
@@ -45,7 +42,6 @@ export const SleepdexLookup = async ({params}: DefaultPageProps) => {
     ingredientMap,
     ingredientChainMap,
     pokedexMap,
-    pokemonBranchMapByLeaf,
     snorlaxDataMap,
     eventDrowsyPowerMultiplierData,
     mapIds,

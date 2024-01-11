@@ -44,7 +44,7 @@ export const PokedexLink = (props: PokedexLinkProps) => {
         <div className="relative h-16 w-16 self-end opacity-70">
           <PokemonImage
             pokemonId={id}
-            image="icon"
+            image={{type: 'default', image: 'icon'}}
             isShiny={false}
             alt={t(`PokemonName.${id}`)}
             className="rounded-lg"

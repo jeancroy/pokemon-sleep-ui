@@ -1,8 +1,6 @@
-import {PokemonId, PokemonInfo, PokemonInfoWithMap} from '@/types/game/pokemon';
-import {PokemonBranchData} from '@/types/game/pokemon/branch';
+import {PokemonInfo, PokemonInfoWithMap} from '@/types/game/pokemon';
 import {SleepStyleNormalMap} from '@/types/game/sleepStyle';
 import {toUnique} from '@/utils/array';
-import {Nullable} from '@/utils/type';
 
 
 type GetPokedexWithMapOpts = {
@@ -15,17 +13,4 @@ export const getPokedexWithField = ({pokemonList, sleepStyleMap}: GetPokedexWith
     info: pokemon,
     mapsAvailable: toUnique(sleepStyleMap[pokemon.id]?.map(({mapId}) => mapId) ?? []),
   }));
-};
-
-type GetPokemonSleepStyleId = {
-  pokemonId: number,
-  pokemonBranch: Nullable<PokemonBranchData>,
-};
-
-export const getPokemonIdForSleepStyle = ({pokemonId, pokemonBranch}: GetPokemonSleepStyleId): PokemonId => {
-  if (pokemonBranch && pokemonBranch.branches.includes(pokemonId)) {
-    return pokemonBranch.pokemonId;
-  }
-
-  return pokemonId;
 };

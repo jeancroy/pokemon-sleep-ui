@@ -34,7 +34,7 @@ export const PokemonBranchPortrait = ({pokemon, clickable, showPokemon}: Props) 
 
   return (
     <div className={clsx('relative shrink-0 rounded-lg border border-slate-500', dimension)}>
-      <PokemonImage pokemonId={pokemon.id} image="portrait" isShiny={false}/>
+      <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
     </div>
   );
 };
