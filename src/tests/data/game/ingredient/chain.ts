@@ -37,4 +37,35 @@ export const testIngredientChainMap: IngredientChainMap = {
       ],
     },
   },
+  181: {
+    chainId: 181,
+    ingredients: {
+      1: [
+        {
+          id: 6,
+          qty: 1,
+        },
+      ],
+      30: [
+        {
+          id: 3,
+          qty: 3,
+        },
+        {
+          id: 6,
+          qty: 2,
+        },
+      ],
+      60: [
+        {
+          id: 3,
+          qty: 4,
+        },
+        {
+          id: 6,
+          qty: 4,
+        },
+      ],
+    },
+  },
 };
