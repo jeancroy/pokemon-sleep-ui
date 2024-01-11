@@ -1,5 +1,6 @@
 import {updateAnnouncements} from '@/controller/announcement/main';
 import {addDoc, deleteDoc, updateDoc} from '@/controller/docs';
+import {updatePacketRecordingSettings} from '@/controller/packet/settings';
 import {addSinglePokeInBox, deleteSinglePokeInBox, upsertSinglePokeInBox} from '@/controller/pokebox/main';
 import {addSleepdexRecord, removeSleepdexRecord} from '@/controller/sleepdex';
 import {
@@ -141,6 +142,11 @@ export const uploadUserData = async ({userId, opts}: UploadUserDataOpts) => {
 
   if (type === 'admin.announcements') {
     await updateAnnouncements({executorUserId: userId, data});
+    return;
+  }
+
+  if (type === 'admin.packets') {
+    await updatePacketRecordingSettings({executorUserId: userId, updated: data});
     return;
   }
 

@@ -4,6 +4,7 @@ import {ActivationDataAtClient, ActivationKeyAtClient} from '@/types/mongo/activ
 import {ActivationPresetMap} from '@/types/mongo/activationPreset';
 import {AnnouncementClientMap} from '@/types/mongo/announcement';
 import {DocsData, DocsDataEditable, DocsDataEditableFetched} from '@/types/mongo/docs';
+import {PacketRecordingSettings} from '@/types/packet/settings';
 import {UserCookingPreset} from '@/types/userData/cooking';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {UserSettingsBundle} from '@/types/userData/settings';
@@ -61,6 +62,9 @@ export type UserDataUploadOpts = {
 } | {
   type: 'admin.announcements',
   data: AnnouncementClientMap,
+} | {
+  type: 'admin.packets',
+  data: PacketRecordingSettings,
 } | {
   type: 'cms.docs.create',
   data: DocsDataEditable,

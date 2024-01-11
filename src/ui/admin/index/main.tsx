@@ -21,6 +21,9 @@ export const SiteAdminIndex = async ({params}: DefaultPageProps) => {
         <FlexLink href="/admin/announcement" center className="button-clickable-glow h-28">
           Announcements
         </FlexLink>
+        <FlexLink href="/admin/packet" center className="button-clickable-glow h-28">
+          Packet Recording Settings
+        </FlexLink>
       </Grid>
     </AdminOnlyPageLayout>
   );
