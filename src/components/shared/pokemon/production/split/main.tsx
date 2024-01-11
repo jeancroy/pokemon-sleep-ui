@@ -4,13 +4,14 @@ import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
+import {ProgressBarMulti} from '@/components/progressBar/multi/main';
 import {GenericBerryIcon} from '@/components/shared/icon/berry';
 import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {GenericMainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/generic';
-import {PokemonProductionSplitInfo} from '@/components/shared/pokemon/production/split/info';
 import {PokemonProductionSplitCommonProps} from '@/components/shared/pokemon/production/split/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {ProduceType} from '@/types/game/producing/common';
+import {formatInt} from '@/utils/number/format';
 
 
 type Props = PokemonProductionSplitCommonProps & {[type in ProduceType]: number};
@@ -24,34 +25,48 @@ export const PokemonProductionSplit = ({
 }: Props) => {
   const t = useTranslations('UI.InPage.Pokedex.Info');
 
-  const total = (berry + ingredient + skill);
-  const berrySplit = berry / total * 100;
-  const ingredientSplit = ingredient / total * 100;
-  const mainSkillSplit = skill / total * 100;
-
   return (
     <Flex center className={clsx('gap-1', className)}>
-      <Flex direction="row" center className="justify-between text-xs">
-        <PokemonProductionSplitInfo
-          isHighlight={specialty === specialtyIdMap.berry}
-          icon={<GenericBerryIcon alt={t('Berry')} dimension="h-4 w-4"/>}
-          percent={berrySplit}
-        />
-        <PokemonProductionSplitInfo
-          isHighlight={specialty === specialtyIdMap.ingredient}
-          icon={<GenericIngredientIcon alt={t('Ingredient')} dimension="h-4 w-4"/>}
-          percent={ingredientSplit}
-        />
-        <PokemonProductionSplitInfo
-          isHighlight={specialty === specialtyIdMap.skill}
-          icon={<GenericMainSkillIcon alt={t('MainSkill')} dimension="h-4 w-4"/>}
-          percent={mainSkillSplit}
-        />
-      </Flex>
-      <Flex direction="row" className="transform-smooth h-2 justify-between rounded-full bg-yellow-500">
-        <div className="transform-smooth h-2 rounded-l-lg bg-green-500" style={{width: `${berrySplit}%`}}/>
-        <div className="transform-smooth h-2 rounded-r-lg bg-sky-500" style={{width: `${mainSkillSplit}%`}}/>
-      </Flex>
+      <ProgressBarMulti
+        data={[
+          {
+            value: berry,
+            data: {
+              isHighlight: specialty === specialtyIdMap.berry,
+              icon: <GenericBerryIcon alt={t('Berry')} dimension="h-4 w-4"/>,
+            },
+          },
+          {
+            value: ingredient,
+            data: {
+              isHighlight: specialty === specialtyIdMap.ingredient,
+              icon: <GenericIngredientIcon alt={t('Ingredient')} dimension="h-4 w-4"/>,
+            },
+          },
+          {
+            value: skill,
+            data: {
+              isHighlight: specialty === specialtyIdMap.skill,
+              icon: <GenericMainSkillIcon alt={t('MainSkill')} dimension="h-4 w-4"/>,
+            },
+          },
+        ]}
+        classColors={[
+          'bg-green-500',
+          'bg-yellow-500',
+          'bg-sky-500',
+        ]}
+        summaryWrap={false}
+        renderSummary={({data, percent}) => (
+          <Flex direction="row" noFullWidth center className={clsx(
+            'gap-0.5 rounded-lg p-0.5 pr-1',
+            data.isHighlight && 'info-highlight',
+          )}>
+            {data.icon}
+            <span className="text-xs">{formatInt(percent)}%</span>
+          </Flex>
+        )}
+      />
     </Flex>
   );
 };

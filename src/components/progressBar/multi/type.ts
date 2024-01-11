@@ -1,7 +1,9 @@
-import React from 'react';
-
-
-export type ProgressBarMultiData = {
+export type ProgressBarMultiData<TData> = {
   value: number,
-  icon: React.ReactNode,
+  data: TData,
+};
+
+export type ProgressBarMultiRenderSummaryOpts<TData> = {
+  data: TData,
+  percent: number,
 };

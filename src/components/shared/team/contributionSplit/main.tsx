@@ -2,10 +2,11 @@ import React from 'react';
 
 import {useTranslations} from 'next-intl';
 
+import {Flex} from '@/components/layout/flex/common';
 import {ProgressBarMulti} from '@/components/progressBar/multi/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {TeamContributionData} from '@/components/shared/team/contributionSplit/type';
-import {isNotNullish} from '@/utils/type';
+import {formatFloat1} from '@/utils/number/format';
 
 
 type Props = {
@@ -17,22 +18,24 @@ export const TeamContributionSplitIndicator = ({data}: Props) => {
 
   return (
     <ProgressBarMulti
-      data={data.map(({pokemonId, production}) => {
-        return {
-          value: production,
-          icon: (
-            <div className="relative h-6 w-6">
-              <PokemonImage
-                pokemonId={pokemonId}
-                image={{type: 'default', image: 'icon'}}
-                isShiny={false}
-                className="relative h-6 w-6 rounded-full"
-                alt={t(pokemonId.toString())}
-              />
-            </div>
-          ),
-        };
-      }).filter(isNotNullish)}
+      data={data.map((entry) => ({
+        value: entry.production,
+        data: entry,
+      }))}
+      renderSummary={({percent, data}) => (
+        <Flex direction="row" noFullWidth center className="gap-1.5">
+          <div className="relative h-6 w-6">
+            <PokemonImage
+              pokemonId={data.pokemonId}
+              image={{type: 'default', image: 'icon'}}
+              isShiny={false}
+              className="relative h-6 w-6 rounded-full"
+              alt={t(data.pokemonId.toString())}
+            />
+          </div>
+          <span className="text-sm">{formatFloat1(percent)}%</span>
+        </Flex>
+      )}
     />
   );
 };
