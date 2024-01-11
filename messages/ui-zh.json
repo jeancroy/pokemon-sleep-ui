@@ -8,6 +8,9 @@
       "Premium": "付費功能 (Premium) 使用權"
     }
   },
+  "Root": {
+    "Help": "幫助文件"
+  },
   "Auth": {
     "EmailSent": "已發送登入用電子信件。"
   },

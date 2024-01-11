@@ -8,6 +8,9 @@
       "Premium": "Premium Feature Access"
     }
   },
+  "Root": {
+    "Help": "Help / Documentations"
+  },
   "Auth": {
     "EmailSent": "Email for login has been sent."
   },

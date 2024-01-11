@@ -2,9 +2,11 @@
 import React from 'react';
 
 import QuestionMarkCircleIcon from '@heroicons/react/24/solid/QuestionMarkCircleIcon';
+import {useTranslations} from 'next-intl';
 
 import {usePathname} from '@/components/i18n/exports';
 import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQuick';
+import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
 import {DocsAutoLinkPopup} from '@/components/shared/docs/autoLink/popup';
@@ -22,6 +24,8 @@ export const DocsAutoLinkClient = ({locale}: Props) => {
   const [metaList, setMetaList] = React.useState<DocsMetadata[]>([]);
   const [show, setShow] = React.useState(false);
 
+  const t = useTranslations('UI.Root');
+
   React.useEffect(() => {
     // `.slice(1)` because `related` of `DocsData` do not store heading slash (/),
     // but `usePathname()` always return the path starting with slash.
@@ -37,9 +41,10 @@ export const DocsAutoLinkClient = ({locale}: Props) => {
         <DocsAutoLinkPopup metaList={metaList}/>
       </PopupCommon>
       <Flex className="items-end">
-        <button className="button-clickable-bg w-fit !rounded-full p-1" onClick={() => setShow(true)}>
-          <QuestionMarkCircleIcon className="h-6 w-6"/>
-        </button>
+        <FlexButton className="button-clickable-bg gap-1 !rounded-full p-1 px-2" onClick={() => setShow(true)}>
+          <QuestionMarkCircleIcon className="h-6 w-6 shrink-0"/>
+          <span>{t('Help')}</span>
+        </FlexButton>
       </Flex>
     </AnimatedCollapseQuick>
   );

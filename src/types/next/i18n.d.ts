@@ -24,6 +24,9 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         Premium: string,
       },
     },
+    Root: {
+      Help: string,
+    },
     Auth: {
       EmailSent: string,
     },

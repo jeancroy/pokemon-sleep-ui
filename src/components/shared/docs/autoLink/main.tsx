@@ -11,7 +11,7 @@ type Props = {
 
 export const DocsAutoLink = ({locale}: Props) => {
   return (
-    <I18nProvider locale={locale} namespaces={[]}>
+    <I18nProvider locale={locale} namespaces={['UI.Root']}>
       <DocsAutoLinkClient locale={locale}/>
     </I18nProvider>
   );
