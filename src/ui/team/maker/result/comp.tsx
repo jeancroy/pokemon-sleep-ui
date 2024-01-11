@@ -10,7 +10,9 @@ import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MealCoverageDetails} from '@/components/shared/meal/coverage/details/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
 import {PokemonProductionSplit} from '@/components/shared/pokemon/production/split/main';
+import {TeamContributionSplitIndicator} from '@/components/shared/team/contributionSplit/main';
 import {TeamMakerResultButton} from '@/ui/team/maker/result/button/main';
+import {teamMakerUnitStrengthAtState} from '@/ui/team/maker/result/const';
 import {TeamMakerCompControl} from '@/ui/team/maker/result/control';
 import {TeamMakerIngredientStatsUI} from '@/ui/team/maker/result/ingredient';
 import {TeamMakerSnorlaxRankFinalEstimate} from '@/ui/team/maker/result/snorlaxRank';
@@ -18,6 +20,7 @@ import {TeamMakerResultCommonProps} from '@/ui/team/maker/result/type';
 import {TeamMakerResultUnit} from '@/ui/team/maker/result/unit';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerResultComp} from '@/ui/team/maker/type/result';
+import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
 import {formatFloat} from '@/utils/number/format';
 
 
@@ -51,6 +54,15 @@ export const TeamMakerResultCompUi = ({comp, ...props}: Props) => {
             />
           ))}
         </Grid>
+        <TeamContributionSplitIndicator
+          data={rates.rates.map(({payload, atStage}) => ({
+            pokemonId: payload.pokeInBox.pokemon,
+            production: getTotalOfPokemonProducingRate({
+              rate: atStage.final,
+              state: teamMakerUnitStrengthAtState,
+            }).energy,
+          }))}
+        />
         <PokemonGroupedProduction grouped={rates.grouped}/>
         <TeamMakerIngredientStatsUI ingredientStats={ingredientStats}/>
         <Flex className="items-center gap-1 md:flex-row">

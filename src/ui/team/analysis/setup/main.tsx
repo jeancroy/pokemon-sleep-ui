@@ -10,8 +10,10 @@ import {MealCoverageTargetComboCollapsible} from '@/components/shared/meal/cover
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
+import {TeamContributionSplitIndicator} from '@/components/shared/team/contributionSplit/main';
 import {useUserSettingsBundle} from '@/hooks/userData/bundle';
 import {useCookingUserSettings} from '@/hooks/userData/cookingSettings';
+import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {UserSettingsBundle} from '@/types/userData/settings';
 import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook/main';
 import {TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control';
@@ -19,7 +21,7 @@ import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';
 import {TeamAnalysisTeamView} from '@/ui/team/analysis/setup/team/main';
 import {TeamAnalysisFilledProps} from '@/ui/team/analysis/setup/team/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
-import {DeepPartial} from '@/utils/type';
+import {DeepPartial, isNotNullish} from '@/utils/type';
 
 
 type Props = TeamAnalysisDataProps & Omit<TeamAnalysisFilledProps, 'showPokemon' | 'bundle' | 'cookingSettings'> & {
@@ -62,6 +64,20 @@ export const TeamAnalysisSetupView = (props: Props) => {
         bundle={bundle}
         cookingSettings={cookingSettings}
         {...props}
+      />
+      <TeamContributionSplitIndicator
+        data={teamAnalysisSlotName.map((slotName) => {
+          const pokemonId = currentTeam.members[slotName]?.pokemonId;
+
+          if (!pokemonId) {
+            return null;
+          }
+
+          return {
+            pokemonId,
+            production: statsOfTeam.bySlot[slotName]?.total.energy ?? 0,
+          };
+        }).filter(isNotNullish)}
       />
       <TeamAnalysisSetupControl
         setup={setup}
