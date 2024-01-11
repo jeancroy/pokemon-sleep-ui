@@ -26,9 +26,15 @@ export const PokemonGallery = ({
 
   const imageOptions: PokemonImageType[] = React.useMemo(() => [
     'portrait',
-    ...getAvailableSleepStylesFromNormal(sleepStyles),
-    ...getAvailableSleepStylesFromSpecial(sleepStylesSpecial),
-  ], [sleepStyles]);
+    ...getAvailableSleepStylesFromNormal({
+      sleepStyles,
+      extractor: ({i18nKey}) => i18nKey,
+    }),
+    ...getAvailableSleepStylesFromSpecial({
+      sleepStyles: sleepStylesSpecial,
+      extractor: ({i18nKey}) => i18nKey,
+    }),
+  ], [sleepStyles, sleepStylesSpecial]);
   const [isShiny, setShiny] = React.useState(false);
   const [currentImage, setCurrentImage] = React.useState<PokemonImageType>('portrait');
 

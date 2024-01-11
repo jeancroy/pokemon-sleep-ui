@@ -58,8 +58,14 @@ export const SleepdexRecordClient = (props: SleepdexRecordDataProps) => {
           showPokemon={showPokemon}
           pokemonListToShow={pokemonListOfSleepType[sleepType]}
           getSleepStylesFromPokemon={(pokemon) => toUnique([
-            ...getAvailableSleepStylesFromNormal(sleepStyleMap[pokemon.id]),
-            ...getAvailableSleepStylesFromSpecial(sleepStyleSpecialMap[pokemon.id]),
+            ...getAvailableSleepStylesFromNormal({
+              sleepStyles: sleepStyleMap[pokemon.id],
+              extractor: ({style}) => style,
+            }),
+            ...getAvailableSleepStylesFromSpecial({
+              sleepStyles: sleepStyleSpecialMap[pokemon.id],
+              extractor: ({style}) => style,
+            }),
           ])}
           sleepStyleDependencies={[sleepStyleMap]}
         />

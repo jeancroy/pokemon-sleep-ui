@@ -19,11 +19,14 @@ export type SleepStyleSpoRequirement = {
   snorlaxRankMinimum: SnorlaxRank | null,
 };
 
+export type SleepStyleNameI18nKey = string;
+
 export type SleepStyleCommon = {
   style: SleepStyleId,
   spo: number,
   rarity: number,
   rewards: SleepReward,
+  i18nKey: SleepStyleNameI18nKey,
 };
 
 export type SleepStyle = SleepStyleCommon & {

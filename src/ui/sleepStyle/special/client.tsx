@@ -64,7 +64,10 @@ export const SleepStyleSpecialClient = ({
         showPokemon={showPokemon}
         pokemonListToShow={[...pokemonIdWithIncenseOnly].map((pokemonId) => pokedex[pokemonId]).filter(isNotNullish)}
         getSleepStylesFromPokemon={(pokemon) => (
-          getAvailableSleepStylesFromSpecial(sleepStyleSpecialMap[pokemon.id])
+          getAvailableSleepStylesFromSpecial({
+            sleepStyles: sleepStyleSpecialMap[pokemon.id],
+            extractor: ({style}) => style,
+          })
         )}
         sleepStyleDependencies={[sleepStyleSpecialMap]}
       />
@@ -80,7 +83,10 @@ export const SleepStyleSpecialClient = ({
         showPokemon={showPokemon}
         pokemonListToShow={[...pokemonIdWithUnreleased].map((pokemonId) => pokedex[pokemonId]).filter(isNotNullish)}
         getSleepStylesFromPokemon={(pokemon) => (
-          getAvailableSleepStylesFromSpecial(sleepStyleSpecialMap[pokemon.id])
+          getAvailableSleepStylesFromSpecial({
+            sleepStyles: sleepStyleSpecialMap[pokemon.id],
+            extractor: ({style}) => style,
+          })
         )}
         sleepStyleDependencies={[sleepStyleSpecialMap]}
         hideButtons

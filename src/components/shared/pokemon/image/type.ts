@@ -1,4 +1,4 @@
-import {SleepStyleId} from '@/types/game/sleepStyle';
+import {SleepStyleNameI18nKey} from '@/types/game/sleepStyle';
 
 
-export type PokemonImageType = SleepStyleId | 'portrait' | 'icon';
+export type PokemonImageType = SleepStyleNameI18nKey | 'portrait' | 'icon';

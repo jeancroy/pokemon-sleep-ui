@@ -1,6 +1,7 @@
 import {PokemonId} from '@/types/game/pokemon';
 import {SleepdexMap, SleepdexStyleId} from '@/types/game/sleepdex';
 import {
+  SleepStyleCommon,
   SleepStyleId,
   SleepStyleNormal,
   SleepStyleNormalMap,
@@ -8,7 +9,7 @@ import {
   SleepStyleSpecialMap,
 } from '@/types/game/sleepStyle';
 import {toUnique} from '@/utils/array';
-import {isNotNullish} from '@/utils/type';
+import {isNotNullish, Nullable} from '@/utils/type';
 
 
 type ToSleepdexByMapIdOpts = {
@@ -31,20 +32,31 @@ export const isInSleepdex = ({pokemonId, styleId, sleepdex}: IsInSleepdexOpts) =
   return sleepdex[sleepdexId];
 };
 
-export const getAvailableSleepStylesFromNormal = (sleepStyles: SleepStyleNormal[] | undefined): SleepStyleId[] => {
-  if (!sleepStyles) {
-    return [];
-  }
-
-  return toUnique(sleepStyles.flatMap(({styles}) => styles.map(({style}) => style)));
+type GetAvailableSleepStylesOpts<TData, TReturn> = {
+  sleepStyles: Nullable<TData[]>,
+  extractor: (sleepStyle: SleepStyleCommon) => TReturn,
 };
 
-export const getAvailableSleepStylesFromSpecial = (sleepStyles: SleepStyleSpecial[] | undefined): SleepStyleId[] => {
+export const getAvailableSleepStylesFromNormal = <TReturn>({
+  sleepStyles,
+  extractor,
+}: GetAvailableSleepStylesOpts<SleepStyleNormal, TReturn>): TReturn[] => {
   if (!sleepStyles) {
     return [];
   }
 
-  return toUnique(sleepStyles.map(({style}) => style));
+  return toUnique(sleepStyles.flatMap(({styles}) => styles.map(extractor)));
+};
+
+export const getAvailableSleepStylesFromSpecial = <TReturn>({
+  sleepStyles,
+  extractor,
+}: GetAvailableSleepStylesOpts<SleepStyleSpecial, TReturn>): TReturn[] => {
+  if (!sleepStyles) {
+    return [];
+  }
+
+  return toUnique(sleepStyles.map(extractor));
 };
 
 type GetAllPossibleSleepStylesOpts = {
