@@ -400,6 +400,7 @@
       }
     },
     "PokemonExp": {
+      "OtherPokemon": "其他",
       "ExpToNext": "距離下一等級",
       "OwnedCandies": "擁有糖果",
       "NormalCandy": "一般糖果",

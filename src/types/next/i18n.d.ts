@@ -298,6 +298,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         },
       },
       PokemonExp: {
+        OtherPokemon: string,
         ExpToNext: string,
         OwnedCandies: string,
         NormalCandy: string,

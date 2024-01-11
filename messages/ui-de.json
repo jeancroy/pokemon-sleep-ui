@@ -400,6 +400,7 @@
       }
     },
     "PokemonExp": {
+      "OtherPokemon": "Anderes",
       "ExpToNext": "EP bis zum nächsten Level",
       "OwnedCandies": "Eigene Bonbons",
       "NormalCandy": "Pokemon Bonbon",

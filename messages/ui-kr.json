@@ -400,6 +400,7 @@
       }
     },
     "PokemonExp": {
+      "OtherPokemon": "기타",
       "ExpToNext": "다음 레벨까지",
       "OwnedCandies": "소유한 사탕",
       "NormalCandy": "사탕",

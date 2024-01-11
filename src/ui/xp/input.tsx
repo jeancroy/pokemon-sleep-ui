@@ -7,7 +7,6 @@ import {InputBox} from '@/components/input/box';
 import {InputRowWithTitle} from '@/components/input/filter/rowWithTitle';
 import {Flex} from '@/components/layout/flex/common';
 import {NumberSliderRequired} from '@/components/shared/input/number/required/withSlider';
-import {PokemonClickableIconImage} from '@/components/shared/pokemon/icon/clickable/image';
 import {PokemonClickableIcons} from '@/components/shared/pokemon/icon/clickable/main';
 import {PokemonLevelSlider} from '@/components/shared/pokemon/level/slider';
 import {PokemonNatureSelector} from '@/components/shared/pokemon/nature/selector/main';
@@ -57,7 +56,7 @@ export const PokemonExpCalculatorInputUI = ({
             ...original,
             pokemon: null,
           }))}>
-            <PokemonClickableIconImage pokemon={null} dimension="h-14 w-14"/>
+            <Flex center noFullWidth className="h-14 w-14">{t('OtherPokemon')}</Flex>
           </button>
         )}
       </PokemonClickableIcons>
