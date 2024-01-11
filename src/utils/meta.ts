@@ -35,15 +35,6 @@ export const generatePageMeta = ({key, values}: GeneratePageMetaOpts): GenerateM
       title: siteName,
       statusBarStyle: 'default',
     },
-    openGraph: {
-      type: 'website',
-      siteName: siteName,
-      title: {
-        default: siteName,
-        template: siteNameTemplate,
-      },
-      description: siteDescription,
-    },
     twitter: {
       card: 'summary',
       title: {
