@@ -461,6 +461,11 @@
       "Percentile": "パーセンタイル (PR)",
       "Percentage": "パーセンテージ",
       "RelativeStrength": "相対力"
+    },
+    "Category": {
+      "Title": "Comparing...",
+      "CrossSpecies": "Cross-Species (Same Subskill/Nature)",
+      "IntraSpecies": "Intra-Species"
     }
   },
   "SleepStyle": {

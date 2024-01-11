@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Cog6ToothIcon from '@heroicons/react/24/solid/Cog6ToothIcon';
+import {Session} from 'next-auth';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
@@ -21,11 +22,13 @@ import {Nullable} from '@/utils/type';
 
 
 type Props = RatingResultProps & {
+  session: Nullable<Session>,
   preloadedConfig: Nullable<RatingConfig>,
 };
 
 const RatingResultLoadedInternal = ({
   pokemonMaxLevel,
+  session,
   preloadedConfig,
   ...props
 }: Props, ref: React.ForwardedRef<HTMLDivElement>) => {
@@ -74,7 +77,7 @@ const RatingResultLoadedInternal = ({
           <Cog6ToothIcon/>
         </button>
       </Flex>
-      <RatingResultInput config={config} setConfig={setConfig}/>
+      <RatingResultInput session={session} config={config} setConfig={setConfig}/>
       <RatingResultSummary
         rating={weightedRating}
         basis={basis}

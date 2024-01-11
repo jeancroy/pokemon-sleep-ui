@@ -1,7 +1,7 @@
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {PokemonSpecialtyId} from '@/types/game/pokemon';
 import {RatingBasis, RatingConfig, RatingWeight, RatingWeightedStatsBasis} from '@/types/game/pokemon/rating/config';
-import {RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
+import {RatingResultCategory, RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
 import {SpecialtyType} from '@/types/game/pokemon/specialty';
 import {I18nMessageKeysOfNamespace} from '@/types/i18n';
 import {ratingConfigMigrators} from '@/utils/migrate/ratingConfig/migrators';
@@ -51,11 +51,18 @@ export const ratingBasisI18nId: {
 };
 
 export const ratingWeightedStatsBasisI18nId: {
-  [basis in RatingWeightedStatsBasis]: I18nMessageKeysOfNamespace<'UI.Rating.WeightedStatsBasis'>
+  [basis in RatingWeightedStatsBasis]: I18nMessageKeysOfNamespace<'UI.Rating'>
 } = {
-  percentage: 'Percentage',
-  percentile: 'Percentile',
-  relativeStrength: 'RelativeStrength',
+  percentage: 'WeightedStatsBasis.Percentage',
+  percentile: 'WeightedStatsBasis.Percentile',
+  relativeStrength: 'WeightedStatsBasis.RelativeStrength',
+};
+
+export const ratingResultCategoryI18nId: {
+  [category in RatingResultCategory]: I18nMessageKeysOfNamespace<'UI.Rating'>
+} = {
+  cross: 'Category.CrossSpecies',
+  intra: 'Category.IntraSpecies',
 };
 
 export const defaultRatingBasisOfSpecialty: {[specialty in SpecialtyType]: RatingBasis} = {

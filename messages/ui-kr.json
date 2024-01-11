@@ -461,6 +461,11 @@
       "Percentile": "백분위수",
       "Percentage": "백분율",
       "RelativeStrength": "상대강도"
+    },
+    "Category": {
+      "Title": "Comparing...",
+      "CrossSpecies": "Cross-Species (Same Subskill/Nature)",
+      "IntraSpecies": "Intra-Species"
     }
   },
   "SleepStyle": {

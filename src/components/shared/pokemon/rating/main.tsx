@@ -15,12 +15,13 @@ const RatingResultInternal = (props: RatingResultProps, ref: React.ForwardedRef<
       <UserDataLazyLoad
         options={{type: 'ratingConfig'}}
         loadingText="Rating"
-        content={({data}) => {
+        content={({data, session}) => {
           const config = data === null ? null : data.ratingConfig;
 
           return (
             <RatingResultLoaded
               ref={ref}
+              session={session.data}
               preloadedConfig={config}
               {...props}
             />

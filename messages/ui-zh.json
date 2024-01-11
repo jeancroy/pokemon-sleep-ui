@@ -461,6 +461,11 @@
       "Percentile": "百分位數",
       "Percentage": "百分比",
       "RelativeStrength": "相對強度"
+    },
+    "Category": {
+      "Title": "比較對象",
+      "CrossSpecies": "跨種族 (相同副技能/個性)",
+      "IntraSpecies": "同種族"
     }
   },
   "SleepStyle": {

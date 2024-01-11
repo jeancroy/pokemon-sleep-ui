@@ -461,6 +461,11 @@
       "Percentile": "Perzentil",
       "Percentage": "Prozentwert",
       "RelativeStrength": "Relative Stärke"
+    },
+    "Category": {
+      "Title": "Comparing...",
+      "CrossSpecies": "Cross-Species (Same Subskill/Nature)",
+      "IntraSpecies": "Intra-Species"
     }
   },
   "SleepStyle": {

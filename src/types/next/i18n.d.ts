@@ -360,6 +360,11 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         Percentage: string,
         RelativeStrength: string,
       },
+      Category: {
+        Title: string,
+        CrossSpecies: string,
+        IntraSpecies: string,
+      },
     },
     SleepStyle: {
       DrowsyPowerRequirement: string,
