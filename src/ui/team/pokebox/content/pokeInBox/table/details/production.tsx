@@ -10,7 +10,7 @@ import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {specialtyIdMap} from '@/const/game/pokemon';
-import {stateOfRateToShow} from '@/ui/team/pokebox/content/pokeInBox/const';
+import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxTableDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/table/details/type';
 import {PokeboxDisplayType} from '@/ui/team/pokebox/viewer/type';
 import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
@@ -41,11 +41,11 @@ export const PokeInBoxTableProduction = ({
         )}>
           <PokemonBerryIcon id={pokemon.berry.id}/>
           <div>
-            x{formatFloat(berry.quantity[stateOfRateToShow])}
+            x{formatFloat(berry.quantity[pokeInBoxStateOfRate])}
           </div>
           <ColoredEnergyIcon alt={t('Stats.Energy.Name')}/>
           <div>
-            {formatFloat(berry.energy[stateOfRateToShow])}
+            {formatFloat(berry.energy[pokeInBoxStateOfRate])}
           </div>
         </Flex>
       }
@@ -63,11 +63,11 @@ export const PokeInBoxTableProduction = ({
             <Flex key={id} direction="row" noFullWidth className="items-center gap-0.5">
               <PokemonIngredientIcon id={id} dimension="h-3.5 w-3.5"/>
               <div>
-                x{formatFloat(quantity[stateOfRateToShow])}
+                x{formatFloat(quantity[pokeInBoxStateOfRate])}
               </div>
               <ColoredEnergyIcon alt={t('Stats.Energy.Name')} dimension="h-3 w-3"/>
               <div>
-                {formatFloat(energy[stateOfRateToShow])}
+                {formatFloat(energy[pokeInBoxStateOfRate])}
               </div>
             </Flex>
           ))}
@@ -89,7 +89,7 @@ export const PokeInBoxTableProduction = ({
       <Flex noFullWidth className="w-40">
         <PokemonProductionSplitFromPokemonRate
           rate={rateOfPokemon}
-          state={stateOfRateToShow}
+          state={pokeInBoxStateOfRate}
           specialty={pokemon.specialty}
         />
       </Flex>

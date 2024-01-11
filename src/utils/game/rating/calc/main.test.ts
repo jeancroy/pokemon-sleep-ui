@@ -9,16 +9,17 @@ import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testIngredientProductionAtLevels} from '@/tests/data/game/ingredient/productionAtLevel';
 import {testMainSkillMap} from '@/tests/data/game/mainSkill';
 import {testMealData} from '@/tests/data/game/meal';
-import {testPokemonData} from '@/tests/data/game/pokemon';
+import {testPokemonData, testPokemonList} from '@/tests/data/game/pokemon';
 import {testSubSkillMap} from '@/tests/data/game/subSkill';
 import {calculateRatingResultOfLevel} from '@/utils/game/rating/calc/main';
 
 
 describe('Rating / Calculate', () => {
   it('factors in carry limit if the evolution count is changed', async () => {
-    const result = await calculateRatingResultOfLevel({
+    const {result} = await calculateRatingResultOfLevel({
       level: 30,
       pokemon: testPokemonData.absol,
+      pokemonList: testPokemonList,
       seeds: defaultSeedUsage,
       evolutionCount: 1,
       ingredients: testIngredientProductionAtLevels['1'],
@@ -42,13 +43,14 @@ describe('Rating / Calculate', () => {
       useNestedWorker: false,
     });
 
-    expect(result?.baseDiffPercent).not.toBe(0);
+    expect(result.intra.baseDiffPercent).not.toBe(0);
   });
 
   it('factors in carry limit when the level activates subskill bonus', async () => {
-    const result = await calculateRatingResultOfLevel({
+    const {result} = await calculateRatingResultOfLevel({
       level: 30,
       pokemon: testPokemonData.absol,
+      pokemonList: testPokemonList,
       seeds: defaultSeedUsage,
       evolutionCount: 0,
       ingredients: testIngredientProductionAtLevels['1'],
@@ -72,13 +74,14 @@ describe('Rating / Calculate', () => {
       useNestedWorker: false,
     });
 
-    expect(result?.baseDiffPercent).not.toBe(0);
+    expect(result.intra.baseDiffPercent).not.toBe(0);
   });
 
   it('factors in carry limit when the level has not activated subskill bonus', async () => {
-    const result = await calculateRatingResultOfLevel({
+    const {result} = await calculateRatingResultOfLevel({
       level: 15,
       pokemon: testPokemonData.absol,
+      pokemonList: testPokemonList,
       seeds: defaultSeedUsage,
       evolutionCount: 0,
       ingredients: testIngredientProductionAtLevels['1'],
@@ -102,6 +105,6 @@ describe('Rating / Calculate', () => {
       useNestedWorker: false,
     });
 
-    expect(result?.baseDiffPercent).toBe(0);
+    expect(result.intra.baseDiffPercent).toBe(0);
   });
 });

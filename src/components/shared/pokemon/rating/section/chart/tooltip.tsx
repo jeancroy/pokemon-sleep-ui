@@ -8,13 +8,15 @@ import {RatingResultMap} from '@/components/shared/pokemon/rating/type';
 import {RankingResultPercentile} from '@/components/shared/pokemon/rating/units/percentile';
 import {RatingRelativeStrength} from '@/components/shared/pokemon/rating/units/relativeStrength';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
+import {RatingConfig} from '@/types/game/pokemon/rating/config';
 
 
 type Props = TooltipProps<number, number> & {
   resultMap: RatingResultMap,
+  config: RatingConfig,
 };
 
-export const RatingResultChartTooltip = ({active, payload, label, resultMap}: Props) => {
+export const RatingResultChartTooltip = ({active, payload, label, resultMap, config}: Props) => {
   const level = label as PokemonKeyLevel;
   const result = resultMap[level];
 
@@ -28,7 +30,8 @@ export const RatingResultChartTooltip = ({active, payload, label, resultMap}: Pr
     return null;
   }
 
-  const {percentile, baseDiffPercent} = result;
+  const {category} = config;
+  const {percentile, baseDiffPercent} = result.result[category];
 
   return (
     <Flex direction="row" noFullWidth className="info-section items-center gap-2">

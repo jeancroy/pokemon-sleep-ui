@@ -14,6 +14,7 @@ type UseRatingWorkerOpts = {
 export const useRatingWorker = ({setLoading, onRated, opts}: UseRatingWorkerOpts): RatingWorkerHookReturn => {
   const {
     level,
+    pokemonList,
     pokemonProducingParams,
     ingredientChainMap,
     ingredientMap,
@@ -38,6 +39,7 @@ export const useRatingWorker = ({setLoading, onRated, opts}: UseRatingWorkerOpts
     work({
       level,
       pokemon: setupData.pokemon,
+      pokemonList,
       pokemonProducingParams,
       ingredients: setupData.ingredients,
       snorlaxFavorite: setupData.snorlaxFavorite,

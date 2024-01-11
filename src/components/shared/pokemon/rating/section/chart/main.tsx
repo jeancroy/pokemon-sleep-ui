@@ -12,22 +12,19 @@ import {
 import {RatingResultLabel} from '@/components/shared/pokemon/rating/section/chart/label';
 import {RatingResultChartTooltip} from '@/components/shared/pokemon/rating/section/chart/tooltip';
 import {RatingResultChartDataPoint} from '@/components/shared/pokemon/rating/section/chart/type';
-import {RatingResultMap} from '@/components/shared/pokemon/rating/type';
+import {RatingSummaryCommonProps} from '@/components/shared/pokemon/rating/type';
 import {useLayout} from '@/hooks/layout/main';
-import {PokemonKeyLevel} from '@/types/game/pokemon/level';
-import {RatingWeightedStatsBasis} from '@/types/game/pokemon/rating/config';
 import {getRatingWeightedStatsFromResult} from '@/utils/game/rating/result/weighted';
 import {generateNumberTicks} from '@/utils/number/generator';
 import {isNotNullish} from '@/utils/type';
 
 
-type Props = {
-  activeKeyLevels: PokemonKeyLevel[],
-  resultMap: RatingResultMap,
-  basis: RatingWeightedStatsBasis,
-};
-
-export const RatingResultChart = ({activeKeyLevels, resultMap, basis}: Props) => {
+export const RatingResultChart = ({
+  activeKeyLevels,
+  resultMap,
+  config,
+}: RatingSummaryCommonProps) => {
+  const {basis, category} = config;
   const {isLandscape} = useLayout();
 
   const maxLevel = Math.max(...activeKeyLevels);
@@ -41,7 +38,10 @@ export const RatingResultChart = ({activeKeyLevels, resultMap, basis}: Props) =>
 
       return {
         level,
-        value: getRatingWeightedStatsFromResult({resultOfLevel, basis}),
+        value: getRatingWeightedStatsFromResult({
+          resultOfCategory: resultOfLevel.result[category],
+          basis,
+        }),
       };
     })
     .filter(isNotNullish);
@@ -74,7 +74,7 @@ export const RatingResultChart = ({activeKeyLevels, resultMap, basis}: Props) =>
             style={ratingResultChartAxisStyle}
           />
           {basis === 'relativeStrength' && <ReferenceLine y={0} stroke="#db862c"/>}
-          <Tooltip content={<RatingResultChartTooltip resultMap={resultMap}/>}/>
+          <Tooltip content={<RatingResultChartTooltip resultMap={resultMap} config={config}/>}/>
           <Line
             type="linear"
             dataKey={({value}: RatingResultChartDataPoint) => value}

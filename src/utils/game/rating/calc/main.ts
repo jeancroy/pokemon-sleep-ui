@@ -1,142 +1,32 @@
-import {natureData} from '@/data/nature';
 import {RatingWorkerOpts} from '@/types/game/pokemon/rating/request';
-import {RatingDataPoint, RatingExtrema, RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
-import {isNestedWorkerSupported} from '@/utils/compatibility/nestedWorker';
-import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
-import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
-import {getRatingValueOfBase} from '@/utils/game/rating/base';
-import {calculateRatingValueFromPayload} from '@/utils/game/rating/calc/fromPayload';
-import {CalculateRatingDataWorkerOpts} from '@/utils/game/rating/calc/type';
-import {getRatingValueOfCurrent} from '@/utils/game/rating/current';
-import {isNotNullish} from '@/utils/type';
+import {RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
+import {calculateRatingResultOfCategory} from '@/utils/game/rating/calc/category';
+import {calculateRatingResultOfCrossSpecies} from '@/utils/game/rating/calc/promises/cross';
+import {calculateRatingResultOfIntraSpecies} from '@/utils/game/rating/calc/promises/intra';
 
 
-export const calculateRatingResultOfLevel = async (opts: RatingWorkerOpts): Promise<RatingResultOfLevel | null> => {
-  const {
-    basis,
-    level,
-    pokemon,
-    ingredients,
-    subSkill,
-    nature,
-    ingredientChainMap,
-    berryDataMap,
-    mainSkillMap,
-    subSkillMap,
-    useNestedWorker,
-  } = opts;
+export const calculateRatingResultOfLevel = async (opts: RatingWorkerOpts): Promise<RatingResultOfLevel> => {
+  const {level} = opts;
 
-  if (!pokemon) {
-    return null;
-  }
-
-  const {ingredientChain, berry, skill} = pokemon;
-
-  const chain = ingredientChainMap[ingredientChain];
-  const berryData = berryDataMap[berry.id];
-  const skillData = mainSkillMap[skill];
-
-  const currentProductions = getEffectiveIngredientProductions({level, ingredients});
-
-  const valueOfCurrent = getRatingValueOfCurrent({
-    ...opts,
-    berryData,
-    ingredients: currentProductions,
-    skillData,
-  });
-  const valueOfBase = getRatingValueOfBase({
-    ...opts,
-    berryData,
-    ingredients: currentProductions,
-    skillData,
-  });
-
-  const subSkillData = Object.values(subSkillMap).filter(isNotNullish);
-  const natureIds = natureData.map(({id}) => id);
-
-  let samples = 0;
-  let rank = 1;
-  let min: RatingExtrema | null = null;
-  let max: RatingExtrema | null = null;
-  const current: RatingExtrema = {
-    value: valueOfCurrent,
-    combinations: [{
-      ingredients: currentProductions,
-      subSkill,
-      nature,
-    }],
-  };
-
-  // `ingredientCount` should only get compared within the same combination
-  const ingredientProductions = basis == 'ingredientCount' ?
-    [getEffectiveIngredientProductions({level, ingredients})] :
-    generatePossibleIngredientProductions({level, chain});
-
-  const promises: Promise<RatingDataPoint[]>[] = [];
-  const runAsNestedWorker = useNestedWorker && level >= 50 && isNestedWorkerSupported();
-  for (const ingredients of ingredientProductions) {
-    const calcOpts: CalculateRatingDataWorkerOpts = {
+  const [
+    intra,
+    cross,
+  ] = await Promise.all([
+    calculateRatingResultOfCategory({
       ...opts,
-      berryData,
-      skillData,
-      ingredients,
-      subSkillData,
-      natureIds,
-    };
-
-    promises.push(new Promise<RatingDataPoint[]>((resolve) => {
-      // Only use worker when the level is >= 50,
-      // because the overhead of creating multiple workers is
-      // greater than the time needed of doing the calculation directly in here
-      if (runAsNestedWorker) {
-        const worker = new Worker(new URL('fromPayload.worker', import.meta.url));
-        worker.postMessage(calcOpts);
-        worker.onmessage = ({data}: MessageEvent<RatingDataPoint[]>) => {
-          resolve(data);
-          worker.terminate();
-        };
-      } else {
-        resolve(calculateRatingValueFromPayload(calcOpts));
-      }
-    }));
-  }
-
-  const dataPoints = (await Promise.all(promises)).flat();
-
-  for (const dataPoint of dataPoints) {
-    const {value, combination} = dataPoint;
-    samples++;
-
-    if (value > valueOfCurrent) {
-      rank++;
-    }
-
-    if (!min || value < min.value) {
-      min = {value, combinations: [combination]};
-    } else if (value === min.value) {
-      min.combinations.push(combination);
-    }
-
-    if (!max || value > max.value) {
-      max = {value, combinations: [combination]};
-    } else if (value === max.value) {
-      max.combinations.push(combination);
-    }
-
-    if (value === current.value) {
-      current.combinations.push(combination);
-    }
-  }
-
-  const isValid = min?.value !== max?.value;
+      getPromises: () => calculateRatingResultOfIntraSpecies(opts),
+    }),
+    calculateRatingResultOfCategory({
+      ...opts,
+      getPromises: ({currentCombination}) => calculateRatingResultOfCrossSpecies({
+        currentCombination,
+        ...opts,
+      }),
+    }),
+  ]);
 
   return {
     level,
-    samples,
-    rank: isValid ? rank : NaN,
-    percentage: isValid && min && max ? Math.abs((valueOfCurrent - min.value) / (max.value - min.value) * 100) : NaN,
-    percentile: isValid ? Math.abs((samples + 1 - rank) / (samples + 1) * 100) : NaN,
-    baseDiffPercent: (valueOfCurrent / valueOfBase - 1) * 100,
-    extrema: min && max && {min, current, max},
+    result: {intra, cross},
   };
 };

@@ -5,13 +5,13 @@ import {LoadingSvg} from '@/components/icons/loading';
 import {Flex} from '@/components/layout/flex/common';
 import {RatingDetailsButtonCompleted} from '@/components/shared/pokemon/rating/section/details/button/completed';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
-import {RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
+import {RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
 
 
 type Props = {
   level: PokemonKeyLevel,
   loading: boolean,
-  result: RatingResultOfLevel,
+  result: RatingResultOfCategoryAtLevel,
 };
 
 export const RatingDetailsButton = ({level, loading, result}: Props) => {

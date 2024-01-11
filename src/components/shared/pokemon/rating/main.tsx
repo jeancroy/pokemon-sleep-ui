@@ -6,7 +6,6 @@ import {Flex} from '@/components/layout/flex/common';
 import {RatingResultLoaded} from '@/components/shared/pokemon/rating/loaded';
 import {RatingResultProps} from '@/components/shared/pokemon/rating/type';
 import {UserDataLazyLoad} from '@/components/shared/userData/lazyLoad/main';
-import {defaultRatingConfig} from '@/const/game/rating';
 
 
 const RatingResultInternal = (props: RatingResultProps, ref: React.ForwardedRef<HTMLDivElement>) => {
@@ -22,7 +21,7 @@ const RatingResultInternal = (props: RatingResultProps, ref: React.ForwardedRef<
           return (
             <RatingResultLoaded
               ref={ref}
-              initialConfig={config ?? defaultRatingConfig}
+              preloadedConfig={config}
               {...props}
             />
           );

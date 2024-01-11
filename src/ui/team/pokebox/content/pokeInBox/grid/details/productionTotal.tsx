@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
-import {stateOfRateToShow} from '@/ui/team/pokebox/content/pokeInBox/const';
+import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
 import {getRateOfPokemon} from '@/ui/team/pokebox/content/pokeInBox/utils';
 import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
@@ -30,7 +30,7 @@ export const PokeInBoxGridProductionTotal = (props: PokeInBoxGridDetailsProps) =
       <Flex noFullWidth className="w-3/4">
         <PokemonProductionSplitFromPokemonRate
           rate={rate}
-          state={stateOfRateToShow}
+          state={pokeInBoxStateOfRate}
           specialty={pokemon.specialty}
         />
       </Flex>

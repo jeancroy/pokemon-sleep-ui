@@ -5,11 +5,11 @@ import {RankingResultPercentage} from '@/components/shared/pokemon/rating/units/
 import {RankingResultPercentile} from '@/components/shared/pokemon/rating/units/percentile';
 import {RatingResultRank} from '@/components/shared/pokemon/rating/units/rank';
 import {RatingRelativeStrength} from '@/components/shared/pokemon/rating/units/relativeStrength';
-import {RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
+import {RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
 
 
 type Props = {
-  result: RatingResultOfLevel,
+  result: RatingResultOfCategoryAtLevel,
 };
 
 export const RatingDetailsButtonCompleted = ({result}: Props) => {

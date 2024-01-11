@@ -67,3 +67,5 @@ export const testPokemonData: {[name in string]: PokemonInfo} = {
     eventType: defaultPokemonEventType,
   },
 };
+
+export const testPokemonList: PokemonInfo[] = Object.values(testPokemonData);

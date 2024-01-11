@@ -9,12 +9,14 @@ import {
 } from '@/utils/game/producing/params';
 import {getDefaultRatingBasis} from '@/utils/game/rating/utils';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
+import {isNotNullish} from '@/utils/type';
 import {toTranslatedSettings} from '@/utils/user/settings/translated';
 
 
 export const toRatingWorkerOpts = ({
   pokeInBox,
   pokemon,
+  pokedexMap,
   pokemonProducingParamsMap,
   berryDataMap,
   ingredientMap,
@@ -36,6 +38,7 @@ export const toRatingWorkerOpts = ({
   // Explicit to avoid passing unwanted property to worker
   return {
     pokemon,
+    pokemonList: Object.values(pokedexMap).filter(isNotNullish),
     pokemonProducingParams: getPokemonProducingParams({
       pokemonId: pokemon.id,
       pokemonProducingParamsMap,

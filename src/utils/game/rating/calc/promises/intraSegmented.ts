@@ -4,7 +4,9 @@ import {getRatingValueOfPossibility} from '@/utils/game/rating/possibility';
 import {generatePossiblePokemonSubSkills} from '@/utils/game/subSkill/generate';
 
 
-export const calculateRatingValueFromPayload = (opts: CalculateRatingDataWorkerOpts) => {
+export const calculateRatingValueIntraSpeciesSegmented = (
+  opts: CalculateRatingDataWorkerOpts,
+): RatingDataPoint[] => {
   const {
     level,
     friendshipLevel,

@@ -1,9 +1,10 @@
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {PokemonSpecialtyId} from '@/types/game/pokemon';
 import {RatingBasis, RatingConfig, RatingWeight, RatingWeightedStatsBasis} from '@/types/game/pokemon/rating/config';
-import {RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
+import {RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
 import {SpecialtyType} from '@/types/game/pokemon/specialty';
 import {I18nMessageKeysOfNamespace} from '@/types/i18n';
+import {ratingConfigMigrators} from '@/utils/migrate/ratingConfig/migrators';
 
 
 export const defaultRatingWeight: RatingWeight = {
@@ -18,11 +19,13 @@ export const defaultRatingWeight: RatingWeight = {
 };
 
 export const defaultRatingConfig: RatingConfig = {
+  version: ratingConfigMigrators.length,
   basis: 'percentile',
   weight: defaultRatingWeight,
+  category: 'intra',
 };
 
-export const initialRatingResult: Omit<RatingResultOfLevel, 'level'> = {
+export const initialRatingResultOfCategory: RatingResultOfCategoryAtLevel = {
   samples: NaN,
   rank: NaN,
   percentage: NaN,

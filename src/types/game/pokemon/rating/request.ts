@@ -29,6 +29,7 @@ export type RatingRequest = {
 export type RatingOpts = CookingUserSettingsRequiredData & {
   level: number,
   pokemon: PokemonInfo | undefined,
+  pokemonList: PokemonInfo[],
   pokemonProducingParams: PokemonProducingParams,
   ingredientChainMap: IngredientChainMap,
   ingredientMap: IngredientMap,

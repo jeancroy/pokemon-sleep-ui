@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {RatingPopupControl, RatingPopupControlState, RatingResultMap} from '@/components/shared/pokemon/rating/type';
-import {initialRatingResult} from '@/const/game/rating';
+import {generateInitialRatingResult} from '@/components/shared/pokemon/rating/utils';
 import {PokemonKeyLevel, pokemonKeyLevels} from '@/types/game/pokemon/level';
 import {RatingRequest} from '@/types/game/pokemon/rating/request';
 import {RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
@@ -45,7 +45,7 @@ export const useRatingResult = ({
   const generateEmptyRatingResultMap = React.useCallback((): RatingResultMap => {
     return Object.fromEntries(activeKeyLevels.map((level) => [
       level,
-      {level, ...initialRatingResult} satisfies ValueOf<RatingResultMap>,
+      generateInitialRatingResult(level) satisfies ValueOf<RatingResultMap>,
     ])) as RatingResultMap;
   }, [activeKeyLevels]);
 
@@ -64,7 +64,7 @@ export const useRatingResult = ({
     setResultMap((original) => ({
       ...original,
       [level]: result,
-    }));
+    } satisfies RatingResultMap));
   }, []);
 
   return {

@@ -19,8 +19,14 @@ export type RatingExtrema = {
   combinations: RatingCombination[],
 };
 
-export type RatingResultOfLevel = {
-  level: number,
+export const ratingResultCategory = [
+  'intra',
+  'cross',
+] as const;
+
+export type RatingResultCategory = typeof ratingResultCategory[number];
+
+export type RatingResultOfCategoryAtLevel = {
   samples: number,
   rank: number,
   percentage: number,
@@ -31,4 +37,9 @@ export type RatingResultOfLevel = {
     current: RatingExtrema,
     max: RatingExtrema,
   },
+};
+
+export type RatingResultOfLevel = {
+  level: number,
+  result: {[category in RatingResultCategory]: RatingResultOfCategoryAtLevel},
 };
