@@ -5,7 +5,10 @@ import {usePremiumRequiredToast} from '@/hooks/toast/main';
 import {useUserActivation} from '@/hooks/userData/activation';
 
 
-export const useFilterPremiumRestrictable = ({premiumOnly, session}: FilterPremiumRestrictableProps) => {
+export const useFilterPremiumRestrictable = ({
+  premiumOnly,
+  session,
+}: FilterPremiumRestrictableProps) => {
   const {isPremium} = useUserActivation(session);
   const {showPremiumRequiredToast} = usePremiumRequiredToast();
 
@@ -18,5 +21,9 @@ export const useFilterPremiumRestrictable = ({premiumOnly, session}: FilterPremi
     return isInputRestricted;
   }, [isInputRestricted]);
 
-  return {isInputRestricted, isInputChangeRestricted};
+  return {
+    isInputRestricted,
+    isInputChangeRestricted,
+    isPremium,
+  };
 };
