@@ -463,9 +463,9 @@
       "RelativeStrength": "相対力"
     },
     "Category": {
-      "Title": "Comparing...",
-      "CrossSpecies": "Cross-Species (Same Subskill/Nature)",
-      "IntraSpecies": "Intra-Species"
+      "Title": "比較対象",
+      "CrossSpecies": "サブスキル・性格の等しい全種族",
+      "IntraSpecies": "同種族"
     }
   },
   "SleepStyle": {
