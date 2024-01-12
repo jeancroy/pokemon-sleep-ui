@@ -466,9 +466,9 @@
       "RelativeStrength": "Relative Stärke"
     },
     "Category": {
-      "Title": "Comparing...",
-      "CrossSpecies": "Cross-Species (Same Subskill/Nature)",
-      "IntraSpecies": "Intra-Species"
+      "Title": "Im Vergleich zu: ",
+      "CrossSpecies": "Artübergreifend (Gleiche Talente/Wesen)",
+      "IntraSpecies": "Gleicher Art"
     }
   },
   "SleepStyle": {
