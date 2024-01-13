@@ -13,20 +13,17 @@ import {LazyLoad} from '@/components/layout/lazyLoad';
 import {ProgressBarSingle} from '@/components/progressBar/single';
 import {ButtonToStartTheSorcery} from '@/components/shared/common/button/sorcery';
 import {CompletionResultUI} from '@/components/shared/completion/main';
-import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils';
-import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {useUserSettings} from '@/hooks/userData/settings';
 import {
-  defaultTeamMakerMaxResultCount,
   teamMakerCompCountWarningThreshold,
   teamMakerStatusI18nId,
   teamMakerStatusStyle,
 } from '@/ui/team/maker/const';
 import {useTeamMaker} from '@/ui/team/maker/hook/main';
+import {useTeamMakerInput} from '@/ui/team/maker/input/hook';
 import {TeamMakerInputUI} from '@/ui/team/maker/input/main';
 import {TeamMakerResults} from '@/ui/team/maker/result/main';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
-import {TeamMakerInput} from '@/ui/team/maker/type/input';
 import {isTeamMakerStatusLoading} from '@/ui/team/maker/utils';
 
 
@@ -39,33 +36,8 @@ export const TeamMakerLoadedClient = (props: TeamMakerDataProps) => {
     server: preloaded.settings,
     client: data?.user.preloaded.settings,
   });
-  const [input, setInput] = React.useState<TeamMakerInput>({
-    source: 'pokebox',
-    snorlaxFavorite: {},
-    pokemon: generatePokemonInputFilter({
-      isLevelAgnostic: false,
-      defaultPokemonLevel: 1,
-    }),
-    mealType: preloaded.cooking.mealType,
-    recipeLevel: preloaded.cooking.recipeLevel,
-    ingredientCount: preloaded.cooking.ingredientCount,
-    memberCount: 5,
-    basis: 'strength',
-    previewLevel: null,
-    vanillaPresets: {
-      bySpecialty: {
-        berry: defaultPokemonIndividualParams,
-        ingredient: defaultPokemonIndividualParams,
-        skill: defaultPokemonIndividualParams,
-      },
-      shared: defaultPokemonIndividualParams,
-      mode: 'shared',
-    },
-    previewFinalEvolution: false,
-    target: preloaded.cooking.target,
-    showInsufficientIngredients: true,
-    teamCompsToShow: defaultTeamMakerMaxResultCount,
-  });
+
+  const {input, setInput} = useTeamMakerInput({preloaded});
   const {
     state,
     calculateTeam,
