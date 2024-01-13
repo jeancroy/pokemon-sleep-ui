@@ -1,25 +1,19 @@
 import {storePacketUpdatePokemonData} from '@/controller/packet/update/pokemon';
-import {throwIfNotInboundApiToken} from '@/handler/common/check';
-import {isPacketDataFromApiIncludingSource, isPacketRecordingEnabled} from '@/handler/packet/utils';
+import {performPacketApiEndpointsCommonCheck} from '@/handler/packet/common';
 import {PacketUpdatePokemonDataFromApi} from '@/types/packet/update/pokemon';
 
 
 export const handlePacketUpdatePokemonData = async (request: Request) => {
-  const response = await request.json() as PacketUpdatePokemonDataFromApi;
+  const requestData = await request.json() as PacketUpdatePokemonDataFromApi;
 
-  throwIfNotInboundApiToken(response.token);
-
-  if (!(await isPacketRecordingEnabled('updatePokemonData'))) {
-    return Response.json({}, {status: 503});
+  const response = await performPacketApiEndpointsCommonCheck(requestData);
+  if (response) {
+    return response;
   }
 
-  if (!isPacketDataFromApiIncludingSource(response)) {
-    return Response.json({}, {status: 400});
-  }
-
-  await storePacketUpdatePokemonData(response.data.map((entry) => ({
+  await storePacketUpdatePokemonData(requestData.data.map((entry) => ({
     ...entry,
-    _source: response.source,
+    _source: requestData.source,
   })));
 
   return Response.json({}, {status: 200});
