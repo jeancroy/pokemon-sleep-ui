@@ -1,4 +1,4 @@
-import {ApiActionWithToken} from '@/types/api';
+import {PacketDataCommonProps, PacketDataFromApiCommonProps} from '@/types/packet/common';
 
 
 export type PacketLotteryInfoItems = {
@@ -13,13 +13,11 @@ export type PacketLotterySkillTriggers = {
   tgt: null,
 };
 
-export type PacketLotteryInfo = {
+export type PacketLotteryInfo = PacketDataCommonProps & {
   pid: number,
   times: number[],
   items: PacketLotteryInfoItems[],
   skill: PacketLotterySkillTriggers[],
 };
 
-export type PacketLotteryInfoFromApi = ApiActionWithToken & {
-  data: PacketLotteryInfo[],
-};
+export type PacketLotteryInfoFromApi = PacketDataFromApiCommonProps<PacketLotteryInfo>;

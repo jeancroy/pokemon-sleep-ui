@@ -1,4 +1,4 @@
-import {ApiActionWithToken} from '@/types/api';
+import {PacketDataCommonProps, PacketDataFromApiCommonProps} from '@/types/packet/common';
 
 
 export type PacketUpdatePokemonIngredientData = {
@@ -7,7 +7,7 @@ export type PacketUpdatePokemonIngredientData = {
   num: number,
 };
 
-export type PacketUpdatePokemonData = {
+export type PacketUpdatePokemonData = PacketDataCommonProps & {
   pid: number,
   num: number,
   form: number,
@@ -50,6 +50,4 @@ export type PacketUpdatePokemonData = {
   nicsf: number,
 };
 
-export type PacketUpdatePokemonDataFromApi = ApiActionWithToken & {
-  data: PacketUpdatePokemonData[],
-};
+export type PacketUpdatePokemonDataFromApi = PacketDataFromApiCommonProps<PacketUpdatePokemonData>;
