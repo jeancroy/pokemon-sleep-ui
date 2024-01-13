@@ -20,7 +20,7 @@ export const getIngredientMultiplier = ({
   production,
   cookingSettings,
 }: GetIngredientMultiplierOpts): IngredientMultiplier => {
-  const {recipeLevel, targetMeals} = cookingSettings;
+  const {targetMeals} = cookingSettings;
 
   const mealIngredientInfo = getMealIngredientInfo({
     meals: targetMeals,
@@ -29,9 +29,8 @@ export const getIngredientMultiplier = ({
   const {ingredientsRequired} = mealIngredientInfo;
 
   const ingredientBonus = getIngredientBonusOfMeals({
-    meals: targetMeals,
     mealIngredientInfo,
-    recipeLevel,
+    cookingSettings,
   });
 
   return {

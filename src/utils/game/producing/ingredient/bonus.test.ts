@@ -1,22 +1,43 @@
 import {describe, expect, it} from '@jest/globals';
 
+import {defaultCookingPreset} from '@/const/user/cooking';
 import {testMealData} from '@/tests/data/game/meal';
+import {UserCookingTargetOfType} from '@/types/userData/cooking';
 import {getMealIngredientInfo} from '@/utils/game/meal/ingredient';
 import {getIngredientBonusOfMeals} from '@/utils/game/producing/ingredient/bonus';
+import {isNotNullish} from '@/utils/type';
+import {toCookingUserSettings} from '@/utils/user/settings/cooking';
 
 
 describe('Ingredient Production / Bonus of Meals', () => {
   it('is correct', () => {
-    const meals = [testMealData['1007'], testMealData['3006'], testMealData['3006']];
+    const cookingTargetOfType: UserCookingTargetOfType = {
+      breakfast: 1007,
+      lunch: 3006,
+      dinner: 3006,
+    };
     const rate = getIngredientBonusOfMeals({
-      meals,
       mealIngredientInfo: getMealIngredientInfo({
-        meals,
+        meals: Object.values(cookingTargetOfType)
+          .map((mealId) => mealId ? testMealData[mealId] : null)
+          .filter(isNotNullish),
         mealCount: {1007: 1, 3006: 2},
       }),
-      recipeLevel: {
-        1007: 15,
-        3006: 20,
+      cookingSettings: {
+        ...toCookingUserSettings({
+          cooking: {
+            ...defaultCookingPreset,
+            mealType: 1,
+            target: {
+              1: cookingTargetOfType,
+            },
+          },
+          mealMap: testMealData,
+        }),
+        recipeLevel: {
+          1007: 15,
+          3006: 20,
+        },
       },
     });
 

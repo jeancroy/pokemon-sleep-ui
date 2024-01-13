@@ -1,4 +1,5 @@
 import {EffectiveBonus, UserBonus} from '@/types/game/bonus';
+import {RecipeLevel} from '@/types/game/cooking';
 import {Meal, MealMap} from '@/types/game/meal/main';
 import {SleepDurationInfo} from '@/types/game/sleep';
 import {SleepMapId} from '@/types/game/sleepStyle';
@@ -39,8 +40,10 @@ export type CookingUserSettingsRequiredData = {
   mealMap: MealMap,
 };
 
-export type CookingUserSettings = Pick<UserCookingPreset, 'recipeLevel'> & {
+export type CookingUserSettings = {
+  recipeLevel: RecipeLevel,
   targetMeals: Meal[],
+  overrideRecipeLevel?: number,
 };
 
 export type TranslatedUserSettings = {

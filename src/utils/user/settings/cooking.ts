@@ -1,8 +1,5 @@
-import {
-  CookingUserSettingsRequiredData,
-  CookingUserSettings,
-  UserSettingsBundle,
-} from '@/types/userData/settings';
+import {MealId} from '@/types/game/meal/main';
+import {CookingUserSettings, CookingUserSettingsRequiredData, UserSettingsBundle} from '@/types/userData/settings';
 import {toTargetMeals} from '@/utils/user/settings/utils';
 
 
@@ -20,4 +17,18 @@ export const toCookingUserSettings = ({
       mealMap,
     }),
   };
+};
+
+type GetRecipeLevelFromCookingSettingsOpts = {
+  cookingSettings: CookingUserSettings,
+  mealId: MealId,
+};
+
+export const getRecipeLevelFromCookingSettings = ({
+  cookingSettings,
+  mealId,
+}: GetRecipeLevelFromCookingSettingsOpts): number => {
+  const {overrideRecipeLevel, recipeLevel} = cookingSettings;
+
+  return overrideRecipeLevel ?? recipeLevel[mealId] ?? 1;
 };
