@@ -68,16 +68,19 @@ export const getTeamMakerComps = ({
       continue;
     }
 
+    const ingredientProduction = toIngredientProductionCounterFromGroupedRate(rates.grouped.ingredient);
+
     comps.push({
       rates,
       strengthByType,
       basisValue: {
         mealCoverage: getMealCoverage({
           meals: cookingSettings.targetMeals,
-          ingredientProduction: toIngredientProductionCounterFromGroupedRate(rates.grouped.ingredient),
+          ingredientProduction,
           period: teamMakerProductionPeriod,
         }),
         strength: strengthTotal,
+        ingredientProduction,
       },
       ingredientStats,
       finalEstimates: getSnorlaxRankFinalEstimate({

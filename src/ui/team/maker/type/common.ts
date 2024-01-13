@@ -17,6 +17,7 @@ export type TeamMakerMemberCount = typeof teamMakerMemberCount[number];
 export type TeamMakerBasisValue = {
   strength: number,
   mealCoverage: MealCoverage,
+  ingredientProduction: IngredientCounter,
 };
 
 export type TeamMakerReferenceUnit = {

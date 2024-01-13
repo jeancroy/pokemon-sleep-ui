@@ -20,7 +20,7 @@ import {isNotNullish} from '@/utils/type';
 import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
 
 
-type GetTeamMakerCalcIntermediateOpts = Omit<TeamMakerCalcInitOpts, 'pokeboxList'> & {
+type GetTeamMakerPokemonLimitsOpts = Omit<TeamMakerCalcInitOpts, 'pokeboxList'> & {
   pokeboxSource: PokeInBox[],
   settings: UserSettings,
   cookingSettings: CookingUserSettings,
@@ -38,7 +38,7 @@ export const getTeamMakerPokemonLimits = ({
   input,
   settings,
   cookingSettings,
-}: GetTeamMakerCalcIntermediateOpts): TeamMakerPokemonLimits[] => {
+}: GetTeamMakerPokemonLimitsOpts): TeamMakerPokemonLimits[] => {
   const {targetMeals} = cookingSettings;
 
   const toTeamMakerPokemonLimits = (pokeInBox: PokeInBox): TeamMakerPokemonLimits | null => {

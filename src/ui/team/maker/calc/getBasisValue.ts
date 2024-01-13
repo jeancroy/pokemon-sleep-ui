@@ -15,15 +15,18 @@ export const getTeamMakerBasisValue = ({
   pokemonRate,
   targetMeals,
 }: GetTeamMakerBasisValueOpts): TeamMakerBasisValue => {
+  const ingredientProduction = Object.fromEntries(Object.entries(pokemonRate.ingredient).map(([id, rate]) => [
+    id,
+    toProducingRateOfState({rate, state: 'equivalent'}).quantity,
+  ]));
+
   return {
     strength: getTotalOfPokemonProducingRate({rate: pokemonRate, state: 'equivalent'}).energy,
     mealCoverage: getMealCoverage({
       meals: targetMeals,
-      ingredientProduction: Object.fromEntries(Object.entries(pokemonRate.ingredient).map(([id, rate]) => [
-        id,
-        toProducingRateOfState({rate, state: 'equivalent'}).quantity,
-      ])),
+      ingredientProduction,
       period: pokemonRate.period,
     }),
+    ingredientProduction,
   };
 };

@@ -5,7 +5,7 @@ import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {generatePokeboxFromBase} from '@/utils/team/pokebox/generateFromBase';
 
 
-export const getPokeboxSource = ({
+export const getTeamMakerPokeboxSource = ({
   ingredientChainMap,
   pokedexMap,
   input,

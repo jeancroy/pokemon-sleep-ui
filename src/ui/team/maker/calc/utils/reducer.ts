@@ -35,10 +35,12 @@ export const sumTeamMakerBasisValue = (values: TeamMakerBasisValue[]): TeamMaker
         ]),
         total: prev.mealCoverage.total + curr.mealCoverage.total,
       },
+      ingredientProduction: addIngredientCount([prev, curr]),
     }),
     {
       strength: 0,
       mealCoverage: {byIngredient: {}, total: 0},
+      ingredientProduction: {},
     },
   );
 };
