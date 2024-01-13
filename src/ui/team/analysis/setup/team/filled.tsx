@@ -21,7 +21,7 @@ export const TeamAnalysisFilledSlot = (props: Props) => {
   const t = useTranslations('UI.Metadata.Pokedex');
   const t2 = useTranslations('Game.PokemonName');
 
-  const setTeamMember = React.useCallback((slotName: TeamAnalysisSlotName, update: Partial<TeamAnalysisMember>) => {
+  const setTeamMember = (slotName: TeamAnalysisSlotName, update: Partial<TeamAnalysisMember>) => {
     // `merge()` keeps the original value if the `update` is undefined, but `update` should overwrite it
     setSetup((original) => ({
       ...original,
@@ -39,7 +39,7 @@ export const TeamAnalysisFilledSlot = (props: Props) => {
         },
       },
     }));
-  }, [setSetup]);
+  };
 
   return (
     <>

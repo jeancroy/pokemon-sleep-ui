@@ -31,7 +31,6 @@ export const getTeamProducingStatsSlot = ({
 }: GetTeamProducingStatsSlotOpts): GetProducingStatsOptsSlotReturn | null => {
   const {members} = currentTeam;
 
-  // return React.useMemo(() => {
   const member = members[slotName];
   if (!member) {
     return null;
