@@ -38,7 +38,7 @@ export const PokemonSleepStylesOfMap = ({
         <Flex direction="row" center className="z-10 p-1.5">
           <div>
             <div className="relative h-9 w-9">
-              <NextImage src="/images/generic/map_pin.png" alt={t2('Map')} sizes={imageSmallIconSizes}/>
+              <NextImage src="/images/generic/mapPin.png" alt={t2('Map')} sizes={imageSmallIconSizes}/>
             </div>
           </div>
           <div className="text-lg">
