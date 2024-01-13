@@ -1,10 +1,12 @@
 /* eslint-disable new-cap */
 import React from 'react';
 
+import {clsx} from 'clsx';
 // eslint-disable-next-line camelcase
 import {Noto_Sans} from 'next/font/google';
 import {notFound} from 'next/navigation';
 import Script from 'next/script';
+import {isIOS} from 'react-device-detect';
 
 import {ReactDevTools} from '@/components/reactDevTools';
 import {SiteTracking} from '@/components/tracking/main';
@@ -59,7 +61,7 @@ const RootLayout = ({children, params}: React.PropsWithChildren<LocaleLayoutProp
       <React.Suspense>
         <SiteTracking/>
       </React.Suspense>
-      <body className={font.className}>
+      <body className={clsx(isIOS && 'h-full overflow-y-auto', font.className)}>
         <Providers>
           {children}
         </Providers>

@@ -9783,6 +9783,7 @@ __metadata:
     postcss: "npm:^8.4.33"
     react: "npm:^18.2.0"
     react-beforeunload: "npm:^2.6.0"
+    react-device-detect: "npm:^2.2.3"
     react-dom: "npm:^18.2.0"
     react-hot-toast: "npm:^2.4.1"
     react-markdown: "npm:^9.0.1"
@@ -10113,6 +10114,18 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || 17 || 18
   checksum: 53929df385322828c38ff045ef0071efa4c1e0d34209a475d6681bb017986a9fbabfee950d8cf30bc0180d0e2523d1cc4dc63508ccbe70dec330d8620eea29a8
+  languageName: node
+  linkType: hard
+
+"react-device-detect@npm:^2.2.3":
+  version: 2.2.3
+  resolution: "react-device-detect@npm:2.2.3"
+  dependencies:
+    ua-parser-js: "npm:^1.0.33"
+  peerDependencies:
+    react: ">= 0.14.0"
+    react-dom: ">= 0.14.0"
+  checksum: 396bbeeab0cb21da084c67434d204c9cf502fad6c683903313084d3f6487950a36a34f9bf67ccf5c1772a1bb5b79a2a4403fcfe6b51d93877db4c2d9f3a3a925
   languageName: node
   linkType: hard
 
@@ -11980,6 +11993,13 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 1d0a5f4ce496c42caa9a30e659c467c5686eae15d54b027ee7866744952547f1be1262f2d40de911618c242b510029d51d43ff605dba8fb740ec85ca2d3f9500
+  languageName: node
+  linkType: hard
+
+"ua-parser-js@npm:^1.0.33":
+  version: 1.0.37
+  resolution: "ua-parser-js@npm:1.0.37"
+  checksum: dac8cf82a55b2e097bd2286954e01454c4cfcf23c9d9b56961ce94bda3cec5a38ca536e6e84c20a4000a9d4b4a4abcbd98ec634ccebe21be36595ea3069126e4
   languageName: node
   linkType: hard
 
