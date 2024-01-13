@@ -1,4 +1,5 @@
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils';
+import {maxRecipeLevel} from '@/data/recipeLevel';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {CookingUserSettings, UserSettings} from '@/types/userData/settings';
 import {teamMakerProductionPeriod} from '@/ui/team/maker/calc/const';
@@ -90,7 +91,12 @@ export const getTeamMakerPokemonLimits = ({
     const {atStage} = getPokemonProducingRateSingle({
       snorlaxFavorite: input.snorlaxFavorite,
       period: teamMakerProductionPeriod,
-      cookingSettings,
+      cookingSettings: {
+        ...cookingSettings,
+        // Reason unknown, but recipe level impacts candidates list, therefore impacting the result.
+        // Without this, the result might be incorrect. See #670.
+        overrideRecipeLevel: maxRecipeLevel,
+      },
       ...calcOpts,
     });
 
