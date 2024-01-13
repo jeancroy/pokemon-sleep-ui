@@ -1,18 +1,14 @@
 import React from 'react';
 
-import {v4} from 'uuid';
-
 import {AdsUnit} from '@/components/ads/main';
-import {TeamAnalysisComp, TeamAnalysisConfig, TeamAnalysisSetup} from '@/types/teamAnalysis';
+import {TeamAnalysisSetup} from '@/types/teamAnalysis';
 import {UserSettingsBundle} from '@/types/userData/settings';
+import {getInitialTeamAnalysisSetup} from '@/ui/team/analysis/client/utils';
 import {TeamAnalysisSetupView} from '@/ui/team/analysis/setup/main';
 import {TeamAnalysisCompDependentInput} from '@/ui/team/analysis/setup/team/input';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
-import {generateEmptyTeam, getCurrentTeam} from '@/ui/team/analysis/utils';
+import {getCurrentTeam} from '@/ui/team/analysis/utils';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
-import {migrate} from '@/utils/migrate/main';
-import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';
-import {teamAnalysisConfigMigrators} from '@/utils/migrate/teamAnalysis/config/migrators';
 import {DeepPartial} from '@/utils/type';
 
 
@@ -27,35 +23,7 @@ export const TeamAnalysisLoadedClient = (props: Props) => {
   } = props;
   const pokemonList = toPokemonList(pokedexMap);
 
-  const initialSetup = React.useMemo((): TeamAnalysisSetup => {
-    // Migrate first for older data version
-    // If the user is not logged in or new, they won't have `preloadedSetup` so they need an initial comp
-    // Therefore generate the initial comp for migration, then ignore it if it's not needed
-    const initialCompUuid = v4();
-
-    const config: TeamAnalysisConfig = migrate({
-      original: {
-        current: initialCompUuid,
-        version: teamAnalysisConfigMigrators.length,
-      },
-      override: data?.config ?? null,
-      migrators: teamAnalysisConfigMigrators,
-      migrateParams: {},
-    });
-
-    const compsToMigrate = data?.comps ?? [generateEmptyTeam(initialCompUuid)];
-    const comps: TeamAnalysisComp[] = compsToMigrate.map((team) => migrate({
-      original: generateEmptyTeam(team.uuid),
-      override: team,
-      migrators: teamAnalysisCompMigrators,
-      migrateParams: {},
-    }));
-
-    return {
-      config,
-      comps: Object.fromEntries(comps.map((team) => [team.uuid, team])),
-    };
-  }, []);
+  const initialSetup = getInitialTeamAnalysisSetup({data});
   const [setup, setSetup] = React.useState<TeamAnalysisSetup>(initialSetup);
   const currentTeam = getCurrentTeam({setup});
 

@@ -44,7 +44,7 @@ export const TeamAnalysisTeamView = (props: Props) => {
   const t = useTranslations('Game');
   const {members, snorlaxFavorite} = currentTeam;
 
-  const setMember = React.useCallback((
+  const setMember = (
     slotName: TeamAnalysisSlotName,
     member: TeamAnalysisMember,
   ) => {
@@ -74,7 +74,7 @@ export const TeamAnalysisTeamView = (props: Props) => {
         </div>
       </Flex>
     )});
-  }, [setSetup, getCurrentTeam]);
+  };
 
   return (
     <Grid className="grid-cols-1 gap-1.5 lg:grid-cols-3 xl:grid-cols-5">

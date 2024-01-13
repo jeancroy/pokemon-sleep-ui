@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {UseTeamProducingStatsCommonOpts} from '@/ui/team/analysis/calc/type';
 import {TeamProducingStatsBySlot, TeamProducingStatsTotal} from '@/ui/team/analysis/setup/type';
@@ -9,15 +7,13 @@ import {isNotNullish} from '@/utils/type';
 
 type UseTeamProducingStatsTotalOpts = UseTeamProducingStatsCommonOpts & {
   bySlot: TeamProducingStatsBySlot,
-  deps: React.DependencyList,
 };
 
 export const useTeamProducingStatsTotal = ({
   period,
   state,
   bySlot,
-  deps,
-}: UseTeamProducingStatsTotalOpts): TeamProducingStatsTotal => React.useMemo(() => {
+}: UseTeamProducingStatsTotalOpts): TeamProducingStatsTotal => {
   const stats = teamAnalysisSlotName
     .map((slotName) => bySlot[slotName])
     .filter(isNotNullish);
@@ -51,4 +47,4 @@ export const useTeamProducingStatsTotal = ({
       quantity: toSum(stats.map(({skill}) => skill.quantity[state])),
     },
   };
-}, deps);
+};
