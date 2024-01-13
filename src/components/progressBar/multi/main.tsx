@@ -31,7 +31,11 @@ export const ProgressBarMulti = <TData, >({
   return (
     <Flex className="gap-1">
       <Flex direction="row" noFullWidth wrap={summaryWrap} className="items-center justify-between gap-1.5">
-        {data.map(({data}, idx) => renderSummary({data, percent: normalized[idx]}))}
+        {data.map(({data}, idx) => (
+          <React.Fragment key={idx}>
+            {renderSummary({data, percent: normalized[idx]})}
+          </React.Fragment>
+        ))}
       </Flex>
       <div className={clsx(
         'transform-smooth relative w-full rounded-full bg-gray-400/50 dark:bg-gray-700/50',
