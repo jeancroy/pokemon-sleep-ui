@@ -18,6 +18,7 @@
     "Candy": "アメ",
     "Day": "日",
     "Default": "デフォルト",
+    "Diamond": "ダイヤ",
     "DreamShards": "ゆめのかけら",
     "Hour": "時間",
     "Map": "マップ",
@@ -36,6 +37,13 @@
   },
   "Evolution": {
     "SleepTime": "睡眠時間"
+  },
+  "Game": {
+    "Feature": {
+      "LevelUp": "ポケモンレベルアップ",
+      "CookRecipe": "料理を作る",
+      "PotExpand": "なべを拡張する"
+    }
   },
   "MainSkill": {
     "EffectType": {
@@ -187,6 +195,9 @@
       },
       "ProducingParams": {
         "Title": "生産性図鑑"
+      },
+      "Progress": {
+        "Title": "寝顔図鑑達成報酬"
       }
     },
     "Item": {
@@ -400,6 +411,14 @@
         "Capacity": "現在の容量",
         "Expand": "拡張",
         "UnlockedRecipes": "レシピ解放"
+      },
+      "Progress": {
+        "SleepStylesUnlocked": "寝顔開放数",
+        "MapUnlock": "マップ開放",
+        "MaxMapBonusPercent": "フィールドボーナス上限",
+        "MaxPotCapacity": "鍋容量上限",
+        "FeatureUnlock": "機能開放",
+        "Rewards": "報酬"
       }
     },
     "PokemonExp": {

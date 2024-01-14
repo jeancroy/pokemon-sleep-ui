@@ -18,6 +18,7 @@
     "Candy": "糖果",
     "Day": "日",
     "Default": "預設",
+    "Diamond": "鑽石",
     "DreamShards": "夢之碎片",
     "Hour": "小時",
     "Map": "地圖",
@@ -36,6 +37,13 @@
   },
   "Evolution": {
     "SleepTime": "睡眠時間"
+  },
+  "Game": {
+    "Feature": {
+      "LevelUp": "提升寶可夢等級",
+      "CookRecipe": "製作料理",
+      "PotExpand": "擴充鍋子"
+    }
   },
   "MainSkill": {
     "EffectType": {
@@ -187,6 +195,9 @@
       },
       "ProducingParams": {
         "Title": "生產參數"
+      },
+      "Progress": {
+        "Title": "睡姿解鎖獎勵"
       }
     },
     "Item": {
@@ -400,6 +411,14 @@
         "Capacity": "目前容量",
         "Expand": "擴充",
         "UnlockedRecipes": "已開放食譜"
+      },
+      "Progress": {
+        "SleepStylesUnlocked": "睡姿解鎖數",
+        "MapUnlock": "地圖解鎖",
+        "MaxMapBonusPercent": "地圖加成上限",
+        "MaxPotCapacity": "鍋子容量上限",
+        "FeatureUnlock": "功能解鎖",
+        "Rewards": "解鎖獎勵"
       }
     },
     "PokemonExp": {

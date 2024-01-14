@@ -34,6 +34,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
       Candy: string,
       Day: string,
       Default: string,
+      Diamond: string,
       DreamShards: string,
       Hour: string,
       Map: string,
@@ -52,6 +53,13 @@ declare interface IntlMessages extends UiMessages, GameMessages {
     },
     Evolution: {
       SleepTime: string,
+    },
+    Game: {
+      Feature: {
+        LevelUp: string,
+        CookRecipe: string,
+        PotExpand: string,
+      },
     },
     MainSkill: {
       EffectType: {
@@ -111,6 +119,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         MainSkill: PageWithIndividual,
         SubSkill: I18nMetadata,
         ProducingParams: I18nMetadata,
+        Progress: I18nMetadata,
       },
       Item: {
         Index: I18nMetadata,
@@ -298,6 +307,14 @@ declare interface IntlMessages extends UiMessages, GameMessages {
           Capacity: string,
           Expand: string,
           UnlockedRecipes: string,
+        },
+        Progress: {
+          SleepStylesUnlocked: string,
+          MapUnlock: string,
+          MaxMapBonusPercent: string,
+          MaxPotCapacity: string,
+          FeatureUnlock: string,
+          Rewards: string,
         },
       },
       PokemonExp: {

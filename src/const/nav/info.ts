@@ -32,4 +32,10 @@ export const navEntriesForInfo: NavEntryLink[] = [
     imageSrc: '/images/generic/subSkill.png',
     i18nTextId: 'Info.SubSkill.Title',
   },
+  {
+    type: 'link',
+    href: '/info/progress',
+    imageSrc: '/images/generic/sleep.png',
+    i18nTextId: 'Info.Progress.Title',
+  },
 ];

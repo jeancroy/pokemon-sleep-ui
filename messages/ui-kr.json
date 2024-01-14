@@ -18,6 +18,7 @@
     "Candy": "사탕",
     "Day": "일",
     "Default": "기본",
+    "Diamond": "다이아",
     "DreamShards": "꿈의조각",
     "Hour": "시간",
     "Map": "맵",
@@ -36,6 +37,13 @@
   },
   "Evolution": {
     "SleepTime": "수면 시간"
+  },
+  "Game": {
+    "Feature": {
+      "LevelUp": "포켓몬 레벨업",
+      "CookRecipe": "요리하기",
+      "PotExpand": "냄비를 확장하기"
+    }
   },
   "MainSkill": {
     "EffectType": {
@@ -187,6 +195,9 @@
       },
       "ProducingParams": {
         "Title": "Production Rates"
+      },
+      "Progress": {
+        "Title": "Sleepdex Unlock Rewards"
       }
     },
     "Item": {
@@ -400,6 +411,14 @@
         "Capacity": "현재 최대 용량",
         "Expand": "확장",
         "UnlockedRecipes": "새로운 레시피 개방"
+      },
+      "Progress": {
+        "SleepStylesUnlocked": "개방된 잠자는 모습의 수",
+        "MapUnlock": "Map Unlock",
+        "MaxMapBonusPercent": "Max Map Bonus",
+        "MaxPotCapacity": "Max Pot Capacity",
+        "FeatureUnlock": "Feature Unlock",
+        "Rewards": "Rewards"
       }
     },
     "PokemonExp": {

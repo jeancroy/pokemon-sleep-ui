@@ -18,6 +18,7 @@
     "Candy": "Bonbon",
     "Day": "Tag",
     "Default": "Default",
+    "Diamond": "Diamanten",
     "DreamShards": "Traumsplitter",
     "Hour": "Std",
     "Map": "Karte",
@@ -36,6 +37,13 @@
   },
   "Evolution": {
     "SleepTime": "Gemeinsame Schlafdauer"
+  },
+  "Game": {
+    "Feature": {
+      "LevelUp": "Pokémon Levelaufstieg",
+      "CookRecipe": "Kochen",
+      "PotExpand": "Topf vergrößern"
+    }
   },
   "MainSkill": {
     "EffectType": {
@@ -187,6 +195,9 @@
       },
       "ProducingParams": {
         "Title": "Produktionsrate"
+      },
+      "Progress": {
+        "Title": "Sleepdex Unlock Rewards"
       }
     },
     "Item": {
@@ -400,6 +411,14 @@
         "Capacity": "Aktuelle Kapazität",
         "Expand": "Erweitern",
         "UnlockedRecipes": "Rezept freigeschaltet"
+      },
+      "Progress": {
+        "SleepStylesUnlocked": "Freigeschaltete Schlafstile",
+        "MapUnlock": "Map Unlock",
+        "MaxMapBonusPercent": "Max Map Bonus",
+        "MaxPotCapacity": "Max Pot Capacity",
+        "FeatureUnlock": "Feature Unlock",
+        "Rewards": "Rewards"
       }
     },
     "PokemonExp": {

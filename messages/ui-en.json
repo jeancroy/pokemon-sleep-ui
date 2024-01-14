@@ -18,6 +18,7 @@
     "Candy": "Candy",
     "Day": "Day",
     "Default": "Default",
+    "Diamond": "Diamonds",
     "DreamShards": "Dream Shards",
     "Hour": "Hrs",
     "Map": "Map",
@@ -36,6 +37,13 @@
   },
   "Evolution": {
     "SleepTime": "Time Slept"
+  },
+  "Game": {
+    "Feature": {
+      "LevelUp": "Pokemon Level Up",
+      "CookRecipe": "Cooking",
+      "PotExpand": "Expand Pot"
+    }
   },
   "MainSkill": {
     "EffectType": {
@@ -187,6 +195,9 @@
       },
       "ProducingParams": {
         "Title": "Production Rates"
+      },
+      "Progress": {
+        "Title": "Sleepdex Unlock Rewards"
       }
     },
     "Item": {
@@ -400,6 +411,14 @@
         "Capacity": "Current Capacity",
         "Expand": "Expand",
         "UnlockedRecipes": "Recipe Unlocked"
+      },
+      "Progress": {
+        "SleepStylesUnlocked": "Sleep Styles Unlocked",
+        "MapUnlock": "Map Unlock",
+        "MaxMapBonusPercent": "Max Map Bonus",
+        "MaxPotCapacity": "Max Pot Capacity",
+        "FeatureUnlock": "Feature Unlock",
+        "Rewards": "Rewards"
       }
     },
     "PokemonExp": {
