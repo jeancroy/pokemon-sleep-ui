@@ -4,6 +4,7 @@ import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingr
 import {RatingWorkerDataPointCalcReturn} from '@/utils/game/rating/calc/promises/type';
 import {GetRatingResultOfCategoryPromisesOpts} from '@/utils/game/rating/calc/type';
 import {getRatingValueOfPossibility} from '@/utils/game/rating/possibility';
+import {isNotNullish} from '@/utils/type';
 
 
 type CalculateRatingResultOfCrossSpeciesOpts = RatingWorkerOpts & GetRatingResultOfCategoryPromisesOpts;
@@ -11,8 +12,8 @@ type CalculateRatingResultOfCrossSpeciesOpts = RatingWorkerOpts & GetRatingResul
 export const calculateRatingResultOfCrossSpecies = ({
   currentCombination,
   // Intentional unused property destruction for avoiding incorrect prop usage
-  pokemon: _,
-  ingredients: __,
+  pokemon: currentPokemon,
+  ingredients: _,
   ...opts
 }: CalculateRatingResultOfCrossSpeciesOpts): RatingWorkerDataPointCalcReturn => {
   const {
@@ -28,6 +29,10 @@ export const calculateRatingResultOfCrossSpecies = ({
     new Promise<RatingDataPoint[]>((resolve) => (
       resolve(pokemonList.flatMap((pokemon) => {
         const {ingredientChain, berry, skill} = pokemon;
+
+        if (pokemon.skill !== currentPokemon.skill) {
+          return null;
+        }
 
         const chain = ingredientChainMap[ingredientChain];
 
@@ -56,7 +61,7 @@ export const calculateRatingResultOfCrossSpecies = ({
             combination,
           };
         });
-      }))
+      }).filter(isNotNullish))
     )),
   ];
 };
