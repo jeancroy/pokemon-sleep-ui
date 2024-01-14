@@ -4,7 +4,7 @@ import {useTranslations} from 'next-intl';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {Flex} from '@/components/layout/flex/common';
-import {GenericIconLarger} from '@/components/shared/icon/common/larger';
+import {ItemIcon} from '@/components/shared/icon/item';
 import {ItemId} from '@/types/game/item';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {Locale} from '@/types/next/locale';
@@ -24,8 +24,8 @@ export const EvolutionItemSingle = ({locale, itemId, pokemonList}: Props) => {
   return (
     <Flex center className="info-section-bg h-full gap-1.5 rounded-lg p-2">
       <Flex direction="row" center>
-        <GenericIconLarger
-          src={`/images/item/${itemId}.png`}
+        <ItemIcon
+          itemId={itemId}
           alt={itemName}
           dimension="h-12 w-12"
           noInvert
