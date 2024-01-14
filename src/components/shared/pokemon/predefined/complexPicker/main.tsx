@@ -44,7 +44,7 @@ export const PokemonComplexFilter = (props: PokemonComplexFilterCommonProps) => 
         pokemonList={pokemonList}
         onPokemonPicked={(pokemon) => onPokemonPicked({origin: 'pokedex', pokemon})}
       />
-      <Flex direction="row" center className="gap-1.5">
+      <Flex direction="row" center className="gap-1">
         <PokeboxImporterButton
           {...props}
           noFullWidth={false}
