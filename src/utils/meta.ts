@@ -13,7 +13,6 @@ export const generatePageMeta = ({key, values}: GeneratePageMetaOpts): GenerateM
   const t = await getI18nTranslator({locale, namespace: 'UI.Metadata'});
 
   const siteName = `${t(key, values)} | ${t('Site.Name')}`;
-  const siteNameTemplate = '%s - PWA';
   const siteDescription = t('Site.Description');
   return {
     applicationName: siteName,
@@ -35,14 +34,7 @@ export const generatePageMeta = ({key, values}: GeneratePageMetaOpts): GenerateM
       title: siteName,
       statusBarStyle: 'default',
     },
-    twitter: {
-      card: 'summary',
-      title: {
-        default: siteName,
-        template: siteNameTemplate,
-      },
-      description: siteDescription,
-    },
+    metadataBase: null,
     generator: 'Next.js',
     manifest: '/manifest.json',
     keywords: [
