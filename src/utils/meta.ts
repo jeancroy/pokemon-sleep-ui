@@ -13,8 +13,10 @@ export const generatePageMeta = ({key, values}: GeneratePageMetaOpts): GenerateM
   const t = await getI18nTranslator({locale, namespace: 'UI.Metadata'});
 
   const siteName = `${t(key, values)} | ${t('Site.Name')}`;
+  const siteNameTemplate = '%s - PWA';
   const siteDescription = t('Site.Description');
   return {
+    metadataBase: process.env.NEXTAUTH_URL ? new URL(process.env.NEXTAUTH_URL) : null,
     applicationName: siteName,
     title: siteName,
     description: siteDescription,
@@ -34,7 +36,14 @@ export const generatePageMeta = ({key, values}: GeneratePageMetaOpts): GenerateM
       title: siteName,
       statusBarStyle: 'default',
     },
-    metadataBase: null,
+    twitter: {
+      card: 'summary',
+      title: {
+        default: siteName,
+        template: siteNameTemplate,
+      },
+      description: siteDescription,
+    },
     generator: 'Next.js',
     manifest: '/manifest.json',
     keywords: [
