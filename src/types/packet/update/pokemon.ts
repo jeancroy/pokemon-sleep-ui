@@ -1,4 +1,8 @@
-import {PacketDataCommonProps, PacketDataFromApiCommonProps} from '@/types/packet/common';
+import {
+  PacketDataCommonProps,
+  PacketDataFromApiCommonProps,
+  PacketDataFromApiCommonPropsNonCompliant,
+} from '@/types/packet/common';
 
 
 export type PacketUpdatePokemonIngredientData = {
@@ -51,3 +55,6 @@ export type PacketUpdatePokemonData = PacketDataCommonProps & {
 };
 
 export type PacketUpdatePokemonDataFromApi = PacketDataFromApiCommonProps<PacketUpdatePokemonData>;
+
+export type PacketUpdatePokemonDataFromApiNonCompliant =
+  PacketDataFromApiCommonPropsNonCompliant<PacketUpdatePokemonData>;

@@ -1,10 +1,10 @@
 import {throwIfNotInboundApiToken} from '@/handler/common/check';
-import {isPacketDataFromApiIncludingSource, isPacketRecordingEnabled} from '@/handler/packet/utils';
-import {PacketDataCommonProps, PacketDataFromApiCommonProps} from '@/types/packet/common';
+import {isPacketDataFromApiIncludingSource, isPacketRecordingEnabled} from '@/handler/packet/utils/check';
+import {PacketDataCommonProps, PacketDataFromApiCommonPropsNonCompliant} from '@/types/packet/common';
 
 
 export const performPacketApiEndpointsCommonCheck = async <TData extends PacketDataCommonProps>(
-  requestData: PacketDataFromApiCommonProps<TData>,
+  requestData: PacketDataFromApiCommonPropsNonCompliant<TData>,
 ): Promise<Response | null> => {
   throwIfNotInboundApiToken(requestData.token);
 

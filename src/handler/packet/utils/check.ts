@@ -1,5 +1,5 @@
 import {getPacketRecordingSettings} from '@/controller/packet/settings';
-import {PacketDataCommonProps, PacketDataFromApiCommonProps} from '@/types/packet/common';
+import {PacketDataCommonProps, PacketDataFromApiCommonPropsNonCompliant} from '@/types/packet/common';
 import {PacketRecordingType} from '@/types/packet/settings';
 
 
@@ -8,10 +8,9 @@ export const isPacketRecordingEnabled = async (type: PacketRecordingType): Promi
 
   return !!settings && !!settings.enabled[type];
 };
-
 export const isPacketDataFromApiIncludingSource = <
   TData extends PacketDataCommonProps,
-  TDataFromApi extends PacketDataFromApiCommonProps<TData>
+  TDataFromApi extends PacketDataFromApiCommonPropsNonCompliant<TData>
 >({
   source,
 }: TDataFromApi): boolean => {
