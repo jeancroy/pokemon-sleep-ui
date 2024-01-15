@@ -24,6 +24,7 @@ type Props = AdsContentProps & {
 export const AdsContent = ({
   className,
   heightOverride,
+  hideWarningOnDetected,
   checkDom,
   recheckDeps,
   children,
@@ -64,7 +65,7 @@ export const AdsContent = ({
   if (checkDom && domHidden) {
     return (
       <Flex className={adsHeightAdBlockActive}>
-        <AdBlockWarning/>
+        <AdBlockWarning hide={hideWarningOnDetected}/>
       </Flex>
     );
   }
@@ -80,7 +81,7 @@ export const AdsContent = ({
         className,
       )}
     >
-      {adblockState.isBlocked && <AdBlockWarning/>}
+      {adblockState.isBlocked && <AdBlockWarning hide={hideWarningOnDetected}/>}
       <div ref={adsRef} className="absolute left-0 top-0 h-full w-full">
         {children}
       </div>

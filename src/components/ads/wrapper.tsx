@@ -13,9 +13,9 @@ import {useUserActivation} from '@/hooks/userData/activation';
 
 export const AdsWrapper = ({
   alwaysSingle,
-  heightOverride,
   className,
   children,
+  ...props
 }: React.PropsWithChildren<AdsUnitProps>) => {
   const {data, status} = useSession();
   const activation = useUserActivation(data);
@@ -49,9 +49,9 @@ export const AdsWrapper = ({
     <Flex direction="row" className={clsx('h-full', className)}>
       <AdsContent
         key={`${counter}a`}
-        heightOverride={heightOverride}
         checkDom
         recheckDeps={[counter]}
+        {...props}
       >
         {children}
       </AdsContent>
@@ -60,9 +60,9 @@ export const AdsWrapper = ({
         <AdsContent
           key={`${counter}b`}
           className="hidden lg:block"
-          heightOverride={heightOverride}
           checkDom={false}
           recheckDeps={[counter]}
+          {...props}
         >
           {children}
         </AdsContent>

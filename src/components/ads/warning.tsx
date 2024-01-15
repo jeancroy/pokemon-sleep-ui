@@ -8,8 +8,16 @@ import remarkGfm from 'remark-gfm';
 import {isProduction} from '@/utils/environment';
 
 
-export const AdBlockWarning = () => {
+type Props = {
+  hide?: boolean,
+};
+
+export const AdBlockWarning = ({hide}: Props) => {
   const t = useTranslations('UI.Subscription');
+
+  if (hide) {
+    return null;
+  }
 
   return (
     <ReactMarkdown remarkPlugins={[remarkGfm]} className={clsx(
