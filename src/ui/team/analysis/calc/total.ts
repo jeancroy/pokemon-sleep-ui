@@ -1,19 +1,19 @@
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
-import {UseTeamProducingStatsCommonOpts} from '@/ui/team/analysis/calc/type';
+import {GetTeamProducingStatsCommonOpts} from '@/ui/team/analysis/calc/type';
 import {TeamProducingStatsBySlot, TeamProducingStatsTotal} from '@/ui/team/analysis/setup/type';
 import {toSum} from '@/utils/array';
 import {isNotNullish} from '@/utils/type';
 
 
-type UseTeamProducingStatsTotalOpts = UseTeamProducingStatsCommonOpts & {
+type GetTeamProducingStatsTotalOpts = GetTeamProducingStatsCommonOpts & {
   bySlot: TeamProducingStatsBySlot,
 };
 
-export const useTeamProducingStatsTotal = ({
+export const getTeamProducingStatsTotal = ({
   period,
   state,
   bySlot,
-}: UseTeamProducingStatsTotalOpts): TeamProducingStatsTotal => {
+}: GetTeamProducingStatsTotalOpts): TeamProducingStatsTotal => {
   const stats = teamAnalysisSlotName
     .map((slotName) => bySlot[slotName])
     .filter(isNotNullish);

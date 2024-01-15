@@ -8,7 +8,7 @@ import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 
 
-export type UseTeamProducingStatsOpts = TeamAnalysisDataProps & {
+export type GetTeamProducingStatsOpts = TeamAnalysisDataProps & {
   setup: TeamAnalysisSetup,
   bundle: UserSettingsBundle,
   currentTeam: TeamAnalysisComp,
@@ -16,7 +16,7 @@ export type UseTeamProducingStatsOpts = TeamAnalysisDataProps & {
   overrideLevel?: number,
 };
 
-export type UseTeamProducingStatsCommonOpts = {
+export type GetTeamProducingStatsCommonOpts = {
   period: ProductionPeriod,
   state: ProducingStateOfRate,
 };
@@ -26,6 +26,6 @@ export type TeamCompCalcResult = {
   grouped: PokemonProducingRateByType,
 };
 
-export type TeamCompCalcOpts = UseTeamProducingStatsCommonOpts & UseTeamProducingStatsOpts & {
+export type TeamCompCalcOpts = GetTeamProducingStatsCommonOpts & GetTeamProducingStatsOpts & {
   snorlaxFavorite: SnorlaxFavorite,
 };

@@ -1,6 +1,6 @@
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {CalculatedUserSettings} from '@/types/userData/settings';
-import {UseTeamProducingStatsOpts} from '@/ui/team/analysis/calc/type';
+import {GetTeamProducingStatsOpts} from '@/ui/team/analysis/calc/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
 import {GetPokemonProducingRateOpts} from '@/utils/game/producing/main/type';
 import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/game/producing/params';
@@ -8,7 +8,7 @@ import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
 
 
-type GetTeamProducingStatsSlotOpts = UseTeamProducingStatsOpts & {
+type GetTeamProducingStatsSlotOpts = GetTeamProducingStatsOpts & {
   slotName: TeamAnalysisSlotName,
 };
 

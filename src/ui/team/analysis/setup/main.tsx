@@ -15,7 +15,7 @@ import {useUserSettingsBundle} from '@/hooks/userData/bundle';
 import {useCookingUserSettings} from '@/hooks/userData/cookingSettings';
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {UserSettingsBundle} from '@/types/userData/settings';
-import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook/main';
+import {getTeamProducingStats} from '@/ui/team/analysis/calc/main';
 import {TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control';
 import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';
 import {TeamAnalysisTeamView} from '@/ui/team/analysis/setup/team/main';
@@ -48,7 +48,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
 
   const cookingSettings = useCookingUserSettings({...bundle, mealMap});
 
-  const statsOfTeam = useTeamProducingStats({
+  const statsOfTeam = getTeamProducingStats({
     ...props,
     bundle,
     cookingSettings,
