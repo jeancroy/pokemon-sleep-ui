@@ -106,6 +106,7 @@ export const MapUnlockTable = (props: Props) => {
           <MapUnlockTableRow
             key={key}
             show={!toHide}
+            showOnEmpty={showEmptyRank}
             rank={rank}
             sleepStyleData={sleepStyleData}
             accumulator={accumulator}
