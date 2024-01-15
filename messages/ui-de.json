@@ -197,7 +197,7 @@
         "Title": "Produktionsrate"
       },
       "Progress": {
-        "Title": "Sleepdex Unlock Rewards"
+        "Title": "Schlafdex Freischalt-Belohnungen"
       }
     },
     "Item": {
@@ -414,11 +414,11 @@
       },
       "Progress": {
         "SleepStylesUnlocked": "Freigeschaltete Schlafstile",
-        "MapUnlock": "Map Unlock",
-        "MaxMapBonusPercent": "Max Map Bonus",
-        "MaxPotCapacity": "Max Pot Capacity",
-        "FeatureUnlock": "Feature Unlock",
-        "Rewards": "Rewards"
+        "MapUnlock": "Karten-Freischaltung",
+        "MaxMapBonusPercent": "Maximaler Karten Bonus",
+        "MaxPotCapacity": "Maximale Kochtopf Kapazität",
+        "FeatureUnlock": "Feature-Freischaltung",
+        "Rewards": "Belohnungen"
       }
     },
     "PokemonExp": {
