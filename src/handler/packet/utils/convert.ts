@@ -1,30 +1,30 @@
-import {PacketDataCommonProps, PacketDataFromApiCommonPropsNonCompliant} from '@/types/packet/common';
+import {PacketDataCommonProps, PacketDataFromApiCommonProps} from '@/types/packet/common';
 
 
-type ConvertPacketDataFromApiToCompliantFormatToDataOpts<
+type ConvertPacketDataFromApiToStorableConverterOpts<
   TData extends PacketDataCommonProps,
-  TDataFromApi extends PacketDataFromApiCommonPropsNonCompliant<TData>
+  TDataFromApi extends PacketDataFromApiCommonProps<TData>
 > = {
   source: TDataFromApi['source'],
   data: Omit<TData, '_source'>,
   key: string | null,
 };
 
-type ConvertPacketDataFromApiToCompliantFormatOpts<
+type ConvertPacketDataFromApiToStorableOpts<
   TData extends PacketDataCommonProps,
-  TDataFromApi extends PacketDataFromApiCommonPropsNonCompliant<TData>
+  TDataFromApi extends PacketDataFromApiCommonProps<TData>
 > = {
   dataFromApi: TDataFromApi,
-  toData: (opts: ConvertPacketDataFromApiToCompliantFormatToDataOpts<TData, TDataFromApi>) => TData,
+  toData: (opts: ConvertPacketDataFromApiToStorableConverterOpts<TData, TDataFromApi>) => TData,
 };
 
-export const convertPacketDataFromApiToCompliantFormat = <
+export const convertPacketDataFromApiToStorable = <
   TData extends PacketDataCommonProps,
-  TDataFromApi extends PacketDataFromApiCommonPropsNonCompliant<TData>
+  TDataFromApi extends PacketDataFromApiCommonProps<TData>
 >({
   dataFromApi,
   toData,
-}: ConvertPacketDataFromApiToCompliantFormatOpts<TData, TDataFromApi>): TData[] => {
+}: ConvertPacketDataFromApiToStorableOpts<TData, TDataFromApi>): TData[] => {
   const {data, source} = dataFromApi;
 
   if (Array.isArray(data)) {

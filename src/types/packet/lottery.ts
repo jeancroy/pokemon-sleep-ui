@@ -1,8 +1,4 @@
-import {
-  PacketDataCommonProps,
-  PacketDataFromApiCommonProps,
-  PacketDataFromApiCommonPropsNonCompliant,
-} from '@/types/packet/common';
+import {PacketDataCommonProps, PacketDataFromApiCommonProps} from '@/types/packet/common';
 
 
 export type PacketLotteryInfoItems = {
@@ -25,5 +21,3 @@ export type PacketLotteryInfo = PacketDataCommonProps & {
 };
 
 export type PacketLotteryInfoFromApi = PacketDataFromApiCommonProps<PacketLotteryInfo>;
-
-export type PacketLotteryInfoFromApiNonCompliant = PacketDataFromApiCommonPropsNonCompliant<PacketLotteryInfo>;
