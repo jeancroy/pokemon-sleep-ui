@@ -42,6 +42,7 @@ export const AdminActivationPresetClient = ({preloaded}: AdminActivationPresetSe
                 tag: '(Tag / ID)',
                 name: '(Name)',
                 activation: {},
+                suspended: false,
               },
             };
           })}

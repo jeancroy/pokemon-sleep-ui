@@ -7,6 +7,7 @@ export type ActivationPresetData = {
   tag: string,
   name: string,
   activation: ActivationStatus,
+  suspended: boolean,
 };
 
 export type ActivationPresetMap = {[uuid in string]: ActivationPresetData};

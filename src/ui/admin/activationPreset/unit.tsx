@@ -1,10 +1,13 @@
 import React from 'react';
 
 import FingerPrintIcon from '@heroicons/react/24/outline/FingerPrintIcon';
+import PauseCircleIcon from '@heroicons/react/24/outline/PauseCircleIcon';
 import PencilSquareIcon from '@heroicons/react/24/outline/PencilSquareIcon';
 
 import {InputBox} from '@/components/input/box';
 import {FilterTextInput} from '@/components/input/filter/preset/text';
+import {InputRow} from '@/components/input/filter/row';
+import {ToggleButton} from '@/components/input/toggleButton';
 import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQuick';
 import {Flex} from '@/components/layout/flex/common';
 import {DeleteButton} from '@/components/shared/common/button/delete';
@@ -19,7 +22,13 @@ type Props = AdminActivationPresetModifyProps & {
 };
 
 export const ActivationPresetUnit = ({preset, onUpdate, onDelete}: Props) => {
-  const {uuid, tag, name, activation} = preset;
+  const {
+    uuid,
+    tag,
+    name,
+    activation,
+    suspended,
+  } = preset;
 
   return (
     <AnimatedCollapseQuick show appear className="info-section flex flex-col gap-1.5">
@@ -57,6 +66,15 @@ export const ActivationPresetUnit = ({preset, onUpdate, onDelete}: Props) => {
         title={null}
         noFixedTitleWidth
       />
+      <InputRow className="justify-end">
+        <ToggleButton
+          active={suspended}
+          onClick={() => onUpdate(uuid, {suspended: !suspended})}
+          className="rounded-full p-1"
+        >
+          <PauseCircleIcon className="h-6 w-6"/>
+        </ToggleButton>
+      </InputRow>
       <DeleteButton dimension="h-7 w-7" onClick={() => onDelete(uuid)} className="self-end"/>
     </AnimatedCollapseQuick>
   );
