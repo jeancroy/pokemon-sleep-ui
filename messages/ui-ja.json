@@ -474,8 +474,8 @@
     },
     "VanillaPreset": {
       "Mode": "モード",
-      "Shared": "共有",
-      "BySpecialty": "とくいなもの別"
+      "Shared": "共通",
+      "BySpecialty": "得意型別"
     }
   },
   "Rating": {
