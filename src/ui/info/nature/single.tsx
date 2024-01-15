@@ -19,10 +19,18 @@ export const NatureInfoSingle = ({nature}: Props) => {
   const {id, buff, nerf} = nature;
 
   return (
-    <Flex center className="gap-2 rounded-lg bg-slate-500/20 p-4">
-      <div className={clsx('whitespace-nowrap text-2xl', buff && nerf && natureStyle.clean)}>
-        {t(`Nature.${id}`)}
-      </div>
+    <Flex center className="gap-2 rounded-lg bg-slate-500/10 p-4">
+      <Flex direction="row" center className={clsx(
+        'gap-1 whitespace-nowrap',
+        buff && nerf && natureStyle.clean,
+      )}>
+        <span className="text-2xl">
+          {t(`Nature.${id}`)}
+        </span>
+        <small className="self-end text-slate-500">
+          #{id}
+        </small>
+      </Flex>
       <NatureInfoEffect natureId={id} direction="buff" effectId={buff}/>
       <NatureInfoEffect natureId={id} direction="nerf" effectId={nerf}/>
     </Flex>
