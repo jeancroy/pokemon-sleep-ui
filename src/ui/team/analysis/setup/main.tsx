@@ -4,6 +4,7 @@ import CursorArrowRaysIcon from '@heroicons/react/24/outline/CursorArrowRaysIcon
 import ChartBarIcon from '@heroicons/react/24/solid/ChartBarIcon';
 
 import {AdsUnit} from '@/components/ads/main';
+import {Loading} from '@/components/icons/loading';
 import {Flex} from '@/components/layout/flex/common';
 import {MealCoverageDetails} from '@/components/shared/meal/coverage/details/main';
 import {MealCoverageTargetComboCollapsible} from '@/components/shared/meal/coverage/targetCombo/collapsible';
@@ -15,7 +16,7 @@ import {useUserSettingsBundle} from '@/hooks/userData/bundle';
 import {useCookingUserSettings} from '@/hooks/userData/cookingSettings';
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {UserSettingsBundle} from '@/types/userData/settings';
-import {getTeamProducingStats} from '@/ui/team/analysis/calc/main';
+import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook';
 import {TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control';
 import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';
 import {TeamAnalysisTeamView} from '@/ui/team/analysis/setup/team/main';
@@ -48,12 +49,16 @@ export const TeamAnalysisSetupView = (props: Props) => {
 
   const cookingSettings = useCookingUserSettings({...bundle, mealMap});
 
-  const statsOfTeam = getTeamProducingStats({
+  const statsOfTeam = useTeamProducingStats({
     ...props,
     bundle,
     cookingSettings,
   });
   const {state, setState, showPokemon} = usePokemonLinkPopup();
+
+  if (!statsOfTeam) {
+    return <Loading text="Worker"/>;
+  }
 
   return (
     <>
