@@ -16,7 +16,7 @@ import {
   updateActivationKeyPropertiesBatch,
   updateActivationKeyPropertiesSingle,
 } from '@/controller/user/activation/key';
-import {ActionSendActivationPayload} from '@/handler/action/activation/type';
+import {ActionSendActivationPayload} from '@/handler/activation/send/type';
 import {ActivationKey, ActivationProperties, ActivationSource} from '@/types/mongo/activation';
 import {isNotNullish} from '@/utils/type';
 

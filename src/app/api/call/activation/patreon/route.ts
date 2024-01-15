@@ -1,4 +1,4 @@
-import {callPatreonActivationPoll} from '@/handler/call/activation/poll/patreon';
+import {callPatreonActivationPoll} from '@/handler/activation/poll/patreon';
 
 
 export const PATCH = callPatreonActivationPoll;

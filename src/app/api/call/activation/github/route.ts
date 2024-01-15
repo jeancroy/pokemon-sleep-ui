@@ -1,4 +1,4 @@
-import {callGithubActivationPoll} from '@/handler/call/activation/poll/github';
+import {callGithubActivationPoll} from '@/handler/activation/poll/github';
 
 
 export const PATCH = callGithubActivationPoll;

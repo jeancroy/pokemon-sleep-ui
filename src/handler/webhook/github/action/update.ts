@@ -1,6 +1,6 @@
 import {getActivationPresetLookupOfSource} from '@/controller/user/activation/preset';
 import {removeActivationSingle, updateActivationPropertiesSingle} from '@/controller/user/activation/util';
-import {toActivationPayloadFromGithub} from '@/handler/shared/github/utils';
+import {toActivationPayloadFromGithub} from '@/handler/activation/check/github/utils';
 import {ActivationContact} from '@/types/mongo/activation';
 import {GithubWebhookPayload} from '@/types/subscription/github/webhook';
 import {toGithubSponsorData} from '@/utils/external/github';

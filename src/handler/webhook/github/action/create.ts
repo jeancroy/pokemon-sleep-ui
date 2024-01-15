@@ -1,6 +1,6 @@
 import {getActivationPresetLookupOfSource} from '@/controller/user/activation/preset';
-import {actionSendActivationEmail} from '@/handler/action/activation/email';
-import {toActivationPayloadFromGithub} from '@/handler/shared/github/utils';
+import {toActivationPayloadFromGithub} from '@/handler/activation/check/github/utils';
+import {actionSendActivationEmail} from '@/handler/activation/send/email';
 import {GithubWebhookPayload} from '@/types/subscription/github/webhook';
 import {toGithubSponsorData} from '@/utils/external/github';
 
