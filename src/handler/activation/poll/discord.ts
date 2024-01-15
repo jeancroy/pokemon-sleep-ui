@@ -1,7 +1,7 @@
 import {getActivationPresetLookupOfSource} from '@/controller/user/activation/preset';
 import {getAllActivationsOfSource} from '@/controller/user/activation/util';
 import {getDiscordSubscribers} from '@/handler/activation/check/discord/api';
-import {toActivationPayloadFromDiscord} from '@/handler/activation/check/discord/utils';
+import {toActivationPayloadFromDiscord} from '@/handler/activation/check/discord/toPayload';
 import {scanDiscordActivationInDatabase} from '@/handler/activation/poll/scan/discord/activation';
 import {scanDiscordSubscribers} from '@/handler/activation/poll/scan/discord/member';
 import {scanActivations} from '@/handler/activation/poll/scan/main';
@@ -31,14 +31,13 @@ export const callDiscordActivationPoll = async () => {
     }),
     // Change payload
     toPayload: async ({member}) => await toActivationPayloadFromDiscord({
-      member,
+      subscriber: member,
       presetLookup,
     }),
     toSendActivationActions: (payloads, sourceText) => [
       actionSendActivationDiscordMessage({
         payloads,
         sourceNote: `Activation Poll (${sourceText})`,
-        getWarnOnNullActivation: ({contact}) => `Activation of ${contact} on ${sourceText} is null`,
       }),
     ],
   });

@@ -1,35 +1,28 @@
-import {generateActivationKey} from '@/controller/user/activation/key';
-import {ActionSendActivationPayload} from '@/handler/activation/send/type';
+import {ActivationSendingCommonOpts, ActivationSendingPayload} from '@/handler/activation/send/type';
+import {toActivationLinkFromSendingPayload} from '@/handler/activation/send/utils';
 import {DiscordActivationMessage} from '@/types/subscription/discord/request';
 import {isProduction} from '@/utils/environment';
 import {isNotNullish} from '@/utils/type';
 import {sendDiscordActivationMessages} from '@/utils/user/activation/discord';
 
 
-type ActionSendActivationDiscordMessageOpts = {
-  payloads: Promise<ActionSendActivationPayload>[],
-  sourceNote: string,
-  getWarnOnNullActivation: (payload: ActionSendActivationPayload) => string,
+type ActionSendActivationDiscordMessageOpts = ActivationSendingCommonOpts & {
+  payloads: Promise<ActivationSendingPayload>[],
 };
 
 export const actionSendActivationDiscordMessage = async ({
   payloads,
-  sourceNote,
-  getWarnOnNullActivation,
+  ...opts
 }: ActionSendActivationDiscordMessageOpts) => {
+  const {sourceNote} = opts;
+
   const activationMessages: DiscordActivationMessage[] = (
-    await Promise.all(payloads.map(async (payload) => {
-      const resolvedPayload = await payload;
-      const {contact, activationProperties} = resolvedPayload;
+    await Promise.all(payloads.map(async (unresolvedPayload) => {
+      const payload = await unresolvedPayload;
 
-      if (!activationProperties) {
-        console.warn(`${getWarnOnNullActivation(resolvedPayload)} (${sourceNote})`);
-        return null;
-      }
-
-      const link = await generateActivationKey({
-        executorUserId: process.env.NEXTAUTH_ADMIN_UID,
-        ...activationProperties,
+      const link = await toActivationLinkFromSendingPayload({
+        payload: await unresolvedPayload,
+        ...opts,
       });
 
       // `link` is null if the same source already have an active activation key
@@ -37,18 +30,15 @@ export const actionSendActivationDiscordMessage = async ({
         return null;
       }
 
-      return {
-        userId: contact,
-        link,
-      };
+      return {userId: payload.contact, link};
     }))
-  )
-    .filter(isNotNullish);
+  ).filter(isNotNullish);
 
   // Production only to avoid accidental send
   if (isProduction()) {
     await sendDiscordActivationMessages({activationMessages});
   }
+
   // eslint-disable-next-line no-console
   console.log(`Activation Discord message (${activationMessages.length}) requested (${sourceNote})`);
 };

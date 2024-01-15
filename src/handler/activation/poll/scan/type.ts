@@ -1,4 +1,4 @@
-import {ActionSendActivationPayload} from '@/handler/activation/send/type';
+import {ActivationSendingPayload} from '@/handler/activation/send/type';
 
 
 export type ActivationDeactivatePayload<TMember> = {
@@ -18,4 +18,4 @@ export type ActivationConverterOpts<TMember> = {
 
 export type ActivationPayloadConverter<TMember> = (
   opts: ActivationConverterOpts<TMember>
-) => Promise<ActionSendActivationPayload>;
+) => Promise<ActivationSendingPayload>;

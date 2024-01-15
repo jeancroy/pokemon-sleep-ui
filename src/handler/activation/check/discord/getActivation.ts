@@ -1,28 +1,22 @@
-import {ActivationStatus} from '@/types/mongo/activation';
-import {ActivationPresetLookup} from '@/types/mongo/activationPreset';
+import {ActivationGetterOpts, ActivationGettingResult} from '@/handler/activation/check/common/getActivation/type';
+import {getActivationFromPlatform} from '@/handler/activation/check/common/getActivation/utils';
 import {DiscordSubscriber} from '@/types/subscription/discord/data';
 import {toDiscordSubscriberInfo} from '@/utils/external/discord';
 
 
-export type GetActivationFromDiscordSubscriberOpts = {
-  member: DiscordSubscriber,
-  presetLookup: ActivationPresetLookup,
-};
+export type GetActivationFromDiscordSubscriberOpts = ActivationGetterOpts<DiscordSubscriber>;
 
 export const getActivationFromDiscordSubscriber = ({
-  member,
-  presetLookup,
-}: GetActivationFromDiscordSubscriberOpts): ActivationStatus | null => {
-  const {roleId} = member;
+  subscriber,
+  ...opts
+}: GetActivationFromDiscordSubscriberOpts): Promise<ActivationGettingResult> => {
+  const {roleId, userId} = subscriber;
 
-  const activation = presetLookup[roleId];
-  if (!activation) {
-    console.warn(
-      `Role ID ${roleId} on user ${toDiscordSubscriberInfo(member)} on Discord without associated activation`,
-    );
-
-    return null;
-  }
-
-  return activation.activation;
+  return getActivationFromPlatform({
+    tag: roleId,
+    userInfo: toDiscordSubscriberInfo(subscriber),
+    source: 'discord',
+    contact: userId,
+    ...opts,
+  });
 };

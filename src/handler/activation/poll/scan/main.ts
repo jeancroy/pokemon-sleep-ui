@@ -1,7 +1,7 @@
 import {activationSourceToText} from '@/const/activation/common';
 import {removeActivationBatch, updateActivationPropertiesFromPayloads} from '@/controller/user/activation/util';
 import {ActivationPayloadConverter, ActivationScanResult} from '@/handler/activation/poll/scan/type';
-import {ActionSendActivationPayload} from '@/handler/activation/send/type';
+import {ActivationSendingPayload} from '@/handler/activation/send/type';
 import {ActivationSource} from '@/types/mongo/activation';
 
 
@@ -10,7 +10,7 @@ type ScanActivationsOpts<TMember> = {
   data: ActivationScanResult<TMember>,
   toPayload: ActivationPayloadConverter<TMember>,
   toSendActivationActions: (
-    payloads: Promise<ActionSendActivationPayload>[],
+    payloads: Promise<ActivationSendingPayload>[],
     sourceText: string,
   ) => Promise<void>[],
 };

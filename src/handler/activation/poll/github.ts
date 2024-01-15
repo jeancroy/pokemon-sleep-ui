@@ -1,7 +1,7 @@
 import {getActivationPresetLookupOfSource} from '@/controller/user/activation/preset';
 import {getAllActivationsOfSource} from '@/controller/user/activation/util';
 import {getGithubSponsorships} from '@/handler/activation/check/github/api';
-import {toActivationPayloadFromGithub} from '@/handler/activation/check/github/utils';
+import {toActivationPayloadFromGithub} from '@/handler/activation/check/github/toPayload';
 import {scanGithubActivationInDatabase} from '@/handler/activation/poll/scan/github/activation';
 import {scanGithubSponsors} from '@/handler/activation/poll/scan/github/member';
 import {scanActivations} from '@/handler/activation/poll/scan/main';
@@ -30,14 +30,13 @@ export const callGithubActivationPoll = async () => {
       getId: ({user}) => user.login,
     }),
     toPayload: async ({member}) => await toActivationPayloadFromGithub({
-      data: member,
+      subscriber: member,
       presetLookup,
     }),
     toSendActivationActions: (payloads, sourceText) => payloads.map(async (payload) => (
       actionSendActivationEmail({
         payload: await payload,
         sourceNote: `Activation Poll (${sourceText})`,
-        getWarnOnNullActivation: ({contact, email}) => `${sourceText} member is inactive for @${contact} (${email})`,
       })),
     ),
   });

@@ -1,36 +1,33 @@
-import {ActivationStatus} from '@/types/mongo/activation';
-import {ActivationPresetLookup} from '@/types/mongo/activationPreset';
+import {ActivationGetterOpts, ActivationGettingResult} from '@/handler/activation/check/common/getActivation/type';
+import {getActivationFromPlatform} from '@/handler/activation/check/common/getActivation/utils';
 import {PatreonMember} from '@/types/subscription/patreon/common/member';
 
 
-export type GetActivationFromPatreonMemberOpts = {
-  email: string,
-  member: PatreonMember,
-  presetLookup: ActivationPresetLookup,
-};
+export type GetActivationFromPatreonMemberOpts = ActivationGetterOpts<PatreonMember>;
 
-export const getActivationFromPatreonMember = ({
-  email,
-  member,
-  presetLookup,
-}: GetActivationFromPatreonMemberOpts): ActivationStatus | null => {
-  const activeTier = member.relationships.currently_entitled_tiers.data.at(0);
+export const getActivationFromPatreonMember = async ({
+  subscriber,
+  ...opts
+}: GetActivationFromPatreonMemberOpts): Promise<ActivationGettingResult> => {
+  const email = subscriber.attributes.email;
+  const activeTier = subscriber.relationships.currently_entitled_tiers.data.at(0);
   if (!activeTier) {
     /* eslint-disable no-console */
     console.log(`User of ${email} on Patreon does not seem to have entitled tiers`);
     /* eslint-enable no-console */
 
-    return null;
+    return {
+      activation: null,
+      isSuspended: false,
+      existedActivationProperties: null,
+    };
   }
 
-  const activation = presetLookup[activeTier.id];
-  if (!activation) {
-    console.warn(
-      `Tier ID ${activeTier.id} is on user of ${email} on Patreon, but no associated activation configured`,
-    );
-
-    return null;
-  }
-
-  return activation.activation;
+  return await getActivationFromPlatform({
+    tag: activeTier.id,
+    userInfo: email,
+    source: 'patreon',
+    contact: email,
+    ...opts,
+  });
 };

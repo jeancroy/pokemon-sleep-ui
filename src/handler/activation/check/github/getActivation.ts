@@ -1,28 +1,22 @@
-import {ActivationStatus} from '@/types/mongo/activation';
-import {ActivationPresetLookup} from '@/types/mongo/activationPreset';
+import {ActivationGetterOpts, ActivationGettingResult} from '@/handler/activation/check/common/getActivation/type';
+import {getActivationFromPlatform} from '@/handler/activation/check/common/getActivation/utils';
 import {GithubSponsorData} from '@/types/subscription/github/data';
 import {toGithubSponsorInfo} from '@/utils/external/github';
 
 
-export type GetActivationFromGithubSponsorOpts = {
-  data: GithubSponsorData,
-  presetLookup: ActivationPresetLookup,
-};
+export type GetActivationFromGithubSponsorOpts = ActivationGetterOpts<GithubSponsorData>;
 
 export const getActivationFromGithubSponsor = ({
-  data,
-  presetLookup,
-}: GetActivationFromGithubSponsorOpts): ActivationStatus | null => {
-  const {tier, user} = data;
-  const tierId = tier.id;
+  subscriber,
+  ...opts
+}: GetActivationFromGithubSponsorOpts): Promise<ActivationGettingResult> => {
+  const {tier, user} = subscriber;
 
-  const activation = presetLookup[tierId];
-  if (!activation) {
-    console.warn(
-      `Tier ID ${tierId} on user ${toGithubSponsorInfo(user)} on Github without associated activation`,
-    );
-    return null;
-  }
-
-  return activation.activation;
+  return getActivationFromPlatform({
+    tag: tier.id,
+    userInfo: toGithubSponsorInfo(user),
+    source: 'github',
+    contact: user.login,
+    ...opts,
+  });
 };

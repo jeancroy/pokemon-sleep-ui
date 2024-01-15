@@ -16,7 +16,7 @@ import {
   updateActivationKeyPropertiesBatch,
   updateActivationKeyPropertiesSingle,
 } from '@/controller/user/activation/key';
-import {ActionSendActivationPayload} from '@/handler/activation/send/type';
+import {ActivationSendingPayload} from '@/handler/activation/send/type';
 import {ActivationKey, ActivationProperties, ActivationSource} from '@/types/mongo/activation';
 import {isNotNullish} from '@/utils/type';
 
@@ -43,7 +43,7 @@ export const updateActivationPropertiesSingle = ({filter, properties}: UpdateAct
 
 type UpdateActivationPropertiesFromPayloadsOpts = {
   source: ActivationSource,
-  payloads: ActionSendActivationPayload[]
+  payloads: ActivationSendingPayload[],
 };
 
 export const updateActivationPropertiesFromPayloads = ({
@@ -92,7 +92,7 @@ export const removeActivationBatch = ({filter}: RemoveActivationOpts) => {
   ]);
 };
 
-type GetActivationPropertiesByContactOpts = {
+export type GetActivationPropertiesByContactOpts = {
   source: ActivationSource,
   contact: string,
 };
