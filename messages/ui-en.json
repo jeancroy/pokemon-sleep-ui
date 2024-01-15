@@ -1,8 +1,8 @@
 {
   "Subscription": {
-    "AdBlockActive": "Using Ad-blocker on this website is discouraged. Hosting the website costs, and developing the website needs time.\n\nPlease allow ads or **check the \"Subscription Intro\" in the documentation section**.\n\nIf you have any feedback on ads placement, please join our Discord (link in About page) and report.",
-    "Popup": "Please subscribe if you like using the website :) Check [Subscription Intro](https://pks.raenonx.cc/docs/view/subscription/intro) for details.",
-    "PremiumOnly": "Premium subscription required. Please check [Subscription Intro](https://pks.raenonx.cc/docs/view/subscription/intro) for details.",
+    "AdBlockActive": "<p>Using Ad-blocker on this website is discouraged. Hosting the website costs, and developing the website needs time.</p>\n<p>Please allow ads or <strong>check the &quot;Subscription Intro&quot; in the documentation section</strong>.</p>\n<p>If you have any feedback on ads placement, please join our Discord (link in About page) and report.</p>",
+    "Popup": "<p>Please subscribe if you like using the website :) Check <a href=\"https://pks.raenonx.cc/docs/view/subscription/intro\">Subscription Intro</a> for details.</p>",
+    "PremiumOnly": "<p>Premium subscription required. Please check <a href=\"https://pks.raenonx.cc/docs/view/subscription/intro\">Subscription Intro</a> for details.</p>",
     "Activation": {
       "AdsFree": "Ads-Free Browsing",
       "Premium": "Premium Feature Access"
