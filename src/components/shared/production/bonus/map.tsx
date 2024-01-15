@@ -12,6 +12,7 @@ import {SleepMapId} from '@/types/game/sleepStyle';
 
 type Props = BonusSliderProps & {
   mapId: SleepMapId,
+  maxMapBonusPercent: number,
   isCurrent: boolean,
   onMapClicked: () => void,
 };

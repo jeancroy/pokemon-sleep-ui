@@ -8,6 +8,7 @@ import {authOptions} from '@/const/auth';
 import {getIngredientIds} from '@/controller/ingredient';
 import {getMapIds} from '@/controller/mapMeta';
 import {getMealMap} from '@/controller/meal';
+import {getMaxMapBonusPercent} from '@/controller/progress';
 import {NavBarClient} from '@/ui/base/navbar/client';
 import {NavBarCommonProps} from '@/ui/base/navbar/type';
 import {getPossibleMealTypes} from '@/utils/game/mealType';
@@ -23,11 +24,13 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
     session,
     mealMap,
     mapIds,
+    maxMapBonusPercent,
     ingredientIds,
   ] = React.use(Promise.all([
     getServerSession(authOptions),
     getMealMap(),
     getMapIds(),
+    getMaxMapBonusPercent(),
     getIngredientIds(),
   ]));
 
@@ -47,6 +50,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
         noUserControl={noUserControl}
         session={session}
         mapIds={mapIds}
+        maxMapBonusPercent={maxMapBonusPercent}
         mealTypes={mealTypes}
         mealMap={mealMap}
         ingredientIds={ingredientIds}

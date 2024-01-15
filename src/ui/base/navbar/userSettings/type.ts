@@ -7,4 +7,5 @@ import {UserSettingsCookingDataProps} from '@/ui/base/navbar/userSettings/sectio
 export type UserSettingsProps = UserSettingsCookingDataProps & {
   session: Session | null,
   mapIds: SleepMapId[],
+  maxMapBonusPercent: number,
 };

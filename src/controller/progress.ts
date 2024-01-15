@@ -16,3 +16,10 @@ const getCollection = async (): Promise<Collection<GameProgressData>> => {
 export const getAllGameProgressData = async (): Promise<GameProgressData[]> => {
   return getDataAsArray(getCollection());
 };
+
+export const getMaxMapBonusPercent = async (): Promise<number> => {
+  const data = await (await getCollection())
+    .findOne({}, {sort: {maxMapBonusPercent: -1}, limit: 1});
+
+  return data?.maxMapBonusPercent ?? NaN;
+};

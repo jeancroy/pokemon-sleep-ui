@@ -14,20 +14,29 @@ import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
 
 type Props = {
   mapIds: SleepMapId[],
+  maxMapBonusPercent: number,
   bonus: UserBonus,
   setBonus: (newBonus: UserBonus) => void,
   currentMap: SleepMapId,
   setCurrentMap: (map: SleepMapId) => void,
 };
 
-export const UserSettingsBonusUI = ({mapIds, bonus, setBonus, currentMap, setCurrentMap}: Props) => {
+export const UserSettingsBonusUI = ({
+  mapIds,
+  maxMapBonusPercent,
+  bonus,
+  setBonus,
+  currentMap,
+  setCurrentMap,
+}: Props) => {
   return (
     <UserSettingsSection titleIcon={<ArrowUpCircleIcon/>}>
-      <Grid className="grid-cols-1 gap-1.5 lg:grid-cols-2">
+      <Grid className="grid-cols-1 gap-1.5 xl:grid-cols-2">
         {mapIds.map((mapId) => (
           <MapBonusSlider
             key={mapId}
             mapId={mapId}
+            maxMapBonusPercent={maxMapBonusPercent}
             value={bonus.map[mapId] ?? 0}
             setValue={(value) => setBonus({
               ...bonus,

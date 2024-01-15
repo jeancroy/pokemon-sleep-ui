@@ -27,7 +27,14 @@ type Props = UserSettingsProps & {
   setShow: React.Dispatch<React.SetStateAction<boolean>>,
 };
 
-export const UserSettingsPopup = ({session, mapIds, show, setShow, ...props}: Props) => {
+export const UserSettingsPopup = ({
+  session,
+  mapIds,
+  maxMapBonusPercent,
+  show,
+  setShow,
+  ...props
+}: Props) => {
   const t = useTranslations('UI.UserSettings');
   const {act} = useUserDataActor({statusToast: true});
   const [bundle, setBundleInternal] = React.useState<UserSettingsBundle>({
@@ -97,6 +104,7 @@ export const UserSettingsPopup = ({session, mapIds, show, setShow, ...props}: Pr
         />
         <UserSettingsBonusUI
           mapIds={mapIds}
+          maxMapBonusPercent={maxMapBonusPercent}
           bonus={settings.bonus}
           setBonus={(bonus) => setBundle(({settings, ...original}) => ({
             ...original,
