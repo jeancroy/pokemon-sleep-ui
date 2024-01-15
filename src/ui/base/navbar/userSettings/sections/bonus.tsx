@@ -31,7 +31,7 @@ export const UserSettingsBonusUI = ({
 }: Props) => {
   return (
     <UserSettingsSection titleIcon={<ArrowUpCircleIcon/>}>
-      <Grid className="grid-cols-1 gap-1.5 xl:grid-cols-2">
+      <Grid className="grid-cols-1 gap-1.5 lg:grid-cols-2">
         {mapIds.map((mapId) => (
           <MapBonusSlider
             key={mapId}
