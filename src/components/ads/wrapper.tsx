@@ -49,7 +49,6 @@ export const AdsWrapper = ({
     <Flex direction="row" className={clsx('h-full', className)}>
       <AdsContent
         key={`${counter}a`}
-        checkDom
         recheckDeps={[counter]}
         {...props}
       >
@@ -60,7 +59,6 @@ export const AdsWrapper = ({
         <AdsContent
           key={`${counter}b`}
           className="hidden lg:block"
-          checkDom={false}
           recheckDeps={[counter]}
           {...props}
         >
