@@ -25,8 +25,9 @@ export const Slider = ({value, setValue, ...props}: Props) => {
         setValue(max ? Math.min(level, typeof max === 'string' ? parseInt(max) : max) : level);
       }}
       className={clsx(
-        'h-2 w-full cursor-pointer appearance-none rounded-lg',
-        'bg-slate-400/50 accent-slate-600/50 dark:bg-slate-700/70 dark:accent-slate-300/50',
+        'transform-smooth h-2 w-full cursor-pointer appearance-none rounded-lg',
+        'bg-slate-500/50 accent-slate-700/50 disabled:bg-slate-400/50',
+        'dark:bg-slate-400/60 dark:accent-slate-200/50 dark:disabled:bg-slate-600/50',
       )}
       {...props}
     />
