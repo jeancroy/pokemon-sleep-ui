@@ -246,6 +246,10 @@
     }
   }
   
+  .glow {
+    @apply shadow-slate-700 dark:shadow-slate-300;
+  }
+  
   /* region Elements divider (divide-*) */
   
   .divide-horizontal {
@@ -339,11 +343,11 @@
   }
   
   .info-icon-glow {
-    @apply info-icon-base shadow-border shadow-slate-700 dark:shadow-slate-300;
+    @apply info-icon-base shadow-border glow;
   }
   
   .info-highlight {
-    @apply rounded-lg shadow-border shadow-slate-700 dark:shadow-slate-300;
+    @apply rounded-lg shadow-border glow;
   }
   
   .info-highlight-inner {
