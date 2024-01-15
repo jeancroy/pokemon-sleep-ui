@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {useUserCookingPreset} from '@/hooks/userData/cookingPreset';
 import {useUserSettings} from '@/hooks/userData/settings';
 import {UseUserDataOpts} from '@/hooks/userData/type';
@@ -20,5 +22,9 @@ export const useUserSettingsBundle = ({bundle}: UseTranslatedUserSettingsOpts): 
     client: client?.cooking,
   });
 
-  return {settings, cooking};
+  // This `useMemo()` is required, otherwise this could trigger infinite re-render
+  return React.useMemo(() => ({
+    settings,
+    cooking,
+  }), [settings, cooking]);
 };
