@@ -15,7 +15,7 @@ export const AuthSignInEmailClient = () => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    void signIn('email', {email});
+    void signIn('email', {email, callbackUrl: '/'});
   };
 
   return (
