@@ -18,6 +18,7 @@ export const calculateRatingResultOfCrossSpecies = ({
 }: CalculateRatingResultOfCrossSpeciesOpts): RatingWorkerDataPointCalcReturn => {
   const {
     level,
+    basis,
     ingredientChainMap,
     pokemonList,
     berryDataMap,
@@ -30,7 +31,7 @@ export const calculateRatingResultOfCrossSpecies = ({
       resolve(pokemonList.flatMap((pokemon) => {
         const {ingredientChain, berry, skill} = pokemon;
 
-        if (pokemon.skill !== currentPokemon.skill) {
+        if (basis === 'skillTriggerValue' && pokemon.skill !== currentPokemon.skill) {
           return null;
         }
 
