@@ -30,13 +30,15 @@ type Props = TeamMakerDataProps & TeamMakerResultCommonProps & {
 
 export const TeamMakerResultCompUi = ({comp, ...props}: Props) => {
   const {
+    result,
+  } = props;
+  const {
     rates,
     strengthByType,
     basisValue,
     ingredientStats,
     finalEstimates,
   } = comp;
-  const {result} = props;
 
   const collapsible = useCollapsible();
   const t = useTranslations('UI.Producing');

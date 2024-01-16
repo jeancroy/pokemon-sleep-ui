@@ -12,8 +12,6 @@ import {ClickableIconButton} from '@/components/shared/common/button/clickable';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {migrate} from '@/utils/migrate/main';
-import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 
 
 type Props = {
@@ -40,13 +38,8 @@ export const TeamMakerCompControl = ({pokeInBoxList}: Props) => {
               type: 'team.maker.export',
               data: {
                 name: teamName,
-                // Ensure exported `pokeInBox` is as new as possible
-                members: pokeInBoxList.map((pokeInBox) => migrate({
-                  original: pokeInBox,
-                  override: null,
-                  migrators: pokeInBoxMigrators,
-                  migrateParams: {},
-                })),
+                // No need to migrate as it is done server-side
+                members: pokeInBoxList,
               },
             },
           });

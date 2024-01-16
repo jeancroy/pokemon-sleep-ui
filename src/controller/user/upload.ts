@@ -1,7 +1,9 @@
 import {updateAnnouncements} from '@/controller/announcement/main';
 import {addDoc, deleteDoc, updateDoc} from '@/controller/docs';
+import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {updatePacketRecordingSettings} from '@/controller/packet/settings';
 import {addSinglePokeInBox, deleteSinglePokeInBox, upsertSinglePokeInBox} from '@/controller/pokebox/main';
+import {getPokedexMap} from '@/controller/pokemon/info';
 import {addSleepdexRecord, removeSleepdexRecord} from '@/controller/sleepdex';
 import {
   addActivationDataByAdsClick,
@@ -79,9 +81,21 @@ export const uploadUserData = async ({userId, opts}: UploadUserDataOpts) => {
   }
 
   if (type === 'team.maker.export') {
+    const [
+      pokedexMap,
+      ingredientChainMap,
+    ] = await Promise.all([
+      getPokedexMap(),
+      getIngredientChainMap(),
+    ]);
+
     await addTeamAnalysisComp({
       userId,
-      comp: toTeamAnalysisCompFromPokebox(data),
+      comp: toTeamAnalysisCompFromPokebox({
+        pokedexMap,
+        ingredientChainMap,
+        ...data,
+      }),
     });
     return;
   }
