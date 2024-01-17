@@ -125,10 +125,10 @@
         "Title": "Cooking"
       },
       "Make": {
-        "Title": "Meal Maker"
+        "Title": "Recipe Calculator"
       },
       "Prepare": {
-        "Title": "Meal Preparer"
+        "Title": "Recipe Preparer"
       }
     },
     "Meal": {
