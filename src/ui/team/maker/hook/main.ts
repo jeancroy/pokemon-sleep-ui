@@ -16,7 +16,7 @@ import {
   TeamMakerCalcInitReturn,
 } from '@/ui/team/maker/type/calc';
 import {TeamMakerState} from '@/ui/team/maker/type/state';
-import {getCombinationCount} from '@/utils/compute';
+import {getCombinationCount} from '@/utils/compute/combination';
 
 
 type UseTeamMakerOpts = {

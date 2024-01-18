@@ -7,7 +7,7 @@ import {TeamMakerCandidateInitialData} from '@/ui/team/maker/calc/getCandidates/
 import {getTeamMakerCandidates} from '@/ui/team/maker/calc/getCandidates/main';
 import {GetTeamMakerCandidatesOpts} from '@/ui/team/maker/calc/getCandidates/type';
 import {TeamMakerCandidateData, TeamMakerMemberCount} from '@/ui/team/maker/type/common';
-import {getCombinationCount} from '@/utils/compute';
+import {getCombinationCount} from '@/utils/compute/combination';
 
 
 type GetTeamMakerInitialCandidateMapOpts = GetTeamMakerCandidatesOpts & GetTeamMakerCandidateMapFromTopListOpts;

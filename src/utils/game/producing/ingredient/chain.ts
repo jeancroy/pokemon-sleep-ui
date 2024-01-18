@@ -7,7 +7,7 @@ import {
   IngredientProductionAtLevels,
 } from '@/types/game/pokemon/ingredient';
 import {toSum} from '@/utils/array';
-import {cartesianIterator} from '@/utils/compute';
+import {cartesianIterator} from '@/utils/compute/cartesian';
 import {getEffectiveIngredientLevels} from '@/utils/game/producing/ingredient/level';
 import {isNotNullish} from '@/utils/type';
 

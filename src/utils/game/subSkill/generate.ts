@@ -7,7 +7,7 @@ import {
   SubSkillData,
   SubSkillId,
 } from '@/types/game/pokemon/subSkill';
-import {combineIterator} from '@/utils/compute';
+import {combineIterator} from '@/utils/compute/combination';
 
 
 type GeneratePossiblePokemonSubSkillOpts = {
