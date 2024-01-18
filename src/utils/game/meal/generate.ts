@@ -1,6 +1,6 @@
 import {Meal, MealMap, MealTypeId} from '@/types/game/meal/main';
 import {CookingUserSettings} from '@/types/userData/settings';
-import {combineIterator} from '@/utils/compute';
+import {combineWithRepetitionIterator} from '@/utils/compute/combination';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -17,7 +17,7 @@ export const generateTargetMeals = ({
     .filter(isNotNullish)
     .filter(({type}) => type === mealType);
 
-  return combineIterator(possibleMeals, 3);
+  return combineWithRepetitionIterator(possibleMeals, 3);
 };
 
 type GenerateUserCookingSettingsFromAllTargetMealsOpts = GenerateTargetMealsOpts & {
