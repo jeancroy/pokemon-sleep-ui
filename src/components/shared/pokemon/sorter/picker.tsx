@@ -12,10 +12,15 @@ import {PokemonSortType, pokemonSortType} from '@/components/shared/pokemon/sort
 type Props = {
   sort: PokemonSortType,
   updateSort: (sort: PokemonSortType) => void,
+} & ({
+  options: PokemonSortType[],
+  exclude?: never,
+} | {
+  options?: never,
   exclude?: PokemonSortType[],
-};
+});
 
-export const PokemonSortingPicker = ({sort, updateSort, exclude}: Props) => {
+export const PokemonSortingPicker = ({sort, updateSort, options, exclude}: Props) => {
   const t = useTranslations('UI.InPage.Pokedex');
 
   return (
@@ -27,7 +32,7 @@ export const PokemonSortingPicker = ({sort, updateSort, exclude}: Props) => {
           <Bars3BottomLeftIcon className="h-6 w-6"/>
         </Flex>
       }
-      ids={[...pokemonSortType].filter((sortType) => !exclude?.includes(sortType))}
+      ids={options ?? [...pokemonSortType].filter((sortType) => !exclude?.includes(sortType))}
       idToText={(sort) => t(sortTypeToI18nId[sort])}
     />
   );
