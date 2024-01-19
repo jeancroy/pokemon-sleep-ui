@@ -1,4 +1,4 @@
-import {getAllPokemon} from '@/controller/pokemon/info';
+import {getPokemonList} from '@/controller/pokemon/info';
 import {GenerateMetadata, GenerateMetadataParams} from '@/types/next/metadata';
 import {GenerateStaticParamsFunc} from '@/types/next/static';
 import {Pokemon} from '@/ui/pokedex/page/main';
@@ -7,7 +7,7 @@ import {generatePageMeta} from '@/utils/meta';
 
 
 export const generateStaticParams: GenerateStaticParamsFunc<PokedexPageParams> = async () => {
-  return (await getAllPokemon()).map(({id}) => ({id: id.toString()}));
+  return (await getPokemonList()).map(({id}) => ({id: id.toString()}));
 };
 
 export type PokedexPageParams = GenerateMetadataParams & {

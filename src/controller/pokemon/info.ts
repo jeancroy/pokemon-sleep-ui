@@ -20,7 +20,7 @@ export const getSinglePokemonInfo = async (id: number) => (
   getSingleData(getCollection(), {id})
 );
 
-export const getAllPokemon = async (): Promise<PokemonInfo[]> => {
+export const getPokemonList = async (): Promise<PokemonInfo[]> => {
   return getDataAsArray(getCollection());
 };
 

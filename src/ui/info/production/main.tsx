@@ -5,7 +5,7 @@ import {I18nProvider} from '@/components/i18n/provider';
 import {Flex} from '@/components/layout/flex/common';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
-import {getAllPokemon} from '@/controller/pokemon/info';
+import {getPokemonList} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getPokemonProducingParamsMeta} from '@/controller/pokemon/producingMeta';
 import {DefaultPageProps} from '@/types/next/page/common';
@@ -25,7 +25,7 @@ export const ProducingParams = async ({params}: DefaultPageProps) => {
     ingredientMap,
     ingredientChainMap,
   ] = await Promise.all([
-    getAllPokemon(),
+    getPokemonList(),
     getPokemonProducingParamsMap(),
     getPokemonProducingParamsMeta(),
     getIngredientMap(),

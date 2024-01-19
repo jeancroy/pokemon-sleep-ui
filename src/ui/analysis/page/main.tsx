@@ -12,7 +12,7 @@ import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
 import {getMealMap} from '@/controller/meal';
-import {getAllPokemon} from '@/controller/pokemon/info';
+import {getPokemonList} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getSleepStyleNormalMap} from '@/controller/sleepStyle';
 import {getSubSkillMap} from '@/controller/subSkill';
@@ -43,7 +43,7 @@ export const AnalysisPage = async ({params}: Props) => {
     pokemonMaxLevel,
   ] = await Promise.all([
     getServerSession(authOptions),
-    getAllPokemon(),
+    getPokemonList(),
     getPokemonProducingParamsMap(),
     getBerryDataMap(),
     getIngredientChainMap(),

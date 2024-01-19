@@ -10,7 +10,7 @@ import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
 import {getMealMap} from '@/controller/meal';
-import {getAllPokemon} from '@/controller/pokemon/info';
+import {getPokemonList} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getSleepStyleNormalMap} from '@/controller/sleepStyle';
 import {getSubSkillMap} from '@/controller/subSkill';
@@ -31,7 +31,7 @@ const getPokedexData = async (): Promise<PokedexData> => {
       .map((locale) => getI18nTranslator({locale, namespace: 'Game.PokemonName'})),
   );
 
-  return (await getAllPokemon())
+  return (await getPokemonList())
     .map((pokemon) => ({
       ...pokemon,
       sleepStyles: sleepStyleMap[pokemon.id] ?? [],

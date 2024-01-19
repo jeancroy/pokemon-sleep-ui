@@ -3,7 +3,7 @@ import {
   getIngredientChainMapOfIngredient,
   getIngredientChainMapOfLevel,
 } from '@/controller/ingredientChain';
-import {getAllPokemon, getPokemonByBerry, getPokemonByIngredientChain} from '@/controller/pokemon/info';
+import {getPokemonList, getPokemonByBerry, getPokemonByIngredientChain} from '@/controller/pokemon/info';
 import {BerryId} from '@/types/game/berry';
 import {IngredientId} from '@/types/game/ingredient';
 import {PokemonIngredientProduction, PokemonIngredientProductionMap} from '@/types/game/pokemon';
@@ -16,7 +16,7 @@ export const getPokemonIngredientProductionByIngredient = async (
 ): Promise<PokemonIngredientProduction[]> => {
   const [ingredientChainMap, pokemonArray] = await Promise.all([
     getIngredientChainMapOfIngredient(ingredientId),
-    getAllPokemon(),
+    getPokemonList(),
   ]);
 
   return pokemonArray
