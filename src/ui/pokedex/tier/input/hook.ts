@@ -50,25 +50,40 @@ export const usePokedexTierListInput = (opts: UsePokedexTierListInputOpts): Poke
         }),
       });
     },
-    onSetFilter: (original, updated) => ({
-      ...original,
-      filter: enforceFilterWithSkillValue<
-        PokedexTierListInputFilter,
-        PokedexTierListInputFilter['sort'] | PokedexTierListInputFilter['display']
-      >({
-        original: original.filter,
-        updated: updated.filter,
-        config: {
-          mainSkill: {
-            key: 'mainSkill',
-            defaultValue: {[pokemonList[0].skill]: true},
+    onSetFilter: (original, updated) => {
+      // If sort becomes non-main skill, force clear out main skills
+      if (updated.filter.sort !== 'mainSkillTriggerValue') {
+        return {
+          ...original,
+          filter: {
+            ...original.filter,
+            ...updated.filter,
+            mainSkill: {},
           },
-          sort: [
-            {key: 'sort', defaultValue: 'totalEnergy'},
-            {key: 'display', defaultValue: 'totalEnergy'},
-          ],
-        },
-      }),
-    }),
+        };
+      }
+
+      // Regular main skill enforcing behavior
+      return {
+        ...original,
+        filter: enforceFilterWithSkillValue<
+          PokedexTierListInputFilter,
+          PokedexTierListInputFilter['sort'] | PokedexTierListInputFilter['display']
+        >({
+          original: original.filter,
+          updated: updated.filter,
+          config: {
+            mainSkill: {
+              key: 'mainSkill',
+              defaultValue: {[pokemonList[0].skill]: true},
+            },
+            sort: [
+              {key: 'sort', defaultValue: 'totalEnergy'},
+              {key: 'display', defaultValue: 'totalEnergy'},
+            ],
+          },
+        }),
+      };
+    },
   });
 };
