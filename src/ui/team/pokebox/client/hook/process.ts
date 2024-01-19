@@ -1,6 +1,6 @@
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {PokemonInfoWithSortingPayload} from '@/components/shared/pokemon/sorter/type';
-import {useSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
+import {usePokemonSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
 import {Pokebox, PokeInBox} from '@/types/userData/pokebox/main';
 import {UserSettingsBundle} from '@/types/userData/settings';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
@@ -40,7 +40,7 @@ export const useProcessedPokebox = ({
   filter,
   isIncluded,
   setLoading,
-}: Props) => useSortingWorker({
+}: Props) => usePokemonSortingWorker({
   data: pokeInBoxToCalc
     .filter(({uuid}) => isIncluded[uuid])
     .map((pokeInBox) => {

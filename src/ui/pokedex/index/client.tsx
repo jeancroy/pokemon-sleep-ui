@@ -10,7 +10,7 @@ import {Grid} from '@/components/layout/grid';
 import {LazyLoad} from '@/components/layout/lazyLoad';
 import {CompletionResultUI} from '@/components/shared/completion/main';
 import {PokemonInfoWithSortingPayload} from '@/components/shared/pokemon/sorter/type';
-import {useSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
+import {usePokemonSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
 import {useAutoUpload} from '@/hooks/userData/autoUpload';
 import {useTranslatedUserSettings} from '@/hooks/userData/translated';
 import {usePokedexFilter} from '@/ui/pokedex/index/filter';
@@ -90,7 +90,7 @@ export const PokedexClient = (props: PokedexDataProps) => {
       .map((ingredients) => ({...commonOpts, ingredients}));
   }), sortingDeps);
 
-  const sortedFilteredData = useSortingWorker({
+  const sortedFilteredData = usePokemonSortingWorker({
     // Filtering unwanted data here as `<PokedexResultCount/>` checks the following for result count:
     // - Result: length of `sortedData`
     // - Total: length of `allInfoWithSortingPayload`

@@ -8,7 +8,7 @@ import {SortingWorkerOpts} from '@/components/shared/pokemon/sorter/worker/type'
 import {useWorker} from '@/hooks/worker/main';
 
 
-type UseSortingWorkerOpts<
+type UsePokemonSortingWorkerOpts<
   TExtra,
   TData extends PokemonInfoWithSortingPayload<TExtra>
 > = SortingWorkerOpts<TExtra, TData> & {
@@ -16,11 +16,11 @@ type UseSortingWorkerOpts<
   setLoading: (loading: boolean) => void,
 };
 
-export const useSortingWorker = <TExtra, TData extends PokemonInfoWithSortingPayload<TExtra>>({
+export const usePokemonSortingWorker = <TExtra, TData extends PokemonInfoWithSortingPayload<TExtra>>({
   triggerDeps,
   setLoading,
   ...opts
-}: UseSortingWorkerOpts<TExtra, TData>) => {
+}: UsePokemonSortingWorkerOpts<TExtra, TData>) => {
   const [sorted, setSorted] = React.useState<SortedPokemonInfo<TExtra, TData>[]>([]);
   const {work} = useWorker<SortingWorkerOpts<TExtra, TData>, SortedPokemonInfo<TExtra, TData>[]>({
     workerName: 'Pokemon Sorter',
