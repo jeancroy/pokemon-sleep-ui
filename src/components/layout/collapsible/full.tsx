@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Transition} from '@headlessui/react';
+import {clsx} from 'clsx';
 
 import {CollapsibleMark} from '@/components/layout/collapsible/mark';
 import {CollapsibleCommonProps} from '@/components/layout/collapsible/type';
@@ -9,8 +10,9 @@ import {Flex} from '@/components/layout/flex/common';
 
 
 type Props = CollapsibleCommonProps & {
-  durationOverride?: `duration-${number}`,
-  delayOverride?: `delay-${number}`,
+  classDuration?: `duration-${number}`,
+  classDelay?: `delay-${number}`,
+  classBorder?: `border-${string}`,
 };
 
 export const CollapsibleFull = ({
@@ -19,8 +21,9 @@ export const CollapsibleFull = ({
   appear,
   noButtonPadding,
   disabled,
-  durationOverride,
-  delayOverride,
+  classDuration,
+  classDelay,
+  classBorder,
   children,
 }: React.PropsWithChildren<Props>) => {
   const {show, setShow} = state;
@@ -31,8 +34,8 @@ export const CollapsibleFull = ({
     }
   }, []);
 
-  const duration = durationOverride ?? 'duration-1000';
-  const delay = delayOverride ?? 'delay-300';
+  const duration = classDuration ?? 'duration-1000';
+  const delay = classDelay ?? 'delay-300';
 
   return (
     <Flex>
@@ -51,7 +54,10 @@ export const CollapsibleFull = ({
         enterTo="p-1"
         leaveFrom="p-1"
         leaveTo="p-0"
-        className="border-common rounded-b-lg border-x border-b transition-spacing duration-300 ease-in-out"
+        className={clsx(
+          'rounded-b-lg border-x border-b transition-spacing duration-300 ease-in-out',
+          classBorder ?? 'border-common',
+        )}
       >
         <Transition.Child
           appear={appear}
