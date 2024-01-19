@@ -31,3 +31,8 @@ export type FilterEnforcerOpts<TFilter> = {
   original: TFilter,
   updated: TFilter,
 };
+
+export type FilterInputControls<TFilter, TData, TId extends Indexable> = FilterWithUpdaterProps<TFilter> & {
+  data: TData[],
+  isIncluded: FilterInclusionMap<TId>,
+};

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {FilterInclusionMap} from '@/components/input/filter/type';
+import {FilterInclusionMap, FilterInputControls} from '@/components/input/filter/type';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
 import {Indexable} from '@/utils/type';
 
@@ -23,7 +23,7 @@ export const useFilterInput = <TFilter, TData, TId extends Indexable>({
   dataDeps,
   deps,
   onSetFilter,
-}: UseFilterInputOpts<TFilter, TData, TId>) => {
+}: UseFilterInputOpts<TFilter, TData, TId>): FilterInputControls<TFilter, TData, TId> => {
   const [filter, setFilterInternal] = React.useState<TFilter>(
     onSetFilter ? (onSetFilter(initialFilter, initialFilter) ?? initialFilter) : initialFilter,
   );
