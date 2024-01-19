@@ -1,7 +1,7 @@
 import {useFilterInput} from '@/components/input/filter/hook';
 import {isDataIncludingAllOfFilter, isFilterMatchingSearch} from '@/components/input/filter/utils/check';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
-import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils';
+import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {enforceFilterWithSkillValue} from '@/components/shared/pokemon/sorter/enforcer/skillValue';
 import {defaultPokemonSort} from '@/const/filter';
 import {PokemonId} from '@/types/game/pokemon';

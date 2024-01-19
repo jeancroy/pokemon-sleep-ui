@@ -2,7 +2,8 @@ import {useFilterInput} from '@/components/input/filter/hook';
 import {isFilterMatchingSearch} from '@/components/input/filter/utils/check';
 import {PokeboxImporterFilter, PokeInBoxForFilter} from '@/components/shared/pokebox/importer/type';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
-import {generatePokemonInputFilter, isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils';
+import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
+import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 
 
 type UsePokeboxImporterFilterOpts = UsePokemonFilterCommonData & {

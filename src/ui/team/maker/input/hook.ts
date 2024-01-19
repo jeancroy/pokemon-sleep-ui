@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils';
+import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {UserSettingsBundle} from '@/types/userData/settings';
 import {defaultTeamMakerMaxResultCount} from '@/ui/team/maker/const';

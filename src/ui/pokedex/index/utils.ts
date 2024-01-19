@@ -1,4 +1,4 @@
-import {generatePokemonInputFilterExtended} from '@/components/shared/pokemon/filter/utils';
+import {generatePokemonInputFilterExtended} from '@/components/shared/pokemon/filter/utils/generate';
 import {defaultPokemonSort} from '@/const/filter';
 import {PokedexDisplay, PokedexFilter} from '@/ui/pokedex/index/type';
 import {migrate} from '@/utils/migrate/main';

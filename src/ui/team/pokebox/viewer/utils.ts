@@ -4,7 +4,8 @@ import {
   isFilterMismatchOnSingle,
 } from '@/components/input/filter/utils/check';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
-import {generatePokemonInputFilter, isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils';
+import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
+import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {natureDataMap} from '@/data/nature';
 import {PokeboxDataProps} from '@/ui/team/pokebox/type';
 import {PokeboxPokemonForView, PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';

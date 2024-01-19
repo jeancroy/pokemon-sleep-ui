@@ -10,7 +10,8 @@ import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
 import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
 import {PokemonInputFilter, UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
-import {generatePokemonInputFilter, isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils';
+import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
+import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {PokemonClickableIcons} from '@/components/shared/pokemon/icon/clickable/main';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
 

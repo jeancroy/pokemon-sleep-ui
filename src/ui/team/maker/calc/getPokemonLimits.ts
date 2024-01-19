@@ -1,4 +1,4 @@
-import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils';
+import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {maxRecipeLevel} from '@/data/recipeLevel';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {CookingUserSettings, UserSettings} from '@/types/userData/settings';

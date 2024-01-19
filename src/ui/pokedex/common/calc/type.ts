@@ -26,9 +26,11 @@ export type PokedexCalcDataProps = UsePokemonFilterCommonData & CookingUserSetti
   },
 };
 
+export type PokedexCalcResultEntry = SortedPokemonInfo<null, PokemonInfoWithSortingPayload<null>>;
+
 export type PokedexCalcResult = {
   translatedSettings: TranslatedUserSettings,
-  result: SortedPokemonInfo<null, PokemonInfoWithSortingPayload<null>>[],
+  result: PokedexCalcResultEntry[],
   count: {
     selected: number,
     total: number,

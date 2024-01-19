@@ -1,6 +1,7 @@
 import {useFilterInput} from '@/components/input/filter/hook';
 import {isFilterConditionActive} from '@/components/input/filter/utils/check';
-import {generatePokemonInputFilter, isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils';
+import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
+import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {MapCommonProps, MapInputInclusionKey, MapPageFilter} from '@/components/shared/sleepStyle/page/type';
 import {SleepStyleNormalFlattened} from '@/types/game/sleepStyle';
 

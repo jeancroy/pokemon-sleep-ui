@@ -2,7 +2,8 @@ import React from 'react';
 
 import {useFilterInput} from '@/components/input/filter/hook';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
-import {generatePokemonInputFilter, isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils';
+import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
+import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {

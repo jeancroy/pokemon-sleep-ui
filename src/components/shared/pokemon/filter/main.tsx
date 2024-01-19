@@ -11,7 +11,7 @@ import {getMultiSelectOnClickProps} from '@/components/input/filter/utils/props'
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonFilterTitle} from '@/components/shared/pokemon/filter/title';
 import {EvolutionStageSelection, PokemonInputFilter} from '@/components/shared/pokemon/filter/type';
-import {getFilterIdsFromPokemon} from '@/components/shared/pokemon/filter/utils';
+import {generateFilterOptionIdsFromPokemon} from '@/components/shared/pokemon/filter/utils/generate';
 import {PokemonLevelSliderRow} from '@/components/shared/pokemon/level/sliderRow';
 import {PokemonSleepType} from '@/components/shared/pokemon/sleepType/main';
 import {PokemonSpecialty} from '@/components/shared/pokemon/specialty/main';
@@ -58,7 +58,7 @@ export const PokemonFilter = <TFilter extends PokemonInputFilter>({
         title={<PokemonFilterTitle type="pokemonType"/>}
         idToAlt={(id) => t(`PokemonType.${id}`)}
         idToImageSrc={(id) => `/images/type/${id}.png`}
-        ids={getFilterIdsFromPokemon({
+        ids={generateFilterOptionIdsFromPokemon({
           pokemonList,
           toId: ({type}) => type,
         })}
@@ -70,7 +70,7 @@ export const PokemonFilter = <TFilter extends PokemonInputFilter>({
       <FilterExpandedInput
         title={<PokemonFilterTitle type="specialty"/>}
         idToButton={(id, isActive) => <PokemonSpecialty specialty={id} active={isActive}/>}
-        ids={getFilterIdsFromPokemon({
+        ids={generateFilterOptionIdsFromPokemon({
           pokemonList,
           toId: ({specialty}) => specialty,
         })}
@@ -83,7 +83,7 @@ export const PokemonFilter = <TFilter extends PokemonInputFilter>({
       <FilterExpandedInput
         title={<PokemonFilterTitle type="sleepType"/>}
         idToButton={(id, isActive) => <PokemonSleepType sleepType={id} active={isActive}/>}
-        ids={getFilterIdsFromPokemon({
+        ids={generateFilterOptionIdsFromPokemon({
           pokemonList,
           toId: ({sleepType}) => sleepType,
         })}
@@ -107,7 +107,7 @@ export const PokemonFilter = <TFilter extends PokemonInputFilter>({
         title={<PokemonFilterTitle type="berry"/>}
         idToAlt={(id) => t(`Berry.${id}`)}
         idToImageSrc={(id) => `/images/berry/${id}.png`}
-        ids={getFilterIdsFromPokemon({
+        ids={generateFilterOptionIdsFromPokemon({
           pokemonList,
           toId: ({berry}) => berry.id,
         })}
@@ -124,7 +124,7 @@ export const PokemonFilter = <TFilter extends PokemonInputFilter>({
           </div>
         )}
         ids={[
-          ...getFilterIdsFromPokemon({
+          ...generateFilterOptionIdsFromPokemon({
             pokemonList,
             toId: ({evolution}) => evolution.stage,
           }),
@@ -139,7 +139,7 @@ export const PokemonFilter = <TFilter extends PokemonInputFilter>({
       <FilterTextInput
         title={<PokemonFilterTitle type="mainSkill"/>}
         idToText={(id) => t(`MainSkill.Name.${id}`)}
-        ids={getFilterIdsFromPokemon({
+        ids={generateFilterOptionIdsFromPokemon({
           pokemonList,
           toId: ({skill}) => skill,
         })}

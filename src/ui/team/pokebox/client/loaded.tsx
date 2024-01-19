@@ -11,7 +11,7 @@ import {useCalculatedData} from '@/ui/team/pokebox/client/hook/main';
 import {PokeboxContent} from '@/ui/team/pokebox/content/main';
 import {PokeInBoxEditPopup} from '@/ui/team/pokebox/editor/main';
 import {PokeInBoxEditorState} from '@/ui/team/pokebox/editor/type';
-import {PokeboxPickerInput} from '@/ui/team/pokebox/filter/main';
+import {PokeboxPickerInput} from '@/ui/team/pokebox/picker/main';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerInput} from '@/ui/team/pokebox/viewer/main';
 import {toPokemonList} from '@/utils/game/pokemon/utils';

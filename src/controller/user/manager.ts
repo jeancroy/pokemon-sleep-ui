@@ -9,7 +9,7 @@ import {PokeboxViewerDisplay} from '@/ui/team/pokebox/viewer/type';
 
 export const userDataCooking = createUserDataManager<UserCookingPreset>('cooking');
 
-export const userDataPokedex = createUserDataManager<PokedexDisplay>('pokedex');
+export const userDataPokedex = createUserDataManager<Omit<PokedexDisplay, 'ingredient'>>('pokedex');
 
 export const userDataPokeboxDisplay = createUserDataManager<PokeboxViewerDisplay>('pokeboxDisplay');
 

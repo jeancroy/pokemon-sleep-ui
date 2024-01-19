@@ -1,5 +1,6 @@
 import {useFilterInput} from '@/components/input/filter/hook';
-import {generatePokemonInputFilter, isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils';
+import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
+import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {SleepdexStyleId} from '@/types/game/sleepdex';
 import {enforceFilterSelectedMapToShowSnorlaxRank} from '@/ui/sleepStyle/sleepdex/lookup/filter/enforcer';
 import {
