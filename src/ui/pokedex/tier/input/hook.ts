@@ -54,7 +54,7 @@ export const usePokedexTierListInput = (opts: UsePokedexTierListInputOpts): Poke
       // If sort becomes non-main skill, force clear out main skills
       if (updated.filter.sort !== 'mainSkillTriggerValue') {
         return {
-          ...original,
+          ...updated,
           filter: {
             ...original.filter,
             ...updated.filter,
@@ -65,7 +65,7 @@ export const usePokedexTierListInput = (opts: UsePokedexTierListInputOpts): Poke
 
       // Regular main skill enforcing behavior
       return {
-        ...original,
+        ...updated,
         filter: enforceFilterWithSkillValue<
           PokedexTierListInputFilter,
           PokedexTierListInputFilter['sort'] | PokedexTierListInputFilter['display']
