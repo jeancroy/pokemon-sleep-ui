@@ -375,6 +375,7 @@
           "Rating": "Rating",
           "Skills": "Skills"
         },
+        "Favorite": "Favorite",
         "Preview": {
           "Level": "Previewing Level",
           "FinalEvolution": "Previewing Final Evolution"

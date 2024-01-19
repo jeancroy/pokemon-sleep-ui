@@ -62,6 +62,7 @@ export const PokeInBoxEditLayout = ({
   const t = useTranslations('Game');
   const t2 = useTranslations('UI.Common');
   const t3 = useTranslations('UI.InPage.Pokedex');
+  const t4 = useTranslations('UI.InPage.Team.Box');
 
   const pokemon = pokedexMap[pokemonId];
   if (!pokemon) {
@@ -77,7 +78,7 @@ export const PokeInBoxEditLayout = ({
   return (
     <Flex className="gap-1.5">
       <Flex className="gap-1.5 truncate md:flex-row-reverse md:items-center">
-        <Flex direction="row" center>
+        <Flex direction="row" center noFullWidth>
           <pre className="text-sm text-slate-500">
             {uuid}
           </pre>
@@ -90,13 +91,16 @@ export const PokeInBoxEditLayout = ({
               ...pokeInBox,
               isShiny: !pokeInBox.isShiny,
             })}
-            className={clsx('group rounded-lg p-1', getToggleButtonClass(isShinyActive))}
+            className={clsx('group gap-0.5 rounded-lg p-1', getToggleButtonClass(isShinyActive))}
           >
             <div className="group relative h-5 w-5">
               <NextImage
                 src="/images/generic/flash.png" alt={t2('Shiny')}
                 sizes={imageSmallIconSizes} className={isShinyActive ? 'invert-on-dark' : 'invert-on-light'}
               />
+            </div>
+            <div>
+              {t2('Shiny')}
             </div>
           </ToggleButton>
           <ToggleButton
@@ -105,11 +109,14 @@ export const PokeInBoxEditLayout = ({
               ...pokeInBox,
               isFavorite: !pokeInBox.isFavorite,
             })}
-            className={clsx('group rounded-lg p-1', getToggleButtonClass(isFavoriteActive))}
+            className={clsx('group gap-0.5 rounded-lg p-1', getToggleButtonClass(isFavoriteActive))}
           >
             {isFavoriteActive ?
               <BookmarkIcon className={iconDimension}/> :
               <BookmarkSlashIcon className={iconDimension}/>}
+            <div>
+              {t4('Favorite')}
+            </div>
           </ToggleButton>
           <InputBox
             value={name ?? ''}

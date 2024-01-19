@@ -375,8 +375,9 @@
           "Rating": "個体値",
           "Skills": "スキル"
         },
+        "Favorite": "お気に入り",
         "Preview": {
-          "Level": " レベルプレビューON",
+          "Level": "レベルプレビューON",
           "FinalEvolution": "最終進化プレビューON"
         }
       },
