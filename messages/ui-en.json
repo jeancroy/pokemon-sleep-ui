@@ -79,6 +79,9 @@
         "Page": {
           "Title": "{name} - Pokémon"
         }
+      },
+      "Tier": {
+        "Title": "Tier List"
       }
     },
     "SleepStyle": {

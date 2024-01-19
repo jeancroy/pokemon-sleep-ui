@@ -79,6 +79,9 @@
         "Page": {
           "Title": "{name} - 포켓몬"
         }
+      },
+      "Tier": {
+        "Title": "티어리스트"
       }
     },
     "SleepStyle": {

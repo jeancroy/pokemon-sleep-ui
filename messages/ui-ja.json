@@ -79,6 +79,9 @@
         "Page": {
           "Title": "{name} - ポケモン"
         }
+      },
+      "Tier": {
+        "Title": "ポケモンティア表"
       }
     },
     "SleepStyle": {
