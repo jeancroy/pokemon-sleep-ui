@@ -16,7 +16,7 @@ import {ToTeamAnalysisCompFromPokeboxCommonOpts} from '@/utils/team/type';
 
 export type UserDataUploadOpts = {
   type: 'pokedex',
-  data: PokedexDisplay,
+  data: Omit<PokedexDisplay, 'ingredient'>,
 } | {
   type: 'pokebox.display',
   data: PokeboxViewerDisplay,
