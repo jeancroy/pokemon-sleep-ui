@@ -299,6 +299,9 @@
       "Input": {
         "EvolutionCount": "진화횟수",
         "FinalEvolution": "최종 진화"
+      },
+      "Tier": {
+        "Details": "Details"
       }
     },
     "Analysis": {

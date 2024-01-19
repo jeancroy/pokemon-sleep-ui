@@ -299,6 +299,9 @@
       "Input": {
         "EvolutionCount": "進化回数",
         "FinalEvolution": "最終進化"
+      },
+      "Tier": {
+        "Details": "Details"
       }
     },
     "Analysis": {

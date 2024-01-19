@@ -299,6 +299,9 @@
       "Input": {
         "EvolutionCount": "Evolution Count",
         "FinalEvolution": "Final Evolution"
+      },
+      "Tier": {
+        "Details": "Details"
       }
     },
     "Analysis": {

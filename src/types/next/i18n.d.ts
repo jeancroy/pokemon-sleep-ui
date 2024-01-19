@@ -194,6 +194,9 @@ declare interface IntlMessages extends UiMessages, GameMessages {
           EvolutionCount: string,
           FinalEvolution: string,
         },
+        Tier: {
+          Details: string,
+        },
       },
       Analysis: {
         FirstAppearance: string,
