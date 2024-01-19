@@ -8,6 +8,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonInfo} from '@/types/game/pokemon';
+import {pokedexTierBorderStyling} from '@/ui/pokedex/tier/result/const';
 import {PokedexTierListButton} from '@/ui/pokedex/tier/result/single/button/main';
 import {PokedexTierListEntryDetails} from '@/ui/pokedex/tier/result/single/details/entry';
 import {PokedexTierListSingleCommonProps} from '@/ui/pokedex/tier/result/single/type';
@@ -47,9 +48,13 @@ export const PokedexTierListSingle = ({onPokemonClicked, ...props}: Props) => {
   }, [bucket.length]);
 
   return (
-    <CollapsibleFull state={collapsible} disabled={!bucket.length} noButtonPadding button={
-      <PokedexTierListButton collapsible={collapsible} {...props}/>
-    }>
+    <CollapsibleFull
+      state={collapsible}
+      button={<PokedexTierListButton collapsible={collapsible} {...props}/>}
+      noButtonPadding
+      disabled={!bucket.length}
+      classBorder={pokedexTierBorderStyling[tier]}
+    >
       <Flex direction="row" center wrap className="gap-1 p-2" noFullWidth>
         {bucket.map((entry) => {
           const {source} = entry;

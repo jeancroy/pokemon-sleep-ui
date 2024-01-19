@@ -28,7 +28,7 @@ export const NavListEntryGroup = ({entry}: Props) => {
   const text = t(i18nTextId);
 
   return (
-    <CollapsibleFull state={collapsible} durationOverride="duration-300" delayOverride="delay-200" button={
+    <CollapsibleFull state={collapsible} classDuration="duration-300" classDelay="delay-200" button={
       <Flex direction="row" className="group items-center gap-2 p-1.5">
         <div className="nav-height relative w-8 shrink-0">
           <NextImage

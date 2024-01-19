@@ -1,12 +1,10 @@
 import React from 'react';
 
 
-import {clsx} from 'clsx';
-
 import {CollapsibleState} from '@/components/layout/collapsible/type';
 import {Flex} from '@/components/layout/flex/common';
 import {ProgressBarSingle} from '@/components/progressBar/single';
-import {pokedexTierStyling} from '@/ui/pokedex/tier/result/const';
+import {pokedexTierBackgroundStyling} from '@/ui/pokedex/tier/result/const';
 import {PokedexTierListTierMeta} from '@/ui/pokedex/tier/result/single/button/meta';
 import {PokedexTierListPreview} from '@/ui/pokedex/tier/result/single/button/preview';
 import {PokedexTierListTierDetails} from '@/ui/pokedex/tier/result/single/details/tier';
@@ -18,14 +16,11 @@ type Props = PokedexTierListSingleCommonProps & {
 };
 
 export const PokedexTierListButton = ({collapsible, ...props}: Props) => {
-  const {
-    tier,
-    sizePercentage,
-  } = props;
+  const {tier, sizePercentage} = props;
 
   return (
-    <Flex>
-      <Flex direction="row" center noFullWidth className={clsx('gap-1 p-2', pokedexTierStyling[tier])}>
+    <Flex className="group">
+      <Flex direction="row" center noFullWidth className="gap-1 p-2">
         <PokedexTierListTierMeta {...props}/>
         <Flex className="gap-2">
           <PokedexTierListPreview show={!collapsible.show} {...props}/>
@@ -34,6 +29,7 @@ export const PokedexTierListButton = ({collapsible, ...props}: Props) => {
       </Flex>
       <ProgressBarSingle
         percent={sizePercentage}
+        classBar={pokedexTierBackgroundStyling[tier]}
         classBarHeight="h-1.5"
         classRounding="rounded-b-lg"
         classRoundingOfBar="rounded-bl-lg"
