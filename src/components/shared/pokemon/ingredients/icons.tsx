@@ -15,17 +15,23 @@ import {formatNumber} from '@/utils/number/format';
 type Props = IngredientIconCommonProps & {
   ingredients: IngredientProduction[][],
   direction?: FlexDirection,
-  numberFormat?: NumberFormat,
   className?: string,
   classNameItem?: string,
-};
+} & ({
+  noQuantity: true,
+  numberFormat?: never,
+} | {
+  noQuantity?: false,
+  numberFormat?: NumberFormat,
+});
 
 export const PokemonIngredientIcons = ({
   ingredients,
   direction = 'row',
-  numberFormat = 'int',
   className,
   classNameItem,
+  noQuantity,
+  numberFormat = 'int',
   ...props
 }: Props) => {
   return (
@@ -36,7 +42,7 @@ export const PokemonIngredientIcons = ({
           {data.map(({id, qty}) => (
             <Flex key={`${id}x${qty}`} direction="row" center noFullWidth className={clsx(classNameItem ?? 'gap-1')}>
               <PokemonIngredientIcon id={id} {...props}/>
-              <div>{formatNumber({format: numberFormat, num: qty})}</div>
+              {!noQuantity && <div>{formatNumber({format: numberFormat, num: qty})}</div>}
             </Flex>
           ))}
         </React.Fragment>
