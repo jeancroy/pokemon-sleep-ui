@@ -33,4 +33,15 @@ describe('Number / Bucketing', () => {
     expect(result[3]).toEqual([80]);
     expect(result[4]).toEqual([60, 50]);
   });
+
+  it('skips NaN data', () => {
+    const result = toBucketed({
+      data: [NaN, NaN],
+      getBasis: (num) => num,
+      count: 1,
+      order: 'desc',
+    });
+
+    expect(result[0]).toEqual([]);
+  });
 });

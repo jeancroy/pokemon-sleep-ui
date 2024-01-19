@@ -40,6 +40,11 @@ export const toBucketed = <TData>({
       ) - 1,
       0,
     );
+
+    if (isNaN(bucketIdx)) {
+      continue;
+    }
+
     ret[bucketIdx].push(data[dataIdx]);
   }
 
