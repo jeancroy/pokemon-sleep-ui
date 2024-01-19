@@ -38,7 +38,7 @@ export const SleepdexPokemonInSection = (props: Props) => {
       <button onClick={() => showPokemon(pokemon)} className={clsx(
         'button-clickable group absolute right-2 top-2 h-6 w-6',
       )}>
-        <GenericPokeballIcon alt={t2('Pokedex.Page.Title', {name: pokemonName})} noWrap/>
+        <GenericPokeballIcon alt={t2('Pokedex.Main.Page.Title', {name: pokemonName})} noWrap/>
       </button>
       <PokemonNameSmall pokemon={pokemon} className="w-full justify-center"/>
       <div className="relative h-32 w-32">

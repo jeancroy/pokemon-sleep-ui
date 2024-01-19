@@ -11,7 +11,7 @@ export const navEntries: NavEntry[] = [
     type: 'link',
     href: '/pokedex',
     imageSrc: '/images/generic/pokeball.png',
-    i18nTextId: 'Pokedex.Index.Title',
+    i18nTextId: 'Pokedex.Main.Index.Title',
   },
   {
     type: 'link',

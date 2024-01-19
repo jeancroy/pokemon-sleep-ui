@@ -72,11 +72,13 @@
       "Title": "홈"
     },
     "Pokedex": {
-      "Index": {
-        "Title": "포켓몬 도감"
-      },
-      "Page": {
-        "Title": "{name} - 포켓몬"
+      "Main": {
+        "Index": {
+          "Title": "포켓몬 도감"
+        },
+        "Page": {
+          "Title": "{name} - 포켓몬"
+        }
       }
     },
     "SleepStyle": {

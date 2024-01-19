@@ -72,11 +72,13 @@
       "Title": "首頁"
     },
     "Pokedex": {
-      "Index": {
-        "Title": "寶可夢圖鑑"
-      },
-      "Page": {
-        "Title": "{name} - 寶可夢"
+      "Main": {
+        "Index": {
+          "Title": "寶可夢圖鑑"
+        },
+        "Page": {
+          "Title": "{name} - 寶可夢"
+        }
       }
     },
     "SleepStyle": {

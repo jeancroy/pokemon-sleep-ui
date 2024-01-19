@@ -40,7 +40,7 @@ export const PokemonLinkPopupContent = ({pokemon}: Props) => {
         <Flex>
           <NextLink href={`/pokedex/${id}`}>
             <Flex center className="button-clickable-bg group p-2">
-              <GenericPokeballIcon dimension="h-10 w-10" alt={t('Pokedex.Page.Title', {name})}/>
+              <GenericPokeballIcon dimension="h-10 w-10" alt={t('Pokedex.Main.Page.Title', {name})}/>
             </Flex>
           </NextLink>
         </Flex>

@@ -72,11 +72,13 @@
       "Title": "ホーム"
     },
     "Pokedex": {
-      "Index": {
-        "Title": "ポケモン図鑑"
-      },
-      "Page": {
-        "Title": "{name} - ポケモン"
+      "Main": {
+        "Index": {
+          "Title": "ポケモン図鑑"
+        },
+        "Page": {
+          "Title": "{name} - ポケモン"
+        }
       }
     },
     "SleepStyle": {

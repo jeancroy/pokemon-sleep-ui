@@ -72,11 +72,13 @@
       "Title": "Home"
     },
     "Pokedex": {
-      "Index": {
-        "Title": "Pokédex"
-      },
-      "Page": {
-        "Title": "{name} - Pokémon"
+      "Main": {
+        "Index": {
+          "Title": "Pokédex"
+        },
+        "Page": {
+          "Title": "{name} - Pokémon"
+        }
       }
     },
     "SleepStyle": {

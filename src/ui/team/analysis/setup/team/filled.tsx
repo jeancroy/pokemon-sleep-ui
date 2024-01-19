@@ -47,7 +47,7 @@ export const TeamAnalysisFilledSlot = (props: Props) => {
         className="button-clickable group absolute left-1 top-1 h-6 w-6 rounded-full"
         onClick={() => showPokemon(pokemon)}
       >
-        <GenericPokeballIcon alt={t('Page.Title', {name: t2(pokemon.id.toString())})} noWrap/>
+        <GenericPokeballIcon alt={t('Main.Page.Title', {name: t2(pokemon.id.toString())})} noWrap/>
       </button>
       <TeamAnalysisPokemon setMember={setTeamMember} {...props}/>
     </>

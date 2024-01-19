@@ -71,7 +71,7 @@ const PokemonOnDeskInternal = <TOnDesk extends PokemonOnDeskState>({
         className="button-clickable group absolute left-1 top-1 h-8 w-8 rounded-full"
         onClick={() => showPokemon(pokemon)}
       >
-        <GenericPokeballIcon alt={t('Page.Title', {name: t2(pokemon.id.toString())})} noWrap/>
+        <GenericPokeballIcon alt={t('Main.Page.Title', {name: t2(pokemon.id.toString())})} noWrap/>
       </button>
       <PokemonNameBig pokemon={pokemon}/>
       <div className="relative h-48 w-48">

@@ -40,7 +40,7 @@ export const AnalysisPokemonIcon = <TData, >({linked, renderData}: Props<TData>)
       <Flex direction="row" className="gap-2">
         <Flex center>
           <NextLink href={`/pokedex/${pokemonId}`} className="button-clickable group relative h-6 w-6">
-            <GenericPokeballIcon alt={t2('Pokedex.Page.Title', {name})} noWrap/>
+            <GenericPokeballIcon alt={t2('Pokedex.Main.Page.Title', {name})} noWrap/>
           </NextLink>
         </Flex>
         <Flex center>
