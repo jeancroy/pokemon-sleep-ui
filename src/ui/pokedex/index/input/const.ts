@@ -1,6 +1,6 @@
 import {sortTypeToI18nId} from '@/components/shared/pokemon/sorter/const';
 import {I18nMessageKeysOfNamespace} from '@/types/i18n';
-import {PokedexDisplayType} from '@/ui/pokedex/index/input/type';
+import {PokedexDisplayType} from '@/ui/pokedex/common/type';
 
 
 export const displayTypeToI18nId: {

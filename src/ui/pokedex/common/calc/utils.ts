@@ -1,8 +1,7 @@
 import {PokemonInfoWithSortingPayload, PokemonSortType} from '@/components/shared/pokemon/sorter/type';
 import {TranslatedUserSettings} from '@/types/userData/settings';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
-import {PokedexFilterCommon} from '@/ui/pokedex/common/type';
-import {PokedexDisplayType} from '@/ui/pokedex/index/input/type';
+import {PokedexDisplayType, PokedexFilterCommon} from '@/ui/pokedex/common/type';
 import {getPossibleIngredientsFromChain} from '@/utils/game/ingredientChain';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
 import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';

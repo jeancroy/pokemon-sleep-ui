@@ -20,9 +20,10 @@ import {pokedexSortExclusion} from '@/components/shared/pokemon/sorter/type';
 import {isPokedexSortExclusion} from '@/components/shared/pokemon/sorter/utils';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {useUserActivation} from '@/hooks/userData/activation';
+import {pokedexDisplayType} from '@/ui/pokedex/common/type';
 import {PokedexInputClearer} from '@/ui/pokedex/index/input/clearer';
 import {displayTypeToI18nId} from '@/ui/pokedex/index/input/const';
-import {pokedexDisplayType, PokedexInputProps} from '@/ui/pokedex/index/input/type';
+import {PokedexInputProps} from '@/ui/pokedex/index/input/type';
 import {PokedexDataProps} from '@/ui/pokedex/index/type';
 import {toUnique} from '@/utils/array';
 
