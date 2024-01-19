@@ -5,7 +5,7 @@ import {clsx} from 'clsx';
 import {useSession} from 'next-auth/react';
 
 import {AdsUnit} from '@/components/ads/main';
-import {isFilterIncludingSome} from '@/components/input/filter/utils/check';
+import {isDataIncludingAllOfFilter} from '@/components/input/filter/utils/check';
 import {Grid} from '@/components/layout/grid';
 import {LazyLoad} from '@/components/layout/lazyLoad';
 import {CompletionResultUI} from '@/components/shared/completion/main';
@@ -13,11 +13,11 @@ import {PokemonInfoWithSortingPayload} from '@/components/shared/pokemon/sorter/
 import {usePokemonSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
 import {useAutoUpload} from '@/hooks/userData/autoUpload';
 import {useTranslatedUserSettings} from '@/hooks/userData/translated';
+import {toCalculateAllIngredientPossibilities} from '@/ui/pokedex/common/calc/utils';
 import {usePokedexFilter} from '@/ui/pokedex/index/filter';
 import {PokedexInput} from '@/ui/pokedex/index/input/main';
 import {PokedexLink} from '@/ui/pokedex/index/link';
 import {PokedexDataProps} from '@/ui/pokedex/index/type';
-import {toCalculateAllIngredientPossibilities} from '@/ui/pokedex/index/utils';
 import {getPossibleIngredientsFromChain} from '@/utils/game/ingredientChain';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
 import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';
@@ -102,11 +102,13 @@ export const PokedexClient = (props: PokedexDataProps) => {
           return null;
         }
 
-        if (!isFilterIncludingSome({
+        if (!isDataIncludingAllOfFilter({
           filter,
           filterKey: 'ingredient',
-          ids: ingredients.map(({id}) => id)})
-        ) {
+          ids: ingredients.map(({id}) => id),
+          idInFilterToIdForCheck: Number,
+          onIdsEmpty: false,
+        })) {
           return null;
         }
 
