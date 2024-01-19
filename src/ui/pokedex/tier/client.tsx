@@ -58,6 +58,7 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
       <LazyLoad loading={loading}>
         <PokedexTierListResult input={input} sortedData={result}/>
       </LazyLoad>
+      <AdsUnit/>
     </Flex>
   );
 };

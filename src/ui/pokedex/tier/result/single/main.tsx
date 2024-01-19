@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {AdsUnit} from '@/components/ads/main';
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
 import {useCollapsible} from '@/components/layout/collapsible/hook';
@@ -55,44 +56,47 @@ export const PokedexTierListSingle = ({onPokemonClicked, ...props}: Props) => {
       disabled={!bucket.length}
       classBorder={pokedexTierBorderStyling[tier]}
     >
-      <Flex direction="row" center wrap className="gap-1 p-2" noFullWidth>
-        {bucket.map((entry) => {
-          const {source} = entry;
-          const {pokemon, ingredients} = source;
+      <Flex className="gap-1">
+        <Flex direction="row" center wrap className="gap-1 p-2" noFullWidth>
+          {bucket.map((entry) => {
+            const {source} = entry;
+            const {pokemon, ingredients} = source;
 
-          const ingredientIds = source.ingredients.map(({id}) => id);
-          const pokemonId = source.pokemon.id;
-          const key = `${pokemonId}-${ingredientIds.join('-')}`;
+            const ingredientIds = source.ingredients.map(({id}) => id);
+            const pokemonId = source.pokemon.id;
+            const key = `${pokemonId}-${ingredientIds.join('-')}`;
 
-          return (
-            <AnimatedCollapse key={key} show appear noFullWidth>
-              <FlexButton
-                direction="col"
-                className="button-clickable-bg w-28 items-center gap-1 p-2"
-                onClick={() => onPokemonClicked(pokemon)}
-              >
-                <Flex direction="row" center className="gap-1.5">
-                  <div className="relative h-14 w-14">
-                    <PokemonImage
-                      pokemonId={pokemon.id}
-                      image={{type: 'default', image: 'icon'}}
-                      isShiny={false}
-                      className="rounded-lg"
+            return (
+              <AnimatedCollapse key={key} show appear noFullWidth>
+                <FlexButton
+                  direction="col"
+                  className="button-clickable-bg w-28 items-center gap-1 p-2"
+                  onClick={() => onPokemonClicked(pokemon)}
+                >
+                  <Flex direction="row" center className="gap-1.5">
+                    <div className="relative h-14 w-14">
+                      <PokemonImage
+                        pokemonId={pokemon.id}
+                        image={{type: 'default', image: 'icon'}}
+                        isShiny={false}
+                        className="rounded-lg"
+                      />
+                    </div>
+                    <PokemonIngredientIcons
+                      ingredients={[ingredients]}
+                      direction="col"
+                      className="gap-0 text-sm"
+                      classNameItem="gap-0.5"
+                      noLink
                     />
-                  </div>
-                  <PokemonIngredientIcons
-                    ingredients={[ingredients]}
-                    direction="col"
-                    className="gap-0 text-sm"
-                    classNameItem="gap-0.5"
-                    noLink
-                  />
-                </Flex>
-                <PokedexTierListEntryDetails input={input} entry={entry}/>
-              </FlexButton>
-            </AnimatedCollapse>
-          );
-        })}
+                  </Flex>
+                  <PokedexTierListEntryDetails input={input} entry={entry}/>
+                </FlexButton>
+              </AnimatedCollapse>
+            );
+          })}
+        </Flex>
+        <AdsUnit/>
       </Flex>
     </CollapsibleFull>
   );
