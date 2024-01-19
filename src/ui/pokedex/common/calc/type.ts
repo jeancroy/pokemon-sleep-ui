@@ -1,5 +1,3 @@
-import {Session} from 'next-auth';
-
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {PokemonInfoWithSortingPayload, SortedPokemonInfo} from '@/components/shared/pokemon/sorter/type';
 import {BerryDataMap} from '@/types/game/berry';
@@ -15,7 +13,6 @@ import {
 
 
 export type PokedexCalcDataProps = UsePokemonFilterCommonData & CookingUserSettingsRequiredData & {
-  session: Session | null,
   pokemonList: PokemonInfo[],
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   berryDataMap: BerryDataMap,

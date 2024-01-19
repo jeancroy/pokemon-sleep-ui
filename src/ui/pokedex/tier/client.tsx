@@ -19,8 +19,8 @@ import {PokedexTierListDataProps} from '@/ui/pokedex/tier/type';
 
 
 export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
-  const {data} = useSession();
-  const {isPremium} = useUserActivation(data);
+  const {data: session} = useSession();
+  const {isPremium} = useUserActivation(session);
   const inputControls = usePokedexTierListInput(props);
   const {
     filter: input,
@@ -32,6 +32,7 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
     result,
     count,
   } = usePokedexCalc({
+    session,
     filter: input.filter,
     isPokemonIncluded: isIncluded,
     setLoading,

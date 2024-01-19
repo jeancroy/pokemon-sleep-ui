@@ -51,7 +51,6 @@ export const PokedexTierList = async ({params}: DefaultPageProps) => {
   ]);
 
   const props: PokedexTierListDataProps = {
-    session,
     pokemonList,
     pokemonProducingParamsMap,
     pokemonMaxLevel,

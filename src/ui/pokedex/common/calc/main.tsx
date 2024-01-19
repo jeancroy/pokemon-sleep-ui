@@ -1,3 +1,5 @@
+import {Session} from 'next-auth';
+
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {isDataIncludingAllOfFilter} from '@/components/input/filter/utils/check';
 import {usePokemonSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
@@ -10,19 +12,20 @@ import {isNotNullish} from '@/utils/type';
 
 
 type UsePokedexCalcOpts<TFilter extends PokedexFilterCommon> = PokedexCalcDataProps & {
+  session: Session | null,
   filter: TFilter,
   isPokemonIncluded: FilterInclusionMap<PokemonId>,
   setLoading: (loading: boolean) => void,
 };
 
 export const usePokedexCalc = ({
+  session,
   filter,
   isPokemonIncluded,
   setLoading,
   ...opts
 }: UsePokedexCalcOpts<PokedexFilterCommon>): PokedexCalcResult => {
   const {
-    session,
     berryDataMap,
     ingredientMap,
     mainSkillMap,
