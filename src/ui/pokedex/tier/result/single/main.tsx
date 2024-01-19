@@ -36,7 +36,7 @@ export const PokedexTierListSingle = ({onPokemonClicked, ...props}: Props) => {
       return;
     }
 
-    setTimeout(() => collapsible.setShow(true), 2000);
+    setTimeout(() => collapsible.setShow(true), 1000);
   }, []);
 
   React.useEffect(() => {
