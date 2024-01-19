@@ -301,7 +301,8 @@
         "FinalEvolution": "finale Entwicklungen"
       },
       "Tier": {
-        "Details": "Details"
+        "Details": "Details",
+        "Tips": "For experienced users, please try [Pokedex](https://pks.raenonx.cc/de/pokedex), which gives more granular control on both data searching and displaying."
       }
     },
     "Analysis": {

@@ -301,7 +301,8 @@
         "FinalEvolution": "최종 진화"
       },
       "Tier": {
-        "Details": "Details"
+        "Details": "자세히",
+        "Tips": "당신이 포켓몬 슬립 고수라면 데이터 검색 및 표시에 대해 보다 세분화된 제어를 제공하는 [포켓몬 도감](https://pks.raenonx.cc/kr/pokedex) 를 사용해보세요!"
       }
     },
     "Analysis": {

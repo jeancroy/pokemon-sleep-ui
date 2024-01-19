@@ -2,6 +2,9 @@
 import React from 'react';
 
 import {useSession} from 'next-auth/react';
+import {useTranslations} from 'next-intl';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
@@ -35,9 +38,16 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
     ...props,
   });
 
+  const t = useTranslations('UI.InPage.Pokedex.Tier');
+
   return (
     <Flex className="gap-1.5">
       <AdsUnit/>
+      <Flex className="rounded-lg p-1.5 shadow-border-inner dark:shadow-slate-300">
+        <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown">
+          {t('Tips')}
+        </ReactMarkdown>
+      </Flex>
       <PokedexTierListInputUI
         isPremium={isPremium}
         input={input}

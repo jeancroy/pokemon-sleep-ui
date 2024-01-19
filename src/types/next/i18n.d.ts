@@ -196,6 +196,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         },
         Tier: {
           Details: string,
+          Tips: string,
         },
       },
       Analysis: {

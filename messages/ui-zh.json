@@ -301,7 +301,8 @@
         "FinalEvolution": "最終進化"
       },
       "Tier": {
-        "Details": "Details"
+        "Details": "詳細資訊",
+        "Tips": "我們推薦對遊戲較有經驗的玩家使用 [寶可夢圖鑑](https://pks.raenonx.cc/zh/pokedex)。該功能可以提供更多選項以利資訊查找和顯示。"
       }
     },
     "Analysis": {
