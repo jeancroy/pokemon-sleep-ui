@@ -1,15 +1,14 @@
 import React from 'react';
 
 import {Transition} from '@headlessui/react';
-import {clsx} from 'clsx';
 
 import {CollapsibleMark} from '@/components/layout/collapsible/mark';
 import {CollapsibleCommonProps} from '@/components/layout/collapsible/type';
+import {getCollapsibleButtonStyle} from '@/components/layout/collapsible/utils';
 import {Flex} from '@/components/layout/flex/common';
 
 
 type Props = CollapsibleCommonProps & {
-  disabled?: boolean,
   durationOverride?: `duration-${number}`,
   delayOverride?: `delay-${number}`,
 };
@@ -18,6 +17,7 @@ export const CollapsibleFull = ({
   state,
   button,
   appear,
+  noButtonPadding,
   disabled,
   durationOverride,
   delayOverride,
@@ -36,9 +36,12 @@ export const CollapsibleFull = ({
 
   return (
     <Flex>
-      <button type="button" onClick={() => setShow(!show)} disabled={disabled} className={clsx(
-        'button-clickable-bg disabled:button-disabled group relative p-1',
-      )}>
+      <button
+        type="button"
+        onClick={() => setShow(!show)}
+        disabled={disabled}
+        className={getCollapsibleButtonStyle(noButtonPadding)}
+      >
         <CollapsibleMark show={show}/>
         {button}
       </button>

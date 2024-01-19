@@ -4,6 +4,7 @@ import {Transition} from '@headlessui/react';
 
 import {CollapsibleMark} from '@/components/layout/collapsible/mark';
 import {CollapsibleCommonProps} from '@/components/layout/collapsible/type';
+import {getCollapsibleButtonStyle} from '@/components/layout/collapsible/utils';
 import {Flex} from '@/components/layout/flex/common';
 
 
@@ -11,7 +12,15 @@ type Props = CollapsibleCommonProps & {
   classNameForHeight: string,
 };
 
-export const Collapsible = ({state, button, appear, classNameForHeight, children}: React.PropsWithChildren<Props>) => {
+export const Collapsible = ({
+  state,
+  button,
+  appear,
+  noButtonPadding,
+  disabled,
+  classNameForHeight,
+  children,
+}: React.PropsWithChildren<Props>) => {
   const {show, setShow} = state;
 
   React.useEffect(() => {
@@ -22,7 +31,12 @@ export const Collapsible = ({state, button, appear, classNameForHeight, children
 
   return (
     <Flex>
-      <button type="button" className="button-clickable-bg group p-1" onClick={() => setShow(!show)}>
+      <button
+        type="button"
+        onClick={() => setShow(!show)}
+        disabled={disabled}
+        className={getCollapsibleButtonStyle(noButtonPadding)}
+      >
         <CollapsibleMark show={show}/>
         {button}
       </button>

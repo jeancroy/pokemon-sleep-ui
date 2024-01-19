@@ -9,4 +9,6 @@ export type CollapsibleCommonProps = {
   state: CollapsibleState,
   button: React.ReactNode,
   appear?: boolean,
+  noButtonPadding?: boolean,
+  disabled?: boolean,
 };
