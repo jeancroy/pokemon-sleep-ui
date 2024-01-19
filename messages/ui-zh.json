@@ -288,12 +288,12 @@
         "IngredientRate": "食材機率",
         "BerryEnergy": "樹果能量",
         "BerryCount": "樹果產量",
-        "MainSkillLevel": "主技能等級",
+        "MainSkillLevel": "技能等級",
         "FrequencyOfBerry": "幫忙間隔 (樹果)",
         "FrequencyOfIngredient": "幫忙間隔 (食材)",
         "FriendshipPoint": "友情點數",
-        "SkillCount": "主技能觸發次數",
-        "SkillStrength": "主技能能量",
+        "SkillCount": "技能觸發次數",
+        "SkillStrength": "技能能量",
         "TotalEnergy": "總能量"
       },
       "Input": {
