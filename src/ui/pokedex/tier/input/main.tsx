@@ -5,17 +5,21 @@ import EyeSlashIcon from '@heroicons/react/24/solid/EyeSlashIcon';
 import {useTranslations} from 'next-intl';
 
 import {FilterIconInput} from '@/components/input/filter/preset/icon';
+import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {InputRow} from '@/components/input/filter/row';
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {getMultiSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {ToggleButton} from '@/components/input/toggleButton';
+import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQuick';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonFilterTitle} from '@/components/shared/pokemon/filter/title';
+import {generateFilterOptionIdsFromPokemon} from '@/components/shared/pokemon/filter/utils/generate';
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {PokemonSortingPicker} from '@/components/shared/pokemon/sorter/picker';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {textFilterButtonStyle} from '@/styles/input';
 import {IngredientId} from '@/types/game/ingredient';
+import {MainSkillId} from '@/types/game/pokemon/mainSkill';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
 import {pokedexTierListBasis, PokedexTierListInput, PokedexTierListInputFilter} from '@/ui/pokedex/tier/input/type';
 import {PokedexTierListDataProps} from '@/ui/pokedex/tier/type';
@@ -78,6 +82,21 @@ export const PokedexTierListInputUI = ({
         } satisfies PokedexTierListInputFilter))}
         options={[...pokedexTierListBasis]}
       />
+      <AnimatedCollapseQuick show={filter.sort === 'mainSkillTriggerValue'}>
+        <FilterTextInput
+          title={<PokemonFilterTitle type="mainSkill"/>}
+          idToText={(id) => t(`MainSkill.Name.${id}`)}
+          ids={generateFilterOptionIdsFromPokemon({
+            pokemonList,
+            toId: ({skill}) => skill,
+          })}
+          {...getMultiSelectOnClickProps({
+            filter,
+            setFilter,
+            filterKey: 'mainSkill' as KeysOfType<PokedexTierListInputFilter, FilterInclusionMap<MainSkillId>>,
+          })}
+        />
+      </AnimatedCollapseQuick>
       <PokemonIndividualParamsPicker
         filter={filter}
         setFilter={setFilter}

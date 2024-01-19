@@ -18,7 +18,7 @@ export type PokedexDisplayType = typeof pokedexDisplayType[number];
 export type PokedexFilterCommon<
   TSort extends PokemonSortType = PokemonSortType,
   TDisplay extends PokedexDisplayType = PokedexDisplayType,
-> = PokemonIndividualParams & Pick<PokemonInputFilter, 'ingredient'> & {
+> = PokemonIndividualParams & Pick<PokemonInputFilter, 'ingredient' | 'mainSkill'> & {
   snorlaxFavorite: SnorlaxFavorite,
   sort: TSort,
   display: TDisplay,

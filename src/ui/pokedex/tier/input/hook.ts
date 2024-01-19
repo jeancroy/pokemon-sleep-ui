@@ -1,10 +1,15 @@
 import {useFilterInput} from '@/components/input/filter/hook';
-import {isFilterIncludingSome} from '@/components/input/filter/utils/check';
+import {isFilterIncludingSome, isFilterMismatchOnSingle} from '@/components/input/filter/utils/check';
+import {enforceFilterWithSkillValue} from '@/components/shared/pokemon/sorter/enforcer/skillValue';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {initialPokedexTierListInputSortDisplay} from '@/ui/pokedex/tier/input/const';
-import {PokedexTierListInput, PokedexTierListInputControls} from '@/ui/pokedex/tier/input/type';
+import {
+  PokedexTierListInput,
+  PokedexTierListInputControls,
+  PokedexTierListInputFilter,
+} from '@/ui/pokedex/tier/input/type';
 import {getPossibleIngredientsFromChain} from '@/utils/game/producing/ingredient/level';
 
 
@@ -19,6 +24,7 @@ export const usePokedexTierListInput = (opts: UsePokedexTierListInputOpts): Poke
     initialFilter: {
       filter: {
         ingredient: {},
+        mainSkill: {},
         snorlaxFavorite: {},
         sort: initialPokedexTierListInputSortDisplay,
         display: initialPokedexTierListInputSortDisplay,
@@ -27,6 +33,14 @@ export const usePokedexTierListInput = (opts: UsePokedexTierListInputOpts): Poke
       showDetails: false,
     },
     isDataIncluded: ({filter}, pokemon) => {
+      if (isFilterMismatchOnSingle({
+        filter,
+        filterKey: 'mainSkill',
+        id: pokemon.skill,
+      })) {
+        return false;
+      }
+
       return isFilterIncludingSome({
         filter,
         filterKey: 'ingredient',
@@ -36,5 +50,25 @@ export const usePokedexTierListInput = (opts: UsePokedexTierListInputOpts): Poke
         }),
       });
     },
+    onSetFilter: (original, updated) => ({
+      ...original,
+      filter: enforceFilterWithSkillValue<
+        PokedexTierListInputFilter,
+        PokedexTierListInputFilter['sort'] | PokedexTierListInputFilter['display']
+      >({
+        original: original.filter,
+        updated: updated.filter,
+        config: {
+          mainSkill: {
+            key: 'mainSkill',
+            defaultValue: {[pokemonList[0].skill]: true},
+          },
+          sort: [
+            {key: 'sort', defaultValue: 'totalEnergy'},
+            {key: 'display', defaultValue: 'totalEnergy'},
+          ],
+        },
+      }),
+    }),
   });
 };
