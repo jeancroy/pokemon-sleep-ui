@@ -227,6 +227,9 @@
     "Stamina": {
       "Title": "Energy Curve Analysis"
     },
+    "Encounter": {
+      "Title": "Pokemon Encounter Calculator"
+    },
     "About": {
       "Title": "About"
     },

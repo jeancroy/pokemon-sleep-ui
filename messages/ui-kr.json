@@ -227,6 +227,9 @@
     "Stamina": {
       "Title": "기력 커브 분석"
     },
+    "Encounter": {
+      "Title": "포켓몬 만남 계산기"
+    },
     "About": {
       "Title": "정보"
     },

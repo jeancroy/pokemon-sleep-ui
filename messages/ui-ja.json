@@ -227,6 +227,9 @@
     "Stamina": {
       "Title": "げんき曲線分析"
     },
+    "Encounter": {
+      "Title": "エンカウント計算"
+    },
     "About": {
       "Title": "サイトについて"
     },
