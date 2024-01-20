@@ -81,7 +81,7 @@
         }
       },
       "Tier": {
-        "Title": "Pokemon Tier List"
+        "Title": "Tier-Liste"
       }
     },
     "SleepStyle": {
@@ -302,7 +302,7 @@
       },
       "Tier": {
         "Details": "Details",
-        "Tips": "For experienced users, please try [Pokedex](https://pks.raenonx.cc/de/pokedex), which gives more granular control on both data searching and displaying."
+        "Tips": "Erfahrene Nutzer bitte [Pokedex](https://pks.raenonx.cc/de/pokedex) versuchen, was eine feinere Kontrolle der Datensuche und Darstellung bietet."
       }
     },
     "Analysis": {
