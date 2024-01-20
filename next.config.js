@@ -1,7 +1,7 @@
 // @ts-check
 const childProcess = require('child_process');
 
-const {default: withPWAInit, runtimeCaching} = require('@ducanh2912/next-pwa');
+const {default: withPWAInit} = require('@ducanh2912/next-pwa');
 const {PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD} = require('next/constants');
 
 
@@ -40,20 +40,6 @@ const pwaConfig = {
   reloadOnOnline: true,
   workboxOptions: {
     disableDevLogs: isProd,
-    runtimeCaching: runtimeCaching.map((option) => {
-      if ('function' === typeof option.urlPattern) {
-        return {
-          ...option,
-          options: {
-            ...option.options,
-            cacheableResponse: {
-              statuses: [200, 302],
-            },
-          },
-        };
-      }
-      return option;
-    }),
   },
 };
 
