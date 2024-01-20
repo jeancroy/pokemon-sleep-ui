@@ -301,8 +301,8 @@
         "FinalEvolution": "最終進化"
       },
       "Tier": {
-        "Details": "Details",
-        "Tips": "For experienced users, please try [Pokedex](https://pks.raenonx.cc/ja/pokedex), which gives more granular control on both data searching and displaying."
+        "Details": "詳細",
+        "Tips": "初心者向けの簡易なティア表です。慣れてきたら、[図鑑](https://pks.raenonx.cc/ja/pokedex)で粒度の高い検索や一覧表示をして調べましょう。"
       }
     },
     "Analysis": {
