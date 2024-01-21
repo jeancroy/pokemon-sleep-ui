@@ -15,7 +15,7 @@ export const UserDataUploadStatus = ({success}: Props) => {
   return (
     <Flex direction="row" className="gap-1.5">
       <CloudArrowUpIcon className="h-8 w-8"/>
-      <div className="relative h-8 w-8">
+      <div className="h-8 w-8">
         {success ? <CheckCircleIcon/> : <ExclamationTriangleIcon/>}
       </div>
     </Flex>
