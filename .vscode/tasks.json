@@ -2,7 +2,75 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Yarn: Dev",
+      "label": "yarn: build",
+      "detail": "Builds the Next.js website.",
+      "type": "process",
+      "command": "yarn",
+      "args": ["build"],
+      "options": {
+        "env": {
+          "NODE_ENV": "production"
+        }
+      },
+      "isBackground": true,
+      "problemMatcher": [
+        "$tsc-watch",
+        "$node-sass",
+        {
+          "owner": "typescript",
+          "source": "Typescript",
+          "fileLocation": ["relative", "${workspaceRoot}"],
+          "applyTo": "allDocuments",
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "^(▲ Next.js)",
+            "endsPattern": "^(✓ Ready in (.*)s)$"
+          },
+          "pattern": [
+            {
+              "regexp": "(ERROR|WARNING)\\(TypeScript\\)  (.*)",
+              "severity": 1,
+              "message": 2
+            },
+            {
+              "regexp": "^ FILE  (.*):(\\d*):(\\d*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "owner": "eslint",
+          "source": "ESLint",
+          "fileLocation": "relative",
+          "applyTo": "allDocuments",
+          "background": {
+            "activeOnStart": true
+            // "beginsPattern": "sd",
+            // "endsPattern": " > "
+          },
+          "pattern": [
+            {
+              "regexp": "^ (ERROR|WARNING)\\(ESLint\\)  (.*)$",
+              "severity": 1,
+              "message": 2
+            },
+            {
+              "regexp": "^ FILE  (.*):(\\d*):(\\d*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3
+            }
+          ]
+        }
+      ],
+      "presentation": {
+        "group": "dev"
+      }
+    },
+    {
+      "label": "yarn: dev",
       "detail": "Starts the next.js dev server without server debugging.",
       "command": "yarn",
       "type": "process",
@@ -65,11 +133,16 @@
       }
     },
     {
-      "label": "Yarn: Debug Server",
+      "label": "yarn: debug server",
       "detail": "Starts the next.js dev server with server debugging.",
       "command": "yarn",
       "type": "process",
       "args": ["run", "dev:debug:server"],
+      "options": {
+        "env": {
+          "NODE_ENV": "development"
+        }
+      },
       "isBackground": true,
       "problemMatcher": [
         "$tsc-watch",
@@ -135,7 +208,9 @@
         }
       ],
       "presentation": {
-        "group": "dev"
+        "group": "dev",
+        "focus": false,
+        "close": true
       }
     },
     {
@@ -170,6 +245,6 @@
       "presentation": {
         "group": "debug"
       }
-    },
+    }
   ]
 }

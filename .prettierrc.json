@@ -1,0 +1,40 @@
+{
+  "singleQuote": true,
+  "semi": true,
+  "useTabs": false,
+  "trailingComma": "all",
+  "tabWidth": 2,
+  "printWidth": 69,
+  "endOfLine": "auto",
+  "insertPragma": false,
+  "jsxSingleQuote": true,
+  "arrowParens": "always",
+  "quoteProps": "preserve",
+  "experimentalTernaries": true,
+  "rangeStart": 0,
+  "rangeEnd": 4,
+  "bracketSpacing": false,
+  "bracketSameLine": false,
+  "htmlWhitespaceSensitivity": "css",
+  "singleAttributePerLine": true,
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "options": {
+        "parser": "mdx"
+      }
+    },
+    {
+      "files": ["*.js", "*.yml", "*.json"],
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["*.yml", "*.json"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

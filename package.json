@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "dev:debug:server": "node --inspect=9229 ./node_modules/next/dist/bin/next",
+    "dev:debug:server": "node $NODE_ARGS ./node_modules/next/dist/bin/next",
     "dev:debug:delay": "node scripts/client-ready.js",
     "dev:react-devtools": "react-devtools",
     "build": "next build",
@@ -97,5 +97,10 @@
     "stylelint-config-standard": "^36.0.0",
     "stylelint-config-tailwindcss": "^0.0.7",
     "typescript": "^5.3.3"
+  },
+  "optionalDependencies": {
+    "prettier": "^3.2.4",
+    "prettier-eslint": "^16.3.0",
+    "prettier-eslint-cli": "^8.0.1"
   }
 }

@@ -2,36 +2,79 @@
   "editor.formatOnSave": true,
   "editor.formatOnType": false,
   "editor.formatOnPaste": false,
-  "editor.formatOnSaveMode": "file", // required to format on save
-  "eslint.options": {
-    "overrideConfigFile": ".eslintrc.yml"
-  },
-  "editor.minimap.enabled": false,
-  "eslint.format.enable": true,
-  "eslint.debug": true,
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSaveMode": "file",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "always"
   },
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-	"stylelint.stylelintPath": "./node_modules/stylelint",
-	"stylelint.configBasedir": "./",
-	"stylelint.configFile": ".stylelintrc.yml",
-	"stylelint.validate": ["css", "scss"],
-	"[css]": {
-		"editor.formatOnSave": false,
-		"editor.defaultFormatter": "stylelint.vscode-stylelint",
-		"editor.codeActionsOnSave": {
-			"source.formatDocument": "always",
-			"source.fixAll.stylelint": "always"
-		}
-	},
+
+  // Prettier settings - runs with "source.formatDocument"
+  "prettier.enable": true,
+  "prettier.enableDebugLogs": true,
+  "prettier.configPath": ".prettierrc.json",
+  "prettier.ignorePath": ".prettierignore",
+
+  // ESLint settings - runs with "source.fixAll.eslint"
+  "eslint.debug": false,
+  "eslint.format.enable": true,
+  "eslint.options": {
+    "overrideConfigFile": ".eslintrc.yml"
+  },
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "jsonc"
+  ],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  // Lock VSCode typescript version to project typescript
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.check.npmIsInstalled": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+
+  // Configure formatting --> then --> linting IN SEQUENCE
+  // Requires "Format Code Action" VSCode Extension
+  "[typescript][typescriptreact][javascript][json][jsonc]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": [
+      "source.formatDocument",
+      "source.fixAll.eslint"
+    ]
+  },
+
+  // Stylelint settings - runs with "source.fixAll.stylelint"
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.stylelintPath": "./node_modules/stylelint",
+  "stylelint.configBasedir": "./",
+  "stylelint.configFile": ".stylelintrc.yml",
+  "stylelint.validate": ["css", "scss"],
+  "[scss][css]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.codeActionsOnSave": {
+      "source.formatDocument": "always",
+      "source.fixAll.stylelint": "always"
+    }
+  },
   "emmet.includeLanguages": {
     "postcss": "css"
   },
-  "files.associations": { 
-      "*.css": "tailwindcss" 
+  "files.associations": {
+    "*.css": "tailwindcss"
   },
+
   "search.exclude": {
     "**/.editorconfig": true,
     "**/node_modules/**": true,
@@ -41,13 +84,20 @@
     "**/.github": true,
     "**/logs": true,
     "**/.next": true,
-    "**/yarn.lock": true,
+    "**/yarn.lock": true
   },
   "files.exclude": {
     "**/yarn.lock": true,
     "**/node_modules/**": false,
     "**/.git": false
   },
-  "eslint.useESLintClass": true,
-  "eslint.run": "onType",
+
+  "auto-close-tag.activationOnLanguage": [
+    "xml",
+    "ejs",
+    "javascriptreact",
+    "typescriptreact",
+    "markdown",
+    "HTML (Eex)"
+  ]
 }
