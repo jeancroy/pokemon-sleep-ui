@@ -14,6 +14,7 @@ type Props<TSleepStyle extends SleepStyleCommon> = {
   className?: string,
   iconDimension?: Dimension,
   textShadow?: boolean,
+  noText?: boolean,
 };
 
 export const SleepStyleBrief = <TSleepStyle extends SleepStyleCommon>({
@@ -21,6 +22,7 @@ export const SleepStyleBrief = <TSleepStyle extends SleepStyleCommon>({
   className,
   iconDimension,
   textShadow,
+  noText,
 }: Props<TSleepStyle>) => {
   const t = useTranslations('Game.SleepFace');
 
@@ -32,9 +34,12 @@ export const SleepStyleBrief = <TSleepStyle extends SleepStyleCommon>({
         <StarIcon className={iconDimension ?? 'h-5 w-5'}/>
         <div>{rarity}</div>
       </Flex>
-      <div className={clsx('truncate', textShadow && 'text-shadow-preset')}>
-        {t(sleepStyle.i18nKey)}
-      </div>
+      {
+        !noText &&
+        <div className={clsx('truncate', textShadow && 'text-shadow-preset')}>
+          {t(sleepStyle.i18nKey)}
+        </div>
+      }
     </Flex>
   );
 };
