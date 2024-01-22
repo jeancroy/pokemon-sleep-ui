@@ -15,7 +15,6 @@ import {formatInt} from '@/utils/number/format';
 
 type Props = PokemonSleepStyleProps & {
   spo: number,
-  drowsyPowerMultiplier: number,
   dimension?: Dimension,
 };
 
