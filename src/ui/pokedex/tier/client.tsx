@@ -44,11 +44,9 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
   return (
     <Flex className="gap-1.5">
       <AdsUnit/>
-      <Flex className="rounded-lg p-1.5 shadow-border-inner dark:shadow-slate-300">
-        <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown">
-          {t('Tips')}
-        </ReactMarkdown>
-      </Flex>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown info-highlight p-1.5">
+        {t('Tips')}
+      </ReactMarkdown>
       <PokedexTierListInputUI
         isPremium={isPremium}
         input={input}
