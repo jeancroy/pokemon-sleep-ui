@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {isFilterConditionActive} from '@/components/input/filter/utils/check';
+import {isFilterConditionActive} from '@/components/input/filter/utils/match';
 import {IngredientInventoryInput} from '@/components/shared/input/ingredient/inventory';
 import {MealMakerCommonProps, MealMakerFilter} from '@/ui/cooking/make/type';
 

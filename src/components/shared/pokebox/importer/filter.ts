@@ -1,5 +1,5 @@
 import {useFilterInput} from '@/components/input/filter/hook';
-import {isFilterMatchingSearch} from '@/components/input/filter/utils/check';
+import {isFilterMatchingSearch} from '@/components/input/filter/utils/match';
 import {PokeboxImporterFilter, PokeInBoxForFilter} from '@/components/shared/pokebox/importer/type';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';

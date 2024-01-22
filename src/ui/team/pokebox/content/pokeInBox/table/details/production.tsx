@@ -3,7 +3,7 @@ import React from 'react';
 import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
-import {isFilterIncludingSome} from '@/components/input/filter/utils/check';
+import {isFilterIncludingSome} from '@/components/input/filter/utils/match';
 import {Flex} from '@/components/layout/flex/common';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';

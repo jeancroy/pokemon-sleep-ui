@@ -2,7 +2,7 @@ import {
   isFilterIncludingSome,
   isFilterMatchingSearch,
   isFilterMismatchOnSingle,
-} from '@/components/input/filter/utils/check';
+} from '@/components/input/filter/utils/match';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';

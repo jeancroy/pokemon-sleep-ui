@@ -1,5 +1,5 @@
 import {useFilterInput} from '@/components/input/filter/hook';
-import {isFilterIncludingSome, isFilterMismatchOnSingle} from '@/components/input/filter/utils/check';
+import {isFilterIncludingSome, isFilterMismatchOnSingle} from '@/components/input/filter/utils/match';
 import {enforceFilterWithSkillValue} from '@/components/shared/pokemon/sorter/enforcer/skillValue';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';

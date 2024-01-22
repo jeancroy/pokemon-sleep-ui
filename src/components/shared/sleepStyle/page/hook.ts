@@ -1,5 +1,5 @@
 import {useFilterInput} from '@/components/input/filter/hook';
-import {isFilterConditionActive} from '@/components/input/filter/utils/check';
+import {isFilterConditionActive} from '@/components/input/filter/utils/match';
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {MapCommonProps, MapInputInclusionKey, MapPageFilter} from '@/components/shared/sleepStyle/page/type';

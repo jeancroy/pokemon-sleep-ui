@@ -1,5 +1,5 @@
 import {useFilterInput} from '@/components/input/filter/hook';
-import {isDataIncludingAllOfFilter} from '@/components/input/filter/utils/check';
+import {isDataIncludingAllOfFilter} from '@/components/input/filter/utils/match';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {
   isPokemonIncludedFromFilter,

@@ -1,4 +1,4 @@
-import {isFilterIncludingSome, isFilterMismatchOnSingle} from '@/components/input/filter/utils/check';
+import {isFilterIncludingSome, isFilterMismatchOnSingle} from '@/components/input/filter/utils/match';
 import {
   PokemonInputFilterCheckExclusion,
   PokemonInputFilterCheckingOpts,

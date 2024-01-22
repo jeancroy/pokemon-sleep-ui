@@ -1,7 +1,7 @@
 import {Session} from 'next-auth';
 
 import {FilterInclusionMap} from '@/components/input/filter/type';
-import {isDataIncludingAllOfFilter} from '@/components/input/filter/utils/check';
+import {isDataIncludingAllOfFilter} from '@/components/input/filter/utils/match';
 import {usePokemonSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
 import {useTranslatedUserSettings} from '@/hooks/userData/translated';
 import {PokemonId} from '@/types/game/pokemon';

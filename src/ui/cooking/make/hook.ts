@@ -1,5 +1,5 @@
 import {useFilterInput} from '@/components/input/filter/hook';
-import {isFilterIncludingAllOfData} from '@/components/input/filter/utils/check';
+import {isFilterIncludingAllOfData} from '@/components/input/filter/utils/match';
 import {defaultCookingPreset} from '@/const/user/cooking';
 import {Meal, MealId} from '@/types/game/meal/main';
 import {CookingServerDataProps} from '@/ui/cooking/common/type';
