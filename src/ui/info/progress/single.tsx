@@ -109,7 +109,7 @@ export const GameProgressSingle = ({data}: Props) => {
         </>
       }>
         <GameProgressRewardItem
-          icon={<DiamondIcon alt={t('Diamond')}/>}
+          icon={<DiamondIcon alt={t('Diamond')} noInvert/>}
           count={rewardDiamonds}
         />
         {rewardItems.map(({id, count}) => (
@@ -117,7 +117,7 @@ export const GameProgressSingle = ({data}: Props) => {
             key={id}
             icon={
               <>
-                <ItemIcon itemId={id} alt={t5(id.toString())} dimension="h-6 w-6"/>
+                <ItemIcon itemId={id} alt={t5(id.toString())} dimension="h-6 w-6" noInvert/>
                 <span>{t5(id.toString())}</span>
               </>
             }
