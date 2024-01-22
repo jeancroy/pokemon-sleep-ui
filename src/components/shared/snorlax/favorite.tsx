@@ -8,7 +8,7 @@ import {FilterWithInclusionMap, FilterWithUpdaterProps} from '@/components/input
 import {getMultiSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
-import {PokemonMapFilter} from '@/components/shared/pokemon/filter/map';
+import {MapFilter} from '@/components/shared/map/filter';
 import {imageSmallIconSizes} from '@/styles/image';
 import {BerryId} from '@/types/game/berry';
 import {FieldMetaMap} from '@/types/game/mapMeta';
@@ -51,7 +51,7 @@ export const SnorlaxFavoriteInput = <
         ids={toUnique(pokemonList.map(({berry}) => berry.id)).sort((a, b) => a - b)}
         {...getMultiSelectOnClickProps(props)}
       />
-      <PokemonMapFilter
+      <MapFilter
         title={
           <Flex direction="row" center className="gap-0.5">
             <div className="relative h-7 w-7">

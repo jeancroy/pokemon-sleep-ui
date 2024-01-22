@@ -8,8 +8,8 @@ import {getMultiSelectOnClickProps} from '@/components/input/filter/utils/props'
 import {useCollapsible} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
+import {MapFilter} from '@/components/shared/map/filter';
 import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
-import {PokemonMapFilter} from '@/components/shared/pokemon/filter/map';
 import {PokemonIngredientPicker} from '@/components/shared/pokemon/ingredients/picker';
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
@@ -47,7 +47,7 @@ export const AnalysisPageInput = ({
         </Flex>
       }>
         <Flex className="gap-1 pr-1">
-          <PokemonMapFilter
+          <MapFilter
             mapIds={toUnique(Object
               .values(sleepStyleMap)
               .flatMap((sleepStyle) => sleepStyle?.map(({mapId}) => mapId))

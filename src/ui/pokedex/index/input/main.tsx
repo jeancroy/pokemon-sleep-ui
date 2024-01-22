@@ -12,8 +12,8 @@ import {getMultiSelectOnClickProps, getSingleSelectOnClickProps} from '@/compone
 import {useCollapsible} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
+import {MapFilter} from '@/components/shared/map/filter';
 import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
-import {PokemonMapFilter} from '@/components/shared/pokemon/filter/map';
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {PokemonSortingPicker} from '@/components/shared/pokemon/sorter/picker';
 import {pokedexSortExclusion} from '@/components/shared/pokemon/sorter/type';
@@ -55,7 +55,7 @@ export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
             <PokedexInputClearer setFilter={setFilter} preloadedDisplay={preloaded.display}/>
           </div>
           <Flex className="gap-1 pr-1">
-            <PokemonMapFilter
+            <MapFilter
               highlight
               mapIds={toUnique(pokedex
                 .flatMap(({sleepStyles}) => sleepStyles.map(({mapId}) => mapId)))

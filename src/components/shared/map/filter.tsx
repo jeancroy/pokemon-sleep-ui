@@ -20,7 +20,7 @@ type Props = FilterInputOnClickProps<SleepMapId> & FilterPremiumRestrictableProp
   title?: React.ReactNode,
 };
 
-export const PokemonMapFilter = ({onClick, mapIds, highlight, title, ...props}: Props) => {
+export const MapFilter = ({onClick, mapIds, highlight, title, ...props}: Props) => {
   const t = useTranslations('UI.Common');
   const t2 = useTranslations('Game');
 

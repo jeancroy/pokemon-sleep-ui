@@ -15,8 +15,8 @@ import {ToggleButton} from '@/components/input/toggleButton';
 import {useCollapsible} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
+import {MapFilter} from '@/components/shared/map/filter';
 import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
-import {PokemonMapFilter} from '@/components/shared/pokemon/filter/map';
 import {DrowsyPowerMultiplierInput} from '@/components/shared/sleepStyle/input/drowsyPowerMultiplier';
 import {DrowsyPowerRequirementInput} from '@/components/shared/sleepStyle/input/drowsyPowerRequirement';
 import {textFilterButtonStyle} from '@/styles/input';
@@ -59,7 +59,7 @@ export const SleepdexLookupInput = ({
       </Flex>
     }>
       <Flex className="gap-1 pr-1">
-        <PokemonMapFilter
+        <MapFilter
           premiumOnly
           session={session}
           mapIds={mapIds}
