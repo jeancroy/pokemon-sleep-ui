@@ -7,6 +7,8 @@ export type SleepMapId = number;
 
 export type SleepStyleId = number | 'onSnorlax';
 
+export type SleepStyleInternalId = number;
+
 export type SleepReward = {
   exp: number,
   shards: number,
@@ -27,6 +29,7 @@ export type SleepStyleCommon = {
   rarity: number,
   rewards: SleepReward,
   i18nKey: SleepStyleNameI18nKey,
+  internalId: SleepStyleInternalId,
 };
 
 export type SleepStyle = SleepStyleCommon & {
