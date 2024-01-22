@@ -19,7 +19,7 @@ const buffValueOfEffect: {[effect in NatureEffectType]: number} = {
 const nerfValueOfEffect: {[effect in NatureEffectType]: number} = {
   mainSkill: 0.8,
   exp: 0.82,
-  energy: 0.8,
+  energy: 0.88,
   rateOfIngredient: 0.8,
   frequencyOfBase: 1.1,
 };
