@@ -453,6 +453,10 @@
       "Notice": "- 此頁面每日更新。\n- 技能值和等級無關。技能觸發值請見 [寶可夢圖鑑](https://pks.raenonx.cc/pokedex) 或 [主技能觸發分析](https://pks.raenonx.cc/team/mainskill)。\n- 沒有列出的技能發動率代表尚未測定。\n- 感謝 Mathcord 內的 @jc、@goobliss、@harold_grant 提供模型及相關資訊；感謝 @calpistori 協助測定和驗證資訊。"
     }
   },
+  "Image": {
+    "Portrait": "大圖",
+    "Eating": "吃飯中"
+  },
   "Ocr": {
     "Status": {
       "Error": "錯誤",

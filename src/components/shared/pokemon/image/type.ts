@@ -9,7 +9,7 @@ export type PokemonImageTypeOfSleepStyle = {
 
 export type PokemonImageTypeOfDefault = {
   type: 'default',
-  image: 'portrait' | 'icon',
+  image: 'portrait' | 'icon' | 'happy',
 };
 
 export type PokemonImageType = PokemonImageTypeOfSleepStyle | PokemonImageTypeOfDefault;

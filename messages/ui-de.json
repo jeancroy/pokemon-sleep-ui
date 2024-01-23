@@ -453,6 +453,10 @@
       "Notice": "- Diese Seite wird täglich aktualisiert.\n- Talent-Wert wird nicht vom Level beeinflusst. Prüfe [Pokedex](https://pks.raenonx.cc/pokedex) oder [Talent Auslösefrequenzanalyse](https://pks.raenonx.cc/team/mainskill) für Talentauslöse-Werte.\n- Talentauslöse-Rate ohne Wert bedeutet, dass diese noch nicht verifiziert ist.\n- Danksagung an @jc, @goobliss, @harold_grant in Mathcord für das Bereitstellen des Modells und der damit verwandten Informationen; @calpistori für das Testen und der Datenverifizierung."
     }
   },
+  "Image": {
+    "Portrait": "Portrait",
+    "Eating": "Eating"
+  },
   "Ocr": {
     "Status": {
       "Error": "Fehler",

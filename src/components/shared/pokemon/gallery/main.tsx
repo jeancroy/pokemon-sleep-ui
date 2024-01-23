@@ -26,6 +26,7 @@ export const PokemonGallery = ({
 
   const imageOptions: PokemonImageType[] = React.useMemo(() => [
     {type: 'default', image: 'portrait'},
+    {type: 'default', image: 'happy'},
     ...getAvailableSleepStylesFromNormal({
       sleepStyles,
       extractor: ({i18nKey, style}): PokemonImageTypeOfSleepStyle => ({
@@ -52,7 +53,7 @@ export const PokemonGallery = ({
   });
 
   return (
-    <Flex center>
+    <Flex center className="gap-1.5">
       <Flex center noFullWidth className={clsx('relative', gallerySize)}>
         {imageOptions
           .flatMap((image) => [

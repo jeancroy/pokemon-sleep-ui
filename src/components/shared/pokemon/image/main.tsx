@@ -55,6 +55,16 @@ export const PokemonImage = ({pokemonId, image, isShiny, alt, className}: Props)
       );
     }
 
+    if (image.image === 'happy') {
+      return (
+        <NextImage
+          {...commonImageProps}
+          src={`/images/pokemon/happy/${isShiny ? 'shiny/' : ''}${pokemonId}.png`}
+          alt={actualAlt}
+        />
+      );
+    }
+
     throw new Error(`Unhandled Pokemon default image [${image.image satisfies never}]`);
   }
 

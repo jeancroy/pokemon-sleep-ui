@@ -345,6 +345,10 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         Notice: string,
       },
     },
+    Image: {
+      Portrait: string,
+      Eating: string,
+    },
     Ocr: {
       Status: {
         Error: string,
