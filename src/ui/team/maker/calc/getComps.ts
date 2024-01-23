@@ -18,6 +18,7 @@ import {isNotNullish} from '@/utils/type';
 type GetTeamMakerCompsOpts = TeamMakerDataProps & Omit<TeamMakerCalcResultsOpts, 'settings' | 'calculatedSettings'>;
 
 export const getTeamMakerComps = ({
+  ingredientMap,
   snorlaxData,
   input,
   cookingSettings,
@@ -34,6 +35,7 @@ export const getTeamMakerComps = ({
   const comps: TeamMakerResultComp[] = [];
   for (const teamComp of teamComps) {
     const rates = getPokemonProducingRateMulti({
+      ingredientMap,
       rateOpts: teamComp.map(({payload}) => ({
         opts: payload.calcOpts,
         payload: payload.refData,

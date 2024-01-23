@@ -14,11 +14,11 @@ export const formatMealStrengthInfo = ({
   const {
     strengthAfterRarity,
     strengthFinal,
-    bonusRate,
+    bonus,
   } = info;
 
   if (includeBonusRate) {
-    const bonusPercent = bonusRate * 100 - 100;
+    const bonusPercent = bonus.total * 100 - 100;
 
     return `${formatInt(strengthAfterRarity)} (${formatInt(strengthFinal)} / +${formatInt(bonusPercent)}%)`;
   }

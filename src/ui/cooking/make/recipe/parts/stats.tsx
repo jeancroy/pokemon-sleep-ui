@@ -20,7 +20,7 @@ export const MealMakerRecipeStats = ({info}: MealMakerRecipePartsProps) => {
         </div>
       </Flex>
       <div>
-        +{(info.bonusRate * 100 - 100).toFixed(1)}%
+        +{(info.bonus.total * 100 - 100).toFixed(1)}%
       </div>
     </Flex>
   );

@@ -12,6 +12,11 @@ export const testIngredientMap: IngredientMap = {
     price: 5,
     energy: 115,
   },
+  4: {
+    id: 4,
+    price: 4,
+    energy: 124,
+  },
   5: {
     id: 5,
     price: 4,

@@ -15,6 +15,7 @@ export type Meal = {
   id: MealId,
   type: MealTypeId,
   ingredients: MealIngredient[],
+  baseStrength: number,
 };
 
 export type MealMap = {[id in MealId]?: Meal};

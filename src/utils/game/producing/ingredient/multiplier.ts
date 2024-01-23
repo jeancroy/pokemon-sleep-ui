@@ -1,7 +1,7 @@
 import {countBy} from 'lodash';
 
 import {productionMultiplierByPeriod} from '@/const/game/production';
-import {IngredientCounter, IngredientId} from '@/types/game/ingredient';
+import {IngredientCounter, IngredientId, IngredientMap} from '@/types/game/ingredient';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {IngredientMultiplier} from '@/types/game/producing/multiplier';
 import {CookingUserSettings} from '@/types/userData/settings';
@@ -10,12 +10,14 @@ import {getIngredientBonusOfMeals} from '@/utils/game/producing/ingredient/bonus
 
 
 export type GetIngredientMultiplierOpts = {
+  ingredientMap: IngredientMap,
   period: ProductionPeriod,
   production: IngredientCounter,
   cookingSettings: CookingUserSettings,
 };
 
 export const getIngredientMultiplier = ({
+  ingredientMap,
   period,
   production,
   cookingSettings,
@@ -29,6 +31,7 @@ export const getIngredientMultiplier = ({
   const {ingredientsRequired} = mealIngredientInfo;
 
   const ingredientBonus = getIngredientBonusOfMeals({
+    ingredientMap,
     mealIngredientInfo,
     cookingSettings,
   });

@@ -1,4 +1,5 @@
 import {defaultProductionPeriod} from '@/const/game/production';
+import {IngredientMap} from '@/types/game/ingredient';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
 import {PokemonProducingRateFinal, PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
 import {ProducingStateOfRate} from '@/types/game/producing/state';
@@ -15,6 +16,7 @@ import {isNotNullish} from '@/utils/type';
 
 
 export type GetPokemonProducingRateMultiOpts<TPayload> = {
+  ingredientMap: IngredientMap,
   rateOpts: GetPokemonProducingRateOptsWithPayload<TPayload>[],
   sharedOpts: GetProducingRateSharedOpts,
   groupingState: ProducingStateOfRate,
@@ -23,6 +25,7 @@ export type GetPokemonProducingRateMultiOpts<TPayload> = {
 };
 
 export const getPokemonProducingRateMulti = <TPayload>({
+  ingredientMap,
   rateOpts,
   sharedOpts,
   groupingState,
@@ -55,6 +58,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
     state: groupingState,
   });
   const ingredientMultiplier = getIngredientMultiplier({
+    ingredientMap,
     production: Object.fromEntries(Object.entries(groupedOriginalRates.ingredient)
       .map(([id, rate]) => {
         if (!rate) {

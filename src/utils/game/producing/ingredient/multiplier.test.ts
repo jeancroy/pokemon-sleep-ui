@@ -1,5 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
+import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testMealData} from '@/tests/data/game/meal';
 import {getIngredientMultiplier} from '@/utils/game/producing/ingredient/multiplier';
 
@@ -8,6 +9,7 @@ describe('Ingredient Production / Multiplier', () => {
   it('is correct using daily production', () => {
     const meals = [testMealData['1007'], testMealData['3006'], testMealData['3006']];
     const {override, defaultValue} = getIngredientMultiplier({
+      ingredientMap: testIngredientMap,
       period: 'daily',
       production: {
         2: 18,
@@ -35,6 +37,7 @@ describe('Ingredient Production / Multiplier', () => {
   it('is correct using weekly production', () => {
     const meals = [testMealData['1007'], testMealData['3006'], testMealData['3006']];
     const {override, defaultValue} = getIngredientMultiplier({
+      ingredientMap: testIngredientMap,
       period: 'weekly',
       production: {
         2: 18 * 7,
@@ -62,6 +65,7 @@ describe('Ingredient Production / Multiplier', () => {
   it('is correct with 0 production', () => {
     const meals = [testMealData['1007'], testMealData['3006'], testMealData['3006']];
     const {override, defaultValue} = getIngredientMultiplier({
+      ingredientMap: testIngredientMap,
       period: 'daily',
       production: {
         2: 0,

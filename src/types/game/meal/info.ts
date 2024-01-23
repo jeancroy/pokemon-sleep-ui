@@ -1,17 +1,18 @@
 import {IngredientCounter, IngredientOfMeals} from '@/types/game/ingredient';
 
 
-export type MealStrengthInfo = {
+export type MealInfo = {
+  bonus: {
+    level: number,
+    rarity: number,
+    total: number,
+  },
   strengthBase: number,
   strengthAfterRarity: number,
-  strengthFinal: number,
-  bonusRate: number,
 };
 
-export type MealBonusInfo = {
-  level: number,
-  rarity: number,
-  total: number,
+export type MealStrengthInfo = MealInfo & {
+  strengthFinal: number,
 };
 
 export type MealIngredientInfo = {

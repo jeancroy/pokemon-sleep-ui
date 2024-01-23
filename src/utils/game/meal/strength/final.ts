@@ -45,9 +45,13 @@ export const getMealFinalStrengthOfNonRecipe = ({
   });
 
   return {
+    bonus: {
+      level: 1,
+      rarity: 1,
+      total: 1,
+    },
     strengthBase,
     strengthAfterRarity: strengthBase,
     strengthFinal: strengthBase * mapMultiplier,
-    bonusRate: 1,
   };
 };

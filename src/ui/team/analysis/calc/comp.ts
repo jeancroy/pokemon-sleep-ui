@@ -16,12 +16,14 @@ export const getTeamCompCalcResult = ({
   ...opts
 }: TeamCompCalcOpts) => {
   const {
+    ingredientMap,
     setup,
     cookingSettings,
   } = opts;
   const currentTeam = getCurrentTeam({setup});
 
   const {rates, grouped} = getPokemonProducingRateMulti({
+    ingredientMap,
     cookingSettings,
     groupingState: state,
     sharedOpts: {

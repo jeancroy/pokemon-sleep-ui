@@ -9,6 +9,7 @@ export const testMealData: {[id in MealId]: Meal} = {
       {id: 12, quantity: 10},
       {id: 6, quantity: 5},
     ],
+    baseStrength: 1943,
   },
   1007: {
     type: 1,
@@ -19,6 +20,7 @@ export const testMealData: {[id in MealId]: Meal} = {
       {id: 3, quantity: 8},
       {id: 4, quantity: 4},
     ],
+    baseStrength: 4523,
   },
   3006: {
     type: 3,
@@ -29,5 +31,6 @@ export const testMealData: {[id in MealId]: Meal} = {
       {id: 8, quantity: 10},
       {id: 9, quantity: 20},
     ],
+    baseStrength: 7594,
   },
 };
