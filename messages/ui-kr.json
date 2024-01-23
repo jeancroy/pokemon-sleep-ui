@@ -459,8 +459,8 @@
     }
   },
   "Image": {
-    "Portrait": "Portrait",
-    "Eating": "Eating"
+    "Portrait": "평상시",
+    "Eating": "밥 먹을 때"
   },
   "Ocr": {
     "Status": {
