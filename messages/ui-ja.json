@@ -38,9 +38,9 @@
   "Evolution": {
     "SleepTime": "睡眠時間",
     "Gender": {
-      "Male": "Male Only",
-      "Female": "Female Only",
-      "Unknown": "Unknown Only"
+      "Male": "オス限定",
+      "Female": "メス限定",
+      "Unknown": "不明限定"
     }
   },
   "Game": {
