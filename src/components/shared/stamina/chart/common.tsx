@@ -17,9 +17,19 @@ type Props = StaminaChartCommonProps & {
   domainMin: number,
   tooltip: React.ReactElement,
   dataTicks?: number[],
+  tickFormatter?: (value: number) => string,
 };
 
-export const StaminaChart = ({config, logs, titleI18nId, getData, domainMin, tooltip, dataTicks}: Props) => {
+export const StaminaChart = ({
+  config,
+  logs,
+  titleI18nId,
+  getData,
+  domainMin,
+  tooltip,
+  dataTicks,
+  tickFormatter,
+}: Props) => {
   const {sleepSession} = config;
 
   const t = useTranslations('UI.Stamina');
@@ -51,6 +61,7 @@ export const StaminaChart = ({config, logs, titleI18nId, getData, domainMin, too
             ticks={dataTicks}
             interval={0}
             domain={[domainMin, 'dataMax']}
+            tickFormatter={tickFormatter}
           />
           <Tooltip content={tooltip}/>
           <Area

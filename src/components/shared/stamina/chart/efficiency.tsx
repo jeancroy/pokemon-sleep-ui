@@ -3,6 +3,7 @@ import React from 'react';
 import {StaminaChart} from '@/components/shared/stamina/chart/common';
 import {StaminaChartTooltipOfEfficiency} from '@/components/shared/stamina/chart/tooltip/efficiency';
 import {StaminaChartCommonProps} from '@/components/shared/stamina/chart/type';
+import {formatFloat} from '@/utils/number/format';
 
 
 export const StaminaChartOfEfficiency = ({config, logs}: StaminaChartCommonProps) => {
@@ -16,6 +17,7 @@ export const StaminaChartOfEfficiency = ({config, logs}: StaminaChartCommonProps
       getData={({efficiency}) => efficiency}
       domainMin={1}
       tooltip={<StaminaChartTooltipOfEfficiency logs={logs} start={start}/>}
+      tickFormatter={(value) => `${formatFloat(value)}x`}
     />
   );
 };
