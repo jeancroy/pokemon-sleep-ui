@@ -27,8 +27,8 @@ export const handleGithubWebhook = async (request: Request) => {
   const action = messageObj.action;
 
   /* eslint-disable no-console */
-  console.log('Github Webhook action:', action);
-  console.log('Github Webhook message received:', message);
+  console.info('Github Webhook action:', action);
+  console.info('Github Webhook message received:', message);
   /* eslint-enable no-console */
 
   if (!action) {

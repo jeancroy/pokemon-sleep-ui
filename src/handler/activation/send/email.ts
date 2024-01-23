@@ -30,5 +30,5 @@ export const actionSendActivationEmail = async (opts: ActionSendActivationEmailO
   }
 
   // eslint-disable-next-line no-console
-  console.log(`Activation email sent to ${email} with link ${activationLink} (${sourceNote})`);
+  console.info(`Activation email sent to ${email} with link ${activationLink} (${sourceNote})`);
 };

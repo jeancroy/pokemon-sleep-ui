@@ -30,13 +30,13 @@ export const scanActivations = async <TMember>({
   const sourceText = activationSourceToText[source];
 
   /* eslint-disable no-console */
-  console.log(`>>> Activation poll requested for source: ${sourceText}`);
-  console.log(`- Pending activations: ${toSendActivation.length}`);
-  console.log(`- Pending expiry updates: ${toUpdateExpiry.length}`);
-  console.log(`- Pending deactivations: ${toDeactivate.length}`);
-  console.log('Pending activations:', JSON.stringify(toSendActivation));
-  console.log('Pending expiry updates', JSON.stringify(toUpdateExpiry));
-  console.log('Pending deactivations', JSON.stringify(toDeactivate));
+  console.info(`>>> Activation poll requested for source: ${sourceText}`);
+  console.info(`- Pending activations: ${toSendActivation.length}`);
+  console.info(`- Pending expiry updates: ${toUpdateExpiry.length}`);
+  console.info(`- Pending deactivations: ${toDeactivate.length}`);
+  console.info('Pending activations:', JSON.stringify(toSendActivation));
+  console.info('Pending expiry updates', JSON.stringify(toUpdateExpiry));
+  console.info('Pending deactivations', JSON.stringify(toDeactivate));
   /* eslint-enable no-console */
 
   await Promise.all([
@@ -58,7 +58,7 @@ export const scanActivations = async <TMember>({
   ]);
 
   /* eslint-disable no-console */
-  console.log(`>>> Activation poll completed for source: ${sourceText}`);
+  console.info(`>>> Activation poll completed for source: ${sourceText}`);
   /* eslint-enable no-console */
 
   return Response.json({}, {status: 200});

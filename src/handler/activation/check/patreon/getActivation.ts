@@ -13,7 +13,7 @@ export const getActivationFromPatreonMember = async ({
   const activeTier = subscriber.relationships.currently_entitled_tiers.data.at(0);
   if (!activeTier) {
     /* eslint-disable no-console */
-    console.log(`User of ${email} on Patreon does not seem to have entitled tiers`);
+    console.info(`User of ${email} on Patreon does not seem to have entitled tiers`);
     /* eslint-enable no-console */
 
     return {

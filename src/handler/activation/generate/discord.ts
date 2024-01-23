@@ -53,7 +53,7 @@ export const generateDiscordActivationLink = async (request: NextRequest) => {
   }
 
   /* eslint-disable no-console */
-  console.log(`Generated activation link for Discord user ${discordId} - ${activationLink}`);
+  console.info(`Generated activation link for Discord user ${discordId} - ${activationLink}`);
   /* eslint-enable no-console */
 
   return new Response(activationLink);

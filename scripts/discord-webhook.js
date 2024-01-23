@@ -56,14 +56,14 @@ const discordData = {
 };
 
 /* eslint-disable no-console */
-console.log(`Azure DevOps triggered at ${discordData.timestamp}`);
-console.log(`- Requester: ${env.requester}`);
-console.log(`- Requester ID: ${env.requesterId}`);
-console.log(`- Queued by: ${env.queuedBy}`);
-console.log(`- Queued by ID: ${env.queuedById}`);
-console.log(`- Status: ${env.status}`);
-console.log(`- Title: ${env.title}`);
-console.log(`- Content: ${discordData.content}`);
+console.info(`Azure DevOps triggered at ${discordData.timestamp}`);
+console.info(`- Requester: ${env.requester}`);
+console.info(`- Requester ID: ${env.requesterId}`);
+console.info(`- Queued by: ${env.queuedBy}`);
+console.info(`- Queued by ID: ${env.queuedById}`);
+console.info(`- Status: ${env.status}`);
+console.info(`- Title: ${env.title}`);
+console.info(`- Content: ${discordData.content}`);
 /* eslint-enable no-console */
 
 

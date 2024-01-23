@@ -85,7 +85,7 @@ export const addActivationDataByAdsClick = async ({
   });
 
   /* eslint-disable no-console */
-  console.log(`Ad-click activation generated for user ${userId} with key ${key}`);
+  console.info(`Ad-click activation generated for user ${userId} with key ${key}`);
   /* eslint-enable no-console */
 };
 

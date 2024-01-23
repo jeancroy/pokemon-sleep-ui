@@ -25,9 +25,9 @@ export const getActivationFromPlatform = async ({
   const existedActivationProperties = (await getActivationPropertiesByContact(opts));
 
   /* eslint-disable no-console */
-  console.log(`>>> Converting ${source} member [${userInfo}] to activation payload`);
+  console.info(`>>> Converting ${source} member [${userInfo}] to activation payload`);
   if (existedActivationProperties) {
-    console.log(
+    console.info(
       `Existing activation properties of ${userInfo} on ${source}:`,
       JSON.stringify(existedActivationProperties),
     );

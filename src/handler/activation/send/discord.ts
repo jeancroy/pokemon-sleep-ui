@@ -40,5 +40,5 @@ export const actionSendActivationDiscordMessage = async ({
   }
 
   // eslint-disable-next-line no-console
-  console.log(`Activation Discord message (${activationMessages.length}) requested (${sourceNote})`);
+  console.info(`Activation Discord message (${activationMessages.length}) requested (${sourceNote})`);
 };
