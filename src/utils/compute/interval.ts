@@ -81,7 +81,7 @@ export const getUnblockedIntervals = ({base, blocked}: GetUnblockedIntervalsOpts
 
   const mergedBlocked = mergeIntervals(blocked);
 
-  let result: Interval[] = [...base];
+  let result: Interval[] = mergeIntervals(base);
 
   for (const singleBlocked of mergedBlocked) {
     result = getUnblockedIntervalsBySingle({
