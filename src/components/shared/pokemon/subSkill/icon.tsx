@@ -18,10 +18,10 @@ export const PokemonSubSkillIcon = ({subSkill, isInactive, dimension}: PokemonSu
   const t = useTranslations('Game');
 
   const opacity = isInactive && 'opacity-40';
-  dimension ??= defaultSubSkillIconDimension;
+  const commonClass = clsx('shrink-0', dimension ?? defaultSubSkillIconDimension);
 
   if (!subSkill) {
-    return <XCircleIcon className={clsx(dimension, opacity)}/>;
+    return <XCircleIcon className={clsx(commonClass, opacity)}/>;
   }
 
   const firstEffectiveBonus = Object.entries(subSkill?.bonus ?? {})
@@ -30,13 +30,13 @@ export const PokemonSubSkillIcon = ({subSkill, isInactive, dimension}: PokemonSu
     .at(0);
 
   if (!firstEffectiveBonus) {
-    return <QuestionMarkCircleIcon className={clsx(dimension, opacity)}/>;
+    return <QuestionMarkCircleIcon className={clsx(commonClass, opacity)}/>;
   }
 
   return (
     <div className={clsx(
       'relative',
-      dimension,
+      commonClass,
       subSkill.rarity && subSkillRarityIconFilter[subSkill.rarity],
       opacity,
     )}>
