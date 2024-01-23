@@ -25,13 +25,7 @@
     "3": "Taupe-Höhle",
     "4": "Schneeweiß-Tundra",
     "6": "Karmin-Vulkan",
-    "7": "Lapislazuli-See",
-    "indirect_1": "Grasgrün-Insel",
-    "indirect_2": "Cyan-Strand",
-    "indirect_3": "Taupe-Höhle",
-    "indirect_4": "Schneeweiß-Tundra",
-    "indirect_6": "Karmin-Vulkan",
-    "indirect_7": "Lapislazuli-See"
+    "5": "Lapislazuli-See"
   },
   "Food": {
     "1": "Dicker Lauch",

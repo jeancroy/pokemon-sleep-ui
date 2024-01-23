@@ -25,13 +25,7 @@
     "3": "Taupe Hollow",
     "4": "Snowdrop Tundra",
     "6": "Carmine Volcano",
-    "7": "Lapis Lakeside",
-    "indirect_1": "Greengrass Isle",
-    "indirect_2": "Cyan Beach",
-    "indirect_3": "Taupe Hollow",
-    "indirect_4": "Snowdrop Tundra",
-    "indirect_6": "Carmine Volcano",
-    "indirect_7": "Lapis Lakeside"
+    "5": "Lapis Lakeside"
   },
   "Food": {
     "1": "Large Leek",
