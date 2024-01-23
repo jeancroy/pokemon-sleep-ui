@@ -1,5 +1,6 @@
 import {ItemId} from '@/types/game/item';
 import {PokemonId} from '@/types/game/pokemon';
+import {PokemonGender} from '@/types/game/pokemon/gender';
 
 
 export type EvolutionCondition = {
@@ -18,6 +19,9 @@ export type EvolutionCondition = {
   type: 'timing',
   startHour: number,
   endHour: number,
+} | {
+  type: 'gender',
+  gender: PokemonGender,
 };
 
 export type EvolutionBranch = {

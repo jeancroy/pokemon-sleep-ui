@@ -53,6 +53,11 @@ declare interface IntlMessages extends UiMessages, GameMessages {
     },
     Evolution: {
       SleepTime: string,
+      Gender: {
+        Male: string,
+        Female: string,
+        Unknown: string,
+      },
     },
     Game: {
       Feature: {

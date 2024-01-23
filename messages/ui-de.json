@@ -36,7 +36,12 @@
     "Strength": "Stärke"
   },
   "Evolution": {
-    "SleepTime": "Gemeinsame Schlafdauer"
+    "SleepTime": "Gemeinsame Schlafdauer",
+    "Gender": {
+      "Male": "Nur männlich",
+      "Female": "Nur weiblich",
+      "Unknown": "Nur unbekannt"
+    }
   },
   "Game": {
     "Feature": {
@@ -455,7 +460,7 @@
   },
   "Image": {
     "Portrait": "Portrait",
-    "Eating": "Eating"
+    "Eating": "Am Essen"
   },
   "Ocr": {
     "Status": {

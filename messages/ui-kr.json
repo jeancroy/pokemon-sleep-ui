@@ -36,7 +36,12 @@
     "Strength": "에너지"
   },
   "Evolution": {
-    "SleepTime": "수면 시간"
+    "SleepTime": "수면 시간",
+    "Gender": {
+      "Male": "Male Only",
+      "Female": "Female Only",
+      "Unknown": "Unknown Only"
+    }
   },
   "Game": {
     "Feature": {

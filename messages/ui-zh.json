@@ -36,7 +36,12 @@
     "Strength": "能量"
   },
   "Evolution": {
-    "SleepTime": "睡眠時間"
+    "SleepTime": "睡眠時間",
+    "Gender": {
+      "Male": "雄性限定",
+      "Female": "雌性限定",
+      "Unknown": "不明限定"
+    }
   },
   "Game": {
     "Feature": {

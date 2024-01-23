@@ -36,7 +36,12 @@
     "Strength": "Strength"
   },
   "Evolution": {
-    "SleepTime": "Time Slept"
+    "SleepTime": "Time Slept",
+    "Gender": {
+      "Male": "Male Only",
+      "Female": "Female Only",
+      "Unknown": "Unknown Only"
+    }
   },
   "Game": {
     "Feature": {
