@@ -9,7 +9,7 @@ import {getLogsWithSecondarySleep} from '@/utils/game/stamina/events/secondary';
 import {getLogsWithSkillRecovery} from '@/utils/game/stamina/events/skill';
 
 
-describe('Stamina Event Log (+End of Period)', () => {
+describe('Stamina / Event Log (+End of Period)', () => {
   it('is correct with secondary sleep before any skill trigger under conservative', () => {
     const recoveryRate: StaminaRecoveryRateConfig = {
       general: 1,

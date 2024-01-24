@@ -8,7 +8,7 @@ import {getLogsWithSecondarySleep} from '@/utils/game/stamina/events/secondary';
 import {getLogsWithSkillRecovery, getSkillRecoveryData} from '@/utils/game/stamina/events/skill';
 
 
-describe('Skill Recovery Data Generation', () => {
+describe('Stamina / Skill Recovery Data Generation', () => {
   it('is correct with floating number trigger count', () => {
     const recoveryData = getSkillRecoveryData({
       skillRecovery: {
@@ -106,7 +106,7 @@ describe('Skill Recovery Data Generation', () => {
   });
 });
 
-describe('Stamina Event Log (+Skill)', () => {
+describe('Stamina / Event Log (+Skill)', () => {
   it('is correct with secondary sleep before any skill trigger under conservative', () => {
     const recoveryRate: StaminaRecoveryRateConfig = {
       general: 1,

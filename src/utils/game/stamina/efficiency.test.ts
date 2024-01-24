@@ -3,7 +3,7 @@ import {describe, expect, it} from '@jest/globals';
 import {getEfficiency} from '@/utils/game/stamina/efficiency';
 
 
-describe('Efficiency at certain stamina', () => {
+describe('Stamina / Efficiency at certain point', () => {
   it('has correct efficiency', () => {
     expect(getEfficiency({stamina: 100})).toBeCloseTo(1 / 0.45);
     expect(getEfficiency({stamina: 90})).toBeCloseTo(1 / 0.45);

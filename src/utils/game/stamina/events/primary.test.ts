@@ -6,7 +6,7 @@ import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getLogsWithPrimarySleep} from '@/utils/game/stamina/events/primary';
 
 
-describe('Stamina Event Log (+Primary)', () => {
+describe('Stamina / Event Log (+Primary)', () => {
   it('is correct with energy never hitting 0 under optimistic', () => {
     const recoveryRate: StaminaRecoveryRateConfig = {
       general: 1,

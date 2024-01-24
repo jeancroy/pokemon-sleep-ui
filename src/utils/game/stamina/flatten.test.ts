@@ -4,7 +4,7 @@ import {StaminaEventLog} from '@/types/game/stamina/event';
 import {getStaminaEventLogsFlattened} from '@/utils/game/stamina/flatten';
 
 
-describe('Stamina Analysis / Event Log Flattening', () => {
+describe('Stamina / Event Log Flattening', () => {
   const originalLogs: StaminaEventLog[] = [
     {
       type: 'wakeup',

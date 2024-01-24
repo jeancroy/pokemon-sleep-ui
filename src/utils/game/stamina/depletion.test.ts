@@ -3,7 +3,7 @@ import {describe, expect, it} from '@jest/globals';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 
 
-describe('Stamina Depletion', () => {
+describe('Stamina / Depletion', () => {
   it('depletes from full', () => {
     expect(getStaminaAfterDuration({start: 100, duration: 600}).inGame).toBe(99);
     expect(getStaminaAfterDuration({start: 100, duration: 600}).actual).toBe(99);

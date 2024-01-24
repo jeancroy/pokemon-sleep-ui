@@ -7,7 +7,7 @@ import {getLogsWithPrimarySleep} from '@/utils/game/stamina/events/primary';
 import {getLogsWithSecondarySleep} from '@/utils/game/stamina/events/secondary';
 
 
-describe('Stamina Event Log (+Secondary)', () => {
+describe('Stamina / Event Log (+Secondary)', () => {
   const sessionInfo = getSleepSessionInfo({
     primary: {
       start: 84600, // 23:30

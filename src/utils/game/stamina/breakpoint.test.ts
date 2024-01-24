@@ -3,7 +3,7 @@ import {describe, expect, it} from '@jest/globals';
 import {getStaminaBreakpoint} from '@/utils/game/stamina/breakpoint';
 
 
-describe('Stamina Breakpoint', () => {
+describe('Stamina / Breakpoint', () => {
   it('is correct', () => {
     expect(getStaminaBreakpoint(110)).toBe(80);
     expect(getStaminaBreakpoint(100)).toBe(80);
