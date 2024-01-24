@@ -36,6 +36,7 @@ export const StaminaChart = ({
   const {isLandscape} = useLayout();
 
   const start = sleepSession.primary.end;
+  const maxData = Math.max(...logs.map(getData));
 
   // Line type: https://d3js.org/d3-shape/curve
   return (
@@ -70,6 +71,16 @@ export const StaminaChart = ({
             animationDuration={300}
             fillOpacity={0.6}
             dot={false}
+          />
+          <Area
+            type="linear"
+            dataKey={({isAsleep}: StaminaEventLogFlattened) => isAsleep ? maxData : null}
+            animationDuration={300}
+            fillOpacity={0.13}
+            dot={false}
+            activeDot={false}
+            fill="#777777"
+            stroke="none"
           />
         </AreaChart>
       </ResponsiveContainer>

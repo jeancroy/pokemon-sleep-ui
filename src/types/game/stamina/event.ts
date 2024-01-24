@@ -19,4 +19,5 @@ export type StaminaEventLogFlattened = Omit<StaminaEventLog, 'stamina' | 'stamin
   staminaUnderlying: number,
   type: StaminaEventType | null,
   efficiency: number,
+  isAsleep: boolean,
 };

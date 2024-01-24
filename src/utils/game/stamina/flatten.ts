@@ -9,7 +9,7 @@ type ToFlattenedStaminaEventLogOpts = {
 };
 
 const toFlattenedStaminaEventLog = ({log, key}: ToFlattenedStaminaEventLogOpts): StaminaEventLogFlattened => {
-  const {staminaUnderlying} = log;
+  const {staminaUnderlying, type} = log;
   const stamina = log.stamina[key];
 
   return {
@@ -17,6 +17,7 @@ const toFlattenedStaminaEventLog = ({log, key}: ToFlattenedStaminaEventLogOpts):
     stamina,
     staminaUnderlying: staminaUnderlying[key],
     efficiency: getEfficiency({stamina}),
+    isAsleep: type === 'sleep',
   };
 };
 
@@ -59,11 +60,18 @@ export const getStaminaEventLogsFlattened = (logs: StaminaEventLog[]): StaminaEv
   // Since the very first `wakeup` is not important here, `flattened` is initialized as an empty array,
   // and the subsequent checking loop starts from index 1
   const flattened: StaminaEventLogFlattened[] = [];
+  let isAsleep = false;
 
   for (let i = 1; i < originalFlattened.length; i++) {
     const stop = originalFlattened[i];
     let last = flattened.at(-1);
     let nextTiming = last ? last.timing + staminaDepleteInterval : null;
+
+    if (last?.type === 'sleep') {
+      isAsleep = true;
+    } else if (last?.type === 'wakeup') {
+      isAsleep = false;
+    }
 
     while (last && nextTiming && nextTiming < stop.timing) {
       const stamina = Math.max(0, last.stamina - 1);
@@ -74,6 +82,7 @@ export const getStaminaEventLogsFlattened = (logs: StaminaEventLog[]): StaminaEv
         stamina,
         staminaUnderlying: last.staminaUnderlying - 1,
         efficiency: getEfficiency({stamina}),
+        isAsleep,
       };
 
       flattened.push(expanded);
@@ -82,7 +91,11 @@ export const getStaminaEventLogsFlattened = (logs: StaminaEventLog[]): StaminaEv
       nextTiming = expanded.timing + staminaDepleteInterval;
     }
 
-    flattened.push(stop);
+    flattened.push({
+      ...stop,
+      // Need to override `isAsleep` in `stop` to correctly reflect the status
+      isAsleep,
+    });
   }
 
   return flattened;
