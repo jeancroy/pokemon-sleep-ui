@@ -542,7 +542,7 @@
       "EfficiencyBlock": "Effizienz-Schwellenwert",
       "Sleep": "Schlafen",
       "Wakeup": "Aufwachen",
-      "EndOfPeriod": "End of Period"
+      "EndOfPeriod": "Ende des Abschnitts"
     },
     "State": {
       "Asleep": "Eingeschlafen",
