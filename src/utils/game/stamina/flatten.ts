@@ -77,7 +77,7 @@ export const getStaminaEventLogsFlattened = (logs: StaminaEventLog[]): StaminaEv
       const stamina = Math.max(0, last.stamina - 1);
 
       const expanded: StaminaEventLogFlattened = {
-        type: stop.type === 'wakeup' ? 'sleep' : null,
+        type: null,
         timing: nextTiming,
         stamina,
         staminaUnderlying: last.staminaUnderlying - 1,

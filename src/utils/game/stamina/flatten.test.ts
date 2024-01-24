@@ -116,15 +116,17 @@ describe('Stamina / Event Log Flattening', () => {
     expect(logs[59].type).toBe('efficiencyBlock');
     expect(logs[59].timing).toBe(34800);
     expect(logs[59].stamina).toBe(60);
-    expect(logs[60].type).toBe('sleep');
+    expect(logs[60].type).toBe(null);
     expect(logs[60].timing).toBe(35400);
     expect(logs[60].stamina).toBe(59);
+    expect(logs[60].isAsleep).toBeTruthy();
     expect(logs[67].type).toBe('wakeup');
     expect(logs[67].timing).toBe(39600);
     expect(logs[67].stamina).toBe(52);
     expect(logs[68].type).toBe('wakeup');
     expect(logs[68].timing).toBe(39600);
     expect(logs[68].stamina).toBe(70);
+    expect(logs[69].isAsleep).toBeFalsy();
     expect(logs[78].type).toBe('efficiencyBlock');
     expect(logs[78].timing).toBe(45600);
     expect(logs[78].stamina).toBe(60);

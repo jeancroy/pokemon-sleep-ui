@@ -18,7 +18,7 @@ export const StaminaChartTooltipOfStamina = (props: StaminaChartTooltipCommonPro
     <StaminaChartTooltip
       {...props}
       getInfo={(stamina) => (
-        <Flex direction="row" className="items-center gap-1">
+        <Flex direction="row" noFullWidth className="items-center gap-1">
           <GenericIcon src={staminaLevelImageSrc[getStaminaBreakpoint(stamina)]} alt={t('Stamina')} noInvert/>
           <div>{formatInt(stamina)}</div>
         </Flex>
