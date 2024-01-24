@@ -57,61 +57,61 @@
   {
     "level": 12,
     "capacity": 48,
-    "cost": 24000
+    "cost": 38000
   },
   {
     "level": 13,
     "capacity": 51,
-    "cost": 30000
+    "cost": 59000
   },
   {
     "level": 14,
     "capacity": 54,
-    "cost": 33000
+    "cost": 89000
   },
   {
     "level": 15,
     "capacity": 57,
-    "cost": 41000
+    "cost": 127000
   },
   {
     "level": 16,
     "capacity": 60,
-    "cost": 45000
+    "cost": 144000
   },
   {
     "level": 17,
     "capacity": 63,
-    "cost": 55000
+    "cost": 176000
   },
   {
     "level": 18,
     "capacity": 66,
-    "cost": 61000
+    "cost": 195000
   },
   {
     "level": 19,
     "capacity": 69,
-    "cost": 73000
+    "cost": 234000
   },
   {
     "level": 20,
     "capacity": 72,
-    "cost": 80000
+    "cost": 256000
   },
   {
     "level": 21,
     "capacity": 75,
-    "cost": 98000
+    "cost": 314000
   },
   {
     "level": 22,
     "capacity": 78,
-    "cost": 108000
+    "cost": 346000
   },
   {
     "level": 23,
     "capacity": 81,
-    "cost": 130000
+    "cost": 416000
   }
 ]
