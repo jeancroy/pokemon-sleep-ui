@@ -18,7 +18,7 @@ export const Providers = ({children}: React.PropsWithChildren) => {
   }
 
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider storageKey="theme" attribute="class" enableSystem>
       <SessionProvider>
         {children}
       </SessionProvider>
