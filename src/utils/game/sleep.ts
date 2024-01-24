@@ -1,80 +1,125 @@
 import {durationOfDay} from '@/const/common';
-import {staminaDepleteInterval, staminaMaxRecovery, staminaRecoveryInterval} from '@/const/game/stamina';
-import {SleepDurationInfo, SleepSessionInfo, SleepSessionInternal, SleepSessionTimes} from '@/types/game/sleep';
-import {StaminaSleepSessionConfig} from '@/types/game/stamina/config';
+import {maxSleepEffectiveDuration, staminaMaxRecovery, staminaRecoveryInterval} from '@/const/game/stamina';
+import {
+  SleepDurationInfo,
+  SleepSessionInfo,
+  SleepSessionMeta,
+  SleepSessionRecovery,
+  SleepSessionTimes,
+} from '@/types/game/sleep';
+import {StaminaRecoveryRateConfig, StaminaSleepSessionConfig} from '@/types/game/stamina/config';
 import {toSum} from '@/utils/array';
+import {getActualRecoveryAmount} from '@/utils/game/stamina/events/utils';
 import {rotateTime} from '@/utils/time';
 
 
-type GetSleepSessionExtraInfoOpts = {
-  session: SleepSessionTimes,
-  recoveryCap?: number,
+const getSleepSessionActualDuration = ({start, end}: SleepSessionTimes): number => {
+  return end - start + (end > start ? 0 : durationOfDay);
 };
 
-export const getSleepSessionExtraInfo = ({
+type GetPrimarySleepSessionRecoveryOpts = {
+  session: SleepSessionTimes,
+  recoveryRate: StaminaRecoveryRateConfig,
+};
+
+const getPrimarySleepSessionRecovery = ({
   session,
-  recoveryCap,
-}: GetSleepSessionExtraInfoOpts): Omit<SleepSessionInternal, 'adjustedTiming'> => {
-  const {start, end} = session;
-  const length = end - start + (end > start ? 0 : durationOfDay);
+  recoveryRate,
+}: GetPrimarySleepSessionRecoveryOpts): SleepSessionRecovery => {
+  const actualDuration = getSleepSessionActualDuration(session);
+  const effectiveDuration = Math.min(actualDuration, maxSleepEffectiveDuration);
 
   return {
-    length,
-    recovery: Math.min(Math.ceil(length / staminaRecoveryInterval), recoveryCap ?? Infinity),
+    duration: {
+      actual: actualDuration,
+      effective: effectiveDuration,
+    },
+    recovery: Math.min(
+      staminaMaxRecovery,
+      getActualRecoveryAmount({
+        amount: Math.min(actualDuration, maxSleepEffectiveDuration) / staminaRecoveryInterval,
+        recoveryRate,
+        isSleep: true,
+      }),
+    ),
   };
 };
 
-type GetSecondarySleepSessionInfoOpts = {
+type GetSecondarySleepSessionMetaOpts = {
   session: StaminaSleepSessionConfig,
-  primaryWithInfo: SleepSessionInternal,
+  recoveryRate: StaminaRecoveryRateConfig,
+  primaryMeta: SleepSessionMeta,
 };
 
-const getSecondarySleepSessionInfo = ({session, primaryWithInfo}: GetSecondarySleepSessionInfoOpts) => {
+const getSecondarySleepSessionMeta = ({
+  session,
+  recoveryRate,
+  primaryMeta,
+}: GetSecondarySleepSessionMetaOpts): SleepSessionMeta | null => {
   const {primary, secondary} = session;
   if (!secondary) {
     return null;
   }
 
-  const extra = getSleepSessionExtraInfo({
-    session: secondary,
-    recoveryCap: Math.max(staminaMaxRecovery - primaryWithInfo.recovery, 0),
-  });
+  const actualDuration = getSleepSessionActualDuration(secondary);
+  const effectiveDuration = Math.min(
+    maxSleepEffectiveDuration - primaryMeta.duration.effective,
+    actualDuration,
+  );
   const start = rotateTime(secondary.start - primary.end);
+  const recoveryAvailableLeft = Math.max(staminaMaxRecovery - primaryMeta.recovery, 0);
 
   return {
-    ...extra,
+    duration: {
+      actual: actualDuration,
+      effective: effectiveDuration,
+    },
+    recovery: Math.min(
+      recoveryAvailableLeft,
+      getActualRecoveryAmount({
+        amount: effectiveDuration / staminaRecoveryInterval,
+        recoveryRate,
+        isSleep: true,
+      }),
+    ),
     adjustedTiming: {
       start,
-      end: start + extra.length,
+      end: start + actualDuration,
     },
   };
 };
 
-export const getSleepSessionInfo = (session: StaminaSleepSessionConfig): SleepSessionInfo => {
+type GetSleepSessionInfoOpts = {
+  session: StaminaSleepSessionConfig,
+  recoveryRate: StaminaRecoveryRateConfig,
+};
+
+export const getSleepSessionInfo = ({session, recoveryRate}: GetSleepSessionInfoOpts): SleepSessionInfo => {
   const {primary} = session;
 
-  const primaryWithInfo: SleepSessionInternal = {
-    ...getSleepSessionExtraInfo({session: primary}),
+  const primaryMeta: SleepSessionMeta = {
+    ...getPrimarySleepSessionRecovery({
+      session: primary,
+      recoveryRate,
+    }),
     adjustedTiming: {
       start: rotateTime(primary.start - primary.end),
       end: 0,
     },
   };
-  const secondaryWithInfo: SleepSessionInternal | null = getSecondarySleepSessionInfo({
+  const secondaryMeta = getSecondarySleepSessionMeta({
     session,
-    primaryWithInfo,
+    recoveryRate,
+    primaryMeta,
   });
 
-  const awakeDuration = durationOfDay - primaryWithInfo.length - (secondaryWithInfo?.length ?? 0);
-  const dailyLoss = Math.floor(awakeDuration / staminaDepleteInterval);
+  const asleepDuration = primaryMeta.duration.actual + (secondaryMeta?.duration.actual ?? 0);
+  const awakeDuration = durationOfDay - asleepDuration;
 
   return {
     session: {
-      primary: primaryWithInfo,
-      secondary: secondaryWithInfo,
-    },
-    stamina: {
-      dailyLoss,
+      primary: primaryMeta,
+      secondary: secondaryMeta,
     },
     duration: {
       awake: awakeDuration,

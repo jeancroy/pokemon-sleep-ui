@@ -13,11 +13,14 @@ import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
 export const UserSettingsStamina = (props: StaminaConfigProps) => {
   const {config, trigger} = props;
-  const {sleepSession} = config;
+  const {sleepSession, recoveryRate} = config;
 
   const t = useTranslations('UI.Stamina');
 
-  const sessionInfo = getSleepSessionInfo(sleepSession);
+  const sessionInfo = getSleepSessionInfo({
+    session: sleepSession,
+    recoveryRate,
+  });
 
   return (
     <UserSettingsSection titleIcon={

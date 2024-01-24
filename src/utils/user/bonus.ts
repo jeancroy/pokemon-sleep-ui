@@ -14,7 +14,10 @@ export type ToEffectiveBonusOpts = {
 export const toEffectiveBonus = ({settings, skillTriggers}: ToEffectiveBonusOpts): EffectiveBonus => {
   const {bonus, stamina, staminaSkillTrigger} = settings;
 
-  const sessionInfo = getSleepSessionInfo(stamina.sleepSession);
+  const sessionInfo = getSleepSessionInfo({
+    session: stamina.sleepSession,
+    recoveryRate: stamina.recoveryRate,
+  });
   const staminaEfficiency = getStaminaEfficiency({
     config: stamina,
     skillTriggers: skillTriggers ?? [staminaSkillTrigger],

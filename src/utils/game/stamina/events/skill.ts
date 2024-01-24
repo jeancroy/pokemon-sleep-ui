@@ -40,7 +40,7 @@ export const getSkillRecoveryData = ({
     let expectedTiming = awakeDuration * (idx + 1) / (Math.max(1, Math.floor(dailyCount)) + 1);
 
     if (secondarySession && expectedTiming > secondarySession.adjustedTiming.start) {
-      expectedTiming += secondarySession.length;
+      expectedTiming += secondarySession.duration.actual;
     }
 
     return {

@@ -10,7 +10,10 @@ export type StaminaEventLog = {
   type: StaminaEventType,
   // `stamina` is whatever actually shown in game
   stamina: StaminaAtEvent,
-  // `staminaUnderlying` could go negative, for calculation purposes
+  // `staminaUnderlying` could go negative for calculation purposes
+  // - This is used by `offsetEventLogStamina()`,
+  //  which implicitly considers the actual stamina depletion over the day
+  // - This always either equal or below the value of `stamina`
   staminaUnderlying: StaminaAtEvent,
 };
 

@@ -27,14 +27,20 @@ describe('Stamina Efficiency / From Config', () => {
         sleep: 1.14,
       },
     };
-    const sessionInfo = getSleepSessionInfo(config.sleepSession);
+    const sessionInfo = getSleepSessionInfo({
+      session: config.sleepSession,
+      recoveryRate: config.recoveryRate,
+    });
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 3, amount: 18},
     ];
 
     const {multiplier} = getStaminaEfficiency({config, sessionInfo, skillTriggers});
 
-    expect(multiplier.average).toBeCloseTo(1.980787);
+    // The expected value is just for checking if the calculation outcome somehow changes
+    // Therefore if the test fails, once confirmed expected, then the expected value is good to update
+    // > Actual test for multiplier calculation at below
+    expect(multiplier.average).toBeCloseTo(1.739344);
   });
 
   it('is correct with multiple skill triggers', () => {
@@ -57,7 +63,10 @@ describe('Stamina Efficiency / From Config', () => {
         sleep: 1,
       },
     };
-    const sessionInfo = getSleepSessionInfo(config.sleepSession);
+    const sessionInfo = getSleepSessionInfo({
+      session: config.sleepSession,
+      recoveryRate: config.recoveryRate,
+    });
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 3, amount: 9},
       {dailyCount: 2, amount: 9},
@@ -65,7 +74,10 @@ describe('Stamina Efficiency / From Config', () => {
 
     const {multiplier} = getStaminaEfficiency({config, sessionInfo, skillTriggers});
 
-    expect(multiplier.average).toBeCloseTo(1.905981);
+    // The expected value is just for checking if the calculation outcome somehow changes
+    // Therefore if the test fails, once confirmed expected, then the expected value is good to update
+    // > Actual test for multiplier calculation at below
+    expect(multiplier.average).toBeCloseTo(1.551284);
   });
 });
 
@@ -152,6 +164,7 @@ describe('Stamina Efficiency / From Logs', () => {
       },
     ]);
 
+    // This value should not change if the test fails, unless there is an efficiency multiplier update
     expect(efficiency.average).toBeCloseTo(1.665815);
   });
 });
