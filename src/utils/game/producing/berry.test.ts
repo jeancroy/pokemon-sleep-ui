@@ -26,8 +26,8 @@ describe('Pokemon Berry Production', () => {
       berryData: testBerryDataMap['16'],
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / bonus.stamina.multiplier.awake;
+    const sleepFreq = 2920.2 / bonus.stamina.multiplier.sleep;
     // Math.ceil(63 * 1.05) where
     // - 63 is the berry strength
     // - 1.05 is map multiplier from `testBonus['1']`

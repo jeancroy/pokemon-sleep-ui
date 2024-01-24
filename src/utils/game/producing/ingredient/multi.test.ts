@@ -26,8 +26,8 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / bonus.stamina.multiplier.awake;
+    const sleepFreq = 2920.2 / bonus.stamina.multiplier.sleep;
     const energyMultiplier = getCommonEnergyMultiplier({bonus}) * bonus.mapMultiplier;
 
     expect(rate[0].id).toBe(5);
@@ -65,8 +65,8 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / bonus.stamina.multiplier.awake;
+    const sleepFreq = 2920.2 / bonus.stamina.multiplier.sleep;
 
     expect(rate[0].id).toBe(13);
     expect(rate[0].awake.id).toBe(13);
@@ -92,8 +92,8 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / bonus.stamina.multiplier.awake;
+    const sleepFreq = 2920.2 / bonus.stamina.multiplier.sleep;
 
     expect(rate[0].id).toBe(13);
     expect(rate[0].awake.id).toBe(13);
@@ -119,8 +119,8 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / bonus.stamina.multiplier.awake;
+    const sleepFreq = 2920.2 / bonus.stamina.multiplier.sleep;
 
     expect(rate[0].id).toBe(5);
     expect(rate[0].awake.id).toBe(5);
@@ -153,8 +153,8 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / bonus.stamina.multiplier.awake;
+    const sleepFreq = 2920.2 / bonus.stamina.multiplier.sleep;
 
     expect(rate[0].id).toBe(13);
     expect(rate[0].awake.id).toBe(13);
@@ -180,8 +180,8 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / bonus.stamina.multiplier.awake;
+    const sleepFreq = 2920.2 / bonus.stamina.multiplier.sleep;
 
     expect(rate[0].id).toBe(5);
     expect(rate[0].awake.id).toBe(5);
@@ -214,8 +214,8 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / bonus.stamina.multiplier.awake;
+    const sleepFreq = 2920.2 / bonus.stamina.multiplier.sleep;
 
     expect(rate[0].id).toBe(2);
     expect(rate[0].awake.id).toBe(2);

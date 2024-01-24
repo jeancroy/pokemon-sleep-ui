@@ -33,7 +33,7 @@ describe('Pokemon Skill Production', () => {
     });
 
     // Skill freq = 14400
-    const awakeFreq = 3168 / bonus.stamina.awake;
+    const awakeFreq = 3168 / bonus.stamina.multiplier.awake;
     const energyMultiplier = getCommonEnergyMultiplier({bonus});
     // Math.ceil(1251 * 1.05) where
     // - 1251 is the skill strength
@@ -74,7 +74,7 @@ describe('Pokemon Skill Production', () => {
     });
 
     // Skill freq = 14400
-    const awakeFreq = 3168 / bonus.stamina.awake;
+    const awakeFreq = 3168 / bonus.stamina.multiplier.awake;
     const energyMultiplier = getCommonEnergyMultiplier({bonus});
     // Math.ceil(1251 * 1.05) where
     // - 1251 is the skill strength
@@ -115,7 +115,7 @@ describe('Pokemon Skill Production', () => {
     });
 
     // Skill freq = 21600
-    const awakeFreq = 4752 / bonus.stamina.awake;
+    const awakeFreq = 4752 / bonus.stamina.multiplier.awake;
     const energyMultiplier = getCommonEnergyMultiplier({bonus});
     // Math.ceil(1251 * 1.05) where
     // - 1251 is the skill strength
@@ -156,7 +156,7 @@ describe('Pokemon Skill Production', () => {
     });
 
     // Skill freq = 21600
-    const awakeFreq = 4752 / bonus.stamina.awake;
+    const awakeFreq = 4752 / bonus.stamina.multiplier.awake;
     const energyMultiplier = getCommonEnergyMultiplier({bonus});
     // Math.ceil(1251 * 1.05) where
     // - 1251 is the skill strength
@@ -197,7 +197,7 @@ describe('Pokemon Skill Production', () => {
     });
 
     // Skill freq = 28800
-    const awakeFreq = 6336 / bonus.stamina.awake;
+    const awakeFreq = 6336 / bonus.stamina.multiplier.awake;
     const energyMultiplier = getCommonEnergyMultiplier({bonus});
     // Math.ceil(1251 * 1.05) where
     // - 1251 is the skill strength
@@ -238,7 +238,7 @@ describe('Pokemon Skill Production', () => {
     });
 
     // Skill freq = 28800
-    const awakeFreq = 6336 / bonus.stamina.awake;
+    const awakeFreq = 6336 / bonus.stamina.multiplier.awake;
     const energyMultiplier = getCommonEnergyMultiplier({bonus});
     // Math.ceil(1251 * 1.05) where
     // - 1251 is the skill strength

@@ -1,8 +1,6 @@
-import {durationOfDay} from '@/const/common';
-import {efficiencyInSleep} from '@/const/game/efficiency';
 import {SleepSessionInfo} from '@/types/game/sleep';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
-import {StaminaEfficiency} from '@/types/game/stamina/efficiency';
+import {StaminaEfficiency, StaminaEfficiencyCounter} from '@/types/game/stamina/efficiency';
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getEfficiency} from '@/utils/game/stamina/efficiency';
@@ -29,36 +27,59 @@ const getStaminaEventLogs = ({config, sessionInfo, skillTriggers}: GetStaminaEve
   return logs;
 };
 
-export const getDailyAverageStaminaEfficiencyFromLogs = (logs: StaminaEventLog[]): number => {
-  let sumOfWeightedDuration = 0;
+export const getStaminaEfficiencyMultiplierFromLogs = (logs: StaminaEventLog[]): StaminaEfficiencyCounter => {
+  const durationCounter: StaminaEfficiencyCounter = {
+    sleep: 0,
+    awake: 0,
+    average: 0,
+  };
+  const weightedDurationCounter: StaminaEfficiencyCounter = {
+    sleep: 0,
+    awake: 0,
+    average: 0,
+  };
+
+  let isDuringSleep = false;
 
   for (let i = 1; i < logs.length; i++) {
     const prev = logs[i - 1];
     const curr = logs[i];
 
     const blockEfficiency = getEfficiency({stamina: prev.stamina.after});
-    const duration = curr.timing - prev.timing;
+    const durationOfLog = curr.timing - prev.timing;
 
-    sumOfWeightedDuration += blockEfficiency * duration;
+    const weightedDuration = blockEfficiency * durationOfLog;
+
+    durationCounter.average += durationOfLog;
+    weightedDurationCounter.average += weightedDuration;
+    if (isDuringSleep) {
+      durationCounter.sleep += durationOfLog;
+      weightedDurationCounter.sleep += weightedDuration;
+    } else {
+      durationCounter.awake += durationOfLog;
+      weightedDurationCounter.awake += weightedDuration;
+    }
+
+    if (curr.type === 'sleep') {
+      isDuringSleep = true;
+    } else if (isDuringSleep && curr.type === 'wakeup') {
+      isDuringSleep = false;
+    }
   }
 
-  return sumOfWeightedDuration / durationOfDay;
+  return {
+    sleep: weightedDurationCounter.sleep / durationCounter.sleep,
+    awake: weightedDurationCounter.awake / durationCounter.awake,
+    average: weightedDurationCounter.average / durationCounter.average,
+  };
 };
 
 export const getStaminaEfficiency = (opts: GetStaminaEventLogOpts): StaminaEfficiency => {
-  const {sessionInfo} = opts;
-
   const logs = getStaminaEventLogs(opts);
-  const staminaDailyAverage = getDailyAverageStaminaEfficiencyFromLogs(logs);
-  const totalSleepDuration = durationOfDay - sessionInfo.duration.awake;
+  const staminaEfficiencyMultiplier = getStaminaEfficiencyMultiplierFromLogs(logs);
 
   return {
     logs,
-    average: staminaDailyAverage,
-    sleep: efficiencyInSleep,
-    awake: (
-      (staminaDailyAverage * durationOfDay - efficiencyInSleep * totalSleepDuration) /
-      (durationOfDay - totalSleepDuration)
-    ),
+    multiplier: staminaEfficiencyMultiplier,
   };
 };

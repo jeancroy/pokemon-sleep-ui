@@ -15,7 +15,7 @@ export const applyBonus = <T extends ProducingRateOfItem | null>({
   }
 
   const {stamina} = bonus;
-  const staminaBonus = stamina[producingState];
+  const staminaBonus = stamina.multiplier[producingState];
 
   return {
     ...data,

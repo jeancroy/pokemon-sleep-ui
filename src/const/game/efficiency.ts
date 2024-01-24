@@ -8,6 +8,3 @@ export const efficiencyBeforeBreakPoint: {[breakPoint in EfficiencyBreakPoint]: 
   20: 1 / 0.71,
   0: 1,
 };
-
-// FIXME: Not anymore
-export const efficiencyInSleep = efficiencyBeforeBreakPoint['80'];

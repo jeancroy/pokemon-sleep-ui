@@ -10,7 +10,7 @@ type Props = {
 };
 
 export const StaminaEfficiencyUI = ({efficiency}: Props) => {
-  const {awake, sleep, average} = efficiency;
+  const {awake, sleep, average} = efficiency.multiplier;
 
   return (
     <Flex noFullWidth className="items-end self-end rounded-lg border border-slate-500 px-2 py-1 md:flex-row md:gap-3">

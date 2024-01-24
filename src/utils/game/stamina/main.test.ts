@@ -3,7 +3,7 @@ import {describe, expect, it} from '@jest/globals';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
-import {getDailyAverageStaminaEfficiencyFromLogs, getStaminaEfficiency} from '@/utils/game/stamina/main';
+import {getStaminaEfficiency, getStaminaEfficiencyMultiplierFromLogs} from '@/utils/game/stamina/main';
 
 
 describe('Stamina Efficiency / From Config', () => {
@@ -32,7 +32,9 @@ describe('Stamina Efficiency / From Config', () => {
       {dailyCount: 3, amount: 18},
     ];
 
-    expect(getStaminaEfficiency({config, sessionInfo, skillTriggers}).average).toBeCloseTo(1.980787);
+    const {multiplier} = getStaminaEfficiency({config, sessionInfo, skillTriggers});
+
+    expect(multiplier.average).toBeCloseTo(1.980787);
   });
 
   it('is correct with multiple skill triggers', () => {
@@ -61,13 +63,15 @@ describe('Stamina Efficiency / From Config', () => {
       {dailyCount: 2, amount: 9},
     ];
 
-    expect(getStaminaEfficiency({config, sessionInfo, skillTriggers}).average).toBeCloseTo(1.905981);
+    const {multiplier} = getStaminaEfficiency({config, sessionInfo, skillTriggers});
+
+    expect(multiplier.average).toBeCloseTo(1.905981);
   });
 });
 
 describe('Stamina Efficiency / From Logs', () => {
   it('is correctly handling secondary sleep', () => {
-    const efficiency = getDailyAverageStaminaEfficiencyFromLogs([
+    const efficiency = getStaminaEfficiencyMultiplierFromLogs([
       {
         type: 'wakeup',
         timing: 0,
@@ -148,6 +152,6 @@ describe('Stamina Efficiency / From Logs', () => {
       },
     ]);
 
-    expect(efficiency).toBeCloseTo(1.665815);
+    expect(efficiency.average).toBeCloseTo(1.665815);
   });
 });
