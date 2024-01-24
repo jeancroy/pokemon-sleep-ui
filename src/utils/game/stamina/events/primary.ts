@@ -84,14 +84,26 @@ export const getLogsWithPrimarySleep = (opts: GetLogsWithPrimarySleepOpts): Stam
     {
       type: 'wakeup',
       timing: primary.adjustedTiming.end,
-      stamina: {before: sleepStamina.inGame, after: wakeupStamina},
-      staminaUnderlying: {before: sleepStamina.actual, after: wakeupStamina},
+      stamina: {
+        before: sleepStamina.inGame,
+        after: wakeupStamina,
+      },
+      staminaUnderlying: {
+        before: sleepStamina.actual,
+        after: wakeupStamina,
+      },
     },
     {
       type: 'sleep',
       timing: primary.adjustedTiming.start,
-      stamina: {before: sleepStamina.inGame, after: wakeupStamina},
-      staminaUnderlying: {before: sleepStamina.actual, after: wakeupStamina},
+      stamina: {
+        before: sleepStamina.inGame,
+        after: sleepStamina.inGame,
+      },
+      staminaUnderlying: {
+        before: sleepStamina.actual,
+        after: sleepStamina.actual,
+      },
     },
   ];
 };

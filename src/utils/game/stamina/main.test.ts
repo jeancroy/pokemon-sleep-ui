@@ -11,12 +11,12 @@ describe('Stamina Efficiency / From Config', () => {
     const config: StaminaCalcConfig = {
       sleepSession: {
         primary: {
-          start: 84600, // 23:30
-          end: 21600, // 06:00
+          start: 0, // 00:00
+          end: 23400, // 06:30
         },
         secondary: {
-          start: 46800, // 13:00
-          end: 52200, // 14:30
+          start: 59400, // 16:30
+          end: 64800, // 18:00
         },
       },
       skillRecovery: {
@@ -24,23 +24,23 @@ describe('Stamina Efficiency / From Config', () => {
       },
       recoveryRate: {
         general: 1,
-        sleep: 1,
+        sleep: 1.14,
       },
     };
     const sessionInfo = getSleepSessionInfo(config.sleepSession);
     const skillTriggers: StaminaSkillTriggerData[] = [
-      {dailyCount: 3, amount: 9},
+      {dailyCount: 3, amount: 18},
     ];
 
-    expect(getStaminaEfficiency({config, sessionInfo, skillTriggers}).average).toBeCloseTo(2.075486);
+    expect(getStaminaEfficiency({config, sessionInfo, skillTriggers}).average).toBeCloseTo(1.980787);
   });
 
   it('is correct with multiple skill triggers', () => {
     const config: StaminaCalcConfig = {
       sleepSession: {
         primary: {
-          start: 84600, // 23:30
-          end: 21600, // 06:00
+          start: 0, // 00:00
+          end: 23400, // 06:30
         },
         secondary: {
           start: 46800, // 13:00
@@ -61,7 +61,7 @@ describe('Stamina Efficiency / From Config', () => {
       {dailyCount: 2, amount: 9},
     ];
 
-    expect(getStaminaEfficiency({config, sessionInfo, skillTriggers}).average).toBeCloseTo(2.17);
+    expect(getStaminaEfficiency({config, sessionInfo, skillTriggers}).average).toBeCloseTo(1.905981);
   });
 });
 
@@ -95,29 +95,59 @@ describe('Stamina Efficiency / From Logs', () => {
       {
         type: 'sleep',
         timing: 34200,
-        stamina: {before: 61, after: 79},
-        staminaUnderlying: {before: 61, after: 79},
-      },
-      {
-        type: 'wakeup',
-        timing: 39600,
-        stamina: {before: 61, after: 79},
-        staminaUnderlying: {before: 61, after: 79},
+        stamina: {before: 61, after: 61},
+        staminaUnderlying: {before: 61, after: 61},
       },
       {
         type: 'efficiencyBlock',
-        timing: 51000,
+        timing: 34800,
         stamina: {before: 60, after: 60},
         staminaUnderlying: {before: 60, after: 60},
       },
       {
+        type: 'wakeup',
+        timing: 39600,
+        stamina: {before: 52, after: 70},
+        staminaUnderlying: {before: 52, after: 70},
+      },
+      {
+        type: 'efficiencyBlock',
+        timing: 45600,
+        stamina: {before: 60, after: 60},
+        staminaUnderlying: {before: 60, after: 60},
+      },
+      {
+        type: 'efficiencyBlock',
+        timing: 57600,
+        stamina: {before: 40, after: 40},
+        staminaUnderlying: {before: 40, after: 40},
+      },
+      {
         type: 'sleep',
         timing: 60000,
-        stamina: {before: 45, after: 45},
-        staminaUnderlying: {before: 45, after: 45},
+        stamina: {before: 36, after: 36},
+        staminaUnderlying: {before: 36, after: 36},
+      },
+      {
+        type: 'efficiencyBlock',
+        timing: 69600,
+        stamina: {before: 20, after: 20},
+        staminaUnderlying: {before: 20, after: 20},
+      },
+      {
+        type: 'efficiencyBlock',
+        timing: 81600,
+        stamina: {before: 0, after: 0},
+        staminaUnderlying: {before: 0, after: 0},
+      },
+      {
+        type: 'endOfPeriod',
+        timing: 86400,
+        stamina: {before: 0, after: 0},
+        staminaUnderlying: {before: 0, after: 0},
       },
     ]);
 
-    expect(efficiency).toBeCloseTo(2.03354);
+    expect(efficiency).toBeCloseTo(1.665815);
   });
 });

@@ -14,13 +14,9 @@ export const getLogsWithEfficiencyBlock = ({logs}: GetLogsWithEfficiencyBlockOpt
     const prev = logs[i - 1];
     const curr = logs[i];
 
-    if (prev.type === 'sleep') {
-      newLogs.push(curr);
-      continue;
-    }
-
     for (const breakPoint of [...efficiencyBreakPoints].sort((a, b) => b - a)) {
-      if (breakPoint < curr.stamina.before) {
+      // If `prev.stamina.after` is already 0, no need to insert any efficiency blocks because energy will stay at 0
+      if (prev.stamina.after <= 0 || breakPoint < curr.stamina.before) {
         break;
       }
 

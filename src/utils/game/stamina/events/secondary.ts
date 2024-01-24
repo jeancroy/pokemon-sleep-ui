@@ -18,9 +18,17 @@ export const getLogsWithSecondarySleep = ({
 
   const newLogs: StaminaEventLog[] = [logs[0]];
 
-  const sleepStamina = getStaminaAfterDuration({
+  const staminaAtSleepStart = getStaminaAfterDuration({
     start: newLogs[0].stamina.after,
     duration: secondary.adjustedTiming.start,
+  });
+  const staminaAtSleepEndInGame = getStaminaAfterDuration({
+    start: staminaAtSleepStart.inGame,
+    duration: secondary.length,
+  });
+  const staminaAtSleepEndActual = getStaminaAfterDuration({
+    start: staminaAtSleepStart.actual,
+    duration: secondary.length,
   });
   const recovery = getActualRecoveryAmount({
     amount: secondary.recovery,
@@ -33,24 +41,24 @@ export const getLogsWithSecondarySleep = ({
       type: 'sleep',
       timing: secondary.adjustedTiming.start,
       stamina: {
-        before: sleepStamina.inGame,
-        after: sleepStamina.inGame + recovery,
+        before: staminaAtSleepStart.inGame,
+        after: staminaAtSleepStart.inGame,
       },
       staminaUnderlying: {
-        before: sleepStamina.actual,
-        after: sleepStamina.actual + recovery,
+        before: staminaAtSleepStart.actual,
+        after: staminaAtSleepStart.actual,
       },
     },
     {
       type: 'wakeup',
       timing: secondary.adjustedTiming.end,
       stamina: {
-        before: sleepStamina.inGame,
-        after: sleepStamina.inGame + recovery,
+        before: staminaAtSleepEndInGame.inGame,
+        after: staminaAtSleepEndInGame.inGame + recovery,
       },
       staminaUnderlying: {
-        before: sleepStamina.actual,
-        after: sleepStamina.actual + recovery,
+        before: staminaAtSleepEndActual.actual,
+        after: staminaAtSleepEndActual.actual + recovery,
       },
     },
   );

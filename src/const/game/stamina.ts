@@ -10,7 +10,7 @@ export const staminaMaxRecovery = 100;
 
 export const staminaDepleteInterval = 600;
 
-const maxSleepDuration = 8.5 * 3600; // 8.5 hrs
+export const maxSleepDuration = 8.5 * 3600; // 8.5 hrs
 
 export const staminaRecoveryInterval = maxSleepDuration / 100;
 
@@ -36,4 +36,5 @@ export const staminaEventTypeI18nId: {
   efficiencyBlock: 'EfficiencyBlock',
   sleep: 'Sleep',
   wakeup: 'Wakeup',
+  endOfPeriod: 'EndOfPeriod',
 };

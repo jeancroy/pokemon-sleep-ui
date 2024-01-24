@@ -541,7 +541,8 @@
       "SkillRecovery": "Skill Recovery",
       "EfficiencyBlock": "Efficiency Breakpoint",
       "Sleep": "Sleep",
-      "Wakeup": "Wake Up"
+      "Wakeup": "Wake Up",
+      "EndOfPeriod": "End of Period"
     },
     "State": {
       "Asleep": "Asleep",

@@ -1,4 +1,4 @@
-export type StaminaEventType = 'skillRecovery' | 'efficiencyBlock' | 'sleep' | 'wakeup';
+export type StaminaEventType = 'skillRecovery' | 'efficiencyBlock' | 'sleep' | 'wakeup' | 'endOfPeriod';
 
 export type StaminaAtEvent = {
   before: number,

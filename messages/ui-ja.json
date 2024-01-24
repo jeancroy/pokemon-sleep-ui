@@ -541,7 +541,8 @@
       "SkillRecovery": "スキルで回復",
       "EfficiencyBlock": "効率変更点",
       "Sleep": "寝る",
-      "Wakeup": "起きる"
+      "Wakeup": "起きる",
+      "EndOfPeriod": "終"
     },
     "State": {
       "Asleep": "睡眠中",

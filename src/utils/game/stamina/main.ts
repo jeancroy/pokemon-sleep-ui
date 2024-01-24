@@ -7,6 +7,7 @@ import {StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getEfficiency} from '@/utils/game/stamina/efficiency';
 import {getLogsWithEfficiencyBlock} from '@/utils/game/stamina/events/block';
+import {getLogsWithEndOfPeriodMark} from '@/utils/game/stamina/events/endOfPeriod';
 import {getLogsWithPrimarySleep} from '@/utils/game/stamina/events/primary';
 import {getLogsWithSecondarySleep} from '@/utils/game/stamina/events/secondary';
 import {getLogsWithSkillRecovery} from '@/utils/game/stamina/events/skill';
@@ -22,13 +23,14 @@ const getStaminaEventLogs = ({config, sessionInfo, skillTriggers}: GetStaminaEve
   let logs = getLogsWithPrimarySleep({sessionInfo, skillTriggers, ...config});
   logs = getLogsWithSecondarySleep({sessionInfo, logs, ...config});
   logs = getLogsWithSkillRecovery({sessionInfo, logs, skillTriggers, ...config});
+  logs = getLogsWithEndOfPeriodMark({logs});
   logs = getLogsWithEfficiencyBlock({logs});
 
   return logs;
 };
 
 export const getDailyAverageStaminaEfficiencyFromLogs = (logs: StaminaEventLog[]): number => {
-  let sumOfWeightedDuration = (durationOfDay - logs[logs.length - 1].timing) * efficiencyInSleep;
+  let sumOfWeightedDuration = 0;
 
   for (let i = 1; i < logs.length; i++) {
     const prev = logs[i - 1];

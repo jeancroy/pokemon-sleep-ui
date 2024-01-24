@@ -541,7 +541,8 @@
       "SkillRecovery": "技能回復",
       "EfficiencyBlock": "效率變更",
       "Sleep": "睡覺",
-      "Wakeup": "起床"
+      "Wakeup": "起床",
+      "EndOfPeriod": "週期結束"
     },
     "State": {
       "Asleep": "睡覺中",

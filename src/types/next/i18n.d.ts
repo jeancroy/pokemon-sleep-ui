@@ -434,6 +434,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         EfficiencyBlock: string,
         Sleep: string,
         Wakeup: string,
+        EndOfPeriod: string,
       },
       State: {
         Asleep: string,

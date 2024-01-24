@@ -141,22 +141,22 @@ describe('Stamina Event Log (+Skill)', () => {
     expect(logs[1].stamina.before).toBe(94);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(9000);
-    expect(logs[2].stamina.after).toBe(112);
+    expect(logs[2].stamina.after).toBe(103);
     expect(logs[3].type).toBe('skillRecovery');
     expect(logs[3].timing).toBe(19800);
-    expect(logs[3].stamina.before).toBe(94);
-    expect(logs[3].stamina.after).toBe(103);
+    expect(logs[3].stamina.before).toBe(85);
+    expect(logs[3].stamina.after).toBe(94);
     expect(logs[4].type).toBe('skillRecovery');
     expect(logs[4].timing).toBe(34200);
-    expect(logs[4].stamina.before).toBe(79);
-    expect(logs[4].stamina.after).toBe(88);
+    expect(logs[4].stamina.before).toBe(70);
+    expect(logs[4].stamina.after).toBe(79);
     expect(logs[5].type).toBe('skillRecovery');
     expect(logs[5].timing).toBe(48600);
-    expect(logs[5].stamina.before).toBe(64);
-    expect(logs[5].stamina.after).toBe(73);
+    expect(logs[5].stamina.before).toBe(55);
+    expect(logs[5].stamina.after).toBe(64);
     expect(logs[6].type).toBe('sleep');
     expect(logs[6].timing).toBe(63000);
-    expect(logs[6].stamina.before).toBe(49);
+    expect(logs[6].stamina.before).toBe(40);
     expect(logs.length).toBe(7);
   });
 
@@ -198,18 +198,18 @@ describe('Stamina Event Log (+Skill)', () => {
     expect(logs[2].stamina.before).toBe(67);
     expect(logs[3].type).toBe('wakeup');
     expect(logs[3].timing).toBe(30600);
-    expect(logs[3].stamina.after).toBe(85);
+    expect(logs[3].stamina.after).toBe(76);
     expect(logs[4].type).toBe('skillRecovery');
     expect(logs[4].timing).toBe(34200);
-    expect(logs[4].stamina.before).toBe(79);
-    expect(logs[4].stamina.after).toBe(88);
+    expect(logs[4].stamina.before).toBe(70);
+    expect(logs[4].stamina.after).toBe(79);
     expect(logs[5].type).toBe('skillRecovery');
     expect(logs[5].timing).toBe(48600);
-    expect(logs[5].stamina.before).toBe(64);
-    expect(logs[5].stamina.after).toBe(73);
+    expect(logs[5].stamina.before).toBe(55);
+    expect(logs[5].stamina.after).toBe(64);
     expect(logs[6].type).toBe('sleep');
     expect(logs[6].timing).toBe(63000);
-    expect(logs[6].stamina.before).toBe(49);
+    expect(logs[6].stamina.before).toBe(40);
     expect(logs.length).toBe(7);
   });
 
@@ -247,10 +247,10 @@ describe('Stamina Event Log (+Skill)', () => {
     expect(logs[1].stamina.before).toBe(85);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(30600);
-    expect(logs[2].stamina.after).toBe(103);
+    expect(logs[2].stamina.after).toBe(94);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63000);
-    expect(logs[3].stamina.before).toBe(49);
+    expect(logs[3].stamina.before).toBe(40);
     expect(logs.length).toBe(4);
   });
 
@@ -376,10 +376,10 @@ describe('Stamina Event Log (+Skill)', () => {
     expect(logs[3].stamina.before).toBe(40);
     expect(logs[4].type).toBe('wakeup');
     expect(logs[4].timing).toBe(52200);
-    expect(logs[4].stamina.after).toBe(58);
+    expect(logs[4].stamina.after).toBe(49);
     expect(logs[5].type).toBe('sleep');
     expect(logs[5].timing).toBe(75600);
-    expect(logs[5].stamina.before).toBe(19);
+    expect(logs[5].stamina.before).toBe(10);
     expect(logs.length).toBe(6);
   });
 
@@ -425,10 +425,10 @@ describe('Stamina Event Log (+Skill)', () => {
     expect(logs[3].stamina.before).toBe(2);
     expect(logs[4].type).toBe('wakeup');
     expect(logs[4].timing).toBe(72000);
-    expect(logs[4].stamina.after).toBe(14);
+    expect(logs[4].stamina.after).toBe(12);
     expect(logs[5].type).toBe('sleep');
     expect(logs[5].timing).toBe(75600);
-    expect(logs[5].stamina.before).toBe(8);
+    expect(logs[5].stamina.before).toBe(6);
     expect(logs.length).toBe(6);
   });
 
@@ -470,18 +470,18 @@ describe('Stamina Event Log (+Skill)', () => {
     expect(logs[2].stamina.before).toBe(66);
     expect(logs[3].type).toBe('wakeup');
     expect(logs[3].timing).toBe(30600);
-    expect(logs[3].stamina.after).toBe(81);
+    expect(logs[3].stamina.after).toBe(72);
     expect(logs[4].type).toBe('skillRecovery');
     expect(logs[4].timing).toBe(34200);
-    expect(logs[4].stamina.before).toBe(75);
-    expect(logs[4].stamina.after).toBe(83);
+    expect(logs[4].stamina.before).toBe(66);
+    expect(logs[4].stamina.after).toBe(74);
     expect(logs[5].type).toBe('skillRecovery');
     expect(logs[5].timing).toBe(48600);
-    expect(logs[5].stamina.before).toBe(59);
-    expect(logs[5].stamina.after).toBe(67);
+    expect(logs[5].stamina.before).toBe(50);
+    expect(logs[5].stamina.after).toBe(58);
     expect(logs[6].type).toBe('sleep');
     expect(logs[6].timing).toBe(63000);
-    expect(logs[6].stamina.before).toBe(43);
+    expect(logs[6].stamina.before).toBe(34);
     expect(logs.length).toBe(7);
   });
 
@@ -523,18 +523,18 @@ describe('Stamina Event Log (+Skill)', () => {
     expect(logs[2].stamina.before).toBe(58);
     expect(logs[3].type).toBe('wakeup');
     expect(logs[3].timing).toBe(30600);
-    expect(logs[3].stamina.after).toBe(73);
+    expect(logs[3].stamina.after).toBe(64);
     expect(logs[4].type).toBe('skillRecovery');
     expect(logs[4].timing).toBe(34200);
-    expect(logs[4].stamina.before).toBe(67);
-    expect(logs[4].stamina.after).toBe(71);
+    expect(logs[4].stamina.before).toBe(58);
+    expect(logs[4].stamina.after).toBe(62);
     expect(logs[5].type).toBe('skillRecovery');
     expect(logs[5].timing).toBe(48600);
-    expect(logs[5].stamina.before).toBe(47);
-    expect(logs[5].stamina.after).toBe(51);
+    expect(logs[5].stamina.before).toBe(38);
+    expect(logs[5].stamina.after).toBe(42);
     expect(logs[6].type).toBe('sleep');
     expect(logs[6].timing).toBe(63000);
-    expect(logs[6].stamina.before).toBe(27);
+    expect(logs[6].stamina.before).toBe(18);
     expect(logs.length).toBe(7);
   });
 
@@ -576,18 +576,18 @@ describe('Stamina Event Log (+Skill)', () => {
     expect(logs[2].stamina.before).toBe(69);
     expect(logs[3].type).toBe('wakeup');
     expect(logs[3].timing).toBe(30600);
-    expect(logs[3].stamina.after).toBe(91);
+    expect(logs[3].stamina.after).toBe(82);
     expect(logs[4].type).toBe('skillRecovery');
     expect(logs[4].timing).toBe(34200);
-    expect(logs[4].stamina.before).toBe(85);
-    expect(logs[4].stamina.after).toBe(96);
+    expect(logs[4].stamina.before).toBe(76);
+    expect(logs[4].stamina.after).toBe(87);
     expect(logs[5].type).toBe('skillRecovery');
     expect(logs[5].timing).toBe(48600);
-    expect(logs[5].stamina.before).toBe(72);
-    expect(logs[5].stamina.after).toBe(83);
+    expect(logs[5].stamina.before).toBe(63);
+    expect(logs[5].stamina.after).toBe(74);
     expect(logs[6].type).toBe('sleep');
     expect(logs[6].timing).toBe(63000);
-    expect(logs[6].stamina.before).toBe(59);
+    expect(logs[6].stamina.before).toBe(50);
     expect(logs.length).toBe(7);
   });
 
@@ -625,10 +625,10 @@ describe('Stamina Event Log (+Skill)', () => {
     expect(logs[1].stamina.before).toBe(82);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(30600);
-    expect(logs[2].stamina.after).toBe(97);
+    expect(logs[2].stamina.after).toBe(88);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63000);
-    expect(logs[3].stamina.before).toBe(43);
+    expect(logs[3].stamina.before).toBe(34);
     expect(logs.length).toBe(4);
   });
 
@@ -666,10 +666,10 @@ describe('Stamina Event Log (+Skill)', () => {
     expect(logs[1].stamina.before).toBe(91);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(30600);
-    expect(logs[2].stamina.after).toBe(113);
+    expect(logs[2].stamina.after).toBe(104);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63000);
-    expect(logs[3].stamina.before).toBe(59);
+    expect(logs[3].stamina.before).toBe(50);
     expect(logs.length).toBe(4);
   });
 

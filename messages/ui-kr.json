@@ -541,7 +541,8 @@
       "SkillRecovery": "스킬 사용",
       "EfficiencyBlock": "도우미 속도 변화",
       "Sleep": "자는 중",
-      "Wakeup": "일어남"
+      "Wakeup": "일어남",
+      "EndOfPeriod": "기간 종료"
     },
     "State": {
       "Asleep": "자는 중",

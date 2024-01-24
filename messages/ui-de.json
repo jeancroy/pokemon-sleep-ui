@@ -541,7 +541,8 @@
       "SkillRecovery": "Fähigkeitswiederherstellung",
       "EfficiencyBlock": "Effizienz-Schwellenwert",
       "Sleep": "Schlafen",
-      "Wakeup": "Aufwachen"
+      "Wakeup": "Aufwachen",
+      "EndOfPeriod": "End of Period"
     },
     "State": {
       "Asleep": "Eingeschlafen",
