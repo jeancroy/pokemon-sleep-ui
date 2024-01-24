@@ -72,7 +72,7 @@ export const useSleepdexLookupFilter = ({
         return false;
       }
 
-      if (data.spoRequirement.drowsyScore < filter.drowsyPowerRequirement) {
+      if (!!filter.drowsyPowerRequirement && data.spoRequirement.drowsyScore > filter.drowsyPowerRequirement) {
         return false;
       }
 
