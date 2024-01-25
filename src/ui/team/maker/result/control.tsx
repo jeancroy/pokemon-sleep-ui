@@ -59,7 +59,7 @@ export const TeamMakerCompControl = ({pokeInBoxList}: Props) => {
           <ClickableIconButton isSubmit disabled={status !== 'waiting'}>
             <UserActionStatusIcon
               status={status}
-              onWaitingOverride={<ArrowTopRightOnSquareIcon className="h-6 w-6"/>}
+              onWaitingOverride={<ArrowTopRightOnSquareIcon className="size-6"/>}
             />
           </ClickableIconButton>
         </FlexForm>
@@ -69,7 +69,7 @@ export const TeamMakerCompControl = ({pokeInBoxList}: Props) => {
         disabled={status !== 'waiting'}
         onClick={() => setShow(true)}
       >
-        <ArrowTopRightOnSquareIcon className="h-6 w-6"/>
+        <ArrowTopRightOnSquareIcon className="size-6"/>
         {t('ExportToTeamAnalysis')}
       </FlexButton>
     </>

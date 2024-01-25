@@ -68,7 +68,7 @@ export const PokedexLinkDetail = React.memo(({
   if (display === 'mainSkill') {
     return (
       <Flex direction="row" className="items-end gap-0.5 text-sm">
-        <MainSkillIcon id={skill} dimension="h-6 w-6"/>
+        <MainSkillIcon id={skill} dimension="size-6"/>
         {t(`MainSkill.Name.${skill}`)}
       </Flex>
     );
@@ -79,7 +79,7 @@ export const PokedexLinkDetail = React.memo(({
   }
 
   if (display === 'ingredientRate') {
-    return <PokemonIngredientRate params={pokemonProducingParams} dimension="h-4 w-4"/>;
+    return <PokemonIngredientRate params={pokemonProducingParams} dimension="size-4"/>;
   }
 
   if (display === 'sleepType') {
@@ -95,11 +95,11 @@ export const PokedexLinkDetail = React.memo(({
   }
 
   if (display === 'mainSkillValue') {
-    return <PokemonMainSkillValue params={pokemonProducingParams} dimension="h-4 w-4"/>;
+    return <PokemonMainSkillValue params={pokemonProducingParams} dimension="size-4"/>;
   }
 
   if (display === 'mainSkillTriggerRate') {
-    return <PokemonMainSkillTriggerRate params={pokemonProducingParams} dimension="h-4 w-4"/>;
+    return <PokemonMainSkillTriggerRate params={pokemonProducingParams} dimension="size-4"/>;
   }
 
   const individualParams = getProducingRateIndividualParams({
@@ -126,7 +126,7 @@ export const PokedexLinkDetail = React.memo(({
   if (display === 'friendshipPoint') {
     return (
       <Flex direction="row" className="gap-0.5">
-        <div className="relative h-5 w-5">
+        <div className="relative size-5">
           <NextImage src="/images/generic/friendship.png" alt={t2('Stats.Friendship')} sizes={imageSmallIconSizes}/>
         </div>
         <div>
@@ -161,7 +161,7 @@ export const PokedexLinkDetail = React.memo(({
     return (
       <Flex>
         <div className="text-xs">
-          <PokemonIngredientIcons ingredients={[ingredients]} dimension="h-4 w-4"/>
+          <PokemonIngredientIcons ingredients={[ingredients]} dimension="size-4"/>
         </div>
         <Flex direction="row" className="gap-0.5">
           <ColoredEnergyIcon alt={t2('Stats.Energy.Name')}/>
@@ -190,7 +190,7 @@ export const PokedexLinkDetail = React.memo(({
     return (
       <Flex>
         <div className="text-xs">
-          <PokemonIngredientIcons ingredients={[ingredients]} dimension="h-4 w-4"/>
+          <PokemonIngredientIcons ingredients={[ingredients]} dimension="size-4"/>
         </div>
         <PokemonIngredientIcons
           numberFormat="float"

@@ -34,7 +34,7 @@ export const StrengthGrowthChartTooltip = <TKey extends string>({
     return null;
   }
 
-  const dimension: Dimension = 'h-5 w-5';
+  const dimension: Dimension = 'size-5';
   const {level, strength} = payload[0].payload as StrengthGrowthDataEntry<TKey>;
   const isMultiData = dataKeys.length > 1;
 

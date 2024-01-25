@@ -59,7 +59,7 @@ export const MealMakerRecipeSingle = (props: MealMakerRecipeSingleProps) => {
           </Flex>
           <MealImage
             mealId={id}
-            dimension="h-20 w-20"
+            dimension="size-20"
             className="bottom-0 right-0 opacity-30"
             isAbsolute
           />

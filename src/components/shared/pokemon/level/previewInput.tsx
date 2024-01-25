@@ -17,13 +17,13 @@ export const PokemonPreviewLevelInput = (props: FilterInputOnClickProps<PokemonK
     <FilterExpandedInput
       title={
         <Flex direction="row" center className="gap-1.5">
-          <EyeIcon className="h-6 w-6"/>
+          <EyeIcon className="size-6"/>
           <LevelIcon/>
         </Flex>
       }
       ids={[null, ...[...pokemonKeyLevels].sort((a, b) => a - b)]}
       idToButton={(level) => (
-        level === null ? <XMarkIcon className="h-7 w-7"/> : level
+        level === null ? <XMarkIcon className="size-7"/> : level
       )}
       className={clsx('text-sm', iconFilterButtonStyle)}
       {...props}

@@ -104,12 +104,12 @@ export const PokemonSubSkillSelector = ({
                 );
               })}
             </Grid>
-            <button className="button-clickable-bg h-7 w-7 self-end p-1" onClick={() => setSubSkill({})}>
+            <button className="button-clickable-bg size-7 self-end p-1" onClick={() => setSubSkill({})}>
               <ArrowPathIcon/>
             </button>
           </Flex>
           <Flex direction="row" center className="gap-1.5">
-            <MagnifyingGlassIcon className="h-6 w-6"/>
+            <MagnifyingGlassIcon className="size-6"/>
             <InputBox
               type="text"
               value={search}

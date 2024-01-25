@@ -24,7 +24,7 @@ export const MealCoverageTargetComboMealInfo = ({data}: Props) => {
         .sort((a, b) => mealIngredientCounts.byMeal[b.id] - mealIngredientCounts.byMeal[a.id])
         .map((meal, idx) => (
           <Flex key={`${meal.id}@${idx}`} center direction="row" className="gap-1">
-            <MealImage mealId={meal.id} dimension="h-12 w-12" className="opacity-40"/>
+            <MealImage mealId={meal.id} dimension="size-12" className="opacity-40"/>
             <InfoIcon>
               {mealIngredientCounts.byMeal[meal.id]}
             </InfoIcon>

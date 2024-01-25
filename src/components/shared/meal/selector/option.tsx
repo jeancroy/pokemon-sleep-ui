@@ -34,20 +34,20 @@ export const MealSelectorOption = ({meal, mealType, onClick, recipeLevel, onLeve
       )}>
         {meal ?
           <>
-            <MealImage mealId={meal.id} dimension="h-12 w-12" isAbsolute className="bottom-1 right-1 opacity-40"/>
+            <MealImage mealId={meal.id} dimension="size-12" isAbsolute className="bottom-1 right-1 opacity-40"/>
             <Flex className="gap-1">
               <div className="text-shadow-preset truncate text-left text-sm">
                 {t(`Food.${meal.id}`)}
               </div>
               <Flex noFullWidth direction="row" className="items-end gap-0.5 text-xs">
-                <InfoIcon dimension="h-5 w-5">
+                <InfoIcon dimension="size-5">
                   {ingredientCount}
                 </InfoIcon>
                 <IngredientIconsFromMeal meal={meal}/>
               </Flex>
             </Flex>
           </> :
-          <XCircleIcon className="h-8 w-8"/>}
+          <XCircleIcon className="size-8"/>}
       </FlexButton>
       {
         meal && recipeLevel && onLevelUpdated &&

@@ -28,12 +28,12 @@ export const PokemonNatureSelectorButton = ({data, active, onClick}: Props) => {
     )}>
       <Flex direction="row" center className="p-2">
         <div className={clsx('whitespace-nowrap', !data?.buff && !data?.nerf && natureStyle.clean)}>
-          {data ? t(`Nature.${data.id}`) : <XCircleIcon className="h-6 w-6"/>}
+          {data ? t(`Nature.${data.id}`) : <XCircleIcon className="size-6"/>}
         </div>
         <Flex className="items-center text-sm">
           <Flex direction="row" className={clsx('items-center justify-end gap-0.5', data?.buff && natureStyle.buff)}>
-            <ChevronUpIcon className="h-5 w-5"/>
-            <div className="relative h-5 w-5">
+            <ChevronUpIcon className="size-5"/>
+            <div className="relative size-5">
               <NatureEffectIcon effectId={data?.buff} showOnNull/>
             </div>
             <div className="whitespace-nowrap">
@@ -41,8 +41,8 @@ export const PokemonNatureSelectorButton = ({data, active, onClick}: Props) => {
             </div>
           </Flex>
           <Flex direction="row" className={clsx('items-center justify-end gap-0.5', data?.nerf && natureStyle.nerf)}>
-            <ChevronDownIcon className="h-5 w-5"/>
-            <div className="relative h-5 w-5">
+            <ChevronDownIcon className="size-5"/>
+            <div className="relative size-5">
               <NatureEffectIcon effectId={data?.nerf} showOnNull/>
             </div>
             <div className="whitespace-nowrap">

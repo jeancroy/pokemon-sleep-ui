@@ -29,7 +29,7 @@ export const RatingBasisTitle = ({basis, isActive, larger}: Props) => {
           key={specialty}
           specialty={specialty}
           active={isActive}
-          dimension={larger ? 'h-6 w-6' : undefined}
+          dimension={larger ? 'size-6' : undefined}
         />
       ))}
       {t(ratingBasisI18nId[basis])}

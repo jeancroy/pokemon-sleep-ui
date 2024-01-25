@@ -17,7 +17,7 @@ type Props = {
 export const TeamMakerBasisOption = ({basis, isActive}: Props) => {
   const t = useTranslations('UI.Common');
 
-  const dimension: Dimension = 'h-6 w-6';
+  const dimension: Dimension = 'size-6';
 
   if (basis === 'strength') {
     return (

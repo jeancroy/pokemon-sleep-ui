@@ -27,7 +27,7 @@ export const AdminPacketSettingsClient = ({
       <FilterTextInput
         title={
           <Flex center>
-            <ArrowDownRightIcon className="h-6 w-6"/>
+            <ArrowDownRightIcon className="size-6"/>
           </Flex>
         }
         ids={[...packetRecordingType]}

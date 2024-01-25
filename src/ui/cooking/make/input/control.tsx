@@ -30,13 +30,13 @@ export const MealMakerInputControl = ({filter, setFilter, preloaded}: MealMakerC
         className={textFilterButtonStyle}
       >
         <Flex direction="row" noFullWidth className="gap-1">
-          <div className="h-5 w-5">
+          <div className="size-5">
             {showUnmakeableRecipe ? <EyeIcon/> : <EyeSlashIcon/>}
           </div>
           <GenericIcon
             src="/images/generic/ingredientSlash.png"
             alt={t('ToggleUnmakeable')}
-            dimension="h-5 w-5"
+            dimension="size-5"
             noInvert
             isActive={showUnmakeableRecipe}
           />

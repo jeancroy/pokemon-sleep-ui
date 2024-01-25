@@ -28,7 +28,7 @@ export const MealLink = (props: MealLinkProps) => {
         mealTypeBackgroundStyle[type],
       )}
     >
-      <MealImage mealId={id} dimension="h-20 w-20" className="opacity-40"/>
+      <MealImage mealId={id} dimension="size-20" className="opacity-40"/>
       <Flex className="absolute left-0 top-0 z-10 h-full justify-between p-1.5">
         <div className="text-shadow-preset truncate text-left">
           {mealName}

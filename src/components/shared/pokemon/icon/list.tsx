@@ -48,7 +48,7 @@ export const PokemonIconList = <TData, >({
     );
   }
 
-  const dimension = size ?? 'h-12 w-12';
+  const dimension = size ?? 'size-12';
 
   return (
     <>

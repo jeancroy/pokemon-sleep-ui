@@ -33,7 +33,7 @@ export const FilterIconInput = <TId extends IndexableNonSymbol>({
   return (
     <FilterExpandedInput
       idToButton={(id) => (
-        <div className="group relative h-7 w-7">
+        <div className="group relative size-7">
           <NextImage
             src={idToImageSrc(id)} alt={idToAlt(id)} sizes={sizes}
             className={idToImageClassName && idToImageClassName(id)}

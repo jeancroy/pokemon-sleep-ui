@@ -37,7 +37,7 @@ export const OcrPokemonInfoImportLayout = ({
 
   return (
     <Flex className="gap-1.5 p-10">
-      <div className="relative h-20 w-20 self-center">
+      <div className="relative size-20 self-center">
         <PokemonImage pokemonId={pokemonId} image={{type: 'default', image: 'icon'}} isShiny={false}/>
       </div>
       <Flex className="gap-1.5 md:flex-row">

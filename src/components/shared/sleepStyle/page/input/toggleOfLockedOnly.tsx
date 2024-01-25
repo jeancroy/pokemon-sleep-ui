@@ -31,7 +31,7 @@ export const MapInputLockedOnlyToggle = ({filter, setFilter, isLoggedIn}: MapInp
       className={clsx('group', textFilterButtonStyle)}
     >
       <Flex direction="row" center noFullWidth className="gap-1">
-        <div className="h-5 w-5">
+        <div className="size-5">
           {showLockedOnly ? <EyeIcon/> : <EyeSlashIcon/>}
         </div>
         <div>

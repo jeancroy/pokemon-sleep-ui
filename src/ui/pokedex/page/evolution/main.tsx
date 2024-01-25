@@ -16,23 +16,23 @@ export const PokemonEvolution = ({pokedex, pokemon, showPokemon}: PokemonDataPro
   const {evolution} = pokemon;
 
   return (
-    <PokemonTitledLayout title={<ChevronDoubleUpIcon className="h-6 w-6"/>} className="!gap-5 lg:flex-row">
+    <PokemonTitledLayout title={<ChevronDoubleUpIcon className="size-6"/>} className="!gap-5 lg:flex-row">
       <PokemonEvolutionPortrait
-        dimension="h-40 w-40"
+        dimension="size-40"
         pokemon={evolution.previous ? pokedex[evolution.previous] : undefined}
         showPokemon={showPokemon}
       />
-      <div className="h-7 w-7 shrink-0">
+      <div className="size-7 shrink-0">
         <ArrowDownIcon className="block lg:hidden"/>
         <ArrowRightIcon className="hidden lg:block"/>
       </div>
-      <div className="relative h-52 w-52 shrink-0">
+      <div className="relative size-52 shrink-0">
         <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
       </div>
       {
         !!evolution.next.length &&
         <>
-          <div className="h-7 w-7 shrink-0">
+          <div className="size-7 shrink-0">
             <ArrowDownIcon className="block lg:hidden"/>
             <ArrowRightIcon className="hidden lg:block"/>
           </div>

@@ -72,7 +72,7 @@ export const TeamMakerLoadedClient = (props: TeamMakerDataProps) => {
         {
           isLoading &&
           <button className="button-clickable-alert p-1" disabled={cancel} onClick={cancelCalculation}>
-            <XMarkIcon className="h-9 w-9"/>
+            <XMarkIcon className="size-9"/>
           </button>
         }
       </Flex>
@@ -85,7 +85,7 @@ export const TeamMakerLoadedClient = (props: TeamMakerDataProps) => {
       </Flex>
       <AnimatedCollapseQuick show={teamCompsCalculated !== null || teamCompsTotal !== null}>
         <Flex direction="row" className="justify-end gap-1.5">
-          <UserGroupIcon className="h-6 w-6"/>
+          <UserGroupIcon className="size-6"/>
           <CompletionResultUI completed={teamCompsCalculated} total={teamCompsTotal}/>
         </Flex>
       </AnimatedCollapseQuick>

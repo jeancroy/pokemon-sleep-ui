@@ -26,7 +26,7 @@ export const MealTypeInput = ({mealTypes, ...props}: Props) => {
       ids={mealTypes}
       idToButton={(id) => (
         <Flex noFullWidth direction="row" className="gap-1" center>
-          <div className={clsx('h-3 w-3 rounded-full', mealTypeDotStyle[id])}/>
+          <div className={clsx('size-3 rounded-full', mealTypeDotStyle[id])}/>
           <div>{t2(id.toString())}</div>
         </Flex>
       )}

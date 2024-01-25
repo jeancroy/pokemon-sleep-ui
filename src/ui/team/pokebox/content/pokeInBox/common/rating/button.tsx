@@ -25,7 +25,7 @@ export const PokeInBoxOpenRatingButton = ({
   const t = useTranslations('UI.Metadata');
 
   return (
-    <button className="button-clickable group relative h-6 w-6" onClick={() => setRatingPopupControl({
+    <button className="button-clickable group relative size-6" onClick={() => setRatingPopupControl({
       ...pokeInBox,
       pokemon,
       snorlaxFavorite,

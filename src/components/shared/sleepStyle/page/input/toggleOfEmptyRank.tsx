@@ -27,7 +27,7 @@ export const MapInputEmptyRankToggle = ({filter, setFilter}: MapInputCommonProps
       className={clsx('group', textFilterButtonStyle)}
     >
       <Flex direction="row" center noFullWidth className="gap-1">
-        <div className="h-5 w-5">
+        <div className="size-5">
           {showEmptyRank ? <EyeIcon/> : <EyeSlashIcon/>}
         </div>
         <div>

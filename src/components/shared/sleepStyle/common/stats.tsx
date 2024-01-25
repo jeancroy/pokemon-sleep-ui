@@ -37,7 +37,7 @@ export const MapStats = ({sleepStyles, sleepdexCompletionOfMap, meta, isLoggedIn
     <Flex center className="gap-1">
       <Flex direction="row" center className="gap-4 text-lg">
         <Flex direction="row" center noFullWidth className="gap-1.5">
-          <div className="relative h-6 w-6">
+          <div className="relative size-6">
             <NextImage
               src="/images/generic/sleep.png" alt={t('SleepStyle')}
               sizes={imageIconSizes} className="invert-hoverable"
@@ -48,7 +48,7 @@ export const MapStats = ({sleepStyles, sleepdexCompletionOfMap, meta, isLoggedIn
           </div>
         </Flex>
         <Flex direction="row" center noFullWidth className="gap-1.5">
-          <GenericPokeballIcon dimension="h-6 w-6" alt={t('Pokemon')}/>
+          <GenericPokeballIcon dimension="size-6" alt={t('Pokemon')}/>
           <div>
             {pokemonCount}
           </div>
@@ -56,7 +56,7 @@ export const MapStats = ({sleepStyles, sleepdexCompletionOfMap, meta, isLoggedIn
         {
           isLoggedIn && sleepdexCompletionOfMap &&
           <Flex direction="row" center noFullWidth className="gap-1.5">
-            <BookmarkIcon className="h-6 w-6"/>
+            <BookmarkIcon className="size-6"/>
             <div>
               <MapSleepdexUnlockCount sleepdexCompletionOfMap={sleepdexCompletionOfMap}/>
             </div>
@@ -64,24 +64,24 @@ export const MapStats = ({sleepStyles, sleepdexCompletionOfMap, meta, isLoggedIn
         }
       </Flex>
       <Flex direction="row" center className="gap-5">
-        <div className="relative h-10 w-10">
+        <div className="relative size-10">
           <NextImage
             src="/images/generic/snorlax.png" alt={t2('SnorlaxFavorite')} sizes={imageSmallIconSizes}
           />
         </div>
         <Flex direction="row" center noFullWidth className="gap-1">
           {meta?.berry ?
-            meta?.berry.map((berry) => <PokemonBerryIcon key={berry} dimension="h-8 w-8" id={berry}/>) :
-            <QuestionMarkCircleIcon className="h-8 w-8"/>}
+            meta?.berry.map((berry) => <PokemonBerryIcon key={berry} dimension="size-8" id={berry}/>) :
+            <QuestionMarkCircleIcon className="size-8"/>}
         </Flex>
       </Flex>
       <Flex direction="row" noFullWidth center className={clsx(
         'w-fit gap-1 rounded-lg bg-slate-300/40 p-2 dark:bg-slate-500/40',
       )}>
-        <LockOpenIcon className="h-5 w-5" title={t('UnlockConditions')}/>
+        <LockOpenIcon className="size-5" title={t('UnlockConditions')}/>
         {meta?.unlock ?
           <>
-            <div className="relative h-6 w-6">
+            <div className="relative size-6">
               <NextImage
                 src="/images/generic/sleep.png" alt={t('SleepStyle')}
                 sizes={imageIconSizes} className="invert-hoverable"
@@ -89,7 +89,7 @@ export const MapStats = ({sleepStyles, sleepdexCompletionOfMap, meta, isLoggedIn
             </div>
             <div>{meta.unlock.count}</div>
           </> :
-          <XCircleIcon className="h-5 w-5"/>
+          <XCircleIcon className="size-5"/>
         }
       </Flex>
     </Flex>

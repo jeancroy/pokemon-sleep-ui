@@ -41,11 +41,11 @@ export const PotRecipeUnlockSection = ({
     <Flex className="button-bg gap-1.5 rounded-lg p-2 md:flex-row md:items-center">
       <Flex direction="row" center noFullWidth className="gap-1.5 md:w-48 md:flex-col">
         <Flex direction="row" center noFullWidth className="gap-1">
-          <PotIcon alt={t('Capacity')} dimension="h-7 w-7"/>
+          <PotIcon alt={t('Capacity')} dimension="size-7"/>
           <div>{potInfo.capacity}</div>
         </Flex>
         <Flex direction="row" center noFullWidth className="gap-1">
-          <GenericIcon src="/images/generic/shardWhite.png" alt={t('Expand')} dimension="h-7 w-7"/>
+          <GenericIcon src="/images/generic/shardWhite.png" alt={t('Expand')} dimension="size-7"/>
           {!capacity || capacity < potInfo.capacity ?
             <Flex noFullWidth className="gap-0.5">
               <div>{formatInt(cumulativeCost)}</div>
@@ -54,7 +54,7 @@ export const PotRecipeUnlockSection = ({
             <div>-</div>}
         </Flex>
         <Flex direction="row" center noFullWidth className="gap-1">
-          <GenericIcon src="/images/generic/meal.png" alt={t('UnlockedRecipes')} dimension="h-7 w-7"/>
+          <GenericIcon src="/images/generic/meal.png" alt={t('UnlockedRecipes')} dimension="size-7"/>
           <Flex noFullWidth className="gap-0.5">
             <div>{unlockedRecipes}</div>
             <div className="text-xs">(+{unlockedMeals.length})</div>
@@ -75,7 +75,7 @@ export const PotRecipeUnlockSection = ({
             />
           ))}
         </Grid> :
-        <XCircleIcon className="m-auto h-10 w-10"/>}
+        <XCircleIcon className="m-auto size-10"/>}
     </Flex>
   );
 };

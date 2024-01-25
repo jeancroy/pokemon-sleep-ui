@@ -30,7 +30,7 @@ export const PokemonNatureEffectInput = <TFilter extends FilterWithInclusionMap<
     <FilterExpandedInput
       title={
         <Flex direction="row" noFullWidth center className={clsx('gap-1', natureStyle[direction])}>
-          <div className="h-4 w-4">
+          <div className="size-4">
             {natureEffectIconMap[direction]}
           </div>
           <div>{t('NatureEffect')}</div>

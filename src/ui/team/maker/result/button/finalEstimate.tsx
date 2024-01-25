@@ -18,7 +18,7 @@ type Props = {
 
 export const TeamMakerResultButtonFinalEstimate = ({finalEstimates}: Props) => {
   const t = useTranslations('Game');
-  const dimension: Dimension = 'h-4 w-4';
+  const dimension: Dimension = 'size-4';
 
   return (
     <Flex noFullWidth direction="row" className="items-center gap-1">

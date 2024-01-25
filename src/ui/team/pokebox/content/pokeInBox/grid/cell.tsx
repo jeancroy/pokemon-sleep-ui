@@ -51,7 +51,7 @@ export const PokeInBoxGridCell = (props: Props) => {
       )}>
         <Flex direction="row" className="relative h-24 gap-2">
           <div className="absolute bottom-0 right-0">
-            <div className="relative h-16 w-16 opacity-50">
+            <div className="relative size-16 opacity-50">
               <NextImage src={`/images/pokemon/icons/${pokemonId}.png`} alt={pokemonName} sizes={imageIconSizes}/>
             </div>
           </div>

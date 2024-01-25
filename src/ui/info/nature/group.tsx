@@ -16,7 +16,7 @@ export const NatureInfoGroup = ({buffEffectId, natures}: Props) => {
   return (
     <Flex className="info-section">
       <div className="text-2xl">
-        <NatureInfoEffectText direction="buff" effectId={buffEffectId} dimension="h-7 w-7"/>
+        <NatureInfoEffectText direction="buff" effectId={buffEffectId} dimension="size-7"/>
       </div>
       <Grid className="grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {natures.map((nature) => <NatureInfoSingle key={nature.id} nature={nature}/>)}

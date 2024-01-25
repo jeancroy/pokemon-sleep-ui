@@ -35,8 +35,8 @@ export const PokemonCollapsiblePicker = ({
   return (
     <Collapsible state={collapsibleState} classNameForHeight={classNameForHeight ?? 'h-80'} appear button={
       <Flex direction="row" center className="group gap-0.5">
-        <GenericPokeballIcon alt="Pokemon" dimension="h-6 w-6"/>
-        <InboxArrowDownIcon className="h-6 w-6"/>
+        <GenericPokeballIcon alt="Pokemon" dimension="size-6"/>
+        <InboxArrowDownIcon className="size-6"/>
       </Flex>
     }>
       <PokemonClickableIcons pokemonList={pokemonList.filter(({id}) => isIncluded[id])} onClick={(pokemon) => {
@@ -44,8 +44,8 @@ export const PokemonCollapsiblePicker = ({
 
         showToast({content: (
           <Flex direction="row" className="gap-1.5">
-            <InboxArrowDownIcon className="h-9 w-9"/>
-            <div className="relative h-9 w-9">
+            <InboxArrowDownIcon className="size-9"/>
+            <div className="relative size-9">
               <NextImage
                 src={`/images/pokemon/icons/${id}.png`} alt={t(`PokemonName.${id}`)}
                 sizes={imageIconSizes}

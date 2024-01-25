@@ -115,7 +115,7 @@ export const PokedexTierListInputUI = ({
           className={textFilterButtonStyle}
         >
           <Flex direction="row" noFullWidth className="gap-1">
-            <div className="h-5 w-5">
+            <div className="size-5">
               {showDetails ? <EyeIcon/> : <EyeSlashIcon/>}
             </div>
             <div>

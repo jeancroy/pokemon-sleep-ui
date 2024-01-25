@@ -16,7 +16,7 @@ type Props = {
 export const SleepdexStyleIcon = ({styleId, dimension}: Props) => {
   if (styleId === 'onSnorlax') {
     return (
-      <div className={clsx('relative', dimension ?? 'h-6 w-6')}>
+      <div className={clsx('relative', dimension ?? 'size-6')}>
         <NextImage src="/images/generic/snorlax.png" alt={styleId} sizes={imageSmallIconSizes}/>
       </div>
     );

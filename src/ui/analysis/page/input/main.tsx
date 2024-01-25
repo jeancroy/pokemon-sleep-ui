@@ -43,7 +43,7 @@ export const AnalysisPageInput = ({
     <Flex className="gap-1.5">
       <Collapsible appear state={collapsible} classNameForHeight="h-72 md:h-52" button={
         <Flex direction="row" center className="gap-0.5">
-          <FunnelIcon className="h-6 w-6"/>
+          <FunnelIcon className="size-6"/>
         </Flex>
       }>
         <Flex className="gap-1 pr-1">

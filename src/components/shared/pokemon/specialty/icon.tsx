@@ -19,7 +19,7 @@ export const PokemonSpecialtyIcon = ({specialty, dimension, active, className}: 
 
   return (
     <div className={clsx('rounded-full p-0.5', specialty && getSpecialtyBgClass(specialty, active ?? false))}>
-      <div className={clsx('relative', dimension ?? 'h-5 w-5')}>
+      <div className={clsx('relative', dimension ?? 'size-5')}>
         <NextImage
           src={specialtyImageSrcMap[specialty]} alt={t(`Specialty.${specialty}`)}
           sizes={imageSmallIconSizes} className={clsx(className, active ? 'invert-on-light' : 'invert-on-dark')}

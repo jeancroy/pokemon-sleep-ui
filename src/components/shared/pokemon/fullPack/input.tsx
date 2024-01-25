@@ -40,14 +40,14 @@ export const PokemonIntentionalFullPackInput = ({title, alwaysFullPack, setAlway
           onClick={() => setAlwaysFullPack(true)}
           className={clsx('group', textFilterButtonStyle)}
         >
-          <CheckCircleIcon className="h-6 w-6"/>
+          <CheckCircleIcon className="size-6"/>
         </ToggleButton>
         <ToggleButton
           active={alwaysFullPack === false}
           onClick={() => setAlwaysFullPack(false)}
           className={clsx('group', textFilterButtonStyle)}
         >
-          <XCircleIcon className="h-6 w-6"/>
+          <XCircleIcon className="size-6"/>
         </ToggleButton>
       </Flex>
     </InputRowWithTitle>

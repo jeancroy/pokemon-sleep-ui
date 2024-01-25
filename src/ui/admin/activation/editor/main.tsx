@@ -152,7 +152,7 @@ export const ActivationEditor = ({
       </InputRowWithTitle>
       <InputRow className="justify-end gap-1.5">
         <button type="submit" disabled={status !== 'waiting'} className={clsx(
-          'button-clickable-bg disabled:button-disabled h-8 w-8 p-1',
+          'button-clickable-bg disabled:button-disabled size-8 p-1',
         )}>
           <UserActionStatusIcon status={status}/>
         </button>

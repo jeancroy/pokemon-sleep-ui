@@ -14,7 +14,7 @@ type Props = Pick<DocsMetadata, 'lastUpdatedEpoch'>;
 export const DocsMetaLastUpdatedUI = ({lastUpdatedEpoch}: Props) => {
   return (
     <DocsMetaItem
-      icon={<CloudArrowUpIcon className="h-6 w-6"/>}
+      icon={<CloudArrowUpIcon className="size-6"/>}
       content={format(lastUpdatedEpoch, 'yyyy-MM-dd HH:mm:ss')}
     />
   );

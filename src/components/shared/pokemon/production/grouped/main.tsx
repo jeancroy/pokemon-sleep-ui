@@ -19,7 +19,7 @@ type Props = {
 
 export const PokemonGroupedProduction = ({grouped}: Props) => {
   const t = useTranslations('UI.InPage.Pokedex.Info');
-  const genericIconDimension: Dimension = 'h-8 w-8';
+  const genericIconDimension: Dimension = 'size-8';
 
   return (
     <Flex className="button-bg gap-1 rounded-lg p-2">

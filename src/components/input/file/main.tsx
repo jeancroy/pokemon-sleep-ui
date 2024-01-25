@@ -56,7 +56,7 @@ export const InputFile = ({id, accept, onFileSelected, onFileTypeIncorrect, ...p
         'flex w-full cursor-pointer flex-row items-center self-stretch overflow-auto p-1.5',
         className,
       )}>
-        <DocumentArrowUpIcon className="h-6 w-6 shrink-0"/>
+        <DocumentArrowUpIcon className="size-6 shrink-0"/>
         <div className="truncate">
           {filePath || '-'}
         </div>

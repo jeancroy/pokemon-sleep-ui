@@ -16,7 +16,7 @@ export const FeatureLinkImage = ({imageSrc, ...props}: Props) => {
   if (disabled) {
     return (
       <FeatureLink {...props}>
-        <div className="relative h-12 w-12">
+        <div className="relative size-12">
           <NextImage src={imageSrc} alt={text} className="invert-on-light" sizes={imageSmallIconSizes}/>
         </div>
       </FeatureLink>
@@ -25,7 +25,7 @@ export const FeatureLinkImage = ({imageSrc, ...props}: Props) => {
 
   return (
     <FeatureLink {...props}>
-      <div className="relative h-12 w-12">
+      <div className="relative size-12">
         <NextImage src={imageSrc} alt={text} className="invert-hoverable" sizes={imageSmallIconSizes}/>
       </div>
     </FeatureLink>

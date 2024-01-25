@@ -22,7 +22,7 @@ export const StaminaConfigSkillRecovery = (props: StaminaConfigProps) => {
       <FilterTextInput
         title={
           <Flex direction="row" className="w-10">
-            <GenericMainSkillIcon alt={t('Title')} dimension="h-7 w-7"/>
+            <GenericMainSkillIcon alt={t('Title')} dimension="size-7"/>
           </Flex>
         }
         onClick={(strategy) => setConfig({

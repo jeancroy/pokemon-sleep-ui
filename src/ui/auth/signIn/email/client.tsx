@@ -21,7 +21,7 @@ export const AuthSignInEmailClient = () => {
   return (
     <form className="flex w-full flex-col gap-2" onSubmit={onSubmit}>
       <Flex center noFullWidth className="shrink-0">
-        <EnvelopeIcon className="h-10 w-10"/>
+        <EnvelopeIcon className="size-10"/>
       </Flex>
       <InputBox
         value={email}

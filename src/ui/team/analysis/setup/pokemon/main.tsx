@@ -51,7 +51,7 @@ export const TeamAnalysisPokemon = (props: TeamAnalysisPokemonProps) => {
       <Flex className="gap-2">
         <PokemonNameSimple pokemon={pokemon} override={member.name}/>
         <Flex center className="relative">
-          <div className="relative h-28 w-28">
+          <div className="relative size-28">
             <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
             <InfoIcon className="absolute bottom-0 right-0">
               {level}
@@ -78,7 +78,7 @@ export const TeamAnalysisPokemon = (props: TeamAnalysisPokemonProps) => {
             'items-center gap-1.5 self-start truncate px-2 py-1 text-sm',
             pokemon.specialty === specialtyIdMap.skill && 'info-highlight',
           )}>
-            <MainSkillIcon id={skill} dimension="h-5 w-5"/>
+            <MainSkillIcon id={skill} dimension="size-5"/>
             <div className="truncate">{t(`MainSkill.Name.${skill}`)}</div>
           </Flex>
           <Flex noFullWidth className={clsx(
@@ -87,7 +87,7 @@ export const TeamAnalysisPokemon = (props: TeamAnalysisPokemonProps) => {
           )}>
             <PokemonIngredientIcons
               ingredients={[Object.values(member.ingredients).map((production) => production)]}
-              dimension="h-5 w-5"
+              dimension="size-5"
               className="gap-1"
             />
           </Flex>

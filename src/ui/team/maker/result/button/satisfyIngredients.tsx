@@ -20,7 +20,7 @@ export const TeamMakerIngredientSatisfactionIndicator = ({shortage}: Props) => {
   const t = useTranslations('UI.InPage.Team.Maker.State.IngredientRequirements');
 
   const isEmpty = isIngredientCounterEmpty(shortage);
-  const dimension: Dimension = 'h-6 w-6';
+  const dimension: Dimension = 'size-6';
 
   return (
     <Flex noFullWidth direction="row" className="items-center">

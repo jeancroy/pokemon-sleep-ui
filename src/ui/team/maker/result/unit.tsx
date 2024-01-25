@@ -72,16 +72,16 @@ export const TeamMakerResultUnit = ({
           {levelUsed}
         </InfoIcon>
         <PokemonNameSmall pokemon={pokemonInfo} override={name}/>
-        <button className="button-clickable-bg ml-auto h-7 w-7 p-1" onClick={() => setShow(true)}>
+        <button className="button-clickable-bg ml-auto size-7 p-1" onClick={() => setShow(true)}>
           <ChartBarIcon/>
         </button>
       </Flex>
       <Flex direction="row" className="items-center gap-2">
-        <PokemonClickableIcons pokemonList={[pokemonInfo]} dimension="h-16 w-16"/>
+        <PokemonClickableIcons pokemonList={[pokemonInfo]} dimension="size-16"/>
         <Flex className="gap-1">
           <PokemonIngredientIcons
             ingredients={[Object.values(ingredients).map((production) => production)]}
-            dimension="h-5 w-5"
+            dimension="size-5"
             className="gap-1 self-center"
           />
           <PokemonNatureIndicator nature={nature}/>
@@ -99,7 +99,7 @@ export const TeamMakerResultUnit = ({
         state={teamMakerUnitStrengthAtState}
       />
       <Flex noFullWidth direction="row" className="items-center self-end">
-        <ColoredEnergyIcon dimension="h-5 w-5" alt={t('Total')}/>
+        <ColoredEnergyIcon dimension="size-5" alt={t('Total')}/>
         <div>{formatFloat(unitStrength)} ({formatFloat(unitStrength / compStrength * 100)}%)</div>
       </Flex>
     </Flex>

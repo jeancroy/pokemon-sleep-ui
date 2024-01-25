@@ -32,7 +32,7 @@ export const MapLink = ({mapId, className, toUnique, noAbsolute, children}: Reac
         className="rounded-lg opacity-50 dark:opacity-25"
       />
       <div className={clsx(
-        'flex h-full w-full flex-col justify-center gap-1.5 text-center',
+        'flex size-full flex-col justify-center gap-1.5 text-center',
         !noAbsolute && 'absolute left-0 top-0 z-10',
       )}>
         {children}

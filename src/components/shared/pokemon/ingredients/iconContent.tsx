@@ -17,7 +17,7 @@ export const PokemonIngredientIconContent = ({dimension, id, clickableStyle}: Pr
   const t = useTranslations('Game.Food');
 
   return (
-    <div className={clsx('relative', clickableStyle && 'button-clickable', dimension ?? 'h-5 w-5')}>
+    <div className={clsx('relative', clickableStyle && 'button-clickable', dimension ?? 'size-5')}>
       <NextImage src={`/images/ingredient/${id}.png`} alt={t(id.toString())} sizes={imageSmallIconSizes}/>
     </div>
   );

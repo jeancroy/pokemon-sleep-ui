@@ -31,12 +31,12 @@ export const MealPlannerButton = ({target, recipeLevel, mealTypes}: Props) => {
               const mealId = mealsOfDay ? mealsOfDay[cookingMeal] : undefined;
 
               if (!mealId) {
-                return <XCircleIcon key={cookingMeal} className="h-5 w-5"/>;
+                return <XCircleIcon key={cookingMeal} className="size-5"/>;
               }
 
               return (
                 <Flex key={cookingMeal} noFullWidth direction="row" className="items-center gap-1">
-                  <MealImage mealId={mealId} dimension="h-5 w-5"/>
+                  <MealImage mealId={mealId} dimension="size-5"/>
                   <span>{t(`Food.${mealId}`)} (Lv {recipeLevel[mealId] ?? 1})</span>
                 </Flex>
               );

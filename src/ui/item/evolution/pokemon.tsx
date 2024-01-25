@@ -11,6 +11,6 @@ type Props = {
 
 export const EvolutionIconPokemon = ({pokemonList}: Props) => {
   return (
-    <PokemonClickableIcons pokemonList={pokemonList} dimension="h-16 w-16"/>
+    <PokemonClickableIcons pokemonList={pokemonList} dimension="size-16"/>
   );
 };

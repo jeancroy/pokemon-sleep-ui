@@ -15,7 +15,7 @@ export const PokemonItemStatsFromPokeboxLayout = ({children}: React.PropsWithChi
         <GenericIconLarger
           src="/images/generic/pokebox.png"
           alt={t('Pokebox')}
-          dimension="h-6 w-6"
+          dimension="size-6"
         />
         <div>{t('Pokebox')}</div>
       </Flex>

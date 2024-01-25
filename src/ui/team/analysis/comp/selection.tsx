@@ -59,12 +59,12 @@ export const TeamAnalysisCompSelection = ({
               },
             } satisfies TeamAnalysisSetup)}
           />
-          <button className="button-clickable-bg h-7 w-7 shrink-0 rounded-lg p-1" onClick={() => onCopied(team.uuid)}>
+          <button className="button-clickable-bg size-7 shrink-0 rounded-lg p-1" onClick={() => onCopied(team.uuid)}>
             <DocumentDuplicateIcon/>
           </button>
           {
             config.current !== team.uuid &&
-            <DeleteButton dimension="h-7 w-7" onClick={() => onDeleted(team.uuid)}/>
+            <DeleteButton dimension="size-7" onClick={() => onDeleted(team.uuid)}/>
           }
         </Flex>
         <FlexButton noFullWidth={false} disabled={isCurrent} onClick={onClick} center className={clsx(
@@ -76,7 +76,7 @@ export const TeamAnalysisCompSelection = ({
                 key={slot}
                 imageSrc={`/images/pokemon/icons/${member.pokemonId}.png`}
                 imageAlt={member.name || t(`PokemonName.${member.pokemonId}`)}
-                imageDimension="h-12 w-12"
+                imageDimension="size-12"
                 imageSizes={imageIconSizes}
                 info={member.level}
               /> :

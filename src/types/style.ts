@@ -1,1 +1,1 @@
-export type Dimension = `h-${number} w-${number}`;
+export type Dimension = `h-${number} w-${number}` | `size-${number}`;

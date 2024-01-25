@@ -25,7 +25,7 @@ export const PokemonNatureIndicatorText = ({nature, hideName, dimension}: Pokemo
 
   const dataOfNature = natureDataMap[nature];
   if (!dataOfNature) {
-    return <QuestionMarkCircleIcon className="h-6 w-6"/>;
+    return <QuestionMarkCircleIcon className="size-6"/>;
   }
 
   const buffEffectId = dataOfNature.buff;
@@ -40,11 +40,11 @@ export const PokemonNatureIndicatorText = ({nature, hideName, dimension}: Pokemo
         </div>
       }
       <Flex direction="row" center noFullWidth>
-        <ChevronUpIcon className="h-4 w-4"/>
+        <ChevronUpIcon className="size-4"/>
         <div className={clsx('relative', dimension)}>
           <NatureEffectIcon effectId={buffEffectId} showOnNull/>
         </div>
-        <ChevronDownIcon className="h-4 w-4"/>
+        <ChevronDownIcon className="size-4"/>
         <div className={clsx('relative', dimension)}>
           <NatureEffectIcon effectId={nerfEffectId} showOnNull/>
         </div>

@@ -28,7 +28,7 @@ export const MealMeta = ({meal, className}: Props) => {
       </div>
       <MealImage
         mealId={id}
-        dimension="h-44 w-44"
+        dimension="size-44"
         className="rounded-lg border border-slate-300 dark:border-slate-700"
       />
     </Flex>

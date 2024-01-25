@@ -50,7 +50,7 @@ export const ActivationViewerCommon = <TActivation extends ActivationKeyAtClient
     <Collapsible state={collapsible} classNameForHeight="h-80" button={
       <Flex direction="row" center className="gap-1.5 p-2">
         <div>{title}</div>
-        <InfoIcon style="glow" dimension="h-5 w-5" className="p-3">
+        <InfoIcon style="glow" dimension="size-5" className="p-3">
           {activations.length}
         </InfoIcon>
       </Flex>

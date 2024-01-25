@@ -14,7 +14,7 @@ type Props = {
 export const UserSettingsAppCompatibility = ({title, result}: Props) => {
   return (
     <Flex direction="row" className={clsx('items-center gap-1.5', appCompatibilityColor.get(result))}>
-      <Flex noFullWidth className="h-6 w-6">
+      <Flex noFullWidth className="size-6">
         {appCompatibilityIcon.get(result)}
       </Flex>
       <pre>

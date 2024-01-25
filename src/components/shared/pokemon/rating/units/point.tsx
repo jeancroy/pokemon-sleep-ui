@@ -41,7 +41,7 @@ export const RatingDataPointUI = ({level, extrema, subSkillMap, icon, basis, cla
         'items-center gap-0.5 text-2xl',
         basis === 'totalProduction' && 'text-energy',
       )}>
-        <div className="h-7 w-7">
+        <div className="size-7">
           {icon}
         </div>
         <VerticalSplitter className="mx-1 self-stretch"/>
@@ -66,7 +66,7 @@ export const RatingDataPointUI = ({level, extrema, subSkillMap, icon, basis, cla
           subSkill,
         }, idx) => (
           <Flex key={idx} direction="row" center className="bg-plate gap-1.5">
-            <div className="relative h-12 w-12 shrink-0">
+            <div className="relative size-12 shrink-0">
               <PokemonImage
                 pokemonId={pokemonId}
                 image={{type: 'default', image: 'icon'}}

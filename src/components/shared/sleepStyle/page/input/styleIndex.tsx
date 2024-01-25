@@ -26,7 +26,7 @@ export const MapInputSleepStyleToggle = (props: Props) => {
     <FilterExpandedInput
       title={
         <Flex direction="row" center>
-          <div className="relative h-8 w-8">
+          <div className="relative size-8">
             <NextImage
               src="/images/generic/sleep.png" alt={t('SleepStyle')}
               sizes={imageIconSizes} className="invert-on-light"

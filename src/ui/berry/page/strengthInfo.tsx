@@ -23,7 +23,7 @@ export const BerryStrengthInfo = ({berryData}: Props) => {
   const collapsible = useCollapsible();
   const t = useTranslations('UI.Common');
 
-  const dimension: Dimension = 'h-6 w-6';
+  const dimension: Dimension = 'size-6';
 
   return (
     <CollapsibleFull state={collapsible} button={

@@ -12,7 +12,7 @@ type Props = {
 export const PopupClose = ({onClick, disabled}: Props) => {
   return (
     <button onClick={onClick} disabled={disabled} className={clsx(
-      'enabled:button-clickable-bg disabled:button-disabled h-6 w-6',
+      'enabled:button-clickable-bg disabled:button-disabled size-6',
     )}>
       <XMarkIcon/>
     </button>

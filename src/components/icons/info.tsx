@@ -19,7 +19,7 @@ export const InfoIcon = ({className, classTextSize, dimension, style, children}:
   return (
     <Flex center noFullWidth className={clsx(
       classTextSize ?? 'text-xs',
-      dimension ?? 'h-5 w-5',
+      dimension ?? 'size-5',
       style ? infoIconStyleClass[style] : infoIconStyleClass.normal,
       className,
     )}>

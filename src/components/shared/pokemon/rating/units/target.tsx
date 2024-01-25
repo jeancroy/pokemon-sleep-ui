@@ -20,14 +20,14 @@ export const RatingResultTarget = ({request, subSkillMap}: Props) => {
 
   return (
     <Flex direction="row" className="info-section items-center">
-      <div className="relative h-14 w-14">
+      <div className="relative size-14">
         <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'icon'}} isShiny={false}/>
       </div>
       <Flex center className="gap-1">
         <PokemonIngredientIcons
           ingredients={[[...ingredientLevels].map((level) => ingredients[level])]}
           className="gap-1 text-lg"
-          dimension="h-6 w-6"
+          dimension="size-6"
           noLink
         />
         <PokemonSubSkillIndicator subSkill={subSkill} subSkillMap={subSkillMap}/>

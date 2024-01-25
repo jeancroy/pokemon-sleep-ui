@@ -22,14 +22,14 @@ export const IngredientMeta = (ingredient: Ingredient) => {
       <div className="text-xl">
         {ingredientName}
       </div>
-      <div className="relative h-44 w-44 rounded-lg border border-slate-300 dark:border-slate-700">
+      <div className="relative size-44 rounded-lg border border-slate-300 dark:border-slate-700">
         <NextImage src={`/images/ingredient/${id}.png`} alt={ingredientName} sizes={imagePortraitSizes}/>
       </div>
       <table className="-m-1 border-separate border-spacing-1 text-xl">
         <tbody>
           <tr>
             <td>
-              <ColoredEnergyIcon dimension="h-7 w-7" alt={t2('Strength')}/>
+              <ColoredEnergyIcon dimension="size-7" alt={t2('Strength')}/>
             </td>
             <td>
               {energy}
@@ -37,7 +37,7 @@ export const IngredientMeta = (ingredient: Ingredient) => {
           </tr>
           <tr>
             <td>
-              <div className="relative h-7 w-7">
+              <div className="relative size-7">
                 <NextImage src="/images/generic/shard.png" alt={t2('DreamShards')} sizes={imageSmallIconSizes}/>
               </div>
             </td>

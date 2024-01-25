@@ -12,7 +12,7 @@ import {NatureInfoEffectProps} from '@/ui/info/nature/type';
 export const NatureInfoEffectText = ({direction, effectId, dimension, isActive, className}: NatureInfoEffectProps) => {
   const t = useTranslations('Game');
 
-  dimension = dimension ?? 'h-5 w-5';
+  dimension = dimension ?? 'size-5';
   const hasEffect = effectId !== null;
 
   return (

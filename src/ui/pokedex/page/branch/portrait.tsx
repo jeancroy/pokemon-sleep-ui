@@ -15,7 +15,7 @@ type Props = UsePokemonLinkPopupReturn & {
 };
 
 export const PokemonBranchPortrait = ({pokemon, clickable, showPokemon}: Props) => {
-  const dimension: Dimension = 'h-52 w-52';
+  const dimension: Dimension = 'size-52';
 
   if (!pokemon) {
     return null;

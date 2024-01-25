@@ -44,7 +44,7 @@ export const IngredientInventoryInput = ({
           return (
             <NumberInputOptional
               key={id}
-              text={<PokemonIngredientIcon dimension="h-7 w-7" id={id}/>}
+              text={<PokemonIngredientIcon dimension="size-7" id={id}/>}
               min={(minCount && minCount[id]) ?? 0}
               onClickDefault={1}
               value={counter[id]}
@@ -59,7 +59,7 @@ export const IngredientInventoryInput = ({
           <GenericIconLarger src="/images/generic/ingredient.png" alt={t('Total')}/>
           <div>{toSum(Object.values(counter).filter(isNotNullish))}</div>
         </Flex>
-        <button className="button-clickable-bg h-6 w-6 p-1" onClick={onReset}>
+        <button className="button-clickable-bg size-6 p-1" onClick={onReset}>
           <ArrowPathIcon/>
         </button>
       </Flex>

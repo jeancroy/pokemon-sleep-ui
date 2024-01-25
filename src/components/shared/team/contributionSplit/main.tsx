@@ -24,12 +24,12 @@ export const TeamContributionSplitIndicator = ({data}: Props) => {
       }))}
       renderSummary={({percent, data}) => (
         <Flex direction="row" noFullWidth center className="gap-1.5">
-          <div className="relative h-6 w-6">
+          <div className="relative size-6">
             <PokemonImage
               pokemonId={data.pokemonId}
               image={{type: 'default', image: 'icon'}}
               isShiny={false}
-              className="relative h-6 w-6 rounded-full"
+              className="relative size-6 rounded-full"
               alt={t(data.pokemonId.toString())}
             />
           </div>

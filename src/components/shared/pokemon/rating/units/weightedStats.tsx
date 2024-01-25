@@ -45,7 +45,7 @@ export const RatingWeightedStatsUI = ({rating, basis}: RatingWeightedStatsUiProp
           relativeStrength: (
             <RatingRelativeStrength
               baseDiffPercent={relativeStrength}
-              iconDimension="h-7 w-7"
+              iconDimension="size-7"
               className={clsx('text-3xl', heightClass)}
             />
           ),

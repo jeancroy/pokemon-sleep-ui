@@ -80,14 +80,14 @@ export const PokemonProduction = (props: Props) => {
           {...props}
         />
       </PokemonMetaSection>
-      <PokemonMetaSection title={<LinkIcon className="h-6 w-6"/>} titleClassName={metaTitleClass}>
+      <PokemonMetaSection title={<LinkIcon className="size-6"/>} titleClassName={metaTitleClass}>
         <FlexLink href={`/analysis/${pokemon.id}`} className={clsx(
           'button-clickable-bg group items-center gap-1.5 self-end px-2 py-1',
         )}>
           <div>
             {analysisTitle}
           </div>
-          <div className="relative h-10 w-10">
+          <div className="relative size-10">
             <NextImage
               src="/images/generic/analysis.png"
               alt={analysisTitle}

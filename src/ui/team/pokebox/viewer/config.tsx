@@ -70,12 +70,12 @@ export const PokeboxViewerConfig = ({session, ...props}: PokeboxViewerInputCommo
         <FilterExpandedInput
           title={
             <Flex center>
-              <EyeIcon className="h-6 w-6"/>
+              <EyeIcon className="size-6"/>
             </Flex>
           }
           ids={[...pokeboxViewType]}
           idToButton={(type: PokeboxViewType) => (
-            <div className="h-6 w-6">
+            <div className="size-6">
               {pokeboxViewTypeToIcon[type]}
             </div>
           )}
@@ -100,7 +100,7 @@ export const PokeboxViewerConfig = ({session, ...props}: PokeboxViewerInputCommo
           <FilterIconInput
             title={
               <Flex center>
-                <InformationCircleIcon className="h-6 w-6"/>
+                <InformationCircleIcon className="size-6"/>
               </Flex>
             }
             ids={[...pokeboxDisplayType]}
@@ -120,7 +120,7 @@ export const PokeboxViewerConfig = ({session, ...props}: PokeboxViewerInputCommo
           <FilterIconInput
             title={
               <Flex center>
-                <InformationCircleIcon className="h-6 w-6"/>
+                <InformationCircleIcon className="size-6"/>
               </Flex>
             }
             ids={[...pokeboxDisplayType]}

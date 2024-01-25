@@ -35,7 +35,7 @@ export const RatingResultChartTooltip = ({active, payload, label, resultMap, con
 
   return (
     <Flex direction="row" noFullWidth className="info-section items-center gap-2">
-      <InfoIcon style="glow" dimension="h-7 w-7" classTextSize="text-base">
+      <InfoIcon style="glow" dimension="size-7" classTextSize="text-base">
         {level}
       </InfoIcon>
       <Flex className="gap-1">

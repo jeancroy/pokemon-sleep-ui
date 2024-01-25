@@ -30,24 +30,24 @@ export const PokemonLinkPopupContent = ({pokemon}: Props) => {
     <Flex center className="gap-1.5 md:w-96">
       <PokemonNameBig pokemon={pokemon}/>
       <Flex direction="row" center className="gap-1">
-        <PokemonSleepTypeIcon sleepType={sleepType} dimension="h-5 w-5"/>
-        <PokemonSpecialtyIcon specialty={specialty} dimension="h-5 w-5"/>
+        <PokemonSleepTypeIcon sleepType={sleepType} dimension="size-5"/>
+        <PokemonSpecialtyIcon specialty={specialty} dimension="size-5"/>
       </Flex>
-      <div className="relative h-60 w-60">
+      <div className="relative size-60">
         <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
       </div>
       <Flex direction="row" className="gap-2">
         <Flex>
           <NextLink href={`/pokedex/${id}`}>
             <Flex center className="button-clickable-bg group p-2">
-              <GenericPokeballIcon dimension="h-10 w-10" alt={t('Pokedex.Main.Page.Title', {name})}/>
+              <GenericPokeballIcon dimension="size-10" alt={t('Pokedex.Main.Page.Title', {name})}/>
             </Flex>
           </NextLink>
         </Flex>
         <Flex>
           <NextLink href={`/analysis/${id}`}>
             <Flex center className="button-clickable-bg group p-2">
-              <div className="relative h-10 w-10">
+              <div className="relative size-10">
                 <NextImage
                   src="/images/generic/analysis.png" alt={t('Analysis.Title', {name})}
                   sizes={imageIconSizes} className="invert-hoverable"

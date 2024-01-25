@@ -23,7 +23,7 @@ export const OcrImporterText = ({text}: Props) => {
         </Flex>
       </PopupCommon>
       <button onClick={() => setShow(true)} className="button-clickable-border self-end p-1">
-        <ChatBubbleBottomCenterIcon className="h-6 w-6"/>
+        <ChatBubbleBottomCenterIcon className="size-6"/>
       </button>
     </>
   );

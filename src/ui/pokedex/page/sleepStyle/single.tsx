@@ -42,7 +42,7 @@ export const PokemonSingleSleepStyle = <TSleepStyle extends SleepStyleCommon>({
   return (
     <Flex direction="row" center className="gap-1.5 p-2.5" noFullWidth>
       <button className={clsx(
-        'z-10 h-9 w-9 shrink-0 rounded-lg p-1.5',
+        'z-10 size-9 shrink-0 rounded-lg p-1.5',
         getToggleButtonClass(isInSleepdex({sleepdex, pokemonId, styleId: style}) ?? false),
       )} onClick={(e) => {
         e.preventDefault();

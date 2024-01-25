@@ -21,7 +21,7 @@ export const PokemonProbabilityOfNoSkill = ({normalSize, ...props}: Props) => {
       <GenericIcon
         src="/images/generic/mainSkillSlash.png"
         alt={t('NoSkillAfterWakeup')}
-        dimension={normalSize ? 'h-5 w-5' : 'h-4 w-4'}
+        dimension={normalSize ? 'size-5' : 'size-4'}
       />
       <div>{probability ? formatFloat(probability * 100) : '-'}%</div>
     </Flex>

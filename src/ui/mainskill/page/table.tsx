@@ -22,7 +22,7 @@ export const MainSkillValueTable = ({data}: Props) => {
         <div>
           <LevelIcon/>
         </div>
-        <ChevronDoubleUpIcon className="h-6 w-6"/>
+        <ChevronDoubleUpIcon className="size-6"/>
         {effects.map((effect) => (
           <React.Fragment key={effect.level}>
             <div>

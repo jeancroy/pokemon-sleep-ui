@@ -12,6 +12,7 @@ import {GenericIcon} from '@/components/shared/icon/common/main';
 import {LevelIcon} from '@/components/shared/icon/lv';
 import {defaultExpType} from '@/const/game/xp';
 import {textFilterButtonStyle} from '@/styles/input';
+import {Dimension} from '@/types/style';
 import {PokemonExpCalculatorTableRow} from '@/ui/xp/results/row';
 import {getLevelUpRequirementsAccumulated, getLevelUpRequirementsOfEachLevel} from '@/ui/xp/results/utils';
 import {PokemonExpCalculatorCommonProps, PokemonExpCalculatorInput} from '@/ui/xp/type';
@@ -38,7 +39,7 @@ export const PokemonExpCalculatorTable = ({
   const t = useTranslations('UI.InPage.PokemonExp');
   const t2 = useTranslations('UI.Common');
 
-  const dimension = 'h-8 w-8';
+  const dimension: Dimension = 'size-8';
 
   const expType = (pokemon ? pokedexMap[pokemon]?.expType : defaultExpType) ?? defaultExpType;
   const levelUpRequirements = getLevelUpRequirementsOfEachLevel({
@@ -60,7 +61,7 @@ export const PokemonExpCalculatorTable = ({
           className={clsx('group', textFilterButtonStyle)}
         >
           <Flex direction="row" center noFullWidth className="gap-1.5 p-1">
-            <div className="h-5 w-5">
+            <div className="size-5">
               {showNonBreakthroughLevel ? <EyeIcon/> : <EyeSlashIcon/>}
             </div>
             <div>{t('KeyLevel')}</div>

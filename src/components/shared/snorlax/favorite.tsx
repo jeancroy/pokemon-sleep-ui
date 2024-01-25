@@ -37,7 +37,7 @@ export const SnorlaxFavoriteInput = <
       <FilterIconInput
         title={
           <Flex direction="row" center>
-            <div className="relative h-7 w-7">
+            <div className="relative size-7">
               <NextImage
                 src="/images/generic/snorlax.png"
                 alt={t2('SnorlaxFavorite')}
@@ -54,13 +54,13 @@ export const SnorlaxFavoriteInput = <
       <MapFilter
         title={
           <Flex direction="row" center className="gap-0.5">
-            <div className="relative h-7 w-7">
+            <div className="relative size-7">
               <NextImage
                 src="/images/generic/snorlax.png" alt={t2('SnorlaxFavorite')} sizes={imageSmallIconSizes}
               />
             </div>
-            <PlusCircleIcon className="h-6 w-6"/>
-            <div className="relative h-7 w-7">
+            <PlusCircleIcon className="size-6"/>
+            <div className="relative size-7">
               <NextImage
                 src="/images/generic/map.png" alt={t2('Map')} sizes={imageSmallIconSizes}
                 className="invert-on-light"

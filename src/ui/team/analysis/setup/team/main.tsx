@@ -62,8 +62,8 @@ export const TeamAnalysisTeamView = (props: Props) => {
 
     showToast({content: (
       <Flex direction="row" className="gap-1.5">
-        <PlusCircleIcon className="h-9 w-9"/>
-        <div className="relative h-9 w-9">
+        <PlusCircleIcon className="size-9"/>
+        <div className="relative size-9">
           <NextImage
             src={`/images/pokemon/icons/${member.pokemonId}.png`} alt={t(`PokemonName.${member.pokemonId}`)}
             sizes={imageIconSizes}
@@ -91,7 +91,7 @@ export const TeamAnalysisTeamView = (props: Props) => {
           )}>
             <button
               className={clsx(
-                'absolute right-1 top-1 z-10 h-5 w-5 rounded-full',
+                'absolute right-1 top-1 z-10 size-5 rounded-full',
                 'enabled:button-clickable disabled:button-disabled-border',
               )}
               disabled={!member}

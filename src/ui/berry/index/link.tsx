@@ -33,9 +33,9 @@ export const BerryLink = ({berryData}: Props) => {
     >
       <Flex center className="relative">
         <div className="absolute bottom-0 right-1">
-          <PokemonTypeIcon type={id} dimension="h-8 w-8"/>
+          <PokemonTypeIcon type={id} dimension="size-8"/>
         </div>
-        <PokemonBerryIconNoLink id={id} dimension="h-12 w-12"/>
+        <PokemonBerryIconNoLink id={id} dimension="size-12"/>
       </Flex>
       <div className="whitespace-nowrap p-1">
         {berryName}

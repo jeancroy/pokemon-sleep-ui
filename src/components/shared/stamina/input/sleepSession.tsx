@@ -49,12 +49,12 @@ export const StaminaConfigSleepSession = (props: Props) => {
         'group items-center rounded-lg px-2 py-1 md:rounded-full',
         onClick ? getToggleButtonClass(active) : 'button-toggle-active-bg',
       )}>
-        <div className="relative h-6 w-6">
+        <div className="relative size-6">
           {onClick ?
             (active ? <PlusCircleIcon/> : <MinusCircleIcon/>) :
             <ArrowRightCircleIcon/>}
         </div>
-        <div className="relative h-6 w-6">
+        <div className="relative size-6">
           <GenericIcon
             src="/images/generic/sleep.png"
             noWrap
@@ -70,15 +70,15 @@ export const StaminaConfigSleepSession = (props: Props) => {
       <Flex className="items-center gap-1.5 md:flex-row">
         <StaminaConfigSleepTime
           {...props}
-          icon={<PlayCircleIcon className="h-7 w-7 shrink-0 md:hidden"/>}
+          icon={<PlayCircleIcon className="size-7 shrink-0 md:hidden"/>}
           times={times}
           isActive={active}
           timing="start"
         />
-        <ArrowRightIcon className="hidden h-5 w-5 shrink-0 md:block"/>
+        <ArrowRightIcon className="hidden size-5 shrink-0 md:block"/>
         <StaminaConfigSleepTime
           {...props}
-          icon={<StopCircleIcon className="h-7 w-7 shrink-0 md:hidden"/>}
+          icon={<StopCircleIcon className="size-7 shrink-0 md:hidden"/>}
           times={times}
           isActive={active}
           timing="end"

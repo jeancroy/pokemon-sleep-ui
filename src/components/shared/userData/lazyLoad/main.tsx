@@ -62,7 +62,7 @@ export const UserDataLazyLoad = ({
       }
 
       if (smallLoading) {
-        return <LoadingText text={loadingText} dimension="h-4 w-4"/>;
+        return <LoadingText text={loadingText} dimension="size-4"/>;
       }
 
       return <Loading text={loadingText}/>;
@@ -70,7 +70,7 @@ export const UserDataLazyLoad = ({
 
     if (session.status === 'loading') {
       if (smallLoading) {
-        return <LoadingText text="User" dimension="h-4 w-4"/>;
+        return <LoadingText text="User" dimension="size-4"/>;
       }
 
       return <Loading text="User"/>;

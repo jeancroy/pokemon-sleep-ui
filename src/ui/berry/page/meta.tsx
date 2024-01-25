@@ -26,7 +26,7 @@ export const BerryMeta = ({berryData}: BerryPageDataProps) => {
       </div>
       <PokemonBerryIconNoLink
         id={id}
-        dimension="h-44 w-44"
+        dimension="size-44"
         sizes={imagePortraitSizes}
         className="rounded-lg border border-slate-300 dark:border-slate-700"
       />

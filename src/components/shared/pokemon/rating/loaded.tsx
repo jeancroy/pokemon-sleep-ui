@@ -73,7 +73,7 @@ const RatingResultLoadedInternal = ({
         onClose={setConfig}
       />
       <Flex ref={ref} className="items-end">
-        <button className="button-clickable-bg h-8 w-8 rounded-full p-1" onClick={() => setShow(true)}>
+        <button className="button-clickable-bg size-8 rounded-full p-1" onClick={() => setShow(true)}>
           <Cog6ToothIcon/>
         </button>
       </Flex>

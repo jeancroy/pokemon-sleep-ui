@@ -24,7 +24,7 @@ export const MainSkillMeta = ({data}: Props) => {
   return (
     <Flex center className="gap-2">
       <Flex center className="gap-2 lg:flex-row">
-        <MainSkillIcon id={id} dimension="h-16 w-16"/>
+        <MainSkillIcon id={id} dimension="size-16"/>
         <Flex noFullWidth center className="gap-2">
           <div className="text-3xl">
             {t(`MainSkill.Name.${id}`)}
@@ -39,7 +39,7 @@ export const MainSkillMeta = ({data}: Props) => {
       <HorizontalSplitter className="w-full"/>
       <Flex direction="row" center className="gap-2">
         {uniqueEffects.map((effect) => (
-          <MainSkillEffectTypeIcon key={effect} type={effect} dimension="h-10 w-10"/>
+          <MainSkillEffectTypeIcon key={effect} type={effect} dimension="size-10"/>
         ))}
       </Flex>
     </Flex>

@@ -17,7 +17,7 @@ export const MealPreparerMealTypeSummaryUI = ({stats}: Props) => {
 
   return (
     <Flex direction="row" noFullWidth className="items-end justify-end gap-1.5 text-sm">
-      <ColoredEnergyIcon dimension="h-8 w-8" alt={t('Energy')}/>
+      <ColoredEnergyIcon dimension="size-8" alt={t('Energy')}/>
       <div>{t('Total')}</div>
       <div className="text-2xl">{formatInt(stats.recipeOnly)}</div>
       <div>{t('Preparer.IncludeFiller')}</div>

@@ -18,7 +18,7 @@ type Props = SleepdexSectionProps & {
 
 export const SleepdexSectionSleepStyle = ({sleepdex, updateSleepdex, pokemonId, styleId}: Props) => {
   const className = clsx(
-    'h-8 w-8 rounded-lg text-sm',
+    'size-8 rounded-lg text-sm',
     getToggleButtonClass(isInSleepdex({sleepdex, pokemonId, styleId}) ?? false),
   );
 

@@ -69,7 +69,7 @@ export const ActivationSearcher = (props: ActivationUiCommonProps) => {
       </InputRowWithTitle>
       <InputRow className="justify-end">
         <button type="submit" disabled={status !== 'waiting'} className={clsx(
-          'button-clickable-bg disabled:button-disabled h-8 w-8 shrink-0 p-1',
+          'button-clickable-bg disabled:button-disabled size-8 shrink-0 p-1',
         )}>
           <UserActionStatusIcon status={status} onWaitingOverride={<MagnifyingGlassIcon/>}/>
         </button>

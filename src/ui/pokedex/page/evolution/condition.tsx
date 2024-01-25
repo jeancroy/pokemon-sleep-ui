@@ -49,7 +49,7 @@ export const PokemonEvolutionCondition = ({condition}: Props) => {
 
     return (
       <Flex direction="row" className="items-center gap-1">
-        <ItemIcon itemId={condition.item} alt={itemName} noInvert dimension="h-6 w-6"/>
+        <ItemIcon itemId={condition.item} alt={itemName} noInvert dimension="size-6"/>
         <div>{itemName}</div>
       </Flex>
     );
@@ -67,7 +67,7 @@ export const PokemonEvolutionCondition = ({condition}: Props) => {
   if (type === 'timing') {
     return (
       <Flex direction="row" className="items-center gap-1">
-        <ClockIcon className="h-6 w-6"/>
+        <ClockIcon className="size-6"/>
         <div>{condition.startHour}&nbsp;~&nbsp;{condition.endHour}</div>
       </Flex>
     );
@@ -80,7 +80,7 @@ export const PokemonEvolutionCondition = ({condition}: Props) => {
 
     return (
       <Flex direction="row" className={clsx('items-center gap-1', genderTextStyle[gender])}>
-        <GenderIcon gender={gender} alt={text} dimension="h-6 w-6"/>
+        <GenderIcon gender={gender} alt={text} dimension="size-6"/>
         <div>{text}</div>
       </Flex>
     );

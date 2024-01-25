@@ -72,7 +72,7 @@ export const PokeInBoxEditLayout = ({
   const isShinyActive = isShiny ?? false;
   const isFavoriteActive = isFavorite ?? false;
   const seeds = pokeInBox.seeds ?? defaultSeedUsage;
-  const iconDimension: Dimension = 'h-5 w-5';
+  const iconDimension: Dimension = 'size-5';
   const maxEvolutionCount = getPokemonMaxEvolutionCount(toPokemonList(pokedexMap));
 
   return (
@@ -82,7 +82,7 @@ export const PokeInBoxEditLayout = ({
           <pre className="text-sm text-slate-500">
             {uuid}
           </pre>
-          <CopyButton data={uuid} dimension="h-7 w-7"/>
+          <CopyButton data={uuid} dimension="size-7"/>
         </Flex>
         <Flex direction="row" className="gap-1.5">
           <ToggleButton
@@ -93,7 +93,7 @@ export const PokeInBoxEditLayout = ({
             })}
             className={clsx('group gap-0.5 rounded-lg p-1', getToggleButtonClass(isShinyActive))}
           >
-            <div className="group relative h-5 w-5">
+            <div className="group relative size-5">
               <NextImage
                 src="/images/generic/flash.png" alt={t2('Shiny')}
                 sizes={imageSmallIconSizes} className={isShinyActive ? 'invert-on-dark' : 'invert-on-light'}

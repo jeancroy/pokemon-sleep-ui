@@ -15,7 +15,7 @@ type Props = {
 export const CookingMarkButton = ({marked, setMarked}: Props) => {
   return (
     <button onClick={() => setMarked(!marked)} className={clsx(
-      'h-5 w-5 shrink-0 rounded-lg p-1', getToggleButtonClass(marked),
+      'size-5 shrink-0 rounded-lg p-1', getToggleButtonClass(marked),
     )}>
       <BookmarkIcon/>
     </button>

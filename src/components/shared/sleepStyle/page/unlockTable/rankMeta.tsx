@@ -44,7 +44,7 @@ export const MapUnlockTableRankMeta = (props: MapUnlockTableRowProps) => {
       </Flex>
       <Flex direction="row" center noFullWidth className="gap-1 whitespace-nowrap xl:w-28 xl:flex-col">
         <Flex direction="row" center className="gap-0.5">
-          <GenericPokeballIcon dimension="h-6 w-6" alt={t2('SleepStylesUnlocked')}/>
+          <GenericPokeballIcon dimension="size-6" alt={t2('SleepStylesUnlocked')}/>
           <div>
             {toSum(Object.values(accumulator.unlockable).filter(isNotNullish))}
           </div>
@@ -53,8 +53,8 @@ export const MapUnlockTableRankMeta = (props: MapUnlockTableRowProps) => {
           </div>
         </Flex>
         <Flex direction="row" center>
-          <GenericIcon src="/images/generic/gift.png" alt={t('DreamShards')} dimension="h-6 w-6"/>
-          <GenericIcon src="/images/generic/shard.png" alt={t('DreamShards')} dimension="h-6 w-6" noInvert/>
+          <GenericIcon src="/images/generic/gift.png" alt={t('DreamShards')} dimension="size-6"/>
+          <GenericIcon src="/images/generic/shard.png" alt={t('DreamShards')} dimension="size-6" noInvert/>
           <div>
             {formatInt(snorlaxDataAtRank.rewardShard)}
           </div>

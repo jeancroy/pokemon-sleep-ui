@@ -73,7 +73,7 @@ export const AdminAnnouncementUnit = ({show, data, onUpdate, onDelete}: Props) =
         <Flex className="items-center lg:flex-row lg:justify-between">
           <Flex noFullWidth direction="row" className="gap-2 self-end">
             <Flex noFullWidth direction="row" className="items-center gap-1">
-              <ClockIcon className="h-6 w-6"/>
+              <ClockIcon className="size-6"/>
               <InputBox
                 type="datetime-local"
                 className="text-center"
@@ -85,7 +85,7 @@ export const AdminAnnouncementUnit = ({show, data, onUpdate, onDelete}: Props) =
               />
             </Flex>
             <Flex noFullWidth direction="row" className="items-center gap-1">
-              <Bars3BottomLeftIcon className="h-6 w-6"/>
+              <Bars3BottomLeftIcon className="size-6"/>
               <InputBox
                 type="number"
                 className="w-28 text-center"
@@ -101,7 +101,7 @@ export const AdminAnnouncementUnit = ({show, data, onUpdate, onDelete}: Props) =
                 }}
               />
             </Flex>
-            <DeleteButton dimension="h-7 w-7" onClick={() => onDelete(uuid)}/>
+            <DeleteButton dimension="size-7" onClick={() => onDelete(uuid)}/>
           </Flex>
         </Flex>
       </Flex>

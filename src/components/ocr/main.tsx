@@ -76,7 +76,7 @@ export const Ocr = <TData, >({buttonText, textToData, renderData, getWhitelistCh
           isActive={(ocrLang) => ocrLang === settings.locale}
           title={
             <Flex center className="px-2">
-              <LanguageIcon className="h-6 w-6"/>
+              <LanguageIcon className="size-6"/>
             </Flex>
           }
           ids={[...ocrLocale]}

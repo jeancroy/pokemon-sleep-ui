@@ -33,8 +33,8 @@ export const TeamMakerInputToggles = ({
       <FilterTextInput
         title={
           <Flex direction="row" center className="gap-2">
-            <EyeIcon className="h-6 w-6"/>
-            <UserGroupIcon className="h-6 w-6"/>
+            <EyeIcon className="size-6"/>
+            <UserGroupIcon className="size-6"/>
           </Flex>
         }
         ids={[15, 25, 50, 100] as const}
@@ -65,13 +65,13 @@ export const TeamMakerInputToggles = ({
           }))}
           className={clsx('gap-1', textFilterButtonStyle)}
         >
-          <div className="h-5 w-5">
+          <div className="size-5">
             {showInsufficientIngredients ? <EyeIcon/> : <EyeSlashIcon/>}
           </div>
           <GenericIcon
             src="/images/generic/ingredientSlash.png"
             alt={t('Maker.Behavior.ToggleInsufficientIngredients')}
-            dimension="h-5 w-5"
+            dimension="size-5"
             noInvert
             isActive={showInsufficientIngredients}
           />

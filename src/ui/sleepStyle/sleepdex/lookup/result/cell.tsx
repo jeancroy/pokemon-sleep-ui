@@ -38,10 +38,10 @@ export const SleepdexLookupResultCell = ({display, data, onClick}: Props) => {
         <SleepStyleBrief
           sleepStyle={data.sleepStyle}
           className="absolute left-1 top-1 z-10 text-sm"
-          iconDimension="h-4 w-4"
+          iconDimension="size-4"
           textShadow
         />
-        <div className="relative h-16 w-16 opacity-70">
+        <div className="relative size-16 opacity-70">
           <PokemonImage
             pokemonId={id}
             image={{type: 'default', image: 'icon'}}

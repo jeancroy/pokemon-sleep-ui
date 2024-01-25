@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const OcrImporterConfirm = ({onClick, disabled}: Props) => {
-  const dimension: Dimension = 'h-6 w-6';
+  const dimension: Dimension = 'size-6';
 
   return (
     <button disabled={disabled} onClick={onClick} className={clsx(

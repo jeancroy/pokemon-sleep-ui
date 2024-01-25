@@ -14,7 +14,7 @@ export const PokemonNameBig = ({pokemon, override}: PokemonNameProps) => {
 
   return (
     <Flex direction="row" center className="gap-1 p-2.5 text-2xl">
-      <PokemonNameIcons pokemon={pokemon} dimension="h-8 w-8"/>
+      <PokemonNameIcons pokemon={pokemon} dimension="size-8"/>
       <div className="truncate">
         {override ?? t(`PokemonName.${id}`)}
       </div>

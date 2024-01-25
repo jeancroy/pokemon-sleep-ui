@@ -56,7 +56,7 @@ export const PokemonExpCalculatorInputUI = ({
             ...original,
             pokemon: null,
           }))}>
-            <Flex center noFullWidth className="h-14 w-14">{t('OtherPokemon')}</Flex>
+            <Flex center noFullWidth className="size-14">{t('OtherPokemon')}</Flex>
           </button>
         )}
       </PokemonClickableIcons>
@@ -83,7 +83,7 @@ export const PokemonExpCalculatorInputUI = ({
             }))}
           />
           <button
-            className="button-clickable-bg h-6 w-6 p-1"
+            className="button-clickable-bg size-6 p-1"
             onClick={() => setFilter((original): PokemonExpCalculatorInput => {
               const expData = getPokemonExpValueData({
                 pokemonId: original.pokemon,
@@ -121,7 +121,7 @@ export const PokemonExpCalculatorInputUI = ({
               ownedCandies: parseInt(target.value || '1'),
             }))}
           />
-          <button className="button-clickable-bg h-6 w-6 p-1" onClick={() => setFilter((original) => ({
+          <button className="button-clickable-bg size-6 p-1" onClick={() => setFilter((original) => ({
             ...original,
             ownedCandies: 0,
           }))}>

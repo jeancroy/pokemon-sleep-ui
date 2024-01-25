@@ -32,7 +32,7 @@ export const MealIngredientSection = ({
   return (
     <CollapsibleFull state={collapsible} button={
       <Flex center direction="row" className="gap-1 text-xl">
-        <PokemonIngredientIcon id={id} dimension="h-8 w-8" noLink/>
+        <PokemonIngredientIcon id={id} dimension="size-8" noLink/>
         <div>{quantity}</div>
       </Flex>
     }>

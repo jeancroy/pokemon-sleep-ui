@@ -29,7 +29,7 @@ export const PokemonProductionIngredientLink = ({production}: Props) => {
       <IconWithInfo
         imageSrc={`/images/ingredient/${id}.png`}
         imageAlt={ingredientName}
-        imageDimension="h-12 w-12"
+        imageDimension="size-12"
         imageSizes={imageSmallIconSizes}
         info={qty}
       />

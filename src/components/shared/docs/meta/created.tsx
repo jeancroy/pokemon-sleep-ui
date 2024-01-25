@@ -14,7 +14,7 @@ type Props = Pick<DocsMetadata, 'createdEpoch'>;
 export const DocsMetaCreatedUI = ({createdEpoch}: Props) => {
   return (
     <DocsMetaItem
-      icon={<PlusCircleIcon className="h-6 w-6"/>}
+      icon={<PlusCircleIcon className="size-6"/>}
       content={format(createdEpoch, 'yyyy-MM-dd HH:mm:ss')}
     />
   );

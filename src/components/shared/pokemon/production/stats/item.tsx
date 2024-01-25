@@ -13,7 +13,7 @@ export const PokemonDetailedProducingStatsLayout = ({icon, children}: React.Prop
   return (
     <Flex direction="row" stretch className="items-center">
       <Flex center noFullWidth className="button-bg rounded-l-lg">
-        <div className="relative h-10 w-10">
+        <div className="relative size-10">
           {icon}
         </div>
       </Flex>

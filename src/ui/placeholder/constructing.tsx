@@ -8,7 +8,7 @@ import {Flex} from '@/components/layout/flex/common';
 export const Constructing = () => {
   return (
     <Flex center className="h-full">
-      <WrenchIcon className="h-72 w-72"/>
+      <WrenchIcon className="size-72"/>
     </Flex>
   );
 };

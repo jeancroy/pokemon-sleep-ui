@@ -32,7 +32,7 @@ export const TeamAnalysisRateLayout = ({
 
   const titleClass = clsx('whitespace-nowrap', !larger && 'text-xs');
   const textClass = clsx(larger && 'text-xl');
-  const dimension = larger ? 'h-6 w-6' : 'h-5 w-5';
+  const dimension = larger ? 'size-6' : 'size-5';
 
   const calculatedRate = rate && toProducingRateOfPeriod({rate, period});
 

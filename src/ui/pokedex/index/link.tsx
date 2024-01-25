@@ -36,12 +36,12 @@ export const PokedexLink = (props: PokedexLinkProps) => {
         <Flex direction="row" noFullWidth className={clsx(
           'text-shadow-preset absolute left-1 top-1 z-10 items-center gap-0.5 whitespace-nowrap',
         )}>
-          <PokemonTypeIcon type={type} dimension="h-5 w-5"/>
+          <PokemonTypeIcon type={type} dimension="size-5"/>
           <div>
             {t(`PokemonName.${id}`)}
           </div>
         </Flex>
-        <div className="relative h-16 w-16 self-end opacity-70">
+        <div className="relative size-16 self-end opacity-70">
           <PokemonImage
             pokemonId={id}
             image={{type: 'default', image: 'icon'}}

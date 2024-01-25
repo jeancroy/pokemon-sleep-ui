@@ -42,10 +42,10 @@ export const MapBonusSlider = ({mapId, maxMapBonusPercent, isCurrent, onMapClick
           <ToggleButton active={isCurrent} onClick={onMapClicked} className={clsx(
             'glow h-fit rounded-full p-1.5 shadow-border',
           )}>
-            <MapPinIcon className="h-6 w-6 shrink-0"/>
+            <MapPinIcon className="size-6 shrink-0"/>
           </ToggleButton>
           <BonusSlider min={0} max={maxMapBonusPercent} step={5} {...props}>
-            <ChevronUpIcon className="h-6 w-6"/>
+            <ChevronUpIcon className="size-6"/>
           </BonusSlider>
         </Flex>
       </Flex>

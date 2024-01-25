@@ -21,7 +21,7 @@ export const MainSkillLink = ({data}: Props) => {
 
   return (
     <FlexLink direction="row" center href={`/info/mainskill/${id}`} className="button-clickable-bg group gap-2 p-4">
-      <MainSkillIcon id={id} dimension="h-12 w-12"/>
+      <MainSkillIcon id={id} dimension="size-12"/>
       <Flex center className="gap-1">
         <div className="text-center text-xl">
           {t(`MainSkill.Name.${id}`)}

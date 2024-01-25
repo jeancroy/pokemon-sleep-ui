@@ -12,12 +12,12 @@ export const PokedexTierListTierMeta = ({tier, bucket}: PokedexTierListSingleCom
   return (
     <Flex center noFullWidth className="gap-1 md:flex-row md:gap-0">
       <Flex center noFullWidth className={clsx(
-        'transform-smooth h-12 w-12 text-4xl lg:text-5xl',
+        'transform-smooth size-12 text-4xl lg:text-5xl',
         pokedexTierTextStyling[tier],
       )}>
         {tier}
       </Flex>
-      <InfoIcon dimension="h-7 w-7" classTextSize="text-base">
+      <InfoIcon dimension="size-7" classTextSize="text-base">
         {bucket.length}
       </InfoIcon>
     </Flex>

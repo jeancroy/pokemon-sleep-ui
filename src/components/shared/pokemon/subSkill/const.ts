@@ -1,4 +1,4 @@
 import {Dimension} from '@/types/style';
 
 
-export const defaultSubSkillIconDimension: Dimension = 'h-6 w-6';
+export const defaultSubSkillIconDimension: Dimension = 'size-6';

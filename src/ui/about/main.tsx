@@ -25,13 +25,13 @@ export const About = async ({params}: DefaultPageProps) => {
             {t('Site.Name')}
           </div>
           <AboutSection title="Discord">
-            <DiscordLink className="button-clickable-glow h-14 w-14"/>
+            <DiscordLink className="button-clickable-glow size-14"/>
           </AboutSection>
         </Flex>
         <Flex className="gap-8 md:flex-row">
           <Flex className="gap-3">
             <Flex center>
-              <UserCircleIcon className="h-10 w-10"/>
+              <UserCircleIcon className="size-10"/>
             </Flex>
             <AboutSection title="Discord">
               @raenonx
@@ -42,7 +42,7 @@ export const About = async ({params}: DefaultPageProps) => {
           </Flex>
           <Flex className="gap-2">
             <Flex center>
-              <CurrencyDollarIcon className="h-10 w-10"/>
+              <CurrencyDollarIcon className="size-10"/>
             </Flex>
             <AboutSection title="Patreon">
               <NextLink href="https://patreon.com/RaenonX" className="border-link">

@@ -96,7 +96,7 @@ export const DocsEditor = ({onDocUpdated, getUserDataAction, ...props}: Props) =
       </InputRowWithTitle>
       <InputRowWithTitle title={
         <Flex center>
-          <LinkIcon className="h-4 w-4"/>
+          <LinkIcon className="size-4"/>
         </Flex>
       }>
         <InputBox
@@ -124,7 +124,7 @@ export const DocsEditor = ({onDocUpdated, getUserDataAction, ...props}: Props) =
         isActive={(locale) => locale === doc.locale}
         title={
           <Flex center>
-            <LanguageIcon className="h-6 w-6"/>
+            <LanguageIcon className="size-6"/>
           </Flex>
         }
         ids={[...locales]}

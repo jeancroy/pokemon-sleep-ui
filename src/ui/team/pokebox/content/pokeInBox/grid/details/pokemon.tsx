@@ -23,7 +23,7 @@ export const PokeInBoxGridPokemon = ({pokemon, pokemonProducingParamsMap}: PokeI
   return (
     <Flex direction="row" noFullWidth className="items-center gap-1">
       <Flex noFullWidth center className="gap-1.5">
-        <PokemonSleepTypeIcon sleepType={sleepType} dimension="h-5 w-5" className="invert-hoverable-dark"/>
+        <PokemonSleepTypeIcon sleepType={sleepType} dimension="size-5" className="invert-hoverable-dark"/>
         <Flex direction="row" noFullWidth className={clsx(
           'items-center gap-1 px-1.5',
           specialty === specialtyIdMap.berry && 'info-highlight',
@@ -33,8 +33,8 @@ export const PokeInBoxGridPokemon = ({pokemon, pokemonProducingParamsMap}: PokeI
         </Flex>
       </Flex>
       <Flex noFullWidth className="gap-1 text-sm">
-        <PokemonIngredientRate params={pokemonProducingParams} dimension="h-6 w-6"/>
-        <PokemonMainSkillTriggerRate params={pokemonProducingParams} dimension="h-6 w-6"/>
+        <PokemonIngredientRate params={pokemonProducingParams} dimension="size-6"/>
+        <PokemonMainSkillTriggerRate params={pokemonProducingParams} dimension="size-6"/>
       </Flex>
     </Flex>
   );

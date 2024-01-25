@@ -22,7 +22,7 @@ export const PokemonCarryLimit = ({carryLimit, ...props}: Props) => {
       <GenericIconLarger
         src="/images/generic/bag.png"
         alt={t('MaxCarry')}
-        dimension={normalText ? 'h-6 w-6' : 'h-4 w-4'}
+        dimension={normalText ? 'size-6' : 'size-4'}
       />
       <div>{formatInt(carryLimit)}</div>
     </Flex>
