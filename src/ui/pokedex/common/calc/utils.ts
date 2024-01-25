@@ -35,7 +35,7 @@ export const toCalculateAllIngredientPossibilities = <TFilter extends PokedexFil
 };
 
 type ToPokemonInfoWithSortingPayloadFromPokemonListOpts<
-  TFilter extends PokedexFilterCommon
+  TFilter extends PokedexFilterCommon,
 > = PokedexCalcDataProps & {
   filter: TFilter,
   translatedSettings: TranslatedUserSettings,

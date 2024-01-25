@@ -24,7 +24,7 @@ export type PokemonStats = {
   friendshipPoints: number,
   recruit: {
     exp: number,
-    shards: number
+    shards: number,
   },
   transfer: {
     candy: number,

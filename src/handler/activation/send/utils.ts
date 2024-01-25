@@ -3,7 +3,7 @@ import {ActivationSendingCommonOpts, ActivationSendingPayload} from '@/handler/a
 
 
 type ToActivationLinkFromSendingPayloadOpts = ActivationSendingCommonOpts & {
-  payload: ActivationSendingPayload
+  payload: ActivationSendingPayload,
 };
 
 export const toActivationLinkFromSendingPayload = async ({

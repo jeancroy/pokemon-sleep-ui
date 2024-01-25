@@ -30,7 +30,7 @@ export const toTeamAnalysisMember = ({
 };
 
 type ToTeamAnalysisMemberNullableOpts = ToTeamAnalysisMemberNullableData & {
-  pokeInBox: Nullable<PokeInBox>
+  pokeInBox: Nullable<PokeInBox>,
 };
 
 export const toTeamAnalysisMemberNullable = ({

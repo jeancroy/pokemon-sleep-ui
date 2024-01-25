@@ -73,7 +73,7 @@ export const getSleepStyleNormalUniqueByMap = async (): Promise<FieldToFlattened
           },
         },
       },
-      {$match: {'data': {$size: 1}}},
+      {$match: {data: {$size: 1}}},
       {
         $project: {
           _id: false,
@@ -85,7 +85,7 @@ export const getSleepStyleNormalUniqueByMap = async (): Promise<FieldToFlattened
       {
         $group: {
           _id: '$mapId',
-          data: {'$push': '$$ROOT'},
+          data: {$push: '$$ROOT'},
         },
       },
     ]);

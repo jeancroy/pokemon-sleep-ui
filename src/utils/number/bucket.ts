@@ -2,7 +2,7 @@ type ToBucketedOpts<TData> = {
   data: TData[],
   getBasis: (data: TData) => number,
   count: number,
-  order: 'asc' | 'desc'
+  order: 'asc' | 'desc',
 };
 
 export const toBucketed = <TData>({

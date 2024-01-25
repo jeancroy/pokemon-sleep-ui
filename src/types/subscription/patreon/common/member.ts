@@ -18,5 +18,5 @@ export type PatreonMember = {
     currently_entitled_tiers: {
       data: PatreonTier[],
     },
-  }
+  },
 };

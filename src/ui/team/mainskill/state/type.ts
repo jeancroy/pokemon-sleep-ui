@@ -5,7 +5,7 @@ import {GenerateSkillTriggerAnalysisUnitOpts} from '@/ui/team/mainskill/utils';
 
 type SkillTriggerAnalysisTargetStateSetBaseOpts = {
   unit: SkillTriggerAnalysisUnit,
-  clearTarget: boolean
+  clearTarget: boolean,
 };
 
 export type UseSkillTriggerAnalysisTargetStateReturn = {

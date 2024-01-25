@@ -16,7 +16,7 @@ type GetActivationButtonTextOpts<TActivation extends ActivationKeyAtClient> = {
 };
 
 type GetActivationKeyButtonTextOpts<TDefault> = GetActivationButtonTextOpts<ActivationKeyAtClient> & {
-  defaultOnNotFound: TDefault
+  defaultOnNotFound: TDefault,
 };
 
 export const getActivationKeyButtonText = <TDefault>({

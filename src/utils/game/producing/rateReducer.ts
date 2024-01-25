@@ -140,7 +140,7 @@ export const getTotalOfItemRates = ({rates, target, state}: GetTotalOfItemRatesO
 );
 
 type GetTotalOfGroupedProducingRateOpts = {
-  rate: GroupedProducingRate<number>
+  rate: GroupedProducingRate<number>,
   key: KeysOfType<ProducingRate, number>,
 };
 
