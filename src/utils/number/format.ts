@@ -72,7 +72,7 @@ export const formatToAbbreviation = ({num, decimals}: FormatToAbbreviationOpts):
     return '-';
   }
 
-  const numForCheck = Math.abs(num); // Need check the case of negative
+  const numForCheck = Math.abs(num); // For handling negative number
   decimals = decimals ?? 1;
 
   if (numForCheck >= 1E9) {
