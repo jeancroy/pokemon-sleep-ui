@@ -1,25 +1,41 @@
+import {Decimal128} from 'bson';
+
+
 export type SubSkillId = number;
 
 export type SubSkillRarity = 1 | 2 | 3;
 
 // This corresponds to whatever in the scraper
-export type SubSkillBonus = {
-  exp?: number, // 14
-  helper?: number, // 5
-  stamina?: number, // 1.12
-  shard?: number, // 6
-  research?: number, // 6
-  frequency?: number, // 7 / 14 / 21?
-  berryCount?: number, // 1 / 2 / 3
-  inventory?: number, // 6 / 12 / 18
-  skillLevel?: number, // 1 / 2
-  ingredientProbability?: number, // 18 / 36 / 54?
-  mainSkillProbability?: number, // 18 / 36 / 54?
+export type SubSkillBonusBase<TValue> = {
+  exp?: TValue, // 14
+  helper?: TValue, // 5
+  stamina?: TValue, // 1.12
+  shard?: TValue, // 6
+  research?: TValue, // 6
+  frequency?: TValue, // 7 / 14 / 21?
+  berryCount?: TValue, // 1 / 2 / 3
+  inventory?: TValue, // 6 / 12 / 18
+  skillLevel?: TValue, // 1 / 2
+  ingredientProbability?: TValue, // 18 / 36 / 54?
+  mainSkillProbability?: TValue, // 18 / 36 / 54?
 };
+
+export type SubSkillBonusInDatabase = SubSkillBonusBase<Decimal128>;
+
+export type SubSkillBonus = SubSkillBonusBase<number>;
 
 export type SubSkillBonusCategory = keyof Required<SubSkillBonus>;
 
 export type GroupedSubSkillBonus = {[category in SubSkillBonusCategory]?: number[]};
+
+export type SubSkillDataCommon<TBonus> = {
+  id: SubSkillId,
+  rarity: SubSkillRarity | null,
+  next: SubSkillId | null,
+  bonus: TBonus,
+};
+
+export type SubSkillDataModel = SubSkillDataCommon<SubSkillBonusInDatabase>;
 
 export type SubSkillData = {
   id: SubSkillId,

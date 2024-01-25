@@ -14,6 +14,18 @@ export const getDataAsMap = async <TData extends Document>(
     .map((data) => [getKey(data), data]));
 };
 
+export const getDataAsMapWithConverter = async <TData extends Document, TValue>(
+  collection: Promise<Collection<TData>>,
+  getKey: (data: WithId<TData>) => Indexable,
+  getValue: (data: WithId<TData>) => TValue,
+  filter?: Filter<TData>,
+) => {
+  return Object.fromEntries((await (await collection)
+    .find(filter ?? {}, {projection: {_id: false}})
+    .toArray())
+    .map((data) => [getKey(data), getValue(data)]));
+};
+
 export const getDataAsArray = async <TData extends Document>(
   collection: Promise<Collection<TData>>,
   filter?: Filter<TData>,

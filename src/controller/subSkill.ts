@@ -1,24 +1,33 @@
 import {Collection} from 'mongodb';
 
-import {getDataAsArray, getDataAsMap} from '@/controller/common';
+import {getDataAsArray, getDataAsMapWithConverter} from '@/controller/common';
 import mongoPromise from '@/lib/mongodb';
-import {SubSkillData, SubSkillMap} from '@/types/game/pokemon/subSkill';
+import {SubSkillData, SubSkillDataModel, SubSkillMap} from '@/types/game/pokemon/subSkill';
 
 
-const getCollection = async (): Promise<Collection<SubSkillData>> => {
+const toSubSkillData = ({bonus, ...rest}: SubSkillDataModel): SubSkillData => {
+  return {
+    ...rest,
+    bonus: Object.fromEntries(
+      Object.entries(bonus).map(([key, value]) => [key, parseFloat(value.toString())]),
+    ),
+  };
+};
+
+const getCollection = async (): Promise<Collection<SubSkillDataModel>> => {
   const client = await mongoPromise;
 
   return client
     .db('skill')
-    .collection<SubSkillData>('sub');
+    .collection<SubSkillDataModel>('sub');
 };
 
 export const getAllSubSkillData = async (): Promise<SubSkillData[]> => {
-  return getDataAsArray(getCollection());
+  return (await getDataAsArray(getCollection())).map(toSubSkillData);
 };
 
 export const getSubSkillMap = async (): Promise<SubSkillMap> => {
-  return getDataAsMap(getCollection(), ({id}) => id);
+  return getDataAsMapWithConverter(getCollection(), ({id}) => id, toSubSkillData);
 };
 
 const addIndex = async () => {
