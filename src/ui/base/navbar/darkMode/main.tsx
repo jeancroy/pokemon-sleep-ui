@@ -10,7 +10,7 @@ import {useMounted} from '@/hooks/mounted';
 
 export const ThemeSwitcher = () => {
   const {mounted} = useMounted();
-  const {theme, setTheme} = useTheme();
+  const {resolvedTheme: theme, setTheme} = useTheme();
 
   if (!mounted) {
     return null;
