@@ -1,4 +1,5 @@
 import {ProducingState} from '@/types/game/producing/state';
+import {SleepSessions} from '@/types/game/sleep';
 import {StaminaEventLog} from '@/types/game/stamina/event';
 
 
@@ -14,4 +15,5 @@ export type StaminaEfficiencyCounter = {[state in ProducingState]: number} & {
 export type StaminaEfficiency = {
   logs: StaminaEventLog[],
   multiplier: StaminaEfficiencyCounter,
+  intervalsDuringSleep: SleepSessions<EfficiencyInterval[]>,
 };

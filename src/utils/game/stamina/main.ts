@@ -9,6 +9,7 @@ import {getLogsWithEndOfPeriodMark} from '@/utils/game/stamina/events/endOfPerio
 import {getLogsWithPrimarySleep} from '@/utils/game/stamina/events/primary';
 import {getLogsWithSecondarySleep} from '@/utils/game/stamina/events/secondary';
 import {getLogsWithSkillRecovery} from '@/utils/game/stamina/events/skill';
+import {extractIntervalsDuringSleep} from '@/utils/game/stamina/interval';
 
 
 type GetStaminaEventLogOpts = {
@@ -75,11 +76,17 @@ export const getStaminaEfficiencyMultiplierFromLogs = (logs: StaminaEventLog[]):
 };
 
 export const getStaminaEfficiency = (opts: GetStaminaEventLogOpts): StaminaEfficiency => {
+  const {sessionInfo} = opts;
+
   const logs = getStaminaEventLogs(opts);
   const staminaEfficiencyMultiplier = getStaminaEfficiencyMultiplierFromLogs(logs);
 
   return {
     logs,
     multiplier: staminaEfficiencyMultiplier,
+    intervalsDuringSleep: extractIntervalsDuringSleep({
+      logs,
+      hasSecondary: !!sessionInfo.session.secondary,
+    }),
   };
 };
