@@ -1,9 +1,7 @@
 'use client';
 import React from 'react';
 
-import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
-import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {PokemonNatureSelector} from '@/components/shared/pokemon/nature/selector/main';
 import {PokemonSubSkillSelector} from '@/components/shared/pokemon/subSkill/selector/main';
 import {StaminaChartOfEfficiency} from '@/components/shared/stamina/chart/efficiency';
@@ -36,7 +34,6 @@ export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
 
   return (
     <Flex className="gap-3 p-2">
-      <AdsUnit/>
       <StaminaConfig
         config={config}
         setConfig={setConfig}
@@ -56,7 +53,6 @@ export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
           setNature={setNature}
         />
       </Flex>
-      <HorizontalSplitter/>
       <StaminaEfficiencyUI efficiency={staminaEfficiency}/>
       <StaminaChartOfStamina config={config} logs={logs}/>
       <StaminaChartOfEfficiency config={config} logs={logs}/>
