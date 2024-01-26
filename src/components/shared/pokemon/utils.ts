@@ -1,10 +1,10 @@
 import {clsx} from 'clsx';
 
-import {PokemonPackStatsCommonProps} from '@/components/shared/pokemon/type';
+import {PokemonInventoryCommonProps} from '@/components/shared/pokemon/inventory/type';
 
 
-export const getPackStatsStyle = ({normalText, className}: PokemonPackStatsCommonProps) => clsx(
+export const getPackStatsStyle = ({normalTextSize, className}: PokemonInventoryCommonProps) => clsx(
   'items-center gap-0.5',
-  !normalText && 'text-sm',
+  !normalTextSize && 'text-sm',
   className,
 );

@@ -1,6 +1,6 @@
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/config';
 import {CalculatedUserSettings, UserCalculationBehavior, UserSettings} from '@/types/userData/settings';
-import {getSleepDurationInfo, getSleepSessionInfo} from '@/utils/game/sleep';
+import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {toEffectiveBonus, ToEffectiveBonusOpts} from '@/utils/user/bonus';
 
 
@@ -51,7 +51,6 @@ export const toCalculatedUserSettings = ({
       settings,
     }),
     sleepSessionInfo,
-    sleepDurationInfo: getSleepDurationInfo(settings.stamina.sleepSession),
     behavior: {
       ...settings.behavior,
       ...behaviorOverride,

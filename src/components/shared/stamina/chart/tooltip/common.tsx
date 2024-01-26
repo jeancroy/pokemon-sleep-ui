@@ -31,7 +31,7 @@ export const StaminaChartTooltip = ({active, payload, label, logs, start, getInf
 
   const timing = label as number;
   const {type, isAsleep} = log;
-  const textAsleep = t2('Asleep');
+  const textAsleep = t2('Asleep.Neutral');
 
   return (
     <Flex noFullWidth className="info-section w-40">

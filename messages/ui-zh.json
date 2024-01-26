@@ -282,7 +282,10 @@
         "Friendship": "友情點數",
         "Recruit": "成為夥伴",
         "TransferReward": "傳送給博士的獎勵",
-        "TimeToFullPack": "滿包所需時長",
+        "TimeToFullPack": {
+          "Primary": "滿包所需時長 (一睡)",
+          "Secondary": "滿包所需時長 (二睡)"
+        },
         "MainSkillValue": "技能值",
         "MainSkillTriggerValue": "技能觸發值",
         "MainSkillTriggerRate": "技能觸發率",
@@ -479,8 +482,16 @@
   "Producing": {
     "State": {
       "Awake": "清醒",
-      "AsleepUnfilled": "睡著 (未滿包)",
-      "AsleepFilled": "睡著 (已滿包)"
+      "Asleep": {
+        "Primary": {
+          "Vacant": "[1] 睡著 (未滿包)",
+          "Filled": "[1] 睡著 (已滿包)"
+        },
+        "Secondary": {
+          "Vacant": "[2] 睡著 (未滿包)",
+          "Filled": "[2] 睡著 (已滿包)"
+        }
+      }
     },
     "Preset": {
       "UnfilledOnly": "未滿包"
@@ -545,9 +556,13 @@
       "EndOfPeriod": "週期結束"
     },
     "State": {
-      "Asleep": "睡覺中",
       "Average": "平均",
-      "Awake": "清醒中"
+      "Awake": "清醒中",
+      "Asleep": {
+        "Neutral": "睡覺中",
+        "Primary": "睡覺中 (1)",
+        "Secondary": "睡覺中 (2)"
+      }
     }
   },
   "UserSettings": {

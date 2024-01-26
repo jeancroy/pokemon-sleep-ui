@@ -9,12 +9,19 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
       rate: {
         berry: {
           id: NaN, // Ignored
-          sleep: {
+          sleep1: {
             id: NaN,
             period: 'daily',
             frequency: NaN, // Ignored
             energy: NaN, // Ignored
             quantity: 75,
+          },
+          sleep2: {
+            id: NaN,
+            period: 'daily',
+            frequency: NaN, // Ignored
+            energy: NaN, // Ignored
+            quantity: 0,
           },
           awake: {
             id: NaN, // Ignored
@@ -27,12 +34,19 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
         ingredient: [
           {
             id: NaN, // Ignored
-            sleep: {
+            sleep1: {
               id: NaN,
               period: 'daily',
               frequency: NaN, // Ignored
               energy: NaN, // Ignored
               quantity: 40,
+            },
+            sleep2: {
+              id: NaN,
+              period: 'daily',
+              frequency: NaN, // Ignored
+              energy: NaN, // Ignored
+              quantity: 0,
             },
             awake: {
               id: NaN, // Ignored
@@ -44,12 +58,19 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
           },
           {
             id: NaN, // Ignored
-            sleep: {
+            sleep1: {
               id: NaN,
               period: 'daily',
               frequency: NaN, // Ignored
               energy: NaN, // Ignored
               quantity: 20,
+            },
+            sleep2: {
+              id: NaN,
+              period: 'daily',
+              frequency: NaN, // Ignored
+              energy: NaN, // Ignored
+              quantity: 10,
             },
             awake: {
               id: NaN, // Ignored
@@ -68,7 +89,7 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
       },
     });
 
-    expect(quantity).toBeCloseTo(75 * 0.85 + (40 + 20) * 0.15);
+    expect(quantity).toBeCloseTo(75 * 0.85 + (40 + 20 + 10) * 0.15);
   });
 
   it('is correct with weekly rate', () => {
@@ -76,12 +97,19 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
       rate: {
         berry: {
           id: NaN, // Ignored
-          sleep: {
+          sleep1: {
             id: NaN,
             period: 'weekly',
             frequency: NaN, // Ignored
             energy: NaN, // Ignored
             quantity: 75,
+          },
+          sleep2: {
+            id: NaN,
+            period: 'weekly',
+            frequency: NaN, // Ignored
+            energy: NaN, // Ignored
+            quantity: 0,
           },
           awake: {
             id: NaN, // Ignored
@@ -94,12 +122,19 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
         ingredient: [
           {
             id: NaN, // Ignored
-            sleep: {
+            sleep1: {
               id: NaN,
               period: 'weekly',
               frequency: NaN, // Ignored
               energy: NaN, // Ignored
               quantity: 40,
+            },
+            sleep2: {
+              id: NaN,
+              period: 'weekly',
+              frequency: NaN, // Ignored
+              energy: NaN, // Ignored
+              quantity: 0,
             },
             awake: {
               id: NaN, // Ignored
@@ -111,12 +146,19 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
           },
           {
             id: NaN, // Ignored
-            sleep: {
+            sleep1: {
               id: NaN,
               period: 'weekly',
               frequency: NaN, // Ignored
               energy: NaN, // Ignored
               quantity: 20,
+            },
+            sleep2: {
+              id: NaN,
+              period: 'weekly',
+              frequency: NaN, // Ignored
+              energy: NaN, // Ignored
+              quantity: 0,
             },
             awake: {
               id: NaN, // Ignored

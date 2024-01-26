@@ -6,7 +6,7 @@ import {PokeboxViewerDisplayMigrateParams} from '@/utils/migrate/pokeboxDisplay/
 
 export const pokeboxDisplayMigrators: Migrator<PokeboxViewerDisplay, PokeboxViewerDisplayMigrateParams>[] = [
   {
-    // `frequency` sort type split to `frequencyOfBerry`/`frequencyOfIngredient` addition
+    // `frequency` sort type split to `frequencyOfBerry`/`frequencyOfIngredient`
     toVersion: 1,
     migrate: ({sort, ...old}): PokeboxViewerDisplay => ({
       ...old,
@@ -59,6 +59,16 @@ export const pokeboxDisplayMigrators: Migrator<PokeboxViewerDisplay, PokeboxView
     migrate: (old) => ({
       ...old,
       ...defaultPokemonIndividualParams,
+    }),
+  },
+  {
+    // `timeToFullPack` sort type split to `timeToFullPackPrimary` / `timeToFullPackSecondary`
+    toVersion: 6,
+    migrate: ({sort, ...old}) => ({
+      ...old,
+      ...defaultPokemonIndividualParams,
+      // @ts-ignore
+      sort: sort === 'timeToFullPack' ? 'timeToFullPackPrimary' : sort,
     }),
   },
 ];

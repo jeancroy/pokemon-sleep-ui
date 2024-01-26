@@ -38,8 +38,13 @@ export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonS
   }),
   frequencyOfBerry: (opts) => getBerryRateSorter({key: 'frequency', opts}),
   frequencyOfIngredient: (opts) => getIngredientFirstRateSorter({key: 'frequency', opts}),
-  timeToFullPack: (opts) => getPokemonRateSorter(opts).fullPackStats.secondsToFull,
-  totalEnergy: (opts) => getTotalEnergyOfPokemonProducingRate(getPokemonRateSorter(opts)),
+  timeToFullPackPrimary: (opts) => (
+    getPokemonRateSorter(opts).fullPackStats.secondsToFull.primary ?? NaN
+  ),
+  timeToFullPackSecondary: (opts) => (
+    getPokemonRateSorter(opts).fullPackStats.secondsToFull.secondary ?? NaN),
+  totalEnergy: (opts) => getTotalEnergyOfPokemonProducingRate(getPokemonRateSorter(opts),
+  ),
   mainSkillLevel: ({seeds, ...opts}) => getMainSkillLevel({
     seedsUsed: seeds.gold,
     ...opts,

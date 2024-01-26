@@ -20,12 +20,16 @@ export const getTheoreticalDailyQuantityInSleep = ({
 
   const berryDailyQuantity = (
     produceSplit.berry *
-    toProducingRateOfPeriod({rate: berry.sleep, period: 'daily'}).quantity
+    (
+      toProducingRateOfPeriod({rate: berry.sleep1, period: 'daily'}).quantity +
+      toProducingRateOfPeriod({rate: berry.sleep2, period: 'daily'}).quantity
+    )
   );
   const ingredientDailyQuantity = (
     produceSplit.ingredient *
-    toSum(ingredient.map(({sleep}) => (
-      toProducingRateOfPeriod({rate: sleep, period: 'daily'}).quantity
+    toSum(ingredient.map(({sleep1, sleep2}) => (
+      toProducingRateOfPeriod({rate: sleep1, period: 'daily'}).quantity +
+      toProducingRateOfPeriod({rate: sleep2, period: 'daily'}).quantity
     )))
   );
 

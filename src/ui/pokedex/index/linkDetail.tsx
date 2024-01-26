@@ -8,8 +8,8 @@ import {GenericIcon} from '@/components/shared/icon/common/main';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
-import {PokemonTimeToFullPack} from '@/components/shared/pokemon/fullPack/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
+import {PokemonTimeToFullPackSingle} from '@/components/shared/pokemon/inventory/fullPack/single';
 import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
 import {PokemonMainSkillTriggerValue} from '@/components/shared/pokemon/mainSkill/triggerValue';
 import {PokemonIngredientRate} from '@/components/shared/pokemon/production/params/ingredient';
@@ -149,8 +149,12 @@ export const PokedexLinkDetail = React.memo(({
     return <PokemonFrequency frequency={sorter}/>;
   }
 
-  if (display === 'timeToFullPack') {
-    return <PokemonTimeToFullPack timeToFullPack={sorter}/>;
+  if (display === 'timeToFullPackPrimary') {
+    return <PokemonTimeToFullPackSingle alt={t2('Stats.TimeToFullPack.Primary')} seconds={sorter}/>;
+  }
+
+  if (display === 'timeToFullPackSecondary') {
+    return <PokemonTimeToFullPackSingle alt={t2('Stats.TimeToFullPack.Secondary')} seconds={sorter}/>;
   }
 
   if (display === 'id') {

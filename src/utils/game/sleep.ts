@@ -1,14 +1,7 @@
 import {durationOfDay} from '@/const/common';
 import {maxSleepEffectiveDuration, staminaMaxRecovery, staminaRecoveryInterval} from '@/const/game/stamina';
-import {
-  SleepDurationInfo,
-  SleepSessionInfo,
-  SleepSessionMeta,
-  SleepSessionRecovery,
-  SleepSessionTimes,
-} from '@/types/game/sleep';
+import {SleepSessionInfo, SleepSessionMeta, SleepSessionRecovery, SleepSessionTimes} from '@/types/game/sleep';
 import {StaminaRecoveryRateConfig, StaminaSleepSessionConfig} from '@/types/game/stamina/config';
-import {toSum} from '@/utils/array';
 import {getActualRecoveryAmount} from '@/utils/game/stamina/events/utils';
 import {rotateTime} from '@/utils/time';
 
@@ -126,17 +119,4 @@ export const getSleepSessionInfo = ({session, recoveryRate}: GetSleepSessionInfo
       awake: awakeDuration,
     },
   };
-};
-
-export const getSleepDurationInfo = ({
-  primary,
-  secondary,
-}: StaminaSleepSessionConfig): SleepDurationInfo => {
-  const durations = [rotateTime(primary.end - primary.start)];
-
-  if (secondary) {
-    durations.push(rotateTime(secondary.end - secondary.start));
-  }
-
-  return {durations, total: toSum(durations)};
 };

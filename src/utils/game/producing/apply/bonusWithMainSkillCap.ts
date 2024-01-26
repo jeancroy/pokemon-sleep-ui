@@ -1,10 +1,10 @@
-import {durationOfDay} from '@/const/common';
 import {ProducingRateOfItem} from '@/types/game/producing/rate';
 import {ApplyBonusCommonOpts} from '@/utils/game/producing/apply/type';
 
 
 type ApplyBonusWithMainSkillCappingOpts<T extends ProducingRateOfItem | null> = ApplyBonusCommonOpts<T> & {
   maxCount: number,
+  cappingDuration: number,
 };
 
 export const applyBonusWithMainSkillCapping = <T extends ProducingRateOfItem | null>({
@@ -13,6 +13,7 @@ export const applyBonusWithMainSkillCapping = <T extends ProducingRateOfItem | n
   energyMultiplier,
   producingState,
   maxCount,
+  cappingDuration,
 }: ApplyBonusWithMainSkillCappingOpts<T>): T => {
   if (!data) {
     return data;
@@ -22,7 +23,7 @@ export const applyBonusWithMainSkillCapping = <T extends ProducingRateOfItem | n
   const staminaBonus = stamina.multiplier[producingState];
 
   const frequency = data.frequency / staminaBonus;
-  const quantity = Math.min(durationOfDay / frequency, maxCount);
+  const quantity = Math.min(cappingDuration / frequency, maxCount);
 
   return {
     ...data,

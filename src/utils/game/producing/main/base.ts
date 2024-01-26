@@ -48,7 +48,7 @@ export const getPokemonProducingRateBase = ({
   const {
     behavior,
     bonus,
-    sleepDurationInfo,
+    sleepSessionInfo,
   } = calculatedSettings;
 
   const period = opts.period ?? defaultProductionPeriod;
@@ -93,12 +93,12 @@ export const getPokemonProducingRateBase = ({
       rate: {berry, ingredient},
       produceSplit,
     }),
-    sleepDurationInfo,
+    intervalsDuringSleep: bonus.stamina.intervalsDuringSleep,
     isFullPack,
   });
   const sleepStateSplit = getProducingSleepStateSplit({
-    sleepDurationTotal: sleepDurationInfo.total,
-    fullPackRatioInSleep: fullPackStats.ratio,
+    sleepSessionInfo,
+    fullPackStats,
   });
   // `skill` depends on `fullPackStats.secondsToFull`
   const skill = getMainSkillProducingRate({

@@ -1,36 +1,43 @@
 import {FullPackStats} from '@/types/game/producing/carryLimit';
-import {SleepDurationInfo} from '@/types/game/sleep';
-import {toSum} from '@/utils/array';
+import {SleepSessions} from '@/types/game/sleep';
+import {EfficiencyInterval} from '@/types/game/stamina/efficiency';
 import {getSecondsToFullPackInSleep} from '@/utils/game/producing/inventory/fullPackTime';
 
 
 type GetFullPackStatsOpts = {
   dailyCount: number,
   carryLimit: number,
-  sleepDurationInfo: SleepDurationInfo,
+  intervalsDuringSleep: SleepSessions<EfficiencyInterval[]>,
   isFullPack: boolean,
 };
 
 export const getFullPackStats = ({
   dailyCount,
   carryLimit,
-  sleepDurationInfo,
+  intervalsDuringSleep,
   isFullPack,
 }: GetFullPackStatsOpts): FullPackStats => {
   if (isFullPack) {
     return {
-      secondsToFull: 0,
-      ratio: 1,
+      secondsToFull: {
+        primary: 0,
+        secondary: intervalsDuringSleep.secondary ? 0 : null,
+      },
     };
   }
 
-  const secondsToFull = getSecondsToFullPackInSleep({dailyCount, carryLimit});
-  const fullPackDuration = toSum(
-    sleepDurationInfo.durations.map((duration) => Math.max(duration - secondsToFull, 0)),
-  );
-
   return {
-    secondsToFull,
-    ratio: fullPackDuration / sleepDurationInfo.total,
+    secondsToFull: {
+      primary: getSecondsToFullPackInSleep({
+        staminaIntervals: intervalsDuringSleep.primary,
+        dailyCount,
+        carryLimit,
+      }),
+      secondary: getSecondsToFullPackInSleep({
+        staminaIntervals: intervalsDuringSleep.secondary,
+        dailyCount,
+        carryLimit,
+      }),
+    },
   };
 };

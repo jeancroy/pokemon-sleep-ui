@@ -17,7 +17,7 @@ export const ProducingStateIcon = ({state, ...props}: Props) => {
 
   if (state === 'sleep1Vacant' || state === 'sleep1Filled') {
     return (
-      <Flex direction="row" noFullWidth className="gap-1">
+      <Flex direction="row" noFullWidth center>
         <SleepIcon {...props}/>
         <span>1</span>
       </Flex>
@@ -26,7 +26,7 @@ export const ProducingStateIcon = ({state, ...props}: Props) => {
 
   if (state === 'sleep2Vacant' || state === 'sleep2Filled') {
     return (
-      <Flex direction="row" noFullWidth className="gap-1">
+      <Flex direction="row" noFullWidth center>
         <SleepIcon {...props}/>
         <span>2</span>
       </Flex>

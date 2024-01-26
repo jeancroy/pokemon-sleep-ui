@@ -40,13 +40,23 @@ export const PokemonDetailedProducingStats = (props: PokemonDetailedProducingSta
         />
         <PokemonDetailedProducingStatsOfState
           {...props}
-          state="sleepVacant"
-          title={t(pokemonProducingStatsStateI18nId.sleepVacant)}
+          state="sleep1Vacant"
+          title={t(pokemonProducingStatsStateI18nId.sleep1Vacant)}
         />
         <PokemonDetailedProducingStatsOfState
           {...props}
-          state="sleepFilled"
-          title={t(pokemonProducingStatsStateI18nId.sleepFilled)}
+          state="sleep1Filled"
+          title={t(pokemonProducingStatsStateI18nId.sleep1Filled)}
+        />
+        <PokemonDetailedProducingStatsOfState
+          {...props}
+          state="sleep2Vacant"
+          title={t(pokemonProducingStatsStateI18nId.sleep2Vacant)}
+        />
+        <PokemonDetailedProducingStatsOfState
+          {...props}
+          state="sleep2Filled"
+          title={t(pokemonProducingStatsStateI18nId.sleep2Filled)}
         />
       </Grid>
       <AdsUnit/>

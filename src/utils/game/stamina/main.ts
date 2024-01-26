@@ -28,19 +28,30 @@ const getStaminaEventLogs = ({config, sessionInfo, skillTriggers}: GetStaminaEve
   return logs;
 };
 
-export const getStaminaEfficiencyMultiplierFromLogs = (logs: StaminaEventLog[]): StaminaEfficiencyCounter => {
+type GetStaminaEfficiencyMultiplierFromLogsOpts = {
+  logs: StaminaEventLog[],
+  hasSecondary: boolean,
+};
+
+export const getStaminaEfficiencyMultiplierFromLogs = ({
+  logs,
+  hasSecondary,
+}: GetStaminaEfficiencyMultiplierFromLogsOpts): StaminaEfficiencyCounter => {
   const durationCounter: StaminaEfficiencyCounter = {
-    sleep: 0,
     awake: 0,
+    sleep1: 0,
+    sleep2: 0,
     average: 0,
   };
   const weightedDurationCounter: StaminaEfficiencyCounter = {
-    sleep: 0,
     awake: 0,
+    sleep1: 0,
+    sleep2: 0,
     average: 0,
   };
 
-  let isDuringSleep = false;
+  let isAsleep = false;
+  let isAnySleepCounted = false;
 
   for (let i = 1; i < logs.length; i++) {
     const prev = logs[i - 1];
@@ -53,23 +64,30 @@ export const getStaminaEfficiencyMultiplierFromLogs = (logs: StaminaEventLog[]):
 
     durationCounter.average += durationOfLog;
     weightedDurationCounter.average += weightedDuration;
-    if (isDuringSleep) {
-      durationCounter.sleep += durationOfLog;
-      weightedDurationCounter.sleep += weightedDuration;
+    if (isAsleep) {
+      if (hasSecondary && !isAnySleepCounted) {
+        durationCounter.sleep2 += durationOfLog;
+        weightedDurationCounter.sleep2 += weightedDuration;
+      } else {
+        durationCounter.sleep1 += durationOfLog;
+        weightedDurationCounter.sleep1 += weightedDuration;
+      }
     } else {
       durationCounter.awake += durationOfLog;
       weightedDurationCounter.awake += weightedDuration;
     }
 
     if (curr.type === 'sleep') {
-      isDuringSleep = true;
-    } else if (isDuringSleep && curr.type === 'wakeup') {
-      isDuringSleep = false;
+      isAsleep = true;
+    } else if (isAsleep && curr.type === 'wakeup') {
+      isAsleep = false;
+      isAnySleepCounted = true;
     }
   }
 
   return {
-    sleep: weightedDurationCounter.sleep / durationCounter.sleep,
+    sleep1: weightedDurationCounter.sleep1 / durationCounter.sleep1,
+    sleep2: weightedDurationCounter.sleep2 / durationCounter.sleep2,
     awake: weightedDurationCounter.awake / durationCounter.awake,
     average: weightedDurationCounter.average / durationCounter.average,
   };
@@ -78,15 +96,14 @@ export const getStaminaEfficiencyMultiplierFromLogs = (logs: StaminaEventLog[]):
 export const getStaminaEfficiency = (opts: GetStaminaEventLogOpts): StaminaEfficiency => {
   const {sessionInfo} = opts;
 
+  const hasSecondary = !!sessionInfo.session.secondary;
+
   const logs = getStaminaEventLogs(opts);
-  const staminaEfficiencyMultiplier = getStaminaEfficiencyMultiplierFromLogs(logs);
+  const staminaEfficiencyMultiplier = getStaminaEfficiencyMultiplierFromLogs({logs, hasSecondary});
 
   return {
     logs,
     multiplier: staminaEfficiencyMultiplier,
-    intervalsDuringSleep: extractIntervalsDuringSleep({
-      logs,
-      hasSecondary: !!sessionInfo.session.secondary,
-    }),
+    intervalsDuringSleep: extractIntervalsDuringSleep({logs, hasSecondary}),
   };
 };

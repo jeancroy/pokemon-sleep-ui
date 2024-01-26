@@ -282,7 +282,10 @@
         "Friendship": "Max. Freundespunkte",
         "Recruit": "Befreundet",
         "TransferReward": "Belohnung für den Transfer des Pokemon an den Professor",
-        "TimeToFullPack": "Zeit bis Inventar voll ist",
+        "TimeToFullPack": {
+          "Primary": "Zeit bis Inventar voll ist (Sleep 1)",
+          "Secondary": "Zeit bis Inventar voll ist (Sleep 2)"
+        },
         "MainSkillValue": "Talentwert",
         "MainSkillTriggerValue": "Talent-Auslösefrequenzwert",
         "MainSkillTriggerRate": "Talent-Auslöserate",
@@ -479,8 +482,16 @@
   "Producing": {
     "State": {
       "Awake": "Wach",
-      "AsleepUnfilled": "Eingeschlafen (Inventar nicht gefüllt)",
-      "AsleepFilled": "Eingeschlafen (Inventar gefüllt)"
+      "Asleep": {
+        "Primary": {
+          "Vacant": "[1] Eingeschlafen (Inventar nicht gefüllt)",
+          "Filled": "[1] Eingeschlafen (Inventar gefüllt)"
+        },
+        "Secondary": {
+          "Vacant": "[2] Eingeschlafen (Inventar nicht gefüllt)",
+          "Filled": "[2] Eingeschlafen (Inventar gefüllt)"
+        }
+      }
     },
     "Preset": {
       "UnfilledOnly": "Inventar nicht gefüllt"
@@ -545,9 +556,13 @@
       "EndOfPeriod": "Ende des Abschnitts"
     },
     "State": {
-      "Asleep": "Eingeschlafen",
       "Average": "Durchschnitt",
-      "Awake": "Wach"
+      "Awake": "Wach",
+      "Asleep": {
+        "Neutral": "Eingeschlafen",
+        "Primary": "Eingeschlafen (1)",
+        "Secondary": "Eingeschlafen (2)"
+      }
     }
   },
   "UserSettings": {

@@ -1,7 +1,7 @@
 import {EffectiveBonus, UserBonus} from '@/types/game/bonus';
 import {RecipeLevel} from '@/types/game/cooking';
 import {Meal, MealMap} from '@/types/game/meal/main';
-import {SleepDurationInfo, SleepSessionInfo} from '@/types/game/sleep';
+import {SleepSessionInfo} from '@/types/game/sleep';
 import {SleepMapId} from '@/types/game/sleepStyle';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
@@ -34,7 +34,6 @@ export type CalculatedUserSettings = Pick<UserSettings, 'behavior'> & {
   origin: UserSettings,
   bonus: EffectiveBonus,
   sleepSessionInfo: SleepSessionInfo,
-  sleepDurationInfo: SleepDurationInfo,
 };
 
 export type CookingUserSettingsRequiredData = {

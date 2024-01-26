@@ -4,81 +4,78 @@ import {getFullPackStats} from '@/utils/game/producing/inventory/fullPackStats';
 
 
 describe('Pokemon Full Pack Stats', () => {
-  it('gets correct stats with single no collect duration', () => {
-    const {ratio, secondsToFull} = getFullPackStats({
-      dailyCount: 104.47,
+  it('is correct with single sleep session', () => {
+    const {secondsToFull} = getFullPackStats({
+      dailyCount: 100,
       carryLimit: 30,
-      sleepDurationInfo: {
-        durations: [28800],
-        total: 28800,
+      intervalsDuringSleep: {
+        primary: [{efficiency: 1.5, duration: 30000}],
+        secondary: null,
       },
       isFullPack: false,
     });
 
-    expect(secondsToFull).toBeCloseTo(24810.9505);
-    expect(ratio).toBeCloseTo(0.13851);
+    expect(secondsToFull.primary).toBeCloseTo(86400 * (30 / (100 * 1.5)));
+    expect(secondsToFull.secondary).toBeNull();
   });
 
-  it('gets correct stats with double no collect durations', () => {
-    const {ratio, secondsToFull} = getFullPackStats({
-      dailyCount: 104.47,
+  it('is correct with dual sleep sessions', () => {
+    const {secondsToFull} = getFullPackStats({
+      dailyCount: 100,
       carryLimit: 30,
-      sleepDurationInfo: {
-        durations: [28800, 28800],
-        total: 57600,
+      intervalsDuringSleep: {
+        primary: [{efficiency: 1.5, duration: 30000}],
+        secondary: [{efficiency: 1.2, duration: 30000}],
       },
       isFullPack: false,
     });
 
-    expect(secondsToFull).toBeCloseTo(24810.9505);
-    expect(ratio).toBeCloseTo(0.13851);
+    expect(secondsToFull.primary).toBeCloseTo(86400 * (30 / (100 * 1.5)));
+    expect(secondsToFull.secondary).toBeCloseTo(86400 * (30 / (100 * 1.2)));
   });
 
-  it('gets correct stats with lower carry limit', () => {
-    // Absol at lv. 60 with Cocoa x 2 / Cocoa x 5 / Mushroom x 7
-    const {ratio, secondsToFull} = getFullPackStats({
-      dailyCount: 106.97,
-      carryLimit: 14,
-      sleepDurationInfo: {
-        durations: [3600 * 7.5, 3600],
-        total: 30600,
+  it('is correct if the inventory will not be full during sleep', () => {
+    const {secondsToFull} = getFullPackStats({
+      dailyCount: 100,
+      carryLimit: 100,
+      intervalsDuringSleep: {
+        primary: [{efficiency: 1.5, duration: 30000}],
+        secondary: null,
       },
       isFullPack: false,
     });
 
-    expect(secondsToFull).toBeCloseTo(11307.8433);
-    expect(ratio).toBeCloseTo(0.51282);
+    expect(secondsToFull.primary).toBeNull();
+    expect(secondsToFull.secondary).toBeNull();
   });
 
-  it('gets correct stats with lower carry limit and longer no collect durations', () => {
-    // Absol at lv. 60 with Cocoa x 2 / Cocoa x 5 / Mushroom x 7
-    const {ratio, secondsToFull} = getFullPackStats({
-      dailyCount: 106.97,
-      carryLimit: 14,
-      sleepDurationInfo: {
-        durations: [38700],
-        total: 38700,
-      },
-      isFullPack: false,
-    });
-
-    expect(secondsToFull).toBeCloseTo(11307.8433);
-    expect(ratio).toBeCloseTo(0.70781);
-  });
-
-  it('is correct in full pack', () => {
-    // Absol at lv. 60 with Cocoa x 2 / Cocoa x 5 / Mushroom x 7
-    const {ratio, secondsToFull} = getFullPackStats({
-      dailyCount: 106.97,
-      carryLimit: 14,
-      sleepDurationInfo: {
-        durations: [38700],
-        total: 38700,
+  it('respects `isFullPack` with primary sleep efficiency intervals only', () => {
+    const {secondsToFull} = getFullPackStats({
+      dailyCount: 100,
+      carryLimit: 30,
+      intervalsDuringSleep: {
+        primary: [{efficiency: 1.5, duration: 30000}],
+        secondary: null,
       },
       isFullPack: true,
     });
 
-    expect(secondsToFull).toBeCloseTo(0);
-    expect(ratio).toBeCloseTo(1);
+    expect(secondsToFull.primary).toBeCloseTo(0);
+    expect(secondsToFull.secondary).toBeNull();
+  });
+
+  it('respects `isFullPack` with secondary sleep efficiency intervals', () => {
+    const {secondsToFull} = getFullPackStats({
+      dailyCount: 100,
+      carryLimit: 30,
+      intervalsDuringSleep: {
+        primary: [{efficiency: 1.5, duration: 30000}],
+        secondary: [{efficiency: 1.2, duration: 30000}],
+      },
+      isFullPack: true,
+    });
+
+    expect(secondsToFull.primary).toBeCloseTo(0);
+    expect(secondsToFull.secondary).toBeCloseTo(0);
   });
 });
