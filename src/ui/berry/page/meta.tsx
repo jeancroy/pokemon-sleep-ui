@@ -4,7 +4,7 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
-import {PokemonBerryIconNoLink} from '@/components/shared/pokemon/berry/iconNoLink';
+import {PokemonBerryIconContent} from '@/components/shared/pokemon/berry/iconContent';
 import {imagePortraitSizes} from '@/styles/image';
 import {BerryPageDataProps} from '@/ui/berry/page/type';
 import {formatInt} from '@/utils/number/format';
@@ -24,7 +24,7 @@ export const BerryMeta = ({berryData}: BerryPageDataProps) => {
       <div className="text-xl">
         {berryName}
       </div>
-      <PokemonBerryIconNoLink
+      <PokemonBerryIconContent
         id={id}
         dimension="size-44"
         sizes={imagePortraitSizes}
