@@ -592,16 +592,16 @@ describe('Stamina / Event Log (+Skill)', () => {
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(125);
+    expect(logs[0].stamina.after).toBe(126);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(25200);
-    expect(logs[1].stamina.before).toBe(83);
+    expect(logs[1].stamina.before).toBe(84);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(30600);
-    expect(logs[2].stamina.after).toBe(82);
+    expect(logs[2].stamina.after).toBe(97);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63000);
-    expect(logs[3].stamina.before).toBe(28);
+    expect(logs[3].stamina.before).toBe(43);
     expect(logs.length).toBe(4);
   });
 

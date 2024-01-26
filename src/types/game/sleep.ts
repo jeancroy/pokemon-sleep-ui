@@ -10,7 +10,10 @@ export type SleepSessionTimes = {
 };
 
 export type SleepSessionRecovery = {
-  recovery: number,
+  recovery: {
+    base: number,
+    actual: number,
+  },
   duration: {
     actual: number,
     effective: number,

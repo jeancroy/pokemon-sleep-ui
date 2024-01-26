@@ -50,11 +50,11 @@ export const getLogsWithSecondarySleep = ({
       timing: adjustedTiming.end,
       stamina: {
         before: staminaAtSleepEndInGame.inGame,
-        after: Math.min(staminaMaxRecovery, staminaAtSleepEndInGame.inGame + recovery),
+        after: Math.min(staminaMaxRecovery, staminaAtSleepEndInGame.inGame + recovery.actual),
       },
       staminaUnderlying: {
         before: staminaAtSleepEndActual.actual,
-        after: Math.min(staminaMaxRecovery, staminaAtSleepEndActual.actual + recovery),
+        after: Math.min(staminaMaxRecovery, staminaAtSleepEndActual.actual + recovery.actual),
       },
     },
   );

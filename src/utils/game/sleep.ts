@@ -22,19 +22,24 @@ const getPrimarySleepSessionRecovery = ({
   const actualDuration = getSleepSessionActualDuration(session);
   const effectiveDuration = Math.min(actualDuration, maxSleepEffectiveDuration);
 
+  const recoveryBase = Math.ceil(Math.min(
+    Math.min(actualDuration, maxSleepEffectiveDuration) / staminaRecoveryInterval,
+    staminaMaxRecovery,
+  ));
+
   return {
     duration: {
       actual: actualDuration,
       effective: effectiveDuration,
     },
-    recovery: Math.min(
-      staminaMaxRecovery,
-      getActualRecoveryAmount({
-        amount: Math.min(actualDuration, maxSleepEffectiveDuration) / staminaRecoveryInterval,
+    recovery: {
+      base: recoveryBase,
+      actual: getActualRecoveryAmount({
+        amount: recoveryBase,
         recoveryRate,
         isSleep: true,
       }),
-    ),
+    },
   };
 };
 
@@ -60,21 +65,25 @@ const getSecondarySleepSessionMeta = ({
     actualDuration,
   );
   const start = rotateTime(secondary.start - primary.end);
-  const recoveryAvailableLeft = Math.max(staminaMaxRecovery - primaryMeta.recovery, 0);
+  const recoveryBase = Math.ceil(Math.min(
+    effectiveDuration / staminaRecoveryInterval,
+    // Base recovery available left after primary
+    Math.max(staminaMaxRecovery - primaryMeta.recovery.base, 0),
+  ));
 
   return {
     duration: {
       actual: actualDuration,
       effective: effectiveDuration,
     },
-    recovery: Math.min(
-      recoveryAvailableLeft,
-      getActualRecoveryAmount({
-        amount: effectiveDuration / staminaRecoveryInterval,
+    recovery: {
+      base: recoveryBase,
+      actual: getActualRecoveryAmount({
+        amount: recoveryBase,
         recoveryRate,
         isSleep: true,
       }),
-    ),
+    },
     adjustedTiming: {
       start,
       end: start + actualDuration,

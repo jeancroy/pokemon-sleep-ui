@@ -1,3 +1,4 @@
+import {staminaMaxRecovery} from '@/const/game/stamina';
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaSkillRecoveryConfig} from '@/types/game/stamina/skill';
 import {toSum} from '@/utils/array';
@@ -32,7 +33,7 @@ export const getWakeupStamina = (opts: GetLogsWithPrimarySleepOpts) => {
   const sleepRecovery = sessionInfo.session.primary.recovery;
   const skillRecovery = getInitialSkillRecoveryAmount(opts);
 
-  return sleepRecovery + skillRecovery;
+  return Math.min(sleepRecovery.actual, staminaMaxRecovery) + skillRecovery;
 };
 
 export const getLogsWithPrimarySleep = (opts: GetLogsWithPrimarySleepOpts): StaminaEventLog[] => {

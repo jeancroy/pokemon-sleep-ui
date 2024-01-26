@@ -117,8 +117,10 @@ describe('Sleep Session Info', () => {
       },
     });
 
-    expect(session.primary.recovery).toBe(50);
-    expect(session.secondary?.recovery).toBe(45);
+    expect(session.primary.recovery.base).toBe(50);
+    expect(session.primary.recovery.actual).toBe(50);
+    expect(session.secondary?.recovery.base).toBe(45);
+    expect(session.secondary?.recovery.actual).toBe(45);
   });
 
   it('has correct recovery for total sleep time = 8.5h', () => {
@@ -136,8 +138,10 @@ describe('Sleep Session Info', () => {
       },
     });
 
-    expect(session.primary.recovery).toBe(50);
-    expect(session.secondary?.recovery).toBe(50);
+    expect(session.primary.recovery.base).toBe(50);
+    expect(session.primary.recovery.actual).toBe(50);
+    expect(session.secondary?.recovery.base).toBe(50);
+    expect(session.secondary?.recovery.actual).toBe(50);
   });
 
   it('has correct info with > 8.5h sleep', () => {
@@ -155,19 +159,21 @@ describe('Sleep Session Info', () => {
       },
     });
 
-    expect(session.primary.recovery).toBe(83);
+    expect(session.primary.recovery.base).toBe(83);
+    expect(session.primary.recovery.actual).toBe(83);
     expect(session.primary.adjustedTiming.start).toBe(61200);
     expect(session.primary.adjustedTiming.end).toBe(0);
     expect(session.primary.duration.actual).toBe(25200);
     expect(session.primary.duration.effective).toBe(25200);
-    expect(session.secondary?.recovery).toBe(17);
+    expect(session.secondary?.recovery.base).toBe(17);
+    expect(session.secondary?.recovery.actual).toBe(17);
     expect(session.secondary?.adjustedTiming.start).toBe(3600);
     expect(session.secondary?.adjustedTiming.end).toBe(18000);
     expect(session.secondary?.duration.actual).toBe(14400);
     expect(session.secondary?.duration.effective).toBe(5400);
   });
 
-  it('does not allow total recovery go beyond 100 with recovery rate up', () => {
+  it('allows actual total recovery go beyond 100 with recovery rate up', () => {
     const recoveryRate: StaminaRecoveryRateConfig = {
       general: 1,
       sleep: 1.2,
@@ -187,8 +193,10 @@ describe('Sleep Session Info', () => {
       },
     });
 
-    expect(session.primary.recovery).toBe(99);
-    expect(session.secondary?.recovery).toBe(1);
+    expect(session.primary.recovery.base).toBe(83);
+    expect(session.primary.recovery.actual).toBe(100);
+    expect(session.secondary?.recovery.base).toBe(17);
+    expect(session.secondary?.recovery.actual).toBe(21);
   });
 
   it('has valid total recovery with recovery rate down', () => {
@@ -211,7 +219,9 @@ describe('Sleep Session Info', () => {
       },
     });
 
-    expect(session.primary.recovery).toBe(66);
-    expect(session.secondary?.recovery).toBe(15);
+    expect(session.primary.recovery.base).toBe(83);
+    expect(session.primary.recovery.actual).toBe(67);
+    expect(session.secondary?.recovery.base).toBe(17);
+    expect(session.secondary?.recovery.actual).toBe(14);
   });
 });

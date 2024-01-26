@@ -40,7 +40,7 @@ describe('Stamina Efficiency / From Config', () => {
     // The expected value is just for checking if the calculation outcome somehow changes
     // Therefore if the test fails, once confirmed expected, then the expected value is good to update
     // > Actual test for multiplier calculation at below
-    expect(multiplier.average).toBeCloseTo(1.739344);
+    expect(multiplier.average).toBeCloseTo(1.811962);
   });
 
   it('is correct with multiple skill triggers', () => {

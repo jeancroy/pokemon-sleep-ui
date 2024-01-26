@@ -244,4 +244,37 @@ describe('Stamina / Event Log (+Primary)', () => {
     expect(logs[1].staminaUnderlying.before).toBe(-51);
     expect(logs.length).toBe(2);
   });
+
+  it('caps single recovery at 100', () => {
+    const recoveryRate: StaminaRecoveryRateConfig = {
+      general: 1.2,
+      sleep: 1,
+    };
+    const sessionInfo = getSleepSessionInfo({
+      recoveryRate,
+      session: {
+        primary: {
+          start: 56700, // 15:45
+          end: 0, // 00:00
+        },
+        secondary: null,
+      },
+    });
+    const skillRecovery: StaminaSkillRecoveryConfig = {
+      strategy: 'conservative',
+    };
+    const skillTriggers: StaminaSkillTriggerData[] = [];
+
+    const logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
+
+    expect(logs[0].type).toBe('wakeup');
+    expect(logs[0].timing).toBe(0);
+    expect(logs[0].stamina.after).toBe(100);
+    expect(logs[0].staminaUnderlying.after).toBe(100);
+    expect(logs[1].type).toBe('sleep');
+    expect(logs[1].timing).toBe(56700);
+    expect(logs[1].stamina.before).toBe(5.5);
+    expect(logs[1].staminaUnderlying.before).toBe(5.5);
+    expect(logs.length).toBe(2);
+  });
 });
