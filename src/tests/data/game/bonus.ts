@@ -7,7 +7,7 @@ export const testBonus: {[id in number]: EffectiveBonus} = {
     stamina: {
       logs: [], // ignore
       multiplier: {
-        average: NaN, // ignore
+        average: null, // ignore
         sleep1: 2.2,
         sleep2: 2.2,
         awake: 1.6,

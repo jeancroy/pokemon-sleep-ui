@@ -45,7 +45,7 @@ export const PokemonDetailedProducingStatsOfState = ({
       rate,
       target: [...applyMultiplierTargets],
       multiplier: {
-        original: calculatedSettings.bonus.stamina.multiplier.awake,
+        original: (calculatedSettings.bonus.stamina.multiplier.awake ?? NaN),
         target: targetMultiplier,
       },
     });

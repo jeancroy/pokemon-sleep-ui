@@ -8,7 +8,7 @@ import {I18nMessageKeysOfNamespace} from '@/types/i18n';
 
 type Props = {
   titleI18nId: I18nMessageKeysOfNamespace<'UI.Stamina.State'>,
-  value: number,
+  value: number | null,
 };
 
 export const StaminaEfficiencyAtState = ({titleI18nId, value}: Props) => {
@@ -17,7 +17,7 @@ export const StaminaEfficiencyAtState = ({titleI18nId, value}: Props) => {
   return (
     <Flex direction="row" noFullWidth className="items-end gap-1">
       <div className="text-xs">{t(titleI18nId)}</div>
-      <div>{value.toFixed(4)}x</div>
+      <div>{value ? value.toFixed(4) : NaN}x</div>
     </Flex>
   );
 };

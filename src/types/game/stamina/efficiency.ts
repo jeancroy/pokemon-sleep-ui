@@ -8,12 +8,12 @@ export type EfficiencyInterval = {
   duration: number,
 };
 
-export type StaminaEfficiencyCounter = {[state in ProducingState]: number} & {
-  average: number,
+export type StaminaEfficiencyCounter<TValue = number> = {[state in ProducingState]: TValue} & {
+  average: TValue,
 };
 
 export type StaminaEfficiency = {
   logs: StaminaEventLog[],
-  multiplier: StaminaEfficiencyCounter,
+  multiplier: StaminaEfficiencyCounter<number | null>,
   intervalsDuringSleep: SleepSessions<EfficiencyInterval[]>,
 };

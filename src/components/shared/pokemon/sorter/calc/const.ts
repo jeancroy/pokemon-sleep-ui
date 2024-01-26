@@ -42,7 +42,8 @@ export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonS
     getPokemonRateSorter(opts).fullPackStats.secondsToFull.primary ?? NaN
   ),
   timeToFullPackSecondary: (opts) => (
-    getPokemonRateSorter(opts).fullPackStats.secondsToFull.secondary ?? NaN),
+    getPokemonRateSorter(opts).fullPackStats.secondsToFull.secondary ?? NaN
+  ),
   totalEnergy: (opts) => getTotalEnergyOfPokemonProducingRate(getPokemonRateSorter(opts),
   ),
   mainSkillLevel: ({seeds, ...opts}) => getMainSkillLevel({

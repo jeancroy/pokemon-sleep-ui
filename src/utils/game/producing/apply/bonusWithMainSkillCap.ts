@@ -22,7 +22,7 @@ export const applyBonusWithMainSkillCapping = <T extends ProducingRateOfItem | n
   const {stamina} = bonus;
   const staminaBonus = stamina.multiplier[producingState];
 
-  const frequency = data.frequency / staminaBonus;
+  const frequency = data.frequency / (staminaBonus ?? 0);
   const quantity = Math.min(cappingDuration / frequency, maxCount);
 
   return {

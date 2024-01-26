@@ -36,7 +36,7 @@ type GetStaminaEfficiencyMultiplierFromLogsOpts = {
 export const getStaminaEfficiencyMultiplierFromLogs = ({
   logs,
   hasSecondary,
-}: GetStaminaEfficiencyMultiplierFromLogsOpts): StaminaEfficiencyCounter => {
+}: GetStaminaEfficiencyMultiplierFromLogsOpts): StaminaEfficiencyCounter<number | null> => {
   const durationCounter: StaminaEfficiencyCounter = {
     awake: 0,
     sleep1: 0,
@@ -87,7 +87,7 @@ export const getStaminaEfficiencyMultiplierFromLogs = ({
 
   return {
     sleep1: weightedDurationCounter.sleep1 / durationCounter.sleep1,
-    sleep2: weightedDurationCounter.sleep2 / durationCounter.sleep2,
+    sleep2: hasSecondary ? weightedDurationCounter.sleep2 / durationCounter.sleep2 : null,
     awake: weightedDurationCounter.awake / durationCounter.awake,
     average: weightedDurationCounter.average / durationCounter.average,
   };
