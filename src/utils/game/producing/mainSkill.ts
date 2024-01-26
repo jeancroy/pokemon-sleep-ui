@@ -12,7 +12,6 @@ import {getProducingRateBase} from '@/utils/game/producing/rateBase';
 export type GetMainSkillProducingRateOpts =
   Omit<ProducingRateCommonParams, 'level'> &
   GetMainSkillEquivalentStrengthOpts & {
-    timeToFullPack: number,
     subSkillBonus: GroupedSubSkillBonus | null,
     skillRatePercent: number | null,
     natureId: NatureId | null,
@@ -23,13 +22,12 @@ export const getMainSkillProducingRate = ({
   frequency,
   calculatedSettings,
   energyMultiplier,
-  timeToFullPack,
   subSkillBonus,
   skillRatePercent,
   natureId,
   ...opts
 }: GetMainSkillProducingRateOpts): ProducingRateOfItemOfSessions => {
-  const {bonus, sleepDurationInfo} = calculatedSettings;
+  const {bonus} = calculatedSettings;
   const {mapMultiplier} = bonus;
 
   frequency *= (1 / getSkillTriggerRate({skillRatePercent, subSkillBonus, natureId}));
@@ -51,8 +49,7 @@ export const getMainSkillProducingRate = ({
         energy: strengthPerSkill,
         quantity: 1,
       },
-      timeToFullPack,
-      sleepDurationInfo,
+      maxCount: 1,
     }),
     awake: applyBonus({
       bonus,

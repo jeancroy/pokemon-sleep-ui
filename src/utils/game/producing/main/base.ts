@@ -104,7 +104,6 @@ export const getPokemonProducingRateBase = ({
   const skill = getMainSkillProducingRate({
     frequency,
     energyMultiplier,
-    timeToFullPack: fullPackStats.secondsToFull,
     skillLevel: getMainSkillLevel({
       seedsUsed: seeds.gold,
       evolutionCount,
