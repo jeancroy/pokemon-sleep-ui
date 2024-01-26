@@ -22,7 +22,7 @@ export const PokeInBoxGridProductionTotal = (props: PokeInBoxGridDetailsProps) =
   return (
     <Flex noFullWidth className="justify-center gap-1">
       <Flex direction="row" className="items-center gap-0.5 p-0.5">
-        <ColoredEnergyIcon dimension="h-5 w-5" alt={t('Stats.Energy.Name')}/>
+        <ColoredEnergyIcon dimension="size-5" alt={t('Stats.Energy.Name')}/>
         <div>
           {formatFloat(getTotalEnergyOfPokemonProducingRate(rate))}
         </div>

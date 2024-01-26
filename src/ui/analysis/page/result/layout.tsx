@@ -41,7 +41,7 @@ export const AnalysisLayout = <TData, >({
         </Flex>
         <Flex direction="row" className="justify-end">
           <button
-            className="enabled:button-clickable-border disabled:button-disabled h-6 w-6 p-1"
+            className="enabled:button-clickable-border disabled:button-disabled size-6 p-1"
             disabled={!linked.length} onClick={() => setShow(true)}
           >
             <LinkIcon/>

@@ -74,7 +74,7 @@ export const PokedexTierListSingle = ({onPokemonClicked, ...props}: Props) => {
                   onClick={() => onPokemonClicked(pokemon)}
                 >
                   <Flex direction="row" center className="gap-1.5">
-                    <div className="relative h-14 w-14">
+                    <div className="relative size-14">
                       <PokemonImage
                         pokemonId={pokemon.id}
                         image={{type: 'default', image: 'icon'}}

@@ -68,13 +68,13 @@ const PokemonOnDeskInternal = <TOnDesk extends PokemonOnDeskState>({
     <Flex ref={ref} center className="relative gap-1.5">
       <PokemonLinkPopup state={state} setState={setState}/>
       <button
-        className="button-clickable group absolute left-1 top-1 h-8 w-8 rounded-full"
+        className="button-clickable group absolute left-1 top-1 size-8 rounded-full"
         onClick={() => showPokemon(pokemon)}
       >
         <GenericPokeballIcon alt={t('Main.Page.Title', {name: t2(pokemon.id.toString())})} noWrap/>
       </button>
       <PokemonNameBig pokemon={pokemon}/>
-      <div className="relative h-48 w-48">
+      <div className="relative size-48">
         <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
       </div>
       <PokemonIngredientPicker

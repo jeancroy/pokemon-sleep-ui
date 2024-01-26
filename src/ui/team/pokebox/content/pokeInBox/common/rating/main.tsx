@@ -24,7 +24,7 @@ export const PokeInBoxRatingStats = ({loading, result}: Props) => {
       <Flex center className="gap-1">
         <div>
           {loading ?
-            <LoadingText dimension="h-4 w-4" text="PR"/> :
+            <LoadingText dimension="size-4" text="PR"/> :
             isNaN(percentile) ? '-' : `PR ${formatInt(percentile)}`}
         </div>
         <ProgressBarSingle className="w-full" percent={percentile} classBarHeight="h-1.5"/>
@@ -32,7 +32,7 @@ export const PokeInBoxRatingStats = ({loading, result}: Props) => {
       <Flex center className="gap-1">
         <div>
           {loading ?
-            <LoadingText dimension="h-4 w-4" text="%"/> :
+            <LoadingText dimension="size-4" text="%"/> :
             isNaN(percentage) ? '-' : `${formatFloat(percentage)}%`}
         </div>
         <ProgressBarSingle className="w-full" percent={percentage} classBarHeight="h-1.5"/>

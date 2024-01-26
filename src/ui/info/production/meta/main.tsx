@@ -21,7 +21,7 @@ export const ProducingParamsMeta = ({meta}: Props) => {
 
   const {dataCount, lastUpdated} = meta;
 
-  const dimension: Dimension = 'h-6 w-6';
+  const dimension: Dimension = 'size-6';
 
   return (
     <Flex className="info-section text-xl md:flex-row md:justify-between">

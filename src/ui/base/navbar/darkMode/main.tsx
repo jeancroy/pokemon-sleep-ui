@@ -24,7 +24,7 @@ export const ThemeSwitcher = () => {
     <div className="button-clickable-bg nav-button group w-8">
       <DarkModeSwitch
         className={clsx(
-          'h-full w-full',
+          'size-full',
           '[&>*]:fill-black [&>*]:stroke-black',
           '[&>*]:group-hover:fill-white [&>*]:group-hover:stroke-white',
           '[&>*]:dark:fill-white [&>*]:dark:stroke-white',

@@ -12,7 +12,8 @@ const exhaustIngredientCombinationsIfSort: PokemonSortType[] = [
   'ingredientEnergy',
   'frequency',
   'frequencyOfIngredient',
-  'timeToFullPack',
+  'timeToFullPackPrimary',
+  'timeToFullPackSecondary',
   'totalEnergy',
   // Time to full pack indirectly affects how many skills could proc
   'mainSkillTriggerValue',

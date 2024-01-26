@@ -55,7 +55,7 @@ export const SkillTriggerAnalysisTarget = (props: Props) => {
   return (
     <AnimatedCollapseQuick show={unit.show} appear>
       <Flex center className="bg-plate relative h-full gap-1">
-        <button onClick={deleteUnit} className="button-clickable absolute right-1 top-1 z-10 h-5 w-5 rounded-full">
+        <button onClick={deleteUnit} className="button-clickable absolute right-1 top-1 z-10 size-5 rounded-full">
           <XMarkIcon/>
         </button>
         <PopupCommon show={show} setShow={setShow}>
@@ -70,7 +70,7 @@ export const SkillTriggerAnalysisTarget = (props: Props) => {
         <Flex className="gap-1">
           <PokemonNameSimple pokemon={pokemon}/>
           <Flex direction="row" center>
-            <div className="relative h-28 w-28">
+            <div className="relative size-28">
               <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
               <InfoIcon className="absolute bottom-0 right-0">
                 {level}
@@ -82,14 +82,14 @@ export const SkillTriggerAnalysisTarget = (props: Props) => {
               href={`/info/mainskill/${skill}`}
               className={clsx('p-1', pokemon.specialty === specialtyIdMap.skill && 'bg-blink')}
             >
-              <MainSkillIcon id={skill} dimension="h-9 w-9"/>
+              <MainSkillIcon id={skill} dimension="size-9"/>
             </FlexLink>
             <Flex className="items-end gap-1">
               <Flex direction="row" noFullWidth className="gap-1">
-                <button className="button-clickable-bg h-7 w-7 p-1" onClick={copyUnit}>
+                <button className="button-clickable-bg size-7 p-1" onClick={copyUnit}>
                   <DocumentDuplicateIcon/>
                 </button>
-                <button className="button-clickable-bg h-7 w-7 p-1" onClick={() => setShow(true)}>
+                <button className="button-clickable-bg size-7 p-1" onClick={() => setShow(true)}>
                   <PencilIcon/>
                 </button>
               </Flex>

@@ -19,7 +19,7 @@ export const PokemonEvolutionNextStage = ({pokedex, evolutions, showPokemon}: Pr
     <Flex direction="row" noFullWidth wrap center className="gap-2">
       {evolutions.map(({id, conditions}) => (
         <Flex key={id} noFullWidth className="gap-1">
-          <PokemonEvolutionPortrait dimension="h-44 w-44" pokemon={pokedex[id]} showPokemon={showPokemon}/>
+          <PokemonEvolutionPortrait dimension="size-44" pokemon={pokedex[id]} showPokemon={showPokemon}/>
           {conditions.map((condition, idx) => (
             <PokemonEvolutionCondition key={idx} condition={condition}/>
           ))}

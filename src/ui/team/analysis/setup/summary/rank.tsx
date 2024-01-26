@@ -35,7 +35,7 @@ export const TeamAnalysisSnorlaxRank = ({energy, snorlaxData}: Props) => {
               <div className="whitespace-nowrap">
                 {mapName}
               </div>
-              {rank ? <SnorlaxRankUI rank={rank.rank}/> : <XCircleIcon className="h-6 w-6"/>}
+              {rank ? <SnorlaxRankUI rank={rank.rank}/> : <XCircleIcon className="size-6"/>}
             </MapLink>
           </Flex>
         );

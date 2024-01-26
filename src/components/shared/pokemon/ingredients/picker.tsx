@@ -55,7 +55,7 @@ export const PokemonIngredientPicker = ({
                     className={clsx('rounded-lg p-1.5', getToggleButtonClass(active))}
                   >
                     <Flex direction="row" center noFullWidth className="gap-1 md:flex-col">
-                      <div className="group relative h-7 w-7">
+                      <div className="group relative size-7">
                         <NextImage
                           src={`/images/ingredient/${id}.png`}
                           alt={t(`Food.${id}`)}

@@ -20,12 +20,12 @@ export const DocsEditorDisplayToggle = ({display, setDisplay}: Props) => {
       isActive={(current) => current === display}
       title={
         <Flex center>
-          <PencilIcon className="h-6 w-6"/>
+          <PencilIcon className="size-6"/>
         </Flex>
       }
       ids={[...docsEditorDisplayType]}
       idToButton={(display) => (
-        <div className="h-6 w-6">
+        <div className="size-6">
           {docsEditorDisplayTypeIcon[display]}
         </div>
       )}

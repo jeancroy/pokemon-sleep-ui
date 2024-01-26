@@ -18,7 +18,7 @@ export const FilterCollapsedInputPopup = <TId extends IndexableNonSymbol | null>
   return (
     <Flex noFullWidth className="max-w-xl gap-2">
       <Flex direction="row" center className="gap-1.5">
-        <MagnifyingGlassIcon className="h-6 w-6"/>
+        <MagnifyingGlassIcon className="size-6"/>
         <InputBox
           type="text"
           value={search}

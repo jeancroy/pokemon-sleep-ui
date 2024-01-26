@@ -1,1 +1,4 @@
-export const gallerySize = 'h-72 w-72';
+import {Dimension} from '@/types/style';
+
+
+export const gallerySize: Dimension = 'size-72';

@@ -79,7 +79,7 @@ export const TeamAnalysisSetupControl = ({setup, setSetup, currentTeam}: TeamAna
         onClick={() => setSetupSelector({show: true, setup})}
       >
         <Flex direction="row" center className="gap-1.5">
-          <RectangleStackIcon className="h-7 w-7"/>
+          <RectangleStackIcon className="size-7"/>
           <div>
             {getTeamName(currentTeam)}
           </div>

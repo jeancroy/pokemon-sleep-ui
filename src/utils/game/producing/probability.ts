@@ -22,5 +22,9 @@ export const getProbabilityOfNoSkill = ({
   const helpCountAllDay = durationOfDay / getFrequencyOfStateFromPokemonRate({rate, state});
   const helpCountDuringState = helpCountAllDay * rate.sleepStateSplit[state];
 
+  if (!helpCountDuringState) {
+    return null;
+  }
+
   return (1 - skillPercent / 100) ** helpCountDuringState;
 };

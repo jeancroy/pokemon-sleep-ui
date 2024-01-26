@@ -23,7 +23,7 @@ export const PokemonEventOnlyIcon = ({pokemon, dimension}: Props) => {
 
   return (
     <CalendarDaysIcon
-      className={clsx(dimension ?? 'h-6 w-6', 'text-event-pokemon')}
+      className={clsx(dimension ?? 'size-6', 'text-event-pokemon')}
       title={t('Stats.EventOnly')}
     />
   );

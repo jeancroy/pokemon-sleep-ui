@@ -14,7 +14,7 @@ export const RatingBasisSelectionNullable = (props: RatingBasisSelectionCommonPr
       {...props}
       ids={[null, ...ratingBasis]}
       idToButton={(basis, isActive) => (
-        basis ? <RatingBasisTitle basis={basis} isActive={isActive}/> : <XMarkIcon className="h-6 w-6"/>
+        basis ? <RatingBasisTitle basis={basis} isActive={isActive}/> : <XMarkIcon className="size-6"/>
       )}
     />
   );

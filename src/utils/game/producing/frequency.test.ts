@@ -78,8 +78,10 @@ describe('Item Rate of Sessions Frequency', () => {
   it('is correct for berry', () => {
     const {
       awake,
-      sleepVacant,
-      sleepFilled,
+      sleep1Vacant,
+      sleep1Filled,
+      sleep2Vacant,
+      sleep2Filled,
       equivalent,
       unfilledOnly,
     } = getFrequencyFromItemRateOfSessions({
@@ -94,24 +96,35 @@ describe('Item Rate of Sessions Frequency', () => {
           energy: NaN, // Ignored
           quantity: NaN, // Ignored
         },
-        sleep: {
+        sleep1: {
           id: NaN,
           period: 'daily',
-          frequency: 2400, // Ignored
+          frequency: 2400,
+          energy: NaN, // Ignored
+          quantity: NaN, // Ignored
+        },
+        sleep2: {
+          id: NaN,
+          period: 'daily',
+          frequency: 2400,
           energy: NaN, // Ignored
           quantity: NaN, // Ignored
         },
       },
       sleepStateSplit: {
         awake: 16 / 24,
-        sleepVacant: 6 / 24,
-        sleepFilled: 2 / 24,
+        sleep1Vacant: 6 / 24,
+        sleep1Filled: 2 / 24,
+        sleep2Vacant: 0,
+        sleep2Filled: 0,
       },
     });
 
     expect(awake).toBeCloseTo(2000);
-    expect(sleepVacant).toBeCloseTo(3000);
-    expect(sleepFilled).toBeCloseTo(2400);
+    expect(sleep1Vacant).toBeCloseTo(3000);
+    expect(sleep1Filled).toBeCloseTo(2400);
+    expect(sleep2Vacant).toBeCloseTo(3000);
+    expect(sleep2Filled).toBeCloseTo(2400);
     expect(equivalent).toBeCloseTo(2215.38);
     expect(unfilledOnly).toBeCloseTo(2400);
   });
@@ -119,8 +132,10 @@ describe('Item Rate of Sessions Frequency', () => {
   it('is correct for ingredient', () => {
     const {
       awake,
-      sleepVacant,
-      sleepFilled,
+      sleep1Vacant,
+      sleep1Filled,
+      sleep2Vacant,
+      sleep2Filled,
       equivalent,
       unfilledOnly,
     } = getFrequencyFromItemRateOfSessions({
@@ -135,24 +150,35 @@ describe('Item Rate of Sessions Frequency', () => {
           energy: NaN, // Ignored
           quantity: NaN, // Ignored
         },
-        sleep: {
+        sleep1: {
           id: NaN,
           period: 'daily',
-          frequency: 2400, // Ignored
+          frequency: 2400,
+          energy: NaN, // Ignored
+          quantity: NaN, // Ignored
+        },
+        sleep2: {
+          id: NaN,
+          period: 'daily',
+          frequency: 2400,
           energy: NaN, // Ignored
           quantity: NaN, // Ignored
         },
       },
       sleepStateSplit: {
         awake: 16 / 24,
-        sleepVacant: 6 / 24,
-        sleepFilled: 2 / 24,
+        sleep1Vacant: 6 / 24,
+        sleep1Filled: 2 / 24,
+        sleep2Vacant: 0,
+        sleep2Filled: 0,
       },
     });
 
     expect(awake).toBeCloseTo(8000);
-    expect(sleepVacant).toBeCloseTo(12000);
-    expect(sleepFilled).toBeCloseTo(Infinity);
+    expect(sleep1Vacant).toBeCloseTo(12000);
+    expect(sleep1Filled).toBeCloseTo(Infinity);
+    expect(sleep2Vacant).toBeCloseTo(12000);
+    expect(sleep2Filled).toBeCloseTo(Infinity);
     expect(equivalent).toBeCloseTo(9600);
     expect(unfilledOnly).toBeCloseTo(9600);
   });

@@ -24,7 +24,7 @@ export const ProducingParamsInput = (props: Props) => {
       <FilterTextInput
         title={
           <Flex center>
-            <Bars3BottomLeftIcon className="h-6 w-6"/>
+            <Bars3BottomLeftIcon className="size-6"/>
           </Flex>
         }
         ids={[...producingParamsSort]}

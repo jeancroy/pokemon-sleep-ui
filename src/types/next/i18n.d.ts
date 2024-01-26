@@ -174,7 +174,10 @@ declare interface IntlMessages extends UiMessages, GameMessages {
           Friendship: string,
           Recruit: string,
           TransferReward: string,
-          TimeToFullPack: string,
+          TimeToFullPack: {
+            Primary: string,
+            Secondary: string,
+          },
           MainSkillValue: string,
           MainSkillTriggerValue: string,
           MainSkillTriggerRate: string,
@@ -371,8 +374,16 @@ declare interface IntlMessages extends UiMessages, GameMessages {
     Producing: {
       State: {
         Awake: string,
-        AsleepUnfilled: string,
-        AsleepFilled: string,
+        Asleep: {
+          Primary: {
+            Vacant: string,
+            Filled: string,
+          },
+          Secondary: {
+            Vacant: string,
+            Filled: string,
+          },
+        },
       },
       Preset: {
         UnfilledOnly: string,
@@ -434,11 +445,16 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         EfficiencyBlock: string,
         Sleep: string,
         Wakeup: string,
+        EndOfPeriod: string,
       },
       State: {
-        Asleep: string,
         Average: string,
         Awake: string,
+        Asleep: {
+          Neutral: string,
+          Primary: string,
+          Secondary: string,
+        },
       },
     },
     UserSettings: {

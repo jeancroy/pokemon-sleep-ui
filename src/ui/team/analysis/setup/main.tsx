@@ -101,8 +101,8 @@ export const TeamAnalysisSetupView = (props: Props) => {
       >
         <MealCoverageDetails coverage={statsOfTeam.mealCoverage} className="p-2"/>
         <Flex direction="row" center className="gap-1 p-0.5">
-          <CursorArrowRaysIcon className="h-6 w-6"/>
-          <ChartBarIcon className="h-6 w-6"/>
+          <CursorArrowRaysIcon className="size-6"/>
+          <ChartBarIcon className="size-6"/>
         </Flex>
       </MealCoverageTargetComboCollapsible>
       <TeamAnalysisSummary

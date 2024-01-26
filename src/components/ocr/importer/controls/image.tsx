@@ -25,7 +25,7 @@ export const OcrImporterImagePreview = ({image}: Props) => {
       <button disabled={!image} onClick={() => setShow(true)} className={clsx(
         'button-clickable-border disabled:button-disabled self-end p-1',
       )}>
-        <PhotoIcon className="h-6 w-6"/>
+        <PhotoIcon className="size-6"/>
       </button>
     </>
   );

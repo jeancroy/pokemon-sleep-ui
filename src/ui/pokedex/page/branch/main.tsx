@@ -21,13 +21,13 @@ export const PokemonBranches = ({pokemon, pokemonBranch, pokedex, ...props}: Pro
   const {pokemonId, branches} = pokemonBranch;
 
   return (
-    <PokemonTitledLayout title={<ShareIcon className="h-6 w-6"/>} className="!gap-5 lg:flex-row">
+    <PokemonTitledLayout title={<ShareIcon className="size-6"/>} className="!gap-5 lg:flex-row">
       <PokemonBranchPortrait
         pokemon={pokedex[pokemonId]}
         clickable={pokemonId !== pokemon.id}
         {...props}
       />
-      <div className="h-7 w-7 shrink-0">
+      <div className="size-7 shrink-0">
         <ArrowDownIcon className="block lg:hidden"/>
         <ArrowRightIcon className="hidden lg:block"/>
       </div>

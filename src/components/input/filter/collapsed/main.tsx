@@ -29,7 +29,7 @@ export const FilterCollapsedInput = <TId extends IndexableNonSymbol | null>(prop
       </PopupCommon>
       <Flex noFullWidth direction="row" center className="gap-1">
         <FlexButton className="button-clickable-bg p-1" onClick={() => setShow(true)}>
-          <PlusCircleIcon className="h-6 w-6"/>
+          <PlusCircleIcon className="size-6"/>
         </FlexButton>
         <FilterToggleButtons
           idToButton={idToText}

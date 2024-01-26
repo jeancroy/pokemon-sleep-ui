@@ -34,7 +34,7 @@ export const RatingResultInput = ({session, config, setConfig}: Props) => {
       <FilterTextInput
         title={
           <Flex center>
-            <ChartBarIcon className="h-6 w-6"/>
+            <ChartBarIcon className="size-6"/>
           </Flex>
         }
         ids={[...ratingWeightedStatsBasis]}

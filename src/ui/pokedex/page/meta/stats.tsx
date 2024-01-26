@@ -70,7 +70,7 @@ export const PokemonStats = ({pokemon}: PokemonDataProps) => {
         </tr>
         <tr>
           <td>
-            <ArchiveBoxXMarkIcon className="h-5 w-5" title={t('Stats.TransferReward')}/>
+            <ArchiveBoxXMarkIcon className="size-5" title={t('Stats.TransferReward')}/>
           </td>
           <td>
             <Flex direction="row" center noFullWidth className="gap-1.5">

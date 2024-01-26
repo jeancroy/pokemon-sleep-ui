@@ -12,7 +12,7 @@ type Props = {
 export const Failed = ({text}: Props) => {
   return (
     <Flex center className="h-screen gap-1">
-      <ExclamationTriangleIcon className="h-7 w-7"/>
+      <ExclamationTriangleIcon className="size-7"/>
       <div>
         {text}
       </div>

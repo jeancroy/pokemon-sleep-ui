@@ -26,8 +26,8 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / (bonus.stamina.multiplier.awake ?? 0);
+    const sleepFreq = 2920.2 / (bonus.stamina.multiplier.sleep1 ?? 0);
     const energyMultiplier = getCommonEnergyMultiplier({bonus}) * bonus.mapMultiplier;
 
     expect(rate[0].id).toBe(5);
@@ -35,19 +35,19 @@ describe('Ingredient Production / Multiple', () => {
     expect(rate[0].awake.frequency).toBeCloseTo(awakeFreq * 2);
     expect(rate[0].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 2) * 8);
     expect(rate[0].awake.energy).toBeCloseTo(durationOfDay / (awakeFreq * 2) * 8 * 90 * energyMultiplier);
-    expect(rate[0].sleep.id).toBe(5);
-    expect(rate[0].sleep.frequency).toBeCloseTo(sleepFreq * 2);
-    expect(rate[0].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 8);
-    expect(rate[0].sleep.energy).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 8 * 90 * energyMultiplier);
+    expect(rate[0].sleep1.id).toBe(5);
+    expect(rate[0].sleep1.frequency).toBeCloseTo(sleepFreq * 2);
+    expect(rate[0].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 8);
+    expect(rate[0].sleep1.energy).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 8 * 90 * energyMultiplier);
     expect(rate[1].id).toBe(13);
     expect(rate[1].awake.id).toBe(13);
     expect(rate[1].awake.frequency).toBeCloseTo(awakeFreq * 2);
     expect(rate[1].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 2) * 2);
     expect(rate[1].awake.energy).toBeCloseTo(durationOfDay / (awakeFreq * 2) * 2 * 151 * energyMultiplier);
-    expect(rate[1].sleep.id).toBe(13);
-    expect(rate[1].sleep.frequency).toBeCloseTo(sleepFreq * 2);
-    expect(rate[1].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 2);
-    expect(rate[1].sleep.energy).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 2 * 151 * energyMultiplier);
+    expect(rate[1].sleep1.id).toBe(13);
+    expect(rate[1].sleep1.frequency).toBeCloseTo(sleepFreq * 2);
+    expect(rate[1].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 2);
+    expect(rate[1].sleep1.energy).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 2 * 151 * energyMultiplier);
   });
 
   it('has correct frequency for Absol of (A1) Cocoa x 2', () => {
@@ -65,16 +65,16 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / (bonus.stamina.multiplier.awake ?? 0);
+    const sleepFreq = 2920.2 / (bonus.stamina.multiplier.sleep1 ?? 0);
 
     expect(rate[0].id).toBe(13);
     expect(rate[0].awake.id).toBe(13);
     expect(rate[0].awake.frequency).toBeCloseTo(awakeFreq);
     expect(rate[0].awake.quantity).toBeCloseTo(durationOfDay / awakeFreq * 2);
-    expect(rate[0].sleep.id).toBe(13);
-    expect(rate[0].sleep.frequency).toBeCloseTo(sleepFreq);
-    expect(rate[0].sleep.quantity).toBeCloseTo(durationOfDay / sleepFreq * 2);
+    expect(rate[0].sleep1.id).toBe(13);
+    expect(rate[0].sleep1.frequency).toBeCloseTo(sleepFreq);
+    expect(rate[0].sleep1.quantity).toBeCloseTo(durationOfDay / sleepFreq * 2);
   });
 
   it('has correct frequency for Absol of (A2) Cocoa x 2; Cocoa x 5', () => {
@@ -92,16 +92,16 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / (bonus.stamina.multiplier.awake ?? 0);
+    const sleepFreq = 2920.2 / (bonus.stamina.multiplier.sleep1 ?? 0);
 
     expect(rate[0].id).toBe(13);
     expect(rate[0].awake.id).toBe(13);
     expect(rate[0].awake.frequency).toBeCloseTo(awakeFreq);
     expect(rate[0].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 2) * 7);
-    expect(rate[0].sleep.id).toBe(13);
-    expect(rate[0].sleep.frequency).toBeCloseTo(sleepFreq);
-    expect(rate[0].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 7);
+    expect(rate[0].sleep1.id).toBe(13);
+    expect(rate[0].sleep1.frequency).toBeCloseTo(sleepFreq);
+    expect(rate[0].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 7);
   });
 
   it('has correct frequency for Absol of (A1B1) Cocoa x 2; Apple x 8', () => {
@@ -119,23 +119,23 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / (bonus.stamina.multiplier.awake ?? 0);
+    const sleepFreq = 2920.2 / (bonus.stamina.multiplier.sleep1 ?? 0);
 
     expect(rate[0].id).toBe(5);
     expect(rate[0].awake.id).toBe(5);
     expect(rate[0].awake.frequency).toBeCloseTo(awakeFreq * 2);
     expect(rate[0].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 2) * 8);
-    expect(rate[0].sleep.id).toBe(5);
-    expect(rate[0].sleep.frequency).toBeCloseTo(sleepFreq * 2);
-    expect(rate[0].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 8);
+    expect(rate[0].sleep1.id).toBe(5);
+    expect(rate[0].sleep1.frequency).toBeCloseTo(sleepFreq * 2);
+    expect(rate[0].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 8);
     expect(rate[1].id).toBe(13);
     expect(rate[1].awake.id).toBe(13);
     expect(rate[1].awake.frequency).toBeCloseTo(awakeFreq * 2);
     expect(rate[1].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 2) * 2);
-    expect(rate[1].sleep.id).toBe(13);
-    expect(rate[1].sleep.frequency).toBeCloseTo(sleepFreq * 2);
-    expect(rate[1].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 2);
+    expect(rate[1].sleep1.id).toBe(13);
+    expect(rate[1].sleep1.frequency).toBeCloseTo(sleepFreq * 2);
+    expect(rate[1].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 2) * 2);
   });
 
   it('has correct frequency for Absol of (A3) Cocoa x 2; Cocoa x 5; Cocoa x 7', () => {
@@ -153,16 +153,16 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / (bonus.stamina.multiplier.awake ?? 0);
+    const sleepFreq = 2920.2 / (bonus.stamina.multiplier.sleep1 ?? 0);
 
     expect(rate[0].id).toBe(13);
     expect(rate[0].awake.id).toBe(13);
     expect(rate[0].awake.frequency).toBeCloseTo(awakeFreq);
     expect(rate[0].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 3) * 14);
-    expect(rate[0].sleep.id).toBe(13);
-    expect(rate[0].sleep.frequency).toBeCloseTo(sleepFreq);
-    expect(rate[0].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 14);
+    expect(rate[0].sleep1.id).toBe(13);
+    expect(rate[0].sleep1.frequency).toBeCloseTo(sleepFreq);
+    expect(rate[0].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 14);
   });
 
   it('has correct frequency for Absol of (A2B1) Cocoa x 2; Cocoa x 5; Apple x 12', () => {
@@ -180,23 +180,23 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / (bonus.stamina.multiplier.awake ?? 0);
+    const sleepFreq = 2920.2 / (bonus.stamina.multiplier.sleep1 ?? 0);
 
     expect(rate[0].id).toBe(5);
     expect(rate[0].awake.id).toBe(5);
     expect(rate[0].awake.frequency).toBeCloseTo(awakeFreq * 3);
     expect(rate[0].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 3) * 12);
-    expect(rate[0].sleep.id).toBe(5);
-    expect(rate[0].sleep.frequency).toBeCloseTo(sleepFreq * 3);
-    expect(rate[0].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 12);
+    expect(rate[0].sleep1.id).toBe(5);
+    expect(rate[0].sleep1.frequency).toBeCloseTo(sleepFreq * 3);
+    expect(rate[0].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 12);
     expect(rate[1].id).toBe(13);
     expect(rate[1].awake.id).toBe(13);
     expect(rate[1].awake.frequency).toBeCloseTo(awakeFreq * (3 / 2));
     expect(rate[1].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 3) * 7);
-    expect(rate[1].sleep.id).toBe(13);
-    expect(rate[1].sleep.frequency).toBeCloseTo(sleepFreq * (3 / 2));
-    expect(rate[1].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 7);
+    expect(rate[1].sleep1.id).toBe(13);
+    expect(rate[1].sleep1.frequency).toBeCloseTo(sleepFreq * (3 / 2));
+    expect(rate[1].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 7);
   });
 
   it('has correct frequency for Absol of (A1B1C1) Cocoa x 2; Apple x 8; Mushroom x 7', () => {
@@ -214,29 +214,29 @@ describe('Ingredient Production / Multiple', () => {
       ingredientMap: testIngredientMap,
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / (bonus.stamina.multiplier.awake ?? 0);
+    const sleepFreq = 2920.2 / (bonus.stamina.multiplier.sleep1 ?? 0);
 
     expect(rate[0].id).toBe(2);
     expect(rate[0].awake.id).toBe(2);
     expect(rate[0].awake.frequency).toBeCloseTo(awakeFreq * 3);
     expect(rate[0].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 3) * 7);
-    expect(rate[0].sleep.id).toBe(2);
-    expect(rate[0].sleep.frequency).toBeCloseTo(sleepFreq * 3);
-    expect(rate[0].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 7);
+    expect(rate[0].sleep1.id).toBe(2);
+    expect(rate[0].sleep1.frequency).toBeCloseTo(sleepFreq * 3);
+    expect(rate[0].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 7);
     expect(rate[1].id).toBe(5);
     expect(rate[1].awake.id).toBe(5);
     expect(rate[1].awake.frequency).toBeCloseTo(awakeFreq * 3);
     expect(rate[1].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 3) * 8);
-    expect(rate[1].sleep.id).toBe(5);
-    expect(rate[1].sleep.frequency).toBeCloseTo(sleepFreq * 3);
-    expect(rate[1].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 8);
+    expect(rate[1].sleep1.id).toBe(5);
+    expect(rate[1].sleep1.frequency).toBeCloseTo(sleepFreq * 3);
+    expect(rate[1].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 8);
     expect(rate[2].id).toBe(13);
     expect(rate[2].awake.id).toBe(13);
     expect(rate[2].awake.frequency).toBeCloseTo(awakeFreq * 3);
     expect(rate[2].awake.quantity).toBeCloseTo(durationOfDay / (awakeFreq * 3) * 2);
-    expect(rate[2].sleep.id).toBe(13);
-    expect(rate[2].sleep.frequency).toBeCloseTo(sleepFreq * 3);
-    expect(rate[2].sleep.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 2);
+    expect(rate[2].sleep1.id).toBe(13);
+    expect(rate[2].sleep1.frequency).toBeCloseTo(sleepFreq * 3);
+    expect(rate[2].sleep1.quantity).toBeCloseTo(durationOfDay / (sleepFreq * 3) * 2);
   });
 });

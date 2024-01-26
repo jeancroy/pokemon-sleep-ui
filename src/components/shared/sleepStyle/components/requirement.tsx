@@ -41,7 +41,7 @@ export const SleepStyleUnlockRequirement = ({
     <Flex direction="row" center noFullWidth className="gap-2">
       {snorlaxRankMinimum && <SnorlaxRankUI rank={snorlaxRankMinimum}/>}
       <Flex direction="row" center noFullWidth className="gap-1">
-        <div className={clsx('relative', dimension ?? 'h-6 w-6')}>
+        <div className={clsx('relative', dimension ?? 'size-6')}>
           <NextImage
             src="/images/generic/snorlax.png"
             alt={t('DrowsyPowerRequirement')}

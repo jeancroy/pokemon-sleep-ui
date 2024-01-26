@@ -12,7 +12,6 @@ import {getProducingRateBase} from '@/utils/game/producing/rateBase';
 export type GetMainSkillProducingRateOpts =
   Omit<ProducingRateCommonParams, 'level'> &
   GetMainSkillEquivalentStrengthOpts & {
-    timeToFullPack: number,
     subSkillBonus: GroupedSubSkillBonus | null,
     skillRatePercent: number | null,
     natureId: NatureId | null,
@@ -23,13 +22,12 @@ export const getMainSkillProducingRate = ({
   frequency,
   calculatedSettings,
   energyMultiplier,
-  timeToFullPack,
   subSkillBonus,
   skillRatePercent,
   natureId,
   ...opts
 }: GetMainSkillProducingRateOpts): ProducingRateOfItemOfSessions => {
-  const {bonus, sleepDurationInfo} = calculatedSettings;
+  const {bonus, sleepSessionInfo} = calculatedSettings;
   const {mapMultiplier} = bonus;
 
   frequency *= (1 / getSkillTriggerRate({skillRatePercent, subSkillBonus, natureId}));
@@ -40,10 +38,10 @@ export const getMainSkillProducingRate = ({
 
   return {
     id,
-    sleep: applyBonusWithMainSkillCapping({
+    sleep1: applyBonusWithMainSkillCapping({
       bonus,
       energyMultiplier,
-      producingState: 'sleep',
+      producingState: 'sleep1',
       data: {
         id,
         frequency,
@@ -51,8 +49,26 @@ export const getMainSkillProducingRate = ({
         energy: strengthPerSkill,
         quantity: 1,
       },
-      timeToFullPack,
-      sleepDurationInfo,
+      // While asleep, skills can only trigger at most 1
+      cappingDuration: sleepSessionInfo.session.primary.duration.actual,
+      maxCount: 1,
+    }),
+    sleep2: applyBonusWithMainSkillCapping({
+      bonus,
+      energyMultiplier,
+      producingState: 'sleep2',
+      data: {
+        id,
+        frequency,
+        period: 'daily',
+        energy: strengthPerSkill,
+        quantity: 1,
+      },
+      // While asleep, skills can only trigger at most 1
+      // `0` on null because if `sleepSessionInfo.session.secondary` is `null`,
+      // it means no secondary sleep session, which also means length of 0
+      cappingDuration: (sleepSessionInfo.session.secondary?.duration.actual ?? 0),
+      maxCount: 1,
     }),
     awake: applyBonus({
       bonus,

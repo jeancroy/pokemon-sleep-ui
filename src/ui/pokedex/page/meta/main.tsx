@@ -46,13 +46,13 @@ export const PokemonMeta = (props: PokemonDataProps) => {
       <AdsUnit className="my-2 lg:hidden"/>
       <Flex className="gap-y-3 md:p-5 lg:p-8">
         <PokemonMetaSection title={t2('Info.SleepType')} contentClassName="text-lg">
-          <PokemonSleepType sleepType={sleepType} dimension="h-7 w-7"/>
+          <PokemonSleepType sleepType={sleepType} dimension="size-7"/>
         </PokemonMetaSection>
         <PokemonMetaSection
           title={t2('Info.Specialty')}
           contentClassName={clsx('text-lg', specialty && specialtyTextClassDefault[specialty])}
         >
-          <PokemonSpecialty specialty={specialty} dimension="h-7 w-7"/>
+          <PokemonSpecialty specialty={specialty} dimension="size-7"/>
         </PokemonMetaSection>
         <PokemonMetaSection
           title={t2('Info.MainSkill')}
@@ -62,7 +62,7 @@ export const PokemonMeta = (props: PokemonDataProps) => {
             <FlexLink href={`/info/mainskill/${skill}`} center className={clsx(
               'button-clickable-bg group gap-2 p-1 px-2 text-lg',
             )}>
-              <MainSkillIcon id={skill} dimension="h-6 w-6"/>
+              <MainSkillIcon id={skill} dimension="size-6"/>
               <div>{t(`MainSkill.Name.${skill}`)}</div>
             </FlexLink>
             <div className="text-xs text-slate-500 dark:text-slate-400">
@@ -77,7 +77,7 @@ export const PokemonMeta = (props: PokemonDataProps) => {
           <FlexLink href="/info/production" center className={clsx(
             'button-clickable-bg group gap-2 p-1 px-2 text-lg',
           )}>
-            <PokemonIngredientRate params={pokemonProducingParams} noIcon dimension="h-6 w-6"/>
+            <PokemonIngredientRate params={pokemonProducingParams} noIcon dimension="size-6"/>
           </FlexLink>
         </PokemonMetaSection>
         <PokemonMetaSection
@@ -87,7 +87,7 @@ export const PokemonMeta = (props: PokemonDataProps) => {
           <FlexLink href="/info/production" center className={clsx(
             'button-clickable-bg group gap-2 p-1 px-2 text-lg',
           )}>
-            <PokemonMainSkillTriggerRate params={pokemonProducingParams} noIcon dimension="h-6 w-6"/>
+            <PokemonMainSkillTriggerRate params={pokemonProducingParams} noIcon dimension="size-6"/>
           </FlexLink>
         </PokemonMetaSection>
         <PokemonMetaSection

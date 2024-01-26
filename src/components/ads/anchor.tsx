@@ -22,9 +22,9 @@ export const AnchorAdsUnit = () => {
   return (
     <Collapsible state={state} classNameForHeight="h-32" button={
       <Flex direction="row" center className="gap-1.5">
-        <ArrowDownIcon className="h-4 w-4"/>
+        <ArrowDownIcon className="size-4"/>
         <div>Ads</div>
-        <ArrowDownIcon className="h-4 w-4"/>
+        <ArrowDownIcon className="size-4"/>
       </Flex>
     }>
       <AdsUnit/>

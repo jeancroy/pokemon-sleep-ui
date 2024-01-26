@@ -45,7 +45,7 @@ export const MealPlanner = ({target, setTarget, recipeLevel, setRecipeLevel, mea
 
                 return (
                   <Flex direction="row" key={mealOfDay} className="items-center gap-1.5">
-                    <div className="h-8 w-8 shrink-0">
+                    <div className="size-8 shrink-0">
                       {mealOfDayIcon[mealOfDay]}
                     </div>
                     <MealSelector

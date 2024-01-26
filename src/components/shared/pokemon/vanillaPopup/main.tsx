@@ -52,7 +52,7 @@ export const PokemonVanillaPopup = ({
         <AdsUnit/>
         <Collapsible state={collapsible} classNameForHeight="h-60" button={
           <Flex direction="row" center>
-            <FunnelIcon className="h-6 w-6"/>
+            <FunnelIcon className="size-6"/>
           </Flex>
         }>
           <PokemonFilter

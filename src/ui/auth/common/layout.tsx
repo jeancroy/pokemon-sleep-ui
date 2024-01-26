@@ -16,7 +16,7 @@ export const AuthLayout = ({locale, children}: React.PropsWithChildren<Props>) =
     <PageLayout noUserControl locale={locale}>
       <Flex center>
         <Flex center className="gap-5 sm:w-2/3 md:w-1/2 xl:w-1/3">
-          <div className="relative h-36 w-36">
+          <div className="relative size-36">
             <NextImage
               src="/images/rank/4.png"
               alt="Pokemon Sleep"

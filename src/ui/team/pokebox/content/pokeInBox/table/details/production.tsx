@@ -65,7 +65,7 @@ export const PokeInBoxTableProduction = ({
               <div>
                 x{formatFloat(quantity[pokeInBoxStateOfRate])}
               </div>
-              <ColoredEnergyIcon alt={t('Stats.Energy.Name')} dimension="h-3 w-3"/>
+              <ColoredEnergyIcon alt={t('Stats.Energy.Name')} dimension="size-3"/>
               <div>
                 {formatFloat(energy[pokeInBoxStateOfRate])}
               </div>
@@ -80,7 +80,7 @@ export const PokeInBoxTableProduction = ({
           ids: ['productionTotal'] satisfies PokeboxDisplayType[],
         }) &&
         <Flex direction="row" center noFullWidth className="w-32 gap-0.5 text-lg">
-          <ColoredEnergyIcon dimension="h-6 w-6" alt={t('Stats.Energy.Name')}/>
+          <ColoredEnergyIcon dimension="size-6" alt={t('Stats.Energy.Name')}/>
           <div>
             {formatFloat(getTotalEnergyOfPokemonProducingRate(rateOfPokemon))}
           </div>

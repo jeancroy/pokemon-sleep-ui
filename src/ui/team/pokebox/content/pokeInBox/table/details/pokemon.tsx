@@ -24,7 +24,7 @@ export const PokeInBoxTablePokemon = (props: PokeInBoxTableDetailsProps) => {
 
   return (
     <>
-      <PokemonSleepTypeIcon sleepType={sleepType} dimension="h-4 w-4" className="invert-hoverable-dark"/>
+      <PokemonSleepTypeIcon sleepType={sleepType} dimension="size-4" className="invert-hoverable-dark"/>
       <Flex
         direction="row" center noFullWidth
         className={clsx('items-center gap-1 p-1', specialty === specialtyIdMap.berry && 'info-highlight')}
@@ -32,10 +32,10 @@ export const PokeInBoxTablePokemon = (props: PokeInBoxTableDetailsProps) => {
         <PokemonBerryIcon id={berry.id}/>
       </Flex>
       <Flex noFullWidth center className="w-36 text-sm">
-        <PokemonIngredientRate params={pokemonProducingParams} dimension="h-5 w-5"/>
+        <PokemonIngredientRate params={pokemonProducingParams} dimension="size-5"/>
       </Flex>
       <Flex noFullWidth center className="w-36 text-sm">
-        <PokemonMainSkillTriggerRate params={pokemonProducingParams} dimension="h-5 w-5"/>
+        <PokemonMainSkillTriggerRate params={pokemonProducingParams} dimension="size-5"/>
       </Flex>
     </>
   );

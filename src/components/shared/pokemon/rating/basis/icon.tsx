@@ -20,24 +20,24 @@ export const RatingBasisIcon = ({basis}: Props) => {
   const basisName = t(ratingBasisI18nId[basis]);
 
   if (basis === 'totalProduction') {
-    return <ColoredEnergyIcon alt={basisName} dimension="h-7 w-7"/>;
+    return <ColoredEnergyIcon alt={basisName} dimension="size-7"/>;
   }
 
   if (basis === 'ingredientCount') {
-    return <GenericIngredientIcon alt={basisName} dimension="h-7 w-7"/>;
+    return <GenericIngredientIcon alt={basisName} dimension="size-7"/>;
   }
 
   if (basis === 'ingredientProduction') {
     return (
       <Flex direction="row" noFullWidth>
-        <GenericIngredientIcon alt={basisName} dimension="h-7 w-7"/>
-        <ColoredEnergyIcon alt={basisName} dimension="h-7 w-7"/>
+        <GenericIngredientIcon alt={basisName} dimension="size-7"/>
+        <ColoredEnergyIcon alt={basisName} dimension="size-7"/>
       </Flex>
     );
   }
 
   if (basis === 'skillTriggerValue') {
-    return <MainSkillTriggerValueIcon alt={basisName} dimension="h-7 w-7"/>;
+    return <MainSkillTriggerValueIcon alt={basisName} dimension="size-7"/>;
   }
 
   throw new Error(`Unhandled rating icon of basis - ${basis satisfies never}`);

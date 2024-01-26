@@ -35,7 +35,7 @@ export const GenericIcon = ({
   }
 
   return (
-    <div className={clsx('relative', dimension ?? 'h-5 w-5', noShrink && 'shrink-0')}>
+    <div className={clsx('relative', dimension ?? 'size-5', noShrink && 'shrink-0')}>
       <NextImage src={src} alt={alt} sizes={imageSmallIconSizes} className={imageClassName}/>
     </div>
   );

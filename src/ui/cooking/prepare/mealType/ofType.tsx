@@ -36,7 +36,7 @@ export const MealPrepareOfMealType = ({mealType, info, ...props}: Props) => {
       <CollapsibleFull state={collapsible} button={
         <Flex>
           <Flex direction="row" center className="gap-1 text-xl">
-            <div className={clsx('h-5 w-5 rounded-full', mealTypeDotStyle[mealType])}/>
+            <div className={clsx('size-5 rounded-full', mealTypeDotStyle[mealType])}/>
             <div className={mealTypeTextStyle[mealType]}>{t(mealType.toString())}</div>
           </Flex>
           <Flex direction="row" center className="gap-1.5">
@@ -49,7 +49,7 @@ export const MealPrepareOfMealType = ({mealType, info, ...props}: Props) => {
 
               return (
                 <React.Fragment key={id}>
-                  <MealImage mealId={id} dimension="h-6 w-6"/>
+                  <MealImage mealId={id} dimension="size-6"/>
                   <div>{count}</div>
                 </React.Fragment>
               );

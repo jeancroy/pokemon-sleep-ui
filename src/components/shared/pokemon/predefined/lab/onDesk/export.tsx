@@ -89,7 +89,7 @@ export const PokemonOnDeskExportButton = ({setup, pokemon, pokemonMaxLevel}: Pro
                 });
               }}
             >
-              <div className="h-8 w-8">
+              <div className="size-8">
                 <UserActionStatusIcon status={status}/>
               </div>
             </button>
@@ -103,15 +103,15 @@ export const PokemonOnDeskExportButton = ({setup, pokemon, pokemonMaxLevel}: Pro
       >
         <Flex direction="row" center className="group gap-1">
           {status !== 'waiting' ?
-            <div className="h-9 w-9">
+            <div className="size-9">
               <UserActionStatusIcon status={status}/>
             </div> :
             <>
-              <ArrowTopRightOnSquareIcon className="h-9 w-9"/>
+              <ArrowTopRightOnSquareIcon className="size-9"/>
               <GenericIconLarger
                 src="/images/generic/pokebox.png"
                 alt={t('Team.Box.Title')}
-                dimension="h-9 w-9"
+                dimension="size-9"
               />
             </>}
         </Flex>

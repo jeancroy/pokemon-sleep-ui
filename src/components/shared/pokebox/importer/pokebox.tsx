@@ -86,7 +86,7 @@ export const PokeboxImporterView = ({
     <Flex className="gap-1.5">
       <Collapsible state={collapsible} classNameForHeight="h-72 md:h-56" button={
         <Flex direction="row" center className="gap-0.5">
-          <FunnelIcon className="h-6 w-6"/>
+          <FunnelIcon className="size-6"/>
         </Flex>
       }>
         <Flex noFullWidth className="gap-1 pr-1">
@@ -147,7 +147,7 @@ export const PokeboxImporterView = ({
                         <IconWithInfo
                           imageSrc={`/images/pokemon/icons/${pokemon}.png`}
                           imageAlt={t2(`PokemonName.${pokemon}`)}
-                          imageDimension="h-12 w-12"
+                          imageDimension="size-12"
                           imageSizes={imageIconSizes}
                           info={level}
                           className="shrink-0 opacity-70"
@@ -158,7 +158,7 @@ export const PokeboxImporterView = ({
                         {
                           isShiny &&
                           <InfoIcon>
-                            <div className="relative h-4 w-4">
+                            <div className="relative size-4">
                               <NextImage
                                 src="/images/generic/flash.png" alt={t3('Shiny')}
                                 sizes={imageSmallIconSizes} className="invert-on-light"
@@ -166,7 +166,7 @@ export const PokeboxImporterView = ({
                             </div>
                           </InfoIcon>
                         }
-                        {isFavorite && <BookmarkIcon className="h-5 w-5"/>}
+                        {isFavorite && <BookmarkIcon className="size-5"/>}
                         <div className="truncate">
                           {name ?? pokemonDefaultName}
                         </div>

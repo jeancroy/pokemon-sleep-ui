@@ -66,7 +66,7 @@ export const MealMakerPopup = ({filter, calculatedSettings, status, onCook, ...p
             <HorizontalSplitter className="w-full"/>
             <Flex direction="row" className="justify-between text-xl">
               <Flex direction="row" noFullWidth className="items-center gap-1">
-                <ColoredEnergyIcon dimension="h-6 w-6" alt={t('Energy')}/>
+                <ColoredEnergyIcon dimension="size-6" alt={t('Energy')}/>
                 <div>
                   {formatInt(strengthFinal)}
                 </div>
@@ -85,7 +85,7 @@ export const MealMakerPopup = ({filter, calculatedSettings, status, onCook, ...p
               await onCook(usages);
               setShow(false);
             }}
-            className="enabled:button-clickable-bg disabled:button-disabled h-8 w-8 p-1"
+            className="enabled:button-clickable-bg disabled:button-disabled size-8 p-1"
           >
             <UserActionStatusIcon status={status} onWaitingOverride={<FireIcon/>}/>
           </button>

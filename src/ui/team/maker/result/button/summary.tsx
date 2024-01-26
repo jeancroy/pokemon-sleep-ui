@@ -21,7 +21,7 @@ export const TeamMakerResultSummary = ({basis, basisValue}: Props) => {
   if (basis === 'strength') {
     return (
       <Flex noFullWidth direction="row" className="items-center">
-        <ColoredEnergyIcon dimension="h-6 w-6" alt={t('Strength')}/>
+        <ColoredEnergyIcon dimension="size-6" alt={t('Strength')}/>
         <span>{formatFloat(basisValue.strength)}</span>
       </Flex>
     );

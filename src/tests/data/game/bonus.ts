@@ -6,9 +6,16 @@ export const testBonus: {[id in number]: EffectiveBonus} = {
     mapMultiplier: 1.05,
     stamina: {
       logs: [], // ignore
-      average: NaN, // ignore
-      sleep: 2.2,
-      awake: 1.6,
+      multiplier: {
+        average: null, // ignore
+        sleep1: 2.2,
+        sleep2: 2.2,
+        awake: 1.6,
+      },
+      intervalsDuringSleep: {
+        primary: [], // ignore
+        secondary: [], // ignore
+      },
     },
     overallMultiplier: 1.2,
   },

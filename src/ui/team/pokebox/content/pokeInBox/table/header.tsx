@@ -37,17 +37,17 @@ export const PokeInBoxTableRowHeader = (props: Props) => {
       pokeInBox.isShiny && 'info-highlight info-section-opaque',
       !pokeInBox.isShiny && 'bg-slate-300 shadow shadow-slate-300 dark:bg-slate-800 dark:shadow-black',
     )}>
-      <button className="button-clickable group relative h-6 w-6" onClick={() => showPokemon(pokemon)}>
+      <button className="button-clickable group relative size-6" onClick={() => showPokemon(pokemon)}>
         <GenericPokeballIcon alt={t2('Pokedex.Main.Page.Title', {name: pokemonName})} noWrap/>
       </button>
       <IconWithInfo
         imageSrc={`/images/pokemon/icons/${pokemonId}.png`}
         imageAlt={pokemonName}
-        imageDimension="h-10 w-10"
+        imageDimension="size-10"
         imageSizes={imageIconSizes}
         info={
           pokeInBox.isShiny &&
-          <div className="relative h-4 w-4">
+          <div className="relative size-4">
             <NextImage
               src="/images/generic/flash.png" alt={t3('Shiny')}
               sizes={imageSmallIconSizes} className="invert-on-light"

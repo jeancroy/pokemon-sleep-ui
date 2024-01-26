@@ -1,9 +1,10 @@
-import {staminaStartingDefault} from '@/const/game/stamina';
+import {staminaMaxRecovery} from '@/const/game/stamina';
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaSkillRecoveryConfig} from '@/types/game/stamina/skill';
+import {toSum} from '@/utils/array';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 import {GetLogsCommonOpts} from '@/utils/game/stamina/events/type';
-import {getFinalRecoveryRate, getTotalDailyRecoveryAmount} from '@/utils/game/stamina/events/utils';
+import {getActualRecoveryAmount} from '@/utils/game/stamina/events/utils';
 
 
 type GetLogsWithPrimarySleepOpts = Omit<GetLogsCommonOpts, 'logs'> & {
@@ -21,52 +22,18 @@ const getInitialSkillRecoveryAmount = ({
     return 0;
   }
 
-  return getTotalDailyRecoveryAmount({skillTriggers, recoveryRate});
+  return toSum(skillTriggers.map(({dailyCount, amount}) => (
+    dailyCount * getActualRecoveryAmount({amount, recoveryRate, isSleep: false})
+  )));
 };
 
-const getIntradaySkillRecoveryAmount = ({
-  recoveryRate,
-  skillTriggers,
-  skillRecovery,
-}: GetLogsWithPrimarySleepOpts): number => {
-  const {strategy} = skillRecovery;
+export const getWakeupStamina = (opts: GetLogsWithPrimarySleepOpts) => {
+  const {sessionInfo} = opts;
 
-  if (strategy === 'optimistic') {
-    return 0;
-  }
+  const sleepRecovery = sessionInfo.session.primary.recovery;
+  const skillRecovery = getInitialSkillRecoveryAmount(opts);
 
-  return getTotalDailyRecoveryAmount({skillTriggers, recoveryRate});
-};
-
-const getWakeupStamina = (opts: GetLogsWithPrimarySleepOpts) => {
-  const {
-    recoveryRate,
-    sessionInfo,
-    skillRecovery,
-  } = opts;
-  const {stamina} = sessionInfo;
-  const {strategy} = skillRecovery;
-
-  const wakeupStaminaOriginal = staminaStartingDefault + getInitialSkillRecoveryAmount(opts);
-
-  const lossInIteration = Math.max(
-    0,
-    stamina.dailyLoss -
-    Math.floor(wakeupStaminaOriginal * getFinalRecoveryRate({recoveryRate, isSleep: false})),
-  );
-
-  if (strategy === 'conservative') {
-    // Only needed if `conservative` because `getInitialSkillRecoveryAmount()` includes this already if `optimistic`
-    const gainInIteration = getIntradaySkillRecoveryAmount(opts);
-
-    // Conservative should cap the start at 100
-    return Math.min(
-      staminaStartingDefault,
-      wakeupStaminaOriginal - lossInIteration + gainInIteration,
-    );
-  }
-
-  return wakeupStaminaOriginal - lossInIteration;
+  return Math.min(sleepRecovery.actual, staminaMaxRecovery) + skillRecovery;
 };
 
 export const getLogsWithPrimarySleep = (opts: GetLogsWithPrimarySleepOpts): StaminaEventLog[] => {
@@ -84,14 +51,26 @@ export const getLogsWithPrimarySleep = (opts: GetLogsWithPrimarySleepOpts): Stam
     {
       type: 'wakeup',
       timing: primary.adjustedTiming.end,
-      stamina: {before: sleepStamina.inGame, after: wakeupStamina},
-      staminaUnderlying: {before: sleepStamina.actual, after: wakeupStamina},
+      stamina: {
+        before: wakeupStamina,
+        after: wakeupStamina,
+      },
+      staminaUnderlying: {
+        before: wakeupStamina,
+        after: wakeupStamina,
+      },
     },
     {
       type: 'sleep',
       timing: primary.adjustedTiming.start,
-      stamina: {before: sleepStamina.inGame, after: wakeupStamina},
-      staminaUnderlying: {before: sleepStamina.actual, after: wakeupStamina},
+      stamina: {
+        before: sleepStamina.inGame,
+        after: sleepStamina.inGame,
+      },
+      staminaUnderlying: {
+        before: sleepStamina.actual,
+        after: sleepStamina.actual,
+      },
     },
   ];
 };

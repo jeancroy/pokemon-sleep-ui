@@ -32,7 +32,7 @@ export const AnalysisStatsOfPokemonMeta = ({pokemon, stats, level}: AnalysisStat
         stats={stats.pokemon.type}
         title={<PokemonFilterTitle type="pokemonType"/>}
       >
-        <PokemonTypeIcon type={type} dimension="h-10 w-10"/>
+        <PokemonTypeIcon type={type} dimension="size-10"/>
       </AnalysisStatsGroupedUI>
       {
         specialty &&
@@ -41,13 +41,13 @@ export const AnalysisStatsOfPokemonMeta = ({pokemon, stats, level}: AnalysisStat
           title={<PokemonFilterTitle type="specialty"/>}
         >
           <div className="text-2xl">
-            <PokemonSpecialty dimension="h-8 w-8" specialty={specialty}/>
+            <PokemonSpecialty dimension="size-8" specialty={specialty}/>
           </div>
         </AnalysisStatsGroupedUI>
       }
       <AnalysisStatsGroupedUI stats={stats.pokemon.sleepType} title={<PokemonFilterTitle type="sleepType"/>}>
         <div className="text-2xl">
-          <PokemonSleepType dimension="h-8 w-8" sleepType={sleepType}/>
+          <PokemonSleepType dimension="size-8" sleepType={sleepType}/>
         </div>
       </AnalysisStatsGroupedUI>
       {getEffectiveIngredientLevels(level).map((ingredientLevel) => (
@@ -67,14 +67,14 @@ export const AnalysisStatsOfPokemonMeta = ({pokemon, stats, level}: AnalysisStat
             {/* All linked got the same ingredient ID, so `stats.linked[0]` is OK here */}
             <PokemonIngredientIcon
               key={`${ingredientLevel}-${stats.linked[0].data.id}`}
-              dimension="h-12 w-12"
+              dimension="size-12"
               id={stats.linked[0].data.id}
             />
           </AnalysisStatsGroupedUI>
         ))
       ))}
       <AnalysisStatsGroupedUI stats={stats.pokemon.berry} title={<PokemonFilterTitle type="berry"/>}>
-        <PokemonBerryIcon dimension="h-12 w-12" id={berry.id}/>
+        <PokemonBerryIcon dimension="size-12" id={berry.id}/>
       </AnalysisStatsGroupedUI>
       <AnalysisStatsGroupedUI stats={stats.pokemon.mainSkill} title={<PokemonFilterTitle type="mainSkill"/>}>
         <Flex center className="h-12 text-2xl">

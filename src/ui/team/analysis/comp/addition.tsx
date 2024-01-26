@@ -34,7 +34,7 @@ export const TeamAnalysisCompAddition = ({onAdded}: React.PropsWithChildren<Prop
         onAdded(newTeam);
         setNewTeam(generateEmptyTeam(v4()));
       }}>
-        <PlusCircleIcon className="m-auto h-12 w-12"/>
+        <PlusCircleIcon className="m-auto size-12"/>
       </button>
     </Flex>
   );

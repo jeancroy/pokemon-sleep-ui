@@ -51,7 +51,7 @@ export const PokemonGroupedProductionCategory = ({icon, data, getReactNode, show
                 </React.Fragment>
               );
             }) :
-          <UnavailableIcon dimension="h-10 w-10"/>}
+          <UnavailableIcon dimension="size-10"/>}
       </Flex>
     </Flex>
   );

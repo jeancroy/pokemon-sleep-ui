@@ -17,8 +17,6 @@ export const PokemonProductionIngredientLink = ({production}: Props) => {
 
   const t = useTranslations('Game.Food');
 
-  const ingredientName = t(id.toString());
-
   return (
     <FlexLink
       href={`/ingredient/${id}`}
@@ -28,14 +26,11 @@ export const PokemonProductionIngredientLink = ({production}: Props) => {
     >
       <IconWithInfo
         imageSrc={`/images/ingredient/${id}.png`}
-        imageAlt={ingredientName}
-        imageDimension="h-12 w-12"
+        imageAlt={t(id.toString())}
+        imageDimension="size-12"
         imageSizes={imageSmallIconSizes}
         info={qty}
       />
-      <div className="whitespace-nowrap text-sm">
-        {ingredientName}
-      </div>
     </FlexLink>
   );
 };

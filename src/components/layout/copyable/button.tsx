@@ -22,7 +22,7 @@ export const CopyButton = ({data, dimension}: Props) => {
   }, [copied]);
 
   return (
-    <button className={clsx('button-clickable p-1', dimension ?? 'h-8 w-8')} onClick={() => {
+    <button className={clsx('button-clickable p-1', dimension ?? 'size-8')} onClick={() => {
       navigator.clipboard.writeText(data).then(() => setCopied(true));
     }}>
       {copied ? <CheckCircleIcon/> : <ClipboardIcon/>}

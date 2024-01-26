@@ -11,7 +11,7 @@ type Props = {
 
 export const CookingExternalLink = ({mealId}: Props) => {
   return (
-    <a href={`/meal/${mealId}`} className="button-clickable-bg h-5 w-5 p-1" target="_blank">
+    <a href={`/meal/${mealId}`} className="button-clickable-bg size-5 p-1" target="_blank">
       <Flex center className="h-full">
         <ArrowUpRightIcon/>
       </Flex>

@@ -31,7 +31,7 @@ export const MealDisplayControl = ({showEnergy, setShowEnergy, uploadData}: Prop
         className={clsx('group', textFilterButtonStyle)}
       >
         <Flex direction="row" center noFullWidth className="gap-1">
-          <div className="h-5 w-5">
+          <div className="size-5">
             {showEnergy ? <EyeIcon/> : <EyeSlashIcon/>}
           </div>
           <EnergyIcon alt={t('Energy')} noInvert isActive={showEnergy}/>

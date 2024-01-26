@@ -1,24 +1,28 @@
 import {defaultMapBonus} from '@/const/user/settings';
 import {EffectiveBonus} from '@/types/game/bonus';
+import {SleepSessionInfo} from '@/types/game/sleep';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {UserSettings} from '@/types/userData/settings';
-import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
 
 export type ToEffectiveBonusOpts = {
   settings: UserSettings,
+  sleepSessionInfo: SleepSessionInfo,
   skillTriggers?: StaminaSkillTriggerData[],
 };
 
-export const toEffectiveBonus = ({settings, skillTriggers}: ToEffectiveBonusOpts): EffectiveBonus => {
+export const toEffectiveBonus = ({
+  settings,
+  sleepSessionInfo,
+  skillTriggers,
+}: ToEffectiveBonusOpts): EffectiveBonus => {
   const {bonus, stamina, staminaSkillTrigger} = settings;
 
-  const sessionInfo = getSleepSessionInfo(stamina.sleepSession);
   const staminaEfficiency = getStaminaEfficiency({
     config: stamina,
     skillTriggers: skillTriggers ?? [staminaSkillTrigger],
-    sessionInfo,
+    sessionInfo: sleepSessionInfo,
   });
 
   return {

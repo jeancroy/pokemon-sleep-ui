@@ -17,7 +17,7 @@ type Props = {
 
 export const TeamMakerIngredientStatsUI = ({ingredientStats}: Props) => {
   const {surplus, shortage} = ingredientStats;
-  const iconDimension: Dimension = 'h-6 w-6';
+  const iconDimension: Dimension = 'size-6';
 
   return (
     <>

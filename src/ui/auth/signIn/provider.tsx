@@ -15,7 +15,7 @@ export const AuthSignInProvider = ({provider, text}: Props) => {
   return (
     <button className="button-clickable-bg w-2/3 p-2 lg:w-1/2" onClick={() => signIn(provider)}>
       <Flex direction="row" noFullWidth center className="gap-1.5">
-        <ArrowTopRightOnSquareIcon className="h-6 w-6"/>
+        <ArrowTopRightOnSquareIcon className="size-6"/>
         <div>
           {text}
         </div>

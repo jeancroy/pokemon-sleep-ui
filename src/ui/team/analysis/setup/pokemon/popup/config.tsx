@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {PokemonIntentionalFullPackInput} from '@/components/shared/pokemon/fullPack/input';
+import {PokemonIntentionalFullPackInput} from '@/components/shared/pokemon/inventory/fullPack/input';
 import {PokemonConfig} from '@/components/shared/pokemon/predefined/config/main';
 import {TeamAnalysisPokemonProps} from '@/ui/team/analysis/setup/pokemon/type';
 

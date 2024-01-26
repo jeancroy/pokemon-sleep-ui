@@ -15,7 +15,7 @@ type Props = {
 export const DocsMetaViewCountUI = ({viewCount, enlargeOnWide = true}: Props) => {
   return (
     <DocsMetaItem
-      icon={<EyeIcon className={clsx('h-6 w-6', enlargeOnWide && 'md:h-7 md:w-7')}/>}
+      icon={<EyeIcon className={clsx('size-6', enlargeOnWide && 'md:size-7')}/>}
       content={formatInt(viewCount)}
       className={clsx(enlargeOnWide && 'md:text-xl')}
     />

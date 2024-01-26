@@ -282,7 +282,10 @@
         "Friendship": "Friendship Points",
         "Recruit": "Partnered",
         "TransferReward": "Reward of sending the Pokemon to professor",
-        "TimeToFullPack": "Time to Full Pack",
+        "TimeToFullPack": {
+          "Primary": "Time to Full Pack (Sleep 1)",
+          "Secondary": "Time to Full Pack (Sleep 2)"
+        },
         "MainSkillValue": "Skill Value",
         "MainSkillTriggerValue": "Skill Trigger Value",
         "MainSkillTriggerRate": "Skill Trigger Rate",
@@ -479,8 +482,16 @@
   "Producing": {
     "State": {
       "Awake": "Awake",
-      "AsleepUnfilled": "Asleep (Pack Unfilled)",
-      "AsleepFilled": "Asleep (Pack Filled)"
+      "Asleep": {
+        "Primary": {
+          "Vacant": "[1] Asleep (Pack Unfilled)",
+          "Filled": "[1] Asleep (Pack Filled)"
+        },
+        "Secondary": {
+          "Vacant": "[2] Asleep (Pack Unfilled)",
+          "Filled": "[2] Asleep (Pack Filled)"
+        }
+      }
     },
     "Preset": {
       "UnfilledOnly": "Pack Unfilled"
@@ -541,12 +552,17 @@
       "SkillRecovery": "Skill Recovery",
       "EfficiencyBlock": "Efficiency Breakpoint",
       "Sleep": "Sleep",
-      "Wakeup": "Wake Up"
+      "Wakeup": "Wake Up",
+      "EndOfPeriod": "End of Period"
     },
     "State": {
-      "Asleep": "Asleep",
       "Average": "Average",
-      "Awake": "Awake"
+      "Awake": "Awake",
+      "Asleep": {
+        "Neutral": "Asleep",
+        "Primary": "Asleep (1)",
+        "Secondary": "Asleep (2)"
+      }
     }
   },
   "UserSettings": {

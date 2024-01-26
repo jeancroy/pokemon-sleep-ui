@@ -23,7 +23,7 @@ export const NavListHome = () => {
         />
       </div>
       <Flex center className="absolute left-0 top-0 z-10 h-full gap-1.5">
-        <div className="relative h-12 w-12">
+        <div className="relative size-12">
           <NextImage src={`/images/rank/${rankBallId}.png`} alt={t('Home.Title')} sizes={imageSmallIconSizes}/>
         </div>
         <div className="text-center">

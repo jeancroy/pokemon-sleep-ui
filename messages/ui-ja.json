@@ -282,7 +282,10 @@
         "Friendship": "フレンドポイント",
         "Recruit": "仲間になる",
         "TransferReward": "博士送り",
-        "TimeToFullPack": "所持上限に達するまでの時間",
+        "TimeToFullPack": {
+          "Primary": "所持上限に達するまでの時間 (寝 1)",
+          "Secondary": "所持上限に達するまでの時間 (寝 2)"
+        },
         "MainSkillValue": "スキル指数",
         "MainSkillTriggerValue": "スキル生産指数",
         "MainSkillTriggerRate": "スキル発動率",
@@ -479,8 +482,16 @@
   "Producing": {
     "State": {
       "Awake": "非睡眠",
-      "AsleepUnfilled": "睡眠中・空き有",
-      "AsleepFilled": "睡眠中・満杯"
+      "Asleep": {
+        "Primary": {
+          "Vacant": "[1] 睡眠中・空き有",
+          "Filled": "[1] 睡眠中・満杯"
+        },
+        "Secondary": {
+          "Vacant": "[2] 睡眠中・空き有",
+          "Filled": "[2] 睡眠中・満杯"
+        }
+      }
     },
     "Preset": {
       "UnfilledOnly": "空き有"
@@ -541,12 +552,17 @@
       "SkillRecovery": "スキルで回復",
       "EfficiencyBlock": "効率変更点",
       "Sleep": "寝る",
-      "Wakeup": "起きる"
+      "Wakeup": "起きる",
+      "EndOfPeriod": "終"
     },
     "State": {
-      "Asleep": "睡眠中",
       "Average": "平均",
-      "Awake": "非睡眠"
+      "Awake": "非睡眠",
+      "Asleep": {
+        "Neutral": "睡眠中",
+        "Primary": "睡眠中 (1)",
+        "Secondary": "睡眠中 (2)"
+      }
     }
   },
   "UserSettings": {

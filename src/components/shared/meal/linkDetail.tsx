@@ -23,14 +23,14 @@ export const MealLinkDetail = (props: MealLinkProps) => {
 
   return (
     <Flex direction="row" className="items-end gap-0.5 text-xs">
-      <Flex noFullWidth center className="info-icon-normal text-shadow-preset h-6 w-6">
+      <Flex noFullWidth center className="info-icon-normal text-shadow-preset size-6">
         {getMealIngredientCount(meal)}
       </Flex>
       <Flex noFullWidth className="gap-0.5">
         {
           showEnergy &&
           <Flex direction="row" noFullWidth className="items-end gap-0.5 whitespace-nowrap">
-            <ColoredEnergyIcon dimension="h-4 w-4" alt={t('Energy')}/>
+            <ColoredEnergyIcon dimension="size-4" alt={t('Energy')}/>
             <div>
               {formatMealStrengthInfo({info})}
             </div>

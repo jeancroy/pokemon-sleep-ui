@@ -17,11 +17,11 @@ type Props = {
 export const RatingDetailsButton = ({level, loading, result}: Props) => {
   return (
     <Flex direction="row" className="items-center gap-1.5 p-1">
-      <InfoIcon style="glow" dimension="h-7 w-7" className="shrink-0" classTextSize="text-sm">
+      <InfoIcon style="glow" dimension="size-7" className="shrink-0" classTextSize="text-sm">
         {level}
       </InfoIcon>
       <Flex center className="gap-1.5 md:flex-row">
-        {loading ? <LoadingSvg className="h-6 w-6"/> : <RatingDetailsButtonCompleted result={result}/>}
+        {loading ? <LoadingSvg className="size-6"/> : <RatingDetailsButtonCompleted result={result}/>}
       </Flex>
     </Flex>
   );

@@ -51,13 +51,13 @@ export const IngredientCookableMeals = ({mealMap, ingredientMap, ingredientId}: 
             <IconWithInfo
               imageSrc={`/images/meal/portrait/${meal.id}.png`}
               imageAlt={t(meal.id.toString())}
-              imageDimension="h-12 w-12"
+              imageDimension="size-12"
               imageSizes={imageGallerySizes}
               info={getMealIngredientCount(meal)}
             />
             <IngredientIconsFromMeal meal={meal} useTextShadow={false}/>
             <Flex direction="row" center className="gap-0.5">
-              <ColoredEnergyIcon dimension="h-4 w-4" alt={t2('Energy')}/>
+              <ColoredEnergyIcon dimension="size-4" alt={t2('Energy')}/>
               <div className="text-sm">
                 {getMealBaseStrength({level: recipeMaxLevel, meal, ingredientMap}).strengthFinal}
               </div>

@@ -31,7 +31,7 @@ export const TeamMakerInputGeneral = ({
       <FilterTextInput
         title={
           <Flex center>
-            <InboxIcon className="h-6 w-6"/>
+            <InboxIcon className="size-6"/>
           </Flex>
         }
         ids={[...teamMakerSource]}
@@ -46,7 +46,7 @@ export const TeamMakerInputGeneral = ({
       <FilterExpandedInput
         title={
           <Flex center>
-            <UserCircleIcon className="h-6 w-6"/>
+            <UserCircleIcon className="size-6"/>
           </Flex>
         }
         ids={[...teamMakerMemberCount]}

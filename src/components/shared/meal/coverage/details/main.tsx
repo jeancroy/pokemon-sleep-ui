@@ -29,7 +29,7 @@ export const MealCoverageDetails = ({coverage, className}: Props) => {
         </Flex>
         <ProgressBarSingle percent={coverage.total * 100} classBarHeight="h-2"/>
       </Flex>
-      <MealCoverageSummary coverage={coverage} dimension="h-7 w-7" className="text-xl"/>
+      <MealCoverageSummary coverage={coverage} dimension="size-7" className="text-xl"/>
     </Flex>
   );
 };

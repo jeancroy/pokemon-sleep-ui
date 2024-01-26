@@ -9,7 +9,7 @@ import {
   ProducingValueOfStates,
 } from '@/types/game/producing/rate';
 import {ProduceSplit, ProducingSleepStateSplit} from '@/types/game/producing/split';
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingState, producingState, ProducingStateOfRate} from '@/types/game/producing/state';
 import {toSum} from '@/utils/array';
 import {getFrequencyFromItemRateOfSessions} from '@/utils/game/producing/frequency';
 import {GetProduceSplitOpts} from '@/utils/game/producing/split';
@@ -76,18 +76,15 @@ export const getMergedItemRateOfSessions = ({
 
   return {
     id: firstRate.id,
-    sleep: {
-      ...firstRate.sleep,
-      frequency: firstRate.sleep.frequency * (frequencyMultiplier / rates.length),
-      quantity: toSum(rates.map(({sleep}) => sleep.quantity)),
-      energy: toSum(rates.map(({sleep}) => sleep.energy)),
-    },
-    awake: {
-      ...firstRate.awake,
-      frequency: firstRate.awake.frequency * (frequencyMultiplier / rates.length),
-      quantity: toSum(rates.map(({awake}) => awake.quantity)),
-      energy: toSum(rates.map(({awake}) => awake.energy)),
-    },
+    ...Object.fromEntries(producingState.map((state) => [
+      state,
+      {
+        ...firstRate[state],
+        frequency: firstRate[state].frequency * (frequencyMultiplier / rates.length),
+        quantity: toSum(rates.map((rate) => rate[state].quantity)),
+        energy: toSum(rates.map((rate) => rate[state].energy)),
+      } satisfies ProducingRateOfItem,
+    ])) as {[state in ProducingState]: ProducingRateOfItem},
   };
 };
 
@@ -108,16 +105,28 @@ export const getValueAfterSplitFromItemRateOfSessions = ({
   const awake = (
     periodMultiplier * rate.awake[valueKey] * produceItemSplit * sleepStateSplit.awake
   );
-  const sleepVacant = (
-    periodMultiplier * rate.sleep[valueKey] * produceItemSplit * sleepStateSplit.sleepVacant
-  );
-  const sleepFilled = (
-    periodMultiplier * (produceType === 'berry' ? rate.sleep[valueKey] : 0) * sleepStateSplit.sleepFilled
-  );
-  const unfilledOnly = awake + sleepVacant;
-  const equivalent = unfilledOnly + sleepFilled;
+  const sleepVacantBase = periodMultiplier * produceItemSplit;
 
-  return {awake, sleepVacant, sleepFilled, equivalent, unfilledOnly};
+  const sleep1Vacant = sleepVacantBase * rate.sleep1[valueKey] * sleepStateSplit.sleep1Vacant;
+  const sleep1Filled = (
+    periodMultiplier * (produceType === 'berry' ? rate.sleep1[valueKey] : 0) * sleepStateSplit.sleep1Filled
+  );
+  const sleep2Vacant = sleepVacantBase * rate.sleep2[valueKey] * sleepStateSplit.sleep2Vacant;
+  const sleep2Filled = (
+    periodMultiplier * (produceType === 'berry' ? rate.sleep2[valueKey] : 0) * sleepStateSplit.sleep2Filled
+  );
+  const unfilledOnly = awake + sleep1Vacant + sleep2Vacant;
+  const equivalent = unfilledOnly + sleep1Filled + sleep2Filled;
+
+  return {
+    awake,
+    sleep1Vacant,
+    sleep1Filled,
+    sleep2Vacant,
+    sleep2Filled,
+    equivalent,
+    unfilledOnly,
+  };
 };
 
 type GetTotalOfItemRatesOpts = {

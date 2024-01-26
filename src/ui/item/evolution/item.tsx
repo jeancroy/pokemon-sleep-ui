@@ -27,7 +27,7 @@ export const EvolutionItemSingle = ({locale, itemId, pokemonList}: Props) => {
         <ItemIcon
           itemId={itemId}
           alt={itemName}
-          dimension="h-12 w-12"
+          dimension="size-12"
           noInvert
         />
         <div className="text-lg">{itemName}</div>

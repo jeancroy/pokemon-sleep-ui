@@ -19,7 +19,7 @@ export const OcrImporterProcessedImage = ({processed}: OcrImporterProcessedImage
       <button disabled={!processed} onClick={() => setShow(true)} className={clsx(
         'button-clickable-border disabled:button-disabled self-end p-1',
       )}>
-        <CodeBracketIcon className="h-6 w-6"/>
+        <CodeBracketIcon className="size-6"/>
       </button>
     </>
   );

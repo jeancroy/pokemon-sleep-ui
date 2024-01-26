@@ -9,23 +9,25 @@ export type SleepSessionTimes = {
   end: number,
 };
 
-export type SleepSessionInternal = {
+export type SleepSessionRecovery = {
+  recovery: {
+    base: number,
+    actual: number,
+  },
+  duration: {
+    actual: number,
+    effective: number,
+  },
+};
+
+export type SleepSessionMeta = SleepSessionRecovery & {
   adjustedTiming: SleepSessionTimes,
-  length: number,
-  recovery: number,
 };
 
 export type SleepSessionInfo = {
-  session: SleepSessions<SleepSessionInternal>,
-  stamina: {
-    dailyLoss: number,
-  },
+  session: SleepSessions<SleepSessionMeta>,
   duration: {
     awake: number,
+    asleep: number,
   },
-};
-
-export type SleepDurationInfo = {
-  durations: number[],
-  total: number,
 };

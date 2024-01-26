@@ -7,7 +7,7 @@ type Props = {
 
 export const UserSettingsAppInfoIcon = ({icon}: Props) => {
   return (
-    <div className="h-4 w-4">
+    <div className="size-4">
       {icon}
     </div>
   );

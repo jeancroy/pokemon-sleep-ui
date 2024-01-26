@@ -39,7 +39,7 @@ export const AuthSignIn = async ({params, searchParams}: DefaultPageProps) => {
           center
           className="border-link w-fit gap-1.5"
         >
-          <EnvelopeIcon className="h-6 w-6"/>
+          <EnvelopeIcon className="size-6"/>
           <div>Email</div>
         </FlexLink>
       </Flex>

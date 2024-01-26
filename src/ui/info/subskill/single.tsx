@@ -38,13 +38,13 @@ export const SubSkillInfoSingle = ({data}: Props) => {
       </div>
       <Flex direction="row">
         <Flex direction="row" center className="gap-1.5">
-          <ArrowUpCircleIcon className="h-5 w-5"/>
+          <ArrowUpCircleIcon className="size-5"/>
           <div className={clsx('text-sm', next ? 'text-green-700 dark:text-green-400' : 'text-slate-500')}>
-            {next ? t(`Name.${next}`) : <XMarkIcon className="h-5 w-5"/>}
+            {next ? t(`Name.${next}`) : <XMarkIcon className="size-5"/>}
           </div>
         </Flex>
         <Flex direction="row" center className="gap-1.5">
-          <ChevronUpIcon className="h-5 w-5"/>
+          <ChevronUpIcon className="size-5"/>
           <div>{bonusValue}</div>
         </Flex>
       </Flex>

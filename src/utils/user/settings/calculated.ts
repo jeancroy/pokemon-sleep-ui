@@ -1,6 +1,6 @@
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/config';
 import {CalculatedUserSettings, UserCalculationBehavior, UserSettings} from '@/types/userData/settings';
-import {getSleepDurationInfo} from '@/utils/game/sleep';
+import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {toEffectiveBonus, ToEffectiveBonusOpts} from '@/utils/user/bonus';
 
 
@@ -22,7 +22,7 @@ const overrideRecoveryRate = ({
   };
 };
 
-export type ToCalculatedUserSettingsOpts = ToEffectiveBonusOpts & {
+export type ToCalculatedUserSettingsOpts = Omit<ToEffectiveBonusOpts, 'sleepSessionInfo'> & {
   recoveryRate?: StaminaRecoveryRateConfig,
   behaviorOverride?: Partial<UserCalculationBehavior>,
 };
@@ -38,13 +38,19 @@ export const toCalculatedUserSettings = ({
     settings = overrideRecoveryRate({settings, recoveryRate});
   }
 
+  const sleepSessionInfo = getSleepSessionInfo({
+    session: settings.stamina.sleepSession,
+    recoveryRate: settings.stamina.recoveryRate,
+  });
+
   return {
     origin: settings,
     bonus: toEffectiveBonus({
       ...opts,
+      sleepSessionInfo,
       settings,
     }),
-    sleepDurationInfo: getSleepDurationInfo(settings.stamina.sleepSession),
+    sleepSessionInfo,
     behavior: {
       ...settings.behavior,
       ...behaviorOverride,

@@ -19,7 +19,7 @@ export const AdBlockWarning = ({hide}: Props) => {
 
   return (
     <div dangerouslySetInnerHTML={{__html: t.raw('AdBlockActive')}} className={clsx(
-      'flex h-full w-full flex-col items-center justify-center p-2 text-center text-xl',
+      'flex size-full flex-col items-center justify-center p-2 text-center text-xl',
       isProduction() ? 'rounded-lg bg-red-500/50 py-1' : 'border border-green-500',
     )}/>
   );

@@ -30,7 +30,7 @@ export const PokemonBerryStats = ({
     targetSpecialty: specialtyIdMap.berry,
     getItemRate: ({berry}) => berry,
     getIcon: ({berry}, dimension) => (
-      <PokemonBerryIcon id={berry.id} dimension={dimension}/>
+      <PokemonBerryIcon id={berry.id} dimension={dimension} noLink/>
     ),
   };
 

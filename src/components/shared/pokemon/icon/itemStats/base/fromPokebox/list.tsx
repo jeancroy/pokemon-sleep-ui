@@ -128,7 +128,7 @@ export const PokemonItemStatsFromPokeboxList = ({
         return (
           <Flex center className="relative gap-1">
             <Flex noFullWidth className="absolute left-1.5 top-1.5 opacity-50">
-              <div className="relative h-14 w-14">
+              <div className="relative size-14">
                 <NextImage
                   src={`/images/pokemon/icons/${id}.png`}
                   alt={pokemonDefaultName}

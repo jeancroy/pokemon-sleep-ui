@@ -25,7 +25,7 @@ export const StaminaConfigSkillRecoveryInput = ({
 
   return (
     <Flex direction="row" noFullWidth className="gap-1.5">
-      <GenericIcon alt={t(iconI18nId)} src={iconSrc} dimension="h-7 w-7"/>
+      <GenericIcon alt={t(iconI18nId)} src={iconSrc} dimension="size-7"/>
       <InputBox
         type="number"
         step={0.1}

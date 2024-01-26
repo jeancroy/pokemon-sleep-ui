@@ -75,15 +75,15 @@ export const PokemonItemStatsFromPokedex = (props: Props) => {
                   dailyTotalEnergy={dailyTotalEnergy}
                 />
               </Flex>
-              <Flex direction="row" className="h-full items-center gap-1.5 p-1.5 opacity-40">
+              <Flex direction="row" className="h-full items-center gap-1.5 p-1.5 opacity-50">
                 <IconWithInfo
                   imageSrc={`/images/pokemon/icons/${id}.png`}
                   imageAlt={t(`PokemonName.${id}`)}
-                  imageDimension="h-12 w-12"
+                  imageDimension="size-12"
                   imageSizes={imageIconSizes}
                   info={
                     specialty === targetSpecialty &&
-                    <div className="relative h-4 w-4">
+                    <div className="relative size-4">
                       <NextImage
                         src="/images/generic/flash.png" alt={t2('Specialty')}
                         sizes={imageSmallIconSizes} className="invert-on-light"

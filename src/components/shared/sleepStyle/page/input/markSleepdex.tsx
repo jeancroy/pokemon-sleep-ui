@@ -30,7 +30,7 @@ export const MapInputMarkSleepdexToggle = ({filter, setFilter, isLoggedIn}: MapI
       className={clsx('group', textFilterButtonStyle)}
     >
       <Flex direction="row" center noFullWidth className="gap-1">
-        <BookmarkIcon className="h-5 w-5"/>
+        <BookmarkIcon className="size-5"/>
         <div>
           {t('SleepdexRegisterMode')}
         </div>

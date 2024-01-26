@@ -282,7 +282,10 @@
         "Friendship": "프렌드 포인트",
         "Recruit": "동료가 되어",
         "TransferReward": "Reward of sending the Pokemon to professor",
-        "TimeToFullPack": "주머니가 꽉 찰 때 까지 필요한 시간",
+        "TimeToFullPack": {
+          "Primary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 1)",
+          "Secondary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 2)"
+        },
         "MainSkillValue": "스킬 확률",
         "MainSkillTriggerValue": "스킬 발동지",
         "MainSkillTriggerRate": "스킬 발동률",
@@ -479,8 +482,16 @@
   "Producing": {
     "State": {
       "Awake": "깨 있을 때",
-      "AsleepUnfilled": "주머니를 비우고 잤을 때",
-      "AsleepFilled": "주머니가 가득찬 상태로 잤을 때"
+      "Asleep": {
+        "Primary": {
+          "Vacant": "[1] 주머니를 비우고 잤을 때",
+          "Filled": "[1] 주머니가 가득찬 상태로 잤을 때"
+        },
+        "Secondary": {
+          "Vacant": "[2] 주머니를 비우고 잤을 때",
+          "Filled": "[2] 주머니가 가득찬 상태로 잤을 때"
+        }
+      }
     },
     "Preset": {
       "UnfilledOnly": "주머니가 비었을 때"
@@ -541,12 +552,17 @@
       "SkillRecovery": "스킬 사용",
       "EfficiencyBlock": "도우미 속도 변화",
       "Sleep": "자는 중",
-      "Wakeup": "일어남"
+      "Wakeup": "일어남",
+      "EndOfPeriod": "기간 종료"
     },
     "State": {
-      "Asleep": "자는 중",
       "Average": "평균",
-      "Awake": "깨 있을 때"
+      "Awake": "깨 있을 때",
+      "Asleep": {
+        "Neutral": "자는 중",
+        "Primary": "자는 중 (1)",
+        "Secondary": "자는 중 (2)"
+      }
     }
   },
   "UserSettings": {

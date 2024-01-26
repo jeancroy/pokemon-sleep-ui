@@ -30,7 +30,7 @@ export const MealInfo = (props: MealCommonProps) => {
               center
               className="button-clickable-bg p-1.5"
             >
-              <div className="relative h-12 w-12">
+              <div className="relative size-12">
                 <NextImage src={`/images/ingredient/${id}.png`} alt={t(id.toString())} sizes={imageIconSizes}/>
               </div>
               <div>

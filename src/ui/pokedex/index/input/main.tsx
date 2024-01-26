@@ -48,7 +48,7 @@ export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
       <div className="relative">
         <Collapsible state={collapsible} classNameForHeight="h-80 md:h-72" button={
           <Flex direction="row" center className="gap-0.5">
-            <FunnelIcon className="h-6 w-6"/>
+            <FunnelIcon className="size-6"/>
           </Flex>
         }>
           <div className="absolute bottom-2 right-6 z-10">
@@ -85,7 +85,7 @@ export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
             <FilterTextInput
               title={
                 <Flex center>
-                  <InformationCircleIcon className="h-6 w-6"/>
+                  <InformationCircleIcon className="size-6"/>
                 </Flex>
               }
               ids={[...pokedexDisplayType].filter((displayType) => !isPokedexSortExclusion(displayType))}

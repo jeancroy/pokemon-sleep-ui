@@ -26,7 +26,7 @@ export const SkillTriggerAnalysisTargetControl = ({
 }: Props) => {
   const [show, setShow] = React.useState(false);
 
-  const commonStyle = 'h-9 w-9 p-1';
+  const commonStyle = 'size-9 p-1';
 
   return (
     <Flex direction="row" className="justify-end gap-1.5">

@@ -65,7 +65,7 @@ export const StrengthGrowthChart = <TKey extends string>({
         <FilterExpandedInput
           title={
             <Flex center>
-              <PresentationChartLineIcon className="h-6 w-6"/>
+              <PresentationChartLineIcon className="size-6"/>
             </Flex>
           }
           ids={dataKeys}

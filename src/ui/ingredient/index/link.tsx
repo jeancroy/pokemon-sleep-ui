@@ -27,7 +27,7 @@ export const IngredientLink = ({ingredient}: Props) => {
       center
       className="button-clickable-bg w-full gap-0.5 p-1"
     >
-      <div className="relative h-12 w-12">
+      <div className="relative size-12">
         <NextImage src={`/images/ingredient/${id}.png`} alt={ingredientName} sizes={imageSmallIconSizes}/>
       </div>
       <div className="whitespace-nowrap p-1">
@@ -37,7 +37,7 @@ export const IngredientLink = ({ingredient}: Props) => {
         <tbody>
           <tr>
             <td>
-              <ColoredEnergyIcon dimension="h-4 w-4" alt={t('Strength')}/>
+              <ColoredEnergyIcon dimension="size-4" alt={t('Strength')}/>
             </td>
             <td>
               {energy}
@@ -45,7 +45,7 @@ export const IngredientLink = ({ingredient}: Props) => {
           </tr>
           <tr>
             <td>
-              <div className="relative h-4 w-4">
+              <div className="relative size-4">
                 <NextImage
                   src="/images/generic/shard.png" alt={t('DreamShards')} sizes={imageSmallIconSizes}
                 />

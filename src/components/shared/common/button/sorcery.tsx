@@ -24,7 +24,7 @@ const ButtonToStartTheSorceryInternal = ({
       'disabled:button-disabled',
     )}>
       <Flex center>
-        <BeakerIcon className="h-9 w-9"/>
+        <BeakerIcon className="size-9"/>
       </Flex>
     </button>
   );

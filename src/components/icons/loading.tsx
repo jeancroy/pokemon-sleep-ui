@@ -41,7 +41,7 @@ type LoadingPredefinedProps = {
 export const LoadingIcon = ({text}: LoadingPredefinedProps) => {
   return (
     <Flex center className="h-full gap-1">
-      <div className="h-6 w-6">
+      <div className="size-6">
         <LoadingSvg/>
       </div>
       <div>
@@ -58,7 +58,7 @@ type LoadingTextProps = LoadingPredefinedProps & {
 export const LoadingText = ({text, dimension}: LoadingTextProps) => {
   return (
     <Flex direction="row" noFullWidth center className="gap-1">
-      <div className={dimension ?? 'h-5 w-5'}>
+      <div className={dimension ?? 'size-5'}>
         <LoadingSvg/>
       </div>
       <div>

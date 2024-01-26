@@ -33,7 +33,7 @@ export const ActivationPresetUnit = ({preset, onUpdate, onDelete}: Props) => {
   return (
     <AnimatedCollapseQuick show appear className="info-section flex flex-col gap-1.5">
       <Flex direction="row" className="gap-1">
-        <FingerPrintIcon className="h-6 w-6"/>
+        <FingerPrintIcon className="size-6"/>
         <InputBox
           type="text"
           value={tag}
@@ -42,7 +42,7 @@ export const ActivationPresetUnit = ({preset, onUpdate, onDelete}: Props) => {
         />
       </Flex>
       <Flex direction="row" className="gap-1">
-        <PencilSquareIcon className="h-6 w-6"/>
+        <PencilSquareIcon className="size-6"/>
         <InputBox
           type="text"
           value={name}
@@ -72,10 +72,10 @@ export const ActivationPresetUnit = ({preset, onUpdate, onDelete}: Props) => {
           onClick={() => onUpdate(uuid, {suspended: !suspended})}
           className="rounded-full p-1"
         >
-          <PauseCircleIcon className="h-6 w-6"/>
+          <PauseCircleIcon className="size-6"/>
         </ToggleButton>
       </InputRow>
-      <DeleteButton dimension="h-7 w-7" onClick={() => onDelete(uuid)} className="self-end"/>
+      <DeleteButton dimension="size-7" onClick={() => onDelete(uuid)} className="self-end"/>
     </AnimatedCollapseQuick>
   );
 };

@@ -51,7 +51,7 @@ export const DocsControl = ({locale, path, isCmsMod}: Props) => {
             }}/>
           </PopupCommon>
           <button className="button-clickable-alert h-8 w-14" onClick={() => setShow(true)}>
-            <Flex center className="h-6 w-6">
+            <Flex center className="size-6">
               <UserActionStatusIcon status={status} onWaitingOverride={<TrashIcon/>}/>
             </Flex>
           </button>
@@ -59,14 +59,14 @@ export const DocsControl = ({locale, path, isCmsMod}: Props) => {
       }
       <a href="/docs/new" className="button-clickable-bg h-8 w-14">
         <Flex center className="h-full">
-          <PlusCircleIcon className="h-6 w-6"/>
+          <PlusCircleIcon className="size-6"/>
         </Flex>
       </a>
       {
         path &&
         <a href={`/docs/edit/${path}`} className="button-clickable-bg h-8 w-14">
           <Flex center className="h-full">
-            <PencilIcon className="h-6 w-6"/>
+            <PencilIcon className="size-6"/>
           </Flex>
         </a>
       }

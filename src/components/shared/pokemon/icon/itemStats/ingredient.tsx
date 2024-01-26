@@ -35,7 +35,7 @@ export const PokemonIngredientStats = ({
     targetSpecialty: specialtyIdMap.ingredient,
     getItemRate: (pokemonRate) => pokemonRate.ingredient[ingredient.id],
     getIcon: (_, dimension) => (
-      <PokemonIngredientIcon id={ingredient.id} dimension={dimension}/>
+      <PokemonIngredientIcon id={ingredient.id} dimension={dimension} noLink/>
     ),
   };
 

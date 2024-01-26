@@ -58,7 +58,7 @@ export const RatingConfigPopup = ({initial, activeKeyLevels, show, setShow, onCl
                 <NumberInputRequired
                   text={
                     <Flex direction="row" center noFullWidth className="w-20 gap-1">
-                      <LevelIcon dimension="h-6 w-6"/>
+                      <LevelIcon dimension="size-6"/>
                       <div className="text-lg">{level}</div>
                     </Flex>
                   }

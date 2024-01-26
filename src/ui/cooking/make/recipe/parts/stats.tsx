@@ -14,7 +14,7 @@ export const MealMakerRecipeStats = ({info}: MealMakerRecipePartsProps) => {
   return (
     <Flex direction="row" className="items-end justify-between">
       <Flex direction="row" noFullWidth className="items-center gap-1">
-        <ColoredEnergyIcon dimension="h-4 w-4" alt={t('Energy')}/>
+        <ColoredEnergyIcon dimension="size-4" alt={t('Energy')}/>
         <div>
           {formatInt(info.strengthFinal)}
         </div>

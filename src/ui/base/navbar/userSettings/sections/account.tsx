@@ -22,7 +22,7 @@ export const UserSettingsAccountInfo = ({session}: Props) => {
 
   return (
     <Flex className="gap-1 rounded-lg p-2 shadow-border-inner shadow-slate-500 md:flex-row">
-      <button className="button-clickable-bg h-8 w-8 shrink-0 self-center p-1" onClick={() => setShow(!show)}>
+      <button className="button-clickable-bg size-8 shrink-0 self-center p-1" onClick={() => setShow(!show)}>
         {show ? <EyeSlashIcon/> : <EyeIcon/>}
       </button>
       <Flex className="gap-1">

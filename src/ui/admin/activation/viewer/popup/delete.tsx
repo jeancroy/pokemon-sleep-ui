@@ -47,7 +47,7 @@ export const ActivationDelete = ({data, onDelete}: Props) => {
           </button>
         </Flex>
       </PopupCommon>
-      <DeleteButton dimension="h-7 w-7" onClick={() => setDeleteConfirmation(true)}/>
+      <DeleteButton dimension="size-7" onClick={() => setDeleteConfirmation(true)}/>
     </>
   );
 };

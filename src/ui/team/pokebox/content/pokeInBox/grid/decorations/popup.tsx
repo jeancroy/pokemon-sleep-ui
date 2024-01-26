@@ -29,7 +29,7 @@ export const PokeInBoxGridPopUps = (props: Props) => {
   return (
     <Flex direction="row" noFullWidth className="absolute right-1 top-1 z-20 gap-1">
       <PokemonLinkPopup state={state} setState={setState}/>
-      <button className="button-clickable group h-6 w-6 rounded-full" onClick={() => showPokemon(pokemon)}>
+      <button className="button-clickable group size-6 rounded-full" onClick={() => showPokemon(pokemon)}>
         <GenericPokeballIcon alt={t('Pokedex.Main.Page.Title', {name: pokemonName})} noWrap/>
       </button>
       <PokeInBoxOpenRatingButton {...props}/>

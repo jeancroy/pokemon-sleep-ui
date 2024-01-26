@@ -6,7 +6,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PokemonTypeIcon} from '@/components/shared/icon/pokeType';
-import {PokemonBerryIconNoLink} from '@/components/shared/pokemon/berry/iconNoLink';
+import {PokemonBerryIconContent} from '@/components/shared/pokemon/berry/iconContent';
 import {BerryData} from '@/types/game/berry';
 import {formatInt} from '@/utils/number/format';
 
@@ -33,9 +33,9 @@ export const BerryLink = ({berryData}: Props) => {
     >
       <Flex center className="relative">
         <div className="absolute bottom-0 right-1">
-          <PokemonTypeIcon type={id} dimension="h-8 w-8"/>
+          <PokemonTypeIcon type={id} dimension="size-8"/>
         </div>
-        <PokemonBerryIconNoLink id={id} dimension="h-12 w-12"/>
+        <PokemonBerryIconContent id={id} dimension="size-12"/>
       </Flex>
       <div className="whitespace-nowrap p-1">
         {berryName}

@@ -31,7 +31,7 @@ export const SleepStyleBrief = <TSleepStyle extends SleepStyleCommon>({
   return (
     <Flex noFullWidth direction="row" className={clsx('items-center gap-1.5 whitespace-nowrap', className)}>
       <Flex direction="row" noFullWidth className="items-center gap-0.5">
-        <StarIcon className={iconDimension ?? 'h-5 w-5'}/>
+        <StarIcon className={iconDimension ?? 'size-5'}/>
         <div>{rarity}</div>
       </Flex>
       {

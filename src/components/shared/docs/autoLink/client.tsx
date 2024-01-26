@@ -42,7 +42,7 @@ export const DocsAutoLinkClient = ({locale}: Props) => {
       </PopupCommon>
       <Flex className="items-end">
         <FlexButton className="button-clickable-bg gap-1 !rounded-full p-1 px-2" onClick={() => setShow(true)}>
-          <QuestionMarkCircleIcon className="h-6 w-6 shrink-0"/>
+          <QuestionMarkCircleIcon className="size-6 shrink-0"/>
           <span>{t('Help')}</span>
         </FlexButton>
       </Flex>

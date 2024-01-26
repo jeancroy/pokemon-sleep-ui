@@ -19,7 +19,7 @@ export const PokemonNameSmall = ({pokemon, override, className}: Props) => {
 
   return (
     <Flex direction="row" noFullWidth className={clsx('items-center gap-1 text-lg', className)}>
-      <PokemonNameIcons pokemon={pokemon} dimension="h-6 w-6"/>
+      <PokemonNameIcons pokemon={pokemon} dimension="size-6"/>
       <div className="truncate">
         {override ?? t(`PokemonName.${id}`)}
       </div>

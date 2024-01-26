@@ -11,5 +11,5 @@ type Props = {
 };
 
 export const PremiumIcon = ({dimension}: Props) => {
-  return <LockClosedIcon className={clsx('shrink-0', dimension ?? 'h-5 w-5')}/>;
+  return <LockClosedIcon className={clsx('shrink-0', dimension ?? 'size-5')}/>;
 };

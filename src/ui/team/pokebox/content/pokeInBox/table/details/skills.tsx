@@ -46,7 +46,7 @@ export const PokeInBoxTableSkills = ({
         'w-64 gap-1 whitespace-nowrap p-1 text-sm',
         specialty === specialtyIdMap.skill && 'info-highlight',
       )}>
-        <MainSkillIcon id={skill} dimension="h-6 w-6"/>
+        <MainSkillIcon id={skill} dimension="size-6"/>
         <div>{t(`MainSkill.Name.${skill}`)}</div>
       </FlexLink>
       <Flex center noFullWidth className="w-14">
@@ -60,7 +60,15 @@ export const PokeInBoxTableSkills = ({
       <Flex center noFullWidth className="w-20">
         <PokemonProbabilityOfNoSkill
           rate={rateOfPokemon}
-          state="sleepVacant"
+          state="sleep1Vacant"
+          skillPercent={pokemonProducingParams.skillPercent}
+          normalSize
+        />
+      </Flex>
+      <Flex center noFullWidth className="w-20">
+        <PokemonProbabilityOfNoSkill
+          rate={rateOfPokemon}
+          state="sleep2Vacant"
           skillPercent={pokemonProducingParams.skillPercent}
           normalSize
         />

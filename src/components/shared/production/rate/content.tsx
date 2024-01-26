@@ -22,7 +22,7 @@ type Props = ProducingRateContentCommonProps & {
 
 export const ProducingRateContent = ({getIcon, normalSize, dailyRate, isEnergy}: Props) => {
   const t = useTranslations('UI.InPage.Pokedex');
-  const dimension: Dimension = normalSize ? 'h-5 w-5' : 'h-4 w-4';
+  const dimension: Dimension = normalSize ? 'size-5' : 'size-4';
 
   return (
     <Flex direction="row" noFullWidth className={clsx('items-center gap-0.5', !normalSize && 'text-sm')}>

@@ -1,3 +1,4 @@
+import {staminaAbsoluteMax} from '@/const/game/stamina';
 import {SleepSessionInfo} from '@/types/game/sleep';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/config';
 import {StaminaEventLog} from '@/types/game/stamina/event';
@@ -40,7 +41,7 @@ export const getSkillRecoveryData = ({
     let expectedTiming = awakeDuration * (idx + 1) / (Math.max(1, Math.floor(dailyCount)) + 1);
 
     if (secondarySession && expectedTiming > secondarySession.adjustedTiming.start) {
-      expectedTiming += secondarySession.length;
+      expectedTiming += secondarySession.duration.actual;
     }
 
     return {
@@ -91,11 +92,11 @@ export const getLogsWithSkillRecoveryOfTrigger = ({
         timing: recoveryData.timing,
         stamina: {
           before: staminaBefore.inGame,
-          after: staminaBefore.inGame + recoveryData.amount,
+          after: Math.min(staminaBefore.inGame + recoveryData.amount, staminaAbsoluteMax),
         },
         staminaUnderlying: {
           before: staminaBefore.inGame,
-          after: staminaBefore.inGame + recoveryData.amount,
+          after: Math.min(staminaBefore.inGame + recoveryData.amount, staminaAbsoluteMax),
         },
       });
       skillUsedCount += 1;

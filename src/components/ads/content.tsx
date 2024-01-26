@@ -45,7 +45,7 @@ export const AdsContent = ({
       )}
     >
       {adblockState.isBlocked && <AdBlockWarning hide={hideWarningOnDetected}/>}
-      <div className="absolute left-0 top-0 h-full w-full">
+      <div className="absolute left-0 top-0 size-full">
         {children}
       </div>
     </div>

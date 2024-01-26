@@ -70,7 +70,7 @@ export const TeamMakerResultCompUi = ({comp, ...props}: Props) => {
         <Flex className="items-center gap-1 md:flex-row">
           <PokemonProductionSplit specialty={null} {...strengthByType}/>
           <Flex noFullWidth direction="row" className="items-center self-end text-2xl">
-            <ColoredEnergyIcon dimension="h-8 w-8" alt={t('Total')}/>
+            <ColoredEnergyIcon dimension="size-8" alt={t('Total')}/>
             <span>{formatFloat(basisValue.strength)}</span>
           </Flex>
         </Flex>

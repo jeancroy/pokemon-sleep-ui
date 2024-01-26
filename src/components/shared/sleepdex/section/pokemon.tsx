@@ -36,12 +36,12 @@ export const SleepdexPokemonInSection = (props: Props) => {
   return (
     <Flex className="info-section relative items-center">
       <button onClick={() => showPokemon(pokemon)} className={clsx(
-        'button-clickable group absolute right-2 top-2 h-6 w-6',
+        'button-clickable group absolute right-2 top-2 size-6',
       )}>
         <GenericPokeballIcon alt={t2('Pokedex.Main.Page.Title', {name: pokemonName})} noWrap/>
       </button>
       <PokemonNameSmall pokemon={pokemon} className="w-full justify-center"/>
-      <div className="relative h-32 w-32">
+      <div className="relative size-32">
         <PokemonImage
           pokemonId={pokemonId}
           isShiny={false}

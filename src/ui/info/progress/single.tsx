@@ -66,15 +66,15 @@ export const GameProgressSingle = ({data}: Props) => {
       }>
         {
           mapUnlock ?
-            <MapLink mapId={mapUnlock} className="h-full w-full">
+            <MapLink mapId={mapUnlock} className="size-full">
               {t4(mapUnlock.toString())}
             </MapLink> :
-            <XCircleIcon className="h-6 w-6"/>
+            <XCircleIcon className="size-6"/>
         }
       </GameProgressInfoSection>
       <GameProgressInfoSection highlight title={
         <>
-          <ChevronUpIcon className="h-5 w-5"/>
+          <ChevronUpIcon className="size-5"/>
           <span>{t2('Progress.MaxMapBonusPercent')}</span>
         </>
       }>
@@ -84,7 +84,7 @@ export const GameProgressSingle = ({data}: Props) => {
       </GameProgressInfoSection>
       <GameProgressInfoSection title={
         <>
-          <PotIcon className="h-6 w-6" alt={t2('Progress.MaxPotCapacity')}/>
+          <PotIcon className="size-6" alt={t2('Progress.MaxPotCapacity')}/>
           <span>{t2('Progress.MaxPotCapacity')}</span>
         </>
       }>
@@ -94,7 +94,7 @@ export const GameProgressSingle = ({data}: Props) => {
       </GameProgressInfoSection>
       <GameProgressInfoSection title={
         <>
-          <LockOpenIcon className="h-4 w-4"/>
+          <LockOpenIcon className="size-4"/>
           <span>{t2('Progress.FeatureUnlock')}</span>
         </>
       }>
@@ -104,7 +104,7 @@ export const GameProgressSingle = ({data}: Props) => {
       </GameProgressInfoSection>
       <GameProgressInfoSection flexibleChildrenHeight title={
         <>
-          <GiftIcon className="h-4 w-4"/>
+          <GiftIcon className="size-4"/>
           <span>{t2('Progress.Rewards')}</span>
         </>
       }>
@@ -117,7 +117,7 @@ export const GameProgressSingle = ({data}: Props) => {
             key={id}
             icon={
               <>
-                <ItemIcon itemId={id} alt={t5(id.toString())} dimension="h-6 w-6" noInvert/>
+                <ItemIcon itemId={id} alt={t5(id.toString())} dimension="size-6" noInvert/>
                 <span>{t5(id.toString())}</span>
               </>
             }

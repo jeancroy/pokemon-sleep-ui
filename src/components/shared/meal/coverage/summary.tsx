@@ -21,7 +21,7 @@ export const MealCoverageSummary = ({coverage, dimension, className}: Props) => 
 
   return (
     <Flex direction="row" noFullWidth className={clsx('items-center gap-1', className)}>
-      <MealCoverageIcon alt={t('MealCoverage')} dimension={dimension ?? 'h-6 w-6'}/>
+      <MealCoverageIcon alt={t('MealCoverage')} dimension={dimension ?? 'size-6'}/>
       <div>{formatFloat3(coverage.total * 100)}%</div>
     </Flex>
   );

@@ -22,16 +22,14 @@ export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
 
   const {state, setConfig, setSkillTrigger, setNature, setSubSkill} = useStaminaAnalysis(props);
   const {config, skillTrigger, subSkill, nature} = state;
-  const {sleepSession} = config;
-
-  const sessionInfo = React.useMemo(
-    () => getSleepSessionInfo(sleepSession),
-    [sleepSession],
-  );
+  const {sleepSession, recoveryRate} = config;
 
   const staminaEfficiency = getStaminaEfficiency({
     config,
-    sessionInfo,
+    sessionInfo: getSleepSessionInfo({
+      session: sleepSession,
+      recoveryRate,
+    }),
     skillTriggers: [skillTrigger],
   });
   const logs = getStaminaEventLogsFlattened(staminaEfficiency.logs);

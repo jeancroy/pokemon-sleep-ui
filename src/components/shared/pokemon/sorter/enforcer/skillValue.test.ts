@@ -29,7 +29,7 @@ describe('Enforcer of filter with skill value', () => {
         mainSkill: {key: 'mainSkill', defaultValue: {1: true}},
         sort: [
           {key: 'sort', defaultValue: 'friendshipPoint'},
-          {key: 'sort2', defaultValue: 'timeToFullPack'},
+          {key: 'sort2', defaultValue: 'timeToFullPackPrimary'},
         ],
       },
     });
@@ -55,7 +55,7 @@ describe('Enforcer of filter with skill value', () => {
         mainSkill: {key: 'mainSkill', defaultValue: {2: true}},
         sort: [
           {key: 'sort', defaultValue: 'friendshipPoint'},
-          {key: 'sort2', defaultValue: 'timeToFullPack'},
+          {key: 'sort2', defaultValue: 'timeToFullPackPrimary'},
         ],
       },
     });
@@ -81,7 +81,7 @@ describe('Enforcer of filter with skill value', () => {
         mainSkill: {key: 'mainSkill', defaultValue: {4: true}},
         sort: [
           {key: 'sort', defaultValue: 'friendshipPoint'},
-          {key: 'sort2', defaultValue: 'timeToFullPack'},
+          {key: 'sort2', defaultValue: 'timeToFullPackPrimary'},
         ],
       },
     });
@@ -101,20 +101,20 @@ describe('Enforcer of filter with skill value', () => {
       updated: {
         mainSkill: {},
         sort: 'id',
-        sort2: 'timeToFullPack',
+        sort2: 'timeToFullPackPrimary',
       } satisfies TestFilter,
       config: {
         mainSkill: {key: 'mainSkill', defaultValue: {2: true}},
         sort: [
           {key: 'sort', defaultValue: 'id'},
-          {key: 'sort2', defaultValue: 'timeToFullPack'},
+          {key: 'sort2', defaultValue: 'timeToFullPackPrimary'},
         ],
       },
     });
 
     expect(mainSkill).toMatchObject({});
     expect(sort).toBe('id');
-    expect(sort2).toBe('timeToFullPack');
+    expect(sort2).toBe('timeToFullPackPrimary');
   });
 
   it('changes to new main skill selection while skill value sort is active', () => {
@@ -133,7 +133,7 @@ describe('Enforcer of filter with skill value', () => {
         mainSkill: {key: 'mainSkill', defaultValue: {3: true}},
         sort: [
           {key: 'sort', defaultValue: 'id'},
-          {key: 'sort2', defaultValue: 'timeToFullPack'},
+          {key: 'sort2', defaultValue: 'timeToFullPackPrimary'},
         ],
       },
     });
@@ -159,7 +159,7 @@ describe('Enforcer of filter with skill value', () => {
         mainSkill: {key: 'mainSkill', defaultValue: {2: true}},
         sort: [
           {key: 'sort', defaultValue: 'frequency'},
-          {key: 'sort2', defaultValue: 'timeToFullPack'},
+          {key: 'sort2', defaultValue: 'timeToFullPackPrimary'},
         ],
       },
     });
@@ -185,7 +185,7 @@ describe('Enforcer of filter with skill value', () => {
         mainSkill: {key: 'mainSkill', defaultValue: {2: true}},
         sort: [
           {key: 'sort', defaultValue: 'frequency'},
-          {key: 'sort2', defaultValue: 'timeToFullPack'},
+          {key: 'sort2', defaultValue: 'timeToFullPackPrimary'},
         ],
       },
     });
@@ -211,7 +211,7 @@ describe('Enforcer of filter with skill value', () => {
         mainSkill: {key: 'mainSkill', defaultValue: {2: true}},
         sort: [
           {key: 'sort', defaultValue: 'frequency'},
-          {key: 'sort2', defaultValue: 'timeToFullPack'},
+          {key: 'sort2', defaultValue: 'timeToFullPackPrimary'},
         ],
       },
     });

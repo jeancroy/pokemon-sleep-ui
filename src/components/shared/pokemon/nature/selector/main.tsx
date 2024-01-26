@@ -61,7 +61,7 @@ export const PokemonNatureSelector = ({
       <PopupCommon show={show} setShow={setShow}>
         <Flex className="max-w-2xl gap-2">
           <Flex direction="row" center className="gap-1.5">
-            <MagnifyingGlassIcon className="h-6 w-6"/>
+            <MagnifyingGlassIcon className="size-6"/>
             <InputBox
               type="text"
               value={search}
@@ -79,7 +79,7 @@ export const PokemonNatureSelector = ({
                       key={data.id} data={data} active={nature === data.id} onClick={() => onClick(data.id)}
                     />
                   )) :
-                  <QuestionMarkCircleIcon className="h-14 w-14"/>}
+                  <QuestionMarkCircleIcon className="size-14"/>}
               </Flex>
               <HorizontalSplitter className="my-2"/>
             </>

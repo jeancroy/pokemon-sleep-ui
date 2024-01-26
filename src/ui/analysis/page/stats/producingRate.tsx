@@ -58,7 +58,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         stats={producingRate.berry.count}
         title={
           <Flex direction="row" center className="gap-1.5">
-            <PokemonBerryIcon dimension="h-6 w-6" id={berry.id}/>
+            <PokemonBerryIcon dimension="size-6" id={berry.id}/>
             <div>{textBerryCount}</div>
           </Flex>
         }
@@ -78,7 +78,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         stats={producingRate.berry.energy}
         title={
           <Flex direction="row" center className="gap-1.5">
-            <PokemonBerryIcon dimension="h-6 w-6" id={berry.id}/>
+            <PokemonBerryIcon dimension="size-6" id={berry.id}/>
             <ColoredEnergyIcon alt={textBerryEnergy}/>
             <div>{textBerryEnergy}</div>
           </Flex>
@@ -86,7 +86,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         threshold={percentileThreshold}
         renderData={({data}) => (
           <Flex direction="row" center className="gap-1 text-sm">
-            <ColoredEnergyIcon dimension="h-4 w-4" alt={textBerryEnergy}/>
+            <ColoredEnergyIcon dimension="size-4" alt={textBerryEnergy}/>
             <div>{formatFloat(data)}</div>
           </Flex>
         )}
@@ -104,7 +104,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
             )}
             title={
               <Flex direction="row" center className="gap-1.5">
-                <PokemonIngredientIcon dimension="h-6 w-6" id={rate.itemId}/>
+                <PokemonIngredientIcon dimension="size-6" id={rate.itemId}/>
                 <div>{textIngredientCount}</div>
               </Flex>
             }
@@ -130,7 +130,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
             )}
             title={
               <Flex direction="row" center className="gap-1.5">
-                <PokemonIngredientIcon dimension="h-6 w-6" id={rate.itemId}/>
+                <PokemonIngredientIcon dimension="size-6" id={rate.itemId}/>
                 <ColoredEnergyIcon alt={textIngredientEnergy}/>
                 {textIngredientEnergy}
               </Flex>

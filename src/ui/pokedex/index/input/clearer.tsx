@@ -18,7 +18,7 @@ export const PokedexInputClearer = ({setFilter, preloadedDisplay}: Props) => {
       className="button-clickable-bg !rounded-full p-1.5"
       onClick={() => setFilter(() => generateInitialFilter(preloadedDisplay))}
     >
-      <BackspaceIcon className="h-6 w-6"/>
+      <BackspaceIcon className="size-6"/>
     </button>
   );
 };

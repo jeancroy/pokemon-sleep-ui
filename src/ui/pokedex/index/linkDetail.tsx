@@ -8,8 +8,8 @@ import {GenericIcon} from '@/components/shared/icon/common/main';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
-import {PokemonTimeToFullPack} from '@/components/shared/pokemon/fullPack/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
+import {PokemonTimeToFullPackSingle} from '@/components/shared/pokemon/inventory/fullPack/single';
 import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
 import {PokemonMainSkillTriggerValue} from '@/components/shared/pokemon/mainSkill/triggerValue';
 import {PokemonIngredientRate} from '@/components/shared/pokemon/production/params/ingredient';
@@ -68,7 +68,7 @@ export const PokedexLinkDetail = React.memo(({
   if (display === 'mainSkill') {
     return (
       <Flex direction="row" className="items-end gap-0.5 text-sm">
-        <MainSkillIcon id={skill} dimension="h-6 w-6"/>
+        <MainSkillIcon id={skill} dimension="size-6"/>
         {t(`MainSkill.Name.${skill}`)}
       </Flex>
     );
@@ -79,7 +79,7 @@ export const PokedexLinkDetail = React.memo(({
   }
 
   if (display === 'ingredientRate') {
-    return <PokemonIngredientRate params={pokemonProducingParams} dimension="h-4 w-4"/>;
+    return <PokemonIngredientRate params={pokemonProducingParams} dimension="size-4"/>;
   }
 
   if (display === 'sleepType') {
@@ -95,11 +95,11 @@ export const PokedexLinkDetail = React.memo(({
   }
 
   if (display === 'mainSkillValue') {
-    return <PokemonMainSkillValue params={pokemonProducingParams} dimension="h-4 w-4"/>;
+    return <PokemonMainSkillValue params={pokemonProducingParams} dimension="size-4"/>;
   }
 
   if (display === 'mainSkillTriggerRate') {
-    return <PokemonMainSkillTriggerRate params={pokemonProducingParams} dimension="h-4 w-4"/>;
+    return <PokemonMainSkillTriggerRate params={pokemonProducingParams} dimension="size-4"/>;
   }
 
   const individualParams = getProducingRateIndividualParams({
@@ -126,7 +126,7 @@ export const PokedexLinkDetail = React.memo(({
   if (display === 'friendshipPoint') {
     return (
       <Flex direction="row" className="gap-0.5">
-        <div className="relative h-5 w-5">
+        <div className="relative size-5">
           <NextImage src="/images/generic/friendship.png" alt={t2('Stats.Friendship')} sizes={imageSmallIconSizes}/>
         </div>
         <div>
@@ -149,8 +149,12 @@ export const PokedexLinkDetail = React.memo(({
     return <PokemonFrequency frequency={sorter}/>;
   }
 
-  if (display === 'timeToFullPack') {
-    return <PokemonTimeToFullPack timeToFullPack={sorter}/>;
+  if (display === 'timeToFullPackPrimary') {
+    return <PokemonTimeToFullPackSingle alt={t2('Stats.TimeToFullPack.Primary')} seconds={sorter}/>;
+  }
+
+  if (display === 'timeToFullPackSecondary') {
+    return <PokemonTimeToFullPackSingle alt={t2('Stats.TimeToFullPack.Secondary')} seconds={sorter}/>;
   }
 
   if (display === 'id') {
@@ -161,7 +165,7 @@ export const PokedexLinkDetail = React.memo(({
     return (
       <Flex>
         <div className="text-xs">
-          <PokemonIngredientIcons ingredients={[ingredients]} dimension="h-4 w-4"/>
+          <PokemonIngredientIcons ingredients={[ingredients]} dimension="size-4"/>
         </div>
         <Flex direction="row" className="gap-0.5">
           <ColoredEnergyIcon alt={t2('Stats.Energy.Name')}/>
@@ -190,7 +194,7 @@ export const PokedexLinkDetail = React.memo(({
     return (
       <Flex>
         <div className="text-xs">
-          <PokemonIngredientIcons ingredients={[ingredients]} dimension="h-4 w-4"/>
+          <PokemonIngredientIcons ingredients={[ingredients]} dimension="size-4"/>
         </div>
         <PokemonIngredientIcons
           numberFormat="float"

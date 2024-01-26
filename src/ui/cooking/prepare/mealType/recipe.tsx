@@ -75,7 +75,7 @@ export const MealPreparerRecipe = (props: Props) => {
         </Flex>
         <CookingInputRecipeLevel {...props}/>
         <NumberInputOptional
-          text={<PotIcon alt={t('TargetMealCount')} dimension="h-6 w-6"/>}
+          text={<PotIcon alt={t('TargetMealCount')} dimension="size-6"/>}
           value={count}
           min={0}
           onClickDefault={1}
@@ -96,7 +96,7 @@ export const MealPreparerRecipe = (props: Props) => {
       </Flex>
       <MealImage
         mealId={id}
-        dimension="h-20 w-20"
+        dimension="size-20"
         className="bottom-0 right-0 self-end opacity-30"
         isAbsolute
       />

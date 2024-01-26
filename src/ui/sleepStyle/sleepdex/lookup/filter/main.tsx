@@ -55,7 +55,7 @@ export const SleepdexLookupInput = ({
   return (
     <Collapsible state={collapsible} classNameForHeight="h-96 md:h-72" button={
       <Flex direction="row" center className="gap-0.5">
-        <FunnelIcon className="h-6 w-6"/>
+        <FunnelIcon className="size-6"/>
       </Flex>
     }>
       <Flex className="gap-1 pr-1">
@@ -97,7 +97,7 @@ export const SleepdexLookupInput = ({
         <FilterExpandedInput
           title={
             <Flex center>
-              <InformationCircleIcon className="h-6 w-6"/>
+              <InformationCircleIcon className="size-6"/>
             </Flex>
           }
           idToButton={(display) => (
@@ -115,7 +115,7 @@ export const SleepdexLookupInput = ({
         <FilterExpandedInput
           title={
             <Flex center>
-              <Bars3BottomLeftIcon className="h-6 w-6"/>
+              <Bars3BottomLeftIcon className="size-6"/>
             </Flex>
           }
           idToButton={(sort) => (

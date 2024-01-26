@@ -25,7 +25,7 @@ export const RatingBasisSelectionBase = <TRatingBasis extends RatingBasis | null
       isActive={(basis) => basis === current}
       title={
         <Flex center>
-          <MagnifyingGlassCircleIcon className="h-6 w-6"/>
+          <MagnifyingGlassCircleIcon className="size-6"/>
         </Flex>
       }
       className={textFilterButtonStyle}

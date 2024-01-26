@@ -18,7 +18,7 @@ export const PokedexTierListPreview = ({bucket, show}: Props) => {
       <Flex direction="row" center noFullWidth wrap className="gap-2">
         {bucket.slice(0, pokedexTierListPokemonPreviewCount).map(({source}, idx) => (
           <Flex noFullWidth key={idx}>
-            <div className="relative h-12 w-12">
+            <div className="relative size-12">
               <PokemonImage
                 pokemonId={source.pokemon.id}
                 image={{type: 'default', image: 'icon'}}

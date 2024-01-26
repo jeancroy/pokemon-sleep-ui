@@ -45,7 +45,7 @@ export const PokemonDetailedProducingStatsOfState = ({
       rate,
       target: [...applyMultiplierTargets],
       multiplier: {
-        original: calculatedSettings.bonus.stamina.awake,
+        original: (calculatedSettings.bonus.stamina.multiplier.awake ?? NaN),
         target: targetMultiplier,
       },
     });
@@ -77,7 +77,7 @@ export const PokemonDetailedProducingStatsOfState = ({
           />
         </PokemonDetailedProducingStatsLayout>
         <PokemonDetailedProducingStatsLayout
-          icon={<GenericIngredientIcon alt={t('Ingredient')} dimension="h-10 w-10"/>}
+          icon={<GenericIngredientIcon alt={t('Ingredient')} dimension="size-10"/>}
         >
           <Flex className="gap-1.5">
             {Object.values(ingredient).map((rate) => (

@@ -30,7 +30,7 @@ export const PokeboxImporterButton = ({onPokeboxPicked, noFullWidth, dimension, 
         }}
       />
       <button onClick={() => setShow(true)} className="button-clickable-bg w-full p-1">
-        <InboxArrowDownIcon className={clsx('m-auto', dimension ?? 'h-8 w-8')}/>
+        <InboxArrowDownIcon className={clsx('m-auto', dimension ?? 'size-8')}/>
       </button>
     </>
   );

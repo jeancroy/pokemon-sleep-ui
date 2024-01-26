@@ -17,7 +17,7 @@ export const TeamMakerResults = ({result, ...props}: Props) => {
   const compsToShow = result?.comps;
 
   if (!result || !compsToShow || !compsToShow.length) {
-    return <UnavailableIcon dimension="h-32 w-32" className="self-center"/>;
+    return <UnavailableIcon dimension="size-32" className="self-center"/>;
   }
 
   return (

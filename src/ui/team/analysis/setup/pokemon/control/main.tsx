@@ -51,7 +51,7 @@ export const TeamAnalysisPokemonControl = ({
     <DropDown
       renderButton={(DropdownMenuButton) => (
         <DropdownMenuButton disabled={status === 'processing'} className={clsx(
-          'button-clickable-bg h-7 w-7 !rounded-full p-1',
+          'button-clickable-bg size-7 !rounded-full p-1',
         )}>
           <UserActionStatusIcon status={status} onWaitingOverride={<EllipsisVerticalIcon/>}/>
         </DropdownMenuButton>

@@ -33,21 +33,21 @@ export const PokemonProductionSplit = ({
             value: berry,
             data: {
               isHighlight: specialty === specialtyIdMap.berry,
-              icon: <GenericBerryIcon alt={t('Berry')} dimension="h-4 w-4"/>,
+              icon: <GenericBerryIcon alt={t('Berry')} dimension="size-4"/>,
             },
           },
           {
             value: ingredient,
             data: {
               isHighlight: specialty === specialtyIdMap.ingredient,
-              icon: <GenericIngredientIcon alt={t('Ingredient')} dimension="h-4 w-4"/>,
+              icon: <GenericIngredientIcon alt={t('Ingredient')} dimension="size-4"/>,
             },
           },
           {
             value: skill,
             data: {
               isHighlight: specialty === specialtyIdMap.skill,
-              icon: <GenericMainSkillIcon alt={t('MainSkill')} dimension="h-4 w-4"/>,
+              icon: <GenericMainSkillIcon alt={t('MainSkill')} dimension="size-4"/>,
             },
           },
         ]}

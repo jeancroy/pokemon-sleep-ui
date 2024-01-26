@@ -61,8 +61,8 @@ export const IngredientIcons = ({
         return (
           <Flex key={id} direction="row" noFullWidth wrap center className="gap-0.5">
             {iconClickable ?
-              <PokemonIngredientIcon id={id} dimension={dimension ?? 'h-4 w-4'}/> :
-              <div className={clsx('relative', dimension ?? 'h-4 w-4')}>
+              <PokemonIngredientIcon id={id} dimension={dimension ?? 'size-4'}/> :
+              <div className={clsx('relative', dimension ?? 'size-4')}>
                 <NextImage src={`/images/ingredient/${id}.png`} alt={t(id.toString())} sizes={imageIconSizes}/>
               </div>}
             <div className={clsx(

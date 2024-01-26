@@ -1,6 +1,6 @@
 import {Dimension} from '@/types/style';
 
 
-const markdownCalloutDimension: Dimension = `h-6 w-6`;
+const markdownCalloutDimension: Dimension = `size-6`;
 
 export const markdownCalloutClassName = `${markdownCalloutDimension} shrink-0`;

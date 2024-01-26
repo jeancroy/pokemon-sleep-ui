@@ -66,7 +66,7 @@ export const PokeboxImporterViaUuid = ({onPokeboxPicked}: Props) => {
         />
         <button
           type="submit"
-          className="enabled:button-clickable-bg disabled:button-disabled h-8 w-8 shrink-0 p-1"
+          className="enabled:button-clickable-bg disabled:button-disabled size-8 shrink-0 p-1"
           disabled={!regexUuid.test(uuid) || status === 'processing'}
         >
           <UserActionStatusIcon status={status} onWaitingOverride={<InboxArrowDownIcon/>}/>

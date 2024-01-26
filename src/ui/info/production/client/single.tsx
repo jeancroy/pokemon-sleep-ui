@@ -41,7 +41,7 @@ export const ProducingParamsSingle = ({
     error,
   } = params;
 
-  const dimension: Dimension = 'h-5 w-5';
+  const dimension: Dimension = 'size-5';
 
   return (
     <AnimatedCollapseQuick show={show} className="button-clickable-glow">
@@ -50,7 +50,7 @@ export const ProducingParamsSingle = ({
           'items-center gap-1 p-1',
           dataCount < trustedDataCount && 'text-danger',
         )}>
-          <Flex noFullWidth className="relative h-10 w-10 shrink-0">
+          <Flex noFullWidth className="relative size-10 shrink-0">
             <PokemonImage pokemonId={pokemonInfo.id} image={{type: 'default', image: 'icon'}} isShiny={false}/>
           </Flex>
           <Flex center className="gap-1">
@@ -60,7 +60,7 @@ export const ProducingParamsSingle = ({
                 <ValueError valueError={formatFloat(error.ingredient)} className="text-xs"/>
               </Flex>
               <Flex noFullWidth direction="row" className="items-center gap-0.5">
-                <DocumentTextIcon className="h-4 w-4"/>
+                <DocumentTextIcon className="size-4"/>
                 <div>{formatInt(dataCount)}</div>
               </Flex>
             </Flex>

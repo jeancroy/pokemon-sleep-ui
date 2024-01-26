@@ -33,7 +33,13 @@ export const PokeInBoxGridSkills = (props: PokeInBoxGridDetailsProps) => {
         />
         <PokemonProbabilityOfNoSkill
           rate={rateOfPokemon}
-          state="sleepVacant"
+          state="sleep1Vacant"
+          skillPercent={pokemonProducingParams.skillPercent}
+          normalSize
+        />
+        <PokemonProbabilityOfNoSkill
+          rate={rateOfPokemon}
+          state="sleep2Vacant"
           skillPercent={pokemonProducingParams.skillPercent}
           normalSize
         />

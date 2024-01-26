@@ -26,8 +26,8 @@ describe('Pokemon Berry Production', () => {
       berryData: testBerryDataMap['16'],
     });
 
-    const awakeFreq = 2920.2 / bonus.stamina.awake;
-    const sleepFreq = 2920.2 / bonus.stamina.sleep;
+    const awakeFreq = 2920.2 / (bonus.stamina.multiplier.awake ?? 0);
+    const sleepFreq = 2920.2 / (bonus.stamina.multiplier.sleep1 ?? 0);
     // Math.ceil(63 * 1.05) where
     // - 63 is the berry strength
     // - 1.05 is map multiplier from `testBonus['1']`
@@ -39,9 +39,9 @@ describe('Pokemon Berry Production', () => {
     expect(rate.awake.frequency).toBeCloseTo(awakeFreq);
     expect(rate.awake.quantity).toBeCloseTo(durationOfDay / awakeFreq);
     expect(rate.awake.energy).toBeCloseTo(durationOfDay / awakeFreq * berryEnergy * energyMultiplier);
-    expect(rate.sleep.id).toBe(testPokemonData.absol.berry.id);
-    expect(rate.sleep.frequency).toBeCloseTo(sleepFreq);
-    expect(rate.sleep.quantity).toBeCloseTo(durationOfDay / sleepFreq);
-    expect(rate.sleep.energy).toBeCloseTo(durationOfDay / sleepFreq * berryEnergy * energyMultiplier);
+    expect(rate.sleep1.id).toBe(testPokemonData.absol.berry.id);
+    expect(rate.sleep1.frequency).toBeCloseTo(sleepFreq);
+    expect(rate.sleep1.quantity).toBeCloseTo(durationOfDay / sleepFreq);
+    expect(rate.sleep1.energy).toBeCloseTo(durationOfDay / sleepFreq * berryEnergy * energyMultiplier);
   });
 });

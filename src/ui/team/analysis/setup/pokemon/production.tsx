@@ -4,9 +4,9 @@ import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
-import {PokemonCarryLimit} from '@/components/shared/pokemon/carryLimit/main';
 import {PokemonFrequencyFromProducingRate} from '@/components/shared/pokemon/frequency/fromRate';
-import {PokemonTimeToFullPack} from '@/components/shared/pokemon/fullPack/main';
+import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimit/main';
+import {PokemonTimeToFullPack} from '@/components/shared/pokemon/inventory/fullPack/main';
 import {PokemonBerryProduction} from '@/components/shared/pokemon/production/berry';
 import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient';
 import {PokemonProbabilityOfNoSkill} from '@/components/shared/pokemon/production/noSkill';
@@ -45,9 +45,9 @@ export const TeamAnalysisPokemonProduction = (props: TeamAnalysisPokemonProps) =
   return (
     <>
       <PokemonFrequencyFromProducingRate pokemonRate={stats}/>
-      <Flex direction="row" className="justify-center gap-1.5">
-        <PokemonTimeToFullPack timeToFullPack={fullPackStats.secondsToFull}/>
-        <PokemonCarryLimit carryLimit={carryLimitInfo.final}/>
+      <Flex direction="row" center className="gap-1.5">
+        <PokemonTimeToFullPack direction="col" timeToFullPack={fullPackStats.secondsToFull}/>
+        <PokemonCarryLimit carryLimit={carryLimitInfo.final} normalTextSize/>
       </Flex>
       <HorizontalSplitter className="w-full"/>
       <ProducingRateUI rate={total} hideQuantity/>
@@ -81,7 +81,12 @@ export const TeamAnalysisPokemonProduction = (props: TeamAnalysisPokemonProps) =
         />
         <PokemonProbabilityOfNoSkill
           rate={stats}
-          state="sleepVacant"
+          state="sleep1Vacant"
+          skillPercent={pokemonProducingParams.skillPercent}
+        />
+        <PokemonProbabilityOfNoSkill
+          rate={stats}
+          state="sleep2Vacant"
           skillPercent={pokemonProducingParams.skillPercent}
         />
       </Flex>

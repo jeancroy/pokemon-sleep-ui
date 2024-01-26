@@ -20,21 +20,21 @@ export const MapTableInfoIcon = ({data, pokedex, displayType}: Props) => {
   if (displayType === 'sleepStyle') {
     const {style} = data;
 
-    return <SleepdexStyleIcon styleId={style.style} dimension="h-4 w-4"/>;
+    return <SleepdexStyleIcon styleId={style.style} dimension="size-4"/>;
   }
 
   const pokemon = pokedex[data.pokemonId];
 
   if (!pokemon) {
-    return <QuestionMarkCircleIcon className="h-4 w-4"/>;
+    return <QuestionMarkCircleIcon className="size-4"/>;
   }
 
   if (displayType === 'specialty') {
-    return <PokemonSpecialty specialty={pokemon.specialty} dimension="h-4 w-4" hideText/>;
+    return <PokemonSpecialty specialty={pokemon.specialty} dimension="size-4" hideText/>;
   }
 
   if (displayType === 'sleepType') {
-    return <PokemonSleepType sleepType={pokemon.sleepType} dimension="h-4 w-4" hideText/>;
+    return <PokemonSleepType sleepType={pokemon.sleepType} dimension="size-4" hideText/>;
   }
 
   console.error(`Unhandled map unlock table display type: ${displayType satisfies never}`);

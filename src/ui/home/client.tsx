@@ -28,8 +28,8 @@ export const HomeClient = ({userCount, paidUserCount}: Props) => {
       <Flex className="relative">
         <HomePokeball/>
         <Flex direction="row" className="absolute bottom-0 items-end justify-between">
-          <HomeUserCount icon={<CurrencyDollarIcon className="h-6 w-6"/>} userCount={paidUserCount}/>
-          <HomeUserCount icon={<UsersIcon className="h-6 w-6"/>} userCount={userCount}/>
+          <HomeUserCount icon={<CurrencyDollarIcon className="size-6"/>} userCount={paidUserCount}/>
+          <HomeUserCount icon={<UsersIcon className="size-6"/>} userCount={userCount}/>
         </Flex>
       </Flex>
       <AdsUnit/>

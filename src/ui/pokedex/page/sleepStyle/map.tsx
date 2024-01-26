@@ -37,7 +37,7 @@ export const PokemonSleepStylesOfMap = ({
       <MapLink mapId={mapId} className="p-1.5" noAbsolute>
         <Flex direction="row" center className="z-10 p-1.5">
           <div>
-            <div className="relative h-9 w-9">
+            <div className="relative size-9">
               <NextImage src="/images/generic/mapPin.png" alt={t2('Map')} sizes={imageSmallIconSizes}/>
             </div>
           </div>

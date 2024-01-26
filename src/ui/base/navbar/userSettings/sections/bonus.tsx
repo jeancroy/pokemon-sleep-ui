@@ -54,7 +54,7 @@ export const UserSettingsBonusUI = ({
         ...bonus,
         overall,
       })}/>
-      <a href="/docs" className="button-clickable-glow h-8 w-8 self-end p-1">
+      <a href="/docs" className="button-clickable-glow size-8 self-end p-1">
         <Flex center className="h-full">
           <QuestionMarkCircleIcon/>
         </Flex>

@@ -23,7 +23,7 @@ export const RatingRelativeStrength = ({baseDiffPercent, iconDimension, noFullWi
       getNumberStyles({num: baseDiffPercent}),
       className,
     )}>
-      <ArrowsUpDownIcon className={iconDimension ?? 'h-4 w-4'}/>
+      <ArrowsUpDownIcon className={iconDimension ?? 'size-4'}/>
       <div>
         {formatSignedNumber({format: 'float', num: baseDiffPercent}) ?? '-'}%
       </div>

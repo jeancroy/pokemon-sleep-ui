@@ -10,7 +10,7 @@ import {IngredientLevelIconCommonProps} from '@/components/shared/pokemon/ingred
 export const PokemonIngredientLevelIcon = ({level, lvAsText}: IngredientLevelIconCommonProps) => {
   return (
     <Flex direction="row" noFullWidth className={clsx('items-center', lvAsText && 'gap-1')}>
-      {lvAsText ? <div>Lv</div> : <LevelIcon dimension="h-7 w-7" noShrink/>}
+      {lvAsText ? <div>Lv</div> : <LevelIcon dimension="size-7" noShrink/>}
       <div className="shrink-0">{level}</div>
     </Flex>
   );

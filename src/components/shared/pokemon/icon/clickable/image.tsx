@@ -18,7 +18,7 @@ export type Props = {
 
 export const PokemonClickableIconImage = ({pokemon, dimension}: Props) => {
   const t = useTranslations('Game');
-  dimension = dimension ?? 'h-14 w-14';
+  dimension = dimension ?? 'size-14';
 
   if (!pokemon) {
     return <UnavailableIcon dimension={dimension}/>;
@@ -29,7 +29,7 @@ export const PokemonClickableIconImage = ({pokemon, dimension}: Props) => {
   return (
     <>
       <div className="absolute left-0.5 top-0.5 z-10">
-        <PokemonTypeIcon type={type} dimension="h-5 w-5"/>
+        <PokemonTypeIcon type={type} dimension="size-5"/>
       </div>
       <div className={clsx('relative', dimension)}>
         <NextImage

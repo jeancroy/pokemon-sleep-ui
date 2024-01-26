@@ -77,7 +77,7 @@ export const SleepStyleSpecialClient = ({
       <SleepdexSection
         title={
           <Flex direction="row" noFullWidth className="items-center gap-1">
-            <LockClosedIcon className="h-6 w-6"/>
+            <LockClosedIcon className="size-6"/>
             <div>{t('Unreleased')}</div>
           </Flex>
         }

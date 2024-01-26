@@ -1,14 +1,14 @@
+import {staminaMaxRecovery} from '@/const/game/stamina';
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 import {GetLogsCommonOpts} from '@/utils/game/stamina/events/type';
-import {generateSleepEventFromLast, getActualRecoveryAmount} from '@/utils/game/stamina/events/utils';
+import {generateSleepEventFromLast} from '@/utils/game/stamina/events/utils';
 
 
 export const getLogsWithSecondarySleep = ({
   sessionInfo,
   logs,
-  recoveryRate,
-}: Omit<GetLogsCommonOpts, 'skillTriggers'>): StaminaEventLog[] => {
+}: Pick<GetLogsCommonOpts, 'sessionInfo' | 'logs'>): StaminaEventLog[] => {
   const {session} = sessionInfo;
   const {secondary} = session;
 
@@ -18,39 +18,43 @@ export const getLogsWithSecondarySleep = ({
 
   const newLogs: StaminaEventLog[] = [logs[0]];
 
-  const sleepStamina = getStaminaAfterDuration({
+  const {recovery, adjustedTiming, duration} = secondary;
+  const staminaAtSleepStart = getStaminaAfterDuration({
     start: newLogs[0].stamina.after,
-    duration: secondary.adjustedTiming.start,
+    duration: adjustedTiming.start,
   });
-  const recovery = getActualRecoveryAmount({
-    amount: secondary.recovery,
-    recoveryRate,
-    isSleep: true,
+  const staminaAtSleepEndInGame = getStaminaAfterDuration({
+    start: staminaAtSleepStart.inGame,
+    duration: duration.actual,
+  });
+  const staminaAtSleepEndActual = getStaminaAfterDuration({
+    start: staminaAtSleepStart.actual,
+    duration: duration.actual,
   });
 
   newLogs.push(
     {
       type: 'sleep',
-      timing: secondary.adjustedTiming.start,
+      timing: adjustedTiming.start,
       stamina: {
-        before: sleepStamina.inGame,
-        after: sleepStamina.inGame + recovery,
+        before: staminaAtSleepStart.inGame,
+        after: staminaAtSleepStart.inGame,
       },
       staminaUnderlying: {
-        before: sleepStamina.actual,
-        after: sleepStamina.actual + recovery,
+        before: staminaAtSleepStart.actual,
+        after: staminaAtSleepStart.actual,
       },
     },
     {
       type: 'wakeup',
-      timing: secondary.adjustedTiming.end,
+      timing: adjustedTiming.end,
       stamina: {
-        before: sleepStamina.inGame,
-        after: sleepStamina.inGame + recovery,
+        before: staminaAtSleepEndInGame.inGame,
+        after: Math.min(staminaMaxRecovery, staminaAtSleepEndInGame.inGame + recovery.actual),
       },
       staminaUnderlying: {
-        before: sleepStamina.actual,
-        after: sleepStamina.actual + recovery,
+        before: staminaAtSleepEndActual.actual,
+        after: Math.min(staminaMaxRecovery, staminaAtSleepEndActual.actual + recovery.actual),
       },
     },
   );

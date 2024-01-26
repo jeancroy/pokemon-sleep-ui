@@ -34,7 +34,7 @@ export const PokemonSortingPicker = <TSort extends PokemonSortType>({
       isActive={(sortOfInput) => sortOfInput === sort}
       title={
         <Flex center>
-          <Bars3BottomLeftIcon className="h-6 w-6"/>
+          <Bars3BottomLeftIcon className="size-6"/>
         </Flex>
       }
       ids={options ?? [...pokemonSortType].filter((sortType) => !exclude?.includes(sortType as TSort)) as TSort[]}

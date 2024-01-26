@@ -33,7 +33,7 @@ export const TeamAnalysisEmptySlot = ({
   const [popup, setPopup] = React.useState<TeamAnalysisEmptySlotPopupType | null>(null);
   const {status} = useSession();
 
-  const buttonClass = 'enabled:button-clickable-bg disabled:button-disabled p-1 h-9 w-9';
+  const buttonClass = 'enabled:button-clickable-bg disabled:button-disabled p-1 size-9';
   const buttonDisabled = status !== 'authenticated';
 
   return (
