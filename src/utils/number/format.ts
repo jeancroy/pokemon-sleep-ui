@@ -64,7 +64,7 @@ export const formatSignedNumber = ({format, num}: FormatNumberOpts): string | nu
 
 type FormatToAbbreviationOpts = {
   num: number | undefined,
-  decimals?: number
+  decimals?: number,
 };
 
 export const formatToAbbreviation = ({num, decimals}: FormatToAbbreviationOpts): string => {

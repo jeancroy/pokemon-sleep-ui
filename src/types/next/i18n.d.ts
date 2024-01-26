@@ -496,5 +496,5 @@ declare interface IntlMessages extends UiMessages, GameMessages {
       Name: GameObjectIdToString,
       Description: GameObjectIdToString,
     },
-  }
+  },
 }

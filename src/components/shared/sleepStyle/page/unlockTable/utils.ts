@@ -6,7 +6,7 @@ import {isSameRank} from '@/utils/game/snorlax';
 
 type GetUpdatedAccumulatorOpts = {
   original: MapUnlockAccumulator,
-  current: MapUnlockAccumulatorEnergy
+  current: MapUnlockAccumulatorEnergy,
 } & ({
   sleepType: PokemonSleepTypeId,
   inSleepdexOpts: IsInSleepdexOpts,

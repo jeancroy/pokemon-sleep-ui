@@ -12,7 +12,7 @@ type EnforceFilterWithSkillValueOpts<
   config: {
     mainSkill: FilterEnforcerKeyWithDefault<TFilter, FilterWithInclusionMap<MainSkillId>>,
     sort: FilterEnforcerKeyWithDefault<TFilter, TSort>[],
-  }
+  },
 };
 
 export const enforceFilterWithSkillValue = <

@@ -12,7 +12,10 @@ export type OcrTranslationsForPokemonInfoOfLocale = {
 
 export type OcrTranslationsForPokemonInfo = OcrTranslationOfLocales<OcrTranslationsForPokemonInfoOfLocale>;
 
-export type OcrExtractPokemonSubSkill = {id: SubSkillId, level: PokemonSubSkillLevel};
+export type OcrExtractPokemonSubSkill = {
+  id: SubSkillId,
+  level: PokemonSubSkillLevel,
+};
 
 export type OcrExtractedPokemonInfo = {
   pokemonId: PokemonId | null,

@@ -27,7 +27,7 @@ export const PokedexTierListPreview = ({bucket, show}: Props) => {
               />
               <PokemonIngredientIcons
                 ingredients={[source.ingredients]}
-                dimension="h-3.5 w-3.5"
+                dimension="size-3.5"
                 className="absolute bottom-0 w-full justify-center rounded-lg bg-slate-300/50 dark:bg-slate-700/50"
                 noQuantity
                 noLink

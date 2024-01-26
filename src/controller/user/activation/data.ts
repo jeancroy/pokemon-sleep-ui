@@ -63,7 +63,7 @@ export const consumeActivationKey = async (userIdString: string, key: string): P
 };
 
 type AddActivationDataByAdsClick = ControllerRequireUserIdOpts & {
-  userId: string
+  userId: string,
 };
 
 export const addActivationDataByAdsClick = async ({
@@ -136,7 +136,7 @@ export const getPaidUserCount = async (): Promise<number> => {
     }},
     {$group: {
       _id: '$userId',
-      data: {'$sum': 1},
+      data: {$sum: 1},
     }},
     {$count: 'data'},
   ]).toArray();
@@ -160,7 +160,7 @@ export const updateActivationDataPropertiesSingle = async ({
 };
 
 type UpdateActivationDataPropertiesBatchOpts = ControllerRequireUserIdOpts & {
-  updates: UpdateOneModel<ActivationData>[]
+  updates: UpdateOneModel<ActivationData>[],
 };
 
 export const updateActivationDataPropertiesBatch = async ({

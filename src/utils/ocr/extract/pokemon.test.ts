@@ -37,9 +37,9 @@ describe('OCR / Extract Pokemon Info', () => {
       text: ocrResultEn,
       translations: {
         name: {
-          'Even': 6,
-          'Pikachu': 23,
-          'Eevee': 5,
+          Even: 6,
+          Pikachu: 23,
+          Eevee: 5,
         },
         subSkill: {
           'Berry Finding S': 7,
@@ -49,7 +49,7 @@ describe('OCR / Extract Pokemon Info', () => {
           'Ingredient Finder M': 11,
         },
         nature: {
-          'Sassy': 3,
+          Sassy: 3,
         },
       },
     });
@@ -75,17 +75,17 @@ describe('OCR / Extract Pokemon Info', () => {
       text: ocrResultJp,
       translations: {
         name: {
-          'リザード': 5,
+          リザード: 5,
         },
         subSkill: {
-          '最大所持数アップS': 7,
-          'スキル確率アップS': 8,
-          'スキルレベルアップS': 9,
-          'おてつだいスピードS': 10,
-          'きのみの数S': 11,
+          最大所持数アップS: 7,
+          スキル確率アップS: 8,
+          スキルレベルアップS: 9,
+          おてつだいスピードS: 10,
+          きのみの数S: 11,
         },
         nature: {
-          'ようき': 3,
+          ようき: 3,
         },
       },
     });

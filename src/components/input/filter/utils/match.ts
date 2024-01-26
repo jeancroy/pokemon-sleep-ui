@@ -4,7 +4,7 @@ import {Indexable, KeysOfType} from '@/utils/type';
 
 type IsFilterCommonOpts<
   TFilter extends FilterWithInclusionMap<TId>,
-  TId extends Indexable
+  TId extends Indexable,
 > = {
   filter: TFilter,
   filterKey: KeysOfType<TFilter, FilterInclusionMap<TId>>,
@@ -12,12 +12,12 @@ type IsFilterCommonOpts<
 
 type IsFilterConditionActiveOpts<
   TFilter extends FilterWithInclusionMap<TId>,
-  TId extends Indexable
+  TId extends Indexable,
 > = IsFilterCommonOpts<TFilter, TId>;
 
 export const isFilterConditionActive = <
   TFilter extends FilterWithInclusionMap<TId>,
-  TId extends Indexable
+  TId extends Indexable,
 >({filter, filterKey}: IsFilterConditionActiveOpts<TFilter, TId>) => (
   Object.values(filter[filterKey]).some((value) => value)
 );
@@ -33,7 +33,7 @@ type IsDataIncludingAllOfFilterOpts<
 
 export const isDataIncludingAllOfFilter = <
   TFilter extends FilterWithInclusionMap<TId>,
-  TId extends Indexable
+  TId extends Indexable,
 >({filter, filterKey, ids, idInFilterToIdForCheck, onIdsEmpty}: IsDataIncludingAllOfFilterOpts<TFilter, TId>) => (
   Object.entries(filter[filterKey])
     .filter(([_, filterValue]) => !!filterValue)
@@ -49,14 +49,14 @@ type IsFilterIncludingDataOpts<
 
 export const isFilterIncludingAllOfData = <
   TFilter extends FilterWithInclusionMap<TId>,
-  TId extends Indexable
+  TId extends Indexable,
 >({filter, filterKey, ids}: IsFilterIncludingDataOpts<TFilter, TId>) => (
   !isFilterConditionActive({filter, filterKey}) || ids.every((id) => filter[filterKey][id])
 );
 
 export const isFilterIncludingSome = <
   TFilter extends FilterWithInclusionMap<TId>,
-  TId extends Indexable
+  TId extends Indexable,
 >({filter, filterKey, ids}: IsFilterIncludingDataOpts<TFilter, TId>) => (
   !isFilterConditionActive({filter, filterKey}) || ids.some((id) => filter[filterKey][id])
 );
@@ -70,7 +70,7 @@ type IsFilterMismatchOnSingleOpts<
 
 export const isFilterMismatchOnSingle = <
   TFilter extends FilterWithInclusionMap<TId>,
-  TId extends Indexable
+  TId extends Indexable,
 >({filter, filterKey, id}: IsFilterMismatchOnSingleOpts<TFilter, TId>) => {
   if (!isFilterConditionActive({filter, filterKey})) {
     return false;

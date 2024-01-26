@@ -39,7 +39,7 @@ export type PokedexDataProps = Omit<PokedexCalcDataProps, 'session' | 'pokemonLi
   preloaded: {
     display: Partial<PokedexDisplay> | undefined,
     bundle: UserSettingsBundle,
-  }
+  },
 };
 
 export type PokedexLinkProps = Pick<PokedexFilter, 'display' | keyof PokemonIndividualParams> & PokedexDataProps & {

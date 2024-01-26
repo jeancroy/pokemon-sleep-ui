@@ -6,7 +6,7 @@ import {getEfficiency} from '@/utils/game/stamina/efficiency';
 
 type ExtractIntervalsDuringSleepOpts = {
   logs: StaminaEventLog[],
-  hasSecondary: boolean
+  hasSecondary: boolean,
 };
 
 export const extractIntervalsDuringSleep = ({

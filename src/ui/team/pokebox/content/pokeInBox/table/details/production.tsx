@@ -61,7 +61,7 @@ export const PokeInBoxTableProduction = ({
         )}>
           {rateOfIngredients.map(({id, quantity, energy}) => (
             <Flex key={id} direction="row" noFullWidth className="items-center gap-0.5">
-              <PokemonIngredientIcon id={id} dimension="h-3.5 w-3.5"/>
+              <PokemonIngredientIcon id={id} dimension="size-3.5"/>
               <div>
                 x{formatFloat(quantity[pokeInBoxStateOfRate])}
               </div>

@@ -6,5 +6,5 @@ import {PatreonUser} from '@/types/subscription/patreon/common/user';
 export type PatreonCampaignMemberResponse = PatreonResponse<PatreonMember[], PatreonUser[]> & {
   links?: {
     next: string,
-  }
+  },
 };

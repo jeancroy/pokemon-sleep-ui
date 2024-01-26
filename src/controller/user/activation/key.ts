@@ -84,7 +84,7 @@ export const updateActivationKeyPropertiesSingle = async ({
 };
 
 type UpdateActivationKeyPropertiesBatchOpts = ControllerRequireUserIdOpts & {
-  updates: UpdateOneModel<ActivationKey>[]
+  updates: UpdateOneModel<ActivationKey>[],
 };
 
 export const updateActivationKeyPropertiesBatch = async ({
