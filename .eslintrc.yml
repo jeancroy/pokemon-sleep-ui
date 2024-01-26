@@ -66,8 +66,8 @@ rules:
   no-console:
     - error
     - allow:
-      - warn
-      - error
+        - warn
+        - error
 
   # Need to disable this for `@typescript-eslint/no-restricted-imports` to work properly
   no-restricted-imports:
@@ -76,9 +76,9 @@ rules:
   "@typescript-eslint/no-restricted-imports":
     - error
     - patterns:
-      - group:
-          - .*
-        message: Only absolute import, such as `@/const/auth` is allowed.
+        - group:
+            - .*
+          message: Only absolute import, such as `@/const/auth` is allowed.
 
   import/order:
     - error
