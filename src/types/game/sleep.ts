@@ -25,10 +25,6 @@ export type SleepSessionInfo = {
   session: SleepSessions<SleepSessionMeta>,
   duration: {
     awake: number,
+    asleep: number,
   },
-};
-
-export type SleepDurationInfo = {
-  durations: number[],
-  total: number,
 };
