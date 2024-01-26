@@ -57,7 +57,7 @@ export const PokeInBoxTableSkills = ({
           normalSize
         />
       </Flex>
-      <Flex center noFullWidth className="w-20">
+      <Flex center noFullWidth className="w-32">
         <PokemonProbabilityOfNoSkill
           rate={rateOfPokemon}
           state="sleep1Vacant"
@@ -65,7 +65,7 @@ export const PokeInBoxTableSkills = ({
           normalSize
         />
       </Flex>
-      <Flex center noFullWidth className="w-20">
+      <Flex center noFullWidth className="w-32">
         <PokemonProbabilityOfNoSkill
           rate={rateOfPokemon}
           state="sleep2Vacant"
