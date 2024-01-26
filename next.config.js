@@ -22,7 +22,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   compiler: {
-    removeConsole: isProd,
+    removeConsole: isProd && {
+      exclude: ['info', 'warn'],
+    },
   },
   pageExtensions: ['ts', 'tsx'],
   typescript: {
