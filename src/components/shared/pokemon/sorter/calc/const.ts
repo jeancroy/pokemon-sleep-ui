@@ -39,10 +39,10 @@ export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonS
   frequencyOfBerry: (opts) => getBerryRateSorter({key: 'frequency', opts}),
   frequencyOfIngredient: (opts) => getIngredientFirstRateSorter({key: 'frequency', opts}),
   timeToFullPackPrimary: (opts) => (
-    getPokemonRateSorter(opts).fullPackStats.secondsToFull.primary ?? NaN
+    getPokemonRateSorter(opts).fullPackStats.secondsToFull.primary ?? Infinity
   ),
   timeToFullPackSecondary: (opts) => (
-    getPokemonRateSorter(opts).fullPackStats.secondsToFull.secondary ?? NaN
+    getPokemonRateSorter(opts).fullPackStats.secondsToFull.secondary ?? Infinity
   ),
   totalEnergy: (opts) => getTotalEnergyOfPokemonProducingRate(getPokemonRateSorter(opts),
   ),
