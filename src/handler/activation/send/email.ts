@@ -24,11 +24,15 @@ export const actionSendActivationEmail = async (opts: ActionSendActivationEmailO
     return;
   }
 
+  const toSendEmail = isProduction();
+
   // Production only to avoid accidental send
-  if (isProduction()) {
+  if (toSendEmail) {
     await sendActivationEmail({recipient: email, activationLink});
   }
 
   // eslint-disable-next-line no-console
-  console.info(`Activation email sent to ${email} with link ${activationLink} (${sourceNote})`);
+  console.info(
+    `${toSendEmail ? '' : '(Dry Run) '}Activation email sent to ${email} with link ${activationLink} (${sourceNote})`,
+  );
 };
