@@ -3,7 +3,10 @@
   "compounds": [
     {
       "name": "Debug Next.js Server & Client",
-      "configurations": ["Next.js: debug server-side", "Next.js: debug client-side"],
+      "configurations": [
+        "Next.js: debug server-side (development)",
+        "Next.js: debug client-side"
+      ],
       "stopAll": true,
       "presentation": {
         "group": "dev",
@@ -13,13 +16,38 @@
   ],
   "configurations": [
     {
-      "name": "Next.js: debug server-side",
+      "name": "Next.js: debug server-side (development)",
       "type": "node",
       "request": "launch",
+      "env": {
+        "NODE_ARGS": "--inspect=9229"
+      },
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev:debug:server"],
+      "runtimeArgs": [
+        "run",
+        "dev:debug:server",
+        "--",
+        "--experimental-https"
+      ],
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
+      "presentation": {
+        "group": "dev"
+      }
+    },
+    {
+      "name": "Next.js: debug server-side (production)",
+      "type": "node",
+      "request": "launch",
+      "env": {
+        "NODE_ENV": "production",
+        "NODE_ARGS": "--inspect=9229 --trace-warnings"
+      },
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev:debug:server", "--", "start"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "preLaunchTask": "yarn: build",
       "presentation": {
         "group": "dev"
       }

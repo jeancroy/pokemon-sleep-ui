@@ -1,8 +1,10 @@
 {
-    "recommendations": [
-        "editorconfig.editorconfig",
-        "dbaeumer.vscode-eslint",
-        "stylelint.vscode-stylelint",
-        "bradlc.vscode-tailwindcss"
-    ]
+  "recommendations": [
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+    "bradlc.vscode-tailwindcss",
+    "esbenp.prettier-vscode",
+    "rohit-gohri.format-code-action"
+  ]
 }
