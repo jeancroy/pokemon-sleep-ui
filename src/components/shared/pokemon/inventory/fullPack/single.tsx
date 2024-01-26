@@ -17,7 +17,7 @@ export const PokemonTimeToFullPackSingle = ({seconds, alt, title, ...props}: Pro
   const {normalTextSize} = props;
 
   return (
-    <Flex direction="row" noFullWidth className={getPackStatsStyle(props)}>
+    <Flex direction="row" noFullWidth center className={getPackStatsStyle(props)}>
       {title}
       <GenericIconLarger
         src="/images/generic/bag.png"
@@ -25,7 +25,7 @@ export const PokemonTimeToFullPackSingle = ({seconds, alt, title, ...props}: Pro
         dimension={normalTextSize ? 'size-6' : 'size-4'}
         noShrink
       />
-      <Flex center>
+      <Flex noFullWidth center>
         {seconds ? formatSeconds({seconds}) : '-'}
       </Flex>
     </Flex>

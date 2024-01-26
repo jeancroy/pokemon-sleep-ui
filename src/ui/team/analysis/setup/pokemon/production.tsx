@@ -45,9 +45,9 @@ export const TeamAnalysisPokemonProduction = (props: TeamAnalysisPokemonProps) =
   return (
     <>
       <PokemonFrequencyFromProducingRate pokemonRate={stats}/>
-      <Flex direction="row" className="justify-center gap-1.5">
-        <PokemonTimeToFullPack timeToFullPack={fullPackStats.secondsToFull}/>
-        <PokemonCarryLimit carryLimit={carryLimitInfo.final}/>
+      <Flex direction="row" center className="gap-1.5">
+        <PokemonTimeToFullPack direction="col" timeToFullPack={fullPackStats.secondsToFull}/>
+        <PokemonCarryLimit carryLimit={carryLimitInfo.final} normalTextSize/>
       </Flex>
       <HorizontalSplitter className="w-full"/>
       <ProducingRateUI rate={total} hideQuantity/>
