@@ -1,3 +1,4 @@
+import {staminaAbsoluteMax} from '@/const/game/stamina';
 import {SleepSessionInfo} from '@/types/game/sleep';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/config';
 import {StaminaEventLog} from '@/types/game/stamina/event';
@@ -91,11 +92,11 @@ export const getLogsWithSkillRecoveryOfTrigger = ({
         timing: recoveryData.timing,
         stamina: {
           before: staminaBefore.inGame,
-          after: staminaBefore.inGame + recoveryData.amount,
+          after: Math.min(staminaBefore.inGame + recoveryData.amount, staminaAbsoluteMax),
         },
         staminaUnderlying: {
           before: staminaBefore.inGame,
-          after: staminaBefore.inGame + recoveryData.amount,
+          after: Math.min(staminaBefore.inGame + recoveryData.amount, staminaAbsoluteMax),
         },
       });
       skillUsedCount += 1;

@@ -287,6 +287,43 @@ describe('Stamina / Event Log (+Skill)', () => {
     expect(logs.length).toBe(2);
   });
 
+  it('does not allow stamina go beyond 150 under conservative', () => {
+    const sessionInfo = getSleepSessionInfo({
+      recoveryRate,
+      session: {
+        primary: {
+          start: 0, // 00:00
+          end: 30600, // 08:30
+        },
+        secondary: null,
+      },
+    });
+    const skillRecovery: StaminaSkillRecoveryConfig = {
+      strategy: 'conservative',
+    };
+    const skillTriggers: StaminaSkillTriggerData[] = [
+      {dailyCount: 1, amount: 200},
+    ];
+
+    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+
+    expect(logs[0].type).toBe('wakeup');
+    expect(logs[0].timing).toBe(0);
+    expect(logs[0].stamina.before).toBe(100);
+    expect(logs[0].stamina.after).toBe(100);
+    expect(logs[1].type).toBe('skillRecovery');
+    expect(logs[1].timing).toBe(27900);
+    expect(logs[1].stamina.before).toBe(53.5);
+    expect(logs[1].stamina.after).toBe(150);
+    expect(logs[2].type).toBe('sleep');
+    expect(logs[2].timing).toBe(55800);
+    expect(logs[2].stamina.before).toBe(103.5);
+    expect(logs[2].stamina.after).toBe(103.5);
+    expect(logs.length).toBe(3);
+  });
+
   it('is correct if the sleep duration length is very short', () => {
     const sessionInfo = getSleepSessionInfo({
       recoveryRate,
