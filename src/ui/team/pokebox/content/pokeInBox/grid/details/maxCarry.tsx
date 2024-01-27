@@ -15,12 +15,12 @@ export const PokeInBoxGridMaxCarry = (props: PokeInBoxGridDetailsProps) => {
   const {fullPackStats, carryLimitInfo} = getRateOfPokemon(props);
 
   return (
-    <Flex noFullWidth className="gap-1">
+    <Flex direction="row" noFullWidth className="items-center gap-2">
       <Flex direction="row" noFullWidth className="gap-0.5">
         <GenericIconLarger src="/images/generic/bag.png" alt={t('MaxCarry')}/>
         <div>{carryLimitInfo.final}</div>
       </Flex>
-      <PokemonTimeToFullPack direction="row" timeToFullPack={fullPackStats.secondsToFull} normalTextSize/>
+      <PokemonTimeToFullPack direction="col" timeToFullPack={fullPackStats.secondsToFull} normalTextSize/>
     </Flex>
   );
 };
