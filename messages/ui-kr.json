@@ -46,8 +46,8 @@
   "Game": {
     "Feature": {
       "LevelUp": "포켓몬 레벨업",
-      "CookRecipe": "요리하기",
-      "PotExpand": "냄비를 확장하기"
+      "CookRecipe": "요리",
+      "PotExpand": "냄비 확장"
     }
   },
   "MainSkill": {
@@ -61,7 +61,7 @@
     },
     "Target": {
       "Self": "자신",
-      "Random": "랜덤 포켓몬 1마",
+      "Random": "랜덤 포켓몬 1마리",
       "Team": "팀"
     }
   },
@@ -204,10 +204,10 @@
         "Title": "서브 스킬"
       },
       "ProducingParams": {
-        "Title": "Production Rates"
+        "Title": "생산 효율"
       },
       "Progress": {
-        "Title": "Sleepdex Unlock Rewards"
+        "Title": "도감 개방 보상"
       }
     },
     "Item": {
@@ -281,7 +281,7 @@
         "FrequencyEquivalent": "도우미 시간",
         "Friendship": "프렌드 포인트",
         "Recruit": "동료가 되어",
-        "TransferReward": "Reward of sending the Pokemon to professor",
+        "TransferReward": "박사에게 포켓몬을 보낼때 받는 보상",
         "TimeToFullPack": {
           "Primary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 1)",
           "Secondary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 2)"
@@ -289,7 +289,7 @@
         "MainSkillValue": "스킬 확률",
         "MainSkillTriggerValue": "스킬 발동지",
         "MainSkillTriggerRate": "스킬 발동률",
-        "EventOnly": "Event Only"
+        "EventOnly": "이벤트 한정"
       },
       "Sort": {
         "Id": "ID",
@@ -435,11 +435,11 @@
       },
       "Progress": {
         "SleepStylesUnlocked": "개방된 잠자는 모습의 수",
-        "MapUnlock": "Map Unlock",
-        "MaxMapBonusPercent": "Max Map Bonus",
-        "MaxPotCapacity": "Max Pot Capacity",
-        "FeatureUnlock": "Feature Unlock",
-        "Rewards": "Rewards"
+        "MapUnlock": "새로운 필드 개방",
+        "MaxMapBonusPercent": "최대 맵 보너스",
+        "MaxPotCapacity": "최대 냄비 확장",
+        "FeatureUnlock": "개방되는 기능",
+        "Rewards": "보상"
       }
     },
     "PokemonExp": {
