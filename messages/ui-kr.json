@@ -46,8 +46,8 @@
   "Game": {
     "Feature": {
       "LevelUp": "포켓몬 레벨업",
-      "CookRecipe": "요리하기",
-      "PotExpand": "냄비를 확장하기"
+      "CookRecipe": "요리",
+      "PotExpand": "냄비 확장"
     }
   },
   "MainSkill": {
@@ -61,7 +61,7 @@
     },
     "Target": {
       "Self": "자신",
-      "Random": "랜덤 포켓몬 1마",
+      "Random": "랜덤 포켓몬 1마리",
       "Team": "팀"
     }
   },
