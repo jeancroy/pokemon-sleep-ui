@@ -27,9 +27,9 @@ describe('Stamina / Skill Recovery Data Generation', () => {
     });
 
     expect(recoveryData[0].timing).toBe(20000);
-    expect(recoveryData[0].amount).toBe(14);
+    expect(recoveryData[0].getAmount()).toBe(14);
     expect(recoveryData[1].timing).toBe(40000);
-    expect(recoveryData[1].amount).toBe(9);
+    expect(recoveryData[1].getAmount()).toBe(9);
     expect(recoveryData.length).toBe(2);
   });
 
@@ -51,7 +51,7 @@ describe('Stamina / Skill Recovery Data Generation', () => {
     });
 
     expect(recoveryData[0].timing).toBe(30000);
-    expect(recoveryData[0].amount).toBe(5);
+    expect(recoveryData[0].getAmount()).toBe(5);
     expect(recoveryData.length).toBe(1);
   });
 
@@ -73,11 +73,11 @@ describe('Stamina / Skill Recovery Data Generation', () => {
     });
 
     expect(recoveryData[0].timing).toBe(15000);
-    expect(recoveryData[0].amount).toBe(9);
+    expect(recoveryData[0].getAmount()).toBe(9);
     expect(recoveryData[1].timing).toBe(30000);
-    expect(recoveryData[1].amount).toBe(9);
+    expect(recoveryData[1].getAmount()).toBe(9);
     expect(recoveryData[2].timing).toBe(45000);
-    expect(recoveryData[2].amount).toBe(9);
+    expect(recoveryData[2].getAmount()).toBe(9);
     expect(recoveryData.length).toBe(3);
   });
 
@@ -99,9 +99,9 @@ describe('Stamina / Skill Recovery Data Generation', () => {
     });
 
     expect(recoveryData[0].timing).toBe(20000);
-    expect(recoveryData[0].amount).toBe(17);
+    expect(recoveryData[0].getAmount()).toBe(17);
     expect(recoveryData[1].timing).toBe(40000);
-    expect(recoveryData[1].amount).toBe(11);
+    expect(recoveryData[1].getAmount()).toBe(11);
     expect(recoveryData.length).toBe(2);
   });
 });

@@ -3,7 +3,7 @@ import {UserCookingMeal} from '@/types/userData/cooking';
 
 export type StaminaRecovery = {
   timing: number,
-  amount: number,
+  getAmount: (staminaBeforeRecovery?: number) => number,
 };
 
 export type StaminaRecoveryRateConfig = {

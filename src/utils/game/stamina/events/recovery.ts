@@ -1,5 +1,5 @@
 import {staminaAbsoluteMax} from '@/const/game/stamina';
-import {StaminaEventLog, StaminaEventType} from '@/types/game/stamina/event';
+import {StaminaAtEvent, StaminaEventLog, StaminaEventType} from '@/types/game/stamina/event';
 import {StaminaRecovery} from '@/types/game/stamina/recovery';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 import {offsetEventLogStamina, updateLogStaminaFromLast} from '@/utils/game/stamina/events/utils';
@@ -19,6 +19,7 @@ export const getLogsWithStaminaRecovery = ({
   const newLogs: StaminaEventLog[] = [logs[0]];
 
   let recoveryCount = 0;
+  let recoveredAmount = 0;
 
   for (const log of logs.slice(1)) {
     let recoveryData = recoveries.at(recoveryCount);
@@ -30,19 +31,20 @@ export const getLogsWithStaminaRecovery = ({
         duration: recoveryData.timing - latest.timing,
       });
 
+      const currentRecoveryAmount = recoveryData.getAmount(staminaBefore.inGame);
+      const staminaUpdated: StaminaAtEvent = {
+        before: staminaBefore.inGame,
+        after: Math.min(staminaBefore.inGame + currentRecoveryAmount, staminaAbsoluteMax),
+      };
+
       newLogs.push({
         type: recoveryEventType,
         timing: recoveryData.timing,
-        stamina: {
-          before: staminaBefore.inGame,
-          after: Math.min(staminaBefore.inGame + recoveryData.amount, staminaAbsoluteMax),
-        },
-        staminaUnderlying: {
-          before: staminaBefore.inGame,
-          after: Math.min(staminaBefore.inGame + recoveryData.amount, staminaAbsoluteMax),
-        },
+        stamina: staminaUpdated,
+        staminaUnderlying: staminaUpdated,
       });
       recoveryCount += 1;
+      recoveredAmount += currentRecoveryAmount;
       recoveryData = recoveries.at(recoveryCount);
     }
 
@@ -53,7 +55,7 @@ export const getLogsWithStaminaRecovery = ({
     if ((!recoveryCount || lastLog.type !== recoveryEventType) && recoveryData) {
       newLogs.push(offsetEventLogStamina({
         log,
-        offset: recoveryCount * recoveryData.amount,
+        offset: recoveredAmount,
       }));
       continue;
     }
