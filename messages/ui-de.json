@@ -550,12 +550,12 @@
       "Conservative": "Konservativ"
     },
     "SkillRecovery": {
-      "Name": "Skill Recovery",
+      "Name": "Talent-Wiederherstellung",
       "Amount": "Erholung pro Fertigkeit",
       "DailyCount": "Anzahl der täglichen Fertigkeitennutzung"
     },
     "CookRecovery": {
-      "Name": "Cooking Schedule"
+      "Name": "Kochplan"
     },
     "EventType": {
       "SkillRecovery": "Fähigkeitswiederherstellung",

@@ -555,7 +555,7 @@
       "DailyCount": "빈도 (일)"
     },
     "CookRecovery": {
-      "Name": "Cooking Schedule"
+      "Name": "요리하는 시기"
     },
     "EventType": {
       "SkillRecovery": "스킬 사용",

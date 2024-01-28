@@ -555,7 +555,7 @@
       "DailyCount": "発動回数"
     },
     "CookRecovery": {
-      "Name": "Cooking Schedule"
+      "Name": "料理スケジュール"
     },
     "EventType": {
       "SkillRecovery": "スキルで回復",
