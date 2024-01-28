@@ -432,7 +432,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
     },
     Stamina: {
       Title: string,
-      SleepSession: string,
+      SleepSchedule: string,
       Chart: {
         Stamina: string,
         Efficiency: string,

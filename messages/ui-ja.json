@@ -540,7 +540,7 @@
   },
   "Stamina": {
     "Title": "げんき回復",
-    "SleepSession": "睡眠時間",
+    "SleepSchedule": "睡眠時間",
     "Chart": {
       "Stamina": "げんき",
       "Efficiency": "効率"

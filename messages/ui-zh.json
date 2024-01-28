@@ -540,7 +540,7 @@
   },
   "Stamina": {
     "Title": "活力計算",
-    "SleepSession": "睡眠時間段",
+    "SleepSchedule": "睡眠時間段",
     "Chart": {
       "Stamina": "活力",
       "Efficiency": "效率"

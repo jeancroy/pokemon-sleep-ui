@@ -540,7 +540,7 @@
   },
   "Stamina": {
     "Title": "Energieberechnung",
-    "SleepSession": "Schlafsitzung",
+    "SleepSchedule": "Schlafsitzung",
     "Chart": {
       "Stamina": "Energie",
       "Efficiency": "Effizienz"

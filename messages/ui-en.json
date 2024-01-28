@@ -540,7 +540,7 @@
   },
   "Stamina": {
     "Title": "Energy Calculation",
-    "SleepSession": "Sleep Session",
+    "SleepSchedule": "Sleep Schedule",
     "Chart": {
       "Stamina": "Energy",
       "Efficiency": "Efficiency"
