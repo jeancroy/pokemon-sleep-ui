@@ -68,7 +68,12 @@
   "Metadata": {
     "Site": {
       "Name": "Pokémon Sleep Info Wiki",
-      "Description": "Pokémon Sleep Info Wiki provides various info including Pokédex, recipes, ingredients, berries, as well as other tools such as Team Analysis and Pokebox analysis."
+      "Description": "Pokémon Sleep Info Wiki provides various info including Pokédex, recipes, ingredients, berries, as well as other tools such as Team Analysis and Pokebox analysis.",
+      "Keywords": {
+        "PokemonSleep": "Pokemon Sleep",
+        "Pokemon": "Pokemon",
+        "PokemonSleepGuide": "Pokemon Sleep Guide"
+      }
     },
     "NotFound": {
       "Title": "Page not Found"

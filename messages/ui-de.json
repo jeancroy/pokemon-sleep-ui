@@ -68,7 +68,12 @@
   "Metadata": {
     "Site": {
       "Name": "Pokémon Sleep Info",
-      "Description": "Pokémon Sleep Info bietet verschiedene Informationen, darunter Pokédex, Rezepte, Zutaten, Beeren sowie andere Tools wie Teamanalyse und Pokebox-Analyse."
+      "Description": "Pokémon Sleep Info bietet verschiedene Informationen, darunter Pokédex, Rezepte, Zutaten, Beeren sowie andere Tools wie Teamanalyse und Pokebox-Analyse.",
+      "Keywords": {
+        "PokemonSleep": "Pokemon Sleep",
+        "Pokemon": "Pokemon",
+        "PokemonSleepGuide": "Pokemon Sleep Ratgeber"
+      }
     },
     "NotFound": {
       "Title": "Seite nicht gefunden"

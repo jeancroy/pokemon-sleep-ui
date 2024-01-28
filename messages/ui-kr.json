@@ -29,7 +29,7 @@
     "Rank": "랭크",
     "ResearchExp": "리서치 EXP",
     "Rewards": "보상",
-    "Shiny":"색이 다른",
+    "Shiny": "색이 다른",
     "SnorlaxFavorite": "잠만보가 좋아하는 나무열매",
     "SnorlaxRank": "잠만보 평가",
     "Stamina": "기력",
@@ -68,7 +68,12 @@
   "Metadata": {
     "Site": {
       "Name": "포슬립 위키",
-      "Description": "포켓몬 슬립 위키는 포켓몬의 수면 정보, 레시피, 식재료, 나무열매 뿐 아니라 팀 분석, 포켓몬 EXP 계산과 같은 툴을 포함한 다양한 정보와 기능을 제공합니다."
+      "Description": "포켓몬 슬립 위키는 포켓몬의 수면 정보, 레시피, 식재료, 나무열매 뿐 아니라 팀 분석, 포켓몬 EXP 계산과 같은 툴을 포함한 다양한 정보와 기능을 제공합니다.",
+      "Keywords": {
+        "PokemonSleep": "포켓몬 슬립",
+        "Pokemon": "포켓몬",
+        "PokemonSleepGuide": "포켓몬 슬립 가이드"
+      }
     },
     "NotFound": {
       "Title": "페이지를 찾을 수 없습니다"
@@ -360,7 +365,7 @@
     },
     "Team": {
       "Analysis": {
-        "Period":  "분석 주기",
+        "Period": "분석 주기",
         "Control": {
           "ExportToPokebox": "Export to Pokebox",
           "ShareableLink": "Sharable Link",

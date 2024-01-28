@@ -1,25 +1,39 @@
 import {I18nMessageKeysOfNamespace} from '@/types/i18n';
-import {GenerateMetadata, GeneratePageMetaValues} from '@/types/next/metadata';
-import {getI18nTranslator} from '@/utils/i18n';
+import {
+  GenerateMetadata,
+  GeneratePageMetaValues,
+} from '@/types/next/metadata';
+import {generateSiteMetadata} from '@/utils/metadata';
 
 
-type GeneratePageMetaOpts = {
+export type GeneratePageMetaOpts = {
   key: I18nMessageKeysOfNamespace<'UI.Metadata'>,
   values?: GeneratePageMetaValues,
 };
 
-export const generatePageMeta = ({key, values}: GeneratePageMetaOpts): GenerateMetadata => async ({params}) => {
+export const generatePageMeta = ({
+  key,
+  values,
+}: GeneratePageMetaOpts): GenerateMetadata => async ({params}) => {
   const {locale} = params;
-  const t = await getI18nTranslator({locale, namespace: 'UI.Metadata'});
+  const {
+    name,
+    nameTemplate,
+    description,
+    metadataBase,
+    keywords,
+    languages,
+  } = await generateSiteMetadata({key, values, locale});
 
-  const siteName = `${t(key, values)} | ${t('Site.Name')}`;
-  const siteNameTemplate = '%s - PWA';
-  const siteDescription = t('Site.Description');
   return {
-    metadataBase: process.env.NEXTAUTH_URL ? new URL(process.env.NEXTAUTH_URL) : null,
-    applicationName: siteName,
-    title: siteName,
-    description: siteDescription,
+    metadataBase,
+    alternates: {
+      canonical: '/',
+      languages,
+    },
+    applicationName: name,
+    title: name,
+    description,
     authors: [
       {
         name: 'RaenonX',
@@ -33,37 +47,58 @@ export const generatePageMeta = ({key, values}: GeneratePageMetaOpts): GenerateM
     creator: 'RaenonX',
     appleWebApp: {
       capable: true,
-      title: siteName,
-      statusBarStyle: 'default',
+      title: name,
+      statusBarStyle: 'black',
+      startupImage: '/images/theme/absol-smug-750x1334.png',
     },
     twitter: {
       card: 'summary',
       title: {
-        default: siteName,
-        template: siteNameTemplate,
+        default: name,
+        template: nameTemplate,
       },
-      description: siteDescription,
+      description,
     },
     generator: 'Next.js',
-    manifest: '/manifest.json',
-    keywords: [
-      // Game name
-      '寶可夢睡覺',
-      'Pokemon Sleep',
-      'ポケスリ',
-      '포슬립',
-      // General
-      '寶可夢',
-      'Pokemon',
-      'ポケスリ',
-      '포켓몬',
-      // Language-specific
-      '攻略',
-    ],
-    icons: [
-      {rel: 'apple-touch-icon', url: '/icons/icon-180x180.png'},
-      {rel: 'icon', url: '/favicon.ico'},
-    ],
+    manifest: '/manifest.webmanifest',
+    keywords,
+    icons: {
+      icon: [
+        {
+          url: '/icons/icon-72x72.png',
+          sizes: '72x72',
+          type: 'image/png',
+        },
+        {
+          url: '/icons/icon-150x150.png',
+          sizes: '150x150',
+          type: 'image/png',
+        },
+        {
+          url: '/icons/icon-180x180.png',
+          sizes: '180x180',
+          type: 'image/png',
+        },
+        {
+          url: '/icons/icon-192x192.png',
+          sizes: '192x192',
+          type: 'image/png',
+        },
+        {
+          url: '/icons/icon-512x512.png',
+          sizes: '512x512',
+          type: 'image/png',
+        },
+      ],
+      shortcut: '/favicon.ico',
+      apple: [
+        {
+          url: '/icons/icon-180x180.png',
+          sizes: '180x180',
+          type: 'image/png',
+        },
+      ],
+    },
     formatDetection: {
       url: true,
       date: true,
@@ -85,7 +120,10 @@ type generatePageMetaFromStringOpts = {
   title: string,
 };
 
-export const generatePageMetaFromString = ({t, title}: generatePageMetaFromStringOpts) => {
+export const generatePageMetaFromString = ({
+  t,
+  title,
+}: generatePageMetaFromStringOpts) => {
   return {
     title: `${title} | ${t('Site.Name')}`,
     description: t('Site.Description'),

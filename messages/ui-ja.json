@@ -68,7 +68,12 @@
   "Metadata": {
     "Site": {
       "Name": "ポケスリ攻略",
-      "Description": "ポケスリ攻略では、図鑑・レシピ・食材・きのみなどの様々なデータや、\nお手伝いチームの分析・ボックス内ポケモン分析といった便利なツールを提供しています。"
+      "Description": "ポケスリ攻略では、図鑑・レシピ・食材・きのみなどの様々なデータや、\nお手伝いチームの分析・ボックス内ポケモン分析といった便利なツールを提供しています。",
+      "Keywords": {
+        "PokemonSleep": "ポケスリ",
+        "Pokemon": "ポケモン",
+        "PokemonSleepGuide": "ポケモンスリープ攻略"
+      }
     },
     "NotFound": {
       "Title": "ページが見つかりません"
@@ -360,7 +365,7 @@
     },
     "Team": {
       "Analysis": {
-        "Period":  "分析周期",
+        "Period": "分析周期",
         "Control": {
           "ExportToPokebox": "ボックスにエクスポート",
           "ShareableLink": "シェアURL",

@@ -43,6 +43,10 @@ const pwaConfig = {
   workboxOptions: {
     disableDevLogs: isProd,
   },
+  fallbacks: {
+    // Failed page requests fallback to this.
+    document: '/~offline',
+  },
 };
 
 module.exports = (phase) => {
