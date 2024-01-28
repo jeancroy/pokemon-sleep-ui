@@ -1,4 +1,4 @@
-import {StaminaRecoveryRateConfig} from '@/types/game/stamina/config';
+import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {CalculatedUserSettings, UserCalculationBehavior, UserSettings} from '@/types/userData/settings';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {toEffectiveBonus, ToEffectiveBonusOpts} from '@/utils/user/bonus';

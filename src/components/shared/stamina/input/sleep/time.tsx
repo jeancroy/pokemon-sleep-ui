@@ -17,8 +17,7 @@ export const StaminaConfigSleepTime = ({config, setConfig, session, times, timin
   return (
     <StaminaConfigTimeInput
       timeValue={times ? times[timing] : null}
-      isActive={isActive}
-      disabled={!times}
+      disabled={!times || !isActive}
       onUpdate={(time) => setConfig({
         ...config,
         sleepSession: {

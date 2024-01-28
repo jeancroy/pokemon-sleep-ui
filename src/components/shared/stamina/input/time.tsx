@@ -9,13 +9,12 @@ import {toSeconds, toTimeString} from '@/utils/time';
 
 type Props = {
   timeValue: number | null,
-  isActive: boolean,
   disabled: boolean,
   onUpdate: (time: number) => void,
   icon?: React.ReactNode,
 };
 
-export const StaminaConfigTimeInput = ({timeValue, isActive, disabled, onUpdate, icon}: Props) => {
+export const StaminaConfigTimeInput = ({timeValue, disabled, onUpdate, icon}: Props) => {
   return (
     <Flex direction="row" className="items-center gap-1">
       {icon}
@@ -32,7 +31,7 @@ export const StaminaConfigTimeInput = ({timeValue, isActive, disabled, onUpdate,
           setValue={onUpdate}
           min={0}
           max={durationOfDay - 1}
-          disabled={!isActive}
+          disabled={disabled}
         />
       </Flex>
     </Flex>

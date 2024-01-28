@@ -1,7 +1,8 @@
 import {durationOfDay} from '@/const/common';
 import {maxSleepEffectiveDuration, staminaMaxRecovery, staminaRecoveryInterval} from '@/const/game/stamina';
 import {SleepSessionInfo, SleepSessionMeta, SleepSessionRecovery, SleepSessionTimes} from '@/types/game/sleep';
-import {StaminaRecoveryRateConfig, StaminaSleepSessionConfig} from '@/types/game/stamina/config';
+import {StaminaSleepSessionConfig} from '@/types/game/stamina/config';
+import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {getActualRecoveryAmount} from '@/utils/game/stamina/events/utils';
 import {rotateTime} from '@/utils/time';
 

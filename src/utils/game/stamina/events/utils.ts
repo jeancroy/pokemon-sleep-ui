@@ -1,5 +1,5 @@
-import {StaminaRecoveryRateConfig} from '@/types/game/stamina/config';
 import {StaminaEventLog} from '@/types/game/stamina/event';
+import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 
 

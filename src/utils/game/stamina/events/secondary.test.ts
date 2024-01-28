@@ -1,6 +1,7 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {StaminaRecoveryRateConfig, StaminaSleepSessionConfig} from '@/types/game/stamina/config';
+import {StaminaSleepSessionConfig} from '@/types/game/stamina/config';
+import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {StaminaSkillRecoveryConfig, StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getLogsWithPrimarySleep} from '@/utils/game/stamina/events/primary';

@@ -1,6 +1,6 @@
 import {NatureId} from '@/types/game/pokemon/nature';
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
-import {StaminaRecoveryRateConfig} from '@/types/game/stamina/config';
+import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {toSum} from '@/utils/array';
 import {getNatureMultiplier} from '@/utils/game/nature';
 import {getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
