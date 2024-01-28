@@ -446,6 +446,9 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         Amount: string,
         DailyCount: string,
       },
+      CookRecovery: {
+        Name: string,
+      },
       EventType: {
         SkillRecovery: string,
         EfficiencyBlock: string,

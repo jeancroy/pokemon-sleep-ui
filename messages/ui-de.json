@@ -554,6 +554,9 @@
       "Amount": "Erholung pro Fertigkeit",
       "DailyCount": "Anzahl der täglichen Fertigkeitennutzung"
     },
+    "CookRecovery": {
+      "Name": "Cooking Schedule"
+    },
     "EventType": {
       "SkillRecovery": "Fähigkeitswiederherstellung",
       "EfficiencyBlock": "Effizienz-Schwellenwert",

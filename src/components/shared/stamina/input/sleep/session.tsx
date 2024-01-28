@@ -59,7 +59,7 @@ export const StaminaConfigSleepSession = (props: Props) => {
             src="/images/generic/sleep.png"
             noWrap
             noInvert
-            alt={t('SleepSession')}
+            alt={t('SleepSchedule')}
             isActive={active}
           />
         </div>

@@ -554,6 +554,9 @@
       "Amount": "회복량",
       "DailyCount": "빈도 (일)"
     },
+    "CookRecovery": {
+      "Name": "Cooking Schedule"
+    },
     "EventType": {
       "SkillRecovery": "스킬 사용",
       "EfficiencyBlock": "도우미 속도 변화",

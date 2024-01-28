@@ -1,6 +1,6 @@
 import {UserBonus} from '@/types/game/bonus';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
-import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
+import {StaminaCookingRecoveryConfig, StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {UserCalculationBehavior, UserSettings} from '@/types/userData/settings';
 import {userSettingsMigrators} from '@/utils/migrate/userSettings/migrators';
@@ -18,6 +18,12 @@ export const defaultRecoveryRate: StaminaRecoveryRateConfig = {
   sleep: 1,
 };
 
+export const defaultCookingRecovery: StaminaCookingRecoveryConfig = {
+  breakfast: 28800, // 08:00
+  lunch: 45000, // 12:30
+  dinner: 68400, // 19:00
+};
+
 export const defaultStaminaCalcConfig: StaminaCalcConfig = {
   sleepSession: {
     primary: {
@@ -29,6 +35,7 @@ export const defaultStaminaCalcConfig: StaminaCalcConfig = {
       end: 52200, // 14:30 (1.5 hrs)
     },
   },
+  cookRecovery: defaultCookingRecovery,
   skillRecovery: {
     strategy: 'optimistic',
   },

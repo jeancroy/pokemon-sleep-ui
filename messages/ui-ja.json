@@ -554,6 +554,9 @@
       "Amount": "スキル回復量",
       "DailyCount": "発動回数"
     },
+    "CookRecovery": {
+      "Name": "Cooking Schedule"
+    },
     "EventType": {
       "SkillRecovery": "スキルで回復",
       "EfficiencyBlock": "効率変更点",

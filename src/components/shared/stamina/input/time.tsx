@@ -9,12 +9,12 @@ import {toSeconds, toTimeString} from '@/utils/time';
 
 type Props = {
   timeValue: number | null,
-  disabled: boolean,
   onUpdate: (time: number) => void,
+  disabled?: boolean,
   icon?: React.ReactNode,
 };
 
-export const StaminaConfigTimeInput = ({timeValue, disabled, onUpdate, icon}: Props) => {
+export const StaminaConfigTimeInput = ({timeValue, onUpdate, disabled, icon}: Props) => {
   return (
     <Flex direction="row" className="items-center gap-1">
       {icon}

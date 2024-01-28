@@ -1,4 +1,5 @@
 import {
+  defaultCookingRecovery,
   defaultRecoveryRate,
   defaultStaminaCalcConfig,
   defaultStaminaSkillTrigger,
@@ -68,6 +69,17 @@ export const userSettingsMigrators: Migrator<UserSettings, UserSettingsMigratePa
       behavior: {
         ...defaultStaminaSkillTrigger,
         ...behavior,
+      },
+    }),
+  },
+  {
+    toVersion: 8,
+    // Added `cookRecovery` in stamina config
+    migrate: ({stamina, ...old}) => ({
+      ...old,
+      stamina: {
+        ...stamina,
+        cookRecovery: defaultCookingRecovery,
       },
     }),
   },
