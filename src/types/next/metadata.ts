@@ -9,7 +9,9 @@ export type GenerateMetadataOpts<P extends GenerateMetadataParams> = {
   params: P,
 };
 
-export type GenerateMetadata<T extends GenerateMetadataParams = GenerateMetadataParams> = (
+export type GenerateMetadata<
+  T extends GenerateMetadataParams = GenerateMetadataParams,
+> = (
   opts: GenerateMetadataOpts<T>,
 ) => Promise<Metadata>;
 

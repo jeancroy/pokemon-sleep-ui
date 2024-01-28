@@ -85,6 +85,11 @@ declare interface IntlMessages extends UiMessages, GameMessages {
       Site: {
         Name: string,
         Description: string,
+        Keywords: {
+          PokemonSleep: string,
+          Pokemon: string,
+          PokemonSleepGuide: string,
+        },
       },
       NotFound: I18nMetadata,
       Home: I18nMetadata,
