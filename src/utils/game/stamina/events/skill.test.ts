@@ -5,12 +5,12 @@ import {StaminaSkillRecoveryConfig, StaminaSkillTriggerData} from '@/types/game/
 import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getLogsWithPrimarySleep} from '@/utils/game/stamina/events/primary';
 import {getLogsWithSecondarySleep} from '@/utils/game/stamina/events/secondary';
-import {getLogsWithSkillRecovery, getSkillRecoveryData} from '@/utils/game/stamina/events/skill';
+import {getLogsWithSkillRecovery, getSkillStaminaRecovery} from '@/utils/game/stamina/events/skill';
 
 
 describe('Stamina / Skill Recovery Data Generation', () => {
   it('is correct with floating number trigger count', () => {
-    const recoveryData = getSkillRecoveryData({
+    const recoveryData = getSkillStaminaRecovery({
       skillRecovery: {
         strategy: 'conservative',
       },
@@ -34,7 +34,7 @@ describe('Stamina / Skill Recovery Data Generation', () => {
   });
 
   it('is correct with trigger count < 1', () => {
-    const recoveryData = getSkillRecoveryData({
+    const recoveryData = getSkillStaminaRecovery({
       skillRecovery: {
         strategy: 'conservative',
       },
@@ -56,7 +56,7 @@ describe('Stamina / Skill Recovery Data Generation', () => {
   });
 
   it('is correct with integer trigger count', () => {
-    const recoveryData = getSkillRecoveryData({
+    const recoveryData = getSkillStaminaRecovery({
       skillRecovery: {
         strategy: 'conservative',
       },
@@ -82,7 +82,7 @@ describe('Stamina / Skill Recovery Data Generation', () => {
   });
 
   it('is correct with floating number trigger count and non-1 recovery rate', () => {
-    const recoveryData = getSkillRecoveryData({
+    const recoveryData = getSkillStaminaRecovery({
       skillRecovery: {
         strategy: 'conservative',
       },

@@ -10,8 +10,3 @@ export type GetLogsCommonOpts = {
   recoveryRate: StaminaRecoveryRateConfig,
   skillTriggers: StaminaSkillTriggerData[],
 };
-
-export type StaminaSkillRecoveryData = {
-  timing: number,
-  amount: number,
-};
