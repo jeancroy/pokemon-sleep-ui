@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
 import {StaminaConfigSkillRecovery} from '@/components/shared/stamina/input/skillRecovery/main';
-import {StaminaConfigSleepSession} from '@/components/shared/stamina/input/sleepSession';
+import {StaminaConfigSleepSession} from '@/components/shared/stamina/input/sleep/session';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 import {defaultStaminaCalcConfig} from '@/const/user/settings';
 

@@ -12,7 +12,7 @@ import {useTranslations} from 'next-intl';
 import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
 import {GenericIcon} from '@/components/shared/icon/common/main';
-import {StaminaConfigSleepTime} from '@/components/shared/stamina/input/sleepTime';
+import {StaminaConfigSleepTime} from '@/components/shared/stamina/input/sleep/time';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 import {getToggleButtonClass} from '@/styles/input';
 import {SleepSessions} from '@/types/game/sleep';

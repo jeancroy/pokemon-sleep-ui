@@ -11,8 +11,7 @@ import {staminaStrategyI18nId} from '@/const/game/stamina';
 import {staminaSkillRecoveryStrategies} from '@/types/game/stamina/skill';
 
 
-export const StaminaConfigSkillRecovery = (props: StaminaConfigProps) => {
-  const {config, setConfig, trigger, setTrigger} = props;
+export const StaminaConfigSkillRecovery = ({config, setConfig, trigger, setTrigger}: StaminaConfigProps) => {
   const {skillRecovery} = config;
 
   const t = useTranslations('UI.Stamina');
