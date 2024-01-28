@@ -1,5 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
+import {defaultRecoveryRate} from '@/const/user/settings';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
 
@@ -223,5 +224,23 @@ describe('Sleep Session Info', () => {
     expect(session.primary.recovery.actual).toBe(67);
     expect(session.secondary?.recovery.base).toBe(17);
     expect(session.secondary?.recovery.actual).toBe(14);
+  });
+
+  it('has correct offset', () => {
+    const {offset} = getSleepSessionInfo({
+      recoveryRate: defaultRecoveryRate,
+      session: {
+        primary: {
+          start: 3600 * 23, // 23:00
+          end: 3600 * 7, // 07:00
+        },
+        secondary: {
+          start: 3600 * 8, // 08:00
+          end: 3600 * 12, // 12:00
+        },
+      },
+    });
+
+    expect(offset).toBe(-3600 * 7);
   });
 });

@@ -26,6 +26,10 @@ export type SleepSessionMeta = SleepSessionRecovery & {
 
 export type SleepSessionInfo = {
   session: SleepSessions<SleepSessionMeta>,
+  // Timing offset applied to sleep sessions.
+  // A value of 3600 indicates that the original timing advanced 3600 secs
+  // for making the end of the primary session be 0.
+  offset: number,
   duration: {
     awake: number,
     asleep: number,

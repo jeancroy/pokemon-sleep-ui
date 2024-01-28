@@ -124,6 +124,7 @@ export const getSleepSessionInfo = ({session, recoveryRate}: GetSleepSessionInfo
       primary: primaryMeta,
       secondary: secondaryMeta,
     },
+    offset: -primary.end,
     duration: {
       asleep: asleepDuration,
       awake: awakeDuration,
