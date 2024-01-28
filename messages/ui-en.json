@@ -550,6 +550,7 @@
       "Conservative": "Conservative"
     },
     "SkillRecovery": {
+      "Name": "Skill Recovery",
       "Amount": "Recovery per skill",
       "DailyCount": "Daily skill usage count"
     },

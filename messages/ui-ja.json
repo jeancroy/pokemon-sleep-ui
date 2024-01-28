@@ -550,6 +550,7 @@
       "Conservative": "悲観的"
     },
     "SkillRecovery": {
+      "Name": "スキル回復",
       "Amount": "スキル回復量",
       "DailyCount": "発動回数"
     },

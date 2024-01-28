@@ -442,6 +442,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         Conservative: string,
       },
       SkillRecovery: {
+        Name: string,
         Amount: string,
         DailyCount: string,
       },

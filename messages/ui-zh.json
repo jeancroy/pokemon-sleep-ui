@@ -550,6 +550,7 @@
       "Conservative": "保守"
     },
     "SkillRecovery": {
+      "Name": "技能回復",
       "Amount": "單次回復量",
       "DailyCount": "每日回復次數"
     },

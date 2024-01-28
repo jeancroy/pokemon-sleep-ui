@@ -5,6 +5,7 @@ import {useTranslations} from 'next-intl';
 import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {Flex} from '@/components/layout/flex/common';
 import {GenericMainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/generic';
+import {staminaConfigSectionStyling} from '@/components/shared/stamina/input/const';
 import {StaminaConfigSkillRecoveryInput} from '@/components/shared/stamina/input/skillRecovery/input';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 import {staminaStrategyI18nId} from '@/const/game/stamina';
@@ -15,15 +16,16 @@ export const StaminaConfigSkillRecovery = ({config, setConfig, trigger, setTrigg
   const {skillRecovery} = config;
 
   const t = useTranslations('UI.Stamina');
+  const title = t('SkillRecovery.Name');
 
   return (
-    <Flex center className="gap-1.5">
+    <Flex center className={staminaConfigSectionStyling}>
+      <Flex direction="row" className="gap-1">
+        <GenericMainSkillIcon alt={title} dimension="size-6" noShrink/>
+        <span>{title}</span>
+      </Flex>
       <FilterTextInput
-        title={
-          <Flex direction="row" className="w-10">
-            <GenericMainSkillIcon alt={t('Title')} dimension="size-7"/>
-          </Flex>
-        }
+        title={null}
         onClick={(strategy) => setConfig({
           ...config,
           skillRecovery: {

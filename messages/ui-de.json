@@ -550,6 +550,7 @@
       "Conservative": "Konservativ"
     },
     "SkillRecovery": {
+      "Name": "Skill Recovery",
       "Amount": "Erholung pro Fertigkeit",
       "DailyCount": "Anzahl der täglichen Fertigkeitennutzung"
     },

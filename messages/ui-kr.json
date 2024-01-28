@@ -550,6 +550,7 @@
       "Conservative": "고르게"
     },
     "SkillRecovery": {
+      "Name": "스킬 회복",
       "Amount": "회복량",
       "DailyCount": "빈도 (일)"
     },
