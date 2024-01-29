@@ -6,11 +6,13 @@ import {generateSleepEventFromLast} from '@/utils/game/stamina/events/utils';
 
 
 export const getLogsWithSecondarySleep = ({
-  sleepSessionInfo,
   logs,
-}: Pick<GetLogsCommonOpts, 'sleepSessionInfo' | 'logs'>): StaminaEventLog[] => {
+  sleepSessionInfo,
+  general,
+}: Pick<GetLogsCommonOpts, 'logs' | 'sleepSessionInfo' | 'general'>): StaminaEventLog[] => {
   const {session} = sleepSessionInfo;
   const {secondary} = session;
+  const {strategy} = general;
 
   if (!secondary) {
     return [...logs];
@@ -32,6 +34,9 @@ export const getLogsWithSecondarySleep = ({
     duration: duration.actual,
   });
 
+  // Do not cap if `optimistic` because `optimistic` assumes energy stays at high level as long as possible
+  const actualStaminaMaxRecovery = strategy === 'optimistic' ? Infinity : staminaMaxRecovery;
+
   newLogs.push(
     {
       type: 'sleep',
@@ -50,11 +55,11 @@ export const getLogsWithSecondarySleep = ({
       timing: adjustedTiming.end,
       stamina: {
         before: staminaAtSleepEndInGame.inGame,
-        after: Math.min(staminaMaxRecovery, staminaAtSleepEndInGame.inGame + recovery.actual),
+        after: Math.min(actualStaminaMaxRecovery, staminaAtSleepEndInGame.inGame + recovery.actual),
       },
       staminaUnderlying: {
         before: staminaAtSleepEndActual.actual,
-        after: Math.min(staminaMaxRecovery, staminaAtSleepEndActual.actual + recovery.actual),
+        after: Math.min(actualStaminaMaxRecovery, staminaAtSleepEndActual.actual + recovery.actual),
       },
     },
   );

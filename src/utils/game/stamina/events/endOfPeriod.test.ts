@@ -1,5 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
+import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
@@ -37,8 +38,14 @@ describe('Stamina / Event Log (+End of Period)', () => {
       {dailyCount: 1, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
 
@@ -85,8 +92,14 @@ describe('Stamina / Event Log (+End of Period)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
 
@@ -140,8 +153,14 @@ describe('Stamina / Event Log (+End of Period)', () => {
       {dailyCount: 0, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
 
@@ -181,17 +200,23 @@ describe('Stamina / Event Log (+End of Period)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(122);
+    expect(logs[0].stamina.after).toBe(137);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(57600);
-    expect(logs[1].stamina.before).toBe(26);
+    expect(logs[1].stamina.before).toBe(41);
     expect(logs[2].type).toBe('endOfPeriod');
     expect(logs[2].timing).toBe(86400);
     expect(logs[2].stamina.before).toBe(0);
@@ -216,8 +241,14 @@ describe('Stamina / Event Log (+End of Period)', () => {
       {dailyCount: 2, amount: 11},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
 
@@ -266,8 +297,14 @@ describe('Stamina / Event Log (+End of Period)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
 

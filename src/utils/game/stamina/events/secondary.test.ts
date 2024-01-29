@@ -1,5 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
+import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {StaminaSleepSessionConfig} from '@/types/game/stamina/config';
 import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
@@ -37,31 +38,37 @@ describe('Stamina / Event Log (+Secondary)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(104);
-    expect(logs[0].staminaUnderlying.after).toBe(104);
+    expect(logs[0].stamina.after).toBe(119);
+    expect(logs[0].staminaUnderlying.after).toBe(119);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(25200);
-    expect(logs[1].stamina.before).toBe(62);
-    expect(logs[1].stamina.after).toBe(62);
-    expect(logs[1].staminaUnderlying.before).toBe(62);
-    expect(logs[1].staminaUnderlying.after).toBe(62);
+    expect(logs[1].stamina.before).toBe(77);
+    expect(logs[1].stamina.after).toBe(77);
+    expect(logs[1].staminaUnderlying.before).toBe(77);
+    expect(logs[1].staminaUnderlying.after).toBe(77);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(30600);
-    expect(logs[2].stamina.before).toBe(53);
-    expect(logs[2].stamina.after).toBe(71);
-    expect(logs[2].staminaUnderlying.before).toBe(53);
-    expect(logs[2].staminaUnderlying.after).toBe(71);
+    expect(logs[2].stamina.before).toBe(68);
+    expect(logs[2].stamina.after).toBe(86);
+    expect(logs[2].staminaUnderlying.before).toBe(68);
+    expect(logs[2].staminaUnderlying.after).toBe(86);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63000);
-    expect(logs[3].stamina.before).toBe(17);
-    expect(logs[3].stamina.after).toBe(17);
-    expect(logs[3].staminaUnderlying.before).toBe(17);
-    expect(logs[3].staminaUnderlying.after).toBe(17);
+    expect(logs[3].stamina.before).toBe(32);
+    expect(logs[3].stamina.after).toBe(32);
+    expect(logs[3].staminaUnderlying.before).toBe(32);
+    expect(logs[3].staminaUnderlying.after).toBe(32);
     expect(logs.length).toBe(4);
   });
 
@@ -73,8 +80,14 @@ describe('Stamina / Event Log (+Secondary)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
@@ -122,8 +135,14 @@ describe('Stamina / Event Log (+Secondary)', () => {
       {dailyCount: 0, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
@@ -166,31 +185,37 @@ describe('Stamina / Event Log (+Secondary)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(126);
-    expect(logs[0].staminaUnderlying.after).toBe(126);
+    expect(logs[0].stamina.after).toBe(144);
+    expect(logs[0].staminaUnderlying.after).toBe(144);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(25200);
-    expect(logs[1].stamina.before).toBe(84);
-    expect(logs[1].stamina.after).toBe(84);
-    expect(logs[1].staminaUnderlying.before).toBe(84);
-    expect(logs[1].staminaUnderlying.after).toBe(84);
+    expect(logs[1].stamina.before).toBe(102);
+    expect(logs[1].stamina.after).toBe(102);
+    expect(logs[1].staminaUnderlying.before).toBe(102);
+    expect(logs[1].staminaUnderlying.after).toBe(102);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(30600);
-    expect(logs[2].stamina.before).toBe(75);
-    expect(logs[2].stamina.after).toBe(97);
-    expect(logs[2].staminaUnderlying.before).toBe(75);
-    expect(logs[2].staminaUnderlying.after).toBe(97);
+    expect(logs[2].stamina.before).toBe(93);
+    expect(logs[2].stamina.after).toBe(115);
+    expect(logs[2].staminaUnderlying.before).toBe(93);
+    expect(logs[2].staminaUnderlying.after).toBe(115);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63000);
-    expect(logs[3].stamina.before).toBe(43);
-    expect(logs[3].stamina.after).toBe(43);
-    expect(logs[3].staminaUnderlying.before).toBe(43);
-    expect(logs[3].staminaUnderlying.after).toBe(43);
+    expect(logs[3].stamina.before).toBe(61);
+    expect(logs[3].stamina.after).toBe(61);
+    expect(logs[3].staminaUnderlying.before).toBe(61);
+    expect(logs[3].staminaUnderlying.after).toBe(61);
     expect(logs.length).toBe(4);
   });
 
@@ -210,31 +235,37 @@ describe('Stamina / Event Log (+Secondary)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(86);
-    expect(logs[0].staminaUnderlying.after).toBe(86);
+    expect(logs[0].stamina.after).toBe(98);
+    expect(logs[0].staminaUnderlying.after).toBe(98);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(25200);
-    expect(logs[1].stamina.before).toBe(44);
-    expect(logs[1].stamina.after).toBe(44);
-    expect(logs[1].staminaUnderlying.before).toBe(44);
-    expect(logs[1].staminaUnderlying.after).toBe(44);
+    expect(logs[1].stamina.before).toBe(56);
+    expect(logs[1].stamina.after).toBe(56);
+    expect(logs[1].staminaUnderlying.before).toBe(56);
+    expect(logs[1].staminaUnderlying.after).toBe(56);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(30600);
-    expect(logs[2].stamina.before).toBe(35);
-    expect(logs[2].stamina.after).toBe(50);
-    expect(logs[2].staminaUnderlying.before).toBe(35);
-    expect(logs[2].staminaUnderlying.after).toBe(50);
+    expect(logs[2].stamina.before).toBe(47);
+    expect(logs[2].stamina.after).toBe(62);
+    expect(logs[2].staminaUnderlying.before).toBe(47);
+    expect(logs[2].staminaUnderlying.after).toBe(62);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63000);
-    expect(logs[3].stamina.before).toBe(0);
-    expect(logs[3].stamina.after).toBe(0);
-    expect(logs[3].staminaUnderlying.before).toBe(-4);
-    expect(logs[3].staminaUnderlying.after).toBe(-4);
+    expect(logs[3].stamina.before).toBe(8);
+    expect(logs[3].stamina.after).toBe(8);
+    expect(logs[3].staminaUnderlying.before).toBe(8);
+    expect(logs[3].staminaUnderlying.after).toBe(8);
     expect(logs.length).toBe(4);
   });
 
@@ -254,8 +285,14 @@ describe('Stamina / Event Log (+Secondary)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
@@ -298,8 +335,14 @@ describe('Stamina / Event Log (+Secondary)', () => {
       {dailyCount: 0, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
@@ -342,8 +385,14 @@ describe('Stamina / Event Log (+Secondary)', () => {
       {dailyCount: 1, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
@@ -393,29 +442,35 @@ describe('Stamina / Event Log (+Secondary)', () => {
     };
     const skillTriggers: StaminaSkillTriggerData[] = [];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(76);
-    expect(logs[0].staminaUnderlying.after).toBe(76);
+    expect(logs[0].stamina.after).toBe(88);
+    expect(logs[0].staminaUnderlying.after).toBe(88);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(18000);
-    expect(logs[1].stamina.before).toBe(46);
-    expect(logs[1].stamina.after).toBe(46);
-    expect(logs[1].staminaUnderlying.before).toBe(46);
-    expect(logs[1].staminaUnderlying.after).toBe(46);
+    expect(logs[1].stamina.before).toBe(58);
+    expect(logs[1].stamina.after).toBe(58);
+    expect(logs[1].staminaUnderlying.before).toBe(58);
+    expect(logs[1].staminaUnderlying.after).toBe(58);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(25200);
-    expect(logs[2].stamina.before).toBe(34);
-    expect(logs[2].stamina.after).toBe(38);
-    expect(logs[2].staminaUnderlying.before).toBe(34);
-    expect(logs[2].staminaUnderlying.after).toBe(38);
+    expect(logs[2].stamina.before).toBe(46);
+    expect(logs[2].stamina.after).toBe(50);
+    expect(logs[2].staminaUnderlying.before).toBe(46);
+    expect(logs[2].staminaUnderlying.after).toBe(50);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(57600);
     expect(logs[3].stamina.before).toBe(0);
-    expect(logs[3].staminaUnderlying.before).toBe(-16);
+    expect(logs[3].staminaUnderlying.before).toBe(-4);
     expect(logs.length).toBe(4);
   });
 
@@ -442,31 +497,37 @@ describe('Stamina / Event Log (+Secondary)', () => {
     };
     const skillTriggers: StaminaSkillTriggerData[] = [];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(60);
-    expect(logs[0].staminaUnderlying.after).toBe(60);
+    expect(logs[0].stamina.after).toBe(72);
+    expect(logs[0].staminaUnderlying.after).toBe(72);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(24000);
-    expect(logs[1].stamina.before).toBe(20);
-    expect(logs[1].stamina.after).toBe(20);
-    expect(logs[1].staminaUnderlying.before).toBe(20);
-    expect(logs[1].staminaUnderlying.after).toBe(20);
+    expect(logs[1].stamina.before).toBe(32);
+    expect(logs[1].stamina.after).toBe(32);
+    expect(logs[1].staminaUnderlying.before).toBe(32);
+    expect(logs[1].staminaUnderlying.after).toBe(32);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(31200);
-    expect(logs[2].stamina.before).toBe(8);
-    expect(logs[2].stamina.after).toBe(28);
-    expect(logs[2].staminaUnderlying.before).toBe(8);
-    expect(logs[2].staminaUnderlying.after).toBe(28);
+    expect(logs[2].stamina.before).toBe(20);
+    expect(logs[2].stamina.after).toBe(40);
+    expect(logs[2].staminaUnderlying.before).toBe(20);
+    expect(logs[2].staminaUnderlying.after).toBe(40);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63600);
     expect(logs[3].stamina.before).toBe(0);
     expect(logs[3].stamina.after).toBe(0);
-    expect(logs[3].staminaUnderlying.before).toBe(-26);
-    expect(logs[3].staminaUnderlying.after).toBe(-26);
+    expect(logs[3].staminaUnderlying.before).toBe(-14);
+    expect(logs[3].staminaUnderlying.after).toBe(-14);
     expect(logs.length).toBe(4);
   });
 
@@ -493,31 +554,37 @@ describe('Stamina / Event Log (+Secondary)', () => {
     };
     const skillTriggers: StaminaSkillTriggerData[] = [];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(44);
-    expect(logs[0].staminaUnderlying.after).toBe(44);
+    expect(logs[0].stamina.after).toBe(56);
+    expect(logs[0].staminaUnderlying.after).toBe(56);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(30000);
-    expect(logs[1].stamina.before).toBe(0);
-    expect(logs[1].stamina.after).toBe(0);
-    expect(logs[1].staminaUnderlying.before).toBe(-6);
-    expect(logs[1].staminaUnderlying.after).toBe(-6);
+    expect(logs[1].stamina.before).toBe(6);
+    expect(logs[1].stamina.after).toBe(6);
+    expect(logs[1].staminaUnderlying.before).toBe(6);
+    expect(logs[1].staminaUnderlying.after).toBe(6);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(37200);
     expect(logs[2].stamina.before).toBe(0);
     expect(logs[2].stamina.after).toBe(20);
-    expect(logs[2].staminaUnderlying.before).toBe(-18);
-    expect(logs[2].staminaUnderlying.after).toBe(2);
+    expect(logs[2].staminaUnderlying.before).toBe(-6);
+    expect(logs[2].staminaUnderlying.after).toBe(14);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(69600);
     expect(logs[3].stamina.before).toBe(0);
     expect(logs[3].stamina.after).toBe(0);
-    expect(logs[3].staminaUnderlying.before).toBe(-52);
-    expect(logs[3].staminaUnderlying.after).toBe(-52);
+    expect(logs[3].staminaUnderlying.before).toBe(-40);
+    expect(logs[3].staminaUnderlying.after).toBe(-40);
     expect(logs.length).toBe(4);
   });
 
@@ -544,31 +611,37 @@ describe('Stamina / Event Log (+Secondary)', () => {
     };
     const skillTriggers: StaminaSkillTriggerData[] = [];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(29);
-    expect(logs[0].staminaUnderlying.after).toBe(29);
+    expect(logs[0].stamina.after).toBe(41);
+    expect(logs[0].staminaUnderlying.after).toBe(41);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(36000);
     expect(logs[1].stamina.before).toBe(0);
     expect(logs[1].stamina.after).toBe(0);
-    expect(logs[1].staminaUnderlying.before).toBe(-31);
-    expect(logs[1].staminaUnderlying.after).toBe(-31);
+    expect(logs[1].staminaUnderlying.before).toBe(-19);
+    expect(logs[1].staminaUnderlying.after).toBe(-19);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(43200);
     expect(logs[2].stamina.before).toBe(0);
     expect(logs[2].stamina.after).toBe(20);
-    expect(logs[2].staminaUnderlying.before).toBe(-43);
-    expect(logs[2].staminaUnderlying.after).toBe(-23);
+    expect(logs[2].staminaUnderlying.before).toBe(-31);
+    expect(logs[2].staminaUnderlying.after).toBe(-11);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(75600);
     expect(logs[3].stamina.before).toBe(0);
     expect(logs[3].stamina.after).toBe(0);
-    expect(logs[3].staminaUnderlying.before).toBe(-77);
-    expect(logs[3].staminaUnderlying.after).toBe(-77);
+    expect(logs[3].staminaUnderlying.before).toBe(-65);
+    expect(logs[3].staminaUnderlying.after).toBe(-65);
     expect(logs.length).toBe(4);
   });
 
@@ -591,31 +664,37 @@ describe('Stamina / Event Log (+Secondary)', () => {
     };
     const skillTriggers: StaminaSkillTriggerData[] = [];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(48);
-    expect(logs[0].staminaUnderlying.after).toBe(48);
+    expect(logs[0].stamina.after).toBe(63);
+    expect(logs[0].staminaUnderlying.after).toBe(63);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(10800);
-    expect(logs[1].stamina.before).toBe(30);
-    expect(logs[1].stamina.after).toBe(30);
-    expect(logs[1].staminaUnderlying.before).toBe(30);
-    expect(logs[1].staminaUnderlying.after).toBe(30);
+    expect(logs[1].stamina.before).toBe(45);
+    expect(logs[1].stamina.after).toBe(45);
+    expect(logs[1].staminaUnderlying.before).toBe(45);
+    expect(logs[1].staminaUnderlying.after).toBe(45);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(27000);
-    expect(logs[2].stamina.before).toBe(3);
-    expect(logs[2].stamina.after).toBe(55);
-    expect(logs[2].staminaUnderlying.before).toBe(3);
-    expect(logs[2].staminaUnderlying.after).toBe(55);
+    expect(logs[2].stamina.before).toBe(18);
+    expect(logs[2].stamina.after).toBe(70);
+    expect(logs[2].staminaUnderlying.before).toBe(18);
+    expect(logs[2].staminaUnderlying.after).toBe(70);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(72000);
     expect(logs[3].stamina.before).toBe(0);
     expect(logs[3].stamina.after).toBe(0);
-    expect(logs[3].staminaUnderlying.before).toBe(-20);
-    expect(logs[3].staminaUnderlying.after).toBe(-20);
+    expect(logs[3].staminaUnderlying.before).toBe(-5);
+    expect(logs[3].staminaUnderlying.after).toBe(-5);
     expect(logs.length).toBe(4);
   });
 
@@ -642,31 +721,37 @@ describe('Stamina / Event Log (+Secondary)', () => {
     };
     const skillTriggers: StaminaSkillTriggerData[] = [];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(58);
-    expect(logs[0].staminaUnderlying.after).toBe(58);
+    expect(logs[0].stamina.after).toBe(76);
+    expect(logs[0].staminaUnderlying.after).toBe(76);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(28800);
-    expect(logs[1].stamina.before).toBe(10);
-    expect(logs[1].stamina.after).toBe(10);
-    expect(logs[1].staminaUnderlying.before).toBe(10);
-    expect(logs[1].staminaUnderlying.after).toBe(10);
+    expect(logs[1].stamina.before).toBe(28);
+    expect(logs[1].stamina.after).toBe(28);
+    expect(logs[1].staminaUnderlying.before).toBe(28);
+    expect(logs[1].staminaUnderlying.after).toBe(28);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(45000);
-    expect(logs[2].stamina.before).toBe(0);
-    expect(logs[2].stamina.after).toBe(63);
-    expect(logs[2].staminaUnderlying.before).toBe(-17);
-    expect(logs[2].staminaUnderlying.after).toBe(46);
+    expect(logs[2].stamina.before).toBe(1);
+    expect(logs[2].stamina.after).toBe(64);
+    expect(logs[2].staminaUnderlying.before).toBe(1);
+    expect(logs[2].staminaUnderlying.after).toBe(64);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(72000);
-    expect(logs[3].stamina.before).toBe(18);
-    expect(logs[3].stamina.after).toBe(18);
-    expect(logs[3].staminaUnderlying.before).toBe(1);
-    expect(logs[3].staminaUnderlying.after).toBe(1);
+    expect(logs[3].stamina.before).toBe(19);
+    expect(logs[3].stamina.after).toBe(19);
+    expect(logs[3].staminaUnderlying.before).toBe(19);
+    expect(logs[3].staminaUnderlying.after).toBe(19);
     expect(logs.length).toBe(4);
   });
 
@@ -689,12 +774,18 @@ describe('Stamina / Event Log (+Secondary)', () => {
       },
     });
     const general: StaminaGeneralRecoveryConfig = {
-      strategy: 'optimistic',
+      strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);

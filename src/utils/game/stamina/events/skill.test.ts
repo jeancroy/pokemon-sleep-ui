@@ -1,5 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
+import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
@@ -98,8 +99,14 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, general, logs});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
@@ -150,8 +157,14 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
@@ -202,22 +215,28 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(104);
+    expect(logs[0].stamina.after).toBe(119);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(25200);
-    expect(logs[1].stamina.before).toBe(62);
+    expect(logs[1].stamina.before).toBe(77);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(30600);
-    expect(logs[2].stamina.after).toBe(71);
+    expect(logs[2].stamina.after).toBe(86);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63000);
-    expect(logs[3].stamina.before).toBe(17);
+    expect(logs[3].stamina.before).toBe(32);
     expect(logs.length).toBe(4);
   });
 
@@ -239,16 +258,22 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 10, amount: 10},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(200);
+    expect(logs[0].stamina.after).toBe(215);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(55800);
-    expect(logs[1].stamina.before).toBe(107);
+    expect(logs[1].stamina.before).toBe(122);
     expect(logs.length).toBe(2);
   });
 
@@ -270,8 +295,14 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 1, amount: 200},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
@@ -307,8 +338,14 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 2, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
@@ -346,8 +383,14 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 2, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
@@ -388,8 +431,14 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 2, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
@@ -436,8 +485,14 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 2, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
@@ -488,8 +543,14 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
@@ -544,22 +605,28 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(86);
+    expect(logs[0].stamina.after).toBe(98);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(25200);
-    expect(logs[1].stamina.before).toBe(44);
+    expect(logs[1].stamina.before).toBe(56);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(30600);
-    expect(logs[2].stamina.after).toBe(50);
+    expect(logs[2].stamina.after).toBe(62);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63000);
-    expect(logs[3].stamina.before).toBe(0);
+    expect(logs[3].stamina.before).toBe(8);
     expect(logs.length).toBe(4);
   });
 
@@ -588,22 +655,28 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(126);
+    expect(logs[0].stamina.after).toBe(144);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(25200);
-    expect(logs[1].stamina.before).toBe(84);
+    expect(logs[1].stamina.before).toBe(102);
     expect(logs[2].type).toBe('wakeup');
     expect(logs[2].timing).toBe(30600);
-    expect(logs[2].stamina.after).toBe(97);
+    expect(logs[2].stamina.after).toBe(115);
     expect(logs[3].type).toBe('sleep');
     expect(logs[3].timing).toBe(63000);
-    expect(logs[3].stamina.before).toBe(43);
+    expect(logs[3].stamina.before).toBe(61);
     expect(logs.length).toBe(4);
   });
 
@@ -625,8 +698,14 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 2.5, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');
@@ -665,8 +744,14 @@ describe('Stamina / Event Log (+Skill)', () => {
       {dailyCount: 2, amount: 12},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
 
     expect(logs[0].type).toBe('wakeup');

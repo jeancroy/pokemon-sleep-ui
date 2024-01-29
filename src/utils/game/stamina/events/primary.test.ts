@@ -1,5 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
+import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
@@ -31,16 +32,22 @@ describe('Stamina / Event Log (+Primary)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    const logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    const logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(122);
-    expect(logs[0].staminaUnderlying.after).toBe(122);
+    expect(logs[0].stamina.after).toBe(137);
+    expect(logs[0].staminaUnderlying.after).toBe(137);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(57600);
-    expect(logs[1].stamina.before).toBe(26);
-    expect(logs[1].staminaUnderlying.before).toBe(26);
+    expect(logs[1].stamina.before).toBe(41);
+    expect(logs[1].staminaUnderlying.before).toBe(41);
     expect(logs.length).toBe(2);
   });
 
@@ -62,7 +69,13 @@ describe('Stamina / Event Log (+Primary)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    const logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    const logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
@@ -93,7 +106,13 @@ describe('Stamina / Event Log (+Primary)', () => {
       {dailyCount: 0, amount: 9},
     ];
 
-    const logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    const logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
@@ -128,16 +147,22 @@ describe('Stamina / Event Log (+Primary)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    const logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    const logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(133);
-    expect(logs[0].staminaUnderlying.after).toBe(133);
+    expect(logs[0].stamina.after).toBe(151);
+    expect(logs[0].staminaUnderlying.after).toBe(151);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(57600);
-    expect(logs[1].stamina.before).toBe(37);
-    expect(logs[1].staminaUnderlying.before).toBe(37);
+    expect(logs[1].stamina.before).toBe(55);
+    expect(logs[1].staminaUnderlying.before).toBe(55);
     expect(logs.length).toBe(2);
   });
 
@@ -163,7 +188,13 @@ describe('Stamina / Event Log (+Primary)', () => {
       {dailyCount: 0, amount: 9},
     ];
 
-    const logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    const logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
@@ -198,7 +229,13 @@ describe('Stamina / Event Log (+Primary)', () => {
       {dailyCount: 0, amount: 9},
     ];
 
-    const logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    const logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
@@ -233,7 +270,13 @@ describe('Stamina / Event Log (+Primary)', () => {
       {dailyCount: 2, amount: 9},
     ];
 
-    const logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    const logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
@@ -266,7 +309,13 @@ describe('Stamina / Event Log (+Primary)', () => {
     };
     const skillTriggers: StaminaSkillTriggerData[] = [];
 
-    const logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    const logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);

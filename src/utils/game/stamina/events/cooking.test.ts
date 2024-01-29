@@ -38,11 +38,18 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
     };
     const sleepSessionInfo = getSleepSessionInfo({recoveryRate, sleepSession: session});
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithCookingRecovery({
       logs,
+      general,
       sleepSessionInfo,
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,
@@ -102,11 +109,18 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithCookingRecovery({
       logs,
+      general,
       sleepSessionInfo,
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,
@@ -115,25 +129,13 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.before).toBe(122);
-    expect(logs[0].stamina.after).toBe(122);
-    expect(logs[1].type).toBe('cookingRecovery');
-    expect(logs[1].timing).toBe(1800);
-    expect(logs[1].stamina.before).toBe(119);
-    expect(logs[1].stamina.after).toBe(119);
-    expect(logs[2].type).toBe('cookingRecovery');
-    expect(logs[2].timing).toBe(18000);
-    expect(logs[2].stamina.before).toBe(92);
-    expect(logs[2].stamina.after).toBe(93);
-    expect(logs[3].type).toBe('cookingRecovery');
-    expect(logs[3].timing).toBe(41400);
-    expect(logs[3].stamina.before).toBe(54);
-    expect(logs[3].stamina.after).toBe(57);
-    expect(logs[4].type).toBe('sleep');
-    expect(logs[4].timing).toBe(57600);
-    expect(logs[4].stamina.before).toBe(30);
-    expect(logs[4].stamina.after).toBe(30);
-    expect(logs.length).toBe(5);
+    expect(logs[0].stamina.before).toBe(137);
+    expect(logs[0].stamina.after).toBe(137);
+    expect(logs[1].type).toBe('sleep');
+    expect(logs[1].timing).toBe(57600);
+    expect(logs[1].stamina.before).toBe(41);
+    expect(logs[1].stamina.after).toBe(41);
+    expect(logs.length).toBe(2);
   });
 
   it('respects recovery rate up', () => {
@@ -158,11 +160,18 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
       {dailyCount: 1, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithCookingRecovery({
       logs,
+      general,
       sleepSessionInfo,
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,
@@ -218,11 +227,18 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
       {dailyCount: 1, amount: 10},
     ];
 
-    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
     logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithCookingRecovery({
       logs,
+      general,
       sleepSessionInfo,
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,

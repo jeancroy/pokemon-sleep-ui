@@ -1,12 +1,16 @@
 import {staminaMaxRecovery} from '@/const/game/stamina';
 import {StaminaEventLog} from '@/types/game/stamina/event';
+import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
+import {userCookingMeals} from '@/types/userData/cooking';
 import {toSum} from '@/utils/array';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 import {GetLogsCommonOpts} from '@/utils/game/stamina/events/type';
 import {getActualRecoveryAmount} from '@/utils/game/stamina/events/utils';
 
 
-type GetLogsWithPrimarySleepOpts = Omit<GetLogsCommonOpts, 'logs'>;
+type GetLogsWithPrimarySleepOpts = Omit<GetLogsCommonOpts, 'logs'> & {
+  cookingRecoveryData: StaminaCookingRecoveryData[],
+};
 
 const getInitialSkillRecoveryAmount = ({
   general,
@@ -24,13 +28,33 @@ const getInitialSkillRecoveryAmount = ({
   )));
 };
 
+const getInitialCookingRecoveryAmount = ({
+  general,
+  recoveryRate,
+  cookingRecoveryData,
+}: GetLogsWithPrimarySleepOpts): number => {
+  const {strategy} = general;
+
+  if (strategy === 'conservative') {
+    return 0;
+  }
+
+  const maxSingleRecovery = Math.max(...cookingRecoveryData.map(({recovery}) => recovery));
+
+  return (
+    getActualRecoveryAmount({amount: maxSingleRecovery, recoveryRate, isSleep: false}) *
+    userCookingMeals.length
+  );
+};
+
 export const getWakeupStamina = (opts: GetLogsWithPrimarySleepOpts) => {
   const {sleepSessionInfo} = opts;
 
   const sleepRecovery = sleepSessionInfo.session.primary.recovery;
   const skillRecovery = getInitialSkillRecoveryAmount(opts);
+  const cookingRecovery = getInitialCookingRecoveryAmount(opts);
 
-  return Math.min(sleepRecovery.actual, staminaMaxRecovery) + skillRecovery;
+  return Math.min(sleepRecovery.actual, staminaMaxRecovery) + skillRecovery + cookingRecovery;
 };
 
 export const getLogsWithPrimarySleep = (opts: GetLogsWithPrimarySleepOpts): StaminaEventLog[] => {

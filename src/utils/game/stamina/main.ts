@@ -28,22 +28,27 @@ const getStaminaEventLogs = ({
   sleepSessionInfo,
   additionalSkillTriggers,
 }: GetStaminaEventLogOpts): StaminaEventLog[] => {
-  const {cookingRecovery, recoveryRate, skillRecovery} = config;
+  const {cookingRecovery, skillRecovery} = config;
 
   const skillTriggers: StaminaSkillTriggerData[] = [
     skillRecovery.recovery,
     ...(additionalSkillTriggers ?? []),
   ];
 
-  let logs = getLogsWithPrimarySleep({sleepSessionInfo, skillTriggers, ...config});
+  let logs = getLogsWithPrimarySleep({
+    sleepSessionInfo,
+    skillTriggers,
+    cookingRecoveryData,
+    ...config,
+  });
   logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, ...config});
   logs = getLogsWithSkillRecovery({logs, sleepSessionInfo, skillTriggers, ...config});
   logs = getLogsWithCookingRecovery({
     logs,
     sleepSessionInfo,
-    recoveryRate,
     cookingRecoveryData,
     cookingRecoveryConfig: cookingRecovery,
+    ...config,
   });
   logs = getLogsWithEndOfPeriodMark({logs});
   logs = getLogsWithEfficiencyBlock({logs});
