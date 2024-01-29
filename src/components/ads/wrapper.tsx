@@ -5,6 +5,8 @@ import {useSession} from 'next-auth/react';
 
 import {adsRefreshIntervalMs} from '@/components/ads/const';
 import {AdsContent} from '@/components/ads/content';
+import {useAdBlockDetector} from '@/components/ads/hook/adBlockDetect';
+import {useAdClickDetector} from '@/components/ads/hook/adClickDetect';
 import {AdsUnitProps} from '@/components/ads/type';
 import {Flex} from '@/components/layout/flex/common';
 import {useTimedTick} from '@/hooks/timedTick';
@@ -13,6 +15,7 @@ import {useUserActivation} from '@/hooks/userData/activation';
 
 export const AdsWrapper = ({
   alwaysSingle,
+  hideIfNotBlocked,
   className,
   children,
   ...props
@@ -38,10 +41,13 @@ export const AdsWrapper = ({
     }
   }, [status]);
 
+  const {adblockState} = useAdBlockDetector({recheckDeps: [counter]});
+  const adClickDetector = useAdClickDetector();
+
   // `isAdsFree` can be `null` indicating not loaded yet, which is falsy
   // When `isAdsFree` is `null`, it shouldn't render anything because the app hasn't determined
   // if the user is ads free yet
-  if (isAdsFree !== false) {
+  if (isAdsFree !== false || (!adblockState.isBlocked && hideIfNotBlocked)) {
     return null;
   }
 
@@ -49,7 +55,8 @@ export const AdsWrapper = ({
     <Flex direction="row" className={clsx('h-full', className)}>
       <AdsContent
         key={`${counter}a`}
-        recheckDeps={[counter]}
+        adblockState={adblockState}
+        {...adClickDetector}
         {...props}
       >
         {children}
@@ -58,8 +65,9 @@ export const AdsWrapper = ({
         !alwaysSingle &&
         <AdsContent
           key={`${counter}b`}
+          adblockState={adblockState}
           className="hidden lg:block"
-          recheckDeps={[counter]}
+          {...adClickDetector}
           {...props}
         >
           {children}

@@ -1,7 +1,7 @@
 export type AdsContentProps = {
   className?: string,
   heightOverride?: string,
-  hideWarningOnDetected?: boolean,
+  hideIfNotBlocked?: boolean,
 };
 
 export type AdsUnitProps = AdsContentProps & {

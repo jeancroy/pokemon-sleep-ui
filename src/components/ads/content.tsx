@@ -3,35 +3,24 @@ import React from 'react';
 import {clsx} from 'clsx';
 
 import {adsHeight, adsHeightAdBlockActive} from '@/components/ads/const';
-import {useAdBlockDetector} from '@/components/ads/hook/adBlockDetect';
-import {useAdClickDetector} from '@/components/ads/hook/adClickDetect';
+import {UseAdClickDetectorReturn} from '@/components/ads/hook/type';
 import {AdBlockState, AdsContentProps} from '@/components/ads/type';
 import {AdBlockWarning} from '@/components/ads/warning';
 
 
-type Props = AdsContentProps & {
-  recheckDeps: React.DependencyList,
+type Props = AdsContentProps & UseAdClickDetectorReturn & {
+  adblockState: AdBlockState,
 };
 
 export const AdsContent = ({
   className,
   heightOverride,
-  hideWarningOnDetected,
-  recheckDeps,
+  contentRef,
   children,
+  adblockState,
+  ...adClickDetectProps
 }: React.PropsWithChildren<Props>) => {
-  const [adblockState, setAdblockState] = React.useState<AdBlockState>({
-    isBlocked: false,
-  });
-
-  useAdBlockDetector({
-    setAdblockState,
-    recheckDeps,
-  });
-  const {
-    contentRef,
-    ...adClickDetectProps
-  } = useAdClickDetector();
+  const {isBlocked} = adblockState;
 
   return (
     <div
@@ -40,11 +29,11 @@ export const AdsContent = ({
       {...adClickDetectProps}
       className={clsx(
         'relative w-full overflow-hidden focus:outline-none',
-        adblockState.isBlocked ? adsHeightAdBlockActive : (heightOverride ?? adsHeight),
+        isBlocked ? adsHeightAdBlockActive : (heightOverride ?? adsHeight),
         className,
       )}
     >
-      {adblockState.isBlocked && <AdBlockWarning hide={hideWarningOnDetected}/>}
+      {isBlocked && <AdBlockWarning/>}
       <div className="absolute left-0 top-0 size-full">
         {children}
       </div>

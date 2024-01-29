@@ -1,9 +1,10 @@
 import React from 'react';
 
+import {UseAdClickDetectorReturn} from '@/components/ads/hook/type';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 
 
-export const useAdClickDetector = () => {
+export const useAdClickDetector = (): UseAdClickDetectorReturn => {
   const contentRef = React.useRef<HTMLDivElement>(null);
   const stateRef = React.useRef({
     hovered: false,

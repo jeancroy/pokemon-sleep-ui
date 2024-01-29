@@ -6,16 +6,8 @@ import {useTranslations} from 'next-intl';
 import {isProduction} from '@/utils/environment';
 
 
-type Props = {
-  hide?: boolean,
-};
-
-export const AdBlockWarning = ({hide}: Props) => {
+export const AdBlockWarning = () => {
   const t = useTranslations('UI.Subscription');
-
-  if (hide) {
-    return null;
-  }
 
   return (
     <div dangerouslySetInnerHTML={{__html: t.raw('AdBlockActive')}} className={clsx(
