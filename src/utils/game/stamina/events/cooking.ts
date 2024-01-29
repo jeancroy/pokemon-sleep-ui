@@ -35,19 +35,19 @@ const getEffectiveStaminaCookingRecovery = ({
 };
 
 type GetLogsWithCookingRecoveryOpts =
-  Pick<GetLogsCommonOpts, 'logs' | 'sessionInfo' | 'recoveryRate'> &
+  Pick<GetLogsCommonOpts, 'logs' | 'sleepSessionInfo' | 'recoveryRate'> &
   GetLogsWithCookingRecoveryCommonOpts & {
     cookingRecoveryConfig: StaminaCookingRecoveryConfig,
   };
 
 export const getLogsWithCookingRecovery = ({
   logs,
-  sessionInfo,
+  sleepSessionInfo,
   recoveryRate,
   cookingRecoveryData,
   cookingRecoveryConfig,
 }: GetLogsWithCookingRecoveryOpts) => {
-  const {offset} = sessionInfo;
+  const {offset} = sleepSessionInfo;
 
   return getLogsWithStaminaRecovery({
     logs,

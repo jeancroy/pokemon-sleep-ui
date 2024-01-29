@@ -27,8 +27,9 @@ export const getMainSkillProducingRate = ({
   natureId,
   ...opts
 }: GetMainSkillProducingRateOpts): ProducingRateOfItemOfSessions => {
-  const {bonus, sleepSessionInfo} = calculatedSettings;
-  const {mapMultiplier} = bonus;
+  const {bonus} = calculatedSettings;
+  const {mapMultiplier, stamina} = bonus;
+  const {primary, secondary} = stamina.sleepSessionInfo.session;
 
   frequency *= (1 / getSkillTriggerRate({skillRatePercent, subSkillBonus, natureId}));
 
@@ -50,7 +51,7 @@ export const getMainSkillProducingRate = ({
         quantity: 1,
       },
       // While asleep, skills can only trigger at most 1
-      cappingDuration: sleepSessionInfo.session.primary.duration.actual,
+      cappingDuration: primary.duration.actual,
       maxCount: 1,
     }),
     sleep2: applyBonusWithMainSkillCapping({
@@ -67,7 +68,7 @@ export const getMainSkillProducingRate = ({
       // While asleep, skills can only trigger at most 1
       // `0` on null because if `sleepSessionInfo.session.secondary` is `null`,
       // it means no secondary sleep session, which also means length of 0
-      cappingDuration: (sleepSessionInfo.session.secondary?.duration.actual ?? 0),
+      cappingDuration: (secondary?.duration.actual ?? 0),
       maxCount: 1,
     }),
     awake: applyBonus({

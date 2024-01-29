@@ -1,7 +1,8 @@
 import {UserBonus} from '@/types/game/bonus';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
+import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaCookingRecoveryConfig, StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
-import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
+import {StaminaSkillRecoveryConfig} from '@/types/game/stamina/skill';
 import {UserCalculationBehavior, UserSettings} from '@/types/userData/settings';
 import {userSettingsMigrators} from '@/utils/migrate/userSettings/migrators';
 
@@ -16,6 +17,17 @@ export const defaultUserBonus: UserBonus = {
 export const defaultRecoveryRate: StaminaRecoveryRateConfig = {
   general: 1,
   sleep: 1,
+};
+
+export const defaultStaminaGeneralConfig: StaminaGeneralRecoveryConfig = {
+  strategy: 'optimistic',
+};
+
+export const defaultSkillRecovery: StaminaSkillRecoveryConfig = {
+  recovery: {
+    dailyCount: 3,
+    amount: 18,
+  },
 };
 
 export const defaultCookingRecovery: StaminaCookingRecoveryConfig = {
@@ -35,16 +47,10 @@ export const defaultStaminaCalcConfig: StaminaCalcConfig = {
       end: 52200, // 14:30 (1.5 hrs)
     },
   },
+  general: defaultStaminaGeneralConfig,
+  skillRecovery: defaultSkillRecovery,
   cookingRecovery: defaultCookingRecovery,
-  skillRecovery: {
-    strategy: 'optimistic',
-  },
   recoveryRate: defaultRecoveryRate,
-};
-
-export const defaultStaminaSkillTrigger: StaminaSkillTriggerData = {
-  dailyCount: 3,
-  amount: 18,
 };
 
 export const defaultUserCalculationBehavior: UserCalculationBehavior = {
@@ -56,7 +62,6 @@ export const defaultUserCalculationBehavior: UserCalculationBehavior = {
 export const defaultUserSettings: UserSettings = {
   bonus: defaultUserBonus,
   stamina: defaultStaminaCalcConfig,
-  staminaSkillTrigger: defaultStaminaSkillTrigger,
   behavior: defaultUserCalculationBehavior,
   currentMap: 1,
   version: userSettingsMigrators.length,

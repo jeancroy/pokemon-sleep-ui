@@ -1,4 +1,6 @@
+import {defaultRecoveryRate, defaultUserSettings} from '@/const/user/settings';
 import {EffectiveBonus} from '@/types/game/bonus';
+import {getSleepSessionInfo} from '@/utils/game/sleep';
 
 
 export const testBonus: {[id in number]: EffectiveBonus} = {
@@ -6,6 +8,10 @@ export const testBonus: {[id in number]: EffectiveBonus} = {
     mapMultiplier: 1.05,
     stamina: {
       logs: [], // ignore
+      sleepSessionInfo: getSleepSessionInfo({
+        sleepSession: defaultUserSettings.stamina.sleepSession,
+        recoveryRate: defaultRecoveryRate,
+      }),
       multiplier: {
         average: null, // ignore
         sleep1: 2.2,

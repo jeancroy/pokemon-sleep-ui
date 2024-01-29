@@ -7,20 +7,13 @@ import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
 import {StaminaConfig} from '@/components/shared/stamina/input/main';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
-import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
 
 export const UserSettingsStamina = (props: StaminaConfigProps) => {
-  const {config, trigger, cookingRecoveryData} = props;
-  const {sleepSession, recoveryRate} = config;
+  const {config, cookingRecoveryData} = props;
 
   const t = useTranslations('UI.Stamina');
-
-  const sessionInfo = getSleepSessionInfo({
-    session: sleepSession,
-    recoveryRate,
-  });
 
   return (
     <UserSettingsSection titleIcon={
@@ -29,8 +22,6 @@ export const UserSettingsStamina = (props: StaminaConfigProps) => {
       <StaminaConfig {...props}/>
       <StaminaEfficiencyUI efficiency={getStaminaEfficiency({
         config,
-        sessionInfo,
-        skillTriggers: [trigger],
         cookingRecoveryData,
       })}/>
     </UserSettingsSection>

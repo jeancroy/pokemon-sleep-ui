@@ -82,10 +82,9 @@ export const UserSettingsPopup = ({
             ...original,
             settings: {...settings, stamina},
           } satisfies UserSettingsBundle))}
-          trigger={settings.staminaSkillTrigger}
-          setTrigger={(staminaSkillTrigger) => setBundle(({settings, ...original}) => ({
+          setTrigger={(recovery) => setBundle(({settings, ...original}) => ({
             ...original,
-            settings: {...settings, staminaSkillTrigger},
+            settings: cloneMerge(settings, {stamina: {skillRecovery: {recovery}}}),
           } satisfies UserSettingsBundle))}
         />
         <UserCalculationBehaviorUI

@@ -11,7 +11,6 @@ import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
 import {StaminaConfig} from '@/components/shared/stamina/input/main';
 import {useStaminaAnalysis} from '@/ui/stamina/hook';
 import {StaminaAnalysisDataProps} from '@/ui/stamina/type';
-import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getStaminaEventLogsFlattened} from '@/utils/game/stamina/flatten';
 import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
@@ -20,17 +19,11 @@ export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
   const {subSkillMap, cookingRecoveryData} = props;
 
   const {state, setConfig, setSkillTrigger, setNature, setSubSkill} = useStaminaAnalysis(props);
-  const {config, skillTrigger, subSkill, nature} = state;
-  const {sleepSession, recoveryRate} = config;
+  const {config, subSkill, nature} = state;
 
   const staminaEfficiency = getStaminaEfficiency({
     config,
-    sessionInfo: getSleepSessionInfo({
-      session: sleepSession,
-      recoveryRate,
-    }),
     cookingRecoveryData,
-    skillTriggers: [skillTrigger],
   });
   const logs = getStaminaEventLogsFlattened(staminaEfficiency.logs);
 
@@ -40,7 +33,6 @@ export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
         cookingRecoveryData={cookingRecoveryData}
         config={config}
         setConfig={setConfig}
-        trigger={skillTrigger}
         setTrigger={setSkillTrigger}
       />
       <Flex className="gap-1.5 md:flex-row">

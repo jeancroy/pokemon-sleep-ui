@@ -4,6 +4,7 @@ import {pokemonSubSkillLevel} from '@/types/game/pokemon/subSkill';
 import {StaminaAnalysisDataProps, StaminaAnalysisState, UseStaminaAnalysisReturn} from '@/ui/stamina/type';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {getSubSkillBonus} from '@/utils/game/subSkill/effect';
+import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
 export const useStaminaAnalysis = ({
@@ -22,10 +23,10 @@ export const useStaminaAnalysis = ({
       ...original,
       config,
     })),
-    setSkillTrigger: (skillTrigger) => setState((original) => ({
-      ...original,
-      skillTrigger,
-    })),
+    setSkillTrigger: (recovery) => setState((original) => cloneMerge(
+      original,
+      {config: {skillRecovery: {recovery}}},
+    )),
     setNature: (nature) => setState(({config, ...original}) => {
       const subSkillBonus = getSubSkillBonus({
         level: Math.max(...pokemonSubSkillLevel),

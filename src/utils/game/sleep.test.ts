@@ -14,7 +14,7 @@ describe('Sleep Session Info', () => {
   it('is correct for overnight primary with secondary', () => {
     const {session, duration} = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 84600, // 23:30
           end: 21600, // 06:00
@@ -40,7 +40,7 @@ describe('Sleep Session Info', () => {
   it('is correct for overnight primary without secondary', () => {
     const {session, duration} = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 84600, // 23:30
           end: 21600, // 06:00
@@ -60,7 +60,7 @@ describe('Sleep Session Info', () => {
   it('is correct for same-day primary with secondary', () => {
     const {session, duration} = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 21600, // 06:00
           end: 46800, // 13:00
@@ -86,7 +86,7 @@ describe('Sleep Session Info', () => {
   it('is correct for same-day primary without secondary', () => {
     const {session, duration} = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 21600, // 06:00
           end: 46800, // 13:00
@@ -106,7 +106,7 @@ describe('Sleep Session Info', () => {
   it('has correct recovery when total sleep time < 8.5h', () => {
     const {session} = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 0, // 00:00
           end: 3600 * 4.25, // 04:15
@@ -127,7 +127,7 @@ describe('Sleep Session Info', () => {
   it('has correct recovery for total sleep time = 8.5h', () => {
     const {session} = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 0, // 00:00
           end: 3600 * 4.25, // 04:15
@@ -148,7 +148,7 @@ describe('Sleep Session Info', () => {
   it('has correct info with > 8.5h sleep', () => {
     const {session} = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 0, // 00:00
           end: 3600 * 7, // 07:00
@@ -182,7 +182,7 @@ describe('Sleep Session Info', () => {
 
     const {session} = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 0, // 00:00
           end: 3600 * 7, // 07:00
@@ -208,7 +208,7 @@ describe('Sleep Session Info', () => {
 
     const {session} = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 0, // 00:00
           end: 3600 * 7, // 07:00
@@ -229,7 +229,7 @@ describe('Sleep Session Info', () => {
   it('has correct offset', () => {
     const {offset} = getSleepSessionInfo({
       recoveryRate: defaultRecoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 3600 * 23, // 23:00
           end: 3600 * 7, // 07:00

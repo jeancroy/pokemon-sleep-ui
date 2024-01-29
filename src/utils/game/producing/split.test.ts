@@ -45,7 +45,7 @@ describe('Pokemon Producing Sleep State Split', () => {
     const split = getProducingSleepStateSplit({
       sleepSessionInfo: getSleepSessionInfo({
         recoveryRate: defaultRecoveryRate,
-        session: {
+        sleepSession: {
           primary: {start: 0, end: 8 * 3600},
           secondary: null,
         },
@@ -69,7 +69,7 @@ describe('Pokemon Producing Sleep State Split', () => {
     const split = getProducingSleepStateSplit({
       sleepSessionInfo: getSleepSessionInfo({
         recoveryRate: defaultRecoveryRate,
-        session: {
+        sleepSession: {
           primary: {start: 0, end: 7 * 3600},
           secondary: {start: 0, end: 1.5 * 3600},
         },

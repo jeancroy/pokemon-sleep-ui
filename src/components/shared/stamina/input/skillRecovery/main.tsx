@@ -9,11 +9,13 @@ import {staminaConfigSectionStyling} from '@/components/shared/stamina/input/con
 import {StaminaConfigSkillRecoveryInput} from '@/components/shared/stamina/input/skillRecovery/input';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 import {staminaStrategyI18nId} from '@/const/game/stamina';
-import {staminaSkillRecoveryStrategies} from '@/types/game/stamina/skill';
+import {staminaRecoveryStrategies} from '@/types/game/stamina/strategy';
+import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
-export const StaminaConfigSkillRecovery = ({config, setConfig, trigger, setTrigger}: StaminaConfigProps) => {
-  const {skillRecovery} = config;
+export const StaminaConfigSkillRecovery = ({config, setConfig, setTrigger}: StaminaConfigProps) => {
+  const {general, skillRecovery} = config;
+  const {amount, dailyCount} = skillRecovery.recovery;
 
   const t = useTranslations('UI.Stamina');
   const title = t('SkillRecovery.Name');
@@ -26,15 +28,12 @@ export const StaminaConfigSkillRecovery = ({config, setConfig, trigger, setTrigg
       </Flex>
       <FilterTextInput
         title={null}
-        onClick={(strategy) => setConfig({
-          ...config,
-          skillRecovery: {
-            ...config.skillRecovery,
-            strategy,
-          },
-        })}
-        isActive={(strategy) => strategy === skillRecovery.strategy}
-        ids={[...staminaSkillRecoveryStrategies]}
+        onClick={(strategy) => setConfig(cloneMerge(
+          config,
+          {general: {strategy}},
+        ))}
+        isActive={(strategy) => strategy === general.strategy}
+        ids={[...staminaRecoveryStrategies]}
         idToText={(strategy) => t(`Strategy.${staminaStrategyI18nId[strategy]}`)}
         noFixedTitleWidth
       />
@@ -42,14 +41,14 @@ export const StaminaConfigSkillRecovery = ({config, setConfig, trigger, setTrigg
         <StaminaConfigSkillRecoveryInput
           iconI18nId="Amount"
           iconSrc="/images/mainSkill/target/team.png"
-          value={trigger.amount}
-          onValueChanged={(amount) => setTrigger({...trigger, amount})}
+          value={amount}
+          onValueChanged={(amount) => setTrigger({...skillRecovery.recovery, amount})}
         />
         <StaminaConfigSkillRecoveryInput
           iconI18nId="DailyCount"
           iconSrc="/images/generic/flash.png"
-          value={trigger.dailyCount}
-          onValueChanged={(dailyCount) => setTrigger({...trigger, dailyCount})}
+          value={dailyCount}
+          onValueChanged={(dailyCount) => setTrigger({...skillRecovery.recovery, dailyCount})}
         />
       </Flex>
     </Flex>

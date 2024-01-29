@@ -7,6 +7,5 @@ export type StaminaConfigProps = {
   cookingRecoveryData: StaminaCookingRecoveryData[],
   config: StaminaCalcConfig,
   setConfig: (updated: StaminaCalcConfig) => void,
-  trigger: StaminaSkillTriggerData,
   setTrigger: (updated: StaminaSkillTriggerData) => void,
 };

@@ -7,7 +7,6 @@ import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 
 export type StaminaAnalysisConfig = {
   config: StaminaCalcConfig,
-  skillTrigger: StaminaSkillTriggerData,
 };
 
 export type StaminaAnalysisDataProps = {

@@ -1,6 +1,6 @@
 import {EfficiencyBreakPoint} from '@/types/game/producing/efficiency';
 import {StaminaEventType} from '@/types/game/stamina/event';
-import {StaminaSkillRecoveryStrategy} from '@/types/game/stamina/skill';
+import {StaminaRecoveryStrategy} from '@/types/game/stamina/strategy';
 import {I18nMessageKeysOfNamespace} from '@/types/i18n';
 
 
@@ -15,7 +15,7 @@ export const maxSleepEffectiveDuration = 8.5 * 3600; // 8.5 hrs
 export const staminaRecoveryInterval = maxSleepEffectiveDuration / 100;
 
 export const staminaStrategyI18nId: {
-  [strategy in StaminaSkillRecoveryStrategy]: I18nMessageKeysOfNamespace<'UI.Stamina.Strategy'>
+  [strategy in StaminaRecoveryStrategy]: I18nMessageKeysOfNamespace<'UI.Stamina.Strategy'>
 } = {
   optimistic: 'Optimistic',
   conservative: 'Conservative',

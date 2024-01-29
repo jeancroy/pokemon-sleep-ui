@@ -1,15 +1,13 @@
 import {SleepSessionInfo} from '@/types/game/sleep';
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaRecovery} from '@/types/game/stamina/recovery';
-import {StaminaSkillRecoveryConfig, StaminaSkillTriggerData} from '@/types/game/stamina/skill';
+import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getLogsWithStaminaRecovery} from '@/utils/game/stamina/events/recovery';
 import {GetLogsCommonOpts} from '@/utils/game/stamina/events/type';
 import {generateDecimalsAndOnes} from '@/utils/number/generator';
 
 
-type GetSkillRecoveryOpts = {
-  skillRecovery: StaminaSkillRecoveryConfig,
-};
+type GetSkillRecoveryOpts = Pick<GetLogsCommonOpts, 'general'>;
 
 type GetSkillStaminaRecoveryOpts = GetSkillRecoveryOpts & {
   skillTrigger: StaminaSkillTriggerData,
@@ -18,12 +16,12 @@ type GetSkillStaminaRecoveryOpts = GetSkillRecoveryOpts & {
 };
 
 export const getSkillStaminaRecovery = ({
-  skillRecovery,
+  general,
   skillTrigger,
   secondarySession,
   awakeDuration,
 }: GetSkillStaminaRecoveryOpts): StaminaRecovery[] => {
-  if (skillRecovery.strategy !== 'conservative') {
+  if (general.strategy !== 'conservative') {
     return [];
   }
 
@@ -48,12 +46,12 @@ type GetLogsWithSkillRecoveryOfTriggerOpts = Omit<GetLogsWithSkillRecoveryOpts, 
 };
 
 export const getLogsWithSkillRecoveryOfTrigger = ({
-  sessionInfo,
+  sleepSessionInfo,
   logs,
   ...opts
 }: GetLogsWithSkillRecoveryOfTriggerOpts): StaminaEventLog[] => {
   const {recoveryRate} = opts;
-  const {session, duration} = sessionInfo;
+  const {session, duration} = sleepSessionInfo;
   const {secondary} = session;
 
   return getLogsWithStaminaRecovery({
@@ -76,10 +74,9 @@ export const getLogsWithSkillRecovery = ({
 }: GetLogsWithSkillRecoveryOpts): StaminaEventLog[] => {
   const {
     logs,
-    skillRecovery,
+    general,
   } = opts;
-
-  const {strategy} = skillRecovery;
+  const {strategy} = general;
 
   if (strategy !== 'conservative') {
     return [...logs];

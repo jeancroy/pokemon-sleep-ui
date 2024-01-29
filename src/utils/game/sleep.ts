@@ -45,17 +45,17 @@ const getPrimarySleepSessionRecovery = ({
 };
 
 type GetSecondarySleepSessionMetaOpts = {
-  session: StaminaSleepSessionConfig,
+  sleepSession: StaminaSleepSessionConfig,
   recoveryRate: StaminaRecoveryRateConfig,
   primaryMeta: SleepSessionMeta,
 };
 
 const getSecondarySleepSessionMeta = ({
-  session,
+  sleepSession,
   recoveryRate,
   primaryMeta,
 }: GetSecondarySleepSessionMetaOpts): SleepSessionMeta | null => {
-  const {primary, secondary} = session;
+  const {primary, secondary} = sleepSession;
   if (!secondary) {
     return null;
   }
@@ -93,12 +93,12 @@ const getSecondarySleepSessionMeta = ({
 };
 
 type GetSleepSessionInfoOpts = {
-  session: StaminaSleepSessionConfig,
+  sleepSession: StaminaSleepSessionConfig,
   recoveryRate: StaminaRecoveryRateConfig,
 };
 
-export const getSleepSessionInfo = ({session, recoveryRate}: GetSleepSessionInfoOpts): SleepSessionInfo => {
-  const {primary} = session;
+export const getSleepSessionInfo = ({sleepSession, recoveryRate}: GetSleepSessionInfoOpts): SleepSessionInfo => {
+  const {primary} = sleepSession;
 
   const primaryMeta: SleepSessionMeta = {
     ...getPrimarySleepSessionRecovery({
@@ -111,7 +111,7 @@ export const getSleepSessionInfo = ({session, recoveryRate}: GetSleepSessionInfo
     },
   };
   const secondaryMeta = getSecondarySleepSessionMeta({
-    session,
+    sleepSession,
     recoveryRate,
     primaryMeta,
   });

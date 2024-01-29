@@ -1,7 +1,8 @@
 import {describe, expect, it} from '@jest/globals';
 
+import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
-import {StaminaSkillRecoveryConfig, StaminaSkillTriggerData} from '@/types/game/stamina/skill';
+import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getLogsWithEfficiencyBlock} from '@/utils/game/stamina/events/block';
 import {getLogsWithEndOfPeriodMark} from '@/utils/game/stamina/events/endOfPeriod';
@@ -17,9 +18,9 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
   };
 
   it('is correct with secondary sleep before any skill trigger under conservative', () => {
-    const sessionInfo = getSleepSessionInfo({
+    const sleepSessionInfo = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 84600, // 23:30
           end: 21600, // 06:00
@@ -30,16 +31,16 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
         },
       },
     });
-    const skillRecovery: StaminaSkillRecoveryConfig = {
+    const general: StaminaGeneralRecoveryConfig = {
       strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 1, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sessionInfo, logs});
-    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
     logs = getLogsWithEfficiencyBlock({logs});
 
@@ -90,9 +91,9 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
   });
 
   it('is correct with secondary sleep after a skill trigger under conservative', () => {
-    const sessionInfo = getSleepSessionInfo({
+    const sleepSessionInfo = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 84600, // 23:30
           end: 21600, // 06:00
@@ -103,16 +104,16 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
         },
       },
     });
-    const skillRecovery: StaminaSkillRecoveryConfig = {
+    const general: StaminaGeneralRecoveryConfig = {
       strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sessionInfo, logs});
-    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
     logs = getLogsWithEfficiencyBlock({logs});
 
@@ -174,9 +175,9 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
   });
 
   it('is correct with secondary sleep without any skill trigger', () => {
-    const sessionInfo = getSleepSessionInfo({
+    const sleepSessionInfo = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 84600, // 23:30
           end: 21600, // 06:00
@@ -187,16 +188,16 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
         },
       },
     });
-    const skillRecovery: StaminaSkillRecoveryConfig = {
+    const general: StaminaGeneralRecoveryConfig = {
       strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 0, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sessionInfo, logs});
-    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
     logs = getLogsWithEfficiencyBlock({logs});
 
@@ -239,9 +240,9 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
   });
 
   it('is correct without secondary sleep under optimistic', () => {
-    const sessionInfo = getSleepSessionInfo({
+    const sleepSessionInfo = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 84600, // 23:30
           end: 27000, // 07:30
@@ -249,16 +250,16 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
         secondary: null,
       },
     });
-    const skillRecovery: StaminaSkillRecoveryConfig = {
+    const general: StaminaGeneralRecoveryConfig = {
       strategy: 'optimistic',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sessionInfo, logs});
-    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
     logs = getLogsWithEfficiencyBlock({logs});
 
@@ -295,9 +296,9 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
   });
 
   it('is correct when the sleep duration is short', () => {
-    const sessionInfo = getSleepSessionInfo({
+    const sleepSessionInfo = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 82800, // 23:00
           end: 0, // 00:00
@@ -305,16 +306,16 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
         secondary: null,
       },
     });
-    const skillRecovery: StaminaSkillRecoveryConfig = {
+    const general: StaminaGeneralRecoveryConfig = {
       strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 2, amount: 11},
     ];
 
-    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sessionInfo, logs});
-    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
     logs = getLogsWithEfficiencyBlock({logs});
 
@@ -355,9 +356,9 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
       general: 1.2,
       sleep: 1,
     };
-    const sessionInfo = getSleepSessionInfo({
+    const sleepSessionInfo = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 84600, // 23:30
           end: 21600, // 06:00
@@ -368,16 +369,16 @@ describe('Stamina / Event Log (+Efficiency Block)', () => {
         },
       },
     });
-    const skillRecovery: StaminaSkillRecoveryConfig = {
+    const general: StaminaGeneralRecoveryConfig = {
       strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sessionInfo, logs});
-    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithEndOfPeriodMark({logs});
     logs = getLogsWithEfficiencyBlock({logs});
 

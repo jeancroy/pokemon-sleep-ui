@@ -5,7 +5,7 @@ import {getServerSession} from 'next-auth';
 import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
-import {defaultStaminaCalcConfig, defaultStaminaSkillTrigger} from '@/const/user/settings';
+import {defaultStaminaCalcConfig} from '@/const/user/settings';
 import {getStaminaCookingRecoveryData} from '@/controller/cookingRecovery';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {DefaultPageProps} from '@/types/next/page/common';
@@ -34,10 +34,6 @@ export const StaminaAnalysis = async ({params}: DefaultPageProps) => {
       config: cloneMerge(
         defaultStaminaCalcConfig,
         session?.user.preloaded.settings?.stamina,
-      ),
-      skillTrigger: cloneMerge(
-        defaultStaminaSkillTrigger,
-        session?.user.preloaded.settings?.staminaSkillTrigger,
       ),
     },
   };

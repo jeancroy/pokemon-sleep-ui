@@ -4,6 +4,7 @@ import {StaminaEfficiency, StaminaEfficiencyCounter} from '@/types/game/stamina/
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
+import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getEfficiency} from '@/utils/game/stamina/efficiency';
 import {getLogsWithEfficiencyBlock} from '@/utils/game/stamina/events/block';
 import {getLogsWithCookingRecovery} from '@/utils/game/stamina/events/cooking';
@@ -17,24 +18,29 @@ import {extractIntervalsDuringSleep} from '@/utils/game/stamina/interval';
 type GetStaminaEventLogOpts = {
   config: StaminaCalcConfig,
   cookingRecoveryData: StaminaCookingRecoveryData[],
-  sessionInfo: SleepSessionInfo,
-  skillTriggers: StaminaSkillTriggerData[],
+  sleepSessionInfo: SleepSessionInfo,
+  additionalSkillTriggers?: StaminaSkillTriggerData[],
 };
 
 const getStaminaEventLogs = ({
   config,
-  sessionInfo,
   cookingRecoveryData,
-  skillTriggers,
+  sleepSessionInfo,
+  additionalSkillTriggers,
 }: GetStaminaEventLogOpts): StaminaEventLog[] => {
-  const {cookingRecovery, recoveryRate} = config;
+  const {cookingRecovery, recoveryRate, skillRecovery} = config;
 
-  let logs = getLogsWithPrimarySleep({sessionInfo, skillTriggers, ...config});
-  logs = getLogsWithSecondarySleep({sessionInfo, logs, ...config});
-  logs = getLogsWithSkillRecovery({sessionInfo, logs, skillTriggers, ...config});
+  const skillTriggers: StaminaSkillTriggerData[] = [
+    skillRecovery.recovery,
+    ...(additionalSkillTriggers ?? []),
+  ];
+
+  let logs = getLogsWithPrimarySleep({sleepSessionInfo, skillTriggers, ...config});
+  logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, ...config});
+  logs = getLogsWithSkillRecovery({logs, sleepSessionInfo, skillTriggers, ...config});
   logs = getLogsWithCookingRecovery({
     logs,
-    sessionInfo,
+    sleepSessionInfo,
     recoveryRate,
     cookingRecoveryData,
     cookingRecoveryConfig: cookingRecovery,
@@ -110,17 +116,20 @@ export const getStaminaEfficiencyMultiplierFromLogs = ({
   };
 };
 
-export const getStaminaEfficiency = (opts: GetStaminaEventLogOpts): StaminaEfficiency => {
-  const {sessionInfo} = opts;
+export const getStaminaEfficiency = (opts: Omit<GetStaminaEventLogOpts, 'sleepSessionInfo'>): StaminaEfficiency => {
+  const {config} = opts;
+  const {sleepSession, recoveryRate} = config;
 
-  const hasSecondary = !!sessionInfo.session.secondary;
+  const sleepSessionInfo = getSleepSessionInfo({sleepSession, recoveryRate});
+  const hasSecondary = !!sleepSessionInfo.session.secondary;
 
-  const logs = getStaminaEventLogs(opts);
-  const staminaEfficiencyMultiplier = getStaminaEfficiencyMultiplierFromLogs({logs, hasSecondary});
+  const logs = getStaminaEventLogs({sleepSessionInfo, ...opts});
+  const multiplier = getStaminaEfficiencyMultiplierFromLogs({logs, hasSecondary});
 
   return {
     logs,
-    multiplier: staminaEfficiencyMultiplier,
+    multiplier,
+    sleepSessionInfo,
     intervalsDuringSleep: extractIntervalsDuringSleep({logs, hasSecondary}),
   };
 };

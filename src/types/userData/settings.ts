@@ -1,11 +1,9 @@
 import {EffectiveBonus, UserBonus} from '@/types/game/bonus';
 import {RecipeLevel} from '@/types/game/cooking';
 import {Meal, MealMap} from '@/types/game/meal/main';
-import {SleepSessionInfo} from '@/types/game/sleep';
 import {SleepMapId} from '@/types/game/sleepStyle';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
-import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {Migratable} from '@/types/migrate';
 import {UserCookingPreset} from '@/types/userData/cooking';
 
@@ -21,7 +19,6 @@ export type UserCalculationBehavior = {
 export type UserSettings = Migratable & {
   bonus: UserBonus,
   stamina: StaminaCalcConfig,
-  staminaSkillTrigger: StaminaSkillTriggerData,
   currentMap: SleepMapId,
   behavior: UserCalculationBehavior,
 };
@@ -34,7 +31,6 @@ export type UserSettingsBundle = {
 export type CalculatedUserSettings = Pick<UserSettings, 'behavior'> & {
   origin: UserSettings,
   bonus: EffectiveBonus,
-  sleepSessionInfo: SleepSessionInfo,
 };
 
 export type CookingUserSettingsRequiredData = {

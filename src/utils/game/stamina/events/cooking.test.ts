@@ -2,10 +2,10 @@ import {describe, expect, it} from '@jest/globals';
 
 import {defaultCookingRecovery} from '@/const/user/settings';
 import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
-import {SleepSessionInfo} from '@/types/game/sleep';
 import {StaminaSleepSessionConfig} from '@/types/game/stamina/config';
+import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
-import {StaminaSkillRecoveryConfig, StaminaSkillTriggerData} from '@/types/game/stamina/skill';
+import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getLogsWithCookingRecovery} from '@/utils/game/stamina/events/cooking';
 import {getLogsWithPrimarySleep} from '@/utils/game/stamina/events/primary';
@@ -20,7 +20,7 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
   };
 
   it('is correct under conservative', () => {
-    const skillRecovery: StaminaSkillRecoveryConfig = {
+    const general: StaminaGeneralRecoveryConfig = {
       strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
@@ -36,14 +36,14 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
         end: 37800, // 08:30
       },
     };
-    const sessionInfo: SleepSessionInfo = getSleepSessionInfo({recoveryRate, session});
+    const sleepSessionInfo = getSleepSessionInfo({recoveryRate, sleepSession: session});
 
-    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sessionInfo, logs});
-    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithCookingRecovery({
       logs,
-      sessionInfo,
+      sleepSessionInfo,
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,
       cookingRecoveryConfig: defaultCookingRecovery,
@@ -85,9 +85,9 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
   });
 
   it('is correct under optimistic', () => {
-    const sessionInfo = getSleepSessionInfo({
+    const sleepSessionInfo = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 84600, // 23:30
           end: 27000, // 07:30
@@ -95,19 +95,19 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
         secondary: null,
       },
     });
-    const skillRecovery: StaminaSkillRecoveryConfig = {
+    const general: StaminaGeneralRecoveryConfig = {
       strategy: 'optimistic',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 3, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sessionInfo, logs});
-    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithCookingRecovery({
       logs,
-      sessionInfo,
+      sleepSessionInfo,
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,
       cookingRecoveryConfig: defaultCookingRecovery,
@@ -141,9 +141,9 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
       general: 2,
       sleep: 1,
     };
-    const sessionInfo = getSleepSessionInfo({
+    const sleepSessionInfo = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 84600, // 23:30
           end: 27000, // 07:30
@@ -151,19 +151,19 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
         secondary: null,
       },
     });
-    const skillRecovery: StaminaSkillRecoveryConfig = {
+    const general: StaminaGeneralRecoveryConfig = {
       strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 1, amount: 9},
     ];
 
-    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sessionInfo, logs});
-    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithCookingRecovery({
       logs,
-      sessionInfo,
+      sleepSessionInfo,
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,
       cookingRecoveryConfig: defaultCookingRecovery,
@@ -201,9 +201,9 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
       general: 0.5,
       sleep: 1,
     };
-    const sessionInfo = getSleepSessionInfo({
+    const sleepSessionInfo = getSleepSessionInfo({
       recoveryRate,
-      session: {
+      sleepSession: {
         primary: {
           start: 84600, // 23:30
           end: 27000, // 07:30
@@ -211,19 +211,19 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
         secondary: null,
       },
     });
-    const skillRecovery: StaminaSkillRecoveryConfig = {
+    const general: StaminaGeneralRecoveryConfig = {
       strategy: 'conservative',
     };
     const skillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 1, amount: 10},
     ];
 
-    let logs = getLogsWithPrimarySleep({sessionInfo, skillRecovery, skillTriggers, recoveryRate});
-    logs = getLogsWithSecondarySleep({sessionInfo, logs});
-    logs = getLogsWithSkillRecovery({sessionInfo, skillRecovery, skillTriggers, logs, recoveryRate});
+    let logs = getLogsWithPrimarySleep({sleepSessionInfo, general, skillTriggers, recoveryRate});
+    logs = getLogsWithSecondarySleep({sleepSessionInfo, logs});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
     logs = getLogsWithCookingRecovery({
       logs,
-      sessionInfo,
+      sleepSessionInfo,
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,
       cookingRecoveryConfig: defaultCookingRecovery,

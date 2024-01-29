@@ -2,7 +2,7 @@ import {
   defaultCookingRecovery,
   defaultRecoveryRate,
   defaultStaminaCalcConfig,
-  defaultStaminaSkillTrigger,
+  defaultStaminaGeneralConfig,
   defaultUserCalculationBehavior,
 } from '@/const/user/settings';
 import {Migrator} from '@/types/migrate';
@@ -37,7 +37,10 @@ export const userSettingsMigrators: Migrator<UserSettings, UserSettingsMigratePa
     // Added `staminaSkillTrigger` in the config
     migrate: (old) => ({
       ...old,
-      staminaSkillTrigger: defaultStaminaSkillTrigger,
+      staminaSkillTrigger: {
+        dailyCount: 3,
+        amount: 18,
+      },
     }),
   },
   {
@@ -54,8 +57,8 @@ export const userSettingsMigrators: Migrator<UserSettings, UserSettingsMigratePa
     migrate: ({behavior, ...old}) => ({
       ...old,
       behavior: {
-        ...behavior,
         ...defaultUserCalculationBehavior,
+        ...behavior,
         // @ts-ignore
         alwaysFullPack: behavior.berryPokemonAlwaysFullPack ? 'berryOnly' : 'disable',
       },
@@ -67,7 +70,7 @@ export const userSettingsMigrators: Migrator<UserSettings, UserSettingsMigratePa
     migrate: ({behavior, ...old}) => ({
       ...old,
       behavior: {
-        ...defaultStaminaSkillTrigger,
+        ...defaultUserCalculationBehavior,
         ...behavior,
       },
     }),
@@ -80,6 +83,19 @@ export const userSettingsMigrators: Migrator<UserSettings, UserSettingsMigratePa
       stamina: {
         ...stamina,
         cookingRecovery: defaultCookingRecovery,
+      },
+    }),
+  },
+  {
+    toVersion: 9,
+    // Moved `staminaSkillTrigger` to `stamina.skillRecovery.recovery` & Add general config
+    // @ts-ignore
+    migrate: ({stamina, staminaSkillTrigger, ...old}) => ({
+      ...old,
+      stamina: {
+        ...stamina,
+        general: defaultStaminaGeneralConfig,
+        skillRecovery: {recovery: staminaSkillTrigger},
       },
     }),
   },

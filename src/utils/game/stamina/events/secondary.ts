@@ -6,10 +6,10 @@ import {generateSleepEventFromLast} from '@/utils/game/stamina/events/utils';
 
 
 export const getLogsWithSecondarySleep = ({
-  sessionInfo,
+  sleepSessionInfo,
   logs,
-}: Pick<GetLogsCommonOpts, 'sessionInfo' | 'logs'>): StaminaEventLog[] => {
-  const {session} = sessionInfo;
+}: Pick<GetLogsCommonOpts, 'sleepSessionInfo' | 'logs'>): StaminaEventLog[] => {
+  const {session} = sleepSessionInfo;
   const {secondary} = session;
 
   if (!secondary) {

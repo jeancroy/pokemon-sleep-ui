@@ -15,26 +15,31 @@ import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
 describe('Pokemon Skill Production', () => {
   it('is correct when skill freq < sleep duration', () => {
     const bonus = testBonus['1'];
+    const calculatedUserSettings = toCalculatedUserSettings({
+      settings: cloneMerge(
+        defaultUserSettings,
+        {
+          stamina: {
+            sleepSession: {
+              primary: {start: 0, end: 28800},
+              secondary: null,
+            },
+          },
+        },
+      ),
+      cookingRecoveryData: testCookingRecoveryData,
+    });
     const rate = getMainSkillProducingRate({
       pokemon: testPokemonData.ampharos,
       frequency: 3168,
-      calculatedSettings: {
-        ...toCalculatedUserSettings({
-          settings: cloneMerge(
-            defaultUserSettings,
-            {
-              stamina: {
-                sleepSession: {
-                  primary: {start: 0, end: 28800},
-                  secondary: null,
-                },
-              },
-            },
-          ),
-          cookingRecoveryData: testCookingRecoveryData,
-        }),
-        bonus,
-      },
+      calculatedSettings: cloneMerge(
+        // Base
+        calculatedUserSettings,
+        // Override the whole bonus
+        {bonus},
+        // Override sleep session info calculated using custom sessions
+        {bonus: {stamina: {sleepSessionInfo: calculatedUserSettings.bonus.stamina.sleepSessionInfo}}},
+      ),
       energyMultiplier: getCommonEnergyMultiplier({bonus}),
       subSkillBonus: {},
       skillRatePercent: 10,
@@ -64,26 +69,32 @@ describe('Pokemon Skill Production', () => {
 
   it('is correct when sleep duration < skill freq', () => {
     const bonus = testBonus['1'];
+    const calculatedUserSettings = toCalculatedUserSettings({
+      settings: cloneMerge(
+        defaultUserSettings,
+        {
+          stamina: {
+            sleepSession: {
+              primary: {start: 0, end: 14400},
+              secondary: null,
+            },
+          },
+        },
+      ),
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+
     const rate = getMainSkillProducingRate({
       pokemon: testPokemonData.ampharos,
       frequency: 4752,
-      calculatedSettings: {
-        ...toCalculatedUserSettings({
-          settings: cloneMerge(
-            defaultUserSettings,
-            {
-              stamina: {
-                sleepSession: {
-                  primary: {start: 0, end: 14400},
-                  secondary: null,
-                },
-              },
-            },
-          ),
-          cookingRecoveryData: testCookingRecoveryData,
-        }),
-        bonus,
-      },
+      calculatedSettings: cloneMerge(
+        // Base
+        calculatedUserSettings,
+        // Override the whole bonus
+        {bonus},
+        // Override sleep session info calculated using custom sessions
+        {bonus: {stamina: {sleepSessionInfo: calculatedUserSettings.bonus.stamina.sleepSessionInfo}}},
+      ),
       energyMultiplier: getCommonEnergyMultiplier({bonus}),
       subSkillBonus: {},
       skillRatePercent: 10,

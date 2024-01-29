@@ -48,8 +48,8 @@ export const getPokemonProducingRateBase = ({
   const {
     behavior,
     bonus,
-    sleepSessionInfo,
   } = calculatedSettings;
+  const {sleepSessionInfo} = bonus.stamina;
 
   const period = opts.period ?? defaultProductionPeriod;
   const subSkillBonus = opts.subSkillBonus ?? {};

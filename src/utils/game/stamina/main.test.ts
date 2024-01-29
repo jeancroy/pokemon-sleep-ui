@@ -4,7 +4,6 @@ import {defaultCookingRecovery} from '@/const/user/settings';
 import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
-import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getStaminaEfficiency, getStaminaEfficiencyMultiplierFromLogs} from '@/utils/game/stamina/main';
 
 
@@ -21,8 +20,11 @@ describe('Stamina Efficiency / From Config', () => {
           end: 64800, // 18:00
         },
       },
-      cookingRecovery: defaultCookingRecovery,
       skillRecovery: {
+        recovery: {dailyCount: 3, amount: 18},
+      },
+      cookingRecovery: defaultCookingRecovery,
+      general: {
         strategy: 'conservative',
       },
       recoveryRate: {
@@ -30,18 +32,9 @@ describe('Stamina Efficiency / From Config', () => {
         sleep: 1.14,
       },
     };
-    const sessionInfo = getSleepSessionInfo({
-      session: config.sleepSession,
-      recoveryRate: config.recoveryRate,
-    });
-    const skillTriggers: StaminaSkillTriggerData[] = [
-      {dailyCount: 3, amount: 18},
-    ];
 
     const {multiplier} = getStaminaEfficiency({
       config,
-      sessionInfo,
-      skillTriggers,
       cookingRecoveryData: testCookingRecoveryData,
     });
 
@@ -63,8 +56,11 @@ describe('Stamina Efficiency / From Config', () => {
           end: 52200, // 14:30
         },
       },
-      cookingRecovery: defaultCookingRecovery,
       skillRecovery: {
+        recovery: {dailyCount: 3, amount: 9},
+      },
+      cookingRecovery: defaultCookingRecovery,
+      general: {
         strategy: 'conservative',
       },
       recoveryRate: {
@@ -72,19 +68,13 @@ describe('Stamina Efficiency / From Config', () => {
         sleep: 1,
       },
     };
-    const sessionInfo = getSleepSessionInfo({
-      session: config.sleepSession,
-      recoveryRate: config.recoveryRate,
-    });
-    const skillTriggers: StaminaSkillTriggerData[] = [
-      {dailyCount: 3, amount: 9},
+    const additionalSkillTriggers: StaminaSkillTriggerData[] = [
       {dailyCount: 2, amount: 9},
     ];
 
     const {multiplier} = getStaminaEfficiency({
       config,
-      sessionInfo,
-      skillTriggers,
+      additionalSkillTriggers,
       cookingRecoveryData: testCookingRecoveryData,
     });
 
