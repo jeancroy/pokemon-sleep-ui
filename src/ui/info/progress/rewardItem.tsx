@@ -11,7 +11,7 @@ type Props = {
 
 export const GameProgressRewardItem = ({icon, count}: Props) => {
   return (
-    <Flex noFullWidth direction="row" className="gap-1">
+    <Flex noFullWidth direction="row" className="items-center gap-1">
       {icon}
       <span>&times;</span>
       {formatInt(count)}
