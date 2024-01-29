@@ -25,10 +25,10 @@ export const getLogsWithEndOfPeriodMark = ({
       timing: durationOfDay,
       stamina: {
         before: staminaAfter.inGame,
-        after: staminaAfter.actual,
+        after: staminaAfter.inGame,
       },
       staminaUnderlying: {
-        before: staminaAfterUnderlying.inGame,
+        before: staminaAfterUnderlying.actual,
         after: staminaAfterUnderlying.actual,
       },
     },

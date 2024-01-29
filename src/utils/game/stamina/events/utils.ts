@@ -54,9 +54,10 @@ export const offsetEventLogStamina = ({log, offset}: OffsetEventLogStaminaOpts):
 
   return {
     ...log,
+    // `stamina` should not go above `staminaUnderlying`
     stamina: {
       before: Math.max(stamina.before, staminaUnderlying.before + offset),
-      after: Math.max(stamina.after - stamina.before, staminaUnderlying.after + offset),
+      after: Math.max(stamina.after, staminaUnderlying.after + offset),
     },
     staminaUnderlying: {
       before: staminaUnderlying.before + offset,
