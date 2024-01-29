@@ -559,7 +559,7 @@
     },
     "EventType": {
       "SkillRecovery": "Fähigkeitswiederherstellung",
-      "CookingRecovery": "Cooking Recovery",
+      "CookingRecovery": "Mahlzeiten-Wiederherstellung",
       "EfficiencyBlock": "Effizienz-Schwellenwert",
       "Sleep": "Schlafen",
       "Wakeup": "Aufwachen",
