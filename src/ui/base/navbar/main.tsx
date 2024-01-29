@@ -5,9 +5,9 @@ import {getServerSession} from 'next-auth';
 import {Announcements} from '@/components/announcement/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
+import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
 import {getIngredientIds} from '@/controller/ingredient';
 import {getMapIds} from '@/controller/mapMeta';
-import {getMealMap} from '@/controller/meal';
 import {getMaxMapBonusPercent} from '@/controller/progress';
 import {NavBarClient} from '@/ui/base/navbar/client';
 import {NavBarCommonProps} from '@/ui/base/navbar/type';
@@ -22,18 +22,19 @@ type Props = NavBarCommonProps & {
 export const NavBar = ({noUserControl, locale, announcement}: Props) => {
   const [
     session,
-    mealMap,
     mapIds,
     maxMapBonusPercent,
     ingredientIds,
+    cookingUserSettingsRequiredData,
   ] = React.use(Promise.all([
     getServerSession(authOptions),
-    getMealMap(),
     getMapIds(),
     getMaxMapBonusPercent(),
     getIngredientIds(),
+    getCookingUserSettingsRequiredData(),
   ]));
 
+  const {mealMap} = cookingUserSettingsRequiredData;
   const mealTypes = getPossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
 
   return (
@@ -52,8 +53,8 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
         mapIds={mapIds}
         maxMapBonusPercent={maxMapBonusPercent}
         mealTypes={mealTypes}
-        mealMap={mealMap}
         ingredientIds={ingredientIds}
+        {...cookingUserSettingsRequiredData}
       >
         {announcement && <Announcements showOn="landscape"/>}
       </NavBarClient>

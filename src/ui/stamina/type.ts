@@ -1,6 +1,7 @@
 import {NatureId} from '@/types/game/pokemon/nature';
 import {PokemonSubSkill, SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
+import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 
 
@@ -10,8 +11,9 @@ export type StaminaAnalysisConfig = {
 };
 
 export type StaminaAnalysisDataProps = {
-  preloaded: StaminaAnalysisConfig,
   subSkillMap: SubSkillMap,
+  cookingRecoveryData: StaminaCookingRecoveryData[],
+  preloaded: StaminaAnalysisConfig,
 };
 
 export type StaminaAnalysisState = StaminaAnalysisConfig & {

@@ -7,10 +7,10 @@ import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
+import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
-import {getMealMap} from '@/controller/meal';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonIngredientProductionByIngredientIds} from '@/controller/pokemon/ingredient';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
@@ -27,7 +27,9 @@ type Props = {
 
 export const MealPage = async ({params}: Props) => {
   const {id, locale} = params;
-  const mealMap = await getMealMap();
+  const cookingUserSettingsRequiredData = await getCookingUserSettingsRequiredData();
+  const {mealMap} = cookingUserSettingsRequiredData;
+
   const meal = mealMap[parseInt(id)];
 
   if (!meal) {
@@ -67,10 +69,10 @@ export const MealPage = async ({params}: Props) => {
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     pokemonIngredientProductionMap,
     pokemonMaxLevel,
     preloaded: createUserSettingsBundle(session),
+    ...cookingUserSettingsRequiredData,
   };
 
   return (

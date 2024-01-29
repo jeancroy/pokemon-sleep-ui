@@ -3,7 +3,9 @@ import {CookingUserSettings, CookingUserSettingsRequiredData, UserSettingsBundle
 import {toTargetMeals} from '@/utils/user/settings/utils';
 
 
-export type ToCookingUserSettingsOpts = CookingUserSettingsRequiredData & Pick<UserSettingsBundle, 'cooking'>;
+export type ToCookingUserSettingsOpts =
+  Pick<UserSettingsBundle, 'cooking'> &
+  Pick<CookingUserSettingsRequiredData, 'mealMap'>;
 
 export const toCookingUserSettings = ({
   cooking,

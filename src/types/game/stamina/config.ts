@@ -7,7 +7,7 @@ export type StaminaSleepSessionConfig = SleepSessions<SleepSessionTimes>;
 
 export type StaminaCalcConfig = {
   sleepSession: StaminaSleepSessionConfig,
-  cookRecovery: StaminaCookingRecoveryConfig,
+  cookingRecovery: StaminaCookingRecoveryConfig,
   skillRecovery: StaminaSkillRecoveryConfig,
   recoveryRate: StaminaRecoveryRateConfig,
 };

@@ -3,6 +3,7 @@ import {describe, expect, it} from '@jest/globals';
 import {durationOfDay} from '@/const/common';
 import {defaultUserSettings} from '@/const/user/settings';
 import {testBonus} from '@/tests/data/game/bonus';
+import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {testMainSkillMap} from '@/tests/data/game/mainSkill';
 import {testPokemonData} from '@/tests/data/game/pokemon';
 import {getMainSkillProducingRate} from '@/utils/game/producing/mainSkill';
@@ -30,6 +31,7 @@ describe('Pokemon Skill Production', () => {
               },
             },
           ),
+          cookingRecoveryData: testCookingRecoveryData,
         }),
         bonus,
       },
@@ -78,6 +80,7 @@ describe('Pokemon Skill Production', () => {
               },
             },
           ),
+          cookingRecoveryData: testCookingRecoveryData,
         }),
         bonus,
       },

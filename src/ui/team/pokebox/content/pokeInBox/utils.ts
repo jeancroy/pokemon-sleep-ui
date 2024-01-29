@@ -24,6 +24,7 @@ export const toRatingWorkerOpts = ({
   mainSkillMap,
   subSkillMap,
   mealMap,
+  cookingRecoveryData,
   snorlaxFavorite,
   bundle,
   ratingBasis,
@@ -49,6 +50,7 @@ export const toRatingWorkerOpts = ({
     mainSkillMap,
     subSkillMap,
     mealMap,
+    cookingRecoveryData,
     snorlaxFavorite,
     level,
     ingredients,
@@ -73,6 +75,7 @@ export const getRateOfPokemon = ({
     pokemon,
     pokemonProducingParamsMap,
     mealMap,
+    cookingRecoveryData,
     bundle,
   } = props;
   const {level, ingredients} = pokeInBox;
@@ -91,6 +94,7 @@ export const getRateOfPokemon = ({
       ...bundle,
       mealMap,
       recoveryRate: toRecoveryRate(singleParams),
+      cookingRecoveryData,
     }),
     level: pokeInBox.level,
     pokemonProducingParams: getPokemonProducingParams({

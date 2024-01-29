@@ -26,6 +26,7 @@ export const getTeamProducingStatsSlot = ({
   ingredientMap,
   mainSkillMap,
   subSkillMap,
+  cookingRecoveryData,
   currentTeam,
   slotName,
 }: GetTeamProducingStatsSlotOpts): GetProducingStatsOptsSlotReturn | null => {
@@ -62,6 +63,7 @@ export const getTeamProducingStatsSlot = ({
     ...bundle,
     recoveryRate: toRecoveryRate(singleParams),
     behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
+    cookingRecoveryData,
   });
 
   return {

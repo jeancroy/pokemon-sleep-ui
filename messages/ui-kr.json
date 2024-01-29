@@ -554,11 +554,12 @@
       "Amount": "회복량",
       "DailyCount": "빈도 (일)"
     },
-    "CookRecovery": {
+    "CookingRecovery": {
       "Name": "요리하는 시기"
     },
     "EventType": {
       "SkillRecovery": "스킬 사용",
+      "CookingRecovery": "요리 회복",
       "EfficiencyBlock": "도우미 속도 변화",
       "Sleep": "자는 중",
       "Wakeup": "일어남",

@@ -4,6 +4,7 @@ import {Meal, MealMap} from '@/types/game/meal/main';
 import {SleepSessionInfo} from '@/types/game/sleep';
 import {SleepMapId} from '@/types/game/sleepStyle';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
+import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {Migratable} from '@/types/migrate';
 import {UserCookingPreset} from '@/types/userData/cooking';
@@ -38,6 +39,7 @@ export type CalculatedUserSettings = Pick<UserSettings, 'behavior'> & {
 
 export type CookingUserSettingsRequiredData = {
   mealMap: MealMap,
+  cookingRecoveryData: StaminaCookingRecoveryData[],
 };
 
 export type CookingUserSettings = {

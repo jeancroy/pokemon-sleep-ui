@@ -1,10 +1,10 @@
 import {IngredientId} from '@/types/game/ingredient';
-import {MealMap, MealTypeId} from '@/types/game/meal/main';
+import {MealTypeId} from '@/types/game/meal/main';
 import {UserCookingPreset} from '@/types/userData/cooking';
+import {CookingUserSettingsRequiredData} from '@/types/userData/settings';
 
 
-export type UserSettingsCookingDataProps = {
-  mealMap: MealMap,
+export type UserSettingsCookingDataProps = CookingUserSettingsRequiredData & {
   mealTypes: MealTypeId[],
   ingredientIds: IngredientId[],
 };

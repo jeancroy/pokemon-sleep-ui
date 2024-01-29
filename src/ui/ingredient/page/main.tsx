@@ -9,10 +9,10 @@ import {Failed} from '@/components/icons/failed';
 import {Flex} from '@/components/layout/flex/common';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getIngredientMap, getIngredientData} from '@/controller/ingredient';
+import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
+import {getIngredientData, getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
-import {getMealMap} from '@/controller/meal';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonIngredientProductionByIngredient} from '@/controller/pokemon/ingredient';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
@@ -47,9 +47,9 @@ export const IngredientPage = async ({params}: Props) => {
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     pokedex,
     pokemonMaxLevel,
+    cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokemonIngredientProductionByIngredient(ingredient.id),
@@ -59,10 +59,12 @@ export const IngredientPage = async ({params}: Props) => {
     getIngredientChainMap(),
     getMainSkillMap(),
     getSubSkillMap(),
-    getMealMap(),
     getPokedexMap(),
     getPokemonMaxLevelByBerry(),
+    getCookingUserSettingsRequiredData(),
   ]);
+
+  const {mealMap} = cookingUserSettingsRequiredData;
 
   const props: IngredientProductionDataProps = {
     pokedex,
@@ -73,8 +75,8 @@ export const IngredientPage = async ({params}: Props) => {
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     preloaded: createUserSettingsBundle(session),
+    ...cookingUserSettingsRequiredData,
   };
 
   return (

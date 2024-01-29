@@ -19,7 +19,6 @@ type Props = IngredientProductionDataProps & {
 };
 
 export const IngredientPokemonProduction = ({
-  mealMap,
   preloaded,
   pokemonMaxLevel,
   subSkillMap,
@@ -36,7 +35,7 @@ export const IngredientPokemonProduction = ({
       server: preloaded,
       client: data?.user.preloaded,
     },
-    mealMap,
+    ...props,
   });
 
   return (

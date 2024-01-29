@@ -39,6 +39,13 @@ const expandStaminaEventLog = (log: StaminaEventLog): StaminaEventLogFlattened[]
     return [toFlattenedStaminaEventLog({log, key: 'before'})];
   }
 
+  if (type === 'cookingRecovery') {
+    return [
+      toFlattenedStaminaEventLog({log, key: 'before'}),
+      toFlattenedStaminaEventLog({log, key: 'after'}),
+    ];
+  }
+
   if (type === 'skillRecovery') {
     return [
       toFlattenedStaminaEventLog({log, key: 'before'}),

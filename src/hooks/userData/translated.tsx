@@ -27,12 +27,16 @@ type UseTranslatedUserSettingsReturn = {
 export const useTranslatedUserSettings = ({
   bundle,
   mealMap,
+  cookingRecoveryData,
 }: UseTranslatedUserSettingsOpts): UseTranslatedUserSettingsReturn => {
   const {settings, cooking} = useUserSettingsBundle({bundle});
 
   return useCustomCompareMemo(
     () => {
-      const calculatedSettings = toCalculatedUserSettings({settings});
+      const calculatedSettings = toCalculatedUserSettings({
+        settings,
+        cookingRecoveryData,
+      });
       const cookingSettings = toCookingUserSettings({
         cooking,
         mealMap,

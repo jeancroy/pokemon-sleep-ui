@@ -554,11 +554,12 @@
       "Amount": "Recovery per skill",
       "DailyCount": "Daily skill usage count"
     },
-    "CookRecovery": {
+    "CookingRecovery": {
       "Name": "Cooking Schedule"
     },
     "EventType": {
       "SkillRecovery": "Skill Recovery",
+      "CookingRecovery": "Cooking Recovery",
       "EfficiencyBlock": "Efficiency Breakpoint",
       "Sleep": "Sleep",
       "Wakeup": "Wake Up",

@@ -34,7 +34,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
       server: preloaded,
       client: session.data?.user.preloaded,
     },
-    mealMap,
+    ...props,
   });
 
   const meals = Object.values(mealMap).filter(isNotNullish);

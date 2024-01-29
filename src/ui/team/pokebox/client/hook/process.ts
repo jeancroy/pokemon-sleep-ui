@@ -34,6 +34,7 @@ export const useProcessedPokebox = ({
   mainSkillMap,
   subSkillMap,
   mealMap,
+  cookingRecoveryData,
   pokebox,
   bundle,
   pokeInBoxToCalc,
@@ -69,6 +70,7 @@ export const useProcessedPokebox = ({
         calculatedSettings: toCalculatedUserSettings({
           ...bundle,
           recoveryRate: toRecoveryRate(singleParams),
+          cookingRecoveryData,
         }),
         cookingSettings: toCookingUserSettings({
           ...bundle,

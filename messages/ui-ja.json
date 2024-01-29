@@ -554,11 +554,12 @@
       "Amount": "スキル回復量",
       "DailyCount": "発動回数"
     },
-    "CookRecovery": {
+    "CookingRecovery": {
       "Name": "料理スケジュール"
     },
     "EventType": {
       "SkillRecovery": "スキルで回復",
+      "CookingRecovery": "料理で回復",
       "EfficiencyBlock": "効率変更点",
       "Sleep": "寝る",
       "Wakeup": "起きる",

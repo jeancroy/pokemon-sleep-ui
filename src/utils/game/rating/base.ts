@@ -14,7 +14,6 @@ export const getRatingValueOfBase = (opts: GetRatingValueOfSimulationOpts) => {
     basis,
     pokemon,
     subSkillMap,
-    mealMap,
     bundle,
   } = opts;
 
@@ -33,8 +32,8 @@ export const getRatingValueOfBase = (opts: GetRatingValueOfSimulationOpts) => {
       evolutionCount: getEvolutionCountFromPokemonInfo({pokemon}),
       ...singleParams,
       ...toTranslatedSettings({
+        ...opts,
         ...bundle,
-        mealMap,
         recoveryRate: toRecoveryRate(singleParams),
       }),
       calcBehavior: getRatingProducingRateCalcBehavior(basis),

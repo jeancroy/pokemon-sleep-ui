@@ -22,7 +22,6 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
     pokemonList,
     pokemon,
     sleepStyleMap,
-    mealMap,
     preloaded,
   } = props;
 
@@ -42,7 +41,7 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
       server: preloaded,
       client: session?.user.preloaded,
     },
-    mealMap,
+    ...props,
   });
 
   useCalculationWorker({

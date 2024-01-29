@@ -15,7 +15,8 @@ import {getMealIngredientCount} from '@/utils/game/meal/count';
 import {isNotNullish} from '@/utils/type';
 
 
-export const MealIndexClient = ({mealMap, ingredientMap, preloaded}: MealDataProps) => {
+export const MealIndexClient = ({ingredientMap, preloaded, ...props}: MealDataProps) => {
+  const {mealMap} = props;
   const {cooking} = preloaded;
 
   const {data: session} = useSession();
@@ -24,7 +25,7 @@ export const MealIndexClient = ({mealMap, ingredientMap, preloaded}: MealDataPro
       server: preloaded,
       client: session?.user.preloaded,
     },
-    mealMap,
+    ...props,
   });
 
   const meals = Object.values(mealMap).filter(isNotNullish);

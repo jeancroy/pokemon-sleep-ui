@@ -2,9 +2,11 @@ import {SleepSessionInfo} from '@/types/game/sleep';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaEfficiency, StaminaEfficiencyCounter} from '@/types/game/stamina/efficiency';
 import {StaminaEventLog} from '@/types/game/stamina/event';
+import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getEfficiency} from '@/utils/game/stamina/efficiency';
 import {getLogsWithEfficiencyBlock} from '@/utils/game/stamina/events/block';
+import {getLogsWithCookingRecovery} from '@/utils/game/stamina/events/cooking';
 import {getLogsWithEndOfPeriodMark} from '@/utils/game/stamina/events/endOfPeriod';
 import {getLogsWithPrimarySleep} from '@/utils/game/stamina/events/primary';
 import {getLogsWithSecondarySleep} from '@/utils/game/stamina/events/secondary';
@@ -14,14 +16,29 @@ import {extractIntervalsDuringSleep} from '@/utils/game/stamina/interval';
 
 type GetStaminaEventLogOpts = {
   config: StaminaCalcConfig,
+  cookingRecoveryData: StaminaCookingRecoveryData[],
   sessionInfo: SleepSessionInfo,
   skillTriggers: StaminaSkillTriggerData[],
 };
 
-const getStaminaEventLogs = ({config, sessionInfo, skillTriggers}: GetStaminaEventLogOpts): StaminaEventLog[] => {
+const getStaminaEventLogs = ({
+  config,
+  sessionInfo,
+  cookingRecoveryData,
+  skillTriggers,
+}: GetStaminaEventLogOpts): StaminaEventLog[] => {
+  const {cookingRecovery, recoveryRate} = config;
+
   let logs = getLogsWithPrimarySleep({sessionInfo, skillTriggers, ...config});
   logs = getLogsWithSecondarySleep({sessionInfo, logs, ...config});
   logs = getLogsWithSkillRecovery({sessionInfo, logs, skillTriggers, ...config});
+  logs = getLogsWithCookingRecovery({
+    logs,
+    sessionInfo,
+    recoveryRate,
+    cookingRecoveryData,
+    cookingRecoveryConfig: cookingRecovery,
+  });
   logs = getLogsWithEndOfPeriodMark({logs});
   logs = getLogsWithEfficiencyBlock({logs});
 

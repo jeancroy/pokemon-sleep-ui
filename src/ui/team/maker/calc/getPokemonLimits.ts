@@ -36,6 +36,7 @@ export const getTeamMakerPokemonLimits = ({
   ingredientChainMap,
   mainSkillMap,
   subSkillMap,
+  cookingRecoveryData,
   input,
   settings,
   cookingSettings,
@@ -67,6 +68,7 @@ export const getTeamMakerPokemonLimits = ({
     const calculatedSettings = toCalculatedUserSettings({
       settings,
       recoveryRate: toRecoveryRate(singleParams),
+      cookingRecoveryData,
     });
 
     const calcOpts: GetPokemonProducingRateOpts = {

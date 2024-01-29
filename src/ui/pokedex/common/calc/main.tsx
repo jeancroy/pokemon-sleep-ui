@@ -29,7 +29,6 @@ export const usePokedexCalc = ({
     berryDataMap,
     ingredientMap,
     mainSkillMap,
-    mealMap,
     preloaded,
   } = opts;
 
@@ -38,7 +37,7 @@ export const usePokedexCalc = ({
       server: preloaded.bundle,
       client: session?.user.preloaded,
     },
-    mealMap,
+    ...opts,
   });
 
   const allInfoWithSortingPayload = toPokemonInfoWithSortingPayloadFromPokemonList({

@@ -12,7 +12,6 @@ import {BerryPageDataProps} from '@/ui/berry/page/type';
 
 
 export const BerryProducingRatesOfPokemon = ({
-  mealMap,
   preloaded,
   ...props
 }: BerryPageDataProps) => {
@@ -25,7 +24,7 @@ export const BerryProducingRatesOfPokemon = ({
       server: preloaded,
       client: data?.user.preloaded,
     },
-    mealMap,
+    ...props,
   });
   const [input, setInput] = React.useState<PokemonIndividualParams>(
     defaultPokemonIndividualParams,

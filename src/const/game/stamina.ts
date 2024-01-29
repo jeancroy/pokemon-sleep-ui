@@ -33,6 +33,7 @@ export const staminaEventTypeI18nId: {
   [eventType in StaminaEventType]: I18nMessageKeysOfNamespace<'UI.Stamina.EventType'>
 } = {
   skillRecovery: 'SkillRecovery',
+  cookingRecovery: 'CookingRecovery',
   efficiencyBlock: 'EfficiencyBlock',
   sleep: 'Sleep',
   wakeup: 'Wakeup',

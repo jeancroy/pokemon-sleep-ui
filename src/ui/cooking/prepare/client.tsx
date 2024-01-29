@@ -18,7 +18,10 @@ import {isNotNullish} from '@/utils/type';
 
 
 export const MealPreparerClient = (props: CookingServerDataProps) => {
-  const {mealMap, preloaded} = props;
+  const {
+    mealMap,
+    preloaded,
+  } = props;
 
   const {data: session} = useSession();
   const {translatedSettings} = useTranslatedUserSettings({
@@ -26,7 +29,7 @@ export const MealPreparerClient = (props: CookingServerDataProps) => {
       server: preloaded,
       client: session?.user.preloaded,
     },
-    mealMap,
+    ...props,
   });
   const [filter, setFilter] = React.useState<MealPreparerFilter>({
     ...generateCookingCommonFilter(preloaded.cooking),

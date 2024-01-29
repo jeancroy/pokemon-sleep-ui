@@ -5,11 +5,11 @@ import {getServerSession} from 'next-auth';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
+import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
-import {getMealMap} from '@/controller/meal';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getSnorlaxData} from '@/controller/snorlax';
@@ -34,8 +34,8 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
     mapMeta,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     pokemonMaxLevel,
+    cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(),
@@ -47,8 +47,8 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
     getFieldMetaMap(),
     getMainSkillMap(),
     getSubSkillMap(),
-    getMealMap(),
     getPokemonMaxLevelByBerry(),
+    getCookingUserSettingsRequiredData(),
   ]);
 
   const props: TeamAnalysisServerDataProps = {
@@ -61,9 +61,9 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
     mapMeta,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     pokemonMaxLevel,
     preloaded: createUserSettingsBundle(session),
+    ...cookingUserSettingsRequiredData,
   };
 
   return (

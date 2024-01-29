@@ -16,7 +16,7 @@ import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
 
 export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
-  const {subSkillMap} = props;
+  const {subSkillMap, cookingRecoveryData} = props;
 
   const {state, setConfig, setSkillTrigger, setNature, setSubSkill} = useStaminaAnalysis(props);
   const {config, skillTrigger, subSkill, nature} = state;
@@ -28,6 +28,7 @@ export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
       session: sleepSession,
       recoveryRate,
     }),
+    cookingRecoveryData,
     skillTriggers: [skillTrigger],
   });
   const logs = getStaminaEventLogsFlattened(staminaEfficiency.logs);
@@ -35,6 +36,7 @@ export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
   return (
     <Flex className="gap-3 p-2">
       <StaminaConfig
+        cookingRecoveryData={cookingRecoveryData}
         config={config}
         setConfig={setConfig}
         trigger={skillTrigger}

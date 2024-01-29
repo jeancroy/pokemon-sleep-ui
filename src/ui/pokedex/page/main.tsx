@@ -9,11 +9,11 @@ import {Failed} from '@/components/icons/failed';
 import {Flex} from '@/components/layout/flex/common';
 import {authOptions} from '@/const/auth';
 import {getBerryData} from '@/controller/berry';
+import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
 import {getEventDrowsyPowerMultiplierData} from '@/controller/event/drowsyPowerMultiplier';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
-import {getMealMap} from '@/controller/meal';
 import {getAssociatedPokemonBranchData} from '@/controller/pokemon/branch';
 import {getPokedexMap, getSinglePokemonInfo} from '@/controller/pokemon/info';
 import {getSinglePokemonProducingParams} from '@/controller/pokemon/producing';
@@ -55,8 +55,8 @@ export const Pokemon = async ({params}: Props) => {
     mainSkillMap,
     subSkillMap,
     snorlaxDataMap,
-    mealMap,
     eventDrowsyPowerMultiplierData,
+    cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(getRelatedPokemonIds({pokemon, branchData: pokemonBranch})),
@@ -69,8 +69,8 @@ export const Pokemon = async ({params}: Props) => {
     getMainSkillMap(),
     getSubSkillMap(),
     getSnorlaxDataMap(),
-    getMealMap(),
     getEventDrowsyPowerMultiplierData(),
+    getCookingUserSettingsRequiredData(),
   ]);
 
   if (!berryData) {
@@ -90,9 +90,9 @@ export const Pokemon = async ({params}: Props) => {
     mainSkillMap,
     subSkillMap,
     snorlaxDataMap,
-    mealMap,
     eventDrowsyPowerMultiplierData,
     preloaded: createUserSettingsBundle(session),
+    ...cookingUserSettingsRequiredData,
   };
 
   return (

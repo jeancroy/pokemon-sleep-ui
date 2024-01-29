@@ -7,11 +7,11 @@ import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
+import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
-import {getMealMap} from '@/controller/meal';
 import {getPokemonList} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getSleepStyleNormalMap} from '@/controller/sleepStyle';
@@ -38,9 +38,9 @@ export const AnalysisPage = async ({params}: Props) => {
     mainSkillMap,
     subSkillMap,
     sleepStyleMap,
-    mealMap,
     mapMeta,
     pokemonMaxLevel,
+    cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokemonList(),
@@ -51,9 +51,9 @@ export const AnalysisPage = async ({params}: Props) => {
     getMainSkillMap(),
     getSubSkillMap(),
     getSleepStyleNormalMap(),
-    getMealMap(),
     getFieldMetaMap(),
     getPokemonMaxLevelByBerry(),
+    getCookingUserSettingsRequiredData(),
   ]);
 
   const pokemon = pokemonList.find((pokemon) => pokemon.id === Number(id));
@@ -73,9 +73,9 @@ export const AnalysisPage = async ({params}: Props) => {
     berryDataMap,
     sleepStyleMap,
     mapMeta,
-    mealMap,
     pokemonMaxLevel,
     preloaded: createUserSettingsBundle(session),
+    ...cookingUserSettingsRequiredData,
   };
 
   return (

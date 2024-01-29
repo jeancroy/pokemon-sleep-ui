@@ -74,12 +74,12 @@ export const userSettingsMigrators: Migrator<UserSettings, UserSettingsMigratePa
   },
   {
     toVersion: 8,
-    // Added `cookRecovery` in stamina config
+    // Added `cookingRecovery` in stamina config
     migrate: ({stamina, ...old}) => ({
       ...old,
       stamina: {
         ...stamina,
-        cookRecovery: defaultCookingRecovery,
+        cookingRecovery: defaultCookingRecovery,
       },
     }),
   },

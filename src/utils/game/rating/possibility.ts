@@ -20,7 +20,6 @@ export const getRatingValueOfPossibility = ({combination, ...opts}: GetRatingVal
     level,
     basis,
     subSkillMap,
-    mealMap,
     bundle,
   } = opts;
   const {nature, subSkill, ingredients} = combination;
@@ -39,8 +38,8 @@ export const getRatingValueOfPossibility = ({combination, ...opts}: GetRatingVal
       ingredients,
       ...singleParams,
       ...toTranslatedSettings({
+        ...opts,
         ...bundle,
-        mealMap,
         recoveryRate: toRecoveryRate(singleParams),
       }),
       calcBehavior: getRatingProducingRateCalcBehavior(basis),

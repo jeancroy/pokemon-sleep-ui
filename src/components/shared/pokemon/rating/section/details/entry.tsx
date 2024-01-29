@@ -31,6 +31,7 @@ export const RatingDetailsEntry = ({
   mainSkillMap,
   subSkillMap,
   mealMap,
+  cookingRecoveryData,
   request,
   level,
   result,
@@ -54,6 +55,7 @@ export const RatingDetailsEntry = ({
       mainSkillMap,
       subSkillMap,
       mealMap,
+      cookingRecoveryData,
       useNestedWorker: true,
     },
   });

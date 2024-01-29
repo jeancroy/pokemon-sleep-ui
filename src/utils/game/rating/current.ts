@@ -10,7 +10,6 @@ import {toTranslatedSettings} from '@/utils/user/settings/translated';
 export const getRatingValueOfCurrent = (opts: GetRatingValueOfSimulationOpts) => {
   const {
     basis,
-    mealMap,
     bundle,
   } = opts;
 
@@ -22,8 +21,8 @@ export const getRatingValueOfCurrent = (opts: GetRatingValueOfSimulationOpts) =>
       ...opts,
       ...singleParams,
       ...toTranslatedSettings({
+        ...opts,
         ...bundle,
-        mealMap,
         recoveryRate: toRecoveryRate(singleParams),
       }),
       calcBehavior: getRatingProducingRateCalcBehavior(basis),

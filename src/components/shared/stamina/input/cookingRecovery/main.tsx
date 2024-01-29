@@ -11,11 +11,11 @@ import {mealOfDayIcon} from '@/const/game/cooking';
 import {userCookingMeals} from '@/types/userData/cooking';
 
 
-export const StaminaConfigCookRecovery = ({config, setConfig}: StaminaConfigProps) => {
-  const {cookRecovery} = config;
+export const StaminaConfigCookingRecovery = ({config, setConfig}: StaminaConfigProps) => {
+  const {cookingRecovery} = config;
 
   const t = useTranslations('UI.Stamina');
-  const title = t('CookRecovery.Name');
+  const title = t('CookingRecovery.Name');
 
   return (
     <Flex className={staminaConfigSectionStyling}>
@@ -27,11 +27,11 @@ export const StaminaConfigCookRecovery = ({config, setConfig}: StaminaConfigProp
         {userCookingMeals.map((userCookingMeal) => (
           <StaminaConfigTimeInput
             key={userCookingMeal}
-            timeValue={cookRecovery[userCookingMeal]}
+            timeValue={cookingRecovery[userCookingMeal]}
             onUpdate={(time) => setConfig({
               ...config,
-              cookRecovery: {
-                ...config.cookRecovery,
+              cookingRecovery: {
+                ...config.cookingRecovery,
                 [userCookingMeal]: time,
               },
             })}

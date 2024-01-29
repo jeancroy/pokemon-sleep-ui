@@ -18,7 +18,6 @@ import {PokemonDataCommonProps, PokemonDataProps} from '@/ui/pokedex/page/type';
 export const PokemonClient = (props: PokemonDataProps) => {
   const {
     pokemonBranch,
-    mealMap,
     preloaded,
   } = props;
 
@@ -29,7 +28,7 @@ export const PokemonClient = (props: PokemonDataProps) => {
       server: preloaded,
       client: data?.user.preloaded,
     },
-    mealMap,
+    ...props,
   });
 
   const commonProps: PokemonDataCommonProps = {

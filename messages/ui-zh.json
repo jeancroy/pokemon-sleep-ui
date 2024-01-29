@@ -554,11 +554,12 @@
       "Amount": "單次回復量",
       "DailyCount": "每日回復次數"
     },
-    "CookRecovery": {
-      "Name": "煮飯時間"
+    "CookingRecovery": {
+      "Name": "料理時間"
     },
     "EventType": {
       "SkillRecovery": "技能回復",
+      "CookingRecovery": "料理回復",
       "EfficiencyBlock": "效率變更",
       "Sleep": "睡覺",
       "Wakeup": "起床",

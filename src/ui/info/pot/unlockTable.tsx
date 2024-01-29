@@ -16,7 +16,7 @@ type Props = Omit<PotInfoDataProps, 'meals'> & {
   validMeals: Meal[],
 };
 
-export const PotRecipeUnlockTable = ({mealMap, filter, validMeals, ...props}: Props) => {
+export const PotRecipeUnlockTable = ({filter, validMeals, ...props}: Props) => {
   const {preloaded} = props;
   const {capacity, showEmpty} = filter;
 
@@ -26,7 +26,7 @@ export const PotRecipeUnlockTable = ({mealMap, filter, validMeals, ...props}: Pr
       server: preloaded,
       client: session?.user.preloaded,
     },
-    mealMap,
+    ...props,
   });
 
   const sortedMeals = validMeals.sort((a, b) => {

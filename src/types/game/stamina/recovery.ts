@@ -1,3 +1,4 @@
+import {Interval} from '@/types/compute';
 import {UserCookingMeal} from '@/types/userData/cooking';
 
 
@@ -12,3 +13,9 @@ export type StaminaRecoveryRateConfig = {
 };
 
 export type StaminaCookingRecoveryConfig = {[mealOfDay in UserCookingMeal]: number};
+
+export type StaminaCookingRecoveryData = {
+  internalId: number,
+  staminaRange: Interval,
+  recovery: number,
+};

@@ -13,7 +13,7 @@ import {MealCommonProps, MealServerDataProps} from '@/ui/meal/page/type';
 
 
 export const MealClient = (props: MealServerDataProps) => {
-  const {preloaded, mealMap} = props;
+  const {preloaded} = props;
 
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
@@ -22,12 +22,12 @@ export const MealClient = (props: MealServerDataProps) => {
       server: preloaded,
       client: data?.user.preloaded,
     },
-    mealMap,
+    ...props,
   });
 
   const commonProps: MealCommonProps = {
-    ...props,
     translatedSettings,
+    ...props,
   };
 
   return (

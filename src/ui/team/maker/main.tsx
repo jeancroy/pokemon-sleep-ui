@@ -6,11 +6,11 @@ import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
+import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
-import {getMealMap} from '@/controller/meal';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getSnorlaxData} from '@/controller/snorlax';
@@ -38,10 +38,10 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     ingredientMap,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     mapMeta,
     snorlaxData,
     pokemonMaxLevel,
+    cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getPokedexMap(),
     getPokemonProducingParamsMap(),
@@ -50,10 +50,10 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     getIngredientMap(),
     getMainSkillMap(),
     getSubSkillMap(),
-    getMealMap(),
     getFieldMetaMap(),
     getSnorlaxData(),
     getPokemonMaxLevelByBerry(),
+    getCookingUserSettingsRequiredData(),
   ]);
 
   const props: TeamMakerServerDataProps = {
@@ -64,11 +64,11 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     ingredientMap,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     mapMeta,
     snorlaxData,
     pokemonMaxLevel,
     preloaded: createUserSettingsBundle(session),
+    ...cookingUserSettingsRequiredData,
   };
 
   return (

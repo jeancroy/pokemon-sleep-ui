@@ -35,7 +35,7 @@ export const defaultStaminaCalcConfig: StaminaCalcConfig = {
       end: 52200, // 14:30 (1.5 hrs)
     },
   },
-  cookRecovery: defaultCookingRecovery,
+  cookingRecovery: defaultCookingRecovery,
   skillRecovery: {
     strategy: 'optimistic',
   },

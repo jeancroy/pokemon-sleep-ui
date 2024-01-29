@@ -5,11 +5,11 @@ import {getServerSession} from 'next-auth';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
+import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
-import {getMealMap} from '@/controller/meal';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getSubSkillMap} from '@/controller/subSkill';
@@ -30,9 +30,9 @@ const Pokebox = async () => {
     ingredientMap,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     mapMeta,
     pokemonMaxLevel,
+    cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(),
@@ -42,9 +42,9 @@ const Pokebox = async () => {
     getIngredientMap(),
     getMainSkillMap(),
     getSubSkillMap(),
-    getMealMap(),
     getFieldMetaMap(),
     getPokemonMaxLevelByBerry(),
+    getCookingUserSettingsRequiredData(),
   ]);
 
   const props: PokeboxCommonProps = {
@@ -55,13 +55,13 @@ const Pokebox = async () => {
     ingredientMap,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     mapMeta,
     preloaded: {
       bundle: createUserSettingsBundle(session),
       display: session?.user.preloaded.pokeboxDisplay,
     },
     pokemonMaxLevel,
+    ...cookingUserSettingsRequiredData,
   };
 
   return <PokeboxClient {...props}/>;

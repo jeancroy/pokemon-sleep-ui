@@ -4,6 +4,7 @@ import {defaultProducingParams} from '@/const/game/production';
 import {defaultSeedUsage} from '@/const/game/seed';
 import {defaultUserSettingsBundle} from '@/const/user/bundle';
 import {testBerryDataMap} from '@/tests/data/game/berry';
+import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {testIngredientChainMap} from '@/tests/data/game/ingredient/chain';
 import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testIngredientProductionAtLevels} from '@/tests/data/game/ingredient/productionAtLevel';
@@ -37,6 +38,7 @@ describe('Rating / Calculate', () => {
       mainSkillMap: testMainSkillMap,
       subSkillMap: {},
       mealMap: testMealData,
+      cookingRecoveryData: testCookingRecoveryData,
       basis: 'totalProduction',
       friendshipLevel: 0,
       bundle: defaultUserSettingsBundle,
@@ -68,6 +70,7 @@ describe('Rating / Calculate', () => {
       mainSkillMap: testMainSkillMap,
       subSkillMap: testSubSkillMap,
       mealMap: testMealData,
+      cookingRecoveryData: testCookingRecoveryData,
       basis: 'totalProduction',
       friendshipLevel: 0,
       bundle: defaultUserSettingsBundle,
@@ -99,6 +102,7 @@ describe('Rating / Calculate', () => {
       mainSkillMap: testMainSkillMap,
       subSkillMap: testSubSkillMap,
       mealMap: testMealData,
+      cookingRecoveryData: testCookingRecoveryData,
       basis: 'totalProduction',
       friendshipLevel: 0,
       bundle: defaultUserSettingsBundle,

@@ -25,6 +25,7 @@ export const getSkillTriggerValueOfUnit = ({
   mainSkillMap,
   subSkillMap,
   mealMap,
+  cookingRecoveryData,
   bundle,
   id,
   unit,
@@ -64,6 +65,7 @@ export const getSkillTriggerValueOfUnit = ({
     calculatedSettings: toCalculatedUserSettings({
       ...bundle,
       recoveryRate: toRecoveryRate(singleParams),
+      cookingRecoveryData,
     }),
     cookingSettings: toCookingUserSettings({
       ...bundle,

@@ -7,11 +7,11 @@ import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {authOptions} from '@/const/auth';
 import {getBerryData, getBerryDataMap} from '@/controller/berry';
+import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFavoriteInfoOfBerry} from '@/controller/mapMeta';
-import {getMealMap} from '@/controller/meal';
 import {getPokedexMap, getPokemonByBerry} from '@/controller/pokemon/info';
 import {getPokemonIngredientProductionByBerry} from '@/controller/pokemon/ingredient';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
@@ -40,10 +40,10 @@ export const BerryPage = async ({params}: Props) => {
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     pokemonOfBerry,
     berryData,
     favoriteInfo,
+    cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(),
@@ -54,10 +54,10 @@ export const BerryPage = async ({params}: Props) => {
     getIngredientChainMap(),
     getMainSkillMap(),
     getSubSkillMap(),
-    getMealMap(),
     getPokemonByBerry(idNumber),
     getBerryData(idNumber),
     getFavoriteInfoOfBerry(idNumber),
+    getCookingUserSettingsRequiredData(),
   ]);
 
   if (!berryData) {
@@ -73,11 +73,11 @@ export const BerryPage = async ({params}: Props) => {
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
-    mealMap,
     pokemonOfBerry,
     berryData,
     favoriteInfo,
     preloaded: createUserSettingsBundle(session),
+    ...cookingUserSettingsRequiredData,
   };
 
   return (

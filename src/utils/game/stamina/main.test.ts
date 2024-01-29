@@ -1,5 +1,7 @@
 import {describe, expect, it} from '@jest/globals';
 
+import {defaultCookingRecovery} from '@/const/user/settings';
+import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
@@ -19,6 +21,7 @@ describe('Stamina Efficiency / From Config', () => {
           end: 64800, // 18:00
         },
       },
+      cookingRecovery: defaultCookingRecovery,
       skillRecovery: {
         strategy: 'conservative',
       },
@@ -35,12 +38,17 @@ describe('Stamina Efficiency / From Config', () => {
       {dailyCount: 3, amount: 18},
     ];
 
-    const {multiplier} = getStaminaEfficiency({config, sessionInfo, skillTriggers});
+    const {multiplier} = getStaminaEfficiency({
+      config,
+      sessionInfo,
+      skillTriggers,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
 
     // The expected value is just for checking if the calculation outcome somehow changes
     // Therefore if the test fails, once confirmed expected, then the expected value is good to update
     // > Actual test for multiplier calculation at below
-    expect(multiplier.average).toBeCloseTo(1.811962);
+    expect(multiplier.average).toBeCloseTo(1.867862);
   });
 
   it('is correct with multiple skill triggers', () => {
@@ -55,6 +63,7 @@ describe('Stamina Efficiency / From Config', () => {
           end: 52200, // 14:30
         },
       },
+      cookingRecovery: defaultCookingRecovery,
       skillRecovery: {
         strategy: 'conservative',
       },
@@ -72,12 +81,17 @@ describe('Stamina Efficiency / From Config', () => {
       {dailyCount: 2, amount: 9},
     ];
 
-    const {multiplier} = getStaminaEfficiency({config, sessionInfo, skillTriggers});
+    const {multiplier} = getStaminaEfficiency({
+      config,
+      sessionInfo,
+      skillTriggers,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
 
     // The expected value is just for checking if the calculation outcome somehow changes
     // Therefore if the test fails, once confirmed expected, then the expected value is good to update
     // > Actual test for multiplier calculation at below
-    expect(multiplier.average).toBeCloseTo(1.551284);
+    expect(multiplier.average).toBeCloseTo(1.639235);
   });
 });
 

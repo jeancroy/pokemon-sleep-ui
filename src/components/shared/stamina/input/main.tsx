@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
-import {StaminaConfigCookRecovery} from '@/components/shared/stamina/input/cookRecovery/main';
+import {StaminaConfigCookingRecovery} from '@/components/shared/stamina/input/cookingRecovery/main';
 import {StaminaConfigSkillRecovery} from '@/components/shared/stamina/input/skillRecovery/main';
 import {StaminaConfigSleepSchedule} from '@/components/shared/stamina/input/sleep/main';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
@@ -14,7 +14,7 @@ export const StaminaConfig = (props: StaminaConfigProps) => {
         <StaminaConfigSleepSchedule {...props}/>
         <StaminaConfigSkillRecovery {...props}/>
       </Flex>
-      <StaminaConfigCookRecovery {...props}/>
+      <StaminaConfigCookingRecovery {...props}/>
     </Flex>
   );
 };
