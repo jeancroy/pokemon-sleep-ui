@@ -3,6 +3,7 @@ import React from 'react';
 import ArrowPathIcon from '@heroicons/react/24/outline/ArrowPathIcon';
 import {useTranslations} from 'next-intl';
 
+import {AdsUnit} from '@/components/ads/main';
 import {InputBox} from '@/components/input/box';
 import {InputRowWithTitle} from '@/components/input/filter/rowWithTitle';
 import {Flex} from '@/components/layout/flex/common';
@@ -40,6 +41,7 @@ export const PokemonExpCalculatorInputUI = ({
 
   return (
     <Flex className="info-section">
+      <AdsUnit hideIfNotBlocked/>
       <PokemonClickableIcons
         pokemonList={Object
           .values(pokedexMap)

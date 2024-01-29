@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 
+import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
@@ -28,6 +29,7 @@ export const ProducingParamsClient = (props: ProducingParamsDataProps) => {
         setFilter={setFilter}
         {...props}
       />
+      <AdsUnit hideIfNotBlocked/>
       <Grid className="grid-cols-1 gap-1.5 text-sm sm:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-4">
         {pokemonResult.map(({pokemonInfo, params, show}) => ((
           <ProducingParamsSingle

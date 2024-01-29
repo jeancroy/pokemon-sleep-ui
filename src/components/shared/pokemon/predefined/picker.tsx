@@ -3,6 +3,7 @@ import React from 'react';
 import InboxArrowDownIcon from '@heroicons/react/24/outline/InboxArrowDownIcon';
 import {useTranslations} from 'next-intl';
 
+import {AdsUnit} from '@/components/ads/main';
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {CollapsibleState} from '@/components/layout/collapsible/type';
@@ -39,6 +40,7 @@ export const PokemonCollapsiblePicker = ({
         <InboxArrowDownIcon className="size-6"/>
       </Flex>
     }>
+      <AdsUnit hideIfNotBlocked/>
       <PokemonClickableIcons pokemonList={pokemonList.filter(({id}) => isIncluded[id])} onClick={(pokemon) => {
         const {id} = pokemon;
 

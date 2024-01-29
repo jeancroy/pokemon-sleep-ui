@@ -36,6 +36,7 @@ export const TeamAnalysisLoadedClient = (props: Props) => {
         setSetup={setSetup}
         {...props}
       />
+      <AdsUnit hideIfNotBlocked/>
       <TeamAnalysisSetupView
         setup={setup}
         setSetup={setSetup}

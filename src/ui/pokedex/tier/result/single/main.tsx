@@ -57,6 +57,7 @@ export const PokedexTierListSingle = ({onPokemonClicked, ...props}: Props) => {
       classBorder={pokedexTierBorderStyling[tier]}
     >
       <Flex className="gap-1">
+        <AdsUnit hideIfNotBlocked/>
         <Flex direction="row" center wrap className="gap-1 p-2" noFullWidth>
           {bucket.map((entry) => {
             const {source} = entry;

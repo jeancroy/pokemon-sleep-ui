@@ -77,6 +77,7 @@ export const PokedexClient = (props: PokedexDataProps) => {
         total={count.total}
         className="self-end"
       />
+      <AdsUnit hideIfNotBlocked/>
       <LazyLoad loading={loading}>
         <Grid className={clsx(
           filter.display === 'mainSkill' ?

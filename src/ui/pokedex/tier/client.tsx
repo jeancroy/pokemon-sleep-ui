@@ -54,6 +54,7 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
         {...props}
       />
       <CompletionResultUI completed={count.selected} total={count.total} className="self-end"/>
+      <AdsUnit hideIfNotBlocked/>
       <LazyLoad loading={loading}>
         <PokedexTierListResult input={input} sortedData={result}/>
       </LazyLoad>

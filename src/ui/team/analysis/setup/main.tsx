@@ -91,6 +91,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
       />
       <AdsUnit/>
       <PokemonGroupedProduction grouped={statsOfTeam.grouped}/>
+      <AdsUnit hideIfNotBlocked/>
       <MealCoverageTargetComboCollapsible
         mealMap={mealMap}
         ingredientProduction={Object.fromEntries(
