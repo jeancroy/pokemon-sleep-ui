@@ -3,6 +3,7 @@ import {Options as ReactMarkdownOptions} from 'react-markdown';
 import {AdsUnit} from '@/components/ads/main';
 import {MarkdownCalloutAlert} from '@/components/shared/docs/view/directive/callout/alert';
 import {MarkdownCalloutInfo} from '@/components/shared/docs/view/directive/callout/info';
+import {MarkdownCalloutSection} from '@/components/shared/docs/view/directive/callout/section';
 import {MarkdownCalloutWarning} from '@/components/shared/docs/view/directive/callout/warning';
 
 
@@ -12,5 +13,6 @@ export const remarkDirectiveComponents: ReactMarkdownOptions['components'] = {
   info: MarkdownCalloutInfo,
   warning: MarkdownCalloutWarning,
   alert: MarkdownCalloutAlert,
+  section: MarkdownCalloutSection,
   ads: AdsUnit,
 };
