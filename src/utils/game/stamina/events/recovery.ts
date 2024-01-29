@@ -1,19 +1,25 @@
 import {staminaAbsoluteMax} from '@/const/game/stamina';
 import {StaminaAtEvent, StaminaEventLog, StaminaEventType} from '@/types/game/stamina/event';
-import {StaminaRecovery} from '@/types/game/stamina/recovery';
+import {StaminaRecovery, StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
-import {offsetEventLogStamina, updateLogStaminaFromLast} from '@/utils/game/stamina/events/utils';
+import {
+  getActualRecoveryAmount,
+  offsetEventLogStamina,
+  updateLogStaminaFromLast,
+} from '@/utils/game/stamina/events/utils';
 
 
 type GetLogsWithStaminaRecoveryOpts = {
   logs: StaminaEventLog[],
   recoveries: StaminaRecovery[],
+  recoveryRate: StaminaRecoveryRateConfig,
   recoveryEventType: StaminaEventType,
 };
 
 export const getLogsWithStaminaRecovery = ({
   logs,
   recoveries,
+  recoveryRate,
   recoveryEventType,
 }: GetLogsWithStaminaRecoveryOpts): StaminaEventLog[] => {
   const newLogs: StaminaEventLog[] = [logs[0]];
@@ -31,7 +37,11 @@ export const getLogsWithStaminaRecovery = ({
         duration: recoveryData.timing - latest.timing,
       });
 
-      const currentRecoveryAmount = recoveryData.getAmount(staminaBefore.inGame);
+      const currentRecoveryAmount = getActualRecoveryAmount({
+        amount: recoveryData.getBaseAmount(staminaBefore.inGame),
+        recoveryRate,
+        isSleep: false,
+      });
       const staminaUpdated: StaminaAtEvent = {
         before: staminaBefore.inGame,
         after: Math.min(staminaBefore.inGame + currentRecoveryAmount, staminaAbsoluteMax),

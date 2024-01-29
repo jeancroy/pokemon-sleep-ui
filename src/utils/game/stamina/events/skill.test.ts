@@ -20,16 +20,12 @@ describe('Stamina / Skill Recovery Data Generation', () => {
       },
       secondarySession: null,
       awakeDuration: 60000,
-      recoveryRate: {
-        general: 1,
-        sleep: 1,
-      },
     });
 
     expect(recoveryData[0].timing).toBe(20000);
-    expect(recoveryData[0].getAmount()).toBe(14);
+    expect(recoveryData[0].getBaseAmount()).toBe(13.5);
     expect(recoveryData[1].timing).toBe(40000);
-    expect(recoveryData[1].getAmount()).toBe(9);
+    expect(recoveryData[1].getBaseAmount()).toBe(9);
     expect(recoveryData.length).toBe(2);
   });
 
@@ -44,14 +40,10 @@ describe('Stamina / Skill Recovery Data Generation', () => {
       },
       secondarySession: null,
       awakeDuration: 60000,
-      recoveryRate: {
-        general: 1,
-        sleep: 1,
-      },
     });
 
     expect(recoveryData[0].timing).toBe(30000);
-    expect(recoveryData[0].getAmount()).toBe(5);
+    expect(recoveryData[0].getBaseAmount()).toBe(4.5);
     expect(recoveryData.length).toBe(1);
   });
 
@@ -66,43 +58,15 @@ describe('Stamina / Skill Recovery Data Generation', () => {
       },
       secondarySession: null,
       awakeDuration: 60000,
-      recoveryRate: {
-        general: 1,
-        sleep: 1,
-      },
     });
 
     expect(recoveryData[0].timing).toBe(15000);
-    expect(recoveryData[0].getAmount()).toBe(9);
+    expect(recoveryData[0].getBaseAmount()).toBe(9);
     expect(recoveryData[1].timing).toBe(30000);
-    expect(recoveryData[1].getAmount()).toBe(9);
+    expect(recoveryData[1].getBaseAmount()).toBe(9);
     expect(recoveryData[2].timing).toBe(45000);
-    expect(recoveryData[2].getAmount()).toBe(9);
+    expect(recoveryData[2].getBaseAmount()).toBe(9);
     expect(recoveryData.length).toBe(3);
-  });
-
-  it('is correct with floating number trigger count and non-1 recovery rate', () => {
-    const recoveryData = getSkillStaminaRecovery({
-      skillRecovery: {
-        strategy: 'conservative',
-      },
-      skillTrigger: {
-        dailyCount: 2.5,
-        amount: 9,
-      },
-      secondarySession: null,
-      awakeDuration: 60000,
-      recoveryRate: {
-        general: 1.2,
-        sleep: 1,
-      },
-    });
-
-    expect(recoveryData[0].timing).toBe(20000);
-    expect(recoveryData[0].getAmount()).toBe(17);
-    expect(recoveryData[1].timing).toBe(40000);
-    expect(recoveryData[1].getAmount()).toBe(11);
-    expect(recoveryData.length).toBe(2);
   });
 });
 
