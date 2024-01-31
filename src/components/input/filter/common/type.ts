@@ -16,6 +16,7 @@ export type FilterToggleButtonsProps<TId extends IndexableNonSymbol | null> = Fi
   isHidden?: (id: TId) => boolean,
   idToButton: (id: TId, isActive: boolean) => React.ReactNode,
   noWrap?: boolean,
+  disabled?: boolean,
   className?: string,
 };
 

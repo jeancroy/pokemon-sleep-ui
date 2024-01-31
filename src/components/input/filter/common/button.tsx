@@ -13,6 +13,7 @@ export const FilterToggleButtons = <TId extends IndexableNonSymbol | null>({
   isHidden = () => false,
   idToButton,
   noWrap,
+  disabled,
   className,
 }: FilterToggleButtonsProps<TId>) => {
   return (
@@ -26,6 +27,7 @@ export const FilterToggleButtons = <TId extends IndexableNonSymbol | null>({
             active={active}
             onClick={() => onClick(id)}
             className={className}
+            disabled={disabled}
           >
             {idToButton(id, active)}
           </ToggleButton>
