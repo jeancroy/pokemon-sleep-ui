@@ -430,8 +430,15 @@
   
   /* region Toggle button styling (button-toggle-*) */
   
+  .button-toggle-base {
+    @apply transform-smooth disabled:opacity-75;
+  }
+  
   .button-toggle-inactive-hover {
-    @apply hover:bg-slate-400 dark:hover:bg-slate-500 hover:text-slate-900 dark:hover:text-slate-100;
+    @apply
+      enabled:hover:bg-slate-400 enabled:dark:hover:bg-slate-500
+      enabled:hover:text-slate-900 enabled:dark:hover:text-slate-100
+    ;
   }
   
   .button-toggle-inactive-bg {
@@ -439,11 +446,14 @@
   }
   
   .button-toggle-inactive {
-    @apply button-toggle-inactive-hover button-toggle-inactive-bg;
+    @apply button-toggle-base button-toggle-inactive-hover button-toggle-inactive-bg;
   }
   
   .button-toggle-active-hover {
-    @apply hover:bg-slate-500 dark:hover:bg-slate-400 hover:text-slate-100 dark:hover:text-slate-800;
+    @apply
+      enabled:hover:bg-slate-500 enabled:dark:hover:bg-slate-400
+      enabled:hover:text-slate-100 enabled:dark:hover:text-slate-800
+    ;
   }
   
   .button-toggle-active-bg {
@@ -451,7 +461,7 @@
   }
   
   .button-toggle-active {
-    @apply button-toggle-active-hover button-toggle-active-bg;
+    @apply button-toggle-base button-toggle-active-hover button-toggle-active-bg;
   }
   
   /* endregion */
