@@ -2,6 +2,7 @@ import React from 'react';
 
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
+import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {UserSettingsBundle} from '@/types/userData/settings';
 import {defaultTeamMakerMaxResultCount} from '@/ui/team/maker/const';
 import {enforceTeamMakerInput} from '@/ui/team/maker/input/utils';
@@ -15,7 +16,7 @@ type UseTeamMakerInputOpts = {
 export const useTeamMakerInput = ({preloaded}: UseTeamMakerInputOpts) => {
   const [input, setInput] = React.useState<TeamMakerInput>({
     source: 'pokebox',
-    snorlaxFavorite: {},
+    snorlaxFavorite: defaultSnorlaxFavorite,
     pokemon: generatePokemonInputFilter({
       isLevelAgnostic: false,
       defaultPokemonLevel: 1,

@@ -31,4 +31,15 @@ export const teamAnalysisCompMigrators: Migrator<TeamAnalysisComp, TeamAnalysisC
       })) as TeamAnalysisComp['members'],
     }),
   },
+  {
+    // Updated `SnorlaxFavorite` typing
+    toVersion: 4,
+    migrate: ({snorlaxFavorite, ...old}) => ({
+      ...old,
+      snorlaxFavorite: {
+        mapId: null,
+        berry: snorlaxFavorite,
+      },
+    }),
+  },
 ];

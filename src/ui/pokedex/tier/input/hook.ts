@@ -2,6 +2,7 @@ import {useFilterInput} from '@/components/input/filter/hook';
 import {isFilterIncludingSome, isFilterMismatchOnSingle} from '@/components/input/filter/utils/match';
 import {enforceFilterWithSkillValue} from '@/components/shared/pokemon/sorter/enforcer/skillValue';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
+import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {initialPokedexTierListInputSortDisplay} from '@/ui/pokedex/tier/input/const';
@@ -25,7 +26,7 @@ export const usePokedexTierListInput = (opts: UsePokedexTierListInputOpts): Poke
       filter: {
         ingredient: {},
         mainSkill: {},
-        snorlaxFavorite: {},
+        snorlaxFavorite: defaultSnorlaxFavorite,
         sort: initialPokedexTierListInputSortDisplay,
         display: initialPokedexTierListInputSortDisplay,
         ...defaultPokemonIndividualParams,

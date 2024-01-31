@@ -1,3 +1,4 @@
+import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {GetSkillTriggerValueCommonOpts} from '@/ui/team/mainskill/calc/type';
 import {SkillTriggerAnalysisCalcResult, SkillTriggerAnalysisCalculatedUnit} from '@/ui/team/mainskill/targets/type';
 import {SkillTriggerAnalysisUnit} from '@/ui/team/mainskill/type';
@@ -72,7 +73,7 @@ export const getSkillTriggerValueOfUnit = ({
       mealMap,
     }),
     pokemon,
-    snorlaxFavorite: {},
+    snorlaxFavorite: defaultSnorlaxFavorite,
     berryData: berryDataMap[berry.id],
     ingredientMap,
     skillData: mainSkillMap[skill],

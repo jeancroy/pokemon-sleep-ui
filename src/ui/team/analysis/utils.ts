@@ -1,3 +1,4 @@
+import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {TeamAnalysisComp, TeamAnalysisMember, TeamAnalysisSetup, TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';
 
@@ -44,7 +45,7 @@ export const generateEmptyTeam = (uuid: string): TeamAnalysisComp => {
     version: teamAnalysisCompMigrators.length,
     uuid,
     name: getDefaultTeamName(uuid),
-    snorlaxFavorite: {},
+    snorlaxFavorite: defaultSnorlaxFavorite,
     analysisPeriod: 'daily',
     staminaConfig: null,
     members: {

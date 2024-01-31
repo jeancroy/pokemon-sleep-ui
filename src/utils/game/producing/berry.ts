@@ -28,7 +28,7 @@ export const getBerryProducingRate = ({
   const {bonus} = calculatedSettings;
   const {mapMultiplier} = bonus;
 
-  const isSnorlaxFavorite = snorlaxFavorite[berryData.id] ?? false;
+  const isSnorlaxFavorite = snorlaxFavorite.berry[berryData.id] ?? false;
   const data = {
     id: pokemon.berry.id,
     frequency,

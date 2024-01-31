@@ -4,6 +4,7 @@ import {durationOfDay} from '@/const/common';
 import {testBerryDataMap} from '@/tests/data/game/berry';
 import {testBonus} from '@/tests/data/game/bonus';
 import {testPokemonData} from '@/tests/data/game/pokemon';
+import {testDefaultSnorlaxFavorite} from '@/tests/data/game/snorlax';
 import {testDefaultCalculatedUserSettings} from '@/tests/data/user/settings';
 import {getBerryProducingRate} from '@/utils/game/producing/berry';
 import {getCommonEnergyMultiplier} from '@/utils/game/producing/multiplier';
@@ -22,7 +23,7 @@ describe('Pokemon Berry Production', () => {
         bonus,
       },
       energyMultiplier: getCommonEnergyMultiplier({bonus}),
-      snorlaxFavorite: {},
+      snorlaxFavorite: testDefaultSnorlaxFavorite,
       berryData: testBerryDataMap['16'],
     });
 

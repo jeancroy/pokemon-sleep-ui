@@ -1,5 +1,6 @@
 import {v4} from 'uuid';
 
+import {testDefaultSnorlaxFavorite} from '@/tests/data/game/snorlax';
 import {TeamAnalysisComp} from '@/types/teamAnalysis';
 import {getDefaultTeamName} from '@/ui/team/analysis/utils';
 import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';
@@ -22,7 +23,7 @@ export const toTeamAnalysisCompFromPokebox = ({
     version: teamAnalysisCompMigrators.length,
     uuid,
     name: name || getDefaultTeamName(uuid),
-    snorlaxFavorite: {},
+    snorlaxFavorite: testDefaultSnorlaxFavorite,
     analysisPeriod: 'daily',
     staminaConfig: null,
     members: {

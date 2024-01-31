@@ -11,6 +11,7 @@ import {testIngredientProductionAtLevels} from '@/tests/data/game/ingredient/pro
 import {testMainSkillMap} from '@/tests/data/game/mainSkill';
 import {testMealData} from '@/tests/data/game/meal';
 import {testPokemonData, testPokemonList} from '@/tests/data/game/pokemon';
+import {testDefaultSnorlaxFavorite} from '@/tests/data/game/snorlax';
 import {testSubSkillMap} from '@/tests/data/game/subSkill';
 import {calculateRatingResultOfLevel} from '@/utils/game/rating/calc/main';
 
@@ -30,7 +31,7 @@ describe('Rating / Calculate', () => {
         pokemonId: 359,
         ingredientSplit: 0.2,
       },
-      snorlaxFavorite: {},
+      snorlaxFavorite: testDefaultSnorlaxFavorite,
       subSkill: {},
       berryDataMap: testBerryDataMap,
       ingredientChainMap: testIngredientChainMap,
@@ -62,7 +63,7 @@ describe('Rating / Calculate', () => {
         pokemonId: 359,
         ingredientSplit: 0.2,
       },
-      snorlaxFavorite: {},
+      snorlaxFavorite: testDefaultSnorlaxFavorite,
       subSkill: {25: 19},
       berryDataMap: testBerryDataMap,
       ingredientChainMap: testIngredientChainMap,
@@ -94,7 +95,7 @@ describe('Rating / Calculate', () => {
         pokemonId: 359,
         ingredientSplit: 0.2,
       },
-      snorlaxFavorite: {},
+      snorlaxFavorite: testDefaultSnorlaxFavorite,
       subSkill: {25: 19},
       berryDataMap: testBerryDataMap,
       ingredientChainMap: testIngredientChainMap,

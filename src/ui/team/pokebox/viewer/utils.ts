@@ -6,6 +6,7 @@ import {
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
+import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {natureDataMap} from '@/data/nature';
 import {PokeboxDataProps} from '@/ui/team/pokebox/type';
 import {PokeboxPokemonForView, PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
@@ -20,7 +21,7 @@ export const generatePokeboxViewerFilter = (preloaded: PokeboxDataProps['preload
     defaultPokemonLevel: 1,
   }),
   name: '',
-  snorlaxFavorite: {},
+  snorlaxFavorite: defaultSnorlaxFavorite,
   subSkill: {},
   natureBuff: {},
   natureNerf: {},

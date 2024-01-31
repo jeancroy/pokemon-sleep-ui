@@ -4,9 +4,12 @@ import {SnorlaxRank} from '@/types/game/rank';
 import {SleepMapId} from '@/types/game/sleepStyle';
 
 
-export type SnorlaxFavorite = FilterInclusionMap<BerryId>;
+export type SnorlaxFavorite = {
+  mapId: null | SleepMapId,
+  berry: FilterInclusionMap<BerryId>,
+};
 
-export type FilterWithSnorlaxFavorite = Record<string, SnorlaxFavorite>;
+export type FilterWithSnorlaxFavorite<TKey extends string> = Record<TKey, SnorlaxFavorite>;
 
 export type SnorlaxDataAtRank = {
   rank: SnorlaxRank,

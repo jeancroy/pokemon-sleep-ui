@@ -16,6 +16,7 @@ import {RatingResult} from '@/components/shared/pokemon/rating/main';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {ratingBasisSpecialty} from '@/const/game/rating';
+import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {useUserSettingsBundle} from '@/hooks/userData/bundle';
 import {RatingOnDeskState, RatingRequest} from '@/types/game/pokemon/rating/request';
 import {RatingDataProps, RatingServerDataProps} from '@/ui/rating/type';
@@ -79,7 +80,7 @@ export const RatingClient = (props: RatingServerDataProps) => {
       }}
       toState={(onDeskState): RatingOnDeskState => ({
         ...onDeskState,
-        snorlaxFavorite: {},
+        snorlaxFavorite: defaultSnorlaxFavorite,
         basis: getDefaultRatingBasis(onDeskState.pokemon.specialty),
         friendshipLevel: 0,
       })}

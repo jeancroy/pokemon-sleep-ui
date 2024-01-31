@@ -13,6 +13,7 @@ import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/ic
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProducingRateSingleAtItem} from '@/components/shared/pokemon/production/single/item';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
+import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {imageIconSizes} from '@/styles/image';
 import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
@@ -85,7 +86,7 @@ export const PokemonItemStatsFromPokeboxList = ({
             pokemonId: pokemon.id,
             pokemonProducingParamsMap,
           }),
-          snorlaxFavorite: {},
+          snorlaxFavorite: defaultSnorlaxFavorite,
           ...singleParams,
           ...getProducingRateImplicitParamsFromPokeInbox({pokeInBox}),
           ...translatedSettings,
