@@ -59,7 +59,7 @@ export const getWakeupStamina = (opts: GetLogsWithPrimarySleepOpts) => {
 
   // If daily net change is positive, after infinite iterations,
   // the energy will stay at 100 after primary wakeup
-  if (dailyNetChange && dailyNetChange > 0) {
+  if (dailyNetChange && dailyNetChange >= 0) {
     return staminaMaxRecovery + initialRecovery;
   }
 
