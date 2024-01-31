@@ -1,7 +1,4 @@
-import {PokemonConfigPokemonData} from '@/components/shared/pokemon/predefined/config/type';
-import {ProductionPeriod} from '@/types/game/producing/display';
-import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {StaminaCalcConfig} from '@/types/game/stamina/config';
+import {TeamConfig, TeamMemberData} from '@/types/game/team';
 import {Migratable} from '@/types/migrate';
 
 
@@ -9,22 +6,12 @@ export const teamAnalysisSlotName = ['A', 'B', 'C', 'D', 'E'] as const;
 
 export type TeamAnalysisSlotName = typeof teamAnalysisSlotName[number];
 
-export type TeamAnalysisMember = PokemonConfigPokemonData & {
-  name?: string | null,
-  alwaysFullPack?: boolean | null,
-};
-
 export type TeamAnalysisConfig = Migratable & {
   current: string,
 };
 
-export type TeamAnalysisComp = Migratable & {
-  uuid: string,
-  name: string,
-  snorlaxFavorite: SnorlaxFavorite,
-  analysisPeriod: ProductionPeriod,
-  staminaConfig: StaminaCalcConfig | null,
-  members: {[slot in TeamAnalysisSlotName]: TeamAnalysisMember | null},
+export type TeamAnalysisComp = Migratable & TeamConfig & {
+  members: {[slot in TeamAnalysisSlotName]: TeamMemberData | null},
 };
 
 export type TeamAnalysisSetup = {

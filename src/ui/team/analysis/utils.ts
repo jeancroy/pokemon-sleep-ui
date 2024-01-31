@@ -1,5 +1,6 @@
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
-import {TeamAnalysisComp, TeamAnalysisMember, TeamAnalysisSetup, TeamAnalysisSlotName} from '@/types/teamAnalysis';
+import {TeamMemberData} from '@/types/game/team';
+import {TeamAnalysisComp, TeamAnalysisSetup, TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';
 
 
@@ -7,7 +8,7 @@ type GetCurrentTeamOpts = {
   setup: TeamAnalysisSetup,
 } & ({
   overrideSlot: TeamAnalysisSlotName,
-  overrideMember: TeamAnalysisMember | null,
+  overrideMember: TeamMemberData | null,
 } | {
   overrideSlot?: never,
   overrideMember?: never,
@@ -47,7 +48,6 @@ export const generateEmptyTeam = (uuid: string): TeamAnalysisComp => {
     name: getDefaultTeamName(uuid),
     snorlaxFavorite: defaultSnorlaxFavorite,
     analysisPeriod: 'daily',
-    staminaConfig: null,
     members: {
       A: null,
       B: null,

@@ -1,7 +1,7 @@
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
 import {SleepdexMap} from '@/types/game/sleepdex';
+import {TeamMemberData} from '@/types/game/team';
 import {ActivationInfo} from '@/types/mongo/activation';
-import {TeamAnalysisMember} from '@/types/teamAnalysis';
 import {UserDataLoadingOpts} from '@/types/userData/load';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
@@ -10,7 +10,7 @@ import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
 export type UserLazyLoadedContent = {
   // Keys has to match `UserDataLoadingOpts['type']`
   teamAnalysis: UserTeamAnalysisContent,
-  teamAnalysisMember: TeamAnalysisMember,
+  teamAnalysisMember: TeamMemberData,
   pokeboxSingle: PokeInBox,
   pokeboxSorted: PokeInBox[],
   pokeboxWithFilter: PokeInBox[],

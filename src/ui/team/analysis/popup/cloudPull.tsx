@@ -7,11 +7,11 @@ import {Flex} from '@/components/layout/flex/common';
 import {FlexForm} from '@/components/layout/flex/form';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
-import {TeamAnalysisMember} from '@/types/teamAnalysis';
+import {TeamMemberData} from '@/types/game/team';
 
 
 type Props = {
-  onCloudPulled: (member: TeamAnalysisMember) => void,
+  onCloudPulled: (member: TeamMemberData) => void,
 };
 
 export const TeamAnalysisCloudPull = ({onCloudPulled}: Props) => {

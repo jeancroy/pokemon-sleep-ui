@@ -14,33 +14,33 @@ import {DropDown} from '@/components/dropdown/main';
 import {FlexButton} from '@/components/layout/flex/button';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
 import {RatingPopupControl} from '@/components/shared/pokemon/rating/type';
+import {
+  teamMemberControlButtonStyle,
+  teamMemberIconStyle,
+} from '@/components/shared/team/member/control/const';
+import {TeamMemberPopupType, TeamMemberProps} from '@/components/shared/team/member/type';
+import {toPokeInBox, toRatingSetup} from '@/components/shared/team/member/utils';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {PremiumIcon} from '@/components/static/premium/icon';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
-import {
-  teamAnalysisPokemonControlButtonStyle,
-  teamAnalysisPokemonIconStyle,
-} from '@/ui/team/analysis/setup/pokemon/control/const';
-import {TeamAnalysisPokemonPopupType, TeamAnalysisPokemonProps} from '@/ui/team/analysis/setup/pokemon/type';
-import {toPokeInBox, toRatingSetup} from '@/ui/team/analysis/setup/pokemon/utils';
 
 
-type Props = TeamAnalysisPokemonProps & {
+type Props = TeamMemberProps & {
   ratingControl: RatingPopupControl,
-  onPopupButtonClick: (type: TeamAnalysisPokemonPopupType, requirePremium: boolean) => void,
+  onPopupButtonClick: (type: TeamMemberPopupType, requirePremium: boolean) => void,
   isPremium: boolean,
 };
 
-export const TeamAnalysisPokemonControl = ({
+export const TeamMemberControl = ({
   ratingControl,
   onPopupButtonClick,
   isPremium,
   ...props
 }: Props) => {
   const {
+    config,
     member,
     pokemon,
-    snorlaxFavorite,
     bundle,
   } = props;
 
@@ -59,7 +59,7 @@ export const TeamAnalysisPokemonControl = ({
       itemList={[
         [
           () => (
-            <FlexButton className={teamAnalysisPokemonControlButtonStyle} onClick={() => {
+            <FlexButton className={teamMemberControlButtonStyle} onClick={() => {
               if (!act) {
                 return;
               }
@@ -72,68 +72,68 @@ export const TeamAnalysisPokemonControl = ({
                 },
               });
             }}>
-              <div className={teamAnalysisPokemonIconStyle}>
+              <div className={teamMemberIconStyle}>
                 <UserActionStatusIcon status={status} onWaitingOverride={<ArrowTopRightOnSquareIcon/>}/>
               </div>
               <div>{t('Control.ExportToPokebox')}</div>
             </FlexButton>
           ),
           () => (
-            <FlexButton className={teamAnalysisPokemonControlButtonStyle} onClick={() => onPopupButtonClick(
+            <FlexButton className={teamMemberControlButtonStyle} onClick={() => onPopupButtonClick(
               'sharableLink', false,
             )}>
-              <ShareIcon className={teamAnalysisPokemonIconStyle}/>
+              <ShareIcon className={teamMemberIconStyle}/>
               <div>{t('Control.ShareableLink')}</div>
             </FlexButton>
           ),
         ],
         [
           () => (
-            <FlexButton className={teamAnalysisPokemonControlButtonStyle}
+            <FlexButton className={teamMemberControlButtonStyle}
               onClick={() => ratingControl.sendRequest(toRatingSetup({
                 member,
                 pokemon,
-                snorlaxFavorite,
+                snorlaxFavorite: config.snorlaxFavorite,
                 specialtyId: pokemon.specialty,
                 bundle,
               }))}>
-              <MagnifyingGlassIcon className={teamAnalysisPokemonIconStyle}/>
+              <MagnifyingGlassIcon className={teamMemberIconStyle}/>
               <div>{t('Control.Rating')}</div>
             </FlexButton>
           ),
           () => (
-            <FlexButton className={teamAnalysisPokemonControlButtonStyle} onClick={() => onPopupButtonClick(
+            <FlexButton className={teamMemberControlButtonStyle} onClick={() => onPopupButtonClick(
               'detailedStats', true,
             )}>
-              <ChartBarIcon className={teamAnalysisPokemonIconStyle}/>
+              <ChartBarIcon className={teamMemberIconStyle}/>
               <div>{t('Control.DetailedStats')}</div>
             </FlexButton>
           ),
           () => (
-            <FlexButton className={teamAnalysisPokemonControlButtonStyle} onClick={() => onPopupButtonClick(
+            <FlexButton className={teamMemberControlButtonStyle} onClick={() => onPopupButtonClick(
               'growthChart', true,
             )}>
-              <PresentationChartLineIcon className={teamAnalysisPokemonIconStyle}/>
+              <PresentationChartLineIcon className={teamMemberIconStyle}/>
               {!isPremium && <PremiumIcon/>}
               <div>{t('Control.StrengthGrowth')}</div>
             </FlexButton>
           ),
           () => (
             <FlexButton
-              className={clsx('group', teamAnalysisPokemonControlButtonStyle)}
+              className={clsx('group', teamMemberControlButtonStyle)}
               onClick={() => onPopupButtonClick('mealCoverage', true)}
             >
-              <MealCoverageIcon alt={t('Control.MealCoverage')} className={teamAnalysisPokemonIconStyle}/>
+              <MealCoverageIcon alt={t('Control.MealCoverage')} className={teamMemberIconStyle}/>
               <div>{t('Control.MealCoverage')}</div>
             </FlexButton>
           ),
         ],
         [
           () => (
-            <FlexButton className={teamAnalysisPokemonControlButtonStyle} onClick={() => onPopupButtonClick(
+            <FlexButton className={teamMemberControlButtonStyle} onClick={() => onPopupButtonClick(
               'memberConfig', false,
             )}>
-              <PencilIcon className={teamAnalysisPokemonIconStyle}/>
+              <PencilIcon className={teamMemberIconStyle}/>
               <div>{t('Control.Edit')}</div>
             </FlexButton>
           ),

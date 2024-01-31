@@ -9,8 +9,8 @@ import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {NextImage} from '@/components/shared/common/image/main';
 import {imageIconSizes} from '@/styles/image';
+import {TeamMemberData} from '@/types/game/team';
 import {
-  TeamAnalysisMember,
   TeamAnalysisSetup,
   TeamAnalysisSlotName,
   teamAnalysisSlotName,
@@ -46,7 +46,7 @@ export const TeamAnalysisTeamView = (props: Props) => {
 
   const setMember = (
     slotName: TeamAnalysisSlotName,
-    member: TeamAnalysisMember,
+    member: TeamMemberData,
   ) => {
     setSetup((original): TeamAnalysisSetup => ({
       ...original,

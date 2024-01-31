@@ -5,12 +5,11 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonIntentionalFullPackInput} from '@/components/shared/pokemon/inventory/fullPack/input';
 import {PokemonConfig} from '@/components/shared/pokemon/predefined/config/main';
-import {TeamAnalysisPokemonProps} from '@/ui/team/analysis/setup/pokemon/type';
+import {TeamMemberProps} from '@/components/shared/team/member/type';
 
 
-export const TeamAnalysisPokemonMemberConfig = (props: TeamAnalysisPokemonProps) => {
+export const TeamMemberConfig = (props: TeamMemberProps) => {
   const {
-    slotName,
     member,
     setMember,
   } = props;
@@ -24,14 +23,14 @@ export const TeamAnalysisPokemonMemberConfig = (props: TeamAnalysisPokemonProps)
       <PokemonConfig
         {...props}
         data={member}
-        onDataUpdated={(update) => setMember(slotName, update)}
+        onDataUpdated={(update) => setMember(update)}
         showSeeds
       />
       <PokemonIntentionalFullPackInput
         title={t('AlwaysFullPack')}
         alwaysFullPack={alwaysFullPack}
         setAlwaysFullPack={(berryPokemonAlwaysFullPack) => (
-          setMember(slotName, {alwaysFullPack: berryPokemonAlwaysFullPack})
+          setMember({alwaysFullPack: berryPokemonAlwaysFullPack})
         )}
       />
     </Flex>

@@ -12,14 +12,14 @@ import {PokeboxImporter} from '@/components/shared/pokebox/importer/main';
 import {PokeboxImporterCommonProps} from '@/components/shared/pokebox/importer/type';
 import {PokemonVanillaPopup} from '@/components/shared/pokemon/vanillaPopup/main';
 import {PokemonInfo} from '@/types/game/pokemon';
-import {TeamAnalysisMember} from '@/types/teamAnalysis';
+import {TeamMemberData} from '@/types/game/team';
 import {TeamAnalysisCloudPull} from '@/ui/team/analysis/popup/cloudPull';
 import {TeamAnalysisEmptySlotPopupType} from '@/ui/team/analysis/setup/team/type';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 type Props = PokeboxImporterCommonProps & {
-  onCloudPulled: (member: TeamAnalysisMember) => void,
+  onCloudPulled: (member: TeamMemberData) => void,
   onPokemonSelected: (pokemon: PokemonInfo) => void,
 };
 

@@ -2,8 +2,9 @@ import {Collection} from 'mongodb';
 
 import {getDataAsArray, getSingleData} from '@/controller/common';
 import mongoPromise from '@/lib/mongodb';
+import {TeamMemberData} from '@/types/game/team';
 import {TeamAnalysisCompData} from '@/types/mongo/teamAnalysis';
-import {TeamAnalysisComp, TeamAnalysisMember, TeamMemberIdData} from '@/types/teamAnalysis';
+import {TeamAnalysisComp, TeamMemberIdData} from '@/types/teamAnalysis';
 import {migrate} from '@/utils/migrate/main';
 import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';
 
@@ -16,7 +17,7 @@ const getCollection = async (): Promise<Collection<TeamAnalysisCompData>> => {
     .collection<TeamAnalysisCompData>('teamAnalysis/comp');
 };
 
-export const getTeamMemberById = async ({uuid, slotName}: TeamMemberIdData): Promise<TeamAnalysisMember | null> => {
+export const getTeamMemberById = async ({uuid, slotName}: TeamMemberIdData): Promise<TeamMemberData | null> => {
   const comp = await getSingleData(getCollection(), {uuid});
 
   if (!comp || comp.version !== teamAnalysisCompMigrators.length) {

@@ -1,9 +1,9 @@
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {TeamAnalysisComp, TeamAnalysisMember, TeamAnalysisSlotName} from '@/types/teamAnalysis';
+import {TeamMemberData, TeamMemberProduction} from '@/types/game/team';
+import {TeamAnalysisComp, TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {CookingUserSettings, UserSettingsBundle} from '@/types/userData/settings';
-import {TeamProducingStatsSingle} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisSetupModifyingProps} from '@/ui/team/analysis/type';
 
 
@@ -17,10 +17,10 @@ export type TeamAnalysisFilledProps = TeamAnalysisSetupModifyingProps & {
 export type TeamAnalysisFilledSlotProps = TeamAnalysisFilledProps & {
   snorlaxFavorite: SnorlaxFavorite,
   slotName: TeamAnalysisSlotName,
-  member: TeamAnalysisMember,
+  member: TeamMemberData,
   pokemon: PokemonInfo,
   pokemonProducingParams: PokemonProducingParams,
-  stats: TeamProducingStatsSingle,
+  stats: TeamMemberProduction,
 };
 
 export type TeamAnalysisEmptySlotPopupType = 'vanilla' | 'pokebox' | 'cloudPull';

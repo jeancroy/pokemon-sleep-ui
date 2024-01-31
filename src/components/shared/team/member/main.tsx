@@ -14,17 +14,17 @@ import {PokemonNameSimple} from '@/components/shared/pokemon/name/simple';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {useRatingPopup} from '@/components/shared/pokemon/rating/hook';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
+import {TeamMemberControl} from '@/components/shared/team/member/control/main';
+import {useTeamMemberPopup} from '@/components/shared/team/member/popup/hook';
+import {TeamMemberPopup} from '@/components/shared/team/member/popup/main';
+import {TeamMemberProduction} from '@/components/shared/team/member/production';
+import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {usePremiumRequiredToast} from '@/hooks/toast/main';
 import {useUserActivation} from '@/hooks/userData/activation';
-import {TeamAnalysisPokemonControl} from '@/ui/team/analysis/setup/pokemon/control/main';
-import {useTeamAnalysisPokemonPopup} from '@/ui/team/analysis/setup/pokemon/popup/hook';
-import {TeamAnalysisPokemonPopup} from '@/ui/team/analysis/setup/pokemon/popup/main';
-import {TeamAnalysisPokemonProduction} from '@/ui/team/analysis/setup/pokemon/production';
-import {TeamAnalysisPokemonProps} from '@/ui/team/analysis/setup/pokemon/type';
 
 
-export const TeamAnalysisPokemon = (props: TeamAnalysisPokemonProps) => {
+export const TeamMember = (props: TeamMemberProps) => {
   const {
     pokemon,
     member,
@@ -32,7 +32,7 @@ export const TeamAnalysisPokemon = (props: TeamAnalysisPokemonProps) => {
   } = props;
 
   const t = useTranslations('Game');
-  const pokemonPopup = useTeamAnalysisPokemonPopup();
+  const pokemonPopup = useTeamMemberPopup();
   const ratingControl = useRatingPopup();
   const {data: session} = useSession();
   const {isPremium} = useUserActivation(session);
@@ -43,7 +43,7 @@ export const TeamAnalysisPokemon = (props: TeamAnalysisPokemonProps) => {
 
   return (
     <Flex className="items-center gap-2 sm:flex-row lg:flex-col">
-      <TeamAnalysisPokemonPopup
+      <TeamMemberPopup
         state={pokemonPopup}
         ratingControl={ratingControl}
         {...props}
@@ -58,7 +58,7 @@ export const TeamAnalysisPokemon = (props: TeamAnalysisPokemonProps) => {
             </InfoIcon>
           </div>
           <div className="absolute bottom-0 right-0">
-            <TeamAnalysisPokemonControl
+            <TeamMemberControl
               ratingControl={ratingControl}
               onPopupButtonClick={(type, requirePremium) => {
                 if (requirePremium && !isPremium) {
@@ -102,7 +102,7 @@ export const TeamAnalysisPokemon = (props: TeamAnalysisPokemonProps) => {
           className="justify-center"
         />
         <HorizontalSplitter className="w-full"/>
-        <TeamAnalysisPokemonProduction {...props}/>
+        <TeamMemberProduction {...props}/>
       </Flex>
     </Flex>
   );

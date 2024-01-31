@@ -4,14 +4,14 @@ import {defaultCommonConstPokeInBox} from '@/const/user/pokebox';
 import {PokemonInfo, PokemonSpecialtyId} from '@/types/game/pokemon';
 import {RatingSetupData} from '@/types/game/pokemon/rating/request';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {TeamAnalysisMember} from '@/types/teamAnalysis';
+import {TeamMemberData} from '@/types/game/team';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {UserSettingsBundle} from '@/types/userData/settings';
 import {getDefaultRatingBasis} from '@/utils/game/rating/utils';
 
 
 type ToRatingRequestOpts = {
-  member: TeamAnalysisMember,
+  member: TeamMemberData,
   pokemon: PokemonInfo,
   snorlaxFavorite: SnorlaxFavorite,
   specialtyId: PokemonSpecialtyId,
@@ -25,7 +25,7 @@ export const toRatingSetup = ({member, specialtyId, ...opts}: ToRatingRequestOpt
   friendshipLevel: 0,
 });
 
-export const toPokeInBox = ({pokemonId, name, ...member}: TeamAnalysisMember): PokeInBox => {
+export const toPokeInBox = ({pokemonId, name, ...member}: TeamMemberData): PokeInBox => {
   return {
     ...defaultCommonConstPokeInBox,
     ...member,

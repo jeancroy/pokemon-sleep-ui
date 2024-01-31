@@ -1,4 +1,4 @@
-import {TeamAnalysisMember} from '@/types/teamAnalysis';
+import {TeamMemberData} from '@/types/game/team';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {generateNewPokeInBox} from '@/ui/team/pokebox/utils';
 import {migrate} from '@/utils/migrate/main';
@@ -16,7 +16,7 @@ export const toTeamAnalysisMember = ({
   ingredients,
   evolutionCount,
   seeds,
-}: PokeInBox): TeamAnalysisMember => {
+}: PokeInBox): TeamMemberData => {
   return {
     name,
     level,
@@ -37,7 +37,7 @@ export const toTeamAnalysisMemberNullable = ({
   pokedexMap,
   ingredientChainMap,
   pokeInBox,
-}: ToTeamAnalysisMemberNullableOpts): TeamAnalysisMember | null => {
+}: ToTeamAnalysisMemberNullableOpts): TeamMemberData | null => {
   if (!pokeInBox) {
     return null;
   }

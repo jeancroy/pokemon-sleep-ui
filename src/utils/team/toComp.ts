@@ -25,7 +25,6 @@ export const toTeamAnalysisCompFromPokebox = ({
     name: name || getDefaultTeamName(uuid),
     snorlaxFavorite: testDefaultSnorlaxFavorite,
     analysisPeriod: 'daily',
-    staminaConfig: null,
     members: {
       A: toTeamAnalysisMemberNullable({pokeInBox: members.at(0), ...opts}) ?? null,
       B: toTeamAnalysisMemberNullable({pokeInBox: members.at(1), ...opts}) ?? null,

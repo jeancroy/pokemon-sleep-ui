@@ -1,9 +1,8 @@
 import {MealCoverage} from '@/types/game/cooking';
-import {PokemonProducingRate, ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate';
+import {TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {CalculatedUserSettings} from '@/types/userData/settings';
 import {TeamCompCalcResult} from '@/ui/team/analysis/calc/type';
-import {Nullable} from '@/utils/type';
 
 
 export type TeamProducingStatsTotal = {
@@ -12,13 +11,7 @@ export type TeamProducingStatsTotal = {
   skill: ProducingRate,
 };
 
-export type TeamProducingStatsSingle = PokemonProducingRate & {
-  total: ProducingRate,
-  calculatedSettings: CalculatedUserSettings,
-  level: Nullable<number>,
-};
-
-export type TeamProducingStatsBySlot = {[slot in TeamAnalysisSlotName]: TeamProducingStatsSingle | null};
+export type TeamProducingStatsBySlot = {[slot in TeamAnalysisSlotName]: TeamMemberProduction | null};
 
 export type TeamProducingStats = TeamCompCalcResult & {
   total: TeamProducingStatsTotal,

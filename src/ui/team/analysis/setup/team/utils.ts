@@ -1,7 +1,7 @@
 import {defaultSeedUsage} from '@/const/game/seed';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientChain} from '@/types/game/pokemon/ingredient';
-import {TeamAnalysisMember} from '@/types/teamAnalysis';
+import {TeamMemberData} from '@/types/game/team';
 import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution';
 import {generateDefaultIngredientProductionAtLevels} from '@/utils/game/producing/ingredient/chain';
 
@@ -14,7 +14,7 @@ type ToTeamAnalysisMemberFromVanillaOpts = {
 export const toTeamAnalysisMemberFromVanilla = ({
   pokemon,
   chain,
-}: ToTeamAnalysisMemberFromVanillaOpts): TeamAnalysisMember => {
+}: ToTeamAnalysisMemberFromVanillaOpts): TeamMemberData => {
   return {
     pokemonId: pokemon.id,
     level: 1,

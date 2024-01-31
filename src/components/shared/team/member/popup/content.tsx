@@ -10,15 +10,13 @@ import {StrengthGrowthDataEntry} from '@/components/shared/chart/strength/type';
 import {MealCoverageTargetCombo} from '@/components/shared/meal/coverage/targetCombo/main';
 import {PokemonDetailedProducingStats} from '@/components/shared/pokemon/production/stats/main';
 import {PokemonSpecialtyIcon} from '@/components/shared/pokemon/specialty/icon';
-import {specialtyIdMap} from '@/const/game/pokemon';
-import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
-import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
-import {TeamAnalysisPokemonMemberConfig} from '@/ui/team/analysis/setup/pokemon/popup/config';
+import {TeamMemberConfig} from '@/components/shared/team/member/popup/config';
 import {
-  TeamAnalysisPokemonPopupCommonProps,
-  TeamAnalysisStrengthGrowthDataType,
-  teamAnalysisStrengthGrowthDataTypes,
-} from '@/ui/team/analysis/setup/pokemon/popup/type';
+  TeamMemberPopupCommonProps,
+  TeamMemberStrengthGrowthDataType,
+  teamMemberStrengthGrowthDataTypes,
+} from '@/components/shared/team/member/popup/type';
+import {specialtyIdMap} from '@/const/game/pokemon';
 import {
   getTotalEnergyOfPokemonProducingRate,
   getTotalIngredientRateOfPokemon,
@@ -26,20 +24,21 @@ import {
 import {formatFloat} from '@/utils/number/format';
 import {generateNumberTicks} from '@/utils/number/generator';
 import {isNotNullish} from '@/utils/type';
-import {getTeamMemberId} from '@/utils/user/teamAnalysis';
 
 
-export const TeamAnalysisPokemonPopupContent = ({
+export const TeamMemberPopupContent = ({
   state,
   ...props
-}: TeamAnalysisPokemonPopupCommonProps) => {
+}: TeamMemberPopupCommonProps) => {
   const {
-    currentTeam,
-    slotName,
-    stats,
     mealMap,
-    pokemon,
+    config,
+    memberIdForShare,
     pokemonMaxLevel,
+    pokemon,
+    rate,
+    stateOfRate,
+    getRate,
   } = props;
   const {type} = state.control;
 
@@ -47,14 +46,14 @@ export const TeamAnalysisPokemonPopupContent = ({
   const t2 = useTranslations('UI.InPage.Team.Analysis');
 
   if (type === 'memberConfig') {
-    return <TeamAnalysisPokemonMemberConfig {...props}/>;
+    return <TeamMemberConfig {...props}/>;
   }
 
   if (type === 'detailedStats') {
     return (
       <PokemonDetailedProducingStats
-        rate={stats}
-        calculatedSettings={stats.calculatedSettings}
+        rate={rate}
+        calculatedSettings={rate.calculatedSettings}
         specialty={pokemon.specialty}
       />
     );
@@ -66,7 +65,7 @@ export const TeamAnalysisPokemonPopupContent = ({
         <Flex className="info-highlight p-1">
           {t2('Message.ShareableLink')}
         </Flex>
-        <Copyable content={getTeamMemberId({uuid: currentTeam.uuid, slotName})}/>
+        <Copyable content={memberIdForShare}/>
       </Flex>
     );
   }
@@ -76,7 +75,7 @@ export const TeamAnalysisPokemonPopupContent = ({
       <Flex className="info-section h-80 sm:w-[80vw]">
         <AdsUnit/>
         <StrengthGrowthChart
-          dataKeys={[...teamAnalysisStrengthGrowthDataTypes]}
+          dataKeys={[...teamMemberStrengthGrowthDataTypes]}
           dataNames={({show}) => ({
             berry: <PokemonSpecialtyIcon specialty={specialtyIdMap.berry} active={show.berry}/>,
             ingredient: <PokemonSpecialtyIcon specialty={specialtyIdMap.ingredient} active={show.ingredient}/>,
@@ -87,13 +86,8 @@ export const TeamAnalysisPokemonPopupContent = ({
             max: pokemonMaxLevel,
             interval: 1,
             start: 1,
-          })].map((level): StrengthGrowthDataEntry<TeamAnalysisStrengthGrowthDataType> | null => {
-            const rate = getTeamCompCalcResult({
-              period: currentTeam.analysisPeriod,
-              state: stateOfRateToShow,
-              overrideLevel: level,
-              ...props,
-            }).bySlot[slotName];
+          })].map((level): StrengthGrowthDataEntry<TeamMemberStrengthGrowthDataType> | null => {
+            const rate = getRate(level);
 
             if (!rate) {
               return null;
@@ -106,7 +100,7 @@ export const TeamAnalysisPokemonPopupContent = ({
                 ingredient: getTotalIngredientRateOfPokemon({
                   rate,
                   target: 'energy',
-                  state: stateOfRateToShow,
+                  state: stateOfRate,
                 }),
                 skill: rate.skill.energy.equivalent,
                 total: getTotalEnergyOfPokemonProducingRate(rate),
@@ -121,7 +115,7 @@ export const TeamAnalysisPokemonPopupContent = ({
           }}
           formatTicks={formatFloat}
           leftMargin={15}
-          currentLevel={stats.level}
+          currentLevel={rate.level}
         />
       </Flex>
     );
@@ -133,10 +127,10 @@ export const TeamAnalysisPokemonPopupContent = ({
         <MealCoverageTargetCombo
           mealMap={mealMap}
           ingredientProduction={Object.fromEntries(
-            Object.entries(stats.ingredient)
-              .map(([id, rate]) => [id, rate?.quantity[stateOfRateToShow] ?? 0]),
+            Object.entries(rate.ingredient)
+              .map(([id, rate]) => [id, rate?.quantity[stateOfRate] ?? 0]),
           )}
-          period={currentTeam.analysisPeriod}
+          period={config.analysisPeriod}
         />
       </Flex>
     );

@@ -3,10 +3,14 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
-import {TeamAnalysisMember, TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {TeamAnalysisPokemon} from '@/ui/team/analysis/setup/pokemon/main';
+import {TeamMember} from '@/components/shared/team/member/main';
+import {TeamMemberData} from '@/types/game/team';
+import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
+import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
+import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
 import {TeamAnalysisFilledSlotProps} from '@/ui/team/analysis/setup/team/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
+import {getTeamMemberId} from '@/utils/user/teamAnalysis';
 
 
 type Props = TeamAnalysisDataProps & TeamAnalysisFilledSlotProps;
@@ -14,6 +18,9 @@ type Props = TeamAnalysisDataProps & TeamAnalysisFilledSlotProps;
 export const TeamAnalysisFilledSlot = (props: Props) => {
   const {
     setSetup,
+    stats,
+    currentTeam,
+    slotName,
     pokemon,
     showPokemon,
   } = props;
@@ -21,7 +28,7 @@ export const TeamAnalysisFilledSlot = (props: Props) => {
   const t = useTranslations('UI.Metadata.Pokedex');
   const t2 = useTranslations('Game.PokemonName');
 
-  const setTeamMember = (slotName: TeamAnalysisSlotName, update: Partial<TeamAnalysisMember>) => {
+  const setTeamMember = (slotName: TeamAnalysisSlotName, update: Partial<TeamMemberData>) => {
     // `merge()` keeps the original value if the `update` is undefined, but `update` should overwrite it
     setSetup((original) => ({
       ...original,
@@ -49,7 +56,20 @@ export const TeamAnalysisFilledSlot = (props: Props) => {
       >
         <GenericPokeballIcon alt={t('Main.Page.Title', {name: t2(pokemon.id.toString())})} noWrap/>
       </button>
-      <TeamAnalysisPokemon setMember={setTeamMember} {...props}/>
+      <TeamMember
+        config={currentTeam}
+        memberIdForShare={getTeamMemberId({uuid: currentTeam.uuid, slotName})}
+        rate={stats}
+        stateOfRate={stateOfRateToShow}
+        getRate={(level) => getTeamCompCalcResult({
+          period: currentTeam.analysisPeriod,
+          state: stateOfRateToShow,
+          overrideLevel: level,
+          ...props,
+        }).bySlot[slotName]}
+        setMember={(update) => setTeamMember(slotName, update)}
+        {...props}
+      />
     </>
   );
 };

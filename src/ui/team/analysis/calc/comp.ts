@@ -1,8 +1,9 @@
 import {ProducingRate} from '@/types/game/producing/rate';
+import {TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisSlotName, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {getTeamProducingStatsSlot} from '@/ui/team/analysis/calc/slot';
 import {TeamCompCalcOpts} from '@/ui/team/analysis/calc/type';
-import {TeamProducingStatsBySlot, TeamProducingStatsSingle} from '@/ui/team/analysis/setup/type';
+import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
 import {getCurrentTeam} from '@/ui/team/analysis/utils';
 import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/multi';
 import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
@@ -62,7 +63,7 @@ export const getTeamCompCalcResult = ({
     bySlot: Object.fromEntries(rates.map(({
       payload,
       atStage,
-    }): [TeamAnalysisSlotName, TeamProducingStatsSingle] => {
+    }): [TeamAnalysisSlotName, TeamMemberProduction] => {
       const {slotName, calculatedSettings} = payload;
       const total: ProducingRate = getTotalOfPokemonProducingRate({rate: atStage.final, state});
 

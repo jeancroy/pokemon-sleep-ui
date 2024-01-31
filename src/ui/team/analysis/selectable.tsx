@@ -4,8 +4,8 @@ import {FilterInclusionMap} from '@/components/input/filter/type';
 import {PokemonClickableIcons} from '@/components/shared/pokemon/icon/clickable/main';
 import {defaultSeedUsage} from '@/const/game/seed';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
+import {TeamMemberData} from '@/types/game/team';
 import {
-  TeamAnalysisMember,
   TeamAnalysisComp,
   teamAnalysisSlotName,
   TeamAnalysisSlotName,
@@ -17,7 +17,7 @@ import {generateDefaultIngredientProductionAtLevels} from '@/utils/game/producin
 
 type Props = TeamAnalysisDataProps & {
   team: TeamAnalysisComp,
-  setMember: (slot: TeamAnalysisSlotName, member: TeamAnalysisMember) => void,
+  setMember: (slot: TeamAnalysisSlotName, member: TeamMemberData) => void,
   isIncluded: FilterInclusionMap<PokemonId>,
   pokemonList: PokemonInfo[],
 };
