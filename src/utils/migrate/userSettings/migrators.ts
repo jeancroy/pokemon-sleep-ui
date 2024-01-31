@@ -1,3 +1,4 @@
+import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {
   defaultCookingRecovery,
   defaultRecoveryRate,
@@ -97,6 +98,14 @@ export const userSettingsMigrators: Migrator<UserSettings, UserSettingsMigratePa
         general: defaultStaminaGeneralConfig,
         skillRecovery: {recovery: staminaSkillTrigger},
       },
+    }),
+  },
+  {
+    toVersion: 10,
+    // Added `snorlaxFavorite`
+    migrate: (old) => ({
+      ...old,
+      snorlaxFavorite: defaultSnorlaxFavorite,
     }),
   },
 ];

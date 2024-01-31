@@ -2,6 +2,7 @@ import {EffectiveBonus, UserBonus} from '@/types/game/bonus';
 import {RecipeLevel} from '@/types/game/cooking';
 import {Meal, MealMap} from '@/types/game/meal/main';
 import {SleepMapId} from '@/types/game/sleepStyle';
+import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
 import {Migratable} from '@/types/migrate';
@@ -21,6 +22,7 @@ export type UserSettings = Migratable & {
   stamina: StaminaCalcConfig,
   currentMap: SleepMapId,
   behavior: UserCalculationBehavior,
+  snorlaxFavorite: SnorlaxFavorite,
 };
 
 export type UserSettingsBundle = {

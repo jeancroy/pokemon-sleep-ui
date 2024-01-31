@@ -1,3 +1,4 @@
+import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {UserBonus} from '@/types/game/bonus';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
@@ -60,9 +61,10 @@ export const defaultUserCalculationBehavior: UserCalculationBehavior = {
 };
 
 export const defaultUserSettings: UserSettings = {
+  version: userSettingsMigrators.length,
   bonus: defaultUserBonus,
   stamina: defaultStaminaCalcConfig,
   behavior: defaultUserCalculationBehavior,
+  snorlaxFavorite: defaultSnorlaxFavorite,
   currentMap: 1,
-  version: userSettingsMigrators.length,
 };
