@@ -71,6 +71,7 @@ export const useProcessedPokebox = ({
           ...bundle,
           recoveryRate: toRecoveryRate(singleParams),
           cookingRecoveryData,
+          snorlaxFavorite: filter.snorlaxFavorite,
         }),
         cookingSettings: toCookingUserSettings({
           ...bundle,

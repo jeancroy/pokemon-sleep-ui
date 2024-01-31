@@ -41,6 +41,7 @@ export const getTeamMakerPokemonLimits = ({
   settings,
   cookingSettings,
 }: GetTeamMakerPokemonLimitsOpts): TeamMakerPokemonLimits[] => {
+  const {snorlaxFavorite} = input;
   const {targetMeals} = cookingSettings;
 
   const toTeamMakerPokemonLimits = (pokeInBox: PokeInBox): TeamMakerPokemonLimits | null => {
@@ -69,6 +70,7 @@ export const getTeamMakerPokemonLimits = ({
       settings,
       recoveryRate: toRecoveryRate(singleParams),
       cookingRecoveryData,
+      snorlaxFavorite,
     });
 
     const calcOpts: GetPokemonProducingRateOpts = {

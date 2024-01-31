@@ -30,7 +30,7 @@ export const getTeamProducingStatsSlot = ({
   currentTeam,
   slotName,
 }: GetTeamProducingStatsSlotOpts): GetProducingStatsOptsSlotReturn | null => {
-  const {members} = currentTeam;
+  const {members, snorlaxFavorite} = currentTeam;
 
   const member = members[slotName];
   if (!member) {
@@ -64,6 +64,7 @@ export const getTeamProducingStatsSlot = ({
     recoveryRate: toRecoveryRate(singleParams),
     behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
     cookingRecoveryData,
+    snorlaxFavorite,
   });
 
   return {

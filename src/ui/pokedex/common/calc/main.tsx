@@ -37,6 +37,7 @@ export const usePokedexCalc = ({
       server: preloaded.bundle,
       client: session?.user.preloaded,
     },
+    snorlaxFavorite: filter.snorlaxFavorite,
     ...opts,
   });
 

@@ -110,11 +110,6 @@ export const UserSettingsPopup = ({
             ...original,
             settings: {...settings, bonus},
           } satisfies UserSettingsBundle))}
-          currentMap={settings.currentMap}
-          setCurrentMap={(currentMap) => setBundle(({settings, ...original}) => ({
-            ...original,
-            settings: {...settings, currentMap},
-          } satisfies UserSettingsBundle))}
         />
         <UserSettingsLanguage/>
         <UserSettingsAppInfo/>

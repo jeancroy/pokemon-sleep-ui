@@ -6,6 +6,7 @@ import {testBonus} from '@/tests/data/game/bonus';
 import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {testMainSkillMap} from '@/tests/data/game/mainSkill';
 import {testPokemonData} from '@/tests/data/game/pokemon';
+import {testDefaultSnorlaxFavorite} from '@/tests/data/game/snorlax';
 import {getMainSkillProducingRate} from '@/utils/game/producing/mainSkill';
 import {getCommonEnergyMultiplier} from '@/utils/game/producing/multiplier';
 import {cloneMerge} from '@/utils/object/cloneMerge';
@@ -28,6 +29,7 @@ describe('Pokemon Skill Production', () => {
         },
       ),
       cookingRecoveryData: testCookingRecoveryData,
+      snorlaxFavorite: testDefaultSnorlaxFavorite,
     });
     const rate = getMainSkillProducingRate({
       pokemon: testPokemonData.ampharos,
@@ -82,6 +84,7 @@ describe('Pokemon Skill Production', () => {
         },
       ),
       cookingRecoveryData: testCookingRecoveryData,
+      snorlaxFavorite: testDefaultSnorlaxFavorite,
     });
 
     const rate = getMainSkillProducingRate({

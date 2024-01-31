@@ -2,8 +2,10 @@ import {SleepMapId} from '@/types/game/sleepStyle';
 import {StaminaEfficiency} from '@/types/game/stamina/efficiency';
 
 
+export type MapBonus = {[id in SleepMapId]?: number};
+
 export type UserBonus = {
-  map: {[id in SleepMapId]?: number},
+  map: MapBonus,
   overall: number,
 };
 

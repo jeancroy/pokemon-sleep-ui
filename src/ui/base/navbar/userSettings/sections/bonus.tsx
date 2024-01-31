@@ -17,8 +17,6 @@ type Props = {
   maxMapBonusPercent: number,
   bonus: UserBonus,
   setBonus: (newBonus: UserBonus) => void,
-  currentMap: SleepMapId,
-  setCurrentMap: (map: SleepMapId) => void,
 };
 
 export const UserSettingsBonusUI = ({
@@ -26,8 +24,6 @@ export const UserSettingsBonusUI = ({
   maxMapBonusPercent,
   bonus,
   setBonus,
-  currentMap,
-  setCurrentMap,
 }: Props) => {
   return (
     <UserSettingsSection titleIcon={<ArrowUpCircleIcon/>}>
@@ -45,8 +41,6 @@ export const UserSettingsBonusUI = ({
                 [mapId]: value,
               },
             })}
-            isCurrent={currentMap === mapId}
-            onMapClicked={() => setCurrentMap(mapId)}
           />
         ))}
       </Grid>

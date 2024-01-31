@@ -41,6 +41,7 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
       server: preloaded,
       client: session?.user.preloaded,
     },
+    snorlaxFavorite: filter.snorlaxFavorite,
     ...props,
   });
 

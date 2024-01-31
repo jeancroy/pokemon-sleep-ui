@@ -66,5 +66,4 @@ export const defaultUserSettings: UserSettings = {
   stamina: defaultStaminaCalcConfig,
   behavior: defaultUserCalculationBehavior,
   snorlaxFavorite: defaultSnorlaxFavorite,
-  currentMap: 1,
 };

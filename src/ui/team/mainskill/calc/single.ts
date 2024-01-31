@@ -1,4 +1,3 @@
-import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {GetSkillTriggerValueCommonOpts} from '@/ui/team/mainskill/calc/type';
 import {SkillTriggerAnalysisCalcResult, SkillTriggerAnalysisCalculatedUnit} from '@/ui/team/mainskill/targets/type';
 import {SkillTriggerAnalysisUnit} from '@/ui/team/mainskill/type';
@@ -59,6 +58,7 @@ export const getSkillTriggerValueOfUnit = ({
     subSkillMap,
   });
 
+  const snorlaxFavorite = bundle.settings.snorlaxFavorite;
   const rate = getPokemonProducingRateSingle({
     // `unit` could have `pokemon` from Poke-in-box, therefore it should always be at the top
     ...unit,
@@ -67,13 +67,14 @@ export const getSkillTriggerValueOfUnit = ({
       ...bundle,
       recoveryRate: toRecoveryRate(singleParams),
       cookingRecoveryData,
+      snorlaxFavorite,
     }),
     cookingSettings: toCookingUserSettings({
       ...bundle,
       mealMap,
     }),
     pokemon,
-    snorlaxFavorite: defaultSnorlaxFavorite,
+    snorlaxFavorite,
     berryData: berryDataMap[berry.id],
     ingredientMap,
     skillData: mainSkillMap[skill],
