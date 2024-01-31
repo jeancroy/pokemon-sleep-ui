@@ -12,7 +12,7 @@ import {UserSettingsBundle} from '@/types/userData/settings';
 import {UserSettingsAccountInfo} from '@/ui/base/navbar/userSettings/sections/account';
 import {UserSettingsAppInfo} from '@/ui/base/navbar/userSettings/sections/app/main';
 import {UserCalculationBehaviorUI} from '@/ui/base/navbar/userSettings/sections/behavior';
-import {UserSettingsBonusUI} from '@/ui/base/navbar/userSettings/sections/bonus';
+import {UserSettingsBonusUI} from '@/ui/base/navbar/userSettings/sections/bonus/main';
 import {UserSettingsCooking} from '@/ui/base/navbar/userSettings/sections/cooking/main';
 import {UserSettingsLanguage} from '@/ui/base/navbar/userSettings/sections/language';
 import {UserSettingsStamina} from '@/ui/base/navbar/userSettings/sections/stamina';
@@ -29,8 +29,6 @@ type Props = UserSettingsProps & {
 
 export const UserSettingsPopup = ({
   session,
-  mapIds,
-  maxMapBonusPercent,
   show,
   setShow,
   ...props
@@ -103,13 +101,17 @@ export const UserSettingsPopup = ({
           {...props}
         />
         <UserSettingsBonusUI
-          mapIds={mapIds}
-          maxMapBonusPercent={maxMapBonusPercent}
           bonus={settings.bonus}
           setBonus={(bonus) => setBundle(({settings, ...original}) => ({
             ...original,
             settings: {...settings, bonus},
           } satisfies UserSettingsBundle))}
+          settings={settings}
+          setSettings={(getUpdated) => setBundle(({settings, ...original}) => ({
+            ...original,
+            settings: getUpdated(settings),
+          }))}
+          {...props}
         />
         <UserSettingsLanguage/>
         <UserSettingsAppInfo/>
