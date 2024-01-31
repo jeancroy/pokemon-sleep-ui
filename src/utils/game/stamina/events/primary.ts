@@ -10,6 +10,7 @@ import {getActualRecoveryAmount} from '@/utils/game/stamina/events/utils';
 
 type GetLogsWithPrimarySleepOpts = Omit<GetLogsCommonOpts, 'logs'> & {
   cookingRecoveryData: StaminaCookingRecoveryData[],
+  dailyNetChange?: number,
 };
 
 const getInitialSkillRecoveryAmount = ({
@@ -48,13 +49,21 @@ const getInitialCookingRecoveryAmount = ({
 };
 
 export const getWakeupStamina = (opts: GetLogsWithPrimarySleepOpts) => {
-  const {sleepSessionInfo} = opts;
+  const {sleepSessionInfo, dailyNetChange} = opts;
 
   const sleepRecovery = sleepSessionInfo.session.primary.recovery;
   const skillRecovery = getInitialSkillRecoveryAmount(opts);
   const cookingRecovery = getInitialCookingRecoveryAmount(opts);
 
-  return Math.min(sleepRecovery.actual, staminaMaxRecovery) + skillRecovery + cookingRecovery;
+  const initialRecovery = skillRecovery + cookingRecovery;
+
+  // If daily net change is positive, after infinite iterations,
+  // the energy will stay at 100 after primary wakeup
+  if (dailyNetChange && dailyNetChange > 0) {
+    return staminaMaxRecovery + initialRecovery;
+  }
+
+  return Math.min(sleepRecovery.actual, staminaMaxRecovery) + initialRecovery;
 };
 
 export const getLogsWithPrimarySleep = (opts: GetLogsWithPrimarySleepOpts): StaminaEventLog[] => {

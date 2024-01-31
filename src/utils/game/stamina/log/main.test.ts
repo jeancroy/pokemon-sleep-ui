@@ -3,12 +3,12 @@ import {describe, expect, it} from '@jest/globals';
 import {defaultCookingRecovery} from '@/const/user/settings';
 import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
-import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
-import {getStaminaEfficiency} from '@/utils/game/stamina/main';
+import {getSleepSessionInfo} from '@/utils/game/sleep';
+import {getStaminaEventLogs} from '@/utils/game/stamina/log/main';
 
 
-describe('Stamina Efficiency / From Config', () => {
-  it('is correct', () => {
+describe('Stamina Log / Get Logs', () => {
+  it('starts from 100 if net change is > 0', () => {
     const config: StaminaCalcConfig = {
       sleepSession: {
         primary: {
@@ -29,22 +29,22 @@ describe('Stamina Efficiency / From Config', () => {
       },
       recoveryRate: {
         general: 1,
-        sleep: 1.14,
+        sleep: 1,
       },
     };
 
-    const {multiplier} = getStaminaEfficiency({
+    const logs = getStaminaEventLogs({
       config,
       cookingRecoveryData: testCookingRecoveryData,
+      sleepSessionInfo: getSleepSessionInfo(config),
     });
 
-    // The expected value is just for checking if the calculation outcome somehow changes
-    // Therefore if the test fails, once confirmed expected, then the expected value is good to update
-    // > Actual test for multiplier calculation at below
-    expect(multiplier.average).toBeCloseTo(2.014359);
+    expect(logs[0].type).toBe('wakeup');
+    expect(logs[0].stamina.before).toBe(100);
+    expect(logs[0].stamina.after).toBe(100);
   });
 
-  it('is correct with multiple skill triggers', () => {
+  it('starts from primary recovery amount if net change is < 0', () => {
     const config: StaminaCalcConfig = {
       sleepSession: {
         primary: {
@@ -52,8 +52,8 @@ describe('Stamina Efficiency / From Config', () => {
           end: 23400, // 06:30
         },
         secondary: {
-          start: 46800, // 13:00
-          end: 52200, // 14:30
+          start: 59400, // 16:30
+          end: 64800, // 18:00
         },
       },
       skillRecovery: {
@@ -68,19 +68,15 @@ describe('Stamina Efficiency / From Config', () => {
         sleep: 1,
       },
     };
-    const additionalSkillTriggers: StaminaSkillTriggerData[] = [
-      {dailyCount: 2, amount: 9},
-    ];
 
-    const {multiplier} = getStaminaEfficiency({
+    const logs = getStaminaEventLogs({
       config,
-      additionalSkillTriggers,
       cookingRecoveryData: testCookingRecoveryData,
+      sleepSessionInfo: getSleepSessionInfo(config),
     });
 
-    // The expected value is just for checking if the calculation outcome somehow changes
-    // Therefore if the test fails, once confirmed expected, then the expected value is good to update
-    // > Actual test for multiplier calculation at below
-    expect(multiplier.average).toBeCloseTo(1.946545);
+    expect(logs[0].type).toBe('wakeup');
+    expect(logs[0].stamina.before).toBe(77);
+    expect(logs[0].stamina.after).toBe(77);
   });
 });
