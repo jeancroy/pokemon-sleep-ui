@@ -11,8 +11,7 @@ import {
   UserSettings,
   UserSettingsBundle,
 } from '@/types/userData/settings';
-import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
-import {toCookingUserSettings} from '@/utils/user/settings/cooking';
+import {toTranslatedSettings} from '@/utils/user/settings/translated';
 
 
 type UseTranslatedUserSettingsOpts = CookingUserSettingsRequiredData & {
@@ -35,26 +34,17 @@ export const useTranslatedUserSettings = ({
   const {settings, cooking} = useUserSettingsBundle({bundle});
 
   return useCustomCompareMemo(
-    () => {
-      const calculatedSettings = toCalculatedUserSettings({
-        settings,
-        cookingRecoveryData,
-        snorlaxFavorite: snorlaxFavorite ?? settings.snorlaxFavorite,
-      });
-      const cookingSettings = toCookingUserSettings({
-        cooking,
+    () => ({
+      settings,
+      cooking,
+      translatedSettings: toTranslatedSettings({
         mealMap,
-      });
-
-      return {
+        cookingRecoveryData,
         settings,
         cooking,
-        translatedSettings: {
-          calculatedSettings,
-          cookingSettings,
-        },
-      };
-    },
+        snorlaxFavorite,
+      }),
+    }),
     [settings, cooking, snorlaxFavorite],
     (prev, next) => isEqual(prev, next),
   );

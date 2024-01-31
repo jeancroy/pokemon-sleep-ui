@@ -1,6 +1,5 @@
 import {PokemonItemStatsCalcResult} from '@/components/shared/pokemon/icon/itemStats/type';
 import {PokemonItemStatsWorkerOpts} from '@/components/shared/pokemon/icon/itemStats/worker/type';
-import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';
@@ -44,7 +43,6 @@ const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
               pokemonId: pokemon.id,
               pokemonProducingParamsMap,
             }),
-            snorlaxFavorite: defaultSnorlaxFavorite,
             berryData: berryDataMap[pokemon.berry.id],
             ingredients,
             skillData: mainSkillMap[pokemon.skill],

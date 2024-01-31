@@ -45,6 +45,7 @@ export type CookingUserSettings = {
 };
 
 export type TranslatedUserSettings = {
+  snorlaxFavorite: SnorlaxFavorite,
   calculatedSettings: CalculatedUserSettings,
   cookingSettings: CookingUserSettings,
 };

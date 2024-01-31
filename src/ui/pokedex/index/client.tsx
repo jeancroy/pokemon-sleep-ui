@@ -107,7 +107,6 @@ export const PokedexClient = (props: PokedexDataProps) => {
                 level={filter.level}
                 subSkill={filter.subSkill}
                 nature={filter.nature}
-                snorlaxFavorite={filter.snorlaxFavorite}
                 ingredients={source.ingredients}
                 {...translatedSettings}
                 {...props}

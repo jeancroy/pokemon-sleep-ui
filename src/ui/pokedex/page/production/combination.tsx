@@ -9,7 +9,6 @@ import {PokemonProducingRateMultiple} from '@/components/shared/pokemon/producti
 import {PokemonProducingRateSingle} from '@/components/shared/pokemon/production/single/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {ProducingRateContent} from '@/components/shared/production/rate/content';
-import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {IngredientChain} from '@/types/game/pokemon/ingredient';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {TranslatedUserSettings} from '@/types/userData/settings';
@@ -46,7 +45,6 @@ export const PokemonProductionCombination = ({chain, ...props}: Props) => {
 
         const rate = getPokemonProducingRateSingle({
           ingredients,
-          snorlaxFavorite: defaultSnorlaxFavorite,
           skillData,
           ...getProducingRateIndividualParams({
             input,
