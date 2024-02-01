@@ -1,8 +1,15 @@
 import {RatingPopupControl} from '@/components/shared/pokemon/rating/type';
 import {useTeamMemberPopup} from '@/components/shared/team/member/popup/hook';
-import {TeamMemberPopupType, TeamMemberProps} from '@/components/shared/team/member/type';
+import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {produceTypes} from '@/types/game/producing/common';
 
+
+export type TeamMemberPopupType =
+  'memberConfig' |
+  'detailedStats' |
+  'growthChart' |
+  'mealCoverage' |
+  'sharableLink';
 
 export type TeamMemberPopupState = {
   show: boolean,

@@ -1,10 +1,12 @@
 import React from 'react';
 
-import {TeamMemberPopupState} from '@/components/shared/team/member/popup/type';
-import {TeamMemberPopupType} from '@/components/shared/team/member/type';
+import {teamMemberPopupPremiumRequired} from '@/components/shared/team/member/popup/const';
+import {TeamMemberPopupState, TeamMemberPopupType} from '@/components/shared/team/member/popup/type';
+import {usePremiumRequiredToast} from '@/hooks/toast/main';
 
 
 export const useTeamMemberPopup = () => {
+  const {showPremiumRequiredToast} = usePremiumRequiredToast();
   const [control, setControl] = React.useState<TeamMemberPopupState>({
     type: null,
     show: false,
@@ -12,10 +14,17 @@ export const useTeamMemberPopup = () => {
 
   return {
     control,
-    show: (type: TeamMemberPopupType) => setControl({
-      type,
-      show: true,
-    }),
+    show: (type: TeamMemberPopupType, isPremium: boolean) => {
+      if (teamMemberPopupPremiumRequired[type] && !isPremium) {
+        showPremiumRequiredToast();
+        return;
+      }
+
+      setControl({
+        type,
+        show: true,
+      });
+    },
     hide: () => setControl((original) => ({
       ...original,
       show: false,

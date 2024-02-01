@@ -2,11 +2,9 @@ import React from 'react';
 
 import ArrowTopRightOnSquareIcon from '@heroicons/react/24/outline/ArrowTopRightOnSquareIcon';
 import EllipsisVerticalIcon from '@heroicons/react/24/outline/EllipsisVerticalIcon';
-import MagnifyingGlassIcon from '@heroicons/react/24/outline/MagnifyingGlassIcon';
 import PencilIcon from '@heroicons/react/24/outline/PencilIcon';
 import PresentationChartLineIcon from '@heroicons/react/24/outline/PresentationChartLineIcon';
 import ShareIcon from '@heroicons/react/24/outline/ShareIcon';
-import ChartBarIcon from '@heroicons/react/24/solid/ChartBarIcon';
 import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
@@ -19,8 +17,12 @@ import {
   teamMemberControlMenuIconStyle,
   teamMemberControlMenuOptionStyle,
 } from '@/components/shared/team/member/control/const';
-import {TeamMemberPopupType, TeamMemberProps} from '@/components/shared/team/member/type';
-import {toPokeInBox, toRatingSetup} from '@/components/shared/team/member/utils';
+import {TeamMemberDetailedStatsIcon} from '@/components/shared/team/member/control/icon/detailedStats';
+import {TeamMemberRatingIcon} from '@/components/shared/team/member/control/icon/rating';
+import {teamMemberSendRatingRequest} from '@/components/shared/team/member/control/utils';
+import {TeamMemberPopupType} from '@/components/shared/team/member/popup/type';
+import {TeamMemberProps} from '@/components/shared/team/member/type';
+import {toPokeInBox} from '@/components/shared/team/member/utils';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {PremiumIcon} from '@/components/static/premium/icon';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
@@ -28,7 +30,7 @@ import {useUserDataActor} from '@/hooks/userData/actor/main';
 
 type Props = TeamMemberProps & {
   ratingControl: RatingPopupControl,
-  onPopupButtonClick: (type: TeamMemberPopupType, requirePremium: boolean) => void,
+  onPopupButtonClick: (type: TeamMemberPopupType) => void,
   isPremium: boolean,
 };
 
@@ -38,12 +40,7 @@ export const TeamMemberControlMenu = ({
   isPremium,
   ...props
 }: Props) => {
-  const {
-    config,
-    member,
-    pokemon,
-    bundle,
-  } = props;
+  const {member} = props;
 
   const {act, status} = useUserDataActor({statusToast: true});
   const t = useTranslations('UI.InPage.Team.Analysis');
@@ -79,7 +76,7 @@ export const TeamMemberControlMenu = ({
           ),
           () => (
             <FlexButton className={teamMemberControlMenuOptionStyle} onClick={() => onPopupButtonClick(
-              'sharableLink', false,
+              'sharableLink',
             )}>
               <ShareIcon className={teamMemberControlMenuIconStyle}/>
               <div>{t('Control.ShareableLink')}</div>
@@ -88,30 +85,26 @@ export const TeamMemberControlMenu = ({
         ],
         [
           () => (
-            <FlexButton className={teamMemberControlMenuOptionStyle}
-              onClick={() => ratingControl.sendRequest(toRatingSetup({
-                member,
-                pokemon,
-                snorlaxFavorite: config.snorlaxFavorite,
-                specialtyId: pokemon.specialty,
-                bundle,
-              }))}>
-              <MagnifyingGlassIcon className={teamMemberControlMenuIconStyle}/>
+            <FlexButton
+              className={teamMemberControlMenuOptionStyle}
+              onClick={() => teamMemberSendRatingRequest({ratingControl, ...props})}
+            >
+              <TeamMemberRatingIcon/>
               <div>{t('Control.Rating')}</div>
             </FlexButton>
           ),
           () => (
             <FlexButton className={teamMemberControlMenuOptionStyle} onClick={() => onPopupButtonClick(
-              'detailedStats', true,
+              'detailedStats',
             )}>
-              <ChartBarIcon className={teamMemberControlMenuIconStyle}/>
+              <TeamMemberDetailedStatsIcon/>
               {!isPremium && <PremiumIcon/>}
               <div>{t('Control.DetailedStats')}</div>
             </FlexButton>
           ),
           () => (
             <FlexButton className={teamMemberControlMenuOptionStyle} onClick={() => onPopupButtonClick(
-              'growthChart', true,
+              'growthChart',
             )}>
               <PresentationChartLineIcon className={teamMemberControlMenuIconStyle}/>
               {!isPremium && <PremiumIcon/>}
@@ -121,7 +114,7 @@ export const TeamMemberControlMenu = ({
           () => (
             <FlexButton
               className={clsx('group', teamMemberControlMenuOptionStyle)}
-              onClick={() => onPopupButtonClick('mealCoverage', true)}
+              onClick={() => onPopupButtonClick('mealCoverage')}
             >
               <MealCoverageIcon alt={t('Control.MealCoverage')} className={teamMemberControlMenuIconStyle}/>
               {!isPremium && <PremiumIcon/>}
@@ -132,7 +125,7 @@ export const TeamMemberControlMenu = ({
         [
           () => (
             <FlexButton className={teamMemberControlMenuOptionStyle} onClick={() => onPopupButtonClick(
-              'memberConfig', false,
+              'memberConfig',
             )}>
               <PencilIcon className={teamMemberControlMenuIconStyle}/>
               <div>{t('Control.Edit')}</div>

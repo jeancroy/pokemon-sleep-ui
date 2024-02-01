@@ -32,9 +32,3 @@ export type TeamMemberProps = TeamMemberDataProps & {
   getRate: (level: number) => TeamMemberProduction | null,
 };
 
-export type TeamMemberPopupType =
-  'memberConfig' |
-  'detailedStats' |
-  'growthChart' |
-  'mealCoverage' |
-  'sharableLink';
