@@ -54,6 +54,7 @@ export const PokemonProductionSplit = ({
             },
           },
         ]}
+        className="gap-0.5"
         classBarHeight={classBarHeight}
         classColors={[
           'bg-green-500',

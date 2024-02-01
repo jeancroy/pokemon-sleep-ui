@@ -18,6 +18,7 @@ export const TeamContributionSplitIndicator = ({data}: Props) => {
 
   return (
     <ProgressBarMulti
+      className="gap-0.5"
       data={data.map((entry) => ({
         value: entry.production,
         data: entry,

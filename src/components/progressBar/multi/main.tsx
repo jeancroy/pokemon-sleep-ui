@@ -13,6 +13,7 @@ type Props<TData> = {
   summaryWrap?: boolean,
   classBarHeight?: `h-${number}`,
   classColors?: `bg-${string}`[],
+  className?: string,
   renderSummary: (opts: ProgressBarMultiRenderSummaryOpts<TData>) => React.ReactNode,
 };
 
@@ -21,6 +22,7 @@ export const ProgressBarMulti = <TData, >({
   summaryWrap = true,
   classBarHeight = 'h-2.5',
   classColors = defaultProgressBarMultiColors,
+  className,
   renderSummary,
 }: Props<TData>) => {
   const normalized = toNormalized({
@@ -29,7 +31,7 @@ export const ProgressBarMulti = <TData, >({
   });
 
   return (
-    <Flex className="gap-1">
+    <Flex className={className}>
       <Flex direction="row" noFullWidth wrap={summaryWrap} className="items-center justify-between gap-1.5">
         {data.map(({data}, idx) => (
           <React.Fragment key={idx}>
