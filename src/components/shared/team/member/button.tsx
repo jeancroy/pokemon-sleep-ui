@@ -20,6 +20,7 @@ type Props = TeamMemberProps & {
 
 export const TeamMemberCollapsibleButton = ({
   subSkillMap,
+  classOfButton,
   pokemon,
   member,
   rate,
@@ -32,7 +33,7 @@ export const TeamMemberCollapsibleButton = ({
 
   return (
     <Flex className="gap-1 p-1 pb-5">
-      <Flex direction="row" className="items-center gap-2 xl:flex-col">
+      <Flex className={clsx('items-center gap-2', classOfButton)}>
         <div className="relative size-16 shrink-0">
           <PokemonImage
             pokemonId={pokemon.id}

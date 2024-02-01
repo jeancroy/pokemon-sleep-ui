@@ -61,6 +61,7 @@ export const TeamAnalysisFilledSlot = ({onMemberClear, ...props}: Props) => {
         ...props,
       }).bySlot[slotName]}
       setMember={(update) => setTeamMember(slotName, update)}
+      classOfButton="sm:flex-col 3xl:flex-row"
       {...props}
     />
   );

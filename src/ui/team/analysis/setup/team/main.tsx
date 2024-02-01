@@ -74,7 +74,7 @@ export const TeamAnalysisTeamView = (props: Props) => {
   };
 
   return (
-    <Grid className="grid-cols-1 gap-1.5 lg:grid-cols-3 xl:grid-cols-5">
+    <Grid className="grid-cols-1 gap-1.5 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
       {teamAnalysisSlotName.map((slotName) => {
         const member = members[slotName];
         const pokemon = member ? pokedexMap[member.pokemonId] : undefined;
