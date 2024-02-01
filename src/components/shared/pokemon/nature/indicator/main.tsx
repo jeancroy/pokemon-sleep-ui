@@ -8,11 +8,15 @@ import {PokemonNatureIndicatorText} from '@/components/shared/pokemon/nature/ind
 import {PokemonNatureIndicatorCommonProps} from '@/components/shared/pokemon/nature/indicator/type';
 
 
-export const PokemonNatureIndicator = (props: PokemonNatureIndicatorCommonProps) => {
+type Props = PokemonNatureIndicatorCommonProps & {
+  className?: string,
+};
+
+export const PokemonNatureIndicator = ({className, ...props}: Props) => {
   const {hideName, dimension} = props;
 
   return (
-    <Flex direction="row" center noFullWidth>
+    <Flex direction="row" center noFullWidth className={className}>
       {!hideName && <ChevronUpDownIcon className={dimension ?? defaultNatureIndicatorDimension}/>}
       <div>
         <PokemonNatureIndicatorText {...props}/>
