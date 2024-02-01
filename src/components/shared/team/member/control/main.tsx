@@ -106,6 +106,7 @@ export const TeamMemberControl = ({
               'detailedStats', true,
             )}>
               <ChartBarIcon className={teamMemberIconStyle}/>
+              {!isPremium && <PremiumIcon/>}
               <div>{t('Control.DetailedStats')}</div>
             </FlexButton>
           ),
@@ -124,6 +125,7 @@ export const TeamMemberControl = ({
               onClick={() => onPopupButtonClick('mealCoverage', true)}
             >
               <MealCoverageIcon alt={t('Control.MealCoverage')} className={teamMemberIconStyle}/>
+              {!isPremium && <PremiumIcon/>}
               <div>{t('Control.MealCoverage')}</div>
             </FlexButton>
           ),
