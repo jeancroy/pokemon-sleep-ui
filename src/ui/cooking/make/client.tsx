@@ -73,7 +73,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
   return (
     <Flex className="gap-1">
       <MealMakerInputUI {...commonProps}/>
-      <AdsUnit/>
+      <AdsUnit hideIfNotBlocked/>
       <MealMakerRecipe {...commonProps}/>
     </Flex>
   );

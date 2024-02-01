@@ -44,7 +44,7 @@ export const ProducingParams = async ({params}: DefaultPageProps) => {
       <Flex className="gap-2">
         <ProducingParamsNotice/>
         <ProducingParamsMeta meta={producingParamsMeta}/>
-        <AdsUnit/>
+        <AdsUnit hideIfNotBlocked/>
         <I18nProvider locale={locale} namespaces={[
           'Game',
           'UI.Metadata',

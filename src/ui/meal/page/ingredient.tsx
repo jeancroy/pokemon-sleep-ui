@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {AdsUnit} from '@/components/ads/main';
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
 import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
@@ -43,6 +44,7 @@ export const MealIngredientSection = ({
         translatedSettings={translatedSettings}
         {...props}
       />
+      <AdsUnit/>
     </CollapsibleFull>
   );
 };

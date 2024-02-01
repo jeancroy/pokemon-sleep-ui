@@ -20,5 +20,5 @@ export const MealPreparerSummary = ({inventory, info}: Props) => {
     inventory,
   });
 
-  return <MealPreparerIngredientStatsUI stats={stats}/>;
+  return <MealPreparerIngredientStatsUI stats={stats} showAds/>;
 };

@@ -2,6 +2,7 @@ import React from 'react';
 
 import {useTranslations} from 'next-intl';
 
+import {AdsUnit} from '@/components/ads/main';
 import {InputRowWithTitle} from '@/components/input/filter/rowWithTitle';
 import {IngredientIcons} from '@/components/shared/meal/ingredients/icons';
 import {MealPreparerIngredientStats} from '@/ui/cooking/prepare/type';
@@ -10,15 +11,17 @@ import {toProducingItemFromIngredientCounter} from '@/utils/game/cooking';
 
 type Props = {
   stats: MealPreparerIngredientStats,
+  showAds?: boolean,
 };
 
-export const MealPreparerIngredientStatsUI = ({stats}: Props) => {
+export const MealPreparerIngredientStatsUI = ({stats, showAds}: Props) => {
   const {missing, filler, required} = stats;
 
   const t = useTranslations('UI.InPage.Cooking');
 
   return (
     <>
+      {showAds && <AdsUnit/>}
       <InputRowWithTitle title={t('Ingredient.Missing')} className="min-h-[2.5rem]">
         <IngredientIcons
           getMark={() => 'red'}

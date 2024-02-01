@@ -18,7 +18,7 @@ export const MapIndexContent = (props: MapIndexServerDataProps) => {
   const sleepdexCompletion = getSleepdexCompletion(props);
 
   return (
-    <Flex className="gap-1.5 md:px-32 md:pt-32">
+    <Flex className="gap-1.5">
       {isUnique && <MapUniqueWarning/>}
       <Grid className="grid-cols-1 gap-1.5 xl:grid-cols-2">
         {Object.entries(data).map(([mapIdStr, sleepStyles]) => {

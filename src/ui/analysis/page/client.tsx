@@ -59,7 +59,7 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
   return (
     <Flex className="gap-1.5">
       <AnalysisMeta {...props}/>
-      <AdsUnit/>
+      <AdsUnit hideIfNotBlocked/>
       <AnalysisPageInput
         filter={filter}
         setFilter={setFilter}

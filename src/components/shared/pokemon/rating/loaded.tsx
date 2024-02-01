@@ -85,7 +85,7 @@ const RatingResultLoadedInternal = ({
         {...props}
       />
       <RatingResultChart {...ratingSummaryCommonProps}/>
-      <AdsUnit/>
+      <AdsUnit hideIfNotBlocked/>
       <RatingDetails
         onRated={updateResultOfLevel}
         {...props}

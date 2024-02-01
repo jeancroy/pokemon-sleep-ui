@@ -18,7 +18,7 @@ export const MealPreparerByMealTypes = ({info, ...props}: Props) => {
     <Flex className="gap-2">
       {mealTypes.map((mealType) => (
         <React.Fragment key={mealType}>
-          <AdsUnit/>
+          <AdsUnit hideIfNotBlocked/>
           <MealPrepareOfMealType mealType={mealType} info={info[mealType]} {...props}/>
         </React.Fragment>
       ))}

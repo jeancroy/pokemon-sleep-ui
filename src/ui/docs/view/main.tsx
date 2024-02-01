@@ -37,7 +37,7 @@ export const DocsView = async ({params}: PageProps<DocsPageParams>) => {
     <PublicPageLayout locale={locale}>
       <DocsMetadataUI doc={doc}/>
       <DocsControl locale={doc.locale} path={doc.path} isCmsMod={await isCmsMod(session?.user.id)}/>
-      <AdsUnit/>
+      <AdsUnit hideIfNotBlocked/>
       <DocsContentView locale={locale} doc={doc}/>
     </PublicPageLayout>
   );

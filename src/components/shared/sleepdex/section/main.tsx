@@ -25,25 +25,23 @@ export const SleepdexSection = (props: SleepdexSectionProps) => {
   } = useSleepdexSection(props);
 
   return (
-    <>
-      <AdsUnit/>
-      <CollapsibleFull control={collapsible} button={
-        <Flex center className="gap-1 p-1 text-lg">
-          <Flex direction="row" center className="gap-3">
-            {title}
-            <CompletionResultUI completed={unlockedSleepStyles} total={totalSleepStyles}/>
-          </Flex>
-          <ProgressBarSingle percent={unlockedSleepStyles / totalSleepStyles * 100}/>
+    <CollapsibleFull control={collapsible} button={
+      <Flex center className="gap-1 p-1 text-lg">
+        <Flex direction="row" center className="gap-3">
+          {title}
+          <CompletionResultUI completed={unlockedSleepStyles} total={totalSleepStyles}/>
         </Flex>
-      }>
-        <Grid className={clsx(
-          'grid-cols-2 gap-2 p-2 xs:grid-cols-3 sm:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7',
-        )}>
-          {availableSleepStyles.map(({pokemon, sleepStyles}) => (
-            <SleepdexPokemonInSection key={pokemon.id} pokemon={pokemon} sleepStyles={sleepStyles} {...props}/>
-          ))}
-        </Grid>
-      </CollapsibleFull>
-    </>
+        <ProgressBarSingle percent={unlockedSleepStyles / totalSleepStyles * 100}/>
+      </Flex>
+    }>
+      <Grid className={clsx(
+        'grid-cols-2 gap-2 p-2 xs:grid-cols-3 sm:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 3xl:grid-cols-7',
+      )}>
+        {availableSleepStyles.map(({pokemon, sleepStyles}) => (
+          <SleepdexPokemonInSection key={pokemon.id} pokemon={pokemon} sleepStyles={sleepStyles} {...props}/>
+        ))}
+      </Grid>
+      <AdsUnit/>
+    </CollapsibleFull>
   );
 };

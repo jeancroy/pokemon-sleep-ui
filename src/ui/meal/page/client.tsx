@@ -33,7 +33,7 @@ export const MealClient = (props: MealServerDataProps) => {
   return (
     <Flex center className="gap-1.5">
       <MealInfo {...commonProps}/>
-      <AdsUnit/>
+      <AdsUnit hideIfNotBlocked/>
       <MealPokemonOfIngredient isPremium={isPremium} {...commonProps}/>
     </Flex>
   );

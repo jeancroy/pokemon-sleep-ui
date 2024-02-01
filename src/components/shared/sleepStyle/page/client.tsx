@@ -33,7 +33,7 @@ export const MapPageClient = ({locale, ...props}: Props) => {
       <MapMeta {...props} mapName={mapName} sleepdexMap={sleepdex}/>
       <AdsUnit/>
       <MapInfoInput filter={filter} setFilter={setFilter} mapName={mapName} {...props}/>
-      <AdsUnit/>
+      <AdsUnit hideIfNotBlocked/>
       <MapUnlockTable
         filter={filter}
         isIncluded={isIncluded}
