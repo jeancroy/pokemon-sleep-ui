@@ -8,16 +8,22 @@ import {AdsUnit} from '@/components/ads/main';
 import {useCollapsible} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
+import {useLayout} from '@/hooks/layout/main';
 import {isProduction} from '@/utils/environment';
 
 
 export const AnchorAdsUnit = () => {
+  const {isLandscape} = useLayout();
   const state = useCollapsible(isProduction());
   const {setShow} = state;
 
   React.useEffect(() => {
     setTimeout(() => setShow(false), anchorAdsAutoHideMs);
   }, []);
+
+  if (!isLandscape) {
+    return null;
+  }
 
   return (
     <Collapsible state={state} classNameForHeight="h-32" button={
