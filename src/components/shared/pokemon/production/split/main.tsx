@@ -3,6 +3,7 @@ import React from 'react';
 import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
+import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {Flex} from '@/components/layout/flex/common';
 import {ProgressBarMulti} from '@/components/progressBar/multi/main';
 import {GenericBerryIcon} from '@/components/shared/icon/berry';
@@ -18,6 +19,7 @@ type Props = PokemonProductionSplitCommonProps & {[type in ProduceType]: number}
 
 export const PokemonProductionSplit = ({
   specialty,
+  showSummary = true,
   classBarHeight,
   className,
   berry,
@@ -60,13 +62,13 @@ export const PokemonProductionSplit = ({
         ]}
         summaryWrap={false}
         renderSummary={({data, percent}) => (
-          <Flex direction="row" noFullWidth center className={clsx(
-            'gap-0.5 rounded-lg p-0.5 pr-1',
+          <AnimatedCollapse show={showSummary} appear noFullWidth className={clsx(
+            'flex flex-row items-center gap-0.5 rounded-lg p-0.5 pr-1',
             data.isHighlight && 'info-highlight',
           )}>
             {data.icon}
             <span className="text-xs">{formatInt(percent)}%</span>
-          </Flex>
+          </AnimatedCollapse>
         )}
       />
     </Flex>
