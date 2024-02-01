@@ -88,8 +88,8 @@ const RatingResultLoadedInternal = ({
       <AdsUnit/>
       <RatingDetails
         onRated={updateResultOfLevel}
-        {...ratingSummaryCommonProps}
         {...props}
+        {...ratingSummaryCommonProps}
       />
     </>
   );
