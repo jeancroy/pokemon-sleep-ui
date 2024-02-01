@@ -18,7 +18,7 @@ const ButtonToStartTheSorceryInternal = ({
 }: Props, ref: React.ForwardedRef<HTMLButtonElement>) => {
   return (
     <button ref={ref} onClick={onClick} disabled={disabled} className={clsx(
-      'button-base w-full p-1',
+      'button-common-lg w-full p-1',
       'enabled:bg-purple-400/50 enabled:hover:bg-purple-400',
       'enabled:dark:bg-purple-600/50 enabled:dark:hover:bg-purple-600',
       'disabled:button-disabled',

@@ -21,7 +21,7 @@ export const UserSettingsLanguage = () => {
             disabled={isPending || currentLocale === locale}
             onClick={() => onLocaleSwitch(locale)}
             className={clsx(
-              'button-base p-3',
+              'button-common-lg p-3',
               'enabled:button-clickable-bg disabled:button-disabled-border',
             )}
           >

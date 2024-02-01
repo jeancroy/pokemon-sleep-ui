@@ -4,6 +4,6 @@ import {textFilterButtonStyle} from '@/styles/input';
 
 
 export const teamAnalysisCollapsibleControlStyle = clsx(
-  'button-clickable-bg items-center gap-0.5 !rounded-full',
+  'button-common-full button-hoverable button-bg items-center gap-0.5 !rounded-full',
   textFilterButtonStyle,
 );

@@ -379,7 +379,15 @@
   /* region Button styling (button-*) */
   
   .button-base {
-    @apply rounded-lg transform-smooth;
+    @apply transform-smooth;
+  }
+  
+  .button-common-lg {
+    @apply button-base rounded-lg;
+  }
+  
+  .button-common-full {
+    @apply button-base rounded-full;
   }
   
   .button-bg {
@@ -398,8 +406,12 @@
     @apply bg-amber-400/80 dark:bg-yellow-700/50;
   }
   
+  .button-hoverable {
+    @apply button-bg-hover button-text button-text-hover;
+  }
+  
   .button-clickable {
-    @apply button-base button-bg-hover button-text button-text-hover;
+    @apply button-common-lg button-hoverable;
   }
   
   .button-clickable-border {
@@ -415,11 +427,11 @@
   }
   
   .button-clickable-alert {
-    @apply button-base button-alert-bg;
+    @apply button-common-lg button-alert-bg;
   }
   
   .button-disabled {
-    @apply button-base bg-slate-400/50 dark:bg-slate-800/30 text-slate-500/70 dark:text-slate-500;
+    @apply button-common-lg bg-slate-400/50 dark:bg-slate-800/30 text-slate-500/70 dark:text-slate-500;
   }
   
   .button-disabled-border {

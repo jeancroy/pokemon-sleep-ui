@@ -38,7 +38,7 @@ export const NavListEntryLink = ({entry}: Props) => {
       href={isCurrent ? '#' : href}
       noFullWidth={false}
       className={clsx(
-        'button-base button-text items-center gap-2 p-2',
+        'button-common-lg button-text items-center gap-2 p-2',
         isCurrent ? 'cursor-auto bg-slate-700/30 dark:bg-slate-300/30' : 'button-clickable group',
       )}
     >
