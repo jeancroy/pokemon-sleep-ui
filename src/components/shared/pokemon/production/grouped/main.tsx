@@ -22,7 +22,7 @@ export const PokemonGroupedProduction = ({grouped}: Props) => {
   const genericIconDimension: Dimension = 'size-8';
 
   return (
-    <Flex className="button-bg gap-1 rounded-lg p-2">
+    <Flex className="info-section-bg gap-1 rounded-lg p-2">
       <PokemonGroupedProductionCategory
         icon={<GenericBerryIcon alt={t('Berry')} noWrap/>}
         data={Object.entries(grouped.berry).map(([id, rate]) => ({id: Number(id), rate}))}
