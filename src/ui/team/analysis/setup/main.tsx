@@ -18,6 +18,8 @@ import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {UserSettingsBundle} from '@/types/userData/settings';
 import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook';
 import {TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control';
+import {useTeamAnalysisSetupInput} from '@/ui/team/analysis/setup/input/hook';
+import {TeamAnalysisSetupInput} from '@/ui/team/analysis/setup/input/main';
 import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';
 import {TeamAnalysisTeamView} from '@/ui/team/analysis/setup/team/main';
 import {TeamAnalysisFilledProps} from '@/ui/team/analysis/setup/team/type';
@@ -25,9 +27,11 @@ import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {DeepPartial, isNotNullish} from '@/utils/type';
 
 
-type Props = TeamAnalysisDataProps & Omit<TeamAnalysisFilledProps, 'showPokemon' | 'bundle' | 'cookingSettings'> & {
-  bundleFromClient: DeepPartial<UserSettingsBundle> | undefined,
-};
+type Props =
+  TeamAnalysisDataProps &
+  Omit<TeamAnalysisFilledProps, 'showPokemon' | 'bundle' | 'cookingSettings' | 'collapsible'> & {
+    bundleFromClient: DeepPartial<UserSettingsBundle> | undefined,
+  };
 
 export const TeamAnalysisSetupView = (props: Props) => {
   const {
@@ -46,14 +50,13 @@ export const TeamAnalysisSetupView = (props: Props) => {
       client: bundleFromClient,
     },
   });
-
   const cookingSettings = useCookingUserSettings({...bundle, mealMap});
-
   const statsOfTeam = useTeamProducingStats({
     ...props,
     bundle,
     cookingSettings,
   });
+  const inputControl = useTeamAnalysisSetupInput();
   const {state, setState, showPokemon} = usePokemonLinkPopup();
 
   if (!statsOfTeam) {
@@ -63,11 +66,17 @@ export const TeamAnalysisSetupView = (props: Props) => {
   return (
     <>
       <PokemonLinkPopup state={state} setState={setState}/>
+      <TeamAnalysisSetupInput
+        inputControl={inputControl}
+        {...props}
+      />
+      <AdsUnit hideIfNotBlocked/>
       <TeamAnalysisTeamView
         showPokemon={showPokemon}
-        statsOfTeam={statsOfTeam}
         bundle={bundle}
         cookingSettings={cookingSettings}
+        inputControl={inputControl}
+        statsOfTeam={statsOfTeam}
         {...props}
       />
       <TeamContributionSplitIndicator

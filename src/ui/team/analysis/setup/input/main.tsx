@@ -1,14 +1,20 @@
 import React from 'react';
 
+import ArrowsPointingInIcon from '@heroicons/react/24/outline/ArrowsPointingInIcon';
+import ArrowsPointingOutIcon from '@heroicons/react/24/outline/ArrowsPointingOutIcon';
 import {useTranslations} from 'next-intl';
 
 import {FilterTextInput} from '@/components/input/filter/preset/text';
+import {InputRow} from '@/components/input/filter/row';
+import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {productionStatsPeriodI18nId} from '@/const/game/production';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {productionPeriod} from '@/types/game/producing/display';
-import {TeamAnalysisSetup, TeamAnalysisComp} from '@/types/teamAnalysis';
+import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';
+import {teamAnalysisCollapsibleControlStyle} from '@/ui/team/analysis/setup/input/const';
+import {TeamAnalysisSetupInputControl} from '@/ui/team/analysis/setup/input/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {getCurrentTeam} from '@/ui/team/analysis/utils';
 
@@ -16,12 +22,16 @@ import {getCurrentTeam} from '@/ui/team/analysis/utils';
 type Props = TeamAnalysisDataProps & {
   pokemonList: PokemonInfo[],
   currentTeam: TeamAnalysisComp,
+  inputControl: TeamAnalysisSetupInputControl,
   setSetup: React.Dispatch<React.SetStateAction<TeamAnalysisSetup>>,
 };
 
-export const TeamAnalysisCompDependentInput = ({currentTeam, setSetup, ...props}: Props) => {
+export const TeamAnalysisSetupInput = ({currentTeam, inputControl, setSetup, ...props}: Props) => {
+  const {setAllCollapsible} = inputControl;
+
   const t = useTranslations('UI.InPage.Team');
   const t2 = useTranslations('UI.InPage.Pokedex.Stats.Energy');
+  const t3 = useTranslations('UI.Component.Collapsible');
 
   return (
     <Flex className="gap-1">
@@ -57,6 +67,16 @@ export const TeamAnalysisCompDependentInput = ({currentTeam, setSetup, ...props}
           },
         }))}
       />
+      <InputRow className="justify-end gap-1.5">
+        <FlexButton className={teamAnalysisCollapsibleControlStyle} onClick={() => setAllCollapsible(true)}>
+          <ArrowsPointingOutIcon className="size-5"/>
+          <span>{t3('ExpandAll')}</span>
+        </FlexButton>
+        <FlexButton className={teamAnalysisCollapsibleControlStyle} onClick={() => setAllCollapsible(false)}>
+          <ArrowsPointingInIcon className="size-5"/>
+          <span>{t3('CollapseAll')}</span>
+        </FlexButton>
+      </InputRow>
     </Flex>
   );
 };

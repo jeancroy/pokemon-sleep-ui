@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import {TeamMember} from '@/components/shared/team/member/main';
 import {TeamMemberData} from '@/types/game/team';
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
@@ -15,7 +14,7 @@ type Props = TeamAnalysisDataProps & TeamAnalysisFilledSlotProps & {
   onMemberClear: (slotName: TeamAnalysisSlotName) => void,
 };
 
-export const TeamAnalysisFilledSlot = ({onMemberClear, ...props}: Props) => {
+export const TeamAnalysisFilledSlot = ({collapsible, onMemberClear, ...props}: Props) => {
   const {
     setSetup,
     stats,
@@ -54,10 +53,12 @@ export const TeamAnalysisFilledSlot = ({onMemberClear, ...props}: Props) => {
       memberIdForShare={getTeamMemberId({uuid: currentTeam.uuid, slotName})}
       rate={stats}
       stateOfRate={stateOfRateToShow}
+      collapsible={collapsible}
       getRate={(level) => getTeamCompCalcResult({
         period: currentTeam.analysisPeriod,
         state: stateOfRateToShow,
         overrideLevel: level,
+        snorlaxFavorite: currentTeam.snorlaxFavorite,
         ...props,
       }).bySlot[slotName]}
       setMember={(update) => setTeamMember(slotName, update)}

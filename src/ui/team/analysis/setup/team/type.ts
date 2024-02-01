@@ -1,6 +1,6 @@
+import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
-import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamMemberData, TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisComp, TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {CookingUserSettings, UserSettingsBundle} from '@/types/userData/settings';
@@ -15,7 +15,7 @@ export type TeamAnalysisFilledProps = TeamAnalysisSetupModifyingProps & {
 };
 
 export type TeamAnalysisFilledSlotProps = TeamAnalysisFilledProps & {
-  snorlaxFavorite: SnorlaxFavorite,
+  collapsible: CollapsibleControl,
   slotName: TeamAnalysisSlotName,
   member: TeamMemberData,
   pokemon: PokemonInfo,

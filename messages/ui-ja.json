@@ -35,6 +35,12 @@
     "Stamina": "げんき",
     "Strength": "エナジー"
   },
+  "Component": {
+    "Collapsible": {
+      "CollapseAll": "すべて隠す",
+      "ExpandAll": "すべて表示"
+    }
+  },
   "Evolution": {
     "SleepTime": "睡眠時間",
     "Gender": {

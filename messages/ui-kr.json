@@ -35,6 +35,12 @@
     "Stamina": "기력",
     "Strength": "에너지"
   },
+  "Component": {
+    "Collapsible": {
+      "CollapseAll": "펼치기",
+      "ExpandAll": "접기"
+    }
+  },
   "Evolution": {
     "SleepTime": "수면 시간",
     "Gender": {

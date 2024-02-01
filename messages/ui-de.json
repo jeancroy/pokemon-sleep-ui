@@ -35,6 +35,12 @@
     "Stamina": "Energie",
     "Strength": "Stärke"
   },
+  "Component": {
+    "Collapsible": {
+      "CollapseAll": "Reduzieren",
+      "ExpandAll": "Erweitern"
+    }
+  },
   "Evolution": {
     "SleepTime": "Gemeinsame Schlafdauer",
     "Gender": {

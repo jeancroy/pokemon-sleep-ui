@@ -1,3 +1,4 @@
+import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {BerryDataMap} from '@/types/game/berry';
 import {PokedexMap, PokemonInfo} from '@/types/game/pokemon';
@@ -27,6 +28,7 @@ export type TeamMemberProps = TeamMemberDataProps & {
   pokemonProducingParams: PokemonProducingParams,
   rate: TeamMemberProduction,
   stateOfRate: ProducingStateOfRate,
+  collapsible: CollapsibleControl,
   showPokemon: (pokemon: PokemonInfo) => void,
   setMember: (update: Partial<TeamMemberData> | null) => void,
   getRate: (level: number) => TeamMemberProduction | null,

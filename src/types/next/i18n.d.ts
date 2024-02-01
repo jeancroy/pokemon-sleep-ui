@@ -51,6 +51,12 @@ declare interface IntlMessages extends UiMessages, GameMessages {
       Stamina: string,
       Strength: string,
     },
+    Component: {
+      Collapsible: {
+        CollapseAll: string,
+        ExpandAll: string,
+      },
+    },
     Evolution: {
       SleepTime: string,
       Gender: {

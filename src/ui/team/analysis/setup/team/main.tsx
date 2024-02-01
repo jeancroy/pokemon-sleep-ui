@@ -8,6 +8,7 @@ import {Grid} from '@/components/layout/grid';
 import {NextImage} from '@/components/shared/common/image/main';
 import {imageIconSizes} from '@/styles/image';
 import {TeamAnalysisSetup, teamAnalysisSlotName} from '@/types/teamAnalysis';
+import {TeamAnalysisSetupInputControl} from '@/ui/team/analysis/setup/input/type';
 import {TeamAnalysisEmptySlot} from '@/ui/team/analysis/setup/team/empty';
 import {TeamAnalysisFilledSlot} from '@/ui/team/analysis/setup/team/filled';
 import {TeamAnalysisFilledProps, TeamAnalysisSetMemberOpts} from '@/ui/team/analysis/setup/team/type';
@@ -21,10 +22,11 @@ import {showToast} from '@/utils/toast';
 
 
 type Props = TeamAnalysisDataProps & TeamAnalysisFilledProps & {
+  inputControl: TeamAnalysisSetupInputControl,
   statsOfTeam: TeamProducingStats,
 };
 
-export const TeamAnalysisTeamView = (props: Props) => {
+export const TeamAnalysisTeamView = ({inputControl, ...props}: Props) => {
   const {
     currentTeam,
     setSetup,
@@ -33,9 +35,10 @@ export const TeamAnalysisTeamView = (props: Props) => {
     ingredientChainMap,
     statsOfTeam,
   } = props;
+  const {members} = currentTeam;
+  const {generateSlotCollapsibleControl} = inputControl;
 
   const t = useTranslations('Game');
-  const {members, snorlaxFavorite} = currentTeam;
 
   const setMember = ({
     slotName,
@@ -84,7 +87,6 @@ export const TeamAnalysisTeamView = (props: Props) => {
           return (
             <TeamAnalysisFilledSlot
               key={slotName}
-              snorlaxFavorite={snorlaxFavorite}
               slotName={slotName}
               member={member}
               stats={stats}
@@ -94,6 +96,7 @@ export const TeamAnalysisTeamView = (props: Props) => {
                 pokemonProducingParamsMap,
               })}
               onMemberClear={(slotName) => setMember({slotName, member: null})}
+              collapsible={generateSlotCollapsibleControl(currentTeam.uuid, slotName)}
               {...props}
             />
           );

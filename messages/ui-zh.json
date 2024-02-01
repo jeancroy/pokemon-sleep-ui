@@ -35,6 +35,12 @@
     "Stamina": "活力",
     "Strength": "能量"
   },
+  "Component": {
+    "Collapsible": {
+      "CollapseAll": "全部收摺",
+      "ExpandAll": "全部展開"
+    }
+  },
   "Evolution": {
     "SleepTime": "睡眠時間",
     "Gender": {
