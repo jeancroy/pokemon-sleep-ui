@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {AdsUnit} from '@/components/ads/main';
 import {TeamAnalysisSetup} from '@/types/teamAnalysis';
 import {UserSettingsBundle} from '@/types/userData/settings';
 import {getInitialTeamAnalysisSetup} from '@/ui/team/analysis/client/utils';
@@ -22,14 +21,11 @@ export const TeamAnalysisLoadedClient = (props: Props) => {
   const currentTeam = getCurrentTeam({setup});
 
   return (
-    <>
-      <AdsUnit/>
-      <TeamAnalysisSetupView
-        setup={setup}
-        setSetup={setSetup}
-        currentTeam={currentTeam}
-        {...props}
-      />
-    </>
+    <TeamAnalysisSetupView
+      setup={setup}
+      setSetup={setSetup}
+      currentTeam={currentTeam}
+      {...props}
+    />
   );
 };

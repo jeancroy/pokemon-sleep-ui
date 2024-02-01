@@ -42,7 +42,6 @@ export const ProducingParams = async ({params}: DefaultPageProps) => {
   return (
     <PublicPageLayout locale={locale}>
       <Flex className="gap-2">
-        <AdsUnit/>
         <ProducingParamsNotice/>
         <ProducingParamsMeta meta={producingParamsMeta}/>
         <AdsUnit/>
@@ -53,7 +52,6 @@ export const ProducingParams = async ({params}: DefaultPageProps) => {
         ]}>
           <ProducingParamsClient {...props}/>
         </I18nProvider>
-        <AdsUnit/>
       </Flex>
     </PublicPageLayout>
   );

@@ -3,7 +3,6 @@ import React from 'react';
 import {getServerSession} from 'next-auth';
 
 import {PokedexPageParams} from '@/app/[locale]/pokedex/[id]/page';
-import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {Flex} from '@/components/layout/flex/common';
@@ -98,7 +97,6 @@ export const Pokemon = async ({params}: Props) => {
   return (
     <PublicPageLayout locale={locale}>
       <Flex center className="gap-2">
-        <AdsUnit/>
         <I18nProvider locale={locale} namespaces={[
           'Game',
           'UI.Common',
@@ -111,7 +109,6 @@ export const Pokemon = async ({params}: Props) => {
         ]}>
           <PokemonClient {...props}/>
         </I18nProvider>
-        <AdsUnit/>
       </Flex>
     </PublicPageLayout>
   );

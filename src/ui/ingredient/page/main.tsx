@@ -99,7 +99,6 @@ export const IngredientPage = async ({params}: Props) => {
           {...props}
         />
       </I18nProvider>
-      <AdsUnit/>
     </PublicPageLayout>
   );
 };

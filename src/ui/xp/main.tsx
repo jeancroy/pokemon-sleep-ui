@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {getPokedexMap} from '@/controller/pokemon/info';
@@ -50,9 +49,7 @@ export const PokemonExpCalculator = async ({params}: DefaultPageProps) => {
         'UI.InPage.Pokedex.Info',
         'UI.InPage.PokemonExp',
       ]}>
-        <AdsUnit/>
         <PokemonExpCalculatorClient {...props}/>
-        <AdsUnit/>
       </I18nProvider>
     </PublicPageLayout>
   );

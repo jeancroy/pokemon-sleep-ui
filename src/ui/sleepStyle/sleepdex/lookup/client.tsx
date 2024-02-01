@@ -4,7 +4,6 @@ import React from 'react';
 import {useSession} from 'next-auth/react';
 import {useTranslations} from 'next-intl';
 
-import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {CompletionResultUI} from '@/components/shared/completion/main';
 import {usePremiumRequiredToast} from '@/hooks/toast/main';
@@ -48,7 +47,6 @@ export const SleepdexLookupClient = (props: SleepdexLookupServerDataProps) => {
 
   return (
     <Flex className="gap-1.5">
-      <AdsUnit/>
       <SleepdexLookupInput
         filter={filter}
         setFilter={setFilter}
@@ -67,7 +65,6 @@ export const SleepdexLookupClient = (props: SleepdexLookupServerDataProps) => {
         display={filter.display}
         {...props}
       />
-      <AdsUnit/>
     </Flex>
   );
 };

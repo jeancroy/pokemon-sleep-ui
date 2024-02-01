@@ -58,7 +58,6 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
 
   return (
     <Flex className="gap-1.5">
-      <AdsUnit/>
       <AnalysisMeta {...props}/>
       <AdsUnit/>
       <AnalysisPageInput
@@ -68,7 +67,6 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
         {...props}
       />
       <AnalysisStatsUI stats={stats} loading={loading} level={filter.level} {...props}/>
-      <AdsUnit/>
     </Flex>
   );
 };

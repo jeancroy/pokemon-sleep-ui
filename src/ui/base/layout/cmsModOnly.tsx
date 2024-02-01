@@ -17,7 +17,7 @@ export const CmsModOnlyPageLayout = ({children, ...props}: React.PropsWithChildr
   }
 
   return (
-    <PageLayout {...props}>
+    <PageLayout noPageEndAds {...props}>
       {children}
     </PageLayout>
   );

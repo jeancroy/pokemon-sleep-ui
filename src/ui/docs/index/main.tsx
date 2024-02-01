@@ -2,7 +2,6 @@ import React from 'react';
 
 import {getServerSession} from 'next-auth';
 
-import {AdsUnit} from '@/components/ads/main';
 import {DocsControl} from '@/components/shared/docs/control/main';
 import {authOptions} from '@/const/auth';
 import {getDocsMetadataList} from '@/controller/docs';
@@ -25,10 +24,8 @@ export const DocsIndex = async ({params}: DefaultPageProps) => {
 
   return (
     <PublicPageLayout locale={locale}>
-      <AdsUnit/>
       <DocsControl locale={locale} isCmsMod={await isCmsMod(session?.user.id)}/>
       <DocsIndexTree docsMetadataList={docsMetadataList}/>
-      <AdsUnit/>
     </PublicPageLayout>
   );
 };

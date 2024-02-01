@@ -2,7 +2,6 @@ import React from 'react';
 
 import {getServerSession} from 'next-auth';
 
-import {AdsUnit} from '@/components/ads/main';
 import {SignIn} from '@/components/auth/signIn';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
@@ -51,7 +50,6 @@ export const SleepdexRecord = async ({params}: DefaultPageProps) => {
       <I18nProvider locale={locale} namespaces={['Game', 'UI.Metadata']}>
         <SleepdexRecordClient {...props}/>
       </I18nProvider>
-      <AdsUnit/>
     </LoginRequiredPageLayout>
   );
 };

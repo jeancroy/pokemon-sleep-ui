@@ -109,7 +109,6 @@ export const PokeboxLoadedClient = (props: Props) => {
         {...props}
       />
       <Flex className="gap-1.5">
-        <AdsUnit/>
         <PokeboxPickerInput
           {...props}
           pokemonList={pokemonList}

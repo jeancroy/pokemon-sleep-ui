@@ -43,7 +43,6 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
 
   return (
     <Flex className="gap-1.5">
-      <AdsUnit/>
       <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown info-highlight p-1.5">
         {t('Tips')}
       </ReactMarkdown>
@@ -58,7 +57,6 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
       <LazyLoad loading={loading}>
         <PokedexTierListResult input={input} sortedData={result}/>
       </LazyLoad>
-      <AdsUnit/>
     </Flex>
   );
 };

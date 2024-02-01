@@ -2,7 +2,6 @@ import React from 'react';
 
 import {useTranslations} from 'next-intl';
 
-import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {FeatureLinkImage} from '@/components/shared/link/featureImage';
@@ -24,19 +23,11 @@ export const PageIndex = ({pageProps, entries}: Props) => {
   return (
     <PublicPageLayout locale={locale}>
       <Flex center>
-        <Flex wrap center className="h-auto gap-2 md:w-1/2">
-          <div className="w-full">
-            <AdsUnit/>
-          </div>
-          <Grid className="grid-cols-1 gap-2">
-            {entries.map(({i18nTextId, ...props}) => (
-              <FeatureLinkImage key={i18nTextId} text={t(i18nTextId)} {...props}/>
-            ))}
-          </Grid>
-          <div className="w-full">
-            <AdsUnit/>
-          </div>
-        </Flex>
+        <Grid className="h-auto grid-cols-1 gap-2 md:w-1/2">
+          {entries.map(({i18nTextId, ...props}) => (
+            <FeatureLinkImage key={i18nTextId} text={t(i18nTextId)} {...props}/>
+          ))}
+        </Grid>
       </Flex>
     </PublicPageLayout>
   );

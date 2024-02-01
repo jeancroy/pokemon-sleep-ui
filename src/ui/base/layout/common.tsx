@@ -9,6 +9,7 @@ import {Toaster} from 'react-hot-toast';
 
 import {adsClientId} from '@/components/ads/const';
 import {AdsGap} from '@/components/ads/gap';
+import {AdsUnit} from '@/components/ads/main';
 import {Announcements} from '@/components/announcement/main';
 import {setLocale} from '@/components/i18n/exports';
 import {I18nProvider} from '@/components/i18n/provider';
@@ -26,6 +27,7 @@ import {isAdsShouldShow} from '@/utils/environment';
 
 export const PageLayout = ({
   announcement = true,
+  noPageEndAds = false,
   children,
   ...props
 }: React.PropsWithChildren<UiPageProps>) => {
@@ -69,10 +71,12 @@ export const PageLayout = ({
         <div className="size-full overflow-y-auto">
           <Flex className="gap-1.5 p-2">
             {announcement && <Announcements showOn="portrait" height="h-10"/>}
+            {!noPageEndAds && <AdsUnit/>}
             <DocsAutoLink locale={locale}/>
             <React.Suspense fallback={<Loading/>}>
               {children}
             </React.Suspense>
+            {!noPageEndAds && <AdsUnit/>}
             <AdsGap show={adsShouldShow}/>
           </Flex>
         </div>

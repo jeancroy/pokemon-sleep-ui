@@ -2,7 +2,6 @@ import React from 'react';
 
 import {getServerSession} from 'next-auth';
 
-import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {Flex} from '@/components/layout/flex/common';
@@ -66,7 +65,6 @@ export const MapPage = async ({locale, mapId, getDataPromise, isUnique}: Props) 
 
   return (
     <Flex className="gap-1.5 self-center md:w-3/4">
-      <AdsUnit/>
       {isUnique && <MapUniqueWarning/>}
       <I18nProvider locale={locale} namespaces={[
         'Game',
@@ -78,7 +76,6 @@ export const MapPage = async ({locale, mapId, getDataPromise, isUnique}: Props) 
       ]}>
         <MapPageClient locale={locale} {...props}/>
       </I18nProvider>
-      <AdsUnit/>
     </Flex>
   );
 };

@@ -70,7 +70,6 @@ export const PokedexClient = (props: PokedexDataProps) => {
 
   return (
     <>
-      <AdsUnit/>
       <PokedexInput filter={filter} setFilter={setFilter} {...props}/>
       <CompletionResultUI
         completed={count.selected}
@@ -115,7 +114,6 @@ export const PokedexClient = (props: PokedexDataProps) => {
           })}
         </Grid>
       </LazyLoad>
-      <AdsUnit/>
     </>
   );
 };

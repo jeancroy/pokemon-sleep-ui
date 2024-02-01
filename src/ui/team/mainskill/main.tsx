@@ -2,7 +2,6 @@ import React from 'react';
 
 import {getServerSession} from 'next-auth';
 
-import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
@@ -65,7 +64,6 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
 
   return (
     <PublicPageLayout locale={locale}>
-      <AdsUnit/>
       <I18nProvider locale={locale} namespaces={[
         'Game',
         'UI.Common',
@@ -77,7 +75,6 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
       ]}>
         <SkillTriggerAnalysisClient {...props}/>
       </I18nProvider>
-      <AdsUnit/>
     </PublicPageLayout>
   );
 };

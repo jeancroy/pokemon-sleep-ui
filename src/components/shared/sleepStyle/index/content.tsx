@@ -2,7 +2,6 @@ import React from 'react';
 
 import {useTranslations} from 'next-intl';
 
-import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {MapLink} from '@/components/shared/map/link';
@@ -20,7 +19,6 @@ export const MapIndexContent = (props: MapIndexServerDataProps) => {
 
   return (
     <Flex className="gap-1.5 md:px-32 md:pt-32">
-      <AdsUnit/>
       {isUnique && <MapUniqueWarning/>}
       <Grid className="grid-cols-1 gap-1.5 xl:grid-cols-2">
         {Object.entries(data).map(([mapIdStr, sleepStyles]) => {
@@ -43,7 +41,6 @@ export const MapIndexContent = (props: MapIndexServerDataProps) => {
           );
         })}
       </Grid>
-      <AdsUnit/>
     </Flex>
   );
 };

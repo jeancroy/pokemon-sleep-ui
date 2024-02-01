@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {getEvolutionItemMap} from '@/controller/pokemon/evolution';
@@ -20,20 +19,16 @@ export const EvolutionItems = async ({params}: DefaultPageProps) => {
   return (
     <PublicPageLayout locale={locale}>
       <Flex center>
-        <Flex center className="md:w-2/3 lg:w-1/2">
-          <AdsUnit/>
-          <Grid center className="grid-cols-1 gap-2 md:grid-cols-2">
-            {Object.entries(evolutionItemMap).map(([itemId, pokemonList]) => (
-              <EvolutionItemSingle
-                key={itemId}
-                locale={locale}
-                itemId={Number(itemId)}
-                pokemonList={pokemonList}
-              />
-            ))}
-          </Grid>
-          <AdsUnit/>
-        </Flex>
+        <Grid center className="grid-cols-1 gap-2 md:w-2/3 md:grid-cols-2 lg:w-1/2">
+          {Object.entries(evolutionItemMap).map(([itemId, pokemonList]) => (
+            <EvolutionItemSingle
+              key={itemId}
+              locale={locale}
+              itemId={Number(itemId)}
+              pokemonList={pokemonList}
+            />
+          ))}
+        </Grid>
       </Flex>
     </PublicPageLayout>
   );

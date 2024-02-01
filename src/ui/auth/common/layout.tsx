@@ -13,7 +13,7 @@ type Props = {
 
 export const AuthLayout = ({locale, children}: React.PropsWithChildren<Props>) => {
   return (
-    <PageLayout noUserControl locale={locale}>
+    <PageLayout noUserControl noPageEndAds locale={locale}>
       <Flex center>
         <Flex center className="gap-5 sm:w-2/3 md:w-1/2 xl:w-1/3">
           <div className="relative size-36">

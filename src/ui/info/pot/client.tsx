@@ -1,7 +1,6 @@
 'use client';
 import React from 'react';
 
-import {AdsUnit} from '@/components/ads/main';
 import {recipeMaxLevel} from '@/const/game/meal';
 import {usePossibleMealTypes} from '@/hooks/meal';
 import {usePotInfoFilter} from '@/ui/info/pot/hook';
@@ -29,9 +28,7 @@ export const PotInfoClient = (props: PotInfoDataProps) => {
         mealTypes={mealTypes}
         preloaded={preloaded.cooking}
       />
-      <AdsUnit/>
       <PotRecipeUnlockTable filter={filter} validMeals={validMeals} {...props}/>
-      <AdsUnit/>
     </>
   );
 };

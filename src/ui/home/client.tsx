@@ -32,7 +32,7 @@ export const HomeClient = ({userCount, paidUserCount}: Props) => {
           <HomeUserCount icon={<UsersIcon className="size-6"/>} userCount={userCount}/>
         </Flex>
       </Flex>
-      <AdsUnit/>
+      <AdsUnit hideIfNotBlocked/>
       <Flex direction="row" center wrap className="h-auto gap-2">
         {entries.map((opts) => {
           const {i18nTextId} = opts;
@@ -49,7 +49,6 @@ export const HomeClient = ({userCount, paidUserCount}: Props) => {
           );
         })}
       </Flex>
-      <AdsUnit/>
     </Flex>
   );
 };

@@ -24,7 +24,6 @@ export const BerryPageClient = (props: Props) => {
       <BerryStrengthInfo {...props}/>
       <AdsUnit/>
       <BerryProducingRatesOfPokemon {...props}/>
-      <AdsUnit/>
     </Flex>
   );
 };

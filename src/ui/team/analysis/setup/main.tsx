@@ -120,7 +120,6 @@ export const TeamAnalysisSetupView = (props: Props) => {
         stats={statsOfTeam}
         snorlaxData={snorlaxData}
       />
-      <AdsUnit/>
     </>
   );
 };

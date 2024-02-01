@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {MainSkillPageParams} from '@/app/[locale]/info/mainskill/[id]/page';
-import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {Flex} from '@/components/layout/flex/common';
@@ -31,7 +30,6 @@ export const MainSkillPage = async ({params}: PageProps<MainSkillPageParams>) =>
 
   return (
     <PublicPageLayout locale={locale}>
-      <AdsUnit/>
       <Flex className="info-section-bg gap-5 p-3 md:flex-row">
         <MainSkillMeta data={mainSkillData}/>
         <MainSkillValueTable data={mainSkillData}/>

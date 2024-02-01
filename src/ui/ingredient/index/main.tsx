@@ -2,7 +2,6 @@ import React from 'react';
 
 import {clsx} from 'clsx';
 
-import {AdsUnit} from '@/components/ads/main';
 import {Grid} from '@/components/layout/grid';
 import {getIngredientMap} from '@/controller/ingredient';
 import {DefaultPageProps} from '@/types/next/page/common';
@@ -16,7 +15,6 @@ export const IngredientIndex = async ({params}: DefaultPageProps) => {
 
   return (
     <PublicPageLayout locale={locale}>
-      <AdsUnit/>
       <Grid center className={clsx(
         'grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6',
       )}>
@@ -25,7 +23,6 @@ export const IngredientIndex = async ({params}: DefaultPageProps) => {
           <IngredientLink key={ingredient.id} ingredient={ingredient}/>
         ))}
       </Grid>
-      <AdsUnit/>
     </PublicPageLayout>
   );
 };

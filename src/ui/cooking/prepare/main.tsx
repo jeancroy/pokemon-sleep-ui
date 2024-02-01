@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
@@ -17,7 +16,6 @@ export const MealPreparer = async ({params}: DefaultPageProps) => {
       <I18nProvider locale={locale} namespaces={['Game.MealType', 'Game.Food', 'UI.InPage.Cooking']}>
         <MealPreparerClient {...props}/>
       </I18nProvider>
-      <AdsUnit/>
     </PublicPageLayout>
   );
 };

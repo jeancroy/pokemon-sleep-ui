@@ -10,5 +10,6 @@ export const AdsGap = ({show}: Props) => {
     return null;
   }
 
+  // This is for bumping the page height to allow the ads at the very bottom of the page to show
   return <div className="min-h-[10rem]"/>;
 };

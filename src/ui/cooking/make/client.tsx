@@ -75,7 +75,6 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
       <MealMakerInputUI {...commonProps}/>
       <AdsUnit/>
       <MealMakerRecipe {...commonProps}/>
-      <AdsUnit/>
     </Flex>
   );
 };

@@ -2,7 +2,6 @@ import React from 'react';
 
 import {getServerSession} from 'next-auth';
 
-import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
@@ -92,9 +91,7 @@ export const TeamMakerEntry = async ({params}: DefaultPageProps) => {
 
   return (
     <PremiumOnlyPageLayout locale={locale}>
-      <AdsUnit/>
       <TeamMaker locale={locale}/>
-      <AdsUnit/>
     </PremiumOnlyPageLayout>
   );
 };

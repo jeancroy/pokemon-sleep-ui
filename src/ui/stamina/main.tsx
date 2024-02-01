@@ -2,7 +2,6 @@ import React from 'react';
 
 import {getServerSession} from 'next-auth';
 
-import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {defaultStaminaCalcConfig} from '@/const/user/settings';
@@ -40,11 +39,9 @@ export const StaminaAnalysis = async ({params}: DefaultPageProps) => {
 
   return (
     <PublicPageLayout locale={locale}>
-      <AdsUnit/>
       <I18nProvider locale={locale} namespaces={['Game', 'UI.Common', 'UI.Stamina', 'UI.InPage.Team']}>
         <StaminaAnalysisClient {...props}/>
       </I18nProvider>
-      <AdsUnit/>
     </PublicPageLayout>
   );
 };
