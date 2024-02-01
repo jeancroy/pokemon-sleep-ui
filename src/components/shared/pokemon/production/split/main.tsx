@@ -64,8 +64,8 @@ export const PokemonProductionSplit = ({
         summaryWrap={false}
         renderSummary={({data, percent}) => (
           <AnimatedCollapse show={showSummary} appear noFullWidth className={clsx(
-            'flex flex-row items-center gap-0.5 rounded-lg p-0.5 pr-1',
-            data.isHighlight && 'info-highlight',
+            'flex flex-row items-center gap-0.5 rounded-lg',
+            data.isHighlight && 'rarity-2',
           )}>
             {data.icon}
             <span className="text-xs">{formatInt(percent)}%</span>
