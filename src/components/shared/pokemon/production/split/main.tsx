@@ -18,6 +18,7 @@ type Props = PokemonProductionSplitCommonProps & {[type in ProduceType]: number}
 
 export const PokemonProductionSplit = ({
   specialty,
+  classBarHeight,
   className,
   berry,
   ingredient,
@@ -51,6 +52,7 @@ export const PokemonProductionSplit = ({
             },
           },
         ]}
+        classBarHeight={classBarHeight}
         classColors={[
           'bg-green-500',
           'bg-yellow-500',
