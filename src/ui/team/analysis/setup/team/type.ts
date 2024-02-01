@@ -23,4 +23,9 @@ export type TeamAnalysisFilledSlotProps = TeamAnalysisFilledProps & {
   stats: TeamMemberProduction,
 };
 
+export type TeamAnalysisSetMemberOpts = {
+  slotName: TeamAnalysisSlotName,
+  member: TeamMemberData | null,
+};
+
 export type TeamAnalysisEmptySlotPopupType = 'vanilla' | 'pokebox' | 'cloudPull';

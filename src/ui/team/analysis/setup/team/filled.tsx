@@ -1,8 +1,6 @@
 import React from 'react';
 
-import {useTranslations} from 'next-intl';
 
-import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
 import {TeamMember} from '@/components/shared/team/member/main';
 import {TeamMemberData} from '@/types/game/team';
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
@@ -13,22 +11,24 @@ import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {getTeamMemberId} from '@/utils/user/teamAnalysis';
 
 
-type Props = TeamAnalysisDataProps & TeamAnalysisFilledSlotProps;
+type Props = TeamAnalysisDataProps & TeamAnalysisFilledSlotProps & {
+  onMemberClear: (slotName: TeamAnalysisSlotName) => void,
+};
 
-export const TeamAnalysisFilledSlot = (props: Props) => {
+export const TeamAnalysisFilledSlot = ({onMemberClear, ...props}: Props) => {
   const {
     setSetup,
     stats,
     currentTeam,
     slotName,
-    pokemon,
-    showPokemon,
   } = props;
 
-  const t = useTranslations('UI.Metadata.Pokedex');
-  const t2 = useTranslations('Game.PokemonName');
+  const setTeamMember = (slotName: TeamAnalysisSlotName, update: Partial<TeamMemberData> | null) => {
+    if (!update) {
+      onMemberClear(slotName);
+      return;
+    }
 
-  const setTeamMember = (slotName: TeamAnalysisSlotName, update: Partial<TeamMemberData>) => {
     // `merge()` keeps the original value if the `update` is undefined, but `update` should overwrite it
     setSetup((original) => ({
       ...original,
@@ -49,27 +49,19 @@ export const TeamAnalysisFilledSlot = (props: Props) => {
   };
 
   return (
-    <>
-      <button
-        className="button-clickable group absolute left-1 top-1 size-6 rounded-full"
-        onClick={() => showPokemon(pokemon)}
-      >
-        <GenericPokeballIcon alt={t('Main.Page.Title', {name: t2(pokemon.id.toString())})} noWrap/>
-      </button>
-      <TeamMember
-        config={currentTeam}
-        memberIdForShare={getTeamMemberId({uuid: currentTeam.uuid, slotName})}
-        rate={stats}
-        stateOfRate={stateOfRateToShow}
-        getRate={(level) => getTeamCompCalcResult({
-          period: currentTeam.analysisPeriod,
-          state: stateOfRateToShow,
-          overrideLevel: level,
-          ...props,
-        }).bySlot[slotName]}
-        setMember={(update) => setTeamMember(slotName, update)}
-        {...props}
-      />
-    </>
+    <TeamMember
+      config={currentTeam}
+      memberIdForShare={getTeamMemberId({uuid: currentTeam.uuid, slotName})}
+      rate={stats}
+      stateOfRate={stateOfRateToShow}
+      getRate={(level) => getTeamCompCalcResult({
+        period: currentTeam.analysisPeriod,
+        state: stateOfRateToShow,
+        overrideLevel: level,
+        ...props,
+      }).bySlot[slotName]}
+      setMember={(update) => setTeamMember(slotName, update)}
+      {...props}
+    />
   );
 };

@@ -37,7 +37,7 @@ export const TeamAnalysisEmptySlot = ({
   const buttonDisabled = status !== 'authenticated';
 
   return (
-    <Flex center className="gap-1.5">
+    <Flex center className="button-bg gap-1.5 rounded-lg p-3">
       <PokeboxImporter
         show={popup === 'pokebox'}
         setShow={(show) => setPopup(show ? 'pokebox' : null)}

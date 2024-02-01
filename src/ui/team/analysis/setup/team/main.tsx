@@ -1,23 +1,16 @@
 import React from 'react';
 
 import PlusCircleIcon from '@heroicons/react/24/outline/PlusCircleIcon';
-import XMarkIcon from '@heroicons/react/24/outline/XMarkIcon';
-import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {NextImage} from '@/components/shared/common/image/main';
 import {imageIconSizes} from '@/styles/image';
-import {TeamMemberData} from '@/types/game/team';
-import {
-  TeamAnalysisSetup,
-  TeamAnalysisSlotName,
-  teamAnalysisSlotName,
-} from '@/types/teamAnalysis';
+import {TeamAnalysisSetup, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {TeamAnalysisEmptySlot} from '@/ui/team/analysis/setup/team/empty';
 import {TeamAnalysisFilledSlot} from '@/ui/team/analysis/setup/team/filled';
-import {TeamAnalysisFilledProps} from '@/ui/team/analysis/setup/team/type';
+import {TeamAnalysisFilledProps, TeamAnalysisSetMemberOpts} from '@/ui/team/analysis/setup/team/type';
 import {toTeamAnalysisMemberFromVanilla} from '@/ui/team/analysis/setup/team/utils';
 import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
@@ -44,10 +37,10 @@ export const TeamAnalysisTeamView = (props: Props) => {
   const t = useTranslations('Game');
   const {members, snorlaxFavorite} = currentTeam;
 
-  const setMember = (
-    slotName: TeamAnalysisSlotName,
-    member: TeamMemberData,
-  ) => {
+  const setMember = ({
+    slotName,
+    member,
+  }: TeamAnalysisSetMemberOpts) => {
     setSetup((original): TeamAnalysisSetup => ({
       ...original,
       comps: {
@@ -59,6 +52,10 @@ export const TeamAnalysisTeamView = (props: Props) => {
         }),
       },
     }));
+
+    if (!member) {
+      return;
+    }
 
     showToast({content: (
       <Flex direction="row" className="gap-1.5">
@@ -83,58 +80,39 @@ export const TeamAnalysisTeamView = (props: Props) => {
         const pokemon = member ? pokedexMap[member.pokemonId] : undefined;
         const stats = statsOfTeam.bySlot[slotName];
 
-        const isAvailable = member && pokemon && stats;
+        if (member && pokemon && stats) {
+          return (
+            <TeamAnalysisFilledSlot
+              key={slotName}
+              snorlaxFavorite={snorlaxFavorite}
+              slotName={slotName}
+              member={member}
+              stats={stats}
+              pokemon={pokemon}
+              pokemonProducingParams={getPokemonProducingParams({
+                pokemonId: pokemon.id,
+                pokemonProducingParamsMap,
+              })}
+              onMemberClear={(slotName) => setMember({slotName, member: null})}
+              {...props}
+            />
+          );
+        }
 
         return (
-          <Flex key={slotName} center className={clsx(
-            'button-bg relative gap-1.5 rounded-lg p-3',
-          )}>
-            <button
-              className={clsx(
-                'absolute right-1 top-1 z-10 size-5 rounded-full',
-                'enabled:button-clickable disabled:button-disabled-border',
-              )}
-              disabled={!member}
-              onClick={() => setSetup((original) => ({
-                ...original,
-                comps: {
-                  ...original.comps,
-                  [original.config.current]: getCurrentTeam({
-                    setup: original,
-                    overrideSlot: slotName,
-                    overrideMember: null,
-                  }),
-                },
-              }))}
-            >
-              <XMarkIcon/>
-            </button>
-            {isAvailable ?
-              <TeamAnalysisFilledSlot
-                snorlaxFavorite={snorlaxFavorite}
-                slotName={slotName}
-                member={member}
-                stats={stats}
-                pokemon={pokemon}
-                pokemonProducingParams={getPokemonProducingParams({
-                  pokemonId: pokemon.id,
-                  pokemonProducingParamsMap,
-                })}
-                {...props}
-              /> :
-              <TeamAnalysisEmptySlot
-                {...props}
-                onPokeboxPicked={(pokeInBox) => setMember(slotName, toTeamAnalysisMember(pokeInBox))}
-                onCloudPulled={(member) => setMember(slotName, member)}
-                onPokemonSelected={(pokemon) => setMember(
-                  slotName,
-                  toTeamAnalysisMemberFromVanilla({
-                    pokemon,
-                    chain: ingredientChainMap[pokemon.ingredientChain],
-                  }),
-                )}
-              />}
-          </Flex>
+          <TeamAnalysisEmptySlot
+            key={slotName}
+            onPokeboxPicked={(pokeInBox) => setMember({slotName, member: toTeamAnalysisMember(pokeInBox)})}
+            onCloudPulled={(member) => setMember({slotName, member})}
+            onPokemonSelected={(pokemon) => setMember({
+              slotName,
+              member: toTeamAnalysisMemberFromVanilla({
+                pokemon,
+                chain: ingredientChainMap[pokemon.ingredientChain],
+              }),
+            })}
+            {...props}
+          />
         );
       })}
     </Grid>
