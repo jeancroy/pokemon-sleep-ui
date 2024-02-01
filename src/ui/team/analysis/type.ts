@@ -2,6 +2,7 @@ import React from 'react';
 
 import {TeamMemberDataProps} from '@/components/shared/team/member/type';
 import {FieldMetaMap} from '@/types/game/mapMeta';
+import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SnorlaxDataOfMap} from '@/types/game/snorlax';
 import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';
@@ -18,6 +19,7 @@ export type TeamAnalysisServerDataProps = Omit<TeamMemberDataProps, 'maxEvolutio
 
 export type TeamAnalysisDataProps = TeamAnalysisServerDataProps & {
   data: UserLazyLoadedData['teamAnalysis'],
+  pokemonList: PokemonInfo[],
   maxEvolutionCount: number,
 };
 

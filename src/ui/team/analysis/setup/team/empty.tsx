@@ -15,21 +15,20 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {TeamMemberData} from '@/types/game/team';
 import {TeamAnalysisCloudPull} from '@/ui/team/analysis/popup/cloudPull';
 import {TeamAnalysisEmptySlotPopupType} from '@/ui/team/analysis/setup/team/type';
-import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 type Props = PokeboxImporterCommonProps & {
+  pokemonList: PokemonInfo[],
   onCloudPulled: (member: TeamMemberData) => void,
   onPokemonSelected: (pokemon: PokemonInfo) => void,
 };
 
 export const TeamAnalysisEmptySlot = ({
+  pokemonList,
   onCloudPulled,
   onPokemonSelected,
   ...props
 }: Props) => {
-  const {pokedexMap} = props;
-
   const [popup, setPopup] = React.useState<TeamAnalysisEmptySlotPopupType | null>(null);
   const {status} = useSession();
 
@@ -52,7 +51,7 @@ export const TeamAnalysisEmptySlot = ({
       <PokemonVanillaPopup
         show={popup === 'vanilla'}
         setShow={(show) => setPopup(show ? 'vanilla' : null)}
-        pokemonList={toPokemonList(pokedexMap)}
+        pokemonList={pokemonList}
         onPokemonSelected={onPokemonSelected}
         {...props}
       />

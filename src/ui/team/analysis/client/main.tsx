@@ -11,7 +11,8 @@ import {toPokemonList} from '@/utils/game/pokemon/utils';
 export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
   const {pokedexMap} = props;
 
-  const maxEvolutionCount = getPokemonMaxEvolutionCount(toPokemonList(pokedexMap));
+  const pokemonList = toPokemonList(pokedexMap);
+  const maxEvolutionCount = getPokemonMaxEvolutionCount(pokemonList);
 
   return (
     <UserDataLazyLoad
@@ -20,6 +21,7 @@ export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
       content={({data, session}) => (
         <TeamAnalysisLoadedClient
           data={data?.teamAnalysis}
+          pokemonList={pokemonList}
           maxEvolutionCount={maxEvolutionCount}
           bundleFromClient={session.data?.user.preloaded}
           {...props}
