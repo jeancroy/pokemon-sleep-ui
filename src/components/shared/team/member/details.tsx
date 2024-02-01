@@ -1,32 +1,34 @@
 import React from 'react';
 
 import {clsx} from 'clsx';
+import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
+import {FlexLink} from '@/components/layout/flex/link';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {PokemonFrequencyFromProducingRate} from '@/components/shared/pokemon/frequency/fromRate';
 import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimit/main';
 import {PokemonTimeToFullPack} from '@/components/shared/pokemon/inventory/fullPack/main';
+import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
+import {PokemonNameSimple} from '@/components/shared/pokemon/name/simple';
 import {PokemonBerryProduction} from '@/components/shared/pokemon/production/berry';
 import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient';
 import {PokemonProbabilityOfNoSkill} from '@/components/shared/pokemon/production/noSkill';
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';
-import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
-import {ProducingRateUI} from '@/components/shared/production/rate/main';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {toProducingRateOfState} from '@/utils/game/producing/convert';
 
 
-export const TeamMemberProduction = (props: TeamMemberProps) => {
+export const TeamMemberDetails = (props: TeamMemberProps) => {
   const {
+    member,
     pokemon,
     pokemonProducingParams,
     rate,
     berryDataMap,
     stateOfRate,
   } = props;
-
   const {
     specialty,
     berry,
@@ -36,35 +38,41 @@ export const TeamMemberProduction = (props: TeamMemberProps) => {
     fullPackStats,
     ingredient,
     carryLimitInfo,
-    total,
   } = rate;
+
+  const t = useTranslations('Game');
 
   const berryData = berryDataMap[berry.id];
   const ingredientRates = Object.values(ingredient);
 
   return (
-    <>
+    <Flex className="gap-1.5 p-1">
+      <PokemonNameSimple pokemon={pokemon} override={member.name}/>
+      <Flex direction="row" className={clsx(
+        'items-center justify-center truncate text-sm',
+        pokemon.specialty === specialtyIdMap.skill && 'text-energy',
+      )}>
+        <FlexLink center target="_blank" href={`/info/mainskill/${skill}`} className="button-clickable group p-1">
+          <MainSkillIcon id={skill} dimension="size-5"/>
+        </FlexLink>
+        <span className="truncate">{t(`MainSkill.Name.${skill}`)}</span>
+      </Flex>
+      <HorizontalSplitter/>
       <PokemonFrequencyFromProducingRate pokemonRate={rate}/>
+      <HorizontalSplitter/>
       <Flex direction="row" center className="gap-1.5">
         <PokemonTimeToFullPack direction="col" timeToFullPack={fullPackStats.secondsToFull}/>
         <PokemonCarryLimit carryLimit={carryLimitInfo.final} normalTextSize/>
       </Flex>
-      <HorizontalSplitter className="w-full"/>
-      <ProducingRateUI rate={total} hideQuantity/>
-      <PokemonProductionSplitFromPokemonRate
-        rate={rate}
-        state={stateOfRate}
-        specialty={specialty}
-      />
-      <HorizontalSplitter className="w-full"/>
-      <Flex center className={clsx(specialty === specialtyIdMap.berry && 'info-highlight')}>
+      <HorizontalSplitter/>
+      <Flex center className={clsx(specialty === specialtyIdMap.berry && 'text-energy')}>
         <PokemonBerryProduction
           id={berryData.id}
           rate={toProducingRateOfState({rate: rate.berry, state: stateOfRate})}
         />
       </Flex>
-      <HorizontalSplitter className="w-full"/>
-      <Flex center className={clsx(specialty === specialtyIdMap.ingredient && 'info-highlight')}>
+      <HorizontalSplitter/>
+      <Flex center className={clsx(specialty === specialtyIdMap.ingredient && 'text-energy')}>
         {ingredientRates.map((rate) => (
           <PokemonIngredientProduction
             key={rate.id}
@@ -73,8 +81,8 @@ export const TeamMemberProduction = (props: TeamMemberProps) => {
           />
         ))}
       </Flex>
-      <HorizontalSplitter className="w-full"/>
-      <Flex center className={clsx(specialty === specialtyIdMap.skill && 'info-highlight')}>
+      <HorizontalSplitter/>
+      <Flex center className={clsx(specialty === specialtyIdMap.skill && 'text-energy')}>
         <PokemonSkillProduction
           id={skill}
           rate={toProducingRateOfState({rate: rate.skill, state: stateOfRate})}
@@ -90,6 +98,6 @@ export const TeamMemberProduction = (props: TeamMemberProps) => {
           skillPercent={pokemonProducingParams.skillPercent}
         />
       </Flex>
-    </>
+    </Flex>
   );
 };

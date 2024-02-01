@@ -27,7 +27,8 @@ export type TeamMemberProps = TeamMemberDataProps & {
   pokemonProducingParams: PokemonProducingParams,
   rate: TeamMemberProduction,
   stateOfRate: ProducingStateOfRate,
-  setMember: (update: Partial<TeamMemberData>) => void,
+  showPokemon: (pokemon: PokemonInfo) => void,
+  setMember: (update: Partial<TeamMemberData> | null) => void,
   getRate: (level: number) => TeamMemberProduction | null,
 };
 
