@@ -3,7 +3,7 @@ import React from 'react';
 import {clsx} from 'clsx';
 
 import {AdsUnit} from '@/components/ads/main';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {PokemonCollapsiblePicker} from '@/components/shared/pokemon/predefined/picker';
@@ -39,7 +39,7 @@ export const SkillTriggerAnalysisTargets = (props: Props) => {
     copyUnit,
   } = stateControl;
 
-  const collapsiblePicker = useCollapsible();
+  const collapsiblePicker = useCollapsibleControl();
 
   const {units, sort} = useSkillTriggerAnalysisCalculated({
     ...props,

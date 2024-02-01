@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {imageSmallIconSizes} from '@/styles/image';
@@ -22,13 +22,13 @@ export const NavListEntryGroup = ({entry}: Props) => {
     entries,
   } = entry;
 
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
   const t = useTranslations('UI.Metadata');
 
   const text = t(i18nTextId);
 
   return (
-    <CollapsibleFull state={collapsible} classDuration="duration-300" classDelay="delay-200" button={
+    <CollapsibleFull control={collapsible} classDuration="duration-300" classDelay="delay-200" button={
       <Flex direction="row" className="group items-center gap-2 p-1.5">
         <div className="nav-height relative w-8 shrink-0">
           <NextImage

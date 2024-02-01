@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl';
 import {AdsUnit} from '@/components/ads/main';
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {Collapsible} from '@/components/layout/collapsible/main';
-import {CollapsibleState} from '@/components/layout/collapsible/type';
+import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
@@ -19,7 +19,7 @@ import {showToast} from '@/utils/toast';
 type Props = {
   pokemonList: PokemonInfo[],
   onPokemonPicked: (pokemon: PokemonInfo) => void,
-  collapsibleState: CollapsibleState,
+  collapsibleState: CollapsibleControl,
   isIncluded: FilterInclusionMap<PokemonId>,
   classNameForHeight?: string,
 };
@@ -34,7 +34,7 @@ export const PokemonCollapsiblePicker = ({
   const t = useTranslations('Game');
 
   return (
-    <Collapsible state={collapsibleState} classNameForHeight={classNameForHeight ?? 'h-80'} appear button={
+    <Collapsible control={collapsibleState} classNameForHeight={classNameForHeight ?? 'h-80'} appear button={
       <Flex direction="row" center className="group gap-0.5">
         <GenericPokeballIcon alt="Pokemon" dimension="size-6"/>
         <InboxArrowDownIcon className="size-6"/>

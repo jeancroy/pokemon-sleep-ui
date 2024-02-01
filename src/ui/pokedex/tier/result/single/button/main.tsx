@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import {CollapsibleState} from '@/components/layout/collapsible/type';
+import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {Flex} from '@/components/layout/flex/common';
 import {ProgressBarSingle} from '@/components/progressBar/single';
 import {pokedexTierBackgroundStyling} from '@/ui/pokedex/tier/result/const';
@@ -12,7 +12,7 @@ import {PokedexTierListSingleCommonProps} from '@/ui/pokedex/tier/result/single/
 
 
 type Props = PokedexTierListSingleCommonProps & {
-  collapsible: CollapsibleState,
+  collapsible: CollapsibleControl,
 };
 
 export const PokedexTierListButton = ({collapsible, ...props}: Props) => {

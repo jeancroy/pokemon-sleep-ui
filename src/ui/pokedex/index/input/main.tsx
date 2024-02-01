@@ -9,7 +9,7 @@ import {InputBox} from '@/components/input/box';
 import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {InputRowWithTitle} from '@/components/input/filter/rowWithTitle';
 import {getMultiSelectOnClickProps, getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
 import {MapFilter} from '@/components/shared/map/filter';
@@ -39,14 +39,14 @@ export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
   } = props;
 
   const t = useTranslations('UI.InPage.Pokedex');
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
 
   return (
     <Flex className="gap-1">
       <div className="relative">
-        <Collapsible state={collapsible} classNameForHeight="h-80 md:h-72" button={
+        <Collapsible control={collapsible} classNameForHeight="h-80 md:h-72" button={
           <Flex direction="row" center className="gap-0.5">
             <FunnelIcon className="size-6"/>
           </Flex>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonIngredientStats} from '@/components/shared/pokemon/icon/itemStats/ingredient';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
@@ -27,10 +27,10 @@ export const MealIngredientSection = ({
   const {ingredientMap} = props;
   const {id, quantity} = ingredient;
 
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
 
   return (
-    <CollapsibleFull state={collapsible} button={
+    <CollapsibleFull control={collapsible} button={
       <Flex center direction="row" className="gap-1 text-xl">
         <PokemonIngredientIcon id={id} dimension="size-8" noLink/>
         <div>{quantity}</div>

@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown';
 
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonLab} from '@/components/shared/pokemon/predefined/lab/main';
 import {RatingBasisSelection} from '@/components/shared/pokemon/rating/basis/selection/main';
@@ -44,7 +44,7 @@ export const RatingClient = (props: RatingServerDataProps) => {
       client: session?.user.preloaded,
     },
   });
-  const advancedOptionsCollapsible = useCollapsible();
+  const advancedOptionsCollapsible = useCollapsibleControl();
 
   const resultRef = React.useRef<HTMLDivElement>(null);
 
@@ -98,7 +98,7 @@ export const RatingClient = (props: RatingServerDataProps) => {
               {t('Message.RatingBasisIsIngredientRelated')}
             </ReactMarkdown>
           </AnimatedCollapse>
-          <CollapsibleFull state={advancedOptionsCollapsible} button={t('AdvancedOptions')}>
+          <CollapsibleFull control={advancedOptionsCollapsible} button={t('AdvancedOptions')}>
             <Flex className="gap-1.5">
               <SnorlaxFavoriteInput
                 pokemonList={pokemonList}

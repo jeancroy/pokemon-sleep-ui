@@ -4,7 +4,7 @@ import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
@@ -29,11 +29,11 @@ export const MealPrepareOfMealType = ({mealType, info, ...props}: Props) => {
 
   const t = useTranslations('Game.MealType');
 
-  const collapsible = useCollapsible(true);
+  const collapsible = useCollapsibleControl(true);
 
   return (
     <Flex className={clsx('info-section gap-2 border', mealTypeBorderStyle[mealType])}>
-      <CollapsibleFull state={collapsible} button={
+      <CollapsibleFull control={collapsible} button={
         <Flex>
           <Flex direction="row" center className="gap-1 text-xl">
             <div className={clsx('size-5 rounded-full', mealTypeDotStyle[mealType])}/>

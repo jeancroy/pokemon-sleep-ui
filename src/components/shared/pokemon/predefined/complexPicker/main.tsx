@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {OcrPokemonInfoImporter} from '@/components/ocr/importer/pokemonInfo/main';
 import {PokeboxImporterButton} from '@/components/shared/pokebox/importer/button';
@@ -23,8 +23,8 @@ export const PokemonComplexFilter = (props: PokemonComplexFilterCommonProps) => 
     data: pokemonList,
     ...props,
   });
-  const filterCollapsible = useCollapsible();
-  const resultCollapsible = useCollapsible();
+  const filterCollapsible = useCollapsibleControl();
+  const resultCollapsible = useCollapsibleControl();
 
   React.useEffect(() => {
     resultCollapsible.setShow(true);

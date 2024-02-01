@@ -5,7 +5,7 @@ import HandThumbDownIcon from '@heroicons/react/24/outline/HandThumbDownIcon';
 import HandThumbUpIcon from '@heroicons/react/24/outline/HandThumbUpIcon';
 
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {RatingDetailsButton} from '@/components/shared/pokemon/rating/section/details/button/main';
 import {RatingResultProps} from '@/components/shared/pokemon/rating/type';
@@ -39,7 +39,7 @@ export const RatingDetailsEntry = ({
 }: Props) => {
   const {extrema} = result;
 
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
   const [loading, setLoading] = React.useState(false);
   const {rate} = useRatingWorker({
     setLoading,
@@ -70,7 +70,7 @@ export const RatingDetailsEntry = ({
 
   return (
     <CollapsibleFull
-      state={collapsible}
+      control={collapsible}
       disabled={loading || !extrema}
       button={
         <RatingDetailsButton

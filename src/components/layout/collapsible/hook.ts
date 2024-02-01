@@ -1,7 +1,9 @@
 import React from 'react';
 
+import {CollapsibleControl} from '@/components/layout/collapsible/type';
 
-export const useCollapsible = (defaultShow: boolean = false) => {
+
+export const useCollapsibleControl = (defaultShow: boolean = false): CollapsibleControl => {
   const [show, setShow] = React.useState(defaultShow);
 
   return {show, setShow};

@@ -3,7 +3,7 @@ import React from 'react';
 import {InfoIcon} from '@/components/icons/info';
 import {InputBox} from '@/components/input/box';
 import {InputRow} from '@/components/input/filter/row';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
@@ -30,7 +30,7 @@ export const ActivationViewerCommon = <TActivation extends ActivationKeyAtClient
 }: Props<TActivation>) => {
   const {control} = props;
 
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
   const [search, setSearch] = React.useState('');
 
   let activations = data
@@ -47,7 +47,7 @@ export const ActivationViewerCommon = <TActivation extends ActivationKeyAtClient
   }
 
   return (
-    <Collapsible state={collapsible} classNameForHeight="h-80" button={
+    <Collapsible control={collapsible} classNameForHeight="h-80" button={
       <Flex direction="row" center className="gap-1.5 p-2">
         <div>{title}</div>
         <InfoIcon style="glow" dimension="size-5" className="p-3">

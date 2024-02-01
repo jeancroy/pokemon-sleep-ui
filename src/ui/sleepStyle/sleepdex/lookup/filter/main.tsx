@@ -12,7 +12,7 @@ import {InputRow} from '@/components/input/filter/row';
 import {FilterWithUpdaterProps} from '@/components/input/filter/type';
 import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {ToggleButton} from '@/components/input/toggleButton';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
 import {MapFilter} from '@/components/shared/map/filter';
@@ -49,11 +49,11 @@ export const SleepdexLookupInput = ({
     incenseOnly,
   } = filter;
 
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
   const t = useTranslations('UI.SleepStyle');
 
   return (
-    <Collapsible state={collapsible} classNameForHeight="h-96 md:h-72" button={
+    <Collapsible control={collapsible} classNameForHeight="h-96 md:h-72" button={
       <Flex direction="row" center className="gap-0.5">
         <FunnelIcon className="size-6"/>
       </Flex>

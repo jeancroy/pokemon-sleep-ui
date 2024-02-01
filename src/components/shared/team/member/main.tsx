@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {useRatingPopup} from '@/components/shared/pokemon/rating/hook';
 import {TeamMemberCollapsibleButton} from '@/components/shared/team/member/button';
@@ -13,7 +13,7 @@ import {TeamMemberProps} from '@/components/shared/team/member/type';
 
 
 export const TeamMember = (props: TeamMemberProps) => {
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
 
   const teamMemberPopup = useTeamMemberPopup();
   const ratingControl = useRatingPopup();
@@ -31,7 +31,7 @@ export const TeamMember = (props: TeamMemberProps) => {
         {...props}
       />
       <CollapsibleFull
-        state={collapsible}
+        control={collapsible}
         button={<TeamMemberCollapsibleButton isExpanded={collapsible.show} {...props}/>}
       >
         <TeamMemberDetails {...props}/>

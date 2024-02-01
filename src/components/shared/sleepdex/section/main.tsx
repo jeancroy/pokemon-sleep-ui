@@ -4,7 +4,7 @@ import {clsx} from 'clsx';
 
 import {AdsUnit} from '@/components/ads/main';
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {ProgressBarSingle} from '@/components/progressBar/single';
@@ -17,7 +17,7 @@ import {SleepdexSectionProps} from '@/components/shared/sleepdex/section/type';
 export const SleepdexSection = (props: SleepdexSectionProps) => {
   const {title} = props;
 
-  const collapsible = useCollapsible(true);
+  const collapsible = useCollapsibleControl(true);
   const {
     availableSleepStyles,
     totalSleepStyles,
@@ -27,7 +27,7 @@ export const SleepdexSection = (props: SleepdexSectionProps) => {
   return (
     <>
       <AdsUnit/>
-      <CollapsibleFull state={collapsible} button={
+      <CollapsibleFull control={collapsible} button={
         <Flex center className="gap-1 p-1 text-lg">
           <Flex direction="row" center className="gap-3">
             {title}

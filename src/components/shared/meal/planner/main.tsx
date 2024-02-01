@@ -4,7 +4,7 @@ import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {MealPlannerButton} from '@/components/shared/meal/planner/button';
@@ -27,10 +27,10 @@ type Props = {
 
 export const MealPlanner = ({target, setTarget, recipeLevel, setRecipeLevel, mealMap, mealTypes}: Props) => {
   const t = useTranslations('Game');
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
 
   return (
-    <CollapsibleFull state={collapsible} button={
+    <CollapsibleFull control={collapsible} button={
       <MealPlannerButton target={target} recipeLevel={recipeLevel} mealTypes={mealTypes}/>
     }>
       <Flex className="gap-1.5 p-1">

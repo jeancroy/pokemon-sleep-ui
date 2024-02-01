@@ -1,12 +1,13 @@
 import React from 'react';
 
-import {useCollapsible} from '@/components/layout/collapsible/hook';
 
-
-export type CollapsibleState = ReturnType<typeof useCollapsible>;
+export type CollapsibleControl = {
+  show: boolean,
+  setShow: (show: boolean) => void,
+};
 
 export type CollapsibleCommonProps = {
-  state: CollapsibleState,
+  control: CollapsibleControl,
   button: React.ReactNode,
   appear?: boolean,
   noButtonPadding?: boolean,

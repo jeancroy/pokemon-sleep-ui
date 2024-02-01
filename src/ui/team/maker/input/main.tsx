@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonCollapsibleFilter} from '@/components/shared/pokemon/predefined/filter';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
@@ -21,7 +21,7 @@ export const TeamMakerInputUI = (props: TeamMakerInputCommonProps) => {
   } = props;
   const {pokemon} = input;
 
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
   const pokemonList = React.useMemo(
     () => toPokemonList(pokedexMap),
     [pokedexMap],

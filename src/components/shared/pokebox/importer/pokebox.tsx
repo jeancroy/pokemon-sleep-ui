@@ -10,7 +10,7 @@ import {FixedSizeList} from 'react-window';
 import {InfoIcon} from '@/components/icons/info';
 import {InputBox} from '@/components/input/box';
 import {InputRowWithTitle} from '@/components/input/filter/rowWithTitle';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
@@ -68,7 +68,7 @@ export const PokeboxImporterView = ({
       })
       .filter(isNotNullish),
   });
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
 
   if (!pokebox.length) {
     return (
@@ -84,7 +84,7 @@ export const PokeboxImporterView = ({
 
   return (
     <Flex className="gap-1.5">
-      <Collapsible state={collapsible} classNameForHeight="h-72 md:h-56" button={
+      <Collapsible control={collapsible} classNameForHeight="h-72 md:h-56" button={
         <Flex direction="row" center className="gap-0.5">
           <FunnelIcon className="size-6"/>
         </Flex>

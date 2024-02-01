@@ -16,7 +16,7 @@ type Props = CollapsibleCommonProps & {
 };
 
 export const CollapsibleFull = ({
-  state,
+  control,
   button,
   appear,
   noButtonPadding,
@@ -26,7 +26,7 @@ export const CollapsibleFull = ({
   classBorder,
   children,
 }: React.PropsWithChildren<Props>) => {
-  const {show, setShow} = state;
+  const {show, setShow} = control;
 
   React.useEffect(() => {
     if (appear) {

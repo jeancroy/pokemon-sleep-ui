@@ -5,7 +5,7 @@ import {Session} from 'next-auth';
 
 import {FilterWithUpdaterProps} from '@/components/input/filter/type';
 import {getMultiSelectOnClickProps} from '@/components/input/filter/utils/props';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
 import {MapFilter} from '@/components/shared/map/filter';
@@ -36,12 +36,12 @@ export const AnalysisPageInput = ({
   session,
   ...props
 }: Props) => {
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
   const {isPremium} = useUserActivation(session);
 
   return (
     <Flex className="gap-1.5">
-      <Collapsible appear state={collapsible} classNameForHeight="h-72 md:h-52" button={
+      <Collapsible appear control={collapsible} classNameForHeight="h-72 md:h-52" button={
         <Flex direction="row" center className="gap-0.5">
           <FunnelIcon className="size-6"/>
         </Flex>

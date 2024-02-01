@@ -3,7 +3,7 @@ import React from 'react';
 import {AdsUnit} from '@/components/ads/main';
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
@@ -27,7 +27,7 @@ export const PokedexTierListSingle = ({onPokemonClicked, ...props}: Props) => {
   } = props;
   const isDefaultShow = tier === 'S';
 
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
 
   // Have to delay the auto open after load because the original bucket length will be 0
   // until the calculation is completed
@@ -50,7 +50,7 @@ export const PokedexTierListSingle = ({onPokemonClicked, ...props}: Props) => {
 
   return (
     <CollapsibleFull
-      state={collapsible}
+      control={collapsible}
       button={<PokedexTierListButton collapsible={collapsible} {...props}/>}
       noButtonPadding
       disabled={!bucket.length}

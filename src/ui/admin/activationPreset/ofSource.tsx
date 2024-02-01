@@ -4,7 +4,7 @@ import PlusIcon from '@heroicons/react/24/outline/PlusIcon';
 
 import {InputRow} from '@/components/input/filter/row';
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {ClickableIconButton} from '@/components/shared/common/button/clickable';
@@ -23,10 +23,10 @@ type Props = AdminActivationPresetModifyProps & {
 export const ActivationPresetOfSource = ({source, presets, ...props}: Props) => {
   const {onCreate} = props;
 
-  const collapsible = useCollapsible(true);
+  const collapsible = useCollapsibleControl(true);
 
   return (
-    <CollapsibleFull state={collapsible} button={
+    <CollapsibleFull control={collapsible} button={
       <Flex center>
         {activationSourceToText[source]}
       </Flex>

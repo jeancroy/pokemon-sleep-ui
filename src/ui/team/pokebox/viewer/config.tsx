@@ -11,7 +11,7 @@ import {FilterIconInput} from '@/components/input/filter/preset/icon';
 import {InputRow} from '@/components/input/filter/row';
 import {getMultiSelectOnClickProps, getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {ToggleButton} from '@/components/input/toggleButton';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
 import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
@@ -41,13 +41,13 @@ export const PokeboxViewerConfig = ({session, ...props}: PokeboxViewerInputCommo
   const {filter, setFilter} = props;
 
   const {isPremium} = useUserActivation(session);
-  const collapsible = useCollapsible();
+  const collapsible = useCollapsibleControl();
   const {showPremiumRequiredToast} = usePremiumRequiredToast();
   const t = useTranslations('UI.InPage.Team.Box.DisplayType');
   const t2 = useTranslations('UI.InPage.Pokedex.Input');
 
   return (
-    <Collapsible state={collapsible} classNameForHeight={inputSectionHeight} button={
+    <Collapsible control={collapsible} classNameForHeight={inputSectionHeight} button={
       <Flex direction="row" center className="gap-0.5">
         <GenericPokeballIcon alt="Pokemon" dimension={pokeboxInputDimension}/>
         <AdjustmentsHorizontalIcon className={pokeboxInputDimension}/>

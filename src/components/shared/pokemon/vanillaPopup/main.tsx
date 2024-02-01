@@ -4,7 +4,7 @@ import FunnelIcon from '@heroicons/react/24/outline/FunnelIcon';
 
 import {AdsUnit} from '@/components/ads/main';
 import {useFilterInput} from '@/components/input/filter/hook';
-import {useCollapsible} from '@/components/layout/collapsible/hook';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
@@ -31,7 +31,7 @@ export const PokemonVanillaPopup = ({
   ...props
 }: Props) => {
   const {ingredientMap} = props;
-  const collapsible = useCollapsible(false);
+  const collapsible = useCollapsibleControl(false);
 
   const {
     filter,
@@ -50,7 +50,7 @@ export const PokemonVanillaPopup = ({
     <PopupCommon show={show} setShow={setShow}>
       <Flex className="gap-1.5 sm:w-[60vw] md:w-[50vw]">
         <AdsUnit/>
-        <Collapsible state={collapsible} classNameForHeight="h-60" button={
+        <Collapsible control={collapsible} classNameForHeight="h-60" button={
           <Flex direction="row" center>
             <FunnelIcon className="size-6"/>
           </Flex>
