@@ -124,7 +124,7 @@ export const PokeboxLoadedClient = (props: Props) => {
           session={session.data}
         />
       </Flex>
-      <AdsUnit className="hidden lg:flex"/>
+      <AdsUnit hideIfNotBlocked/>
       <PokeboxContent
         filter={filter}
         setFilter={setFilter}

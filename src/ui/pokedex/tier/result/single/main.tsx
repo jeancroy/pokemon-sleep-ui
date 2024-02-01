@@ -97,7 +97,6 @@ export const PokedexTierListSingle = ({onPokemonClicked, ...props}: Props) => {
             );
           })}
         </Flex>
-        <AdsUnit/>
       </Flex>
     </CollapsibleFull>
   );
