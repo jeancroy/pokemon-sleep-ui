@@ -15,7 +15,7 @@ export const TeamMemberControlClear = ({onClearClicked, disabled}: Props) => {
   return (
     <button onClick={onClearClicked} disabled={disabled} className={clsx(
       teamMemberControlButtonStyle,
-      'disabled:button-disabled-border',
+      'disabled:button-disabled-border text-danger',
     )}>
       <XMarkIcon/>
     </button>
