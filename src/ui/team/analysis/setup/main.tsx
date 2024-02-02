@@ -56,7 +56,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
     bundle,
     cookingSettings,
   });
-  const inputControl = useTeamAnalysisSetupInput();
+  const inputControl = useTeamAnalysisSetupInput({setup});
   const {state, setState, showPokemon} = usePokemonLinkPopup();
 
   if (!statsOfTeam) {

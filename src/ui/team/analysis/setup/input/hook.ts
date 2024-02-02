@@ -1,11 +1,15 @@
 import React from 'react';
 
-import {teamAnalysisSlotName} from '@/types/teamAnalysis';
+import {TeamAnalysisSetup, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {TeamAnalysisSetupInput, TeamAnalysisSetupInputControl} from '@/ui/team/analysis/setup/input/type';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
-export const useTeamAnalysisSetupInput = (): TeamAnalysisSetupInputControl => {
+type UseTeamAnalysisSetupInputOpts = {
+  setup: TeamAnalysisSetup,
+};
+
+export const useTeamAnalysisSetupInput = ({setup}: UseTeamAnalysisSetupInputOpts): TeamAnalysisSetupInputControl => {
   const [input, setInput] = React.useState<TeamAnalysisSetupInput>({
     showCollapsible: {},
   });
@@ -25,7 +29,9 @@ export const useTeamAnalysisSetupInput = (): TeamAnalysisSetupInputControl => {
     },
     setAllCollapsible: (show) => setInput(({showCollapsible, ...original}) => ({
       ...original,
-      showCollapsible: Object.fromEntries(Object.keys(showCollapsible).map((teamUuid) => [
+      // Taking `setup.comps` to ensure all team comps are included for collapsible control
+      // `showCollapsible` is initialized using empty object, so `Object.keys(showCollapsible)` could be empty
+      showCollapsible: Object.fromEntries(Object.keys(setup.comps).map((teamUuid) => [
         teamUuid,
         Object.fromEntries(teamAnalysisSlotName.map((slotName) => [slotName, show])),
       ])),
