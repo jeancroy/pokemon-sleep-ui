@@ -13,12 +13,12 @@ export const PokemonNameSimple = ({pokemon, override}: PokemonNameProps) => {
   const t = useTranslations('Game');
 
   return (
-    <Flex direction="row" center className="gap-0.5">
+    <Flex direction="row" noFullWidth center className="gap-0.5">
       <PokemonNameIcons pokemon={pokemon} dimension="size-5"/>
       <div className="truncate">
         {override ?? t(`PokemonName.${id}`)}
       </div>
-      <div className="self-end text-sm text-slate-500">
+      <div className="self-end text-xs text-slate-500">
         #{id}
       </div>
     </Flex>
