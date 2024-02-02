@@ -8,7 +8,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
 import {PokemonGallery} from '@/components/shared/pokemon/gallery/main';
 import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
-import {PokemonNameBig} from '@/components/shared/pokemon/name/big';
+import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonIngredientRate} from '@/components/shared/pokemon/production/params/ingredient';
 import {PokemonMainSkillTriggerRate} from '@/components/shared/pokemon/production/params/skillRate';
 import {PokemonSleepType} from '@/components/shared/pokemon/sleepType/main';
@@ -40,7 +40,7 @@ export const PokemonMeta = (props: PokemonDataProps) => {
             {t2('Stats.EventOnly')}
           </div>
         }
-        <PokemonNameBig pokemon={pokemon}/>
+        <PokemonName size="lg" pokemon={pokemon}/>
         <PokemonGallery {...props}/>
       </Flex>
       <AdsUnit className="my-2 lg:hidden"/>

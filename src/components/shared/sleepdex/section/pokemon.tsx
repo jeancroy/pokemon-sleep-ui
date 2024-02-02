@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonNameSmall} from '@/components/shared/pokemon/name/small';
+import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {SleepdexSectionSleepStyle} from '@/components/shared/sleepdex/section/style';
 import {SleepdexSectionProps} from '@/components/shared/sleepdex/section/type';
 import {PokemonInfo} from '@/types/game/pokemon';
@@ -40,7 +40,7 @@ export const SleepdexPokemonInSection = (props: Props) => {
       )}>
         <GenericPokeballIcon alt={t2('Pokedex.Main.Page.Title', {name: pokemonName})} noWrap/>
       </button>
-      <PokemonNameSmall pokemon={pokemon} className="w-full justify-center"/>
+      <PokemonName size="base" pokemon={pokemon} className="w-full justify-center"/>
       <div className="relative size-32">
         <PokemonImage
           pokemonId={pokemonId}

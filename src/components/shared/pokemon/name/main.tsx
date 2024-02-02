@@ -10,10 +10,14 @@ import {
   pokemonNameWrapperStyling,
 } from '@/components/shared/pokemon/name/const';
 import {PokemonNameIcons} from '@/components/shared/pokemon/name/icons';
-import {PokemonNameProps, PokemonNameSize} from '@/components/shared/pokemon/name/type';
+import {PokemonNameSize} from '@/components/shared/pokemon/name/type';
+import {PokemonInfo} from '@/types/game/pokemon';
 
 
-type Props = PokemonNameProps & {
+type Props = {
+  pokemon: PokemonInfo,
+  override?: string | null,
+  className?: string,
   size: PokemonNameSize,
 };
 

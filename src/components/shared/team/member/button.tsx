@@ -8,7 +8,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
-import {PokemonNameSimple} from '@/components/shared/pokemon/name/simple';
+import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
@@ -38,7 +38,7 @@ export const TeamMemberCollapsibleButton = ({
     <Flex className="gap-1 p-1 pb-5">
       <AnimatedCollapse show={isExpanded} appear>
         <Flex direction="row" className="items-center justify-between">
-          <PokemonNameSimple pokemon={pokemon} override={member.name} className="truncate"/>
+          <PokemonName size="xs" pokemon={pokemon} override={member.name}/>
           <InfoIcon>{level}</InfoIcon>
         </Flex>
         <HorizontalSplitter className="my-1"/>

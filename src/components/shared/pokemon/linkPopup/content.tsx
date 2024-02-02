@@ -7,7 +7,7 @@ import {NextImage} from '@/components/shared/common/image/main';
 import {NextLink} from '@/components/shared/common/link/main';
 import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonNameBig} from '@/components/shared/pokemon/name/big';
+import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonSleepTypeIcon} from '@/components/shared/pokemon/sleepType/icon';
 import {PokemonSpecialtyIcon} from '@/components/shared/pokemon/specialty/icon';
 import {imageIconSizes} from '@/styles/image';
@@ -28,7 +28,7 @@ export const PokemonLinkPopupContent = ({pokemon}: Props) => {
 
   return (
     <Flex center className="gap-1.5 md:w-96">
-      <PokemonNameBig pokemon={pokemon}/>
+      <PokemonName size="lg" pokemon={pokemon}/>
       <Flex direction="row" center className="gap-1">
         <PokemonSleepTypeIcon sleepType={sleepType} dimension="size-5"/>
         <PokemonSpecialtyIcon specialty={specialty} dimension="size-5"/>

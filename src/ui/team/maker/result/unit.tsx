@@ -9,7 +9,7 @@ import {PopupCommon} from '@/components/popup/common/main';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PokemonClickableIcons} from '@/components/shared/pokemon/icon/clickable/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
-import {PokemonNameSmall} from '@/components/shared/pokemon/name/small';
+import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {PokemonDetailedProducingStats} from '@/components/shared/pokemon/production/stats/main';
@@ -71,7 +71,7 @@ export const TeamMakerResultUnit = ({
         <InfoIcon style={input.previewLevel ? 'warn' : 'glow'}>
           {levelUsed}
         </InfoIcon>
-        <PokemonNameSmall pokemon={pokemonInfo} override={name}/>
+        <PokemonName size="base" pokemon={pokemonInfo} override={name}/>
         <button className="button-clickable-bg ml-auto size-7 p-1" onClick={() => setShow(true)}>
           <ChartBarIcon/>
         </button>

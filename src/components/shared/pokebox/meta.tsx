@@ -2,7 +2,7 @@ import React from 'react';
 
 import {clsx} from 'clsx';
 
-import {PokemonNameSmall} from '@/components/shared/pokemon/name/small';
+import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {pokeInBoxFavoriteStyle} from '@/styles/game/pokebox';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokeInBox} from '@/types/userData/pokebox/main';
@@ -17,10 +17,11 @@ export const PokeInBoxMeta = ({pokemon, pokeInBox}: Props) => {
   const {isFavorite} = pokeInBox;
 
   return (
-    <PokemonNameSmall
+    <PokemonName
+      size="base"
       pokemon={pokemon}
       override={pokeInBox.name}
-      className={clsx(isFavorite && pokeInBoxFavoriteStyle)}
+      className={clsx('w-fit', isFavorite && pokeInBoxFavoriteStyle)}
     />
   );
 };

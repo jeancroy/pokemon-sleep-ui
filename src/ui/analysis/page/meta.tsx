@@ -5,7 +5,7 @@ import InformationCircleIcon from '@heroicons/react/24/solid/InformationCircleIc
 import {Flex} from '@/components/layout/flex/common';
 import {NextLink} from '@/components/shared/common/link/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonNameBig} from '@/components/shared/pokemon/name/big';
+import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {AnalysisPageCommonProps} from '@/ui/analysis/page/type';
 
 
@@ -14,7 +14,7 @@ type Props = AnalysisPageCommonProps;
 export const AnalysisMeta = ({pokemon}: Props) => {
   return (
     <Flex center className="info-section">
-      <PokemonNameBig pokemon={pokemon}/>
+      <PokemonName size="lg" pokemon={pokemon}/>
       <div className="relative size-60">
         <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
         <NextLink

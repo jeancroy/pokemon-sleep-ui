@@ -13,7 +13,7 @@ import {PopupCommon} from '@/components/popup/common/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
-import {PokemonNameSimple} from '@/components/shared/pokemon/name/simple';
+import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonConfig} from '@/components/shared/pokemon/predefined/config/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
@@ -68,7 +68,7 @@ export const SkillTriggerAnalysisTarget = (props: Props) => {
           </Flex>
         </PopupCommon>
         <Flex className="gap-1">
-          <PokemonNameSimple pokemon={pokemon}/>
+          <PokemonName size="sm" pokemon={pokemon}/>
           <Flex direction="row" center>
             <div className="relative size-28">
               <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>

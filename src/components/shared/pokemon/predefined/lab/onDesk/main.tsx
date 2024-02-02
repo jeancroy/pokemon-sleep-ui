@@ -11,7 +11,7 @@ import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {PokemonIngredientPicker} from '@/components/shared/pokemon/ingredients/picker';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
-import {PokemonNameBig} from '@/components/shared/pokemon/name/big';
+import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureSelector} from '@/components/shared/pokemon/nature/selector/main';
 import {PokemonOnDeskExportButton} from '@/components/shared/pokemon/predefined/lab/onDesk/export';
 import {PokemonOnDeskCommonProps, PokemonOnDeskState} from '@/components/shared/pokemon/predefined/lab/onDesk/type';
@@ -73,7 +73,7 @@ const PokemonOnDeskInternal = <TOnDesk extends PokemonOnDeskState>({
       >
         <GenericPokeballIcon alt={t('Main.Page.Title', {name: t2(pokemon.id.toString())})} noWrap/>
       </button>
-      <PokemonNameBig pokemon={pokemon}/>
+      <PokemonName size="lg" pokemon={pokemon}/>
       <div className="relative size-48">
         <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'portrait'}} isShiny={false}/>
       </div>
