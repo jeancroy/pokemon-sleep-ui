@@ -62,7 +62,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth/mongodb-adapter@npm:2.2.0":
+"@auth/mongodb-adapter@npm:^2.2.0":
   version: 2.2.0
   resolution: "@auth/mongodb-adapter@npm:2.2.0"
   dependencies:
@@ -10010,7 +10010,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pokemon-sleep-ui@workspace:."
   dependencies:
-    "@auth/mongodb-adapter": "npm:2.2.0"
+    "@auth/mongodb-adapter": "npm:^2.2.0"
     "@ctrl/react-adsense": "npm:^1.7.0"
     "@ducanh2912/next-pwa": "npm:^10.2.4"
     "@floating-ui/react": "npm:^0.26.8"
