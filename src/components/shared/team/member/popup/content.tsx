@@ -7,7 +7,7 @@ import {Copyable} from '@/components/layout/copyable/main';
 import {Flex} from '@/components/layout/flex/common';
 import {StrengthGrowthChart} from '@/components/shared/chart/strength/main';
 import {StrengthGrowthDataEntry} from '@/components/shared/chart/strength/type';
-import {MealCoverageTargetCombo} from '@/components/shared/meal/coverage/targetCombo/main';
+import {MealCoverageCombo} from '@/components/shared/meal/coverage/combo/main';
 import {PokemonDetailedProducingStats} from '@/components/shared/pokemon/production/stats/main';
 import {PokemonSpecialtyIcon} from '@/components/shared/pokemon/specialty/icon';
 import {TeamMemberConfig} from '@/components/shared/team/member/popup/config';
@@ -124,7 +124,7 @@ export const TeamMemberPopupContent = ({
   if (type === 'mealCoverage') {
     return (
       <Flex className="h-[60vh] sm:w-[80vw]">
-        <MealCoverageTargetCombo
+        <MealCoverageCombo
           mealMap={mealMap}
           ingredientProduction={Object.fromEntries(
             Object.entries(rate.ingredient)
