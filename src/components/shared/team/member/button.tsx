@@ -3,9 +3,12 @@ import React from 'react';
 import {clsx} from 'clsx';
 
 import {InfoIcon} from '@/components/icons/info';
+import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {Flex} from '@/components/layout/flex/common';
+import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
+import {PokemonNameSimple} from '@/components/shared/pokemon/name/simple';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
@@ -33,6 +36,13 @@ export const TeamMemberCollapsibleButton = ({
 
   return (
     <Flex className="gap-1 p-1 pb-5">
+      <AnimatedCollapse show={isExpanded} appear>
+        <Flex direction="row" className="items-center justify-between">
+          <PokemonNameSimple pokemon={pokemon} override={member.name} className="truncate"/>
+          <InfoIcon>{level}</InfoIcon>
+        </Flex>
+        <HorizontalSplitter className="my-1"/>
+      </AnimatedCollapse>
       <Flex className={clsx('items-center gap-2', classOfButton)}>
         <div className="relative size-16 shrink-0">
           <PokemonImage
@@ -41,9 +51,6 @@ export const TeamMemberCollapsibleButton = ({
             isShiny={false}
             className="rounded-lg"
           />
-          <InfoIcon className="absolute bottom-0 right-0">
-            {level}
-          </InfoIcon>
         </div>
         <Flex className="items-center justify-between gap-0.5">
           <Flex noFullWidth className={clsx(

@@ -10,7 +10,6 @@ import {PokemonFrequencyFromProducingRate} from '@/components/shared/pokemon/fre
 import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimit/main';
 import {PokemonTimeToFullPack} from '@/components/shared/pokemon/inventory/fullPack/main';
 import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
-import {PokemonNameSimple} from '@/components/shared/pokemon/name/simple';
 import {PokemonBerryProduction} from '@/components/shared/pokemon/production/berry';
 import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient';
 import {PokemonProbabilityOfNoSkill} from '@/components/shared/pokemon/production/noSkill';
@@ -22,7 +21,6 @@ import {toProducingRateOfState} from '@/utils/game/producing/convert';
 
 export const TeamMemberDetails = (props: TeamMemberProps) => {
   const {
-    member,
     pokemon,
     pokemonProducingParams,
     rate,
@@ -47,16 +45,13 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
 
   return (
     <Flex className="gap-1.5 p-1">
-      <PokemonNameSimple pokemon={pokemon} override={member.name}/>
-      <Flex direction="row" className={clsx(
-        'items-center justify-center truncate text-sm',
+      <FlexLink target="_blank" href={`/info/mainskill/${skill}`} center className={clsx(
+        'button-clickable-bg group w-full gap-0.5 self-center truncate px-1.5 py-1 text-xs',
         pokemon.specialty === specialtyIdMap.skill && 'text-energy',
       )}>
-        <FlexLink center target="_blank" href={`/info/mainskill/${skill}`} className="button-clickable group p-1">
-          <MainSkillIcon id={skill} dimension="size-5"/>
-        </FlexLink>
+        <MainSkillIcon id={skill} dimension="size-4"/>
         <span className="truncate">{t(`MainSkill.Name.${skill}`)}</span>
-      </Flex>
+      </FlexLink>
       <HorizontalSplitter/>
       <PokemonFrequencyFromProducingRate pokemonRate={rate}/>
       <HorizontalSplitter/>
