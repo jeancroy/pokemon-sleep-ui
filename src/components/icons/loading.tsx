@@ -53,11 +53,12 @@ export const LoadingIcon = ({text}: LoadingPredefinedProps) => {
 
 type LoadingTextProps = LoadingPredefinedProps & {
   dimension?: Dimension,
+  className?: string,
 };
 
-export const LoadingText = ({text, dimension}: LoadingTextProps) => {
+export const LoadingText = ({text, dimension, className}: LoadingTextProps) => {
   return (
-    <Flex direction="row" noFullWidth center className="gap-1">
+    <Flex direction="row" noFullWidth center className={clsx('gap-1', className)}>
       <div className={dimension ?? 'size-5'}>
         <LoadingSvg/>
       </div>
