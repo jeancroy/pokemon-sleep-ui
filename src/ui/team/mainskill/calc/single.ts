@@ -80,6 +80,8 @@ export const getSkillTriggerValueOfUnit = ({
     skillData: mainSkillMap[skill],
     pokemonProducingParams,
     ingredients: getEffectiveIngredientProductions({level, ingredients}),
+    // For HB to be evaluated as team member instead of individual
+    calcBehavior: {asSingle: false},
   }).atStage.final;
 
   const skillTriggerValue = getSkillTriggerValue({
