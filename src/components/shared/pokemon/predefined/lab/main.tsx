@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {AdsUnit} from '@/components/ads/main';
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonComplexFilter} from '@/components/shared/pokemon/predefined/complexPicker/main';
@@ -54,7 +53,6 @@ export const PokemonLab = <TOnDesk extends PokemonOnDeskState>(props: Props<TOnD
 
           onPokemonPicked(setup, opts);
         }}/>
-        <AdsUnit className="block md:hidden"/>
         <AnimatedCollapse show={!!initialSetup}>
           {
             initialSetup &&
