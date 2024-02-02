@@ -21,10 +21,10 @@ type Props = IngredientIconsCommonProps & {
   ingredients: PokemonProducingItem<IngredientId>[],
   dimension?: Dimension,
   iconClickable?: boolean,
-  textSizeClassName?: string,
   showTotalCount?: boolean,
   showXMarkOnEmpty?: boolean,
   formatQty?: (qty: number) => string,
+  classOfText?: `text-${string}`,
   className?: string,
 };
 
@@ -34,10 +34,10 @@ export const IngredientIcons = ({
   ingredients,
   dimension,
   iconClickable,
-  textSizeClassName,
   showTotalCount,
   showXMarkOnEmpty,
   formatQty,
+  classOfText,
   className,
 }: Props) => {
   const t = useTranslations('Game.Food');
@@ -45,7 +45,7 @@ export const IngredientIcons = ({
   return (
     <Flex direction="row" noFullWidth className={clsx(
       'items-end gap-0.5',
-      textSizeClassName ?? 'text-xs',
+      classOfText ?? 'text-xs',
       className,
     )}>
       {

@@ -25,7 +25,7 @@ export const TeamMakerIngredientStatsUI = ({ingredientStats}: Props) => {
         <IngredientIcons
           getMark={() => 'red'}
           dimension={iconDimension}
-          textSizeClassName="text-lg"
+          classOfText="text-lg"
           ingredients={toProducingItemFromIngredientCounter(shortage)}
           className="flex-wrap justify-center"
           iconClickable
@@ -37,7 +37,7 @@ export const TeamMakerIngredientStatsUI = ({ingredientStats}: Props) => {
         <IngredientIcons
           getMark={() => 'green'}
           dimension={iconDimension}
-          textSizeClassName="text-lg"
+          classOfText="text-lg"
           ingredients={toProducingItemFromIngredientCounter(surplus)}
           className="flex-wrap justify-center"
           iconClickable

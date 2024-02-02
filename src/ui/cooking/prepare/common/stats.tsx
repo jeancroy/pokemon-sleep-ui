@@ -26,7 +26,7 @@ export const MealPreparerIngredientStatsUI = ({stats, showAds}: Props) => {
         <IngredientIcons
           getMark={() => 'red'}
           dimension="size-6"
-          textSizeClassName="text-lg"
+          classOfText="text-lg"
           ingredients={toProducingItemFromIngredientCounter(missing)}
           className="flex-wrap justify-center"
           iconClickable
@@ -38,7 +38,7 @@ export const MealPreparerIngredientStatsUI = ({stats, showAds}: Props) => {
         <IngredientIcons
           getMark={() => 'green'}
           dimension="size-6"
-          textSizeClassName="text-lg"
+          classOfText="text-lg"
           ingredients={toProducingItemFromIngredientCounter(filler)}
           className="flex-wrap justify-center"
           iconClickable
@@ -49,7 +49,7 @@ export const MealPreparerIngredientStatsUI = ({stats, showAds}: Props) => {
       <InputRowWithTitle title={t('Ingredient.Required')} className="min-h-[2.5rem]">
         <IngredientIcons
           dimension="size-6"
-          textSizeClassName="text-lg"
+          classOfText="text-lg"
           ingredients={toProducingItemFromIngredientCounter(required)}
           className="flex-wrap justify-center"
           iconClickable
