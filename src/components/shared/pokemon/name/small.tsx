@@ -8,11 +8,7 @@ import {PokemonNameIcons} from '@/components/shared/pokemon/name/icons';
 import {PokemonNameProps} from '@/components/shared/pokemon/name/type';
 
 
-type Props = PokemonNameProps & {
-  className?: string,
-};
-
-export const PokemonNameSmall = ({pokemon, override, className}: Props) => {
+export const PokemonNameSmall = ({pokemon, override, className}: PokemonNameProps) => {
   const {id} = pokemon;
 
   const t = useTranslations('Game');

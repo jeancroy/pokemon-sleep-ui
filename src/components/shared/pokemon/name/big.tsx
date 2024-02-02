@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
@@ -7,13 +8,13 @@ import {PokemonNameIcons} from '@/components/shared/pokemon/name/icons';
 import {PokemonNameProps} from '@/components/shared/pokemon/name/type';
 
 
-export const PokemonNameBig = ({pokemon, override}: PokemonNameProps) => {
+export const PokemonNameBig = ({pokemon, override, className}: PokemonNameProps) => {
   const {id} = pokemon;
 
   const t = useTranslations('Game');
 
   return (
-    <Flex direction="row" center className="gap-1 p-2.5 text-2xl">
+    <Flex direction="row" center className={clsx('gap-1 p-2.5 text-2xl', className)}>
       <PokemonNameIcons pokemon={pokemon} dimension="size-8"/>
       <div className="truncate">
         {override ?? t(`PokemonName.${id}`)}
