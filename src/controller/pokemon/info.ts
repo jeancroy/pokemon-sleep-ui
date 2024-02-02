@@ -1,9 +1,9 @@
 import {Collection} from 'mongodb';
 
-import {getDataAsArray, getDataAsMap, getSingleData} from '@/controller/common';
+import {getDataAsArray, getDataAsMap, getDataAsMapWithConverter, getSingleData} from '@/controller/common';
 import mongoPromise from '@/lib/mongodb';
 import {BerryId} from '@/types/game/berry';
-import {PokedexMap, PokemonId, PokemonInfo} from '@/types/game/pokemon';
+import {PokedexInternalIdMap, PokedexMap, PokemonId, PokemonInfo} from '@/types/game/pokemon';
 import {IngredientChainId} from '@/types/game/pokemon/ingredient';
 import {MainSkillId} from '@/types/game/pokemon/mainSkill';
 
@@ -16,17 +16,25 @@ const getCollection = async (): Promise<Collection<PokemonInfo>> => {
     .collection<PokemonInfo>('info');
 };
 
-export const getSinglePokemonInfo = async (id: number) => (
+export const getSinglePokemonInfo = (id: number) => (
   getSingleData(getCollection(), {id})
 );
 
-export const getPokemonList = async (): Promise<PokemonInfo[]> => {
+export const getPokemonList = (): Promise<PokemonInfo[]> => {
   return getDataAsArray(getCollection());
 };
 
-export const getPokedexMap = async (ids?: PokemonId[]): Promise<PokedexMap> => {
+export const getPokedexMap = (ids?: PokemonId[]): Promise<PokedexMap> => {
   return getDataAsMap(getCollection(), ({id}) => id, ids ? {id: {$in: ids}} : {});
 };
+
+export const getPokedexInternalIdMap = (): Promise<PokedexInternalIdMap> => (
+  getDataAsMapWithConverter(
+    getCollection(),
+    ({internalId}) => internalId,
+    ({id}) => id,
+  )
+);
 
 export const getPokemonByBerry = async (berryId: BerryId) => {
   return getDataAsArray(getCollection(), {'berry.id': berryId});

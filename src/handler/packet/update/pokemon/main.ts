@@ -1,7 +1,9 @@
+import {storePacketRecordIngredientData} from '@/controller/packet/record/ingredient/main';
 import {storePacketUpdatePokemonData} from '@/controller/packet/update/pokemon';
+import {getPokedexInternalIdMap} from '@/controller/pokemon/info';
 import {performPacketApiEndpointsCommonCheck} from '@/handler/packet/common';
 import {convertPacketDataFromApiToStorable} from '@/handler/packet/utils/convert';
-import {PacketUpdatePokemonDataFromApi} from '@/types/packet/update/pokemon';
+import {PacketUpdatePokemonData, PacketUpdatePokemonDataFromApi} from '@/types/packet/update/pokemon';
 
 
 export const handlePacketUpdatePokemonData = async (request: Request) => {
@@ -12,7 +14,10 @@ export const handlePacketUpdatePokemonData = async (request: Request) => {
     return response;
   }
 
-  await storePacketUpdatePokemonData(convertPacketDataFromApiToStorable({
+  const storable = convertPacketDataFromApiToStorable<
+    PacketUpdatePokemonData,
+    PacketUpdatePokemonDataFromApi
+  >({
     dataFromApi: requestData,
     toData: ({source, data, key}) => {
       const ret = {...data, _source: source};
@@ -23,7 +28,14 @@ export const handlePacketUpdatePokemonData = async (request: Request) => {
 
       return ret;
     },
-  }));
+  });
+
+  const pokedexInternalIdMap = await getPokedexInternalIdMap();
+
+  await Promise.all([
+    storePacketRecordIngredientData({data: storable, pokedexInternalIdMap}),
+    storePacketUpdatePokemonData(storable),
+  ]);
 
   return Response.json({}, {status: 200});
 };
