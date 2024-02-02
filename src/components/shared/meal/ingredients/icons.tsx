@@ -59,7 +59,7 @@ export const IngredientIcons = ({
         const mark = getMark && getMark(ingredient);
 
         return (
-          <Flex key={id} direction="row" noFullWidth wrap center className="gap-0.5">
+          <Flex key={`${id}x${qty}`} direction="row" noFullWidth wrap center className="gap-0.5">
             {iconClickable ?
               <PokemonIngredientIcon id={id} dimension={dimension ?? 'size-4'}/> :
               <div className={clsx('relative', dimension ?? 'size-4')}>
