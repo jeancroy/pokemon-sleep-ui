@@ -5,6 +5,7 @@ import ChartBarIcon from '@heroicons/react/24/solid/ChartBarIcon';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Loading} from '@/components/icons/loading';
+import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {MealCoverageComboCollapsible} from '@/components/shared/meal/coverage/combo/collapsible';
 import {MealCoverageDetails} from '@/components/shared/meal/coverage/details/main';
@@ -58,6 +59,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
   });
   const inputControl = useTeamAnalysisSetupInput({setup});
   const {state, setState, showPokemon} = usePokemonLinkPopup();
+  const collapsible = useCollapsibleControl();
 
   if (!statsOfTeam) {
     return <Loading text="Worker"/>;
@@ -102,6 +104,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
       <PokemonGroupedProduction grouped={statsOfTeam.grouped}/>
       <AdsUnit hideIfNotBlocked/>
       <MealCoverageComboCollapsible
+        collapsible={collapsible}
         mealMap={mealMap}
         ingredientProduction={Object.fromEntries(
           Object.entries(statsOfTeam.grouped.ingredient)
