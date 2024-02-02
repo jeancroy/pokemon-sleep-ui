@@ -5,7 +5,7 @@ import {RatingRelativeStrength} from '@/components/shared/pokemon/rating/units/r
 import {PokeInBoxRatingStats} from '@/ui/team/pokebox/content/pokeInBox/common/rating/main';
 import {pokeInBoxRatingCategory} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
-import {useCalculatePokeInBoxRating} from '@/ui/team/pokebox/content/pokeInBox/hook';
+import {useCalculatePokeInBoxRating} from '@/ui/team/pokebox/content/pokeInBox/worker/rating/hook';
 
 
 export const PokeInBoxGridRating = (props: PokeInBoxGridDetailsProps) => {

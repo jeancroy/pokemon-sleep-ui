@@ -4,8 +4,8 @@ import {Flex} from '@/components/layout/flex/common';
 import {RatingRelativeStrength} from '@/components/shared/pokemon/rating/units/relativeStrength';
 import {PokeInBoxRatingStats} from '@/ui/team/pokebox/content/pokeInBox/common/rating/main';
 import {pokeInBoxRatingCategory} from '@/ui/team/pokebox/content/pokeInBox/const';
-import {useCalculatePokeInBoxRating} from '@/ui/team/pokebox/content/pokeInBox/hook';
 import {PokeInBoxTableDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/table/details/type';
+import {useCalculatePokeInBoxRating} from '@/ui/team/pokebox/content/pokeInBox/worker/rating/hook';
 
 
 export const PokeInBoxTableRating = (props: PokeInBoxTableDetailsProps) => {

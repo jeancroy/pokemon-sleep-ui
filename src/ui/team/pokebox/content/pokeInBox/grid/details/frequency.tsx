@@ -1,12 +1,17 @@
 import React from 'react';
 
+import {LoadingText} from '@/components/icons/loading';
 import {PokemonFrequencyFromProducingRate} from '@/components/shared/pokemon/frequency/fromRate';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
-import {getRateOfPokemon} from '@/ui/team/pokebox/content/pokeInBox/utils';
+import {useCalculatePokeInBoxProduction} from '@/ui/team/pokebox/content/pokeInBox/worker/production/hook';
 
 
 export const PokeInBoxGridFrequency = (props: PokeInBoxGridDetailsProps) => {
-  const pokemonRate = getRateOfPokemon(props);
+  const {loading, rate} = useCalculatePokeInBoxProduction(props);
 
-  return <PokemonFrequencyFromProducingRate pokemonRate={pokemonRate} normalText/>;
+  if (loading || !rate) {
+    return <LoadingText dimension="size-4"/>;
+  }
+
+  return <PokemonFrequencyFromProducingRate pokemonRate={rate} normalText/>;
 };

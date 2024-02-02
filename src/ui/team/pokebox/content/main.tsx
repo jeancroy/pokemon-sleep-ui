@@ -2,7 +2,6 @@ import React from 'react';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
-import {LazyLoad} from '@/components/layout/lazyLoad';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {useRatingPopup} from '@/components/shared/pokemon/rating/hook';
@@ -64,15 +63,13 @@ export const PokeboxContent = (props: Props) => {
         countToShow={processedPokebox.length}
         total={totalPokeInBox}
       />
-      <LazyLoad loading={loading} className="gap-1.5">
-        <AdsUnit hideIfNotBlocked/>
-        <PokeInBoxView
-          {...props}
-          showPokemon={showPokemon}
-          setRatingPopupControl={ratingControl.sendRequest}
-          isLevelPreview={filter.previewLevel !== null}
-        />
-      </LazyLoad>
+      <AdsUnit hideIfNotBlocked/>
+      <PokeInBoxView
+        {...props}
+        showPokemon={showPokemon}
+        setRatingPopupControl={ratingControl.sendRequest}
+        isLevelPreview={filter.previewLevel !== null}
+      />
     </Flex>
   );
 };

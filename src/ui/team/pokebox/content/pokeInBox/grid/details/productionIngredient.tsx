@@ -3,21 +3,28 @@ import React from 'react';
 import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
+import {LoadingText} from '@/components/icons/loading';
 import {Flex} from '@/components/layout/flex/common';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
-import {getRateOfPokemon} from '@/ui/team/pokebox/content/pokeInBox/utils';
+import {useCalculatePokeInBoxProduction} from '@/ui/team/pokebox/content/pokeInBox/worker/production/hook';
 import {formatFloat} from '@/utils/number/format';
 
 
 export const PokeInBoxGridProductionIngredient = (props: PokeInBoxGridDetailsProps) => {
   const {pokemon} = props;
-  const t = useTranslations('UI.InPage.Pokedex');
 
-  const {ingredient} = getRateOfPokemon(props);
+  const t = useTranslations('UI.InPage.Pokedex');
+  const {loading, rate} = useCalculatePokeInBoxProduction(props);
+
+  if (loading || !rate) {
+    return <LoadingText dimension="size-4"/>;
+  }
+
+  const {ingredient} = rate;
 
   return (
     <Flex noFullWidth className={clsx(

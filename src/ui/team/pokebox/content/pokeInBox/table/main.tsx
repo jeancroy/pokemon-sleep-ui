@@ -5,7 +5,7 @@ import {FixedSizeList} from 'react-window';
 
 import {Flex} from '@/components/layout/flex/common';
 import {getPokeInBoxEntryKey} from '@/ui/team/pokebox/content/pokeInBox/common/utils';
-import {PokeInBoxTableRow} from '@/ui/team/pokebox/content/pokeInBox/table/row';
+import {PokeInBoxTableRow} from '@/ui/team/pokebox/content/pokeInBox/table/row/main';
 import {PokeInBoxViewOfTypeProps} from '@/ui/team/pokebox/content/pokeInBox/type';
 
 
