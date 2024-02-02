@@ -100,7 +100,9 @@ export const Pokemon = async ({params}: Props) => {
         <I18nProvider locale={locale} namespaces={[
           'Game',
           'UI.Common',
+          'UI.Component.MealCoverageCombo',
           'UI.Evolution',
+          'UI.InPage.Cooking',
           'UI.InPage.Pokedex',
           'UI.InPage.Team',
           'UI.Image',

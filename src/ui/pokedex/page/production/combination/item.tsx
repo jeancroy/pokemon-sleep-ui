@@ -1,92 +1,86 @@
 import React from 'react';
 
+import {clsx} from 'clsx';
+
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
+import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
+import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
 import {PokemonProducingRateMultiple} from '@/components/shared/pokemon/production/multiple';
 import {PokemonProducingRateSingle} from '@/components/shared/pokemon/production/single/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {ProducingRateContent} from '@/components/shared/production/rate/content';
-import {IngredientProduction} from '@/types/game/pokemon/ingredient';
-import {PokemonProductionCombinationCommonProps} from '@/ui/pokedex/page/production/combination/type';
+import {
+  PokemonProductionCombinationCommonProps,
+  PokemonProductionCombinationRateCollectionItem,
+} from '@/ui/pokedex/page/production/combination/type';
 import {PokemonProductionIngredientLink} from '@/ui/pokedex/page/production/ingredient/link';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
-import {getProducingRateIndividualParams} from '@/utils/game/producing/params';
 import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
 
 
 type Props = PokemonProductionCombinationCommonProps & {
-  ingredients: IngredientProduction[],
+  rateCollectionItem: PokemonProductionCombinationRateCollectionItem,
+  onClick: () => void,
 };
 
-export const PokemonProductionCombinationItem = ({ingredients, ...props}: Props) => {
-  const {
-    input,
-    pokemon,
-    translatedSettings,
-    mainSkillMap,
-    subSkillMap,
-  } = props;
+export const PokemonProductionCombinationItem = ({rateCollectionItem, onClick, ...props}: Props) => {
+  const {ingredients, rate} = rateCollectionItem;
+  const {pokemon} = props;
 
-  const skillData = mainSkillMap[pokemon.skill];
-
-  const rate = getPokemonProducingRateSingle({
-    ingredients,
-    skillData,
-    ...getProducingRateIndividualParams({
-      input,
-      pokemon,
-      subSkillMap,
-    }),
-    ...translatedSettings,
-    ...props,
-  }).atStage.final;
   const {berry, ingredient} = rate;
 
   return (
-    <AnimatedCollapse show appear>
-      <Flex center noFullWidth className="bg-plate gap-1.5">
-        <Flex direction="row" center wrap className="gap-1">
-          {ingredients.map((production) => (
-            <PokemonProductionIngredientLink
-              key={`${production.id}-${production.qty}`}
-              production={production}
+    <AnimatedCollapse show appear className="button-clickable-bg">
+      <FlexButton direction="col" onClick={onClick} center noFullWidth={false} className={clsx(
+        'group p-2',
+      )}>
+        <Flex center className="gap-1 sm:flex-row">
+          <Flex direction="row" noFullWidth className="gap-1">
+            {ingredients.map((production) => (
+              <PokemonProductionIngredientLink
+                key={`${production.id}-${production.qty}`}
+                production={production}
+              />
+            ))}
+          </Flex>
+          <Flex className="gap-0.5">
+            <Flex noFullWidth>
+              <PokemonProducingRateMultiple
+                horizontal
+                hideFrequency
+                rates={Object.values(ingredient)}
+                getIcon={(rate, dimension) => (
+                  <PokemonIngredientIcon id={rate.id} dimension={dimension} noLink/>
+                )}
+              />
+              <PokemonProducingRateSingle
+                horizontal
+                hideFrequency
+                rate={berry}
+                getIcon={(dimension) => (
+                  <PokemonBerryIcon id={berry.id} dimension={dimension} noLink/>
+                )}
+                display="item"
+              />
+            </Flex>
+            <HorizontalSplitter/>
+            <ProducingRateContent
+              dailyRate={getTotalEnergyOfPokemonProducingRate(rate)}
+              isEnergy
+              normalSize
+              className="self-end"
             />
-          ))}
+          </Flex>
         </Flex>
         <PokemonProductionSplitFromPokemonRate
           rate={rate}
           state="equivalent"
           specialty={pokemon.specialty}
+          classBarHeight="h-2"
         />
-        <Flex direction="row" className="items-end justify-between">
-          <ProducingRateContent
-            dailyRate={getTotalEnergyOfPokemonProducingRate(rate)}
-            isEnergy
-            normalSize
-          />
-          <Flex noFullWidth>
-            <PokemonProducingRateSingle
-              horizontal
-              hideFrequency
-              rate={berry}
-              getIcon={(dimension) => (
-                <PokemonBerryIcon id={berry.id} dimension={dimension}/>
-              )}
-              display="item"
-            />
-            <PokemonProducingRateMultiple
-              horizontal
-              hideFrequency
-              rates={Object.values(ingredient)}
-              getIcon={(rate, dimension) => (
-                <PokemonIngredientIcon id={rate.id} dimension={dimension}/>
-              )}
-            />
-          </Flex>
-        </Flex>
-      </Flex>
+      </FlexButton>
     </AnimatedCollapse>
   );
 };
