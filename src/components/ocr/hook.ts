@@ -11,7 +11,7 @@ import {getCanvas2dContext} from '@/utils/ocr/canvas';
 
 type UseOcrOpts = {
   settings: OcrSettings,
-  whitelistChars: string,
+  whitelistChars: string | null,
   onError: (message: string) => void,
 };
 
@@ -123,7 +123,7 @@ export const useOcr = ({
       // 'S' could be mistakenly recognized as `§` in EN
       // @ts-ignore
       tessedit_char_blacklist: '$§',
-      tessedit_char_whitelist: whitelistChars,
+      ...(whitelistChars ? {tessedit_char_whitelist: whitelistChars} : {}),
     });
 
     setState({

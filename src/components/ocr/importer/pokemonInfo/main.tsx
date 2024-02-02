@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {isIOS} from 'react-device-detect';
+
 import {OcrPokemonInfoImportLayout} from '@/components/ocr/importer/pokemonInfo/layout';
 import {OcrPokemonInfoImportCommonProps} from '@/components/ocr/importer/pokemonInfo/type';
 import {OcrPopup} from '@/components/ocr/popup';
@@ -43,7 +45,9 @@ export const OcrPokemonInfoImporter = ({
         />
       )}
       noFullWidth={noFullWidth}
-      getWhitelistChars={(locale) => (
+      getWhitelistChars={(locale) => isIOS ? null : (
+        // Return `null` to disable the usage of whitelist characters
+        // Temporary solution as English OCR translations doesn't work on iOS for some reason
         Object.values(ocrTranslations[locale])
           .flatMap((trans) => Object.keys(trans))
           .join('')

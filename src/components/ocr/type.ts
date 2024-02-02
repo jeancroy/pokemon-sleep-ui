@@ -47,7 +47,7 @@ export type OcrCommonProps<TData> = {
   buttonText: string,
   textToData: (text: string, locale: OcrLocale) => TData,
   renderData: (opts: OcrRenderDataOpts<TData>) => React.ReactNode,
-  getWhitelistChars: (locale: OcrLocale) => string,
+  getWhitelistChars: (locale: OcrLocale) => string | null,
 };
 
 export type UseOcrReturn = {
