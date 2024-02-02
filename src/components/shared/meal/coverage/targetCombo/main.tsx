@@ -12,56 +12,24 @@ import {
   MealCoverageTargetComboCommonProps,
   MealCoverageTargetComboInput,
 } from '@/components/shared/meal/coverage/targetCombo/type';
+import {getMealCoverageComboData} from '@/components/shared/meal/coverage/targetCombo/utils';
 import {usePossibleMealTypes} from '@/hooks/meal';
-import {toSum} from '@/utils/array';
-import {getMealCoverage} from '@/utils/game/cooking';
-import {getMealIngredientCount} from '@/utils/game/meal/count';
-import {generateTargetMeals} from '@/utils/game/meal/generate';
 import {isNotNullish} from '@/utils/type';
 
 
-export const MealCoverageTargetCombo = ({
-  mealMap,
-  ingredientProduction,
-  period,
-}: MealCoverageTargetComboCommonProps) => {
+export const MealCoverageTargetCombo = (props: MealCoverageTargetComboCommonProps) => {
+  const {mealMap} = props;
+
   const mealTypes = usePossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
   const [filter, setFilter] = React.useState<MealCoverageTargetComboInput>({
     mealType: mealTypes[0],
     resultCount: 15,
   });
 
-  const {mealType, resultCount} = filter;
-
-  const data: MealCoverageComboData[] = [...generateTargetMeals({
-    mealType,
-    mealMap,
-  })]
-    .map((meals) => ({
-      coverage: getMealCoverage({
-        meals,
-        ingredientProduction,
-        period,
-      }),
-      meals,
-      mealIngredientCounts: {
-        byMeal: Object.fromEntries(meals.map((meal) => [
-          meal.id,
-          getMealIngredientCount(meal),
-        ])),
-        total: toSum(meals.map(getMealIngredientCount)),
-      },
-    }))
-    .sort((a, b) => {
-      const coverageDiff = b.coverage.total - a.coverage.total;
-
-      if (!coverageDiff) {
-        return b.mealIngredientCounts.total - a.mealIngredientCounts.total;
-      }
-
-      return coverageDiff;
-    })
-    .slice(0, resultCount);
+  const data: MealCoverageComboData[] = getMealCoverageComboData({
+    filter,
+    ...props,
+  });
 
   return (
     <Flex className="gap-1 pr-1">
