@@ -55,7 +55,7 @@ export const TeamMemberControlMenu = ({
       itemList={[
         [
           () => (
-            <FlexButton className={teamMemberControlMenuOptionStyle} onClick={() => {
+            <FlexButton disabled={!act} className={teamMemberControlMenuOptionStyle} onClick={() => {
               if (!act) {
                 return;
               }
@@ -75,7 +75,7 @@ export const TeamMemberControlMenu = ({
             </FlexButton>
           ),
           () => (
-            <FlexButton className={teamMemberControlMenuOptionStyle} onClick={() => onPopupButtonClick(
+            <FlexButton disabled={!act} className={teamMemberControlMenuOptionStyle} onClick={() => onPopupButtonClick(
               'sharableLink',
             )}>
               <ShareIcon className={teamMemberControlMenuIconStyle}/>
