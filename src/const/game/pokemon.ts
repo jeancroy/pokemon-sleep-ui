@@ -48,3 +48,5 @@ export const defaultPokemonIndividualParams: PokemonIndividualParams = {
   subSkill: {},
   nature: null,
 };
+
+export const undefinedIngredientChainId = -1;

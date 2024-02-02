@@ -1,6 +1,8 @@
 import {Collection} from 'mongodb';
 
+import {undefinedIngredientChainId} from '@/const/game/pokemon';
 import {toPacketUpdatePokemonData} from '@/controller/packet/record/ingredient/convert';
+import {getPokedexMap} from '@/controller/pokemon/info';
 import mongoPromise from '@/lib/mongodb';
 import {PokedexInternalIdMap} from '@/types/game/pokemon';
 import {PokemonIngredientFromPacket} from '@/types/packet/record/ingredient';
@@ -21,20 +23,33 @@ type Props = {
 };
 
 export const storePacketRecordIngredientData = async ({data, pokedexInternalIdMap}: Props) => {
-  return (await getCollection()).bulkWrite(
-    data
-      .flatMap((packet) => toPacketUpdatePokemonData({
+  const pokemonMap = await getPokedexMap(data.map(({num}) => num));
+
+  const ops = data
+    .flatMap((packet) => {
+      const pokemonData = pokemonMap[packet.num];
+      if (!pokemonData || pokemonData.ingredientChain !== undefinedIngredientChainId) {
+        return [];
+      }
+
+      return toPacketUpdatePokemonData({
         packet,
         pokedexInternalIdMap,
-      }))
-      .map((entry) => ({
-        updateOne: {
-          filter: entry,
-          update: {$set: entry},
-          upsert: true,
-        },
-      })),
-  );
+      });
+    })
+    .map((entry) => ({
+      updateOne: {
+        filter: entry,
+        update: {$set: entry},
+        upsert: true,
+      },
+    }));
+
+  if (!ops.length) {
+    return;
+  }
+
+  return (await getCollection()).bulkWrite(ops);
 };
 
 const addIndex = async () => {
