@@ -16,7 +16,7 @@ import {imageIconSizes} from '@/styles/image';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {PokemonMetaSection} from '@/ui/pokedex/page/meta/section';
 import {PokemonBerryProduction} from '@/ui/pokedex/page/production/berry';
-import {PokemonProductionCombination} from '@/ui/pokedex/page/production/combination';
+import {PokemonProductionCombination} from '@/ui/pokedex/page/production/combination/main';
 import {PokemonIngredientPossibilities} from '@/ui/pokedex/page/production/ingredient/possibility';
 import {metaTitleClass} from '@/ui/pokedex/page/style';
 import {PokemonDataCommonProps} from '@/ui/pokedex/page/type';
