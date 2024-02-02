@@ -10,15 +10,14 @@ import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {Flex} from '@/components/layout/flex/common';
 import {MealTypeInput} from '@/components/shared/input/mealType';
+import {useMealCoverageComboData} from '@/components/shared/meal/coverage/combo/calc/hook';
 import {mealCoverageComboSortI18nId} from '@/components/shared/meal/coverage/combo/const';
 import {MealCoverageComboEntry} from '@/components/shared/meal/coverage/combo/entry';
 import {
   MealCoverageComboCommonProps,
-  MealCoverageComboData,
   MealCoverageComboInput,
   mealCoverageComboSort,
 } from '@/components/shared/meal/coverage/combo/type';
-import {getMealCoverageComboData} from '@/components/shared/meal/coverage/combo/utils';
 import {PremiumIcon} from '@/components/static/premium/icon';
 import {usePossibleMealTypes} from '@/hooks/meal';
 import {isNotNullish} from '@/utils/type';
@@ -40,10 +39,14 @@ export const MealCoverageCombo = (props: MealCoverageComboCommonProps) => {
     session,
   });
 
-  const data: MealCoverageComboData[] = getMealCoverageComboData({
+  const data = useMealCoverageComboData({
     filter,
     ...props,
   });
+
+  if (!data) {
+    return null;
+  }
 
   return (
     <Flex className="gap-1 pr-1">

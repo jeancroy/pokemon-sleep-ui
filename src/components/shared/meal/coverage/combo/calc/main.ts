@@ -1,18 +1,11 @@
+import {GetMealCoverageComboDataOpts} from '@/components/shared/meal/coverage/combo/calc/type';
 import {mealCoverageComboSortBasisGetter} from '@/components/shared/meal/coverage/combo/const';
-import {
-  MealCoverageComboCommonProps,
-  MealCoverageComboData,
-  MealCoverageComboInput,
-} from '@/components/shared/meal/coverage/combo/type';
+import {MealCoverageComboData} from '@/components/shared/meal/coverage/combo/type';
 import {toSum} from '@/utils/array';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {getMealIngredientCount} from '@/utils/game/meal/count';
 import {generateTargetMeals} from '@/utils/game/meal/generate';
 
-
-type GetMealCoverageComboDataOpts = MealCoverageComboCommonProps & {
-  filter: MealCoverageComboInput,
-};
 
 export const getMealCoverageComboData = ({
   mealMap,
