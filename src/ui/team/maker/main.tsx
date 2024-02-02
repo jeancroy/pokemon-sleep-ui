@@ -74,6 +74,7 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     <I18nProvider locale={locale} namespaces={[
       'Game',
       'UI.Common',
+      'UI.Component.MealCoverageCombo',
       'UI.InPage.Cooking',
       'UI.InPage.Pokedex',
       'UI.InPage.Team',

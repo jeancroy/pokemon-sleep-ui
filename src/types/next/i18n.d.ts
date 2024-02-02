@@ -56,6 +56,10 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         CollapseAll: string,
         ExpandAll: string,
       },
+      MealCoverageCombo: {
+        IngredientCoverage: string,
+        CoveredStrength: string,
+      },
     },
     Evolution: {
       SleepTime: string,

@@ -39,6 +39,10 @@
     "Collapsible": {
       "CollapseAll": "펼치기",
       "ExpandAll": "접기"
+    },
+    "MealCoverageCombo": {
+      "IngredientCoverage": "Ingredient Coverage",
+      "CoveredStrength": "Covered Strength"
     }
   },
   "Evolution": {

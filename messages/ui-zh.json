@@ -39,6 +39,10 @@
     "Collapsible": {
       "CollapseAll": "全部收摺",
       "ExpandAll": "全部展開"
+    },
+    "MealCoverageCombo": {
+      "IngredientCoverage": "食材覆蓋率",
+      "CoveredStrength": "等效能量"
     }
   },
   "Evolution": {

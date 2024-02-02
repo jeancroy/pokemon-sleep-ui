@@ -39,6 +39,10 @@
     "Collapsible": {
       "CollapseAll": "Collapse All",
       "ExpandAll": "Expand All"
+    },
+    "MealCoverageCombo": {
+      "IngredientCoverage": "Ingredient Coverage",
+      "CoveredStrength": "Covered Strength"
     }
   },
   "Evolution": {

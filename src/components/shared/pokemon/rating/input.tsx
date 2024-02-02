@@ -50,7 +50,7 @@ export const RatingResultInput = ({session, config, setConfig}: Props) => {
         title={
           <Flex direction="row" noFullWidth center className="gap-1.5">
             {!isPremium && <PremiumIcon/>}
-            {t('Category.Title')}
+            <span>{t('Category.Title')}</span>
           </Flex>
         }
         ids={[...ratingResultCategory]}

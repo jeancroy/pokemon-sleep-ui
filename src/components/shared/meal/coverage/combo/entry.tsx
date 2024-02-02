@@ -13,12 +13,13 @@ type Props = {
 export const MealCoverageComboEntry = ({data}: Props) => {
   const {
     coverage,
+    coveredStrength,
   } = data;
 
   return (
     <Flex className="gap-1 border-b-gray-600 p-2 not-last:border-b">
       <MealCoverageComboMealInfo data={data}/>
-      <MealCoverageDetails coverage={coverage}/>
+      <MealCoverageDetails coverage={coverage} coveredStrength={coveredStrength}/>
     </Flex>
   );
 };

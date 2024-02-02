@@ -4,6 +4,13 @@ import {Meal, MealId, MealMap, MealTypeId} from '@/types/game/meal/main';
 import {ProductionPeriod} from '@/types/game/producing/display';
 
 
+export const mealCoverageComboSort = [
+  'ingredientCoverage',
+  'coveredStrength',
+] as const;
+
+export type MealCoverageComboSort = typeof mealCoverageComboSort[number];
+
 export type MealCoverageComboCommonProps = {
   mealMap: MealMap,
   ingredientProduction: IngredientCounter,
@@ -12,6 +19,7 @@ export type MealCoverageComboCommonProps = {
 
 export type MealCoverageComboInput = {
   mealType: MealTypeId,
+  sort: MealCoverageComboSort,
   resultCount: number,
 };
 
@@ -22,4 +30,5 @@ export type MealCoverageComboData = {
     byMeal: {[id in MealId]: number},
     total: number,
   },
+  coveredStrength: number,
 };

@@ -4,25 +4,34 @@ import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
+import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
-import {MealCoverage} from '@/types/game/cooking';
+import {MealCoverageSummaryCommonProps} from '@/components/shared/meal/coverage/type';
 import {Dimension} from '@/types/style';
-import {formatFloat3} from '@/utils/number/format';
+import {formatFloat, formatInt} from '@/utils/number/format';
 
 
-type Props = {
-  coverage: MealCoverage,
+type Props = MealCoverageSummaryCommonProps & {
   dimension?: Dimension,
-  className?: string,
 };
 
-export const MealCoverageSummary = ({coverage, dimension, className}: Props) => {
+export const MealCoverageSummary = ({coverage, coveredStrength, dimension, className}: Props) => {
   const t = useTranslations('UI.Common');
+  const t2 = useTranslations('UI.Component.MealCoverageCombo');
 
   return (
-    <Flex direction="row" noFullWidth className={clsx('items-center gap-1', className)}>
-      <MealCoverageIcon alt={t('MealCoverage')} dimension={dimension ?? 'size-6'}/>
-      <div>{formatFloat3(coverage.total * 100)}%</div>
+    <Flex direction="row" noFullWidth className={clsx('items-center gap-2', className)}>
+      {
+        !!coveredStrength &&
+        <Flex direction="row" noFullWidth className="items-center gap-0.5">
+          <ColoredEnergyIcon dimension={dimension ?? 'size-6'} alt={t2('CoveredStrength')}/>
+          <span>{formatInt(coveredStrength)}</span>
+        </Flex>
+      }
+      <Flex direction="row" noFullWidth className="items-center gap-1">
+        <MealCoverageIcon alt={t('MealCoverage')} dimension={dimension ?? 'size-6'}/>
+        <span>{formatFloat(coverage.total * 100)}%</span>
+      </Flex>
     </Flex>
   );
 };

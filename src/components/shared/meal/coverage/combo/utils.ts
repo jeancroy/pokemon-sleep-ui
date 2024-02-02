@@ -1,6 +1,7 @@
+import {mealCoverageComboSortBasisGetter} from '@/components/shared/meal/coverage/combo/const';
 import {
-  MealCoverageComboData,
   MealCoverageComboCommonProps,
+  MealCoverageComboData,
   MealCoverageComboInput,
 } from '@/components/shared/meal/coverage/combo/type';
 import {toSum} from '@/utils/array';
@@ -19,35 +20,42 @@ export const getMealCoverageComboData = ({
   period,
   filter,
 }: GetMealCoverageComboDataOpts): MealCoverageComboData[] => {
-  const {mealType, resultCount} = filter;
+  const {mealType, sort, resultCount} = filter;
+  const sortBasisGetter = mealCoverageComboSortBasisGetter[sort];
 
   return [...generateTargetMeals({
     mealType,
     mealMap,
   })]
-    .map((meals) => ({
-      coverage: getMealCoverage({
+    .map((meals): MealCoverageComboData => {
+      const byMeal = Object.fromEntries(meals.map((meal) => [
+        meal.id,
+        getMealIngredientCount(meal),
+      ]));
+      const coverage = getMealCoverage({
         meals,
         ingredientProduction,
         period,
-      }),
-      meals,
-      mealIngredientCounts: {
-        byMeal: Object.fromEntries(meals.map((meal) => [
-          meal.id,
-          getMealIngredientCount(meal),
-        ])),
-        total: toSum(meals.map(getMealIngredientCount)),
-      },
-    }))
-    .sort((a, b) => {
-      const coverageDiff = b.coverage.total - a.coverage.total;
+      });
 
-      if (!coverageDiff) {
-        return b.mealIngredientCounts.total - a.mealIngredientCounts.total;
+      return {
+        coverage,
+        meals,
+        mealIngredientCounts: {
+          byMeal,
+          total: toSum(Object.values(byMeal)),
+        },
+        coveredStrength: toSum(meals.map(({baseStrength}) => baseStrength)) * coverage.total,
+      };
+    })
+    .sort((a, b) => {
+      const diff = sortBasisGetter(b) - sortBasisGetter(a);
+
+      if (diff) {
+        return diff;
       }
 
-      return coverageDiff;
+      return b.mealIngredientCounts.total - a.mealIngredientCounts.total;
     })
     .slice(0, resultCount);
 };

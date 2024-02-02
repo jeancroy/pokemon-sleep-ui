@@ -6,15 +6,12 @@ import {Flex} from '@/components/layout/flex/common';
 import {ProgressBarSingle} from '@/components/progressBar/single';
 import {MealCoverageOfIngredient} from '@/components/shared/meal/coverage/details/ingredient';
 import {MealCoverageSummary} from '@/components/shared/meal/coverage/summary';
-import {MealCoverage} from '@/types/game/cooking';
+import {MealCoverageSummaryCommonProps} from '@/components/shared/meal/coverage/type';
 
 
-type Props = {
-  coverage: MealCoverage,
-  className?: string,
-};
+export const MealCoverageDetails = ({className, ...props}: MealCoverageSummaryCommonProps) => {
+  const {coverage} = props;
 
-export const MealCoverageDetails = ({coverage, className}: Props) => {
   return (
     <Flex className={clsx('items-center gap-1.5 md:flex-row', className)}>
       <Flex className="gap-1.5">
@@ -29,7 +26,7 @@ export const MealCoverageDetails = ({coverage, className}: Props) => {
         </Flex>
         <ProgressBarSingle percent={coverage.total * 100} classBarHeight="h-2"/>
       </Flex>
-      <MealCoverageSummary coverage={coverage} dimension="size-7" className="text-xl"/>
+      <MealCoverageSummary dimension="size-7" className="text-xl" {...props}/>
     </Flex>
   );
 };

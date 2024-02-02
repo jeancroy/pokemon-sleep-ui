@@ -39,6 +39,10 @@
     "Collapsible": {
       "CollapseAll": "すべて隠す",
       "ExpandAll": "すべて表示"
+    },
+    "MealCoverageCombo": {
+      "IngredientCoverage": "食材カバー率",
+      "CoveredStrength": "エナジーカバー量"
     }
   },
   "Evolution": {
