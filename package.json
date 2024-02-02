@@ -23,7 +23,7 @@
     "devops": "node scripts/discord-webhook.js"
   },
   "dependencies": {
-    "@auth/mongodb-adapter": "2.0.9",
+    "@auth/mongodb-adapter": "^2.2.0",
     "@ctrl/react-adsense": "^1.7.0",
     "@floating-ui/react": "^0.26.8",
     "@headlessui/react": "1.7.17",
@@ -70,7 +70,7 @@
     "uuid": "^9.0.1"
   },
   "dependenciesComments": {
-    "@auth/mongodb-adapter": "Currently fixed to `v2.0.9` as `v2.0.10` ~ `v2.0.12` has type mismatch issue. Check https://github.com/nextauthjs/next-auth/issues/9493.",
+    "@auth/mongodb-adapter": "See https://github.com/nextauthjs/next-auth/issues/9493 if `next-auth` gives any error.",
     "@headlessui/react": "Currently fixed to `v1.7.17` as `v1.7.18` has issue with `<Transition/>`. Check https://github.com/tailwindlabs/headlessui/issues/2914."
   },
   "devDependencies": {

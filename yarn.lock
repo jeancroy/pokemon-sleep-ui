@@ -42,9 +42,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@auth/core@npm:0.18.6":
-  version: 0.18.6
-  resolution: "@auth/core@npm:0.18.6"
+"@auth/core@npm:0.25.0":
+  version: 0.25.0
+  resolution: "@auth/core@npm:0.25.0"
   dependencies:
     "@panva/hkdf": "npm:^1.1.1"
     "@types/cookie": "npm:0.6.0"
@@ -58,18 +58,18 @@ __metadata:
   peerDependenciesMeta:
     nodemailer:
       optional: true
-  checksum: c5c843ae010d991033f58bd16d4ec924691fee8c1596ab7b9ba652ca4172c8551f9f4023789fc46b9d23e559bd4d37b1a60c93f33c8374f90e544f84b6caf543
+  checksum: 57125a4c4cd064a11d0563f9d0d6d86d1e8ac3bb45e419284abad89c7c9177c35fc8a9a46c2abbb38d1b5e19475c291faa02026b40be93646cfb6a7f308162cf
   languageName: node
   linkType: hard
 
-"@auth/mongodb-adapter@npm:2.0.9":
-  version: 2.0.9
-  resolution: "@auth/mongodb-adapter@npm:2.0.9"
+"@auth/mongodb-adapter@npm:2.2.0":
+  version: 2.2.0
+  resolution: "@auth/mongodb-adapter@npm:2.2.0"
   dependencies:
-    "@auth/core": "npm:0.18.6"
+    "@auth/core": "npm:0.25.0"
   peerDependencies:
     mongodb: ^6
-  checksum: 8db0d6b6f7fb81a5dde8e2b57bd9ae6894bda69fbaafa867ba7db15f86474386e2410d630c79b4ff8fd26f035029d5a91eab23c576bb274dc0bf6c3f52f0b97b
+  checksum: 3fa34cbdcecc9569fd5aa869a2eb940b855f5ff1149c5482f58896098df6f0e4e8b710210962cb5985aaec88ed4f04d6ef5fce4e1008e44eea74bbc65802b281
   languageName: node
   linkType: hard
 
@@ -10010,7 +10010,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pokemon-sleep-ui@workspace:."
   dependencies:
-    "@auth/mongodb-adapter": "npm:2.0.9"
+    "@auth/mongodb-adapter": "npm:2.2.0"
     "@ctrl/react-adsense": "npm:^1.7.0"
     "@ducanh2912/next-pwa": "npm:^10.2.4"
     "@floating-ui/react": "npm:^0.26.8"
