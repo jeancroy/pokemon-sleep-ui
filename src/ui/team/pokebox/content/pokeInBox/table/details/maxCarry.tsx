@@ -6,13 +6,13 @@ import {Flex} from '@/components/layout/flex/common';
 import {GenericIconLarger} from '@/components/shared/icon/common/larger';
 import {PokemonTimeToFullPack} from '@/components/shared/pokemon/inventory/fullPack/main';
 import {PokeInBoxTableDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/table/details/type';
-import {getRateOfPokemon} from '@/ui/team/pokebox/content/pokeInBox/utils';
 
 
 export const PokeInBoxTableMaxCarry = (props: PokeInBoxTableDetailsProps) => {
-  const t = useTranslations('UI.Common');
+  const {rateOfPokemon} = props;
+  const {fullPackStats, carryLimitInfo} = rateOfPokemon;
 
-  const {fullPackStats, carryLimitInfo} = getRateOfPokemon(props);
+  const t = useTranslations('UI.Common');
 
   return (
     <Flex direction="row" noFullWidth>
