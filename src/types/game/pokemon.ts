@@ -48,6 +48,7 @@ export type PokemonInfo = {
   evolution: EvolutionData,
   expType: PokemonExpTypeId,
   eventType: PokemonEventTypeId,
+  internalId: number,
 };
 
 export type PokemonInfoWithMap = {
@@ -70,3 +71,5 @@ export type PokemonFinalEvolutionInfo = {
 };
 
 export type PokedexMap = {[id in PokemonId]?: PokemonInfo};
+
+export type PokedexInternalIdMap = {[internalId in PokemonId]?: PokemonId};

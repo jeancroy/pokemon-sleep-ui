@@ -34,6 +34,7 @@ export const testPokemonData: {[name in string]: PokemonInfo} = {
     },
     expType: defaultExpType,
     eventType: defaultPokemonEventType,
+    internalId: 91,
   },
   ampharos: {
     id: 181,
@@ -65,6 +66,7 @@ export const testPokemonData: {[name in string]: PokemonInfo} = {
     },
     expType: defaultExpType,
     eventType: defaultPokemonEventType,
+    internalId: 82,
   },
 };
 
