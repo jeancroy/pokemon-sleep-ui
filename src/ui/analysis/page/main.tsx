@@ -14,6 +14,7 @@ import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
 import {getPokemonList} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSleepStyleNormalMap} from '@/controller/sleepStyle';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {AnalysisPageClient} from '@/ui/analysis/page/client';
@@ -39,6 +40,7 @@ export const AnalysisPage = async ({params}: Props) => {
     subSkillMap,
     sleepStyleMap,
     mapMeta,
+    recipeLevelData,
     pokemonMaxLevel,
     cookingUserSettingsRequiredData,
   ] = await Promise.all([
@@ -52,6 +54,7 @@ export const AnalysisPage = async ({params}: Props) => {
     getSubSkillMap(),
     getSleepStyleNormalMap(),
     getFieldMetaMap(),
+    getRecipeLevelData(),
     getPokemonMaxLevelByBerry(),
     getCookingUserSettingsRequiredData(),
   ]);
@@ -73,6 +76,7 @@ export const AnalysisPage = async ({params}: Props) => {
     berryDataMap,
     sleepStyleMap,
     mapMeta,
+    recipeLevelData,
     pokemonMaxLevel,
     preloaded: createUserSettingsBundle(session),
     ...cookingUserSettingsRequiredData,

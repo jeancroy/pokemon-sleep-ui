@@ -1,5 +1,6 @@
 import {BerryDataMap} from '@/types/game/berry';
 import {IngredientMap} from '@/types/game/ingredient';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokedexMap, PokemonInfo} from '@/types/game/pokemon';
 import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
@@ -26,5 +27,6 @@ export type PokeInBoxCommonProps = PokeInBoxChangeableProps & CookingUserSetting
   ingredientMap: IngredientMap,
   ingredientChainMap: IngredientChainMap,
   mainSkillMap: MainSkillMap,
+  recipeLevelData: RecipeLevelData[],
   ratingBasis: PokeboxViewerDisplay['ratingBasis'],
 };

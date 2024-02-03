@@ -7,17 +7,23 @@ import {getMealFinalStrength} from '@/utils/game/meal/strength/final';
 
 
 export const MealMakerRecipe = ({meals, ...props}: MealMakerCommonProps) => {
-  const {filter, ingredientMap, calculatedSettings} = props;
+  const {
+    filter,
+    ingredientMap,
+    recipeLevelData,
+    calculatedSettings,
+  } = props;
   const {showUnmakeableRecipe} = filter;
 
   const data: MealMakerRecipeData[] = React.useMemo(
     () => meals.map((meal) => ({
       meal,
       info: getMealFinalStrength({
-        filler: [],
         level: filter.recipeLevel[meal.id] ?? 1,
         meal,
         ingredientMap,
+        recipeLevelData,
+        filler: [],
         mapMultiplier: calculatedSettings.bonus.mapMultiplier,
       }),
     })),

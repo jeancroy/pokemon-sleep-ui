@@ -16,6 +16,7 @@ import {getMainSkillMap} from '@/controller/mainSkill';
 import {getAssociatedPokemonBranchData} from '@/controller/pokemon/branch';
 import {getPokedexMap, getSinglePokemonInfo} from '@/controller/pokemon/info';
 import {getSinglePokemonProducingParams} from '@/controller/pokemon/producing';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSleepStyleNormalList} from '@/controller/sleepStyle';
 import {getSleepStyleSpecialListOfPokemon} from '@/controller/sleepStyleSpecial';
 import {getSnorlaxDataMap} from '@/controller/snorlax';
@@ -54,6 +55,7 @@ export const Pokemon = async ({params}: Props) => {
     mainSkillMap,
     subSkillMap,
     snorlaxDataMap,
+    recipeLevelData,
     eventDrowsyPowerMultiplierData,
     cookingUserSettingsRequiredData,
   ] = await Promise.all([
@@ -68,6 +70,7 @@ export const Pokemon = async ({params}: Props) => {
     getMainSkillMap(),
     getSubSkillMap(),
     getSnorlaxDataMap(),
+    getRecipeLevelData(),
     getEventDrowsyPowerMultiplierData(),
     getCookingUserSettingsRequiredData(),
   ]);
@@ -89,6 +92,7 @@ export const Pokemon = async ({params}: Props) => {
     mainSkillMap,
     subSkillMap,
     snorlaxDataMap,
+    recipeLevelData,
     eventDrowsyPowerMultiplierData,
     preloaded: createUserSettingsBundle(session),
     ...cookingUserSettingsRequiredData,

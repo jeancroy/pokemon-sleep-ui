@@ -23,6 +23,7 @@ export const useRatingWorker = ({setLoading, onRated, opts}: UseRatingWorkerOpts
     subSkillMap,
     mealMap,
     cookingRecoveryData,
+    recipeLevelData,
     useNestedWorker,
   } = opts;
   const {work} = useWorker<RatingWorkerOpts, RatingResultOfLevel>({
@@ -58,6 +59,7 @@ export const useRatingWorker = ({setLoading, onRated, opts}: UseRatingWorkerOpts
       subSkillMap,
       mealMap,
       cookingRecoveryData,
+      recipeLevelData,
       useNestedWorker,
     });
     setLoading(true);

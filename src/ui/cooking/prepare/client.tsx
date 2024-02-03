@@ -13,6 +13,7 @@ import {MealPreparerInput} from '@/ui/cooking/prepare/input/main';
 import {MealPreparerByMealTypes} from '@/ui/cooking/prepare/mealType/main';
 import {MealPreparerSummary} from '@/ui/cooking/prepare/summary/main';
 import {MealPreparerCommonProps, MealPreparerFilter} from '@/ui/cooking/prepare/type';
+import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 import {isNotNullish} from '@/utils/type';
 
@@ -20,6 +21,7 @@ import {isNotNullish} from '@/utils/type';
 export const MealPreparerClient = (props: CookingServerDataProps) => {
   const {
     mealMap,
+    recipeLevelData,
     preloaded,
   } = props;
 
@@ -44,6 +46,7 @@ export const MealPreparerClient = (props: CookingServerDataProps) => {
     filter,
     setFilter,
     mealTypes,
+    maxRecipeLevel: getMaxRecipeLevel({recipeLevelData}),
     calculatedSettings: translatedSettings.calculatedSettings,
     preloaded: preloaded.cooking,
   };

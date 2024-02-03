@@ -5,20 +5,8 @@ import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single'
 import {KeysOfType} from '@/utils/type';
 
 
-export const getPokemonRateSorter = ({
-  berryData,
-  snorlaxFavorite,
-  calculatedSettings,
-  cookingSettings,
-  ...opts
-}: PokemonSorterGetterOpts): PokemonProducingRate => {
-  return getPokemonProducingRateSingle({
-    ...opts,
-    calculatedSettings,
-    cookingSettings,
-    snorlaxFavorite,
-    berryData,
-  }).atStage.final;
+export const getPokemonRateSorter = (opts: PokemonSorterGetterOpts): PokemonProducingRate => {
+  return getPokemonProducingRateSingle(opts).atStage.final;
 };
 
 type GetPokemonItemRateSorterOpts = {

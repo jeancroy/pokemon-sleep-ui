@@ -17,15 +17,24 @@ import {userCookingMeals, UserCookingTarget} from '@/types/userData/cooking';
 
 
 type Props = {
+  mealMap: MealMap,
+  mealTypes: MealTypeId[],
+  maxRecipeLevel: number,
   target: UserCookingTarget,
   setTarget: (updated: Partial<UserCookingTarget>) => void,
   recipeLevel: RecipeLevel,
   setRecipeLevel: (updated: Partial<RecipeLevel>) => void,
-  mealMap: MealMap,
-  mealTypes: MealTypeId[],
 };
 
-export const MealPlanner = ({target, setTarget, recipeLevel, setRecipeLevel, mealMap, mealTypes}: Props) => {
+export const MealPlanner = ({
+  mealMap,
+  mealTypes,
+  maxRecipeLevel,
+  target,
+  setTarget,
+  recipeLevel,
+  setRecipeLevel,
+}: Props) => {
   const t = useTranslations('Game');
   const collapsible = useCollapsibleControl();
 
@@ -52,6 +61,7 @@ export const MealPlanner = ({target, setTarget, recipeLevel, setRecipeLevel, mea
                       current={targetOfType ? targetOfType[mealOfDay] : undefined}
                       mealMap={mealMap}
                       mealType={mealType}
+                      maxRecipeLevel={maxRecipeLevel}
                       isMealOption={({type}) => type === mealType}
                       onSelect={(meal) => setTarget({[mealType]: {[mealOfDay]: meal ? meal.id : null}})}
                       recipeLevel={recipeLevel}

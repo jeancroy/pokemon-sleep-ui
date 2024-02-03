@@ -5,17 +5,17 @@ import {useTranslations} from 'next-intl';
 
 import {LevelIcon} from '@/components/shared/icon/lv';
 import {NumberInputRequired} from '@/components/shared/input/number/required/main';
-import {recipeMaxLevel} from '@/const/game/meal';
 
 
 type Props = {
   level: number,
+  maxRecipeLevel: number,
   onUpdate: (updated: number) => void,
   disabled?: boolean,
   className?: string,
 };
 
-export const MealRecipeLevelInput = ({level, onUpdate, disabled, className}: Props) => {
+export const MealRecipeLevelInput = ({level, maxRecipeLevel, onUpdate, disabled, className}: Props) => {
   const t = useTranslations('UI.InPage.Cooking');
 
   return (
@@ -26,7 +26,7 @@ export const MealRecipeLevelInput = ({level, onUpdate, disabled, className}: Pro
       )}
       value={level}
       min={1}
-      max={recipeMaxLevel}
+      max={maxRecipeLevel}
       setValue={(level) => onUpdate(level)}
       disabled={disabled}
       className={className}

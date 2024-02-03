@@ -12,6 +12,7 @@ import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
 import {getPokemonList} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSleepStyleNormalMap} from '@/controller/sleepStyle';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {locales} from '@/types/next/locale';
@@ -52,6 +53,7 @@ export const Pokedex = async ({params}: DefaultPageProps) => {
     mainSkillMap,
     subSkillMap,
     mapMeta,
+    recipeLevelData,
     cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
@@ -64,6 +66,7 @@ export const Pokedex = async ({params}: DefaultPageProps) => {
     getMainSkillMap(),
     getSubSkillMap(),
     getFieldMetaMap(),
+    getRecipeLevelData(),
     getCookingUserSettingsRequiredData(),
   ]);
 
@@ -77,6 +80,7 @@ export const Pokedex = async ({params}: DefaultPageProps) => {
     mainSkillMap,
     subSkillMap,
     mapMeta,
+    recipeLevelData,
     preloaded: {
       display: session?.user.preloaded.pokedex,
       bundle: createUserSettingsBundle(session),

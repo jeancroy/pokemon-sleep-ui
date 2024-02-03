@@ -12,17 +12,23 @@ import {IngredientIconsFromMeal} from '@/components/shared/meal/ingredients/icon
 import {MealRecipeLevelInput} from '@/components/shared/meal/recipeLevel';
 import {MealSelectorLevelUpdatingProps} from '@/components/shared/meal/selector/type';
 import {mealTypeBackgroundStyle} from '@/styles/game/mealType';
-import {Meal, MealTypeId} from '@/types/game/meal/main';
+import {Meal} from '@/types/game/meal/main';
 import {getMealIngredientCount} from '@/utils/game/meal/count';
 
 
 type Props = MealSelectorLevelUpdatingProps & {
   meal: Meal | undefined,
-  mealType: MealTypeId,
   onClick: () => void,
 };
 
-export const MealSelectorOption = ({meal, mealType, onClick, recipeLevel, onLevelUpdated}: Props) => {
+export const MealSelectorOption = ({
+  mealType,
+  maxRecipeLevel,
+  recipeLevel,
+  onLevelUpdated,
+  meal,
+  onClick,
+}: Props) => {
   const t = useTranslations('Game');
   const ingredientCount = meal ? getMealIngredientCount(meal) : 0;
 
@@ -53,6 +59,7 @@ export const MealSelectorOption = ({meal, mealType, onClick, recipeLevel, onLeve
         meal && recipeLevel && onLevelUpdated &&
         <MealRecipeLevelInput
           level={recipeLevel[meal.id] ?? 1}
+          maxRecipeLevel={maxRecipeLevel}
           onUpdate={(level) => onLevelUpdated(meal.id, level)}
           className="self-end"
           disabled={!ingredientCount}

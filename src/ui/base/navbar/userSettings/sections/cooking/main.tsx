@@ -12,16 +12,19 @@ import {MealPlanner} from '@/components/shared/meal/planner/main';
 import {usePossibleMealTypes} from '@/hooks/meal';
 import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
 import {UserSettingsCookingCommonProps} from '@/ui/base/navbar/userSettings/sections/cooking/type';
+import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {isNotNullish} from '@/utils/type';
 
 
 export const UserSettingsCooking = (props: UserSettingsCookingCommonProps) => {
   const {
+    mealMap,
+    recipeLevelData,
+    ingredientIds,
     cookingPreset,
     setCookingPreset,
-    mealMap,
-    ingredientIds,
   } = props;
+  const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
   const {unlockedIngredients} = cookingPreset;
 
   const mealTypes = usePossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
@@ -52,12 +55,13 @@ export const UserSettingsCooking = (props: UserSettingsCookingCommonProps) => {
         onClick={(id) => setCookingPreset({unlockedIngredients: {[id]: !unlockedIngredients[id]}})}
       />
       <MealPlanner
+        mealMap={mealMap}
+        mealTypes={mealTypes}
+        maxRecipeLevel={maxRecipeLevel}
         target={cookingPreset.target}
         setTarget={(target) => setCookingPreset({target})}
         recipeLevel={cookingPreset.recipeLevel}
         setRecipeLevel={(recipeLevel) => setCookingPreset({recipeLevel})}
-        mealMap={mealMap}
-        mealTypes={mealTypes}
       />
     </UserSettingsSection>
   );

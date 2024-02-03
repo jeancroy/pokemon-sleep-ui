@@ -3,6 +3,7 @@ import {BerryDataMap} from '@/types/game/berry';
 import {IngredientMap} from '@/types/game/ingredient';
 import {FieldMetaMap} from '@/types/game/mapMeta';
 import {MealMap} from '@/types/game/meal/main';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProductionAtLevels} from '@/types/game/pokemon/ingredient';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
@@ -27,6 +28,7 @@ export type AnalysisPageCommonProps = UsePokemonFilterCommonData & CookingUserSe
   sleepStyleMap: SleepStyleNormalMap,
   mealMap: MealMap,
   mapMeta: FieldMetaMap,
+  recipeLevelData: RecipeLevelData[],
   pokemonMaxLevel: number,
   preloaded: UserSettingsBundle,
 };

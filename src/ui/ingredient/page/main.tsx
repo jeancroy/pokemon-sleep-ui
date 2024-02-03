@@ -16,6 +16,7 @@ import {getMainSkillMap} from '@/controller/mainSkill';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonIngredientProductionByIngredient} from '@/controller/pokemon/ingredient';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {IngredientMeta} from '@/ui/ingredient/page/meta';
@@ -49,6 +50,7 @@ export const IngredientPage = async ({params}: Props) => {
     subSkillMap,
     pokedex,
     pokemonMaxLevel,
+    recipeLevelData,
     cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
@@ -61,6 +63,7 @@ export const IngredientPage = async ({params}: Props) => {
     getSubSkillMap(),
     getPokedexMap(),
     getPokemonMaxLevelByBerry(),
+    getRecipeLevelData(),
     getCookingUserSettingsRequiredData(),
   ]);
 
@@ -75,6 +78,7 @@ export const IngredientPage = async ({params}: Props) => {
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
+    recipeLevelData,
     preloaded: createUserSettingsBundle(session),
     ...cookingUserSettingsRequiredData,
   };
@@ -83,7 +87,12 @@ export const IngredientPage = async ({params}: Props) => {
     <PublicPageLayout locale={locale}>
       <Flex className="gap-1.5 md:flex-row">
         <IngredientMeta {...ingredient}/>
-        <IngredientCookableMeals mealMap={mealMap} ingredientMap={ingredientMap} ingredientId={ingredient.id}/>
+        <IngredientCookableMeals
+          mealMap={mealMap}
+          recipeLevelData={recipeLevelData}
+          ingredientMap={ingredientMap}
+          ingredientId={ingredient.id}
+        />
       </Flex>
       <AdsUnit/>
       <I18nProvider locale={locale} namespaces={[

@@ -1,20 +1,23 @@
 import {IngredientCounter, IngredientMap} from '@/types/game/ingredient';
 import {MealIngredientInfo} from '@/types/game/meal/info';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {CookingUserSettings} from '@/types/userData/settings';
 import {toSum} from '@/utils/array';
-import {getMealInfo} from '@/utils/game/meal/info';
+import {getMealBaseStrength} from '@/utils/game/meal/strength/base';
 import {isNotNullish} from '@/utils/type';
 import {getRecipeLevelFromCookingSettings} from '@/utils/user/settings/cooking';
 
 
 type GetIngredientBonusOfMealsOpts = {
   ingredientMap: IngredientMap,
+  recipeLevelData: RecipeLevelData[],
   mealIngredientInfo: MealIngredientInfo,
   cookingSettings: CookingUserSettings,
 };
 
 export const getIngredientBonusOfMeals = ({
   ingredientMap,
+  recipeLevelData,
   mealIngredientInfo,
   cookingSettings,
 }: GetIngredientBonusOfMealsOpts): IngredientCounter => {
@@ -23,13 +26,14 @@ export const getIngredientBonusOfMeals = ({
 
   const mealBonusMap = Object.fromEntries(targetMeals.map((meal) => [
     meal.id,
-    getMealInfo({
+    getMealBaseStrength({
       level: getRecipeLevelFromCookingSettings({
         cookingSettings,
         mealId: meal.id,
       }),
       meal,
       ingredientMap,
+      recipeLevelData,
     }),
   ]));
 

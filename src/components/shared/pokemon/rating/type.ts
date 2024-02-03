@@ -2,6 +2,7 @@ import React from 'react';
 
 import {BerryDataMap} from '@/types/game/berry';
 import {IngredientMap} from '@/types/game/ingredient';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
@@ -24,6 +25,7 @@ export type RatingResultProps = CookingUserSettingsRequiredData & {
   ingredientMap: IngredientMap,
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
+  recipeLevelData: RecipeLevelData[],
   pokemonMaxLevel: number,
   setRequest?: (updated: RatingRequest) => void,
 };

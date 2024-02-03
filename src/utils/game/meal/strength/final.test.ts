@@ -2,6 +2,7 @@ import {describe, expect, it} from '@jest/globals';
 
 import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testMealData} from '@/tests/data/game/meal';
+import {testRecipeLevelData} from '@/tests/data/game/recipeLevel';
 import {getMealFinalStrength} from '@/utils/game/meal/strength/final';
 
 
@@ -18,6 +19,7 @@ describe('Meal / Calculate Final Strength', () => {
       level: 16,
       meal: testMealData['1003'],
       ingredientMap: testIngredientMap,
+      recipeLevelData: testRecipeLevelData,
     });
 
     expect(strengthFinal).toBe(5486);
@@ -32,6 +34,7 @@ describe('Meal / Calculate Final Strength', () => {
       level: 1,
       meal: testMealData['3006'],
       ingredientMap: testIngredientMap,
+      recipeLevelData: testRecipeLevelData,
     });
 
     expect(strengthFinal).toBe(22698);
@@ -48,6 +51,7 @@ describe('Meal / Calculate Final Strength', () => {
       level: 10,
       meal: testMealData['3006'],
       ingredientMap: testIngredientMap,
+      recipeLevelData: testRecipeLevelData,
     });
 
     expect(strengthFinal).toBe(24188);
@@ -64,6 +68,7 @@ describe('Meal / Calculate Final Strength', () => {
       level: 14,
       meal: testMealData['3006'],
       ingredientMap: testIngredientMap,
+      recipeLevelData: testRecipeLevelData,
     });
 
     expect(strengthFinal).toBe(23852);
@@ -84,6 +89,7 @@ describe('Meal / Calculate Final Strength', () => {
       level: 17,
       meal: testMealData['3006'],
       ingredientMap: testIngredientMap,
+      recipeLevelData: testRecipeLevelData,
     });
 
     expect(strengthFinal).toBe(23975);

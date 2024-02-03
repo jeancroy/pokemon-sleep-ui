@@ -2,14 +2,13 @@ import {PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
 import {CookingUserSettings} from '@/types/userData/settings';
 import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/multi';
 import {GetPokemonProducingRateOpts} from '@/utils/game/producing/main/type';
-import {GetProducingRateBehavior, GetProducingRateSharedOpts} from '@/utils/game/producing/type';
+import {GetProducingRateSharedOpts} from '@/utils/game/producing/type';
 
 
 export type GetPokemonProducingRateSingleOpts =
   GetPokemonProducingRateOpts &
   GetProducingRateSharedOpts & {
     cookingSettings: CookingUserSettings,
-    calcBehavior?: GetProducingRateBehavior,
   };
 
 export const getPokemonProducingRateSingle = ({
@@ -18,13 +17,15 @@ export const getPokemonProducingRateSingle = ({
 }: GetPokemonProducingRateSingleOpts): PokemonProducingRateWithPayload<null> => {
   const rates = getPokemonProducingRateMulti({
     rateOpts: [{opts, payload: null}],
-    sharedOpts: opts,
-    groupingState: 'equivalent',
-    calcBehavior: {
-      ...calcBehavior,
-      // Calculate as single by default
-      asSingle: calcBehavior?.asSingle ?? true,
+    sharedOpts: {
+      ...opts,
+      calcBehavior: {
+        ...calcBehavior,
+        // Calculate as single by default
+        asSingle: calcBehavior?.asSingle ?? true,
+      },
     },
+    groupingState: 'equivalent',
     ...opts,
   });
 

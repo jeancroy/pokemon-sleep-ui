@@ -12,6 +12,7 @@ import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
 import {getPokemonList} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
@@ -34,6 +35,7 @@ export const PokedexTierList = async ({params}: DefaultPageProps) => {
     mainSkillMap,
     subSkillMap,
     mapMeta,
+    recipeLevelData,
     cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
@@ -46,6 +48,7 @@ export const PokedexTierList = async ({params}: DefaultPageProps) => {
     getMainSkillMap(),
     getSubSkillMap(),
     getFieldMetaMap(),
+    getRecipeLevelData(),
     getCookingUserSettingsRequiredData(),
   ]);
 
@@ -59,6 +62,7 @@ export const PokedexTierList = async ({params}: DefaultPageProps) => {
     mainSkillMap,
     subSkillMap,
     mapMeta,
+    recipeLevelData,
     preloaded: {
       bundle: createUserSettingsBundle(session),
     },

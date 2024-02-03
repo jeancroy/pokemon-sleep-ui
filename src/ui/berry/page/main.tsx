@@ -15,6 +15,7 @@ import {getFavoriteInfoOfBerry} from '@/controller/mapMeta';
 import {getPokedexMap, getPokemonByBerry} from '@/controller/pokemon/info';
 import {getPokemonIngredientProductionByBerry} from '@/controller/pokemon/ingredient';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {BerryPageClient} from '@/ui/berry/page/client';
@@ -43,6 +44,7 @@ export const BerryPage = async ({params}: Props) => {
     pokemonOfBerry,
     berryData,
     favoriteInfo,
+    recipeLevelData,
     cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
@@ -57,6 +59,7 @@ export const BerryPage = async ({params}: Props) => {
     getPokemonByBerry(idNumber),
     getBerryData(idNumber),
     getFavoriteInfoOfBerry(idNumber),
+    getRecipeLevelData(),
     getCookingUserSettingsRequiredData(),
   ]);
 
@@ -76,6 +79,7 @@ export const BerryPage = async ({params}: Props) => {
     pokemonOfBerry,
     berryData,
     favoriteInfo,
+    recipeLevelData,
     preloaded: createUserSettingsBundle(session),
     ...cookingUserSettingsRequiredData,
   };

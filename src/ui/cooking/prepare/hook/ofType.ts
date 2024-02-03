@@ -11,7 +11,7 @@ import {isNotNullish} from '@/utils/type';
 
 type GetMealPreparerInfoOfMealTypeOpts = Pick<
   MealPreparerCommonProps,
-  'filter' | 'calculatedSettings' | 'ingredientMap'
+  'filter' | 'calculatedSettings' | 'ingredientMap' | 'recipeLevelData'
 > & {
   mealsOfType: Meal[],
 };
@@ -20,6 +20,7 @@ export const getMealPreparerInfoOfMealType = ({
   filter,
   calculatedSettings,
   ingredientMap,
+  recipeLevelData,
   mealsOfType,
 }: GetMealPreparerInfoOfMealTypeOpts): MealPreparerInfoOfMealType => {
   const {mealsWanted, recipeLevel} = filter;
@@ -45,6 +46,7 @@ export const getMealPreparerInfoOfMealType = ({
         level: recipeLevel[meal.id] ?? 1,
         meal,
         ingredientMap,
+        recipeLevelData,
       });
 
       return [meal.id, info.strengthFinal * count];

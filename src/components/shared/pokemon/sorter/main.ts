@@ -8,7 +8,7 @@ import {
 
 export type GetSortedPokemonOpts<TExtra, TData extends PokemonInfoWithSortingPayload<TExtra>> = Pick<
   GetPokemonSorterOpts,
-  'berryDataMap' | 'ingredientMap' | 'mainSkillMap' | 'snorlaxFavorite'
+  'berryDataMap' | 'ingredientMap' | 'mainSkillMap' | 'recipeLevelData' | 'snorlaxFavorite'
 > & {
   data: TData[],
   sort: PokemonSortType,

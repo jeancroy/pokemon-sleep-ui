@@ -1,5 +1,4 @@
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
-import {maxRecipeLevel} from '@/data/recipeLevel';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {CookingUserSettings, UserSettings} from '@/types/userData/settings';
 import {teamMakerProductionPeriod} from '@/ui/team/maker/calc/const';
@@ -28,7 +27,6 @@ type GetTeamMakerPokemonLimitsOpts = Omit<TeamMakerCalcInitOpts, 'pokeboxList'> 
 };
 
 export const getTeamMakerPokemonLimits = ({
-  pokeboxSource,
   pokedexMap,
   pokemonProducingParamsMap,
   berryDataMap,
@@ -37,7 +35,10 @@ export const getTeamMakerPokemonLimits = ({
   mainSkillMap,
   subSkillMap,
   cookingRecoveryData,
+  recipeLevelData,
+  maxRecipeLevel,
   input,
+  pokeboxSource,
   settings,
   cookingSettings,
 }: GetTeamMakerPokemonLimitsOpts): TeamMakerPokemonLimits[] => {
@@ -81,6 +82,7 @@ export const getTeamMakerPokemonLimits = ({
         pokemonProducingParamsMap,
       }),
       ingredientMap,
+      recipeLevelData,
       calculatedSettings,
       ...pokeInBox,
       ...singleParams,

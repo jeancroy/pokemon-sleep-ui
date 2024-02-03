@@ -1,5 +1,6 @@
 import {BerryDataMap} from '@/types/game/berry';
 import {IngredientMap} from '@/types/game/ingredient';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokedexMap} from '@/types/game/pokemon';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
@@ -14,5 +15,6 @@ export type GetSkillTriggerValueCommonOpts = CookingUserSettingsRequiredData & {
   ingredientMap: IngredientMap,
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
+  recipeLevelData: RecipeLevelData[],
   bundle: UserSettingsBundle,
 };

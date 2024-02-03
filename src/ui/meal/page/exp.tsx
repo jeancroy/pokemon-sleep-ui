@@ -4,22 +4,25 @@ import {useTranslations} from 'next-intl';
 
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {InfoSlider} from '@/components/shared/input/infoSlider';
-import {recipeMaxLevel} from '@/const/game/meal';
 import {MealCommonProps} from '@/ui/meal/page/type';
 import {formatMealStrengthInfo} from '@/utils/game/meal/format';
+import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {getMealFinalStrength} from '@/utils/game/meal/strength/final';
 
 
-export const MealExp = ({meal, ingredientMap, translatedSettings}: MealCommonProps) => {
+export const MealExp = ({recipeLevelData, meal, ingredientMap, translatedSettings}: MealCommonProps) => {
+  const {mapMultiplier} = translatedSettings.calculatedSettings.bonus;
+  const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
+
   const t = useTranslations('UI.InPage.Cooking');
   const [level, setLevel] = React.useState(1);
 
-  const mapMultiplier = translatedSettings.calculatedSettings.bonus.mapMultiplier;
   const info = React.useMemo(() => getMealFinalStrength({
     filler: [],
     level,
     meal,
     ingredientMap,
+    recipeLevelData,
     mapMultiplier,
   }), [meal, ingredientMap, level, mapMultiplier]);
 
@@ -28,7 +31,7 @@ export const MealExp = ({meal, ingredientMap, translatedSettings}: MealCommonPro
       title={t('RecipeLevel')}
       value={level}
       setValue={setLevel}
-      maxValue={recipeMaxLevel}
+      maxValue={maxRecipeLevel}
     >
       <ColoredEnergyIcon dimension="size-4" alt={t('Energy')}/>
       <div className="text-sm">

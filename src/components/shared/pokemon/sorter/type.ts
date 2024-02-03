@@ -1,5 +1,6 @@
 import {BerryData} from '@/types/game/berry';
 import {IngredientMap} from '@/types/game/ingredient';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {MainSkillData} from '@/types/game/pokemon/mainSkill';
@@ -72,6 +73,7 @@ export type PokemonSorterGetterOpts = PokemonSortingRequiredData & ProducingRate
   ingredientMap: IngredientMap,
   berryData: BerryData,
   skillData: MainSkillData | undefined,
+  recipeLevelData: RecipeLevelData[],
   snorlaxFavorite: SnorlaxFavorite,
 };
 

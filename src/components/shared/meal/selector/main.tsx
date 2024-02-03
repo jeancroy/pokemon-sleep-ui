@@ -6,7 +6,7 @@ import {Grid} from '@/components/layout/grid';
 import {PopupCommon} from '@/components/popup/common/main';
 import {MealSelectorOption} from '@/components/shared/meal/selector/option';
 import {MealSelectorLevelUpdatingProps} from '@/components/shared/meal/selector/type';
-import {Meal, MealId, MealMap, MealTypeId} from '@/types/game/meal/main';
+import {Meal, MealId, MealMap} from '@/types/game/meal/main';
 import {getMealIngredientCount} from '@/utils/game/meal/count';
 import {isNotNullish} from '@/utils/type';
 
@@ -14,19 +14,20 @@ import {isNotNullish} from '@/utils/type';
 type Props = MealSelectorLevelUpdatingProps & {
   current: MealId | null | undefined,
   mealMap: MealMap,
-  mealType: MealTypeId,
   isMealOption: (meal: Meal) => boolean,
   onSelect: (meal: Meal | null) => void,
 };
 
 export const MealSelector = ({
+  mealType,
+  // ^^^^ Intentionally extracted from `props` ^^^^
   current,
   mealMap,
-  mealType,
   isMealOption,
   onSelect,
   ...props
 }: Props) => {
+  const {maxRecipeLevel} = props;
   const [show, setShow] = React.useState(false);
 
   return (
@@ -52,8 +53,9 @@ export const MealSelector = ({
               />
             ))}
           <MealSelectorOption
-            meal={undefined}
             mealType={mealType}
+            maxRecipeLevel={maxRecipeLevel}
+            meal={undefined}
             onClick={() => {
               onSelect(null);
               setShow(false);

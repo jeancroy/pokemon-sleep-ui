@@ -1,7 +1,14 @@
-import {recipeLevelData} from '@/data/recipeLevel';
-import {RecipeLevelData} from '@/types/game/meal/level';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 
 
-export const getRecipeLevelData = (level: number): RecipeLevelData | undefined => {
-  return recipeLevelData.at(level - 1);
+type GetRecipeLevelDataAtLevelOpts = {
+  recipeLevelData: RecipeLevelData[],
+  level: number,
+};
+
+export const getRecipeLevelDataAtLevel = ({
+  recipeLevelData,
+  level,
+}: GetRecipeLevelDataAtLevelOpts): RecipeLevelData | undefined => {
+  return recipeLevelData.find((entry) => entry.level === level);
 };

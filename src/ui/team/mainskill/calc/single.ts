@@ -26,6 +26,7 @@ export const getSkillTriggerValueOfUnit = ({
   subSkillMap,
   mealMap,
   cookingRecoveryData,
+  recipeLevelData,
   bundle,
   id,
   unit,
@@ -78,6 +79,7 @@ export const getSkillTriggerValueOfUnit = ({
     berryData: berryDataMap[berry.id],
     ingredientMap,
     skillData: mainSkillMap[skill],
+    recipeLevelData,
     pokemonProducingParams,
     ingredients: getEffectiveIngredientProductions({level, ingredients}),
     // For HB to be evaluated as team member instead of individual

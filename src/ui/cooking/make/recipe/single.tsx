@@ -15,11 +15,13 @@ import {MealMakerRecipeTitle} from '@/ui/cooking/make/recipe/parts/title';
 import {MealMakerRecipePartsProps} from '@/ui/cooking/make/recipe/parts/type';
 import {MealMakerPopup} from '@/ui/cooking/make/recipe/popup/main';
 import {MealMakerRecipeSingleProps} from '@/ui/cooking/make/recipe/type';
+import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 
 
 export const MealMakerRecipeSingle = (props: MealMakerRecipeSingleProps) => {
   const {
     meal,
+    recipeLevelData,
     filter,
     showUnmakeableRecipe,
   } = props;
@@ -49,7 +51,11 @@ export const MealMakerRecipeSingle = (props: MealMakerRecipeSingleProps) => {
         filter.mealsMarked[meal.id] && 'ring-1 ring-slate-900/70 dark:ring-slate-400/60',
       )}>
         <MealMakerRecipeTitle {...partsProps}/>
-        <CookingInputRecipeLevel className="self-end" {...partsProps}/>
+        <CookingInputRecipeLevel
+          className="self-end"
+          maxRecipeLevel={getMaxRecipeLevel({recipeLevelData})}
+          {...partsProps}
+        />
         <FlexButton direction="col" noFullWidth={false} onClick={() => setShow(true)} className={clsx(
           'button-clickable-bg group relative h-full',
         )}>

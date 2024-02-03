@@ -1,6 +1,7 @@
 import {BerryDataMap} from '@/types/game/berry';
 import {IngredientMap} from '@/types/game/ingredient';
 import {Meal} from '@/types/game/meal/main';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokedexMap, PokemonIngredientProductionMap} from '@/types/game/pokemon';
 import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
@@ -24,6 +25,7 @@ export type MealServerDataProps = CookingUserSettingsRequiredData & {
   subSkillMap: SubSkillMap,
   pokemonIngredientProductionMap: PokemonIngredientProductionMap,
   pokemonMaxLevel: number,
+  recipeLevelData: RecipeLevelData[],
   preloaded: UserSettingsBundle,
 };
 

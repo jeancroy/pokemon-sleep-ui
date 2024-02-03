@@ -3,6 +3,7 @@ import {describe, expect, it} from '@jest/globals';
 import {defaultCookingPreset} from '@/const/user/cooking';
 import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testMealData} from '@/tests/data/game/meal';
+import {testRecipeLevelData} from '@/tests/data/game/recipeLevel';
 import {UserCookingTargetOfType} from '@/types/userData/cooking';
 import {getMealIngredientInfo} from '@/utils/game/meal/ingredient';
 import {getIngredientBonusOfMeals} from '@/utils/game/producing/ingredient/bonus';
@@ -19,6 +20,7 @@ describe('Ingredient Production / Bonus of Meals', () => {
     };
     const rate = getIngredientBonusOfMeals({
       ingredientMap: testIngredientMap,
+      recipeLevelData: testRecipeLevelData,
       mealIngredientInfo: getMealIngredientInfo({
         meals: Object.values(cookingTargetOfType)
           .map((mealId) => mealId ? testMealData[mealId] : null)

@@ -12,6 +12,7 @@ import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
@@ -24,6 +25,7 @@ import {createUserSettingsBundle} from '@/utils/user/settings/create';
 export const Rating = async ({params}: DefaultPageProps) => {
   const {locale} = params;
   const [
+    session,
     pokedexMap,
     pokemonProducingParamsMap,
     ingredientChainMap,
@@ -32,11 +34,12 @@ export const Rating = async ({params}: DefaultPageProps) => {
     mainSkillMap,
     subSkillMap,
     mapMeta,
+    recipeLevelData,
     pokemonMaxLevel,
-    session,
     ocrTranslations,
     cookingUserSettingsRequiredData,
   ] = await Promise.all([
+    getServerSession(authOptions),
     getPokedexMap(),
     getPokemonProducingParamsMap(),
     getIngredientChainMap(),
@@ -45,8 +48,8 @@ export const Rating = async ({params}: DefaultPageProps) => {
     getMainSkillMap(),
     getSubSkillMap(),
     getFieldMetaMap(),
+    getRecipeLevelData(),
     getPokemonMaxLevelByBerry(),
-    getServerSession(authOptions),
     getOcrTranslationsForPokemonInfo(),
     getCookingUserSettingsRequiredData(),
   ]);
@@ -60,6 +63,7 @@ export const Rating = async ({params}: DefaultPageProps) => {
     mainSkillMap,
     subSkillMap,
     mapMeta,
+    recipeLevelData,
     pokemonMaxLevel,
     ocrTranslations,
     preloaded: createUserSettingsBundle(session),

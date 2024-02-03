@@ -14,6 +14,7 @@ import {getMainSkillMap} from '@/controller/mainSkill';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonIngredientProductionByIngredientIds} from '@/controller/pokemon/ingredient';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {MealClient} from '@/ui/meal/page/client';
@@ -47,6 +48,7 @@ export const MealPage = async ({params}: Props) => {
     subSkillMap,
     pokemonIngredientProductionMap,
     pokemonMaxLevel,
+    recipeLevelData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(),
@@ -58,6 +60,7 @@ export const MealPage = async ({params}: Props) => {
     getSubSkillMap(),
     getPokemonIngredientProductionByIngredientIds(meal.ingredients.map(({id}) => id)),
     getPokemonMaxLevelByBerry(),
+    getRecipeLevelData(),
   ]);
 
   const props: MealServerDataProps = {
@@ -71,6 +74,7 @@ export const MealPage = async ({params}: Props) => {
     subSkillMap,
     pokemonIngredientProductionMap,
     pokemonMaxLevel,
+    recipeLevelData,
     preloaded: createUserSettingsBundle(session),
     ...cookingUserSettingsRequiredData,
   };

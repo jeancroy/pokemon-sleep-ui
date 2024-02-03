@@ -12,10 +12,11 @@ import {useMealFilter} from '@/ui/meal/index/hook';
 import {MealInput} from '@/ui/meal/index/input/main';
 import {MealDataProps} from '@/ui/meal/index/type';
 import {getMealIngredientCount} from '@/utils/game/meal/count';
+import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {isNotNullish} from '@/utils/type';
 
 
-export const MealIndexClient = ({ingredientMap, preloaded, ...props}: MealDataProps) => {
+export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...props}: MealDataProps) => {
   const {mealMap} = props;
   const {cooking} = preloaded;
 
@@ -35,10 +36,11 @@ export const MealIndexClient = ({ingredientMap, preloaded, ...props}: MealDataPr
   });
 
   const {isIncluded, filter} = mealFilterProps;
+  const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
 
   return (
     <>
-      <MealInput preloaded={cooking} {...mealFilterProps}/>
+      <MealInput preloaded={cooking} maxRecipeLevel={maxRecipeLevel} {...mealFilterProps}/>
       <AdsUnit hideIfNotBlocked/>
       <Grid className={clsx(
         'grid-cols-1 gap-1.5 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5',
@@ -72,6 +74,7 @@ export const MealIndexClient = ({ingredientMap, preloaded, ...props}: MealDataPr
                 level={filter.mealLevel}
                 showEnergy={filter.showEnergy}
                 ingredientMap={ingredientMap}
+                recipeLevelData={recipeLevelData}
                 mapMultiplier={translatedSettings.calculatedSettings.bonus.mapMultiplier}
               />
             </div>

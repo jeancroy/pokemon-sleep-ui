@@ -11,10 +11,11 @@ import {isNotNullish} from '@/utils/type';
 
 
 export const TeamMakerInputCooking = ({
-  input,
-  setInput,
   ingredientMap,
   mealMap,
+  maxRecipeLevel,
+  input,
+  setInput,
 }: TeamMakerInputCommonProps) => {
   const {
     target,
@@ -44,6 +45,7 @@ export const TeamMakerInputCooking = ({
         }))}
         mealMap={mealMap}
         mealTypes={mealTypes}
+        maxRecipeLevel={maxRecipeLevel}
       />
       <IngredientInventoryInput
         ingredientMap={ingredientMap}

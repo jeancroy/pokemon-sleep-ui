@@ -14,9 +14,7 @@ import {PokeInBoxViewUnitProps} from '@/ui/team/pokebox/content/pokeInBox/type';
 import {PokeInBoxCommonProps} from '@/ui/team/pokebox/content/type';
 
 
-type Props = PokeInBoxViewUnitProps;
-
-export const PokeInBoxGridCell = (props: Props) => {
+export const PokeInBoxGridCell = (props: PokeInBoxViewUnitProps) => {
   const {
     pokeInBox,
     pokedexMap,

@@ -7,23 +7,27 @@ import {FlexLink} from '@/components/layout/flex/link';
 import {IconWithInfo} from '@/components/shared/common/image/iconWithInfo';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {IngredientIconsFromMeal} from '@/components/shared/meal/ingredients/iconsFromMeal';
-import {recipeMaxLevel} from '@/const/game/meal';
 import {imageGallerySizes} from '@/styles/image';
 import {IngredientId, IngredientMap} from '@/types/game/ingredient';
 import {MealMap} from '@/types/game/meal/main';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {getCookableMeals} from '@/utils/game/meal/cookable';
 import {getMealIngredientCount} from '@/utils/game/meal/count';
+import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {getMealBaseStrength} from '@/utils/game/meal/strength/base';
 import {isNotNullish} from '@/utils/type';
 
 
 type Props = {
   mealMap: MealMap,
+  recipeLevelData: RecipeLevelData[],
   ingredientMap: IngredientMap,
   ingredientId: IngredientId,
 };
 
-export const IngredientCookableMeals = ({mealMap, ingredientMap, ingredientId}: Props) => {
+export const IngredientCookableMeals = ({mealMap, recipeLevelData, ingredientMap, ingredientId}: Props) => {
+  const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
+
   const t = useTranslations('Game.Food');
   const t2 = useTranslations('UI.InPage.Cooking');
 
@@ -34,8 +38,18 @@ export const IngredientCookableMeals = ({mealMap, ingredientMap, ingredientId}: 
         ingredientId,
       })
         .sort((a, b) => (
-          getMealBaseStrength({level: recipeMaxLevel, meal: a, ingredientMap}).strengthFinal -
-          getMealBaseStrength({level: recipeMaxLevel, meal: b, ingredientMap}).strengthFinal
+          getMealBaseStrength({
+            recipeLevelData,
+            level: maxRecipeLevel,
+            ingredientMap,
+            meal: a,
+          }).strengthFinal -
+          getMealBaseStrength({
+            recipeLevelData,
+            level: maxRecipeLevel,
+            ingredientMap,
+            meal: b,
+          }).strengthFinal
         ))
         .map((meal) => (
           <FlexLink
@@ -59,7 +73,12 @@ export const IngredientCookableMeals = ({mealMap, ingredientMap, ingredientId}: 
             <Flex direction="row" center className="gap-0.5">
               <ColoredEnergyIcon dimension="size-4" alt={t2('Energy')}/>
               <div className="text-sm">
-                {getMealBaseStrength({level: recipeMaxLevel, meal, ingredientMap}).strengthFinal}
+                {getMealBaseStrength({
+                  recipeLevelData,
+                  level: maxRecipeLevel,
+                  meal,
+                  ingredientMap,
+                }).strengthFinal}
               </div>
             </Flex>
           </FlexLink>

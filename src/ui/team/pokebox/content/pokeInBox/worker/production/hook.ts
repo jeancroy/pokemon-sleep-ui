@@ -25,6 +25,7 @@ export const useCalculatePokeInBoxProduction = ({
   ingredientMap,
   ingredientChainMap,
   mainSkillMap,
+  recipeLevelData,
   ratingBasis,
 }: UseCalculatePokeInBoxProductionOpts): PokeInBoxProductionRateCalcState => {
   const [state, setState] = React.useState<PokeInBoxProductionRateCalcState>({
@@ -58,6 +59,7 @@ export const useCalculatePokeInBoxProduction = ({
         ingredientMap,
         ingredientChainMap,
         mainSkillMap,
+        recipeLevelData,
         ratingBasis,
       }),
     }));

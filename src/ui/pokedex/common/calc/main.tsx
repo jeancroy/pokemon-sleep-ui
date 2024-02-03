@@ -29,6 +29,7 @@ export const usePokedexCalc = ({
     berryDataMap,
     ingredientMap,
     mainSkillMap,
+    recipeLevelData,
     preloaded,
   } = opts;
 
@@ -72,6 +73,7 @@ export const usePokedexCalc = ({
     berryDataMap,
     ingredientMap,
     mainSkillMap,
+    recipeLevelData,
     snorlaxFavorite: filter.snorlaxFavorite,
     triggerDeps: [filter, translatedSettings],
     setLoading,

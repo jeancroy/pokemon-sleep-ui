@@ -1,6 +1,7 @@
 import {PokemonOnDeskState} from '@/components/shared/pokemon/predefined/lab/onDesk/type';
 import {BerryDataMap} from '@/types/game/berry';
 import {IngredientMap} from '@/types/game/ingredient';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
@@ -36,6 +37,7 @@ export type RatingOpts = CookingUserSettingsRequiredData & {
   berryDataMap: BerryDataMap,
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
+  recipeLevelData: RecipeLevelData[],
   useNestedWorker: boolean,
 };
 

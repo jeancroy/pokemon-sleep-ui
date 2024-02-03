@@ -6,6 +6,7 @@ import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
 import {getIngredientMap} from '@/controller/ingredient';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {MealIndexClient} from '@/ui/meal/index/client';
@@ -18,15 +19,18 @@ export const MealIndex = async ({params}: DefaultPageProps) => {
   const [
     session,
     ingredientMap,
+    recipeLevelData,
     cookingUserSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getIngredientMap(),
+    getRecipeLevelData(),
     getCookingUserSettingsRequiredData(),
   ]);
 
   const props: MealDataProps = {
     ingredientMap,
+    recipeLevelData,
     preloaded: createUserSettingsBundle(session),
     ...cookingUserSettingsRequiredData,
   };

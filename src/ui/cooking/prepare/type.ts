@@ -19,6 +19,7 @@ export type MealPreparerCommonProps =
   FilterWithUpdaterProps<MealPreparerFilter> &
   Omit<CookingServerDataProps, 'preloaded'> & {
     mealTypes: MealTypeId[],
+    maxRecipeLevel: number,
     calculatedSettings: CalculatedUserSettings,
     preloaded: CookingPreloadedData['cooking'],
   };

@@ -8,14 +8,16 @@ import {CookingCommonFilter} from '@/ui/cooking/common/type';
 
 type Props<TFilter extends CookingCommonFilter> = FilterWithUpdaterProps<TFilter> & {
   meal: Meal,
+  maxRecipeLevel: number,
   disabled?: boolean,
   className?: string,
 };
 
 export const CookingInputRecipeLevel = <TFilter extends CookingCommonFilter>({
-  meal,
   filter,
   setFilter,
+  meal,
+  maxRecipeLevel,
   disabled,
   className,
 }: Props<TFilter>) => {
@@ -25,6 +27,7 @@ export const CookingInputRecipeLevel = <TFilter extends CookingCommonFilter>({
   return (
     <MealRecipeLevelInput
       level={recipeLevel[id] ?? 1}
+      maxRecipeLevel={maxRecipeLevel}
       onUpdate={(level) => setFilter((original) => ({
         ...original,
         recipeLevel: {

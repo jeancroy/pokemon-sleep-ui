@@ -27,6 +27,7 @@ export const getTeamProducingStatsSlot = ({
   mainSkillMap,
   subSkillMap,
   cookingRecoveryData,
+  recipeLevelData,
   currentTeam,
   slotName,
 }: GetTeamProducingStatsSlotOpts): GetProducingStatsOptsSlotReturn | null => {
@@ -80,6 +81,7 @@ export const getTeamProducingStatsSlot = ({
       berryData: berryDataMap[pokemon.berry.id],
       ingredients: getEffectiveIngredientProductions({level, ingredients}),
       ingredientMap,
+      recipeLevelData,
       skillData: mainSkillMap[pokemon.skill],
       evolutionCount,
       seeds,

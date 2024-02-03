@@ -1,6 +1,7 @@
 import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {BerryDataMap} from '@/types/game/berry';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokedexMap, PokemonInfo} from '@/types/game/pokemon';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
@@ -15,6 +16,7 @@ export type TeamMemberDataProps = UsePokemonFilterCommonData & CookingUserSettin
   berryDataMap: BerryDataMap,
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
+  recipeLevelData: RecipeLevelData[],
   pokemonMaxLevel: number,
   maxEvolutionCount: number,
 };

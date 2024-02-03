@@ -1,11 +1,7 @@
-import {IngredientMap} from '@/types/game/ingredient';
-import {Meal} from '@/types/game/meal/main';
+import {GetMealStrengthOpts} from '@/utils/game/meal/strength/type';
 
 
-export type MealLinkProps = {
-  level: number,
-  meal: Meal,
+export type MealLinkProps = GetMealStrengthOpts & {
   showEnergy: boolean,
-  ingredientMap: IngredientMap,
   mapMultiplier: number,
 };

@@ -1,6 +1,8 @@
+import {IngredientMap} from '@/types/game/ingredient';
 import {MealStrengthInfo} from '@/types/game/meal/info';
 import {MealIngredient} from '@/types/game/meal/main';
-import {getMealBaseStrength, GetMealBaseStrengthOpts} from '@/utils/game/meal/strength/base';
+import {getMealBaseStrength} from '@/utils/game/meal/strength/base';
+import {GetMealStrengthOpts} from '@/utils/game/meal/strength/type';
 import {getMealIngredientStrength} from '@/utils/game/meal/strength/utils';
 
 
@@ -9,7 +11,7 @@ type GetMealFinalStrengthCommonOpts = {
   mapMultiplier: number,
 };
 
-type GetMealFinalStrengthOpts = GetMealBaseStrengthOpts & GetMealFinalStrengthCommonOpts;
+type GetMealFinalStrengthOpts = GetMealStrengthOpts & GetMealFinalStrengthCommonOpts;
 
 export const getMealFinalStrength = ({
   filler,
@@ -30,9 +32,9 @@ export const getMealFinalStrength = ({
   };
 };
 
-type GetMealFinalStrengthOfNonRecipeOpts =
-  Pick<GetMealBaseStrengthOpts, 'ingredientMap'> &
-  GetMealFinalStrengthCommonOpts;
+type GetMealFinalStrengthOfNonRecipeOpts = GetMealFinalStrengthCommonOpts & {
+  ingredientMap: IngredientMap,
+};
 
 export const getMealFinalStrengthOfNonRecipe = ({
   ingredientMap,

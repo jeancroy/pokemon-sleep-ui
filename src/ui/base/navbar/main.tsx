@@ -10,6 +10,7 @@ import {getIngredientIds} from '@/controller/ingredient';
 import {getFieldMetaMap, getMapIds} from '@/controller/mapMeta';
 import {getPokemonList} from '@/controller/pokemon/info';
 import {getMaxMapBonusPercent} from '@/controller/progress';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {NavBarClient} from '@/ui/base/navbar/client';
 import {NavBarCommonProps} from '@/ui/base/navbar/type';
 import {getPossibleMealTypes} from '@/utils/game/mealType';
@@ -29,6 +30,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
     cookingUserSettingsRequiredData,
     pokemonList,
     mapMeta,
+    recipeLevelData,
   ] = React.use(Promise.all([
     getServerSession(authOptions),
     getMapIds(),
@@ -37,6 +39,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
     getCookingUserSettingsRequiredData(),
     getPokemonList(),
     getFieldMetaMap(),
+    getRecipeLevelData(),
   ]));
 
   const {mealMap} = cookingUserSettingsRequiredData;
@@ -62,6 +65,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
         ingredientIds={ingredientIds}
         pokemonList={pokemonList}
         mapMeta={mapMeta}
+        recipeLevelData={recipeLevelData}
         {...cookingUserSettingsRequiredData}
       >
         {announcement && <Announcements showOn="landscape"/>}

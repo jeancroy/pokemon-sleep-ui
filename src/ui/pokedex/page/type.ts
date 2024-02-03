@@ -1,6 +1,7 @@
 import {BerryData} from '@/types/game/berry';
 import {EventDrowsyPowerMultiplierData} from '@/types/game/event/drowsyPowerMultiplier';
 import {IngredientMap} from '@/types/game/ingredient';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokedexMap, PokemonInfo} from '@/types/game/pokemon';
 import {PokemonBranchData} from '@/types/game/pokemon/branch';
 import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
@@ -29,6 +30,7 @@ export type PokemonDataProps = CookingUserSettingsRequiredData & {
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
   snorlaxDataMap: SnorlaxDataMap,
+  recipeLevelData: RecipeLevelData[],
   eventDrowsyPowerMultiplierData: EventDrowsyPowerMultiplierData,
   preloaded: UserSettingsBundle,
 };

@@ -34,6 +34,7 @@ export const useProcessedPokebox = ({
   mainSkillMap,
   subSkillMap,
   mealMap,
+  recipeLevelData,
   cookingRecoveryData,
   pokebox,
   bundle,
@@ -87,6 +88,7 @@ export const useProcessedPokebox = ({
   berryDataMap,
   ingredientMap,
   mainSkillMap,
+  recipeLevelData,
   // Cannot use `pokeInBoxToCalc` as re-calc dependency here, as it is always a new object after each calculation
   triggerDeps: [pokebox, filter, bundle],
   setLoading,

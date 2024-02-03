@@ -1,5 +1,6 @@
 import {BerryDataMap} from '@/types/game/berry';
 import {IngredientMap} from '@/types/game/ingredient';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokedexMap, PokemonInfo, PokemonIngredientProduction} from '@/types/game/pokemon';
 import {IngredientChainMap, IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
@@ -18,6 +19,7 @@ export type PokemonProducingStatsCommonProps = {
   ingredientChainMap: IngredientChainMap,
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
+  recipeLevelData: RecipeLevelData[],
   translatedSettings: TranslatedUserSettings,
 };
 

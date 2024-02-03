@@ -18,6 +18,7 @@ export const getTeamCompCalcResult = ({
 }: TeamCompCalcOpts) => {
   const {
     ingredientMap,
+    recipeLevelData,
     setup,
     cookingSettings,
   } = opts;
@@ -25,6 +26,7 @@ export const getTeamCompCalcResult = ({
 
   const {rates, grouped} = getPokemonProducingRateMulti({
     ingredientMap,
+    recipeLevelData,
     cookingSettings,
     groupingState: state,
     sharedOpts: {

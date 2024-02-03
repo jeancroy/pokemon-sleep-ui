@@ -37,6 +37,7 @@ export const PokedexLinkDetail = React.memo(({
   ingredientMap,
   mainSkillMap,
   subSkillMap,
+  recipeLevelData,
   ingredients,
   snorlaxFavorite,
   calculatedSettings,
@@ -119,6 +120,7 @@ export const PokedexLinkDetail = React.memo(({
     snorlaxFavorite,
     calculatedSettings,
     cookingSettings,
+    recipeLevelData,
     dateAdded: null,
     ...individualParams,
   });
@@ -188,6 +190,7 @@ export const PokedexLinkDetail = React.memo(({
       snorlaxFavorite,
       calculatedSettings,
       cookingSettings,
+      recipeLevelData,
       ...individualParams,
     }).atStage.final;
 

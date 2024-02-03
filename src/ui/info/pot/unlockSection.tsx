@@ -26,6 +26,7 @@ type Props = Omit<PotInfoDataProps, 'mealMap'> & {
 
 export const PotRecipeUnlockSection = ({
   ingredientMap,
+  recipeLevelData,
   filter,
   cumulativeCost,
   potInfo,
@@ -71,6 +72,7 @@ export const PotRecipeUnlockSection = ({
               level={mealLevel}
               showEnergy={showEnergy}
               ingredientMap={ingredientMap}
+              recipeLevelData={recipeLevelData}
               mapMultiplier={calculatedSettings.bonus.mapMultiplier}
             />
           ))}

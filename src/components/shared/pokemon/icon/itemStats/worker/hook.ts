@@ -19,6 +19,7 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
+    recipeLevelData,
     input,
     translatedSettings,
   } = opts;
@@ -56,6 +57,7 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
       ingredientChainMap,
       mainSkillMap,
       subSkillMap,
+      recipeLevelData,
       input,
       translatedSettings,
     });

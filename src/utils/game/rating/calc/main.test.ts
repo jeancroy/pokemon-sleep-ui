@@ -11,6 +11,7 @@ import {testIngredientProductionAtLevels} from '@/tests/data/game/ingredient/pro
 import {testMainSkillMap} from '@/tests/data/game/mainSkill';
 import {testMealData} from '@/tests/data/game/meal';
 import {testPokemonData, testPokemonList} from '@/tests/data/game/pokemon';
+import {testRecipeLevelData} from '@/tests/data/game/recipeLevel';
 import {testDefaultSnorlaxFavorite} from '@/tests/data/game/snorlax';
 import {testSubSkillMap} from '@/tests/data/game/subSkill';
 import {calculateRatingResultOfLevel} from '@/utils/game/rating/calc/main';
@@ -40,6 +41,7 @@ describe('Rating / Calculate', () => {
       subSkillMap: {},
       mealMap: testMealData,
       cookingRecoveryData: testCookingRecoveryData,
+      recipeLevelData: testRecipeLevelData,
       basis: 'totalProduction',
       friendshipLevel: 0,
       bundle: defaultUserSettingsBundle,
@@ -72,6 +74,7 @@ describe('Rating / Calculate', () => {
       subSkillMap: testSubSkillMap,
       mealMap: testMealData,
       cookingRecoveryData: testCookingRecoveryData,
+      recipeLevelData: testRecipeLevelData,
       basis: 'totalProduction',
       friendshipLevel: 0,
       bundle: defaultUserSettingsBundle,
@@ -104,6 +107,7 @@ describe('Rating / Calculate', () => {
       subSkillMap: testSubSkillMap,
       mealMap: testMealData,
       cookingRecoveryData: testCookingRecoveryData,
+      recipeLevelData: testRecipeLevelData,
       basis: 'totalProduction',
       friendshipLevel: 0,
       bundle: defaultUserSettingsBundle,

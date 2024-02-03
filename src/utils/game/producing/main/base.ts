@@ -1,4 +1,5 @@
 import {defaultProductionPeriod} from '@/const/game/production';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
 import {
@@ -6,7 +7,6 @@ import {
   ProducingRateImplicitParams,
   ProducingRateSingleParams,
 } from '@/types/game/producing/rate';
-import {CalculatedUserSettings} from '@/types/userData/settings';
 import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
 import {getBerryProducingRate, GetBerryProducingRateOpts} from '@/utils/game/producing/berry';
 import {getBaseFrequencyFromPokemon} from '@/utils/game/producing/frequency';
@@ -30,7 +30,7 @@ export type GetPokemonProducingRateBaseOpts =
   ProducingRateSingleParams &
   ProducingRateImplicitParams &
   GetProducingRateSharedOpts & {
-    calculatedSettings: CalculatedUserSettings,
+    recipeLevelData: RecipeLevelData[],
     pokemonProducingParams: PokemonProducingParams,
     helpingBonusEffect: HelpingBonusEffect,
   };

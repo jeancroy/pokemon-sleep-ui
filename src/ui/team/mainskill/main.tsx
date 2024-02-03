@@ -11,6 +11,7 @@ import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
+import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
@@ -31,6 +32,7 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
     ingredientMap,
     mainSkillMap,
     subSkillMap,
+    recipeLevelData,
     pokemonMaxLevel,
     ocrTranslations,
     cookingUserSettingsRequiredData,
@@ -43,6 +45,7 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
     getIngredientMap(),
     getMainSkillMap(),
     getSubSkillMap(),
+    getRecipeLevelData(),
     getPokemonMaxLevelByBerry(),
     getOcrTranslationsForPokemonInfo(),
     getCookingUserSettingsRequiredData(),
@@ -56,6 +59,7 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
     ingredientMap,
     mainSkillMap,
     subSkillMap,
+    recipeLevelData,
     pokemonMaxLevel,
     preloaded: createUserSettingsBundle(session),
     ocrTranslations,

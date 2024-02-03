@@ -20,6 +20,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
   const {
     ingredientMap,
     mealMap,
+    recipeLevelData,
     preloaded,
   } = props;
 
@@ -47,6 +48,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
     meals: validMeals,
     mealTypes,
     ingredientMap,
+    recipeLevelData,
     calculatedSettings: translatedSettings.calculatedSettings,
     status,
     onCook: async (ingredientsUsed) => {
