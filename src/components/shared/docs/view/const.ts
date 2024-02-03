@@ -7,4 +7,5 @@ export const tableOfContentsText: {[locale in Locale]: string} = {
   ja: '目次',
   kr: '목차',
   de: 'Inhaltsverzeichnis',
+  es: 'Tabla de contenido',
 };

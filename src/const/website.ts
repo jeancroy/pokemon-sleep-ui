@@ -7,6 +7,7 @@ export const localeName: {[locale in Locale]: string} = {
   ja: '日本語',
   kr: '한국어',
   de: 'Deutsch',
+  es: 'Español',
 } as const;
 
 export const defaultLocale: Locale = 'zh';

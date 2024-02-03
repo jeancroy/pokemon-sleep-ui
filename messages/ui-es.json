@@ -1,0 +1,604 @@
+{
+  "Subscription": {
+    "AdBlockActive": "<p>Usar un Ad-blocker en este sitio no es recomendado. Mantener el sitio web cuesta dinero y desarrollarlo requiere tiempo.</p>\n<p>Por favor permite los anuncios o <strong>revisa la &quot;Introducción a la Suscripción&quot; en la sección de Documentación</strong>.</p>\n<p>Si tienes comentarios sobre la ubicación de los anuncios, únete a nuestro Discord (link en la página 'Acerca de') y coméntanos.</p>",
+    "Popup": "<p>Por favor suscríbete si te gusta el sitio :) Revisa <a href=\"https://pks.raenonx.cc/docs/view/subscription/intro\">Introducción a la Suscripción</a> para ver los detalles.</p>",
+    "PremiumOnly": "<p>Necesitas tener una suscipción Premium. Revisa <a href=\"https://pks.raenonx.cc/docs/view/subscription/intro\">Introducción a la Suscripción</a> para ver los detalles.</p>",
+    "Activation": {
+      "AdsFree": "Navegación sin anuncios",
+      "Premium": "Acceso a Funciones Premium"
+    }
+  },
+  "Root": {
+    "Help": "Ayuda / Documentación"
+  },
+  "Auth": {
+    "EmailSent": "El correo ha sido enviado."
+  },
+  "Common": {
+    "Candy": "Caramelo",
+    "Day": "Día",
+    "Default": "Predeterminado",
+    "Diamond": "Diamantes",
+    "DreamShards": "Fragmentos de sueños",
+    "Hour": "Hrs",
+    "Map": "Mapa",
+    "MainSkill": "Habilidad principal",
+    "MaxCarry": "Puede llevar",
+    "MealCoverage": "Cobertura de Comida",
+    "Pokebox": "Caja de Pokémon",
+    "Rank": "Rango",
+    "ResearchExp": "EXP de estudio",
+    "Rewards": "Premios",
+    "Shiny": "Shiny",
+    "SnorlaxFavorite": "Bayas favoritas de Snorlax",
+    "SnorlaxRank": "Valoración de Snorlax",
+    "Stamina": "Energía",
+    "Strength": "Vigor"
+  },
+  "Component": {
+    "Collapsible": {
+      "CollapseAll": "Collapsar todo",
+      "ExpandAll": "Expandir todo"
+    },
+    "MealCoverageCombo": {
+      "IngredientCoverage": "Cobertura de Ingrediente",
+      "CoveredStrength": "Cobertura de Vigor"
+    }
+  },
+  "Evolution": {
+    "SleepTime": "Tiempo dormido",
+    "Gender": {
+      "Male": "Solo Macho",
+      "Female": "Solo hembra",
+      "Unknown": "Desconocido"
+    }
+  },
+  "Game": {
+    "Feature": {
+      "LevelUp": "Aumentar Nivel de Pokémon",
+      "CookRecipe": "Cocina",
+      "PotExpand": "Aumentar Puchero"
+    }
+  },
+  "MainSkill": {
+    "EffectType": {
+      "Strength": "Vigor",
+      "Shards": "Fragmentos de sueños",
+      "Stamina": "Energía",
+      "Help": "Ayuda",
+      "Cooking": "Cocina",
+      "Random": "Aleatorio"
+    },
+    "Target": {
+      "Self": "A sí mismo",
+      "Random": "1 Pokémon aleatorio",
+      "Team": "Equipo"
+    }
+  },
+  "Metadata": {
+    "Site": {
+      "Name": "Pokémon Sleep Info Wiki",
+      "Description": "Pokémon Sleep Info Wiki proporciona información que incluye Pokédex, recetas, ingredientes, bayas y otras herramientas como Análisis de equipo y Análisis de Pokebox.",
+      "Keywords": {
+        "PokemonSleep": "Pokemon Sleep",
+        "Pokemon": "Pokemon",
+        "PokemonSleepGuide": "Guía Pokemon Sleep"
+      }
+    },
+    "NotFound": {
+      "Title": "Página no encontrada"
+    },
+    "Home": {
+      "Title": "Inicio"
+    },
+    "Pokedex": {
+      "Main": {
+        "Index": {
+          "Title": "Pokédex"
+        },
+        "Page": {
+          "Title": "{name} - Pokémon"
+        }
+      },
+      "Tier": {
+        "Title": "Tier List de Pokémon"
+      }
+    },
+    "SleepStyle": {
+      "Index": {
+        "Title": "Mapa / Estilos de sueño"
+      },
+      "Sleepdex": {
+        "Index": {
+          "Title": "DormiDex"
+        },
+        "Record": {
+          "Title": "Lista DormiDex"
+        },
+        "Lookup": {
+          "Title": "Búsqueda DormiDex"
+        }
+      },
+      "Map": {
+        "Index": {
+          "Title": "Mapas"
+        },
+        "Page": {
+          "Title": "{name} - Mapa"
+        }
+      },
+      "UniqueMap": {
+        "Index": {
+          "Title": "Estilos de Sueños ( Mapa)"
+        },
+        "Page": {
+          "Title": "{name} - Estilos de Sueños (Mapa)"
+        }
+      },
+      "Special": {
+        "Title": "Estilos de Sueños (Incienso / Otros)"
+      }
+    },
+    "Analysis": {
+      "Title": "{name} - Análisis Pokémon"
+    },
+    "Rating": {
+      "Title": "Valora mi Pokémon"
+    },
+    "Cooking": {
+      "Index": {
+        "Title": "Cocina"
+      },
+      "Make": {
+        "Title": "Calculadora de Recetas"
+      },
+      "Prepare": {
+        "Title": "Preparador de Recetas"
+      }
+    },
+    "Meal": {
+      "Index": {
+        "Title": "Recetas / Platos"
+      },
+      "Page": {
+        "Title": "{name} - Receta / Plato"
+      }
+    },
+    "Ingredient": {
+      "Index": {
+        "Title": "Ingredientes"
+      },
+      "Page": {
+        "Title": "{name} - Ingrediente"
+      }
+    },
+    "Berry": {
+      "Index": {
+        "Title": "Bayas"
+      },
+      "Page": {
+        "Title": "{name} - Baya"
+      }
+    },
+    "Team": {
+      "Analysis": {
+        "Title": "Análisis de Equipo"
+      },
+      "Box": {
+        "Title": "Caja de Pokémon"
+      },
+      "Index": {
+        "Title": "Equipo"
+      },
+      "Maker": {
+        "Title": "Creador de Equipos"
+      },
+      "SkillTriggerAnalysis": {
+        "Title": "Análisis de Activación de Habilidad"
+      }
+    },
+    "Info": {
+      "Index": {
+        "Title": "Otros"
+      },
+      "Pot": {
+        "Title": "Puchero"
+      },
+      "Nature": {
+        "Title": "Naturaleza"
+      },
+      "MainSkill": {
+        "Index": {
+          "Title": "Habilidades principales"
+        },
+        "Page": {
+          "Title": "{name} - Habilidad principal"
+        }
+      },
+      "SubSkill": {
+        "Title": "Habilidades secundarias"
+      },
+      "ProducingParams": {
+        "Title": "Tasas de producción"
+      },
+      "Progress": {
+        "Title": "Premios DormiDex"
+      }
+    },
+    "Item": {
+      "Index": {
+        "Title": "Objetos"
+      },
+      "Evolution": {
+        "Title": "Objeto de Evolución"
+      },
+      "Incense": {
+        "Index": {
+          "Title": "Inciensos"
+        },
+        "Page": {
+          "Title": "{name} - Incienso"
+        }
+      }
+    },
+    "PokemonExp": {
+      "Title": "Calculadora de EXP Pokémon"
+    },
+    "Stamina": {
+      "Title": "Análisis de Curva de Energía"
+    },
+    "Encounter": {
+      "Title": "Calculadora de Encuentros Pokémon"
+    },
+    "About": {
+      "Title": "Acerca de"
+    },
+    "Docs": {
+      "Index": {
+        "Title": "Documentación"
+      },
+      "New": {
+        "Title": "Nueva Documentación"
+      },
+      "Edit": {
+        "Title": "Editar Doc - {name}"
+      },
+      "View": {
+        "Title": "Doc - {name}"
+      }
+    }
+  },
+  "InPage": {
+    "Home": {
+      "Welcome": "Bienvenido!"
+    },
+    "Pokedex": {
+      "Info": {
+        "Berry": "Baya",
+        "Evolution": "Evoluciones",
+        "Ingredient": "Ingrediente",
+        "MainSkill": "Habilidad principal",
+        "Name": "Nombre",
+        "PokemonLevel": "Nivel",
+        "PokemonType": "Tipo",
+        "Production": "Producción",
+        "SleepType": "Tipo de sueño",
+        "Specialty": "Especialidad",
+        "Stats": "Estadísticas"
+      },
+      "Stats": {
+        "Energy": {
+          "Daily": "Diario",
+          "Name": "Vigor",
+          "Weekly": "Semanal"
+        },
+        "FrequencyBase": "Frecuencia (Base)",
+        "FrequencyEquivalent": "Frecuencia (Equivalente)",
+        "Friendship": "Puntos de Amistad",
+        "Recruit": "Recompensas",
+        "TransferReward": "Recompensa al enviar el Pokémon al profesor",
+        "TimeToFullPack": {
+          "Primary": "Tiempo para Capacidad Completa (Sueño 1)",
+          "Secondary": "Tiempo para Capacidad Completa (Sueño 2)"
+        },
+        "MainSkillValue": "Valor de Habilidad",
+        "MainSkillTriggerValue": "Valor de Activación de Habilidad",
+        "MainSkillTriggerRate": "Tasa de Activación de Habilidad",
+        "EventOnly": "Solo Evento"
+      },
+      "Sort": {
+        "Id": "ID",
+        "DateRegistered": "Fecha de Registro",
+        "IngredientEnergy": "Vigor de Ingredientes",
+        "IngredientCount": "Cantidad de Ingredientes",
+        "IngredientRate": "Tasa de Ingredientes",
+        "BerryEnergy": "Vigor de Bayas",
+        "BerryCount": "Cantidad de Bayas",
+        "MainSkillLevel": "Nivel de Habilidad",
+        "FrequencyOfBerry": "Frecuencia (Bayas)",
+        "FrequencyOfIngredient": "Frecuencia (Ingredientes)",
+        "FriendshipPoint": "Puntos de Amistad",
+        "SkillCount": "Activaciones de Habilidad",
+        "SkillStrength": "Vigor de Habilidad",
+        "TotalEnergy": "Vigor Total"
+      },
+      "Input": {
+        "EvolutionCount": "Evolución",
+        "FinalEvolution": "Última Evolución"
+      },
+      "Tier": {
+        "Details": "Detalles",
+        "Tips": "Para usuarios avanzados, usa [Pokédex](https://pks.raenonx.cc/en/pokedex), que entrega un control más específico en la búsqueda y en la visualización de los datos."
+      }
+    },
+    "Analysis": {
+      "FirstAppearance": "Primera aparición - {mapName}",
+      "LastSleepStyle": "Último Estilo de sueño - {mapName}"
+    },
+    "Rating": {
+      "FriendshipLevel": "Nivel de Amistad",
+      "AdvancedOptions": "Modo Avanzado",
+      "Message": {
+        "RatingBasisIsIngredientRelated": "La clasificación relacionada con Ingredientes está seleccionada. Configura el calendario de comidas en la configuración del usuario.\n\nRevisa la documentación disponible en la parte superior derecha de la página para más detalles."
+      }
+    },
+    "Cooking": {
+      "Energy": "Vigor Final",
+      "Ingredient": {
+        "Name": "Ingrediente",
+        "Filler": "Relleno",
+        "Missing": "Faltante",
+        "Required": "Requerido"
+      },
+      "MealType": "Comida",
+      "PotCapacity": "Puchero",
+      "Preparer": {
+        "IncludeFiller": "(+Relleno)"
+      },
+      "RecipeLevel": "Nivel de Receta",
+      "ToggleUnmakeable": "Mostrar/Ocultar Platos imposibles de cocinar",
+      "Total": "Total",
+      "TargetMealCount": "Recuento de comidas"
+    },
+    "Map": {
+      "Unique": "Mapa",
+      "Pokemon": "Pokémon",
+      "SleepStyle": "Estilos de sueños",
+      "SleepStylesUnlocked": "Estilos de sueños desbloqueados",
+      "UnlockConditions": "Requisitos para desbloquear",
+      "Toggle": {
+        "SleepdexRegisterMode": "Sleepdex Register Mode",
+        "CompletionStatus": "Completion Status",
+        "Registered": "Registrados",
+        "NoNewSleepStyle": "Rank without Sleep Style Unlock"
+      }
+    },
+    "Team": {
+      "Analysis": {
+        "Period": "Período de Análisis",
+        "Control": {
+          "ExportToPokebox": "Exportar a Pokebox",
+          "ShareableLink": "Compartir",
+          "Rating": "Clasificación",
+          "DetailedStats": "Estadísticas detalladas",
+          "StrengthGrowth": "Curva de vigor",
+          "MealCoverage": "Cobertura de comidas",
+          "Edit": "Editar"
+        },
+        "Message": {
+          "ShareableLink": "Este enlace está vinculado al equipo y espacio, no al Pokémon en sí mismo.",
+          "StrengthGrowth": "Estos resultados suponen que todos los demás Pokémon del equipo no cambian."
+        }
+      },
+      "CurrentEnergy": "Vigor",
+      "SubSkill": "Habilidad secundaria",
+      "NatureEffect": "Efecto de Naturaleza",
+      "Box": {
+        "DisplayType": {
+          "Frequency": "Frecuencia",
+          "Info": "Info",
+          "Pokemon": "Pokémon Info",
+          "MaxCarry": "Puede llevar",
+          "ProductionBerry": "Producción (Bayas)",
+          "ProductionIngredient": "Producción (Ingredientes)",
+          "ProductionTotal": "Producción (Total)",
+          "Rating": "Clasificación",
+          "Skills": "Habilidades"
+        },
+        "Favorite": "Favorito",
+        "Preview": {
+          "Level": "Vista Previa de Niveles",
+          "FinalEvolution": "Vista Previa de Evoluciones finales"
+        }
+      },
+      "Maker": {
+        "Basis": "Base",
+        "Behavior": {
+          "ToggleInsufficientIngredients": "Mostrar/Ocultar las composiciones de equipos que no pueden satisfacer los requisitos de ingredientes"
+        },
+        "CompCountWarning": "Muchas composiciones de equipos tardarán más en calcularse o, peor aún, bloqueará el navegador. Aumentar la diferencia de producción entre Pokémon ayuda a reducir el posible número de composiciones de equipo. Esto se puede hacer desactivando la vista previa de niveles, configurando las bayas favoritas de Snorlax, reduciendo el número de miembros del equipo o reduciendo el número de Pokémon para incluir en el cálculo.",
+        "Control": {
+          "ExportToTeamAnalysis": "Exportar al Análisis de Equipo",
+          "ExportTeamName": "Nombre del Equipo"
+        },
+        "Source": {
+          "Pokebox": "Pokebox",
+          "Vanilla": "Vanilla Pokemon"
+        },
+        "State": {
+          "IngredientRequirements": {
+            "Pass": "Satisface los requisitos de ingredientes.",
+            "Fail": "No satisface los requisitos de ingredientes."
+          },
+          "Status": {
+            "Standby": "Listo",
+            "Initializing": "Inicializando",
+            "GeneratingTeams": "Generando Equipos",
+            "Calculating": "Calculando",
+            "Completed": "Completado",
+            "Error": "Error",
+            "Canceled": "Cancelado"
+          }
+        }
+      }
+    },
+    "Info": {
+      "Pot": {
+        "Capacity": "Capacidad",
+        "Expand": "Aumento",
+        "UnlockedRecipes": "Recetas desbloqueadas"
+      },
+      "Progress": {
+        "SleepStylesUnlocked": "Estilos de sueños desbloqueados",
+        "MapUnlock": "Mapa desbloqueado",
+        "MaxMapBonusPercent": "Bonificación máxima de mapa",
+        "MaxPotCapacity": "Capacidad máxima de Puchero",
+        "FeatureUnlock": "Función desbloqueada",
+        "Rewards": "Recompensas"
+      }
+    },
+    "PokemonExp": {
+      "OtherPokemon": "Otro",
+      "ExpToNext": "EXP para siguiente nivel",
+      "OwnedCandies": "Caramelos propios",
+      "NormalCandy": "Caramelos de Pokémon",
+      "HandyCandy": "Multimelo",
+      "Multiplier": {
+        "DreamShardDepletion": "Tasa de agotamiento de fragmentos de sueño",
+        "ExpBoost": "Tasa de aumento de EXP"
+      },
+      "KeyLevel": "Nivel clave"
+    },
+    "Docs": {
+      "Title": "Título"
+    },
+    "ProducingParams": {
+      "Notice": "- Esta página se actualiza diariamente.\n- El valor de la habilidad no es afectado por el nivel. Revisa [Pokédex](https://pks.raenonx.cc/pokedex) o [Análisis de Activación de Habilidad](https://pks.raenonx.cc/team/mainskill) para conocer el valor de activación de habilidad.\n- Tasa de activación de habilidad sin valor significa que aún no está verificado.\n- Créditos a @jc, @goobliss, @harold_grant en Mathcord por proporcionar el modelo y la información relacionada; @calpistori por pruebas y verificación de datos."
+    }
+  },
+  "Image": {
+    "Portrait": "Retrato",
+    "Eating": "Comiendo"
+  },
+  "Ocr": {
+    "Status": {
+      "Error": "Error",
+      "Ready": "Listo",
+      "Thresholding": "Umbral",
+      "LoadingOcr": "Cargando OCR",
+      "Recognizing": "Reconociendo",
+      "Completed": "Completo"
+    },
+    "Tolerance": {
+      "Title": "Tolerancia",
+      "Tips": "Aumenta solo si la calidad de la imagen es mala. Valores altos pueden disminuir la precisión."
+    }
+  },
+  "Producing": {
+    "State": {
+      "Awake": "Despierto",
+      "Asleep": {
+        "Primary": {
+          "Vacant": "[1] Dormido (Capacidad no completa)",
+          "Filled": "[1] Dormido (Capacidad completa)"
+        },
+        "Secondary": {
+          "Vacant": "[2] Dormido (Capacidad no completa)",
+          "Filled": "[2] Dormido (Capacidad completa)"
+        }
+      }
+    },
+    "Preset": {
+      "UnfilledOnly": "Capacidad no completa"
+    },
+    "Total": "Total",
+    "Probability": {
+      "NoSkillAfterWakeup": "Probabilidad de no activar la habilidad después de despertar"
+    },
+    "ProduceType": {
+      "Berry": "Baya",
+      "Ingredient": "Ingrediente",
+      "MainSkill": "Habilidad principal"
+    },
+    "VanillaPreset": {
+      "Mode": "Modo",
+      "Shared": "Compartido",
+      "BySpecialty": "Por especialidad"
+    }
+  },
+  "Rating": {
+    "WeightedStatsBasis": {
+      "Percentile": "Percentil",
+      "Percentage": "Porcentaje",
+      "RelativeStrength": "Vigor Relativo"
+    },
+    "Category": {
+      "Title": "Comparando...",
+      "CrossSpecies": "Entre-Especies (Igual Hab Secundaria/Naturaleza)",
+      "IntraSpecies": "Misma-Especie"
+    }
+  },
+  "SleepStyle": {
+    "DrowsyPowerRequirement": "Requisito de Poder de Somnolencia",
+    "DrowsyPowerMultiplier": "Vigor × Puntaje",
+    "IncenseOnly": "Solo Incineso",
+    "Unreleased": "Sin publicar",
+    "Message": {
+      "UnlockRankDiffers": "El estilo de sueño que desbloquea el rango de Snorlax incluye los requisitos mínimos de potencia de somnolencia. Por lo tanto, lo que se muestra aquí puede ser diferente a Serebii u otras fuentes. Revisa la documentación disponible en la parte superior derecha de la página para ver más detalles.",
+      "ChooseMapFirst": "Primero selecciona un mapa."
+    }
+  },
+  "Stamina": {
+    "Title": "Calculadora de Energía",
+    "SleepSchedule": "Calendario de Sueño",
+    "Chart": {
+      "Stamina": "Vigor",
+      "Efficiency": "Eficiencia"
+    },
+    "Strategy": {
+      "Optimistic": "Optimista",
+      "Conservative": "Conservador"
+    },
+    "SkillRecovery": {
+      "Name": "Habilidad de Recuperación",
+      "Amount": "Recuperación por habilidad",
+      "DailyCount": "Recuento diario de activaciones"
+    },
+    "CookingRecovery": {
+      "Name": "Calendario de Cocina"
+    },
+    "EventType": {
+      "SkillRecovery": "Recuperación de habilidad",
+      "CookingRecovery": "Recuperación de comida",
+      "EfficiencyBlock": "Punto de ruptura de eficiencia",
+      "Sleep": "Dormir",
+      "Wakeup": "Despertar",
+      "EndOfPeriod": "Fin del periodo"
+    },
+    "State": {
+      "Average": "Promedio",
+      "Awake": "Despierto",
+      "Asleep": {
+        "Neutral": "Dormido",
+        "Primary": "Dormido (1)",
+        "Secondary": "Dormido (2)"
+      }
+    }
+  },
+  "UserSettings": {
+    "AlwaysFullPack": "Capacidad Completa",
+    "BerryPokemonFullPack": "Capacidad Completa (Especialistas en Bayas)",
+    "GoodCampTicket": "Lote de Acampada",
+    "IncludeMainSkill": "Incluir Habilidad Principal",
+    "Cooking": {
+      "Title": "Cocina"
+    },
+    "Message": {
+      "SettingsNotStored": "Mostrando la configuración de usuario por defecto. Inicia sesión para guardar la configuración o deja que tome efecto."
+    }
+  },
+  "UserControl": {
+    "Login": "Login",
+    "Logout": "Logout"
+  }
+}
