@@ -8,13 +8,15 @@ extends:
   - google
   - next/core-web-vitals
   - plugin:tailwindcss/recommended
+  - plugin:yml/standard
 
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
 
+parser: "@typescript-eslint/parser"
+
 parserOptions:
-  parser: "@typescript-eslint/parser"
   ecmaFeatures:
     jsx: true
   ecmaVersion: latest
@@ -34,13 +36,13 @@ rules:
   "@typescript-eslint/no-unused-vars":
     - off
 
-  "unused-imports/no-unused-vars":
+  unused-imports/no-unused-vars:
     - error
     - varsIgnorePattern: "^[_]+$"
       argsIgnorePattern: "^[_]+$"
       ignoreRestSiblings: true
 
-  "unused-imports/no-unused-imports":
+  unused-imports/no-unused-imports:
     - error
 
   # Need to disable this for `@typescript-eslint/indent` to work properly
@@ -161,6 +163,71 @@ rules:
       tuples: always-multiline
       enums: always-multiline
       generics: ignore
+
+  no-trailing-spaces: error
+
+  padding-line-between-statements:
+    - error
+    - blankLine: always
+      prev: "*"
+      next: cjs-export
+    - blankLine: always
+      prev: "*"
+      next: export
+    - blankLine: always
+      prev: const
+      next: cjs-export
+    - blankLine: always
+      prev: "*"
+      next: export
+
+  implicit-arrow-linebreak:
+    - error
+    - beside
+
+  function-call-argument-newline:
+    - error
+    - consistent
+
+  operator-linebreak:
+    - error
+    - after
+
+overrides:
+  - files:
+      - "*.json"
+
+    rules:
+      max-len: off
+
+      "@typescript-eslint/comma-dangle":
+        - error
+        - never
+
+      "@typescript-eslint/semi": off
+
+      quotes:
+        - error
+        - double
+
+      quote-props:
+        - error
+        - always
+
+      array-element-newline:
+        - error
+        - multiline: true
+          minItems: 1
+
+      object-curly-newline:
+        - error
+        - multiline: true
+          minProperties: 1
+
+  - files:
+      - "*.yml"
+
+    parser: yaml-eslint-parser
 
 settings:
   react:
