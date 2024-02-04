@@ -225,7 +225,7 @@
         "Title": "寝顔図鑑達成報酬"
       },
       "RecipeLevel": {
-        "Title": "Recipe Level"
+        "Title": "レシピレベル"
       }
     },
     "Item": {
@@ -461,15 +461,15 @@
       },
       "RecipeLevel": {
         "Input": {
-          "CurrentLevel": "Current Level"
+          "CurrentLevel": "現在のレベル"
         },
         "Table": {
-          "Level": "Level",
-          "Bonus": "Bonus",
-          "ToNext": "To Next",
-          "TotalRequired": "Total Required",
-          "Accumulated": "Accumulated",
-          "Strength": "Final strength from cooked meal"
+          "Level": "レベル",
+          "Bonus": "ボーナス",
+          "ToNext": "次まで",
+          "TotalRequired": "総必要量",
+          "Accumulated": "累計",
+          "Strength": "料理の最終エナジー"
         }
       }
     },
