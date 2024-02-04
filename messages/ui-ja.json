@@ -223,6 +223,9 @@
       },
       "Progress": {
         "Title": "寝顔図鑑達成報酬"
+      },
+      "RecipeLevel": {
+        "Title": "Recipe Level"
       }
     },
     "Item": {
@@ -455,6 +458,13 @@
         "MaxPotCapacity": "鍋容量上限",
         "FeatureUnlock": "機能開放",
         "Rewards": "報酬"
+      },
+      "RecipeLevel": {
+        "Level": "Level",
+        "Bonus": "Bonus",
+        "ToNext": "To Next",
+        "Accumulated": "Accumulated",
+        "Strength": "Final strength from cooked meal"
       }
     },
     "PokemonExp": {

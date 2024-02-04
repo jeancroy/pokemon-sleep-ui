@@ -16,9 +16,9 @@ export const navEntriesForInfo: NavEntryLink[] = [
   },
   {
     type: 'link',
-    href: '/info/nature',
-    imageSrc: '/images/generic/memo.png',
-    i18nTextId: 'Info.Nature.Title',
+    href: '/info/recipe-level',
+    imageSrc: '/images/generic/pot.png',
+    i18nTextId: 'Info.RecipeLevel.Title',
   },
   {
     type: 'link',
@@ -31,6 +31,12 @@ export const navEntriesForInfo: NavEntryLink[] = [
     href: '/info/subskill',
     imageSrc: '/images/generic/subSkill.png',
     i18nTextId: 'Info.SubSkill.Title',
+  },
+  {
+    type: 'link',
+    href: '/info/nature',
+    imageSrc: '/images/generic/memo.png',
+    i18nTextId: 'Info.Nature.Title',
   },
   {
     type: 'link',

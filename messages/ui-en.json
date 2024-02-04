@@ -223,6 +223,9 @@
       },
       "Progress": {
         "Title": "Sleepdex Unlock Rewards"
+      },
+      "RecipeLevel": {
+        "Title": "Recipe Level"
       }
     },
     "Item": {
@@ -455,6 +458,13 @@
         "MaxPotCapacity": "Max Pot Capacity",
         "FeatureUnlock": "Feature Unlock",
         "Rewards": "Rewards"
+      },
+      "RecipeLevel": {
+        "Level": "Level",
+        "Bonus": "Bonus",
+        "ToNext": "To Next",
+        "Accumulated": "Accumulated",
+        "Strength": "Final strength from cooked meal"
       }
     },
     "PokemonExp": {

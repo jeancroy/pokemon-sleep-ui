@@ -143,6 +143,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         SubSkill: I18nMetadata,
         ProducingParams: I18nMetadata,
         Progress: I18nMetadata,
+        RecipeLevel: I18nMetadata,
       },
       Item: {
         Index: I18nMetadata,
@@ -347,6 +348,13 @@ declare interface IntlMessages extends UiMessages, GameMessages {
           MaxPotCapacity: string,
           FeatureUnlock: string,
           Rewards: string,
+        },
+        RecipeLevel: {
+          Level: string,
+          Bonus: string,
+          ToNext: string,
+          Accumulated: string,
+          Strength: string,
         },
       },
       PokemonExp: {

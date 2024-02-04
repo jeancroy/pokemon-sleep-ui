@@ -223,6 +223,9 @@
       },
       "Progress": {
         "Title": "睡姿解鎖獎勵"
+      },
+      "RecipeLevel": {
+        "Title": "食譜等級"
       }
     },
     "Item": {
@@ -455,6 +458,13 @@
         "MaxPotCapacity": "鍋子容量上限",
         "FeatureUnlock": "功能解鎖",
         "Rewards": "解鎖獎勵"
+      },
+      "RecipeLevel": {
+        "Level": "等級",
+        "Bonus": "加成倍率",
+        "ToNext": "升等需求",
+        "Accumulated": "累計",
+        "Strength": "食譜最終能量"
       }
     },
     "PokemonExp": {

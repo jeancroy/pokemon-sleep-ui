@@ -223,6 +223,9 @@
       },
       "Progress": {
         "Title": "Schlafdex Freischalt-Belohnungen"
+      },
+      "RecipeLevel": {
+        "Title": "Recipe Level"
       }
     },
     "Item": {
@@ -455,6 +458,13 @@
         "MaxPotCapacity": "Maximale Kochtopf Kapazität",
         "FeatureUnlock": "Feature-Freischaltung",
         "Rewards": "Belohnungen"
+      },
+      "RecipeLevel": {
+        "Level": "Level",
+        "Bonus": "Bonus",
+        "ToNext": "To Next",
+        "Accumulated": "Accumulated",
+        "Strength": "Final strength from cooked meal"
       }
     },
     "PokemonExp": {

@@ -223,6 +223,9 @@
       },
       "Progress": {
         "Title": "도감 개방 보상"
+      },
+      "RecipeLevel": {
+        "Title": "Recipe Level"
       }
     },
     "Item": {
@@ -455,6 +458,13 @@
         "MaxPotCapacity": "최대 냄비 확장",
         "FeatureUnlock": "개방되는 기능",
         "Rewards": "보상"
+      },
+      "RecipeLevel": {
+        "Level": "Level",
+        "Bonus": "Bonus",
+        "ToNext": "To Next",
+        "Accumulated": "Accumulated",
+        "Strength": "Final strength from cooked meal"
       }
     },
     "PokemonExp": {
