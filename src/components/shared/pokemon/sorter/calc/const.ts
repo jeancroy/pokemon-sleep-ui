@@ -17,7 +17,6 @@ export const sortInAsc: PokemonSortType[] = [
   'frequency',
   'frequencyOfBerry',
   'frequencyOfIngredient',
-  'friendshipPoint',
 ];
 
 export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonSorterGetter} = {
