@@ -2,7 +2,6 @@ import React from 'react';
 
 import {clsx} from 'clsx';
 
-import {InfoIcon} from '@/components/icons/info';
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {Flex} from '@/components/layout/flex/common';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
@@ -39,7 +38,10 @@ export const TeamMemberCollapsibleButton = ({
       <AnimatedCollapse show={isExpanded} appear>
         <Flex direction="row" className="items-center justify-between">
           <PokemonName size="xs" pokemon={pokemon} override={member.name}/>
-          <InfoIcon>{level}</InfoIcon>
+          <Flex direction="row" noFullWidth className="items-end gap-1">
+            <span className="text-xs leading-none">Lv</span>
+            <span className="text-sm leading-none">{level}</span>
+          </Flex>
         </Flex>
         <HorizontalSplitter className="my-1"/>
       </AnimatedCollapse>
