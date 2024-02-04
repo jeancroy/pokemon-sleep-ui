@@ -7,7 +7,7 @@ import {EnergyIcon} from '@/components/shared/icon/energy';
 
 
 export const RecipeLevelDataHeader = () => {
-  const t = useTranslations('UI.InPage.Info.RecipeLevel');
+  const t = useTranslations('UI.InPage.Info.RecipeLevel.Table');
 
   return (
     <tr className="[&>td]:whitespace-nowrap">
@@ -21,6 +21,12 @@ export const RecipeLevelDataHeader = () => {
         <Flex direction="row" center>
           <EnergyIcon alt={t('Strength')} noInvert/>
           {t('ToNext')}
+        </Flex>
+      </td>
+      <td>
+        <Flex direction="row" center>
+          <EnergyIcon alt={t('Strength')} noInvert/>
+          {t('TotalRequired')}
         </Flex>
       </td>
       <td>

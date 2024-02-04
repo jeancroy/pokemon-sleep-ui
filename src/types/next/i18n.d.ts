@@ -350,11 +350,17 @@ declare interface IntlMessages extends UiMessages, GameMessages {
           Rewards: string,
         },
         RecipeLevel: {
-          Level: string,
-          Bonus: string,
-          ToNext: string,
-          Accumulated: string,
-          Strength: string,
+          Input: {
+            CurrentLevel: string,
+          },
+          Table: {
+            Level: string,
+            Bonus: string,
+            ToNext: string,
+            TotalRequired: string,
+            Accumulated: string,
+            Strength: string,
+          },
         },
       },
       PokemonExp: {

@@ -460,11 +460,17 @@
         "Rewards": "解鎖獎勵"
       },
       "RecipeLevel": {
-        "Level": "等級",
-        "Bonus": "加成倍率",
-        "ToNext": "升等需求",
-        "Accumulated": "累計",
-        "Strength": "食譜最終能量"
+        "Input": {
+          "CurrentLevel": "目前等級"
+        },
+        "Table": {
+          "Level": "等級",
+          "Bonus": "加成倍率",
+          "ToNext": "升等需求",
+          "TotalRequired": "總需求",
+          "Accumulated": "累計",
+          "Strength": "食譜最終能量"
+        }
       }
     },
     "PokemonExp": {

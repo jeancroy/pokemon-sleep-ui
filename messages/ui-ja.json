@@ -460,11 +460,17 @@
         "Rewards": "報酬"
       },
       "RecipeLevel": {
-        "Level": "Level",
-        "Bonus": "Bonus",
-        "ToNext": "To Next",
-        "Accumulated": "Accumulated",
-        "Strength": "Final strength from cooked meal"
+        "Input": {
+          "CurrentLevel": "Current Level"
+        },
+        "Table": {
+          "Level": "Level",
+          "Bonus": "Bonus",
+          "ToNext": "To Next",
+          "TotalRequired": "Total Required",
+          "Accumulated": "Accumulated",
+          "Strength": "Final strength from cooked meal"
+        }
       }
     },
     "PokemonExp": {
