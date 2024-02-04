@@ -529,7 +529,7 @@
     },
     "Total": "총합",
     "Probability": {
-      "NoSkillAfterWakeup": "Probability of no skill after wakeup"
+      "NoSkillAfterWakeup": "기상 후에도 스킬을 사용하지 않을 확률"
     },
     "ProduceType": {
       "Berry": "나무열매",
@@ -610,7 +610,7 @@
       "Title": "요리 관련"
     },
     "Message": {
-      "SettingsNotStored": "Showing default user settings. Login required to save the user settings, or let the settings takes effect."
+      "SettingsNotStored": "기본 사용자 설정이 표시됩니다. 사용자 설정을 저장하거나 설정이 적용되도록 하려면 로그인이 필요합니다."
     }
   },
   "UserControl": {
