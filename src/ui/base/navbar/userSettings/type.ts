@@ -1,9 +1,9 @@
 import {Session} from 'next-auth';
 
-import {UserSettingsBonusDataProps} from '@/ui/base/navbar/userSettings/sections/bonus/type';
 import {UserSettingsCookingDataProps} from '@/ui/base/navbar/userSettings/sections/cooking/type';
+import {UserSettingsMapBonusDataProps} from '@/ui/base/navbar/userSettings/sections/mapBonus/type';
 
 
-export type UserSettingsProps = UserSettingsCookingDataProps & UserSettingsBonusDataProps & {
+export type UserSettingsProps = UserSettingsCookingDataProps & UserSettingsMapBonusDataProps & {
   session: Session | null,
 };

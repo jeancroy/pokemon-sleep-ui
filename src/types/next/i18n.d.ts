@@ -502,6 +502,9 @@ declare interface IntlMessages extends UiMessages, GameMessages {
       Message: {
         SettingsNotStored: string,
       },
+      Multiplier: {
+        Overall: string,
+      },
       Section: {
         AppInfo: string,
         MapBonus: string,

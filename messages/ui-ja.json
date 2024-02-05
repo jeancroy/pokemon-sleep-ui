@@ -612,6 +612,9 @@
     "Message": {
       "SettingsNotStored": "当サイトのデフォルト設定を表示しています。設定変更の保存・適用にはログインが必要です。"
     },
+    "Multiplier": {
+      "Overall": "Overall"
+    },
     "Section": {
       "AppInfo": "システム情報",
       "MapBonus": "フィールドボーナス",

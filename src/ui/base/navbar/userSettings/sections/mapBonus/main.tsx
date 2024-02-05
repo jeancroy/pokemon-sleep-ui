@@ -1,27 +1,26 @@
 import React from 'react';
 
-import ArrowUpCircleIcon from '@heroicons/react/24/outline/ArrowUpCircleIcon';
+import MapPinIcon from '@heroicons/react/24/outline/MapPinIcon';
 import {useTranslations} from 'next-intl';
 
 import {Grid} from '@/components/layout/grid';
 import {MapBonusSlider} from '@/components/shared/production/bonus/map';
-import {OverallBonusSlider} from '@/components/shared/production/bonus/overall';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {UserBonus} from '@/types/game/bonus';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
 import {UserSettings} from '@/types/userData/settings/main';
 import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
-import {UserSettingsBonusDataProps} from '@/ui/base/navbar/userSettings/sections/bonus/type';
+import {UserSettingsMapBonusDataProps} from '@/ui/base/navbar/userSettings/sections/mapBonus/type';
 
 
-type Props = UserSettingsBonusDataProps & {
+type Props = UserSettingsMapBonusDataProps & {
   settings: UserSettings,
   setSettings: ReactStateUpdaterFromOriginal<UserSettings>,
   bonus: UserBonus,
   setBonus: (newBonus: UserBonus) => void,
 };
 
-export const UserSettingsBonusUI = ({
+export const UserSettingsMapBonusUI = ({
   mapIds,
   maxMapBonusPercent,
   pokemonList,
@@ -34,7 +33,7 @@ export const UserSettingsBonusUI = ({
   const t = useTranslations('UI.UserSettings');
 
   return (
-    <UserSettingsSection titleIcon={<ArrowUpCircleIcon/>} title={t('Section.MapBonus')}>
+    <UserSettingsSection titleIcon={<MapPinIcon/>} title={t('Section.MapBonus')}>
       <SnorlaxFavoriteInput
         filter={settings}
         setFilter={setSettings}
@@ -59,10 +58,6 @@ export const UserSettingsBonusUI = ({
           />
         ))}
       </Grid>
-      <OverallBonusSlider value={bonus.overall} setValue={(overall) => setBonus({
-        ...bonus,
-        overall,
-      })}/>
     </UserSettingsSection>
   );
 };

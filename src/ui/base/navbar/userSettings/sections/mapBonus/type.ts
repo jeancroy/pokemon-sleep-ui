@@ -3,7 +3,7 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {SleepMapId} from '@/types/game/sleepStyle';
 
 
-export type UserSettingsBonusDataProps = {
+export type UserSettingsMapBonusDataProps = {
   mapIds: SleepMapId[],
   maxMapBonusPercent: number,
   pokemonList: PokemonInfo[],

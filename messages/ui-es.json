@@ -612,6 +612,9 @@
     "Message": {
       "SettingsNotStored": "Mostrando la configuración de usuario por defecto. Inicia sesión para guardar la configuración o deja que tome efecto."
     },
+    "Multiplier": {
+      "Overall": "Overall"
+    },
     "Section": {
       "AppInfo": "App Info",
       "MapBonus": "Bono de mapa",

@@ -6,10 +6,15 @@ import {BonusSlider} from '@/components/shared/production/bonus/base';
 import {BonusSliderProps} from '@/components/shared/production/bonus/type';
 
 
-export const OverallBonusSlider = (props: BonusSliderProps) => {
+type Props = BonusSliderProps & {
+  title: string,
+};
+
+export const OverallBonusSlider = ({title, ...props}: Props) => {
   return (
     <BonusSlider min={0} max={150} {...props}>
-      <ChevronDoubleUpIcon className="size-6"/>
+      <ChevronDoubleUpIcon className="size-6 p-0.5"/>
+      <span>{title}</span>
     </BonusSlider>
   );
 };

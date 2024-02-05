@@ -12,9 +12,10 @@ import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {UserSettingsAccountInfo} from '@/ui/base/navbar/userSettings/sections/account';
 import {UserSettingsAppInfo} from '@/ui/base/navbar/userSettings/sections/app/main';
 import {UserCalculationBehaviorUI} from '@/ui/base/navbar/userSettings/sections/behavior';
-import {UserSettingsBonusUI} from '@/ui/base/navbar/userSettings/sections/bonus/main';
 import {UserSettingsCooking} from '@/ui/base/navbar/userSettings/sections/cooking/main';
 import {UserSettingsLanguage} from '@/ui/base/navbar/userSettings/sections/language';
+import {UserSettingsMapBonusUI} from '@/ui/base/navbar/userSettings/sections/mapBonus/main';
+import {UserSettingsMultiplierUI} from '@/ui/base/navbar/userSettings/sections/multiplier/main';
 import {UserSettingsStamina} from '@/ui/base/navbar/userSettings/sections/stamina';
 import {UserSettingsProps} from '@/ui/base/navbar/userSettings/type';
 import {migrate} from '@/utils/migrate/main';
@@ -100,7 +101,7 @@ export const UserSettingsPopup = ({
           } satisfies UserSettingsBundle))}
           {...props}
         />
-        <UserSettingsBonusUI
+        <UserSettingsMapBonusUI
           bonus={settings.bonus}
           setBonus={(bonus) => setBundle(({settings, ...original}) => ({
             ...original,
@@ -110,8 +111,15 @@ export const UserSettingsPopup = ({
           setSettings={(getUpdated) => setBundle(({settings, ...original}) => ({
             ...original,
             settings: getUpdated(settings),
-          }))}
+          } satisfies UserSettingsBundle))}
           {...props}
+        />
+        <UserSettingsMultiplierUI
+          settings={settings}
+          setSettings={(getUpdated) => setBundle(({settings, ...original}) => ({
+            ...original,
+            settings: getUpdated(settings),
+          } satisfies UserSettingsBundle))}
         />
         <UserSettingsLanguage/>
         <UserSettingsAppInfo/>

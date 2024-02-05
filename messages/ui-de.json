@@ -612,6 +612,9 @@
     "Message": {
       "SettingsNotStored": "Zeige Standard Benutzereinstellungen. Login erforderlich um Benutzereinstellungen zu speichern oder um wirksam zu werden."
     },
+    "Multiplier": {
+      "Overall": "Overall"
+    },
     "Section": {
       "AppInfo": "App Info",
       "MapBonus": "Karten-Bonus",
