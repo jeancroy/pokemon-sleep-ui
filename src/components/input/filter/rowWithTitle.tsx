@@ -9,20 +9,20 @@ import {Flex} from '@/components/layout/flex/common';
 
 type Props = InputRowProps & {
   title: React.ReactNode,
-  directionOverrideClassName?: string,
+  classOfDirectionOverride?: string,
 };
 
 export const InputRowWithTitle = ({
   noFixedTitleWidth,
   className,
   title,
-  directionOverrideClassName,
+  classOfDirectionOverride,
   children,
   ...props
 }: React.PropsWithChildren<Props>) => {
   return (
     <InputRow defaultAsCol wrap={false} {...props} className={clsx(
-      directionOverrideClassName ?? 'sm:flex-row',
+      classOfDirectionOverride ?? 'sm:flex-row',
       className,
     )}>
       <Flex noFullWidth className={clsx(

@@ -25,7 +25,7 @@ export const PokemonIntentionalFullPackInput = ({title, alwaysFullPack, setAlway
     <InputRowWithTitle
       title={<div className="px-1">{title}</div>}
       noFixedTitleWidth className="px-2"
-      directionOverrideClassName="md:flex-row"
+      classOfDirectionOverride="md:flex-row"
     >
       <Flex direction="row" className="justify-center gap-1 md:justify-start">
         <ToggleButton
