@@ -28,7 +28,7 @@ const config: Config = {
         },
       },
       spacing: {
-        '18': '4.5rem',
+        18: '4.5rem',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -39,7 +39,7 @@ const config: Config = {
         'border-inner': 'inset 0 0 0.3rem',
       },
       dropShadow: {
-        'thick': '0 0 0.2rem var(--tw-shadow-color)',
+        thick: '0 0 0.2rem var(--tw-shadow-color)',
       },
       textShadow: {
         none: 'none',
@@ -65,8 +65,8 @@ const config: Config = {
         'popup-ultimate': '1000',
       },
       transitionProperty: {
-        'height': 'height',
-        'spacing': 'margin, padding',
+        height: 'height',
+        spacing: 'margin, padding',
       },
       animation: {
         'enter': 'fadeIn 300ms ease-out',
