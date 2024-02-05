@@ -9,7 +9,7 @@ import {CarryLimitInfo, FullPackStats} from '@/types/game/producing/carryLimit';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {ProducingSleepStateSplit} from '@/types/game/producing/split';
 import {ProducingState, ProducingStateOfRate} from '@/types/game/producing/state';
-import {CalculatedUserSettings} from '@/types/userData/settings';
+import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {Indexable} from '@/utils/type';
 
 

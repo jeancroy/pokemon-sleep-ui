@@ -2,7 +2,7 @@ import {PokemonConfigPokemonData} from '@/components/shared/pokemon/predefined/c
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {PokemonProducingRate, ProducingRate} from '@/types/game/producing/rate';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {CalculatedUserSettings} from '@/types/userData/settings';
+import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {Nullable} from '@/utils/type';
 
 

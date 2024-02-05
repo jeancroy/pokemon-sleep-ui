@@ -10,7 +10,7 @@ import {GenericIcon} from '@/components/shared/icon/common/main';
 import {PotIcon} from '@/components/shared/icon/pot';
 import {MealLink} from '@/components/shared/meal/link';
 import {Meal} from '@/types/game/meal/main';
-import {CalculatedUserSettings} from '@/types/userData/settings';
+import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {PotInfoDataProps, PotInfoFilter, PotLevelInfo} from '@/ui/info/pot/type';
 import {formatInt} from '@/utils/number/format';
 

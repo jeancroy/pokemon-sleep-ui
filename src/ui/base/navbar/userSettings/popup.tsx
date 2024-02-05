@@ -8,7 +8,7 @@ import {defaultCookingPreset} from '@/const/user/cooking';
 import {defaultUserSettings} from '@/const/user/settings';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
-import {UserSettingsBundle} from '@/types/userData/settings';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {UserSettingsAccountInfo} from '@/ui/base/navbar/userSettings/sections/account';
 import {UserSettingsAppInfo} from '@/ui/base/navbar/userSettings/sections/app/main';
 import {UserCalculationBehaviorUI} from '@/ui/base/navbar/userSettings/sections/behavior';

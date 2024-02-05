@@ -8,7 +8,8 @@ import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {SnorlaxDataOfMap} from '@/types/game/snorlax';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {CookingUserSettingsRequiredData, UserSettingsBundle} from '@/types/userData/settings';
+import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 
 
 export type TeamMakerServerDataProps =

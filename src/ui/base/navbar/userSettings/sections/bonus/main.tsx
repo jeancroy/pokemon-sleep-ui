@@ -8,7 +8,7 @@ import {OverallBonusSlider} from '@/components/shared/production/bonus/overall';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {UserBonus} from '@/types/game/bonus';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
-import {UserSettings} from '@/types/userData/settings';
+import {UserSettings} from '@/types/userData/settings/main';
 import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
 import {UserSettingsBonusDataProps} from '@/ui/base/navbar/userSettings/sections/bonus/type';
 

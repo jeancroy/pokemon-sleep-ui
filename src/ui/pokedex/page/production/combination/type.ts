@@ -1,7 +1,7 @@
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {PokemonProducingRate} from '@/types/game/producing/rate';
-import {TranslatedUserSettings} from '@/types/userData/settings';
+import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 import {PokemonDataProps} from '@/ui/pokedex/page/type';
 
 

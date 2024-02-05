@@ -7,7 +7,7 @@ import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SnorlaxDataOfMap} from '@/types/game/snorlax';
 import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';
 import {UserLazyLoadedData} from '@/types/userData/main';
-import {UserSettingsBundle} from '@/types/userData/settings';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 
 
 export type TeamAnalysisServerDataProps = Omit<TeamMemberDataProps, 'maxEvolutionCount'> & {

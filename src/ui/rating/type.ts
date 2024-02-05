@@ -10,7 +10,8 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {OcrTranslationsForPokemonInfo} from '@/types/ocr/extracted/pokemon';
-import {CookingUserSettingsRequiredData, UserSettingsBundle} from '@/types/userData/settings';
+import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 
 
 export type RatingServerDataProps = UsePokemonFilterCommonData & CookingUserSettingsRequiredData & {

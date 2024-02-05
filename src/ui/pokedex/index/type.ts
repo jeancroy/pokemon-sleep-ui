@@ -7,7 +7,9 @@ import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {SleepStyleNormal} from '@/types/game/sleepStyle';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {Migratable} from '@/types/migrate';
-import {CalculatedUserSettings, CookingUserSettings, UserSettingsBundle} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
+import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {PokedexFilterCommon} from '@/ui/pokedex/common/type';
 

@@ -1,5 +1,6 @@
 import {MealId} from '@/types/game/meal/main';
-import {CookingUserSettings, CookingUserSettingsRequiredData, UserSettingsBundle} from '@/types/userData/settings';
+import {CookingUserSettings, CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {toTargetMeals} from '@/utils/user/settings/utils';
 
 

@@ -1,5 +1,7 @@
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
-import {CalculatedUserSettings, UserCalculationBehavior, UserSettings} from '@/types/userData/settings';
+import {UserCalculationBehavior} from '@/types/userData/settings/behavior';
+import {UserSettings} from '@/types/userData/settings/main';
+import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {toEffectiveBonus, ToEffectiveBonusOpts} from '@/utils/user/bonus';
 
 

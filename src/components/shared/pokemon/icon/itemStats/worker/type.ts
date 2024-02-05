@@ -7,7 +7,7 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {TranslatedUserSettings} from '@/types/userData/settings';
+import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 
 
 export type PokemonItemStatsWorkerOpts = {

@@ -6,7 +6,7 @@ import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
 import {PokemonProducingRate, ProducingValueOfStates} from '@/types/game/producing/rate';
 import {ProducingStateOfRate} from '@/types/game/producing/state';
-import {UserCalculationBehavior} from '@/types/userData/settings';
+import {UserCalculationBehavior} from '@/types/userData/settings/behavior';
 import {toSum} from '@/utils/array';
 import {getNatureMultiplier} from '@/utils/game/nature';
 import {helpingBonusSimpleMultiplier} from '@/utils/game/producing/const';

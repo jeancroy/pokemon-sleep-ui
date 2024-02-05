@@ -1,6 +1,6 @@
 import {getStaminaCookingRecoveryData} from '@/controller/cookingRecovery';
 import {getMealMap} from '@/controller/meal';
-import {CookingUserSettingsRequiredData} from '@/types/userData/settings';
+import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
 
 
 export const getCookingUserSettingsRequiredData = async (): Promise<CookingUserSettingsRequiredData> => {

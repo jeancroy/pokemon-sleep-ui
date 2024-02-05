@@ -7,7 +7,7 @@ import {
   defaultUserCalculationBehavior,
 } from '@/const/user/settings';
 import {Migrator} from '@/types/migrate';
-import {UserSettings} from '@/types/userData/settings';
+import {UserSettings} from '@/types/userData/settings/main';
 import {UserSettingsMigrateParams} from '@/utils/migrate/userSettings/type';
 
 

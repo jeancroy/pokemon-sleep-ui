@@ -3,7 +3,8 @@ import {IngredientId, IngredientMap} from '@/types/game/ingredient';
 import {MealTypeId} from '@/types/game/meal/main';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {Migratable} from '@/types/migrate';
-import {CookingUserSettingsRequiredData, UserSettingsBundle} from '@/types/userData/settings';
+import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 
 
 export type MealFilter = Migratable & {

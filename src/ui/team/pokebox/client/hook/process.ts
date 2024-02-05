@@ -2,7 +2,7 @@ import {FilterInclusionMap} from '@/components/input/filter/type';
 import {PokemonInfoWithSortingPayload} from '@/components/shared/pokemon/sorter/type';
 import {usePokemonSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
 import {Pokebox, PokeInBox} from '@/types/userData/pokebox/main';
-import {UserSettingsBundle} from '@/types/userData/settings';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';

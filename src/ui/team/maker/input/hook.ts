@@ -3,7 +3,7 @@ import React from 'react';
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
-import {UserSettingsBundle} from '@/types/userData/settings';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {defaultTeamMakerMaxResultCount} from '@/ui/team/maker/const';
 import {enforceTeamMakerInput} from '@/ui/team/maker/input/utils';
 import {TeamMakerInput} from '@/ui/team/maker/type/input';

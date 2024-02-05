@@ -7,7 +7,8 @@ import {MainSkillData} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {ProducingRateImplicitParams, ProducingRateSingleParams} from '@/types/game/producing/rate';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {CalculatedUserSettings, CookingUserSettings} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 
 
 export const pokedexSortExclusion = [

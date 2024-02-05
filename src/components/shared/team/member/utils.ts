@@ -6,7 +6,7 @@ import {RatingSetupData} from '@/types/game/pokemon/rating/request';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamMemberData} from '@/types/game/team';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {UserSettingsBundle} from '@/types/userData/settings';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {getDefaultRatingBasis} from '@/utils/game/rating/utils';
 
 

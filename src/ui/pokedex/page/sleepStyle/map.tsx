@@ -8,7 +8,7 @@ import {MapLink} from '@/components/shared/map/link';
 import {imageSmallIconSizes} from '@/styles/image';
 import {SleepStyleNormal} from '@/types/game/sleepStyle';
 import {SnorlaxDataOfMap} from '@/types/game/snorlax';
-import {CalculatedUserSettings} from '@/types/userData/settings';
+import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {PokemonSingleSleepStyle} from '@/ui/pokedex/page/sleepStyle/single';
 import {PokemonSleepStyleProps} from '@/ui/pokedex/page/sleepStyle/type';
 

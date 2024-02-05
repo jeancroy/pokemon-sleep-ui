@@ -1,5 +1,5 @@
 import {PokemonInfoWithSortingPayload, PokemonSortType} from '@/components/shared/pokemon/sorter/type';
-import {TranslatedUserSettings} from '@/types/userData/settings';
+import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {PokedexDisplayType, PokedexFilterCommon} from '@/ui/pokedex/common/type';
 import {getPossibleIngredientsFromChain} from '@/utils/game/ingredientChain';

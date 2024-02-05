@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {InputRow} from '@/components/input/filter/row';
 import {ToggleButton} from '@/components/input/toggleButton';
 import {textFilterButtonStyle} from '@/styles/input';
-import {UserCalculationBehavior} from '@/types/userData/settings';
+import {UserCalculationBehavior} from '@/types/userData/settings/behavior';
 
 
 type Props = {

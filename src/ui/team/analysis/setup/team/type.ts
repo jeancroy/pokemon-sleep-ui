@@ -3,7 +3,8 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {TeamMemberData, TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisComp, TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {CookingUserSettings, UserSettingsBundle} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {TeamAnalysisSetupModifyingProps} from '@/ui/team/analysis/type';
 
 

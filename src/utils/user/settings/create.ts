@@ -3,7 +3,7 @@ import {Session} from 'next-auth';
 import {defaultCookingPreset} from '@/const/user/cooking';
 import {defaultUserSettings} from '@/const/user/settings';
 import {UserCookingPreset} from '@/types/userData/cooking';
-import {UserSettings, UserSettingsBundle} from '@/types/userData/settings';
+import {UserSettings, UserSettingsBundle} from '@/types/userData/settings/main';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 import {DeepPartial} from '@/utils/type';
 

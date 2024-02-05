@@ -12,7 +12,7 @@ import {RatingConfig} from '@/types/game/pokemon/rating/config';
 import {RatingRequest, RatingSetupData} from '@/types/game/pokemon/rating/request';
 import {RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {CookingUserSettingsRequiredData} from '@/types/userData/settings';
+import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
 
 
 export type RatingResultProps = CookingUserSettingsRequiredData & {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {TeamAnalysisSetup} from '@/types/teamAnalysis';
-import {UserSettingsBundle} from '@/types/userData/settings';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {getInitialTeamAnalysisSetup} from '@/ui/team/analysis/client/utils';
 import {TeamAnalysisSetupView} from '@/ui/team/analysis/setup/main';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';

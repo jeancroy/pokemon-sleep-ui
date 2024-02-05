@@ -9,7 +9,8 @@ import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {FriendshipLevelOfGoldLock, SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {CookingUserSettingsRequiredData, UserSettingsBundle} from '@/types/userData/settings';
+import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 
 
 export type RatingOnDeskState = PokemonOnDeskState & {

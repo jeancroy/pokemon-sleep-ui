@@ -4,7 +4,8 @@ import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaCookingRecoveryConfig, StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {StaminaSkillRecoveryConfig} from '@/types/game/stamina/skill';
-import {UserCalculationBehavior, UserSettings} from '@/types/userData/settings';
+import {UserCalculationBehavior} from '@/types/userData/settings/behavior';
+import {UserSettings} from '@/types/userData/settings/main';
 import {userSettingsMigrators} from '@/utils/migrate/userSettings/migrators';
 
 

@@ -1,7 +1,7 @@
 import {IngredientCounter, IngredientMap} from '@/types/game/ingredient';
 import {MealIngredientInfo} from '@/types/game/meal/info';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
-import {CookingUserSettings} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
 import {toSum} from '@/utils/array';
 import {getMealBaseStrength} from '@/utils/game/meal/strength/base';
 import {isNotNullish} from '@/utils/type';

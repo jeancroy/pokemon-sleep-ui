@@ -5,7 +5,7 @@ import {IngredientCounter, IngredientId, IngredientMap} from '@/types/game/ingre
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {IngredientMultiplier} from '@/types/game/producing/multiplier';
-import {CookingUserSettings} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
 import {getMealIngredientInfo} from '@/utils/game/meal/ingredient';
 import {getIngredientBonusOfMeals} from '@/utils/game/producing/ingredient/bonus';
 

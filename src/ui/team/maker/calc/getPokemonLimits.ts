@@ -1,6 +1,7 @@
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {CookingUserSettings, UserSettings} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {UserSettings} from '@/types/userData/settings/main';
 import {teamMakerProductionPeriod} from '@/ui/team/maker/calc/const';
 import {getTeamMakerBasisValue} from '@/ui/team/maker/calc/getBasisValue';
 import {TeamMakerCalcInitOpts} from '@/ui/team/maker/type/calc';

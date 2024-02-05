@@ -3,7 +3,7 @@ import {EffectiveBonus} from '@/types/game/bonus';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
-import {UserSettings} from '@/types/userData/settings';
+import {UserSettings} from '@/types/userData/settings/main';
 import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
 

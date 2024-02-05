@@ -16,7 +16,7 @@ import {TeamContributionSplitIndicator} from '@/components/shared/team/contribut
 import {useUserSettingsBundle} from '@/hooks/userData/bundle';
 import {useCookingUserSettings} from '@/hooks/userData/cookingSettings';
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
-import {UserSettingsBundle} from '@/types/userData/settings';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook';
 import {TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control';
 import {useTeamAnalysisSetupInput} from '@/ui/team/analysis/setup/input/hook';

@@ -1,7 +1,7 @@
 import {createUserDataManager} from '@/controller/user/common';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
 import {UserCookingPreset} from '@/types/userData/cooking';
-import {UserSettings} from '@/types/userData/settings';
+import {UserSettings} from '@/types/userData/settings/main';
 import {PokedexDisplay} from '@/ui/pokedex/index/type';
 import {PokeboxViewerDisplay} from '@/ui/team/pokebox/viewer/type';
 

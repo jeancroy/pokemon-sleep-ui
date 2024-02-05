@@ -1,5 +1,5 @@
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {CalculatedUserSettings} from '@/types/userData/settings';
+import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {GetTeamProducingStatsOpts} from '@/ui/team/analysis/calc/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
 import {GetPokemonProducingRateOpts} from '@/utils/game/producing/main/type';

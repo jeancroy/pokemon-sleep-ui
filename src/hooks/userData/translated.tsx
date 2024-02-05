@@ -5,12 +5,12 @@ import {useUserSettingsBundle} from '@/hooks/userData/bundle';
 import {UseUserDataOpts} from '@/hooks/userData/type';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {UserCookingPreset} from '@/types/userData/cooking';
+import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
 import {
-  CookingUserSettingsRequiredData,
-  TranslatedUserSettings,
   UserSettings,
   UserSettingsBundle,
-} from '@/types/userData/settings';
+} from '@/types/userData/settings/main';
+import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 import {toTranslatedSettings} from '@/utils/user/settings/translated';
 
 

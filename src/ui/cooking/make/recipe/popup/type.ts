@@ -1,7 +1,7 @@
 import {IngredientCounter, IngredientMap} from '@/types/game/ingredient';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {UserDataActionStatus} from '@/types/userData/main';
-import {CalculatedUserSettings} from '@/types/userData/settings';
+import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 
 
 export type MealMakerPopupCommonProps = {

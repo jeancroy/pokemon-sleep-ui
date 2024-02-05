@@ -3,7 +3,7 @@ import React from 'react';
 import {useUserCookingPreset} from '@/hooks/userData/cookingPreset';
 import {useUserSettings} from '@/hooks/userData/settings';
 import {UseUserDataOpts} from '@/hooks/userData/type';
-import {UserSettingsBundle} from '@/types/userData/settings';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 
 
 type UseTranslatedUserSettingsOpts = {

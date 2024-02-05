@@ -1,7 +1,7 @@
 import {FilterWithUpdaterProps} from '@/components/input/filter/type';
 import {IngredientCounter} from '@/types/game/ingredient';
 import {MealCounter, MealTypeId} from '@/types/game/meal/main';
-import {CalculatedUserSettings} from '@/types/userData/settings';
+import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {CookingCommonFilter, CookingPreloadedData, CookingServerDataProps} from '@/ui/cooking/common/type';
 
 

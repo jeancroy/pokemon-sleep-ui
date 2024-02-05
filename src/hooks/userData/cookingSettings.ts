@@ -1,7 +1,7 @@
 import isEqual from 'lodash/isEqual';
 import {useCustomCompareMemo} from 'use-custom-compare';
 
-import {CookingUserSettings} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
 import {toCookingUserSettings, ToCookingUserSettingsOpts} from '@/utils/user/settings/cooking';
 
 

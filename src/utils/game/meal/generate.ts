@@ -1,5 +1,5 @@
 import {Meal, MealMap, MealTypeId} from '@/types/game/meal/main';
-import {CookingUserSettings} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
 import {combineWithRepetitionIterator} from '@/utils/compute/combination';
 import {isNotNullish} from '@/utils/type';
 

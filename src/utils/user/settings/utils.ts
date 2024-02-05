@@ -2,7 +2,7 @@ import {specialtyIdMap} from '@/const/game/pokemon';
 import {Meal, MealMap, MealTypeId} from '@/types/game/meal/main';
 import {PokemonSpecialtyId} from '@/types/game/pokemon';
 import {UserCookingTarget} from '@/types/userData/cooking';
-import {UserCalculationFullPackBehavior} from '@/types/userData/settings';
+import {UserCalculationFullPackBehavior} from '@/types/userData/settings/behavior';
 import {isNotNullish} from '@/utils/type';
 
 

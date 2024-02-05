@@ -3,7 +3,8 @@ import {PokemonProducingRateByType} from '@/types/game/producing/rate';
 import {ProducingStateOfRate} from '@/types/game/producing/state';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';
-import {CookingUserSettings, UserSettingsBundle} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 

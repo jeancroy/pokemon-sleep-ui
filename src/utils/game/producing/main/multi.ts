@@ -4,7 +4,7 @@ import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
 import {PokemonProducingRateFinal, PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
 import {ProducingStateOfRate} from '@/types/game/producing/state';
-import {CookingUserSettings} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
 import {toSum} from '@/utils/array';
 import {applyIngredientMultiplier} from '@/utils/game/producing/apply/ingredient';
 import {groupPokemonProducingRate} from '@/utils/game/producing/group';

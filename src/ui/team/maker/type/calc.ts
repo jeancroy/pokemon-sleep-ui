@@ -1,4 +1,5 @@
-import {CookingUserSettings, UserSettings} from '@/types/userData/settings';
+import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {UserSettings} from '@/types/userData/settings/main';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerCandidateData} from '@/ui/team/maker/type/common';
 import {TeamMakerInput} from '@/ui/team/maker/type/input';
