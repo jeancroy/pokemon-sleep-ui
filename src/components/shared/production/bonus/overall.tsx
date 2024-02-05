@@ -12,7 +12,7 @@ type Props = BonusSliderProps & {
 
 export const OverallBonusSlider = ({title, ...props}: Props) => {
   return (
-    <BonusSlider min={0} max={150} {...props}>
+    <BonusSlider min={0} max={100} {...props}>
       <ChevronDoubleUpIcon className="size-6 p-0.5"/>
       <span>{title}</span>
     </BonusSlider>
