@@ -611,6 +611,14 @@
     },
     "Message": {
       "SettingsNotStored": "当サイトのデフォルト設定を表示しています。設定変更の保存・適用にはログインが必要です。"
+    },
+    "Section": {
+      "AppInfo": "システム情報",
+      "MapBonus": "フィールドボーナス",
+      "Multiplier": "倍率",
+      "Cooking": "料理",
+      "Language": "言語",
+      "Stamina": "げんき"
     }
   },
   "UserControl": {

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ArrowUpCircleIcon from '@heroicons/react/24/outline/ArrowUpCircleIcon';
+import {useTranslations} from 'next-intl';
 
 import {Grid} from '@/components/layout/grid';
 import {MapBonusSlider} from '@/components/shared/production/bonus/map';
@@ -30,8 +31,10 @@ export const UserSettingsBonusUI = ({
   bonus,
   setBonus,
 }: Props) => {
+  const t = useTranslations('UI.UserSettings');
+
   return (
-    <UserSettingsSection titleIcon={<ArrowUpCircleIcon/>}>
+    <UserSettingsSection titleIcon={<ArrowUpCircleIcon/>} title={t('Section.MapBonus')}>
       <SnorlaxFavoriteInput
         filter={settings}
         setFilter={setSettings}

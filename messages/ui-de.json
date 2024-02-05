@@ -611,6 +611,14 @@
     },
     "Message": {
       "SettingsNotStored": "Zeige Standard Benutzereinstellungen. Login erforderlich um Benutzereinstellungen zu speichern oder um wirksam zu werden."
+    },
+    "Section": {
+      "AppInfo": "App Info",
+      "MapBonus": "Karten-Bonus",
+      "Multiplier": "Multiplikator",
+      "Cooking": "Kochen",
+      "Language": "Sprache",
+      "Stamina": "Energie"
     }
   },
   "UserControl": {

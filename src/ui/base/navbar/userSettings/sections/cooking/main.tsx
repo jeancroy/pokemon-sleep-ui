@@ -32,7 +32,10 @@ export const UserSettingsCooking = (props: UserSettingsCookingCommonProps) => {
   const t2 = useTranslations('Game');
 
   return (
-    <UserSettingsSection titleIcon={<GenericIngredientIcon alt={t('Cooking.Title')} dimension="size-10"/>}>
+    <UserSettingsSection
+      titleIcon={<GenericIngredientIcon alt={t('Cooking.Title')} dimension="size-7"/>}
+      title={t('Section.Cooking')}
+    >
       <PotCapacityInput
         isActive={(potCapacity) => potCapacity === cookingPreset.potCapacity}
         onClick={(potCapacity) => setCookingPreset({potCapacity})}

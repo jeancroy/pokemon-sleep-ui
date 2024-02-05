@@ -611,6 +611,14 @@
     },
     "Message": {
       "SettingsNotStored": "Showing default user settings. Login required to save the user settings, or let the settings takes effect."
+    },
+    "Section": {
+      "AppInfo": "App Info",
+      "MapBonus": "Map Bonus",
+      "Multiplier": "Multiplier",
+      "Cooking": "Cooking",
+      "Language": "Language",
+      "Stamina": "Energy"
     }
   },
   "UserControl": {

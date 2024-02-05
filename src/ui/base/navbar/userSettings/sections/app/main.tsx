@@ -3,6 +3,7 @@ import React from 'react';
 import ComputerDesktopIcon from '@heroicons/react/24/outline/ComputerDesktopIcon';
 import PuzzlePieceIcon from '@heroicons/react/24/outline/PuzzlePieceIcon';
 import ServerIcon from '@heroicons/react/24/outline/ServerIcon';
+import {useTranslations} from 'next-intl';
 
 import {Grid} from '@/components/layout/grid';
 import {UserDataLazyLoad} from '@/components/shared/userData/lazyLoad/main';
@@ -15,11 +16,12 @@ import {isStringReplaceAllSupported} from '@/utils/compatibility/stringReplaceAl
 
 
 export const UserSettingsAppInfo = () => {
+  const t = useTranslations('UI.UserSettings');
   // Only check once on load to avoid duplicated checking
   const isNestedWorkerSupportedResult = React.useMemo(isNestedWorkerSupported, []);
 
   return (
-    <UserSettingsSection titleIcon={<PuzzlePieceIcon/>}>
+    <UserSettingsSection titleIcon={<PuzzlePieceIcon/>} title={t('Section.AppInfo')}>
       <UserDataLazyLoad
         options={{type: 'buildId'}}
         loadingText="Server Build"

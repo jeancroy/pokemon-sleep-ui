@@ -14,11 +14,13 @@ export const UserSettingsStamina = (props: StaminaConfigProps) => {
   const {config, cookingRecoveryData} = props;
 
   const t = useTranslations('UI.Stamina');
+  const t2 = useTranslations('UI.UserSettings');
 
   return (
-    <UserSettingsSection titleIcon={
-      <GenericIcon src="/images/generic/mood.png" noWrap alt={t('Title')}/>
-    }>
+    <UserSettingsSection
+      titleIcon={<GenericIcon src="/images/generic/mood.png" noWrap alt={t('Title')}/>}
+      title={t2('Section.Stamina')}
+    >
       <StaminaConfig {...props}/>
       <StaminaEfficiencyUI efficiency={getStaminaEfficiency({
         config,
