@@ -1,5 +1,5 @@
 import {defaultRecoveryRate, defaultUserSettings} from '@/const/user/settings';
-import {EffectiveBonus} from '@/types/game/bonus';
+import {EffectiveBonus} from '@/types/game/bonus/main';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
 
 

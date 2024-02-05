@@ -1,5 +1,5 @@
 import {helpingBonusEffectPerStack} from '@/const/game/production';
-import {EffectiveBonus} from '@/types/game/bonus';
+import {EffectiveBonus} from '@/types/game/bonus/main';
 import {getAverage} from '@/utils/number/average';
 
 

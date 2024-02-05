@@ -1,5 +1,5 @@
 import {defaultMapBonus} from '@/const/user/settings';
-import {EffectiveBonus} from '@/types/game/bonus';
+import {EffectiveBonus} from '@/types/game/bonus/main';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';

@@ -1,4 +1,4 @@
-import {EffectiveBonus} from '@/types/game/bonus';
+import {EffectiveBonus} from '@/types/game/bonus/main';
 import {ProducingRateOfItem} from '@/types/game/producing/rate';
 import {ProducingState} from '@/types/game/producing/state';
 

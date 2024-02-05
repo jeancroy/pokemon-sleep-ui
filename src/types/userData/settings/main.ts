@@ -1,4 +1,4 @@
-import {UserBonus} from '@/types/game/bonus';
+import {UserBonus} from '@/types/game/bonus/main';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {Migratable} from '@/types/migrate';

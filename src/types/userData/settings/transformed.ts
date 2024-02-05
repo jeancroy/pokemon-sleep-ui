@@ -1,4 +1,4 @@
-import {EffectiveBonus} from '@/types/game/bonus';
+import {EffectiveBonus} from '@/types/game/bonus/main';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {CookingUserSettings} from '@/types/userData/settings/cooking';
 import {UserSettings} from '@/types/userData/settings/main';

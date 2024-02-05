@@ -1,5 +1,5 @@
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
-import {UserBonus} from '@/types/game/bonus';
+import {UserBonus} from '@/types/game/bonus/main';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaCookingRecoveryConfig, StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';

@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl';
 import {Grid} from '@/components/layout/grid';
 import {MapBonusSlider} from '@/components/shared/production/bonus/map';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
-import {UserBonus} from '@/types/game/bonus';
+import {UserBonus} from '@/types/game/bonus/main';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
 import {UserSettings} from '@/types/userData/settings/main';
 import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
