@@ -37,6 +37,7 @@ export const getDataAsArray = async <TData extends Document>(
 export const getSingleData = async <TData extends Document>(
   collection: Promise<Collection<TData>>,
   filter?: Filter<TData>,
+  sort?: Sort,
 ) => {
-  return (await collection).findOne(filter ?? {}, {projection: {_id: false}});
+  return (await collection).findOne(filter ?? {}, {projection: {_id: false}, sort});
 };
