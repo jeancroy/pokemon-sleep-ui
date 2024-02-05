@@ -461,15 +461,15 @@
       },
       "RecipeLevel": {
         "Input": {
-          "CurrentLevel": "Current Level"
+          "CurrentLevel": "Nivel Actual"
         },
         "Table": {
-          "Level": "Level",
+          "Level": "Nivel",
           "Bonus": "Bonus",
-          "ToNext": "To Next",
-          "TotalRequired": "Total Required",
-          "Accumulated": "Accumulated",
-          "Strength": "Final strength from cooked meal"
+          "ToNext": "Al próximo",
+          "TotalRequired": "Total Requerido",
+          "Accumulated": "Acumulado",
+          "Strength": "Vigor Final del plato"
         }
       }
     },
