@@ -3,11 +3,21 @@ import React from 'react';
 import {Nullable} from '@/utils/type';
 
 
-export type NumberInputLayoutProps<TValue extends Nullable<number>> = {
-  text: React.ReactNode,
+export const numberInputValueType = [
+  'integer',
+  'float',
+] as const;
+
+export type NumberInputValueType = typeof numberInputValueType[number];
+
+export type NumberInputValueCommonProps<TValue extends Nullable<number>> = {
   value: TValue,
+  valueType?: NumberInputValueType,
+};
+
+export type NumberInputLayoutProps<TValue extends Nullable<number>> = NumberInputValueCommonProps<TValue> & {
+  text: React.ReactNode,
   setValue: (value: TValue) => void,
-  formatValue?: (value: TValue) => string,
   onClickDefault?: number,
   min?: number,
   max?: number,

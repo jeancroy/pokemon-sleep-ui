@@ -5,6 +5,10 @@ import {clsx} from 'clsx';
 import {InputBox} from '@/components/input/box';
 import {NumberInputLayout} from '@/components/shared/input/number/common/layout';
 import {NumberInputLayoutProps} from '@/components/shared/input/number/common/type';
+import {
+  getNumberInputFormattedValue,
+  getNumberInputParsedValue,
+} from '@/components/shared/input/number/common/utils';
 
 
 export const NumberInputRequired = ({
@@ -12,7 +16,7 @@ export const NumberInputRequired = ({
   max = Infinity,
   ...props
 }: NumberInputLayoutProps<number>) => {
-  const {value, setValue, formatValue, disabled} = props;
+  const {setValue, disabled} = props;
 
   return (
     <NumberInputLayout
@@ -22,17 +26,21 @@ export const NumberInputRequired = ({
       setValue={(value) => value != null && setValue(value)}
     >
       <InputBox
-        value={formatValue ? formatValue(value) : value.toString()}
+        value={getNumberInputFormattedValue(props)}
         type="number"
         className={clsx('w-12 text-center', disabled && 'text-disabled')}
         onChange={({target}) => {
-          const value = parseInt(target.value || '0');
+          const value = getNumberInputParsedValue({
+            valueString: target.value,
+            isRequired: true,
+            ...props,
+          });
 
-          if (isNaN(value)) {
+          if (value === null) {
             return;
           }
 
-          setValue(Math.max(min, Math.min(value, max)));
+          setValue(value);
         }}
         disabled={disabled}
       />

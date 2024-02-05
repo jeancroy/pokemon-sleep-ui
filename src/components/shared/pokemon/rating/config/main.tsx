@@ -12,7 +12,6 @@ import {ratingConfigWeightExpressButtonStyle} from '@/components/shared/pokemon/
 import {defaultRatingWeight} from '@/const/game/rating';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
-import {formatFloat} from '@/utils/number/format';
 
 
 type Props = {
@@ -64,7 +63,7 @@ export const RatingConfigPopup = ({initial, activeKeyLevels, show, setShow, onCl
                   }
                   value={currentWeight}
                   setValue={(updatedWeight) => updateWeightOfLevel(level, updatedWeight)}
-                  formatValue={formatFloat}
+                  valueType="float"
                   min={0}
                   max={2}
                   step={0.05}

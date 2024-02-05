@@ -22,7 +22,7 @@ export const NumberInputLayout = ({
   classOfText,
   disabled,
   children,
-}: React.PropsWithChildren<Omit<NumberInputLayoutProps<Nullable<number>>, 'formatValue'>>) => {
+}: React.PropsWithChildren<NumberInputLayoutProps<Nullable<number>>>) => {
   const inUseMin = min ?? -Infinity;
   const inUseMax = max ?? Infinity;
   const inUseStep = step ?? 1;
