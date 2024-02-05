@@ -13,6 +13,6 @@ export type NumberInputLayoutProps<TValue extends Nullable<number>> = {
   max?: number,
   step?: number,
   className?: string,
-  textClassName?: string,
+  classOfText?: string,
   disabled?: boolean,
 };

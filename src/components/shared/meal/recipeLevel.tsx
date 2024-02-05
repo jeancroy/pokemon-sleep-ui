@@ -21,7 +21,7 @@ export const MealRecipeLevelInput = ({level, maxRecipeLevel, onUpdate, disabled,
   return (
     <NumberInputRequired
       text={<LevelIcon alt={t('RecipeLevel')}/>}
-      textClassName={clsx(
+      classOfText={clsx(
         'text-xs text-slate-500 group-hover:text-slate-400 dark:text-slate-400 dark:group-hover:text-slate-500',
       )}
       value={level}

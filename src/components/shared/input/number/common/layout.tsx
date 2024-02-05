@@ -19,7 +19,7 @@ export const NumberInputLayout = ({
   max,
   step,
   className,
-  textClassName,
+  classOfText,
   disabled,
   children,
 }: React.PropsWithChildren<Omit<NumberInputLayoutProps<Nullable<number>>, 'formatValue'>>) => {
@@ -34,7 +34,7 @@ export const NumberInputLayout = ({
     <Flex direction="row" noFullWidth className={clsx('items-center gap-1.5', className)}>
       {
         text &&
-        <div className={clsx('whitespace-nowrap text-sm', textClassName)}>
+        <div className={clsx('whitespace-nowrap text-sm', classOfText)}>
           {text}
         </div>
       }
