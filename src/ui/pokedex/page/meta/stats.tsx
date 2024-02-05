@@ -74,7 +74,7 @@ export const PokemonStats = ({pokemon}: PokemonDataProps) => {
           </td>
           <td>
             <Flex direction="row" center noFullWidth className="gap-1.5">
-              <GenericIconLarger src="/images/generic/candyWhite.png" alt={t2('Candy')} noInvert/>
+              <GenericIconLarger src="/images/generic/candyWhite.png" alt={t2('Candy')}/>
               <div>{stats.transfer.candy}</div>
             </Flex>
           </td>
