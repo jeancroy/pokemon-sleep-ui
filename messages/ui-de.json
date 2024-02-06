@@ -613,7 +613,19 @@
       "SettingsNotStored": "Zeige Standard Benutzereinstellungen. Login erforderlich um Benutzereinstellungen zu speichern oder um wirksam zu werden."
     },
     "Multiplier": {
-      "Overall": "Overall"
+      "Overall": "Overall",
+      "Strength": {
+        "Name": "Strength Multiplier",
+        "Behavior": {
+          "Custom": "Custom",
+          "Default": "Default (Current: {multiplier}x)"
+        },
+        "Type": {
+          "Berry": "Berry",
+          "Cooking": "Cooking",
+          "Skill": "Skill"
+        }
+      }
     },
     "Section": {
       "AppInfo": "App Info",

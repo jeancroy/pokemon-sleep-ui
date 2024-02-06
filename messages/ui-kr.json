@@ -613,7 +613,19 @@
       "SettingsNotStored": "기본 사용자 설정이 표시됩니다. 사용자 설정을 저장하거나 설정이 적용되도록 하려면 로그인이 필요합니다."
     },
     "Multiplier": {
-      "Overall": "Overall"
+      "Overall": "Overall",
+      "Strength": {
+        "Name": "Strength Multiplier",
+        "Behavior": {
+          "Custom": "Custom",
+          "Default": "Default (Current: {multiplier}x)"
+        },
+        "Type": {
+          "Berry": "Berry",
+          "Cooking": "Cooking",
+          "Skill": "Skill"
+        }
+      }
     },
     "Section": {
       "AppInfo": "App Info",

@@ -5,6 +5,7 @@ import {
   defaultStaminaCalcConfig,
   defaultStaminaGeneralConfig,
   defaultUserCalculationBehavior,
+  defaultUserMultiplierSettings,
 } from '@/const/user/settings';
 import {Migrator} from '@/types/migrate';
 import {UserSettings} from '@/types/userData/settings/main';
@@ -106,6 +107,14 @@ export const userSettingsMigrators: Migrator<UserSettings, UserSettingsMigratePa
     migrate: (old) => ({
       ...old,
       snorlaxFavorite: defaultSnorlaxFavorite,
+    }),
+  },
+  {
+    toVersion: 11,
+    // Added `multiplier`
+    migrate: (old) => ({
+      ...old,
+      multiplier: defaultUserMultiplierSettings,
     }),
   },
 ];

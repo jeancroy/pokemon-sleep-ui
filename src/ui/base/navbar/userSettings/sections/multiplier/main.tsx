@@ -4,20 +4,18 @@ import ChevronUpIcon from '@heroicons/react/24/solid/ChevronUpIcon';
 import {useTranslations} from 'next-intl';
 
 import {OverallBonusSlider} from '@/components/shared/production/bonus/overall';
-import {ReactStateUpdaterFromOriginal} from '@/types/react';
+import {strengthMultiplierType} from '@/types/game/bonus/strength';
 import {UserSettings} from '@/types/userData/settings/main';
 import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
+import {UserSettingsStrengthMultiplierUI} from '@/ui/base/navbar/userSettings/sections/multiplier/strength';
+import {UserSettingsMultiplierCommonProps} from '@/ui/base/navbar/userSettings/sections/multiplier/type';
 
 
-type Props = {
-  settings: UserSettings,
-  setSettings: ReactStateUpdaterFromOriginal<UserSettings>,
-};
-
-export const UserSettingsMultiplierUI = ({
-  settings,
-  setSettings,
-}: Props) => {
+export const UserSettingsMultiplierUI = (props: UserSettingsMultiplierCommonProps) => {
+  const {
+    settings,
+    setSettings,
+  } = props;
   const {bonus} = settings;
 
   const t = useTranslations('UI.UserSettings');
@@ -30,8 +28,11 @@ export const UserSettingsMultiplierUI = ({
         setValue={(overall) => setSettings(({bonus, ...original}) => ({
           ...original,
           bonus: {...bonus, overall},
-        }))}
+        } satisfies UserSettings))}
       />
+      {strengthMultiplierType.map((type) => (
+        <UserSettingsStrengthMultiplierUI key={type} type={type} {...props}/>
+      ))}
     </UserSettingsSection>
   );
 };

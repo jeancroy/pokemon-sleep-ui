@@ -613,7 +613,19 @@
       "SettingsNotStored": "Mostrando la configuración de usuario por defecto. Inicia sesión para guardar la configuración o deja que tome efecto."
     },
     "Multiplier": {
-      "Overall": "Overall"
+      "Overall": "Overall",
+      "Strength": {
+        "Name": "Strength Multiplier",
+        "Behavior": {
+          "Custom": "Custom",
+          "Default": "Default (Current: {multiplier}x)"
+        },
+        "Type": {
+          "Berry": "Berry",
+          "Cooking": "Cooking",
+          "Skill": "Skill"
+        }
+      }
     },
     "Section": {
       "AppInfo": "App Info",

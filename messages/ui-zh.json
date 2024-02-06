@@ -613,7 +613,19 @@
       "SettingsNotStored": "以下僅為顯示預設設定用。使用者必須登入才能儲存設定，並套用至各項計算。"
     },
     "Multiplier": {
-      "Overall": "最終"
+      "Overall": "最終",
+      "Strength": {
+        "Name": "能量倍率",
+        "Behavior": {
+          "Custom": "自訂",
+          "Default": "預設 (目前: {multiplier}x)"
+        },
+        "Type": {
+          "Berry": "樹果",
+          "Cooking": "料理",
+          "Skill": "能量技能"
+        }
+      }
     },
     "Section": {
       "AppInfo": "應用程式資訊",

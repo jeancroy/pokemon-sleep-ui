@@ -504,6 +504,18 @@ declare interface IntlMessages extends UiMessages, GameMessages {
       },
       Multiplier: {
         Overall: string,
+        Strength: {
+          Name: string,
+          Behavior: {
+            Custom: string,
+            Default: string,
+          },
+          Type: {
+            Berry: string,
+            Cooking: string,
+            Skill: string,
+          },
+        },
       },
       Section: {
         AppInfo: string,

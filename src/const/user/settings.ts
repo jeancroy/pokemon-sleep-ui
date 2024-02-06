@@ -6,6 +6,7 @@ import {StaminaCookingRecoveryConfig, StaminaRecoveryRateConfig} from '@/types/g
 import {StaminaSkillRecoveryConfig} from '@/types/game/stamina/skill';
 import {UserCalculationBehavior} from '@/types/userData/settings/behavior';
 import {UserSettings} from '@/types/userData/settings/main';
+import {UserMultiplierSettings, UserStrengthMultiplierSettingsEntry} from '@/types/userData/settings/multiplier';
 import {userSettingsMigrators} from '@/utils/migrate/userSettings/migrators';
 
 
@@ -61,10 +62,24 @@ export const defaultUserCalculationBehavior: UserCalculationBehavior = {
   includeMainSkill: true,
 };
 
+export const defaultUserMultiplierSettingsEntry: UserStrengthMultiplierSettingsEntry = {
+  behavior: 'default',
+  value: 1,
+};
+
+export const defaultUserMultiplierSettings: UserMultiplierSettings = {
+  strength: {
+    berry: defaultUserMultiplierSettingsEntry,
+    cooking: defaultUserMultiplierSettingsEntry,
+    skill: defaultUserMultiplierSettingsEntry,
+  },
+};
+
 export const defaultUserSettings: UserSettings = {
   version: userSettingsMigrators.length,
   bonus: defaultUserBonus,
   stamina: defaultStaminaCalcConfig,
   behavior: defaultUserCalculationBehavior,
   snorlaxFavorite: defaultSnorlaxFavorite,
+  multiplier: defaultUserMultiplierSettings,
 };

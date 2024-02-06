@@ -613,7 +613,19 @@
       "SettingsNotStored": "当サイトのデフォルト設定を表示しています。設定変更の保存・適用にはログインが必要です。"
     },
     "Multiplier": {
-      "Overall": "Overall"
+      "Overall": "全体補正",
+      "Strength": {
+        "Name": "エナジー補正",
+        "Behavior": {
+          "Custom": "カスタム",
+          "Default": "デフォルト (現在 {multiplier}x)"
+        },
+        "Type": {
+          "Berry": "きのみ",
+          "Cooking": "料理",
+          "Skill": "メインスキル"
+        }
+      }
     },
     "Section": {
       "AppInfo": "システム情報",
