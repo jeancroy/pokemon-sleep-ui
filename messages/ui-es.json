@@ -613,17 +613,17 @@
       "SettingsNotStored": "Mostrando la configuración de usuario por defecto. Inicia sesión para guardar la configuración o deja que tome efecto."
     },
     "Multiplier": {
-      "Overall": "Overall",
+      "Overall": "General",
       "Strength": {
-        "Name": "Strength Multiplier",
+        "Name": "Multiplicador de Vigor",
         "Behavior": {
-          "Custom": "Custom",
-          "Default": "Default (Current: {multiplier}x)"
+          "Custom": "Editar",
+          "Default": "Por defecto (Actual: {multiplier}x)"
         },
         "Type": {
-          "Berry": "Berry",
-          "Cooking": "Cooking",
-          "Skill": "Skill"
+          "Berry": "Baya",
+          "Cooking": "Cocina",
+          "Skill": "Habilidad"
         }
       }
     },
