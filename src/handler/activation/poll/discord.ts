@@ -1,5 +1,5 @@
 import {getActivationPresetLookupOfSource} from '@/controller/user/activation/preset';
-import {getAllActivationsOfSource} from '@/controller/user/activation/util';
+import {getAllActivationsOfSource} from '@/controller/user/activation/utils';
 import {getDiscordSubscribers} from '@/handler/activation/check/discord/api';
 import {toActivationPayloadFromDiscord} from '@/handler/activation/check/discord/toPayload';
 import {scanDiscordActivationInDatabase} from '@/handler/activation/poll/scan/discord/activation';

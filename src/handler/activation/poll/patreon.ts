@@ -1,5 +1,5 @@
 import {getActivationPresetLookupOfSource} from '@/controller/user/activation/preset';
-import {getAllActivationsOfSource} from '@/controller/user/activation/util';
+import {getAllActivationsOfSource} from '@/controller/user/activation/utils';
 import {getCurrentCampaignMembers} from '@/handler/activation/check/patreon/api/campaign/main';
 import {toActivationPayloadFromPatreon} from '@/handler/activation/check/patreon/toPayload';
 import {scanActivations} from '@/handler/activation/poll/scan/main';

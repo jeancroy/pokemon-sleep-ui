@@ -1,7 +1,7 @@
 import {
   getActivationPropertiesByContact,
   GetActivationPropertiesByContactOpts,
-} from '@/controller/user/activation/util';
+} from '@/controller/user/activation/utils';
 import {
   ActivationGetterCommonOpts,
   ActivationGettingResult,

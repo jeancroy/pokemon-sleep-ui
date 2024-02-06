@@ -1,5 +1,5 @@
 import {getActivationPresetLookupOfSource} from '@/controller/user/activation/preset';
-import {getAllActivationsOfSource} from '@/controller/user/activation/util';
+import {getAllActivationsOfSource} from '@/controller/user/activation/utils';
 import {getGithubSponsorships} from '@/handler/activation/check/github/api';
 import {toActivationPayloadFromGithub} from '@/handler/activation/check/github/toPayload';
 import {scanGithubActivationInDatabase} from '@/handler/activation/poll/scan/github/activation';

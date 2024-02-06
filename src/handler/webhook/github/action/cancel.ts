@@ -1,4 +1,4 @@
-import {removeActivationSingle} from '@/controller/user/activation/util';
+import {removeActivationSingle} from '@/controller/user/activation/utils';
 import {ActivationContact} from '@/types/mongo/activation';
 import {GithubWebhookPayload} from '@/types/subscription/github/webhook';
 

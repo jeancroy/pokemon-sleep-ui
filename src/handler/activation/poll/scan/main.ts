@@ -1,5 +1,5 @@
 import {activationSourceToText} from '@/const/activation/common';
-import {removeActivationBatch, updateActivationPropertiesFromPayloads} from '@/controller/user/activation/util';
+import {removeActivationBatch, updateActivationPropertiesFromPayloads} from '@/controller/user/activation/utils';
 import {ActivationPayloadConverter, ActivationScanResult} from '@/handler/activation/poll/scan/type';
 import {ActivationSendingPayload} from '@/handler/activation/send/type';
 import {ActivationSource} from '@/types/mongo/activation';

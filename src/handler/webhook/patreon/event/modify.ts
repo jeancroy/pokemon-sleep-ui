@@ -1,5 +1,5 @@
 import {getActivationPresetLookupOfSource} from '@/controller/user/activation/preset';
-import {removeActivationSingle, updateActivationPropertiesSingle} from '@/controller/user/activation/util';
+import {removeActivationSingle, updateActivationPropertiesSingle} from '@/controller/user/activation/utils';
 import {toActivationPayloadFromPatreon} from '@/handler/activation/check/patreon/toPayload';
 import {ActivationContact} from '@/types/mongo/activation';
 import {PatreonWebhookPayload} from '@/types/subscription/patreon/webhook';
