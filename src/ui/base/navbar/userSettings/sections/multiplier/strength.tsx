@@ -60,7 +60,10 @@ export const UserSettingsStrengthMultiplierUI = ({
             {multiplier: {strength: {[type]: {behavior}}}},
           ))}
         />
-        <AnimatedCollapseQuick show={current.behavior === 'custom'}>
+        <AnimatedCollapseQuick
+          show={current.behavior === 'custom'}
+          className="justify-self-center sm:justify-self-auto"
+        >
           <NumberInputRequired
             text={null}
             value={current.value}
