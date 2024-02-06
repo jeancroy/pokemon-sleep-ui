@@ -1,6 +1,6 @@
 import {Collection} from 'mongodb';
 
-import {getSingleData} from '@/controller/common';
+import {getCurrentEventData} from '@/controller/event/utils';
 import mongoPromise from '@/lib/mongodb';
 import {EventStrengthMultiplierData, EventStrengthMultiplierEntry} from '@/types/game/event/strengthMultiplier';
 
@@ -14,14 +14,7 @@ const getCollection = async (): Promise<Collection<EventStrengthMultiplierEntry>
 };
 
 export const getEventStrengthMultiplierData = async (): Promise<EventStrengthMultiplierData> => {
-  const current = await getSingleData(
-    getCollection(),
-    {
-      startEpoch: {$lt: Date.now() / 1000},
-      endEpoch: {$gte: Date.now() / 1000},
-    },
-    {startEpoch: 1},
-  );
+  const current = await getCurrentEventData({getCollection});
 
   return {current};
 };

@@ -1,8 +1,7 @@
-import {millisecondsInDay} from 'date-fns/constants';
 import {Collection} from 'mongodb';
 
 import {defaultDrowsyPowerMultiplier} from '@/const/game/event';
-import {getDataAsArray} from '@/controller/common';
+import {getCurrentEventData} from '@/controller/event/utils';
 import mongoPromise from '@/lib/mongodb';
 import {
   EventDrowsyPowerMultiplierData,
@@ -19,18 +18,10 @@ const getCollection = async (): Promise<Collection<EventDrowsyPowerMultiplierEnt
 };
 
 export const getEventDrowsyPowerMultiplierData = async (): Promise<EventDrowsyPowerMultiplierData> => {
-  const entries = await getDataAsArray(
-    getCollection(),
-    // Get multipliers within the time range of (current - 24 hrs) to (current + 24 hrs)
-    {
-      startEpoch: {$gt: (Date.now() - millisecondsInDay) / 1000},
-      endEpoch: {$lt: (Date.now() + millisecondsInDay) / 1000},
-    },
-    {startEpoch: 1},
-  );
+  const current = await getCurrentEventData({getCollection});
 
   return {
-    entries,
+    current,
     max: (await (await getCollection()).findOne(
       {},
       {sort: {multiplier: -1}},

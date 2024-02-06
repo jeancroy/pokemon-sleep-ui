@@ -1,11 +1,11 @@
-export type EventDrowsyPowerMultiplierEntry = {
-  entryId: number,
+import {EventCommonData} from '@/types/game/event/common';
+
+
+export type EventDrowsyPowerMultiplierEntry = EventCommonData & {
   multiplier: number,
-  startEpoch: number,
-  endEpoch: number,
 };
 
 export type EventDrowsyPowerMultiplierData = {
-  entries: EventDrowsyPowerMultiplierEntry[],
+  current: EventDrowsyPowerMultiplierEntry | null,
   max: number,
 };
