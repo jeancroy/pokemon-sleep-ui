@@ -7,11 +7,11 @@ export type TeamAnalysisCompCollapsible = FilterInclusionMap<TeamAnalysisSlotNam
 
 export type TeamAnalysisSetupCollapsible = {[teamUuid in string]?: TeamAnalysisCompCollapsible};
 
-export type TeamAnalysisSetupInput = {
+export type TeamAnalysisLayoutControlState = {
   showCollapsible: TeamAnalysisSetupCollapsible,
 };
 
-export type TeamAnalysisSetupInputControl = {
+export type TeamAnalysisLayoutControl = {
   generateSlotCollapsibleControl: (teamUuid: string, slotName: TeamAnalysisSlotName) => CollapsibleControl,
   setAllCollapsible: (show: boolean) => void,
 };

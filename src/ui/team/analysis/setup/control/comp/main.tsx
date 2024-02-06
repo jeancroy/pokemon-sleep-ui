@@ -8,15 +8,21 @@ import {v4} from 'uuid';
 import {InputRow} from '@/components/input/filter/row';
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
-import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {TeamAnalysisComp} from '@/types/teamAnalysis';
 import {TeamAnalysisCompSelector} from '@/ui/team/analysis/comp/main';
-import {TeamAnalysisSetupModifyingProps} from '@/ui/team/analysis/type';
+import {TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control/setup/type';
 import {getDefaultTeamName, getTeamName} from '@/ui/team/analysis/utils';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
-export const TeamAnalysisSetupControl = ({setup, setSetup, currentTeam}: TeamAnalysisSetupModifyingProps) => {
+type Props = {
+  setupControl: TeamAnalysisSetupControl,
+  currentTeam: TeamAnalysisComp,
+};
+
+export const TeamAnalysisCompControl = ({setupControl, currentTeam}: Props) => {
+  const {setup, setSetup} = setupControl;
+
   const {status} = useSession();
   const [setupSelector, setSetupSelector] = React.useState({
     show: false,
@@ -85,15 +91,6 @@ export const TeamAnalysisSetupControl = ({setup, setSetup, currentTeam}: TeamAna
           </div>
         </Flex>
       </button>
-      <UserDataUploadButton
-        opts={{
-          type: 'teamAnalysis',
-          data: {
-            config: setup.config,
-            comps: Object.values(setup.comps),
-          },
-        }}
-      />
     </InputRow>
   );
 };

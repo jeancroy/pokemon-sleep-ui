@@ -4,6 +4,7 @@ import {textFilterButtonStyle} from '@/styles/input';
 
 
 export const teamAnalysisCollapsibleControlStyle = clsx(
-  'button-common-full button-hoverable button-bg items-center gap-0.5 !rounded-full',
+  // `ml-auto` for pushing the element to the right when wrapped
+  'button-common-full button-hoverable button-bg ml-auto items-center gap-0.5 !rounded-full',
   textFilterButtonStyle,
 );

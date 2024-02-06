@@ -33,7 +33,7 @@ export type TeamMemberProps = TeamMemberDataProps & {
   collapsible: CollapsibleControl,
   showPokemon: (pokemon: PokemonInfo) => void,
   setMember: (update: Partial<TeamMemberData> | null) => void,
-  getRate: (level: number) => TeamMemberProduction | null,
+  getRateByLevel: (level: number) => TeamMemberProduction | null,
   classOfButton?: string,
 };
 

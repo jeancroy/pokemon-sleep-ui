@@ -1,16 +1,21 @@
 import React from 'react';
 
 import {TeamAnalysisSetup, teamAnalysisSlotName} from '@/types/teamAnalysis';
-import {TeamAnalysisSetupInput, TeamAnalysisSetupInputControl} from '@/ui/team/analysis/setup/input/type';
+import {
+  TeamAnalysisLayoutControl,
+  TeamAnalysisLayoutControlState,
+} from '@/ui/team/analysis/setup/control/setup/layoutControl/type';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
-type UseTeamAnalysisSetupInputOpts = {
+type UseTeamAnalysisLayoutControlOpts = {
   setup: TeamAnalysisSetup,
 };
 
-export const useTeamAnalysisSetupInput = ({setup}: UseTeamAnalysisSetupInputOpts): TeamAnalysisSetupInputControl => {
-  const [input, setInput] = React.useState<TeamAnalysisSetupInput>({
+export const useTeamAnalysisLayoutControl = ({
+  setup,
+}: UseTeamAnalysisLayoutControlOpts): TeamAnalysisLayoutControl => {
+  const [input, setInput] = React.useState<TeamAnalysisLayoutControlState>({
     showCollapsible: {},
   });
   const {showCollapsible} = input;

@@ -18,32 +18,30 @@ import {useCookingUserSettings} from '@/hooks/userData/cookingSettings';
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook';
-import {TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control';
-import {useTeamAnalysisSetupInput} from '@/ui/team/analysis/setup/input/hook';
-import {TeamAnalysisSetupInput} from '@/ui/team/analysis/setup/input/main';
+import {TeamAnalysisCompControl} from '@/ui/team/analysis/setup/control/comp/main';
+import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/setup/common/type';
+import {useTeamAnalysisLayoutControl} from '@/ui/team/analysis/setup/control/setup/layoutControl/hook';
+import {TeamAnalysisSetupControlUI} from '@/ui/team/analysis/setup/control/setup/main';
 import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';
 import {TeamAnalysisTeamView} from '@/ui/team/analysis/setup/team/main';
-import {TeamAnalysisFilledProps} from '@/ui/team/analysis/setup/team/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {DeepPartial, isNotNullish} from '@/utils/type';
 
 
-type Props =
-  TeamAnalysisDataProps &
-  Omit<TeamAnalysisFilledProps, 'showPokemon' | 'bundle' | 'cookingSettings' | 'collapsible'> & {
-    bundleFromClient: DeepPartial<UserSettingsBundle> | undefined,
-  };
+type Props = TeamAnalysisDataProps & TeamAnalysisSetupUpdateCommonProps & {
+  bundleFromClient: DeepPartial<UserSettingsBundle> | undefined,
+};
 
 export const TeamAnalysisSetupView = (props: Props) => {
   const {
     currentTeam,
-    setup,
-    setSetup,
+    setupControl,
     snorlaxData,
     mealMap,
     preloaded,
     bundleFromClient,
   } = props;
+  const {setup} = setupControl;
 
   const bundle = useUserSettingsBundle({
     bundle: {
@@ -54,10 +52,11 @@ export const TeamAnalysisSetupView = (props: Props) => {
   const cookingSettings = useCookingUserSettings({...bundle, mealMap});
   const statsOfTeam = useTeamProducingStats({
     ...props,
+    setup,
     bundle,
     cookingSettings,
   });
-  const inputControl = useTeamAnalysisSetupInput({setup});
+  const layoutControl = useTeamAnalysisLayoutControl({setup});
   const {state, setState, showPokemon} = usePokemonLinkPopup();
   const collapsible = useCollapsibleControl();
 
@@ -68,8 +67,8 @@ export const TeamAnalysisSetupView = (props: Props) => {
   return (
     <>
       <PokemonLinkPopup state={state} setState={setState}/>
-      <TeamAnalysisSetupInput
-        inputControl={inputControl}
+      <TeamAnalysisSetupControlUI
+        layoutControl={layoutControl}
         {...props}
       />
       <AdsUnit hideIfNotBlocked/>
@@ -77,7 +76,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
         showPokemon={showPokemon}
         bundle={bundle}
         cookingSettings={cookingSettings}
-        inputControl={inputControl}
+        layoutControl={layoutControl}
         statsOfTeam={statsOfTeam}
         {...props}
       />
@@ -95,11 +94,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
           };
         }).filter(isNotNullish)}
       />
-      <TeamAnalysisSetupControl
-        setup={setup}
-        setSetup={setSetup}
-        currentTeam={currentTeam}
-      />
+      <TeamAnalysisCompControl {...props}/>
       <AdsUnit/>
       <PokemonGroupedProduction grouped={statsOfTeam.grouped}/>
       <AdsUnit hideIfNotBlocked/>

@@ -38,7 +38,7 @@ export const TeamMemberPopupContent = ({
     pokemon,
     rate,
     stateOfRate,
-    getRate,
+    getRateByLevel,
   } = props;
   const {type} = state.control;
 
@@ -87,7 +87,7 @@ export const TeamMemberPopupContent = ({
             interval: 1,
             start: 1,
           })].map((level): StrengthGrowthDataEntry<TeamMemberStrengthGrowthDataType> | null => {
-            const rate = getRate(level);
+            const rate = getRateByLevel(level);
 
             if (!rate) {
               return null;
