@@ -6,7 +6,7 @@ import {clsx} from 'clsx';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonFrequencyProps} from '@/components/shared/pokemon/frequency/type';
 import {durationOfDay} from '@/const/common';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 import {formatSeconds} from '@/utils/time';
 
 

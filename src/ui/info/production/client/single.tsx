@@ -17,7 +17,7 @@ import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {Dimension} from '@/types/style';
 import {ProducingParamsBar} from '@/ui/info/production/client/bar';
 import {ProducingParamsMaximum} from '@/ui/info/production/client/type';
-import {formatFloat, formatFloat3, formatInt} from '@/utils/number/format';
+import {formatFloat, formatFloat3, formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

@@ -4,7 +4,7 @@ import EyeIcon from '@heroicons/react/24/solid/EyeIcon';
 import {clsx} from 'clsx';
 
 import {DocsMetaItem} from '@/components/shared/docs/meta/item';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

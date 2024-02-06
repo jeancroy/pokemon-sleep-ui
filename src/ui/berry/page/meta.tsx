@@ -7,7 +7,7 @@ import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PokemonBerryIconContent} from '@/components/shared/pokemon/berry/iconContent';
 import {imagePortraitSizes} from '@/styles/image';
 import {BerryPageDataProps} from '@/ui/berry/page/type';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 export const BerryMeta = ({berryData}: BerryPageDataProps) => {

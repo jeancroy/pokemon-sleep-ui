@@ -23,7 +23,7 @@ import {imageSmallIconSizes} from '@/styles/image';
 import {PokedexLinkProps} from '@/ui/pokedex/index/type';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {getProducingRateIndividualParams} from '@/utils/game/producing/params';
-import {formatFloat, formatFloat3} from '@/utils/number/format';
+import {formatFloat, formatFloat3} from '@/utils/number/format/regular';
 
 
 export const PokedexLinkDetail = React.memo(({

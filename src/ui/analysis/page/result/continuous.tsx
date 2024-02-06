@@ -6,7 +6,7 @@ import {getMarkByThreshold} from '@/styles/text/mark/utils';
 import {AnalysisStatsContinuous} from '@/ui/analysis/page/calc/type';
 import {AnalysisLayout} from '@/ui/analysis/page/result/layout';
 import {AnalysisLayoutProps} from '@/ui/analysis/page/result/type';
-import {formatFloat, formatInt} from '@/utils/number/format';
+import {formatFloat, formatInt} from '@/utils/number/format/regular';
 import {Optional, RequireKeys} from '@/utils/type';
 
 

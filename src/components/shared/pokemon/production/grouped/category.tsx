@@ -8,7 +8,7 @@ import {PokemonProductionRateOfCategory} from '@/components/shared/pokemon/produ
 import {ProducingRate} from '@/types/game/producing/rate';
 import {Dimension} from '@/types/style';
 import {toSum} from '@/utils/array';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 import {isNotNullish} from '@/utils/type';
 
 

@@ -17,7 +17,7 @@ import {CookingMarkButton} from '@/ui/cooking/common/mark';
 import {MealPreparerInfoOfMealType} from '@/ui/cooking/prepare/hook/type';
 import {MealPreparerCommonProps, MealPreparerFilter} from '@/ui/cooking/prepare/type';
 import {getMealIngredientCount} from '@/utils/game/meal/count';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = MealPreparerCommonProps & {

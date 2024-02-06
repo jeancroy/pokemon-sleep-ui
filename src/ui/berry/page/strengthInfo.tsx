@@ -10,7 +10,7 @@ import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {LevelIcon} from '@/components/shared/icon/lv';
 import {BerryData} from '@/types/game/berry';
 import {Dimension} from '@/types/style';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

@@ -12,7 +12,7 @@ import {GenericMainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/g
 import {PokemonProductionSplitCommonProps} from '@/components/shared/pokemon/production/split/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {ProduceType} from '@/types/game/producing/common';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = PokemonProductionSplitCommonProps & {[type in ProduceType]: number};

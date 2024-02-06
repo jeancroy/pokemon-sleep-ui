@@ -7,7 +7,7 @@ import {ProgressBarSingle} from '@/components/progressBar/single';
 import {ratingMarkThresholdByPr} from '@/components/shared/pokemon/rating/const';
 import {classOfMarkStyle} from '@/styles/text/mark/style';
 import {getMarkByThreshold} from '@/styles/text/mark/utils';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

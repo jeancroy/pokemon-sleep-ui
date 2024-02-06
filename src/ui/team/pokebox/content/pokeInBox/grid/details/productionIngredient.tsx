@@ -11,7 +11,7 @@ import {specialtyIdMap} from '@/const/game/pokemon';
 import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
 import {useCalculatePokeInBoxProduction} from '@/ui/team/pokebox/content/pokeInBox/worker/production/hook';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 export const PokeInBoxGridProductionIngredient = (props: PokeInBoxGridDetailsProps) => {

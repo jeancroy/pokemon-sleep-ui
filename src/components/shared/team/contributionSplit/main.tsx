@@ -6,7 +6,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {ProgressBarMulti} from '@/components/progressBar/multi/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {TeamContributionData} from '@/components/shared/team/contributionSplit/type';
-import {formatFloat1} from '@/utils/number/format';
+import {formatFloat1} from '@/utils/number/format/regular';
 
 
 type Props = {

@@ -7,7 +7,7 @@ import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MealCoverageSummary} from '@/components/shared/meal/coverage/summary';
 import {TeamMakerBasisValue} from '@/ui/team/maker/type/common';
 import {TeamMakerBasis} from '@/ui/team/maker/type/input';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 type Props = {

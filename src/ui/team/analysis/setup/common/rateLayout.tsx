@@ -10,7 +10,7 @@ import {productionStatsPeriodI18nId} from '@/const/game/production';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {ProducingRate} from '@/types/game/producing/rate';
 import {toProducingRateOfPeriod} from '@/utils/game/producing/convert';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 export type TeamAnalysisRateLayoutProps = {

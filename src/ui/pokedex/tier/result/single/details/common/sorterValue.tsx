@@ -7,7 +7,7 @@ import {EnergyIcon} from '@/components/shared/icon/energy';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MainSkillTriggerValueIcon} from '@/components/shared/pokemon/mainSkill/icon/trigger';
 import {PokedexTierListBasis} from '@/ui/pokedex/tier/input/type';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 type Props = {

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {RecipeLevelDataToShow} from '@/ui/info/recipeLevel/type';
-import {formatFloat, formatInt} from '@/utils/number/format';
+import {formatFloat, formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

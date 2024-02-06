@@ -4,7 +4,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {ProgressBarSingle} from '@/components/progressBar/single';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
 import {IngredientId} from '@/types/game/ingredient';
-import {formatFloat3} from '@/utils/number/format';
+import {formatFloat3} from '@/utils/number/format/regular';
 
 
 type Props = {

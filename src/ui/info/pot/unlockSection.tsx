@@ -12,7 +12,7 @@ import {MealLink} from '@/components/shared/meal/link';
 import {Meal} from '@/types/game/meal/main';
 import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {PotInfoDataProps, PotInfoFilter, PotLevelInfo} from '@/ui/info/pot/type';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = Omit<PotInfoDataProps, 'mealMap'> & {

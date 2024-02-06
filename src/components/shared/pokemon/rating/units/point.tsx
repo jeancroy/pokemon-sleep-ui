@@ -16,7 +16,7 @@ import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {RatingExtrema} from '@/types/game/pokemon/rating/result';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 type Props = {

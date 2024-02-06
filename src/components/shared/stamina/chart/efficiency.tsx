@@ -3,7 +3,7 @@ import React from 'react';
 import {StaminaChart} from '@/components/shared/stamina/chart/common';
 import {StaminaChartTooltipOfEfficiency} from '@/components/shared/stamina/chart/tooltip/efficiency';
 import {StaminaChartCommonProps} from '@/components/shared/stamina/chart/type';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 export const StaminaChartOfEfficiency = ({config, logs}: StaminaChartCommonProps) => {

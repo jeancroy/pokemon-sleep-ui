@@ -7,7 +7,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {ProducingRateContentCommonProps} from '@/components/shared/production/rate/type';
 import {Dimension} from '@/types/style';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 type Props = ProducingRateContentCommonProps & {

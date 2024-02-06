@@ -6,7 +6,7 @@ import {clsx} from 'clsx';
 import {Flex} from '@/components/layout/flex/common';
 import {getNumberStyles} from '@/styles/text/number';
 import {Dimension} from '@/types/style';
-import {formatSignedNumber} from '@/utils/number/format';
+import {formatSignedNumber} from '@/utils/number/format/signed';
 
 
 type Props = {

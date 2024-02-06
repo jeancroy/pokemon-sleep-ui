@@ -10,7 +10,7 @@ import {
   getProducingParamsSectionStyle,
   isParamsTrustWorthy,
 } from '@/components/shared/pokemon/production/params/utils';
-import {formatFloat3} from '@/utils/number/format';
+import {formatFloat3} from '@/utils/number/format/regular';
 
 
 export const PokemonMainSkillValue = ({params, noIcon, dimension}: PokemonProducingParamsCommonProps) => {

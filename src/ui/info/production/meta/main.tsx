@@ -7,7 +7,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {PokemonProducingParamsMeta} from '@/types/game/pokemon/producing';
 import {Dimension} from '@/types/style';
 import {ProducingParamsMetaLastUpdated} from '@/ui/info/production/meta/lastUpdated';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

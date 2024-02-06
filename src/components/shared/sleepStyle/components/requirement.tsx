@@ -10,7 +10,7 @@ import {imageSmallIconSizes} from '@/styles/image';
 import {Dimension} from '@/types/style';
 import {PokemonSleepStyleProps} from '@/ui/pokedex/page/sleepStyle/type';
 import {getSpoRequirement} from '@/utils/game/sleepStyle';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = PokemonSleepStyleProps & {

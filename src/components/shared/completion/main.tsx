@@ -3,7 +3,7 @@ import React from 'react';
 import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
-import {formatFloat, formatInt} from '@/utils/number/format';
+import {formatFloat, formatInt} from '@/utils/number/format/regular';
 import {Nullable} from '@/utils/type';
 
 

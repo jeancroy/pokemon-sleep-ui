@@ -10,7 +10,7 @@ import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
 import {useCalculatePokeInBoxProduction} from '@/ui/team/pokebox/content/pokeInBox/worker/production/hook';
 import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 export const PokeInBoxGridProductionTotal = (props: PokeInBoxGridDetailsProps) => {

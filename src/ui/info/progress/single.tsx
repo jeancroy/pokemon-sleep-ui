@@ -18,7 +18,7 @@ import {potCapacityData} from '@/data/potCapacity';
 import {GameProgressData} from '@/types/game/progress';
 import {GameProgressRewardItem} from '@/ui/info/progress/rewardItem';
 import {GameProgressInfoSection} from '@/ui/info/progress/section';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

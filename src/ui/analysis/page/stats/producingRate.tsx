@@ -15,7 +15,7 @@ import {TextMarkThreshold} from '@/styles/text/mark/type';
 import {AnalysisStatsContinuousUI} from '@/ui/analysis/page/result/continuous';
 import {AnalysisStatsLayout} from '@/ui/analysis/page/stats/layout';
 import {AnalysisStatsUiProps} from '@/ui/analysis/page/stats/type';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiProps) => {

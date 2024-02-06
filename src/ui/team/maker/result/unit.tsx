@@ -20,7 +20,7 @@ import {TeamMakerResultCommonProps} from '@/ui/team/maker/result/type';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerReferenceUnit} from '@/ui/team/maker/type/common';
 import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 type Props = TeamMakerDataProps & TeamMakerResultCommonProps & {

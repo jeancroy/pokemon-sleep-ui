@@ -21,7 +21,7 @@ import {TeamMakerResultUnit} from '@/ui/team/maker/result/unit';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerResultComp} from '@/ui/team/maker/type/result';
 import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 type Props = TeamMakerDataProps & TeamMakerResultCommonProps & {

@@ -8,7 +8,7 @@ import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
 import {MealCoverageSummaryCommonProps} from '@/components/shared/meal/coverage/type';
 import {Dimension} from '@/types/style';
-import {formatFloat, formatInt} from '@/utils/number/format';
+import {formatFloat, formatInt} from '@/utils/number/format/regular';
 
 
 type Props = MealCoverageSummaryCommonProps & {

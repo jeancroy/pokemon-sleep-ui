@@ -9,7 +9,7 @@ import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/ico
 import {IngredientIconCommonProps} from '@/components/shared/pokemon/ingredients/type';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {NumberFormat} from '@/types/number';
-import {formatNumber} from '@/utils/number/format';
+import {formatNumber} from '@/utils/number/format/regular';
 
 
 type Props = IngredientIconCommonProps & {

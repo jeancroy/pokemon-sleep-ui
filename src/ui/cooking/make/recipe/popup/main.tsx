@@ -21,7 +21,7 @@ import {
 } from '@/utils/game/cooking';
 import {subtractIngredientCount} from '@/utils/game/ingredientCounter';
 import {getMealFinalStrength} from '@/utils/game/meal/strength/final';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = PopupProps & MealMakerPopupCommonProps & {

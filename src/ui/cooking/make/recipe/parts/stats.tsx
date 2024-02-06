@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MealMakerRecipePartsProps} from '@/ui/cooking/make/recipe/parts/type';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 export const MealMakerRecipeStats = ({info}: MealMakerRecipePartsProps) => {

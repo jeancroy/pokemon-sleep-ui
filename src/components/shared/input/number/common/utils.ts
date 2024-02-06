@@ -1,5 +1,4 @@
 import {NumberInputValueCommonProps, NumberInputValueType} from '@/components/shared/input/number/common/type';
-import {formatFloat} from '@/utils/number/format';
 import {Nullable} from '@/utils/type';
 
 
@@ -16,7 +15,7 @@ export const getNumberInputFormattedValue = <TValue extends Nullable<number>>({
   }
 
   if (valueType === 'float') {
-    return formatFloat(value);
+    return value.toString();
   }
 
   throw new Error(

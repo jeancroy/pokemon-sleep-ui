@@ -9,7 +9,7 @@ import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
 import {MapUnlockTableRowProps} from '@/components/shared/sleepStyle/page/unlockTable/type';
 import {SnorlaxRankUI} from '@/components/shared/snorlax/rank';
 import {toSum} from '@/utils/array';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 import {isNotNullish} from '@/utils/type';
 
 

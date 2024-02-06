@@ -3,7 +3,8 @@ import React from 'react';
 import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
-import {formatInt, formatToAbbreviation} from '@/utils/number/format';
+import {formatToAbbreviation} from '@/utils/number/format/abbreviation';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

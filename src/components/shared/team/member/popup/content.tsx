@@ -21,7 +21,7 @@ import {
   getTotalEnergyOfPokemonProducingRate,
   getTotalIngredientRateOfPokemon,
 } from '@/utils/game/producing/rateReducer';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 import {generateNumberTicks} from '@/utils/number/generator';
 import {isNotNullish} from '@/utils/type';
 

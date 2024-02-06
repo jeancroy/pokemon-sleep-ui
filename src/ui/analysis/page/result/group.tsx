@@ -6,7 +6,7 @@ import {getMarkByThreshold} from '@/styles/text/mark/utils';
 import {AnalysisStatsGrouped} from '@/ui/analysis/page/calc/type';
 import {AnalysisLayout} from '@/ui/analysis/page/result/layout';
 import {AnalysisLayoutProps} from '@/ui/analysis/page/result/type';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 type Props<TData> = Pick<AnalysisLayoutProps<TData>, 'title'> & {

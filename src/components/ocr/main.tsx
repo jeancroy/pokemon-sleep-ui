@@ -17,7 +17,7 @@ import {NextImage} from '@/components/shared/common/image/main';
 import {InfoSlider} from '@/components/shared/input/infoSlider';
 import {localeName} from '@/const/website';
 import {ocrLocale} from '@/types/ocr/locale';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 import {isOcrRunning} from '@/utils/ocr/status';
 import {showToast} from '@/utils/toast';
 

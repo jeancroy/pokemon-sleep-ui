@@ -9,7 +9,7 @@ import {MainSkillTriggerValueIcon} from '@/components/shared/pokemon/mainSkill/i
 import {getNumberStyles} from '@/styles/text/number';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {SkillTriggerAnalysisCalculatedUnit} from '@/ui/team/mainskill/targets/type';
-import {formatFloat, formatFloat3} from '@/utils/number/format';
+import {formatFloat, formatFloat3} from '@/utils/number/format/regular';
 
 
 type Props = {

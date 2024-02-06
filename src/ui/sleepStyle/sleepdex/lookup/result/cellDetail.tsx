@@ -4,7 +4,8 @@ import {Flex} from '@/components/layout/flex/common';
 import {SnorlaxRankUI} from '@/components/shared/snorlax/rank';
 import {SleepdexLookupDataEntry, SleepdexLookupDisplayType} from '@/ui/sleepStyle/sleepdex/lookup/filter/type';
 import {SleepdexLookupSortTypeIcon} from '@/ui/sleepStyle/sleepdex/lookup/sort/icon';
-import {formatInt, formatToAbbreviation} from '@/utils/number/format';
+import {formatToAbbreviation} from '@/utils/number/format/abbreviation';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

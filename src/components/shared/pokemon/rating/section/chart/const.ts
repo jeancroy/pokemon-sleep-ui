@@ -5,7 +5,8 @@ import {YAxisProps} from 'recharts';
 import {RatingResultChartDataPoint} from '@/components/shared/pokemon/rating/section/chart/type';
 import {RatingWeightedStatsBasis} from '@/types/game/pokemon/rating/config';
 import {generateTicksFromData} from '@/utils/chart';
-import {formatFloat, formatFloat1, formatInt, formatSignedNumber} from '@/utils/number/format';
+import {formatFloat, formatFloat1, formatInt} from '@/utils/number/format/regular';
+import {formatSignedNumber} from '@/utils/number/format/signed';
 import {generateNumberTicks} from '@/utils/number/generator';
 
 

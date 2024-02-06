@@ -8,7 +8,7 @@ import {IngredientIcons} from '@/components/shared/meal/ingredients/icons';
 import {Dimension} from '@/types/style';
 import {TeamMakerIngredientStats} from '@/ui/team/maker/type/common';
 import {toProducingItemFromIngredientCounter} from '@/utils/game/cooking';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

@@ -8,7 +8,7 @@ import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PokemonTypeIcon} from '@/components/shared/icon/pokeType';
 import {PokemonBerryIconContent} from '@/components/shared/pokemon/berry/iconContent';
 import {BerryData} from '@/types/game/berry';
-import {formatInt} from '@/utils/number/format';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {

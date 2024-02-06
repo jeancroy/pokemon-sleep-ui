@@ -14,7 +14,7 @@ import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxTableDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/table/details/type';
 import {PokeboxDisplayType} from '@/ui/team/pokebox/viewer/type';
 import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 export const PokeInBoxTableProduction = ({

@@ -10,7 +10,7 @@ import {pokemonProducingStatsStateI18nId} from '@/components/shared/pokemon/prod
 import {ProducingRateContentCommonProps} from '@/components/shared/production/rate/type';
 import {Dimension} from '@/types/style';
 import {getProbabilityOfNoSkill, GetProbabilityOfNoSkillOpts} from '@/utils/game/producing/probability';
-import {formatFloat} from '@/utils/number/format';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 type Props = ProducingRateContentCommonProps & GetProbabilityOfNoSkillOpts;
