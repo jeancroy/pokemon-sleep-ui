@@ -6,6 +6,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {GenericIcon} from '@/components/shared/icon/common/main';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
@@ -17,6 +18,7 @@ import {PokemonMainSkillTriggerRate} from '@/components/shared/pokemon/productio
 import {PokemonMainSkillValue} from '@/components/shared/pokemon/production/params/skillValue';
 import {PokemonSleepType} from '@/components/shared/pokemon/sleepType/main';
 import {getPokemonSorter} from '@/components/shared/pokemon/sorter/calc/main';
+import {sortTypeToI18nId} from '@/components/shared/pokemon/sorter/const';
 import {isPokedexSortExclusion} from '@/components/shared/pokemon/sorter/utils';
 import {PokemonSpecialty} from '@/components/shared/pokemon/specialty/main';
 import {imageSmallIconSizes} from '@/styles/image';
@@ -252,6 +254,15 @@ export const PokedexLinkDetail = React.memo(({
         <div>
           {display === 'mainSkillDailyStrength' ? formatFloat(sorter) : formatFloat3(sorter)}
         </div>
+      </Flex>
+    );
+  }
+
+  if (display === 'mealCoverage') {
+    return (
+      <Flex direction="row" noFullWidth className="items-center gap-1">
+        <MealCoverageIcon alt={t2(sortTypeToI18nId.mealCoverage)} dimension="size-4"/>
+        <span>{formatFloat(sorter * 100)}%</span>
       </Flex>
     );
   }

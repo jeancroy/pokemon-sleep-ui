@@ -323,7 +323,8 @@
         "FriendshipPoint": "Freundespunkte",
         "SkillCount": "Haupttalentanzahl",
         "SkillStrength": "Haupttalentstärke",
-        "TotalEnergy": "Gesamtstärke"
+        "TotalEnergy": "Gesamtstärke",
+        "MealCoverage": "Gericht-Abdeckung"
       },
       "Input": {
         "EvolutionCount": "Anzahl der Entwicklungen",

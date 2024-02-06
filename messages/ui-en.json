@@ -323,7 +323,8 @@
         "FriendshipPoint": "Friendship Points",
         "SkillCount": "Skill Count",
         "SkillStrength": "Skill Strength",
-        "TotalEnergy": "Total Strength"
+        "TotalEnergy": "Total Strength",
+        "MealCoverage": "Meal Coverage"
       },
       "Input": {
         "EvolutionCount": "Evolution Count",

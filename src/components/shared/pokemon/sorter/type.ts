@@ -47,6 +47,7 @@ export const pokemonSortType = [
   'mainSkillTriggerRate',
   'mainSkillDailyCount',
   'mainSkillDailyStrength',
+  'mealCoverage',
 ] as const;
 
 export type PokemonSortType = typeof pokemonSortType[number];

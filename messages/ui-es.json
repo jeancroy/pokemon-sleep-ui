@@ -323,7 +323,8 @@
         "FriendshipPoint": "Puntos de Amistad",
         "SkillCount": "Activaciones de Habilidad",
         "SkillStrength": "Vigor de Habilidad",
-        "TotalEnergy": "Vigor Total"
+        "TotalEnergy": "Vigor Total",
+        "MealCoverage": "Cobertura de Comida"
       },
       "Input": {
         "EvolutionCount": "Evolución",

@@ -28,4 +28,5 @@ export const sortTypeToI18nId: {
   mainSkillTriggerRate: 'Stats.MainSkillTriggerRate',
   mainSkillDailyCount: 'Sort.SkillCount',
   mainSkillDailyStrength: 'Sort.SkillStrength',
+  mealCoverage: 'Sort.MealCoverage',
 };

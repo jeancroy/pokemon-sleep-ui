@@ -323,7 +323,8 @@
         "FriendshipPoint": "フレンドポイント",
         "SkillCount": "スキルの数",
         "SkillStrength": "スキルのエナジー",
-        "TotalEnergy": "総エナジー"
+        "TotalEnergy": "総エナジー",
+        "MealCoverage": "レシピカバー率"
       },
       "Input": {
         "EvolutionCount": "進化回数",

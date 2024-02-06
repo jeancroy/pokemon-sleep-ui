@@ -323,7 +323,8 @@
         "FriendshipPoint": "프렌드 포인트",
         "SkillCount": "스킬 수",
         "SkillStrength": "스킬 에너지",
-        "TotalEnergy": "총 에너지"
+        "TotalEnergy": "총 에너지",
+        "MealCoverage": "Meal Coverage"
       },
       "Input": {
         "EvolutionCount": "진화횟수",

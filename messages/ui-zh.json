@@ -323,7 +323,8 @@
         "FriendshipPoint": "友情點數",
         "SkillCount": "技能觸發次數",
         "SkillStrength": "技能能量",
-        "TotalEnergy": "總能量"
+        "TotalEnergy": "總能量",
+        "MealCoverage": "食譜覆蓋率"
       },
       "Input": {
         "EvolutionCount": "進化次數",
