@@ -613,17 +613,17 @@
       "SettingsNotStored": "Zeige Standard Benutzereinstellungen. Login erforderlich um Benutzereinstellungen zu speichern oder um wirksam zu werden."
     },
     "Multiplier": {
-      "Overall": "Overall",
+      "Overall": "Gesamt",
       "Strength": {
-        "Name": "Strength Multiplier",
+        "Name": "Stärke-Multiplizierer",
         "Behavior": {
-          "Custom": "Custom",
-          "Default": "Default (Current: {multiplier}x)"
+          "Custom": "Benutzerdefiniert",
+          "Default": "Standard (Aktuell: {multiplier}x)"
         },
         "Type": {
-          "Berry": "Berry",
-          "Cooking": "Cooking",
-          "Skill": "Skill"
+          "Berry": "Beeren",
+          "Cooking": "Kochen",
+          "Skill": "Fähigkeiten"
         }
       }
     },
