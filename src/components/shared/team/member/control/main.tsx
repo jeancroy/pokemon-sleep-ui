@@ -6,9 +6,9 @@ import {Flex} from '@/components/layout/flex/common';
 import {RatingPopupControl} from '@/components/shared/pokemon/rating/type';
 import {TeamMemberControlClear} from '@/components/shared/team/member/control/clear';
 import {TeamMemberControlDetailedStats} from '@/components/shared/team/member/control/detailedStats';
+import {TeamMemberControlEdit} from '@/components/shared/team/member/control/edit';
 import {TeamMemberControlMenu} from '@/components/shared/team/member/control/menu';
 import {TeamMemberControlPokemonLink} from '@/components/shared/team/member/control/pokemonLink';
-import {TeamMemberControlRating} from '@/components/shared/team/member/control/rating';
 import {TeamMemberPopupControl} from '@/components/shared/team/member/popup/type';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {useUserActivation} from '@/hooks/userData/activation';
@@ -28,7 +28,7 @@ export const TeamMemberControls = ({teamMemberPopup, ratingControl, ...props}: P
   return (
     <Flex direction="row" className="justify-end gap-1">
       <TeamMemberControlPokemonLink {...props}/>
-      <TeamMemberControlRating ratingControl={ratingControl} {...props}/>
+      <TeamMemberControlEdit onClick={() => teamMemberPopup.show('memberConfig', isPremium)}/>
       <TeamMemberControlDetailedStats onClick={() => teamMemberPopup.show('detailedStats', isPremium)}/>
       <TeamMemberControlMenu
         ratingControl={ratingControl}
