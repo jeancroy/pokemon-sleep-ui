@@ -225,7 +225,7 @@
         "Title": "도감 개방 보상"
       },
       "RecipeLevel": {
-        "Title": "Recipe Level"
+        "Title": "요리 레벨"
       }
     },
     "Item": {
@@ -462,20 +462,20 @@
       },
       "RecipeLevel": {
         "Input": {
-          "CurrentLevel": "Current Level"
+          "CurrentLevel": "현재 레벨"
         },
         "Table": {
-          "Level": "Level",
-          "Bonus": "Bonus",
-          "ToNext": "To Next",
-          "TotalRequired": "Total Required",
-          "Accumulated": "Accumulated",
+          "Level": "레벨",
+          "Bonus": "보너스",
+          "ToNext": "각 레벨업 필요량",
+          "TotalRequired": "총 필요량",
+          "Accumulated": "총 누적량",
           "Strength": "Final strength from cooked meal"
         }
       }
     },
     "PokemonExp": {
-      "OtherPokemon": "기타",
+      "OtherPokemon": "그 외",
       "ExpToNext": "다음 레벨까지",
       "OwnedCandies": "소유한 사탕",
       "NormalCandy": "사탕",
@@ -484,7 +484,7 @@
         "DreamShardDepletion": "Dream Shard Depletion Rate",
         "ExpBoost": "EXP Boost Rate"
       },
-      "KeyLevel": "Key Level"
+      "KeyLevel": "특정 레벨"
     },
     "Docs": {
       "Title": "제목"
