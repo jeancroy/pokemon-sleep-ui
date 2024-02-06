@@ -12,7 +12,7 @@ type Props = {
   sort: SleepdexLookupSortType,
 };
 
-export const SleepdexLookupSortTypeUi = ({isPremium, sort}: Props) => {
+export const SleepdexLookupSortTypeUI = ({isPremium, sort}: Props) => {
   const text = useSleepdexLookupSortTypeText(sort);
 
   return (

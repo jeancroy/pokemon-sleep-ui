@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
 import {UnavailableIcon} from '@/components/shared/common/unavailable';
-import {TeamMakerResultCompUi} from '@/ui/team/maker/result/comp';
+import {TeamMakerResultCompUI} from '@/ui/team/maker/result/comp';
 import {TeamMakerResultCommonProps} from '@/ui/team/maker/result/type';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerResult} from '@/ui/team/maker/type/result';
@@ -23,7 +23,7 @@ export const TeamMakerResults = ({result, ...props}: Props) => {
   return (
     <Flex className="gap-1.5">
       {compsToShow.map((comp) => (
-        <TeamMakerResultCompUi key={getTeamMakerResultCompId(comp)} comp={comp} result={result} {...props}/>
+        <TeamMakerResultCompUI key={getTeamMakerResultCompId(comp)} comp={comp} result={result} {...props}/>
       ))}
     </Flex>
   );

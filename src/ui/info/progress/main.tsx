@@ -7,7 +7,7 @@ import {PublicPageLayout} from '@/ui/base/layout/public';
 import {GameProgressSingle} from '@/ui/info/progress/single';
 
 
-export const GameProgressUi = async ({params}: DefaultPageProps) => {
+export const GameProgressUI = async ({params}: DefaultPageProps) => {
   const {locale} = params;
   const gameProgresses = await getAllGameProgressData();
 

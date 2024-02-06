@@ -12,7 +12,7 @@ type Props = {
   favoriteInfo: BerryFavoriteInfo,
 };
 
-export const BerryFavoriteInfoUi = ({favoriteInfo}: Props) => {
+export const BerryFavoriteInfoUI = ({favoriteInfo}: Props) => {
   const t = useTranslations('Game.Field');
 
   return (

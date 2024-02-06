@@ -3,7 +3,7 @@ import React from 'react';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
-import {BerryFavoriteInfoUi} from '@/ui/berry/page/favoriteInfo';
+import {BerryFavoriteInfoUI} from '@/ui/berry/page/favoriteInfo';
 import {BerryMeta} from '@/ui/berry/page/meta';
 import {BerryProducingRatesOfPokemon} from '@/ui/berry/page/pokemon';
 import {BerryStrengthInfo} from '@/ui/berry/page/strengthInfo';
@@ -18,7 +18,7 @@ export const BerryPageClient = (props: Props) => {
       <Flex className="gap-1.5 lg:flex-row">
         <BerryMeta {...props}/>
         <AdsUnit className="lg:hidden"/>
-        <BerryFavoriteInfoUi {...props}/>
+        <BerryFavoriteInfoUI {...props}/>
       </Flex>
       <AdsUnit/>
       <BerryStrengthInfo {...props}/>

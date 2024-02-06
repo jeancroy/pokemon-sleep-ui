@@ -21,7 +21,7 @@ import {DrowsyPowerMultiplierInput} from '@/components/shared/sleepStyle/input/d
 import {DrowsyPowerRequirementInput} from '@/components/shared/sleepStyle/input/drowsyPowerRequirement';
 import {textFilterButtonStyle} from '@/styles/input';
 import {SleepdexLookupFilter, sleepdexLookupSortType} from '@/ui/sleepStyle/sleepdex/lookup/filter/type';
-import {SleepdexLookupSortTypeUi} from '@/ui/sleepStyle/sleepdex/lookup/sort/main';
+import {SleepdexLookupSortTypeUI} from '@/ui/sleepStyle/sleepdex/lookup/sort/main';
 import {SleepdexLookupServerDataProps} from '@/ui/sleepStyle/sleepdex/lookup/type';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 
@@ -101,7 +101,7 @@ export const SleepdexLookupInput = ({
             </Flex>
           }
           idToButton={(display) => (
-            <SleepdexLookupSortTypeUi isPremium={isPremium} sort={display}/>
+            <SleepdexLookupSortTypeUI isPremium={isPremium} sort={display}/>
           )}
           ids={[...sleepdexLookupSortType]}
           {...getSingleSelectOnClickProps({
@@ -119,7 +119,7 @@ export const SleepdexLookupInput = ({
             </Flex>
           }
           idToButton={(sort) => (
-            <SleepdexLookupSortTypeUi isPremium={isPremium} sort={sort}/>
+            <SleepdexLookupSortTypeUI isPremium={isPremium} sort={sort}/>
           )}
           ids={[...sleepdexLookupSortType]}
           {...getSingleSelectOnClickProps({

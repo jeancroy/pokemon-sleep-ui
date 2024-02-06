@@ -28,7 +28,7 @@ type Props = TeamMakerDataProps & TeamMakerResultCommonProps & {
   comp: TeamMakerResultComp,
 };
 
-export const TeamMakerResultCompUi = ({comp, ...props}: Props) => {
+export const TeamMakerResultCompUI = ({comp, ...props}: Props) => {
   const {
     result,
   } = props;
