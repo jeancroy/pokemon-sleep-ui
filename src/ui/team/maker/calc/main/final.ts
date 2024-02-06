@@ -8,9 +8,11 @@ export const getTeamMakerFinalResult = ({
   ...opts
 }: TeamMakerCalcResultsOpts): TeamMakerResult => {
   const {input} = opts;
+  const {basis, snorlaxFavorite} = input;
 
   return {
     comps: getTeamMakerComps(opts),
-    basis: input.basis,
+    basis,
+    snorlaxFavorite,
   };
 };

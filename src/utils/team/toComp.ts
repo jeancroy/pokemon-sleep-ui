@@ -1,6 +1,5 @@
 import {v4} from 'uuid';
 
-import {testDefaultSnorlaxFavorite} from '@/tests/data/game/snorlax';
 import {TeamAnalysisComp} from '@/types/teamAnalysis';
 import {getDefaultTeamName} from '@/ui/team/analysis/utils';
 import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';
@@ -14,6 +13,7 @@ export type ToTeamAnalysisCompFromPokeboxOpts =
 
 export const toTeamAnalysisCompFromPokebox = ({
   members,
+  snorlaxFavorite,
   name,
   ...opts
 }: ToTeamAnalysisCompFromPokeboxOpts): TeamAnalysisComp => {
@@ -23,7 +23,7 @@ export const toTeamAnalysisCompFromPokebox = ({
     version: teamAnalysisCompMigrators.length,
     uuid,
     name: name || getDefaultTeamName(uuid),
-    snorlaxFavorite: testDefaultSnorlaxFavorite,
+    snorlaxFavorite,
     analysisPeriod: 'daily',
     members: {
       A: toTeamAnalysisMemberNullable({pokeInBox: members.at(0), ...opts}) ?? null,
