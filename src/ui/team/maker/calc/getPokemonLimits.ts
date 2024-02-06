@@ -36,6 +36,7 @@ export const getTeamMakerPokemonLimits = ({
   mainSkillMap,
   subSkillMap,
   cookingRecoveryData,
+  eventStrengthMultiplierData,
   recipeLevelData,
   maxRecipeLevel,
   input,
@@ -72,6 +73,7 @@ export const getTeamMakerPokemonLimits = ({
       settings,
       recoveryRate: toRecoveryRate(singleParams),
       cookingRecoveryData,
+      eventStrengthMultiplierData,
       snorlaxFavorite,
     });
 

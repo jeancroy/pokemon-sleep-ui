@@ -15,6 +15,7 @@ import {userStrengthMultiplierApplyBehavior} from '@/types/userData/settings/mul
 import {UserSettingsMultiplierCommonProps} from '@/ui/base/navbar/userSettings/sections/multiplier/type';
 import {formatFloat} from '@/utils/number/format/regular';
 import {cloneMerge} from '@/utils/object/cloneMerge';
+import {getCurrentEventStrengthMultiplier} from '@/utils/user/settings/eventStrengthMultiplier';
 
 
 type Props = UserSettingsMultiplierCommonProps & {
@@ -22,6 +23,7 @@ type Props = UserSettingsMultiplierCommonProps & {
 };
 
 export const UserSettingsStrengthMultiplierUI = ({
+  eventStrengthMultiplierData,
   type,
   settings,
   setSettings,
@@ -30,6 +32,11 @@ export const UserSettingsStrengthMultiplierUI = ({
   const current = multiplier.strength[type];
 
   const t = useTranslations('UI.UserSettings.Multiplier');
+
+  const currentMultiplier = getCurrentEventStrengthMultiplier({
+    type,
+    eventStrengthMultiplierData,
+  });
 
   return (
     <InputRowWithTitle
@@ -45,7 +52,7 @@ export const UserSettingsStrengthMultiplierUI = ({
           className={textFilterButtonStyle}
           ids={[...userStrengthMultiplierApplyBehavior]}
           idToButton={(behavior) => (
-            t(strengthMultiplierBehaviorI18nId[behavior], {multiplier: formatFloat(1)})
+            t(strengthMultiplierBehaviorI18nId[behavior], {multiplier: formatFloat(currentMultiplier)})
           )}
           isActive={(behavior) => current.behavior === behavior}
           onClick={(behavior) => setSettings((original) => cloneMerge(

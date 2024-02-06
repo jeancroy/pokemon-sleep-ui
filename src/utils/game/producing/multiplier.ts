@@ -1,21 +1,23 @@
 import {helpingBonusEffectPerStack} from '@/const/game/production';
 import {EffectiveBonus} from '@/types/game/bonus/main';
+import {StrengthMultiplierType} from '@/types/game/bonus/strength';
 import {getAverage} from '@/utils/number/average';
 
 
-type GetCommonEnergyMultiplierOpts = {
+type GetStrengthMultiplierOpts = {
   bonus: EffectiveBonus,
+  strengthMultiplierType: StrengthMultiplierType,
 };
 
-export const getCommonEnergyMultiplier = ({bonus}: GetCommonEnergyMultiplierOpts): number => {
-  const {overallMultiplier} = bonus;
+export const getStrengthMultiplier = ({bonus, strengthMultiplierType}: GetStrengthMultiplierOpts): number => {
+  const {overallMultiplier, strengthMultiplier} = bonus;
 
-  // `overall` only, as map bonus is handled differently in different branch
+  // Map bonus is handled differently in different production type
   // - Berry: Math.ceil(unit strength * map bonus)
   // - Ingredient: unit strength * map bonus
   // - Skill: Math.ceil(unit strength * map bonus)
   // >>> This might not be up-to-date, check the actual implementation
-  return overallMultiplier;
+  return overallMultiplier * strengthMultiplier[strengthMultiplierType];
 };
 
 export const getHelpingBonusMultiplier = (stacks: number) => {

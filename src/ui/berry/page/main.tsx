@@ -7,7 +7,7 @@ import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {authOptions} from '@/const/auth';
 import {getBerryData, getBerryDataMap} from '@/controller/berry';
-import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
+import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -45,7 +45,7 @@ export const BerryPage = async ({params}: Props) => {
     berryData,
     favoriteInfo,
     recipeLevelData,
-    cookingUserSettingsRequiredData,
+    userSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(),
@@ -60,7 +60,7 @@ export const BerryPage = async ({params}: Props) => {
     getBerryData(idNumber),
     getFavoriteInfoOfBerry(idNumber),
     getRecipeLevelData(),
-    getCookingUserSettingsRequiredData(),
+    getUserSettingsRequiredData(),
   ]);
 
   if (!berryData) {
@@ -81,7 +81,7 @@ export const BerryPage = async ({params}: Props) => {
     favoriteInfo,
     recipeLevelData,
     preloaded: createUserSettingsBundle(session),
-    ...cookingUserSettingsRequiredData,
+    ...userSettingsRequiredData,
   };
 
   return (

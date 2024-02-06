@@ -120,6 +120,7 @@ export const UserSettingsPopup = ({
             ...original,
             settings: getUpdated(settings),
           } satisfies UserSettingsBundle))}
+          {...props}
         />
         <UserSettingsLanguage/>
         <UserSettingsAppInfo/>

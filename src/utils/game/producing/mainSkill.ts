@@ -6,6 +6,7 @@ import {GetMainSkillEquivalentStrengthOpts} from '@/utils/game/mainSkill/effect/
 import {getSkillTriggerRate} from '@/utils/game/mainSkill/utils';
 import {applyBonus} from '@/utils/game/producing/apply/bonus';
 import {applyBonusWithMainSkillCapping} from '@/utils/game/producing/apply/bonusWithMainSkillCap';
+import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {getProducingRateBase} from '@/utils/game/producing/rateBase';
 
 
@@ -21,7 +22,6 @@ export const getMainSkillProducingRate = ({
   pokemon,
   frequency,
   calculatedSettings,
-  energyMultiplier,
   subSkillBonus,
   skillRatePercent,
   natureId,
@@ -35,13 +35,17 @@ export const getMainSkillProducingRate = ({
 
   const id = pokemon.skill;
 
+  const strengthMultiplier = getStrengthMultiplier({
+    bonus,
+    strengthMultiplierType: 'skill',
+  });
   const strengthPerSkill = Math.ceil(getMainSkillEquivalentStrengthOfSingle(opts) * mapMultiplier);
 
   return {
     id,
     sleep1: applyBonusWithMainSkillCapping({
       bonus,
-      energyMultiplier,
+      strengthMultiplier,
       producingState: 'sleep1',
       data: {
         id,
@@ -56,7 +60,7 @@ export const getMainSkillProducingRate = ({
     }),
     sleep2: applyBonusWithMainSkillCapping({
       bonus,
-      energyMultiplier,
+      strengthMultiplier,
       producingState: 'sleep2',
       data: {
         id,
@@ -73,7 +77,7 @@ export const getMainSkillProducingRate = ({
     }),
     awake: applyBonus({
       bonus,
-      energyMultiplier,
+      strengthMultiplier,
       producingState: 'awake',
       data: {
         id,

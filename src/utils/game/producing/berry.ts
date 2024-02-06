@@ -5,6 +5,7 @@ import {ProducingRateCommonParams, ProducingRateOfItemOfSessions} from '@/types/
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {toSum} from '@/utils/array';
 import {applyBonus} from '@/utils/game/producing/apply/bonus';
+import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {getProducingRateBase} from '@/utils/game/producing/rateBase';
 import {getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
 
@@ -20,7 +21,6 @@ export const getBerryProducingRate = ({
   pokemon,
   frequency,
   calculatedSettings,
-  energyMultiplier,
   subSkillBonus,
   snorlaxFavorite,
   berryData,
@@ -29,6 +29,10 @@ export const getBerryProducingRate = ({
   const {mapMultiplier} = bonus;
 
   const isSnorlaxFavorite = snorlaxFavorite.berry[berryData.id] ?? false;
+  const strengthMultiplier = getStrengthMultiplier({
+    bonus,
+    strengthMultiplierType: 'berry',
+  });
   const data = {
     id: pokemon.berry.id,
     frequency,
@@ -48,19 +52,19 @@ export const getBerryProducingRate = ({
     id: pokemon.berry.id,
     sleep1: applyBonus({
       bonus,
-      energyMultiplier,
+      strengthMultiplier,
       producingState: 'sleep1',
       data,
     }),
     sleep2: applyBonus({
       bonus,
-      energyMultiplier,
+      strengthMultiplier,
       producingState: 'sleep2',
       data,
     }),
     awake: applyBonus({
       bonus,
-      energyMultiplier,
+      strengthMultiplier,
       producingState: 'awake',
       data,
     }),

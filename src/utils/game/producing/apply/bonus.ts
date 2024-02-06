@@ -6,7 +6,7 @@ type ApplyBonusOpts<T extends ProducingRateOfItem | null> = ApplyBonusCommonOpts
 
 export const applyBonus = <T extends ProducingRateOfItem | null>({
   bonus,
-  energyMultiplier,
+  strengthMultiplier,
   producingState,
   data,
 }: ApplyBonusOpts<T>): T => {
@@ -21,6 +21,6 @@ export const applyBonus = <T extends ProducingRateOfItem | null>({
     ...data,
     frequency: data.frequency / staminaBonus,
     quantity: data.quantity * staminaBonus,
-    energy: data.energy * staminaBonus * energyMultiplier,
+    energy: data.energy * staminaBonus * strengthMultiplier,
   };
 };

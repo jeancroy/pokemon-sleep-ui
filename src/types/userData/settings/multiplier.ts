@@ -1,4 +1,5 @@
 import {StrengthMultiplierType} from '@/types/game/bonus/strength';
+import {EventStrengthMultiplierData} from '@/types/game/event/strengthMultiplier';
 
 
 export const userStrengthMultiplierApplyBehavior = [
@@ -19,4 +20,8 @@ export type UserStrengthMultiplierSettings = {
 
 export type UserMultiplierSettings = {
   strength: UserStrengthMultiplierSettings,
+};
+
+export type UserMultiplierSettingsRequiredData = {
+  eventStrengthMultiplierData: EventStrengthMultiplierData,
 };

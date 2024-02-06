@@ -5,7 +5,7 @@ import {getServerSession} from 'next-auth';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
+import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -42,7 +42,7 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     snorlaxData,
     pokemonMaxLevel,
     recipeLevelData,
-    cookingUserSettingsRequiredData,
+    userSettingsRequiredData,
   ] = await Promise.all([
     getPokedexMap(),
     getPokemonProducingParamsMap(),
@@ -55,7 +55,7 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     getSnorlaxData(),
     getPokemonMaxLevelByBerry(),
     getRecipeLevelData(),
-    getCookingUserSettingsRequiredData(),
+    getUserSettingsRequiredData(),
   ]);
 
   const props: TeamMakerServerDataProps = {
@@ -71,7 +71,7 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     pokemonMaxLevel,
     recipeLevelData,
     preloaded: createUserSettingsBundle(session),
-    ...cookingUserSettingsRequiredData,
+    ...userSettingsRequiredData,
   };
 
   return (

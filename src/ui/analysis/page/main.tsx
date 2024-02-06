@@ -7,7 +7,7 @@ import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
+import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -42,7 +42,7 @@ export const AnalysisPage = async ({params}: Props) => {
     mapMeta,
     recipeLevelData,
     pokemonMaxLevel,
-    cookingUserSettingsRequiredData,
+    userSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokemonList(),
@@ -56,7 +56,7 @@ export const AnalysisPage = async ({params}: Props) => {
     getFieldMetaMap(),
     getRecipeLevelData(),
     getPokemonMaxLevelByBerry(),
-    getCookingUserSettingsRequiredData(),
+    getUserSettingsRequiredData(),
   ]);
 
   const pokemon = pokemonList.find((pokemon) => pokemon.id === Number(id));
@@ -79,7 +79,7 @@ export const AnalysisPage = async ({params}: Props) => {
     recipeLevelData,
     pokemonMaxLevel,
     preloaded: createUserSettingsBundle(session),
-    ...cookingUserSettingsRequiredData,
+    ...userSettingsRequiredData,
   };
 
   return (

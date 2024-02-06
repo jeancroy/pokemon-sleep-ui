@@ -6,14 +6,13 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
 import {
-  UserSettingsBundle,
+  UserSettingsBundle, UserSettingsRequiredData,
 } from '@/types/userData/settings/main';
 import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 
 
-export type PokedexCalcDataProps = UsePokemonFilterCommonData & CookingUserSettingsRequiredData & {
+export type PokedexCalcDataProps = UsePokemonFilterCommonData & UserSettingsRequiredData & {
   pokemonList: PokemonInfo[],
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   berryDataMap: BerryDataMap,

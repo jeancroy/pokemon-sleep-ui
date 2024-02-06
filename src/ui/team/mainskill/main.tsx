@@ -5,7 +5,7 @@ import {getServerSession} from 'next-auth';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
+import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -35,7 +35,7 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
     recipeLevelData,
     pokemonMaxLevel,
     ocrTranslations,
-    cookingUserSettingsRequiredData,
+    userSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(),
@@ -48,7 +48,7 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
     getRecipeLevelData(),
     getPokemonMaxLevelByBerry(),
     getOcrTranslationsForPokemonInfo(),
-    getCookingUserSettingsRequiredData(),
+    getUserSettingsRequiredData(),
   ]);
 
   const props: SkillTriggerAnalysisServerDataProps = {
@@ -63,7 +63,7 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
     pokemonMaxLevel,
     preloaded: createUserSettingsBundle(session),
     ocrTranslations,
-    ...cookingUserSettingsRequiredData,
+    ...userSettingsRequiredData,
   };
 
   return (

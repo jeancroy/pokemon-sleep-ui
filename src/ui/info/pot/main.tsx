@@ -4,7 +4,7 @@ import {getServerSession} from 'next-auth';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
-import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
+import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {DefaultPageProps} from '@/types/next/page/common';
@@ -20,19 +20,19 @@ export const PotInfo = async ({params}: DefaultPageProps) => {
     session,
     recipeLevelData,
     ingredientMap,
-    cookingUserSettingsRequiredData,
+    userSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getRecipeLevelData(),
     getIngredientMap(),
-    getCookingUserSettingsRequiredData(),
+    getUserSettingsRequiredData(),
   ]);
 
   const props: PotInfoDataProps = {
     recipeLevelData,
     ingredientMap,
     preloaded: createUserSettingsBundle(session),
-    ...cookingUserSettingsRequiredData,
+    ...userSettingsRequiredData,
   };
 
   return (

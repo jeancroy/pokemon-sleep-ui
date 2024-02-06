@@ -5,7 +5,7 @@ import {getServerSession} from 'next-auth';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
+import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -36,7 +36,7 @@ export const PokedexTierList = async ({params}: DefaultPageProps) => {
     subSkillMap,
     mapMeta,
     recipeLevelData,
-    cookingUserSettingsRequiredData,
+    userSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokemonList(),
@@ -49,7 +49,7 @@ export const PokedexTierList = async ({params}: DefaultPageProps) => {
     getSubSkillMap(),
     getFieldMetaMap(),
     getRecipeLevelData(),
-    getCookingUserSettingsRequiredData(),
+    getUserSettingsRequiredData(),
   ]);
 
   const props: PokedexTierListDataProps = {
@@ -66,7 +66,7 @@ export const PokedexTierList = async ({params}: DefaultPageProps) => {
     preloaded: {
       bundle: createUserSettingsBundle(session),
     },
-    ...cookingUserSettingsRequiredData,
+    ...userSettingsRequiredData,
   };
 
   return (

@@ -5,11 +5,10 @@ import {PokedexMap} from '@/types/game/pokemon';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
+import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
 
 
-export type GetSkillTriggerValueCommonOpts = CookingUserSettingsRequiredData & {
+export type GetSkillTriggerValueCommonOpts = UserSettingsRequiredData & {
   pokedexMap: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   berryDataMap: BerryDataMap,

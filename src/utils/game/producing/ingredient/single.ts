@@ -6,6 +6,7 @@ import {
   ProducingRateProportion,
 } from '@/types/game/producing/rate';
 import {applyBonus} from '@/utils/game/producing/apply/bonus';
+import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {getProducingRateBase} from '@/utils/game/producing/rateBase';
 
 
@@ -22,7 +23,6 @@ export const getIngredientProducingRate = ({
   pokemon,
   frequency,
   calculatedSettings,
-  energyMultiplier,
   ingredient,
   count,
   picks,
@@ -35,6 +35,10 @@ export const getIngredientProducingRate = ({
 
   const {mapMultiplier} = bonus;
 
+  const strengthMultiplier = getStrengthMultiplier({
+    bonus,
+    strengthMultiplierType: 'cooking',
+  });
   const data = {
     id: ingredient.id,
     frequency,
@@ -50,19 +54,19 @@ export const getIngredientProducingRate = ({
     id: ingredient.id,
     sleep1: applyBonus({
       bonus,
-      energyMultiplier,
+      strengthMultiplier,
       producingState: 'sleep1',
       data,
     }),
     sleep2: applyBonus({
       bonus,
-      energyMultiplier,
+      strengthMultiplier,
       producingState: 'sleep2',
       data,
     }),
     awake: applyBonus({
       bonus,
-      energyMultiplier,
+      strengthMultiplier,
       producingState: 'awake',
       data,
     }),

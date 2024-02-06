@@ -17,7 +17,7 @@ import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
 import {toCookingUserSettings} from '@/utils/user/settings/cooking';
 
 
-type Props = PokeboxCommonProps & {
+type UseProcessedPokeboxOpts = PokeboxCommonProps & {
   pokebox: Pokebox,
   bundle: UserSettingsBundle,
   pokeInBoxToCalc: PokeInBox[],
@@ -36,13 +36,14 @@ export const useProcessedPokebox = ({
   mealMap,
   recipeLevelData,
   cookingRecoveryData,
+  eventStrengthMultiplierData,
   pokebox,
   bundle,
   pokeInBoxToCalc,
   filter,
   isIncluded,
   setLoading,
-}: Props) => usePokemonSortingWorker({
+}: UseProcessedPokeboxOpts) => usePokemonSortingWorker({
   data: pokeInBoxToCalc
     .filter(({uuid}) => isIncluded[uuid])
     .map((pokeInBox) => {
@@ -72,6 +73,7 @@ export const useProcessedPokebox = ({
           ...bundle,
           recoveryRate: toRecoveryRate(singleParams),
           cookingRecoveryData,
+          eventStrengthMultiplierData,
           snorlaxFavorite: filter.snorlaxFavorite,
         }),
         cookingSettings: toCookingUserSettings({

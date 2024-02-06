@@ -7,14 +7,13 @@ import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
 import {
-  UserSettingsBundle,
+  UserSettingsBundle, UserSettingsRequiredData,
 } from '@/types/userData/settings/main';
 import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 
 
-export type MealServerDataProps = CookingUserSettingsRequiredData & {
+export type MealServerDataProps = UserSettingsRequiredData & {
   meal: Meal,
   pokedex: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,

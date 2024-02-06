@@ -26,6 +26,7 @@ export const getSkillTriggerValueOfUnit = ({
   subSkillMap,
   mealMap,
   cookingRecoveryData,
+  eventStrengthMultiplierData,
   recipeLevelData,
   bundle,
   id,
@@ -68,6 +69,7 @@ export const getSkillTriggerValueOfUnit = ({
       ...bundle,
       recoveryRate: toRecoveryRate(singleParams),
       cookingRecoveryData,
+      eventStrengthMultiplierData,
       snorlaxFavorite,
     }),
     cookingSettings: toCookingUserSettings({

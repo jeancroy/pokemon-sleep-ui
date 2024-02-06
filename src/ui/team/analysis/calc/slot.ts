@@ -27,6 +27,7 @@ export const getTeamProducingStatsSlot = ({
   mainSkillMap,
   subSkillMap,
   cookingRecoveryData,
+  eventStrengthMultiplierData,
   recipeLevelData,
   currentTeam,
   slotName,
@@ -65,6 +66,7 @@ export const getTeamProducingStatsSlot = ({
     recoveryRate: toRecoveryRate(singleParams),
     behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
     cookingRecoveryData,
+    eventStrengthMultiplierData,
     snorlaxFavorite,
   });
 

@@ -5,6 +5,7 @@ import {defaultSeedUsage} from '@/const/game/seed';
 import {defaultUserSettingsBundle} from '@/const/user/bundle';
 import {testBerryDataMap} from '@/tests/data/game/berry';
 import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
+import {testEventStrengthMultiplierData} from '@/tests/data/game/eventStrengthMultiplier';
 import {testIngredientChainMap} from '@/tests/data/game/ingredient/chain';
 import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testIngredientProductionAtLevels} from '@/tests/data/game/ingredient/productionAtLevel';
@@ -41,6 +42,7 @@ describe('Rating / Calculate', () => {
       subSkillMap: {},
       mealMap: testMealData,
       cookingRecoveryData: testCookingRecoveryData,
+      eventStrengthMultiplierData: testEventStrengthMultiplierData,
       recipeLevelData: testRecipeLevelData,
       basis: 'totalProduction',
       friendshipLevel: 0,
@@ -74,6 +76,7 @@ describe('Rating / Calculate', () => {
       subSkillMap: testSubSkillMap,
       mealMap: testMealData,
       cookingRecoveryData: testCookingRecoveryData,
+      eventStrengthMultiplierData: testEventStrengthMultiplierData,
       recipeLevelData: testRecipeLevelData,
       basis: 'totalProduction',
       friendshipLevel: 0,
@@ -107,6 +110,7 @@ describe('Rating / Calculate', () => {
       subSkillMap: testSubSkillMap,
       mealMap: testMealData,
       cookingRecoveryData: testCookingRecoveryData,
+      eventStrengthMultiplierData: testEventStrengthMultiplierData,
       recipeLevelData: testRecipeLevelData,
       basis: 'totalProduction',
       friendshipLevel: 0,

@@ -23,6 +23,7 @@ export const getRateOfPokemon = ({
     pokemonProducingParamsMap,
     mealMap,
     cookingRecoveryData,
+    eventStrengthMultiplierData,
     bundle,
     snorlaxFavorite,
   } = props;
@@ -43,6 +44,7 @@ export const getRateOfPokemon = ({
       mealMap,
       recoveryRate: toRecoveryRate(singleParams),
       cookingRecoveryData,
+      eventStrengthMultiplierData,
       snorlaxFavorite,
     }),
     level: pokeInBox.level,

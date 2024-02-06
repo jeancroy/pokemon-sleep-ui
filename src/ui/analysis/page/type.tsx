@@ -10,15 +10,14 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {SleepStyleNormalMap} from '@/types/game/sleepStyle';
-import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
+import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
 
 
 export type AnalysisComparisonFilter = PokemonInputFilterExtended & {
   ingredients: IngredientProductionAtLevels,
 };
 
-export type AnalysisPageCommonProps = UsePokemonFilterCommonData & CookingUserSettingsRequiredData & {
+export type AnalysisPageCommonProps = UsePokemonFilterCommonData & UserSettingsRequiredData & {
   pokemonList: PokemonInfo[],
   pokemon: PokemonInfo,
   pokemonProducingParamsMap: PokemonProducingParamsMap,

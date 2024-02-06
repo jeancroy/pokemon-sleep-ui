@@ -3,12 +3,11 @@ import {describe, expect, it} from '@jest/globals';
 import {durationOfDay} from '@/const/common';
 import {defaultUserSettings} from '@/const/user/settings';
 import {testBonus} from '@/tests/data/game/bonus';
-import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {testMainSkillMap} from '@/tests/data/game/mainSkill';
 import {testPokemonData} from '@/tests/data/game/pokemon';
-import {testDefaultSnorlaxFavorite} from '@/tests/data/game/snorlax';
+import {testDefaultToCalculatedUserSettingsOpts} from '@/tests/data/user/settings';
 import {getMainSkillProducingRate} from '@/utils/game/producing/mainSkill';
-import {getCommonEnergyMultiplier} from '@/utils/game/producing/multiplier';
+import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
 
@@ -17,6 +16,7 @@ describe('Pokemon Skill Production', () => {
   it('is correct when skill freq < sleep duration', () => {
     const bonus = testBonus['1'];
     const calculatedUserSettings = toCalculatedUserSettings({
+      ...testDefaultToCalculatedUserSettingsOpts,
       settings: cloneMerge(
         defaultUserSettings,
         {
@@ -28,8 +28,6 @@ describe('Pokemon Skill Production', () => {
           },
         },
       ),
-      cookingRecoveryData: testCookingRecoveryData,
-      snorlaxFavorite: testDefaultSnorlaxFavorite,
     });
     const rate = getMainSkillProducingRate({
       pokemon: testPokemonData.ampharos,
@@ -42,7 +40,6 @@ describe('Pokemon Skill Production', () => {
         // Override sleep session info calculated using custom sessions
         {bonus: {stamina: {sleepSessionInfo: calculatedUserSettings.bonus.stamina.sleepSessionInfo}}},
       ),
-      energyMultiplier: getCommonEnergyMultiplier({bonus}),
       subSkillBonus: {},
       skillRatePercent: 10,
       natureId: null,
@@ -52,7 +49,10 @@ describe('Pokemon Skill Production', () => {
 
     // Skill freq = 14400
     const awakeFreq = 3168 / (bonus.stamina.multiplier.awake ?? 0);
-    const energyMultiplier = getCommonEnergyMultiplier({bonus});
+    const energyMultiplier = getStrengthMultiplier({
+      bonus,
+      strengthMultiplierType: 'skill',
+    });
     // Math.ceil(1251 * 1.05) where
     // - 1251 is the skill strength
     // - 1.05 is map multiplier from `testBonus['1']`
@@ -72,6 +72,7 @@ describe('Pokemon Skill Production', () => {
   it('is correct when sleep duration < skill freq', () => {
     const bonus = testBonus['1'];
     const calculatedUserSettings = toCalculatedUserSettings({
+      ...testDefaultToCalculatedUserSettingsOpts,
       settings: cloneMerge(
         defaultUserSettings,
         {
@@ -83,8 +84,6 @@ describe('Pokemon Skill Production', () => {
           },
         },
       ),
-      cookingRecoveryData: testCookingRecoveryData,
-      snorlaxFavorite: testDefaultSnorlaxFavorite,
     });
 
     const rate = getMainSkillProducingRate({
@@ -98,7 +97,6 @@ describe('Pokemon Skill Production', () => {
         // Override sleep session info calculated using custom sessions
         {bonus: {stamina: {sleepSessionInfo: calculatedUserSettings.bonus.stamina.sleepSessionInfo}}},
       ),
-      energyMultiplier: getCommonEnergyMultiplier({bonus}),
       subSkillBonus: {},
       skillRatePercent: 10,
       natureId: null,
@@ -108,7 +106,10 @@ describe('Pokemon Skill Production', () => {
 
     // Skill freq = 21600
     const awakeFreq = 4752 / (bonus.stamina.multiplier.awake ?? 0);
-    const energyMultiplier = getCommonEnergyMultiplier({bonus});
+    const energyMultiplier = getStrengthMultiplier({
+      bonus,
+      strengthMultiplierType: 'skill',
+    });
     // Math.ceil(1251 * 1.05) where
     // - 1251 is the skill strength
     // - 1.05 is map multiplier from `testBonus['1']`

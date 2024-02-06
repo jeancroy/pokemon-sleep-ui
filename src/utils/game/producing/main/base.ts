@@ -14,7 +14,6 @@ import {getIngredientProducingRates, GetIngredientProducingRatesOpts} from '@/ut
 import {getCarryLimitInfo} from '@/utils/game/producing/inventory/carryLimit';
 import {getFullPackStats} from '@/utils/game/producing/inventory/fullPackStats';
 import {getMainSkillProducingRate, GetMainSkillProducingRateOpts} from '@/utils/game/producing/mainSkill';
-import {getCommonEnergyMultiplier} from '@/utils/game/producing/multiplier';
 import {getTheoreticalDailyQuantityInSleep} from '@/utils/game/producing/quantity';
 import {getProducingRateOfStates} from '@/utils/game/producing/rateReducer';
 import {getProduceSplit, getProducingSleepStateSplit} from '@/utils/game/producing/split';
@@ -25,7 +24,7 @@ import {isFullPackEffective} from '@/utils/user/settings/utils';
 export type GetPokemonProducingRateBaseOpts =
   Omit<
     GetBerryProducingRateOpts & GetIngredientProducingRatesOpts & GetMainSkillProducingRateOpts,
-    'frequency' | 'energyMultiplier' | 'skillRatePercent' | 'skillLevel' | 'timeToFullPack'
+    'frequency' | 'skillRatePercent' | 'skillLevel' | 'timeToFullPack'
   > &
   ProducingRateSingleParams &
   ProducingRateImplicitParams &
@@ -66,7 +65,6 @@ export const getPokemonProducingRateBase = ({
     behavior,
   });
 
-  const energyMultiplier = getCommonEnergyMultiplier({bonus});
   const isFullPack = isFullPackEffective({
     fullPackBehavior: behavior.alwaysFullPack,
     specialty: pokemon.specialty,
@@ -74,12 +72,10 @@ export const getPokemonProducingRateBase = ({
 
   const berry = getBerryProducingRate({
     frequency,
-    energyMultiplier,
     ...opts,
   });
   const ingredient = getIngredientProducingRates({
     frequency,
-    energyMultiplier,
     ...opts,
   });
 
@@ -103,7 +99,6 @@ export const getPokemonProducingRateBase = ({
   // `skill` depends on `fullPackStats.secondsToFull`
   const skill = getMainSkillProducingRate({
     frequency,
-    energyMultiplier,
     skillLevel: getMainSkillLevel({
       seedsUsed: seeds.gold,
       evolutionCount,

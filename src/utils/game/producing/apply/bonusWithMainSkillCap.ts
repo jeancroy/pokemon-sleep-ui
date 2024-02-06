@@ -10,7 +10,7 @@ type ApplyBonusWithMainSkillCappingOpts<T extends ProducingRateOfItem | null> = 
 export const applyBonusWithMainSkillCapping = <T extends ProducingRateOfItem | null>({
   data,
   bonus,
-  energyMultiplier,
+  strengthMultiplier,
   producingState,
   maxCount,
   cappingDuration,
@@ -29,6 +29,6 @@ export const applyBonusWithMainSkillCapping = <T extends ProducingRateOfItem | n
     ...data,
     frequency,
     quantity,
-    energy: data.energy * quantity * energyMultiplier,
+    energy: data.energy * quantity * strengthMultiplier,
   };
 };

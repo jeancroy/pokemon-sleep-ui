@@ -59,7 +59,6 @@ export type ProducingRateCommonParams = {
   pokemon: PokemonInfo,
   frequency: number,
   calculatedSettings: CalculatedUserSettings,
-  energyMultiplier: number,
 };
 
 export type PokemonProducingRate = {

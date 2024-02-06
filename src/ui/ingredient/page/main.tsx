@@ -9,7 +9,7 @@ import {Failed} from '@/components/icons/failed';
 import {Flex} from '@/components/layout/flex/common';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getCookingUserSettingsRequiredData} from '@/controller/dataBundle/cookingSettings';
+import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
 import {getIngredientData, getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -51,7 +51,7 @@ export const IngredientPage = async ({params}: Props) => {
     pokedex,
     pokemonMaxLevel,
     recipeLevelData,
-    cookingUserSettingsRequiredData,
+    userSettingsRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokemonIngredientProductionByIngredient(ingredient.id),
@@ -64,10 +64,10 @@ export const IngredientPage = async ({params}: Props) => {
     getPokedexMap(),
     getPokemonMaxLevelByBerry(),
     getRecipeLevelData(),
-    getCookingUserSettingsRequiredData(),
+    getUserSettingsRequiredData(),
   ]);
 
-  const {mealMap} = cookingUserSettingsRequiredData;
+  const {mealMap} = userSettingsRequiredData;
 
   const props: IngredientProductionDataProps = {
     pokedex,
@@ -80,7 +80,7 @@ export const IngredientPage = async ({params}: Props) => {
     subSkillMap,
     recipeLevelData,
     preloaded: createUserSettingsBundle(session),
-    ...cookingUserSettingsRequiredData,
+    ...userSettingsRequiredData,
   };
 
   return (

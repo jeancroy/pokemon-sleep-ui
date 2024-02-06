@@ -24,5 +24,10 @@ export const testBonus: {[id in number]: EffectiveBonus} = {
       },
     },
     overallMultiplier: 1.2,
+    strengthMultiplier: {
+      berry: 1,
+      cooking: 1,
+      skill: 1,
+    },
   },
 };
