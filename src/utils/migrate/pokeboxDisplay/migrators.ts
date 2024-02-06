@@ -10,7 +10,6 @@ export const pokeboxDisplayMigrators: Migrator<PokeboxViewerDisplay, PokeboxView
     toVersion: 1,
     migrate: ({sort, ...old}): PokeboxViewerDisplay => ({
       ...old,
-      // @ts-ignore
       sort: sort === 'frequency' ? 'frequencyOfBerry' : sort,
     }),
   },

@@ -101,7 +101,7 @@ describe('Migrating utils', () => {
 
     expect(data.version).toBe(2);
     expect(data.data).toBe('original');
-    // @ts-ignore
+    // @ts-expect-error
     expect(data.noteV2).toBe('v2');
   });
 

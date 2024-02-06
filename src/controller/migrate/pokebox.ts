@@ -73,7 +73,7 @@ const migrateRandomIngredients = async ({
 
   const bulkUpdate: AnyBulkWriteOperation<PokeInBoxData>[] = [];
   for await (const pokeInBox of pokebox) {
-    // @ts-ignore
+    // @ts-expect-error: `randomIngredient` is deprecated, so a typing error is expected here
     const randomIngredients = pokeInBox['randomIngredient'] as (RandomIngredient[] | undefined);
     const pokemon = pokedex[pokeInBox.pokemon];
 

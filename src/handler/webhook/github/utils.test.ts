@@ -17,7 +17,6 @@ describe('Webhook / GitHub / Signature validation', () => {
   });
 
   it('verifies', async () => {
-    // @ts-ignore
     process.env.EXTERNAL_GITHUB_WEBHOOK_SECRET = 'It\'s a Secret to Everybody';
 
     await expect(throwIfGithubSignatureFailed({
@@ -27,7 +26,6 @@ describe('Webhook / GitHub / Signature validation', () => {
   });
 
   it('fails', async () => {
-    // @ts-ignore
     process.env.EXTERNAL_GITHUB_WEBHOOK_SECRET = 'It\'s not a Secret to Everybody';
 
     await expect(throwIfGithubSignatureFailed({

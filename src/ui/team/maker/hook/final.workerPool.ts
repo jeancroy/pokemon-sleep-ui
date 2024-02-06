@@ -4,8 +4,7 @@ import {getTeamMakerFinalResult} from '@/ui/team/maker/calc/main/final';
 
 
 const generateTeamMakerFinalResultWorkerPool = () => initWorkerPool(
-  // Can't use `new URL().href` here or the worker loading will fail
-  // @ts-ignore
+  // @ts-expect-error: Can't use `new URL().href` here or the worker loading will fail
   () => spawn<typeof getTeamMakerFinalResult>(new Worker(new URL('./final.worker', import.meta.url))),
   // Fixing concurrency count to avoid OOM
   8,

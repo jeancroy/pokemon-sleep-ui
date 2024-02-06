@@ -16,7 +16,7 @@ describe('Environment / Ads Visibility', () => {
   });
 
   it('shows ads', () => {
-    // @ts-ignore
+    // @ts-expect-error: Force writing readonly `NODE_ENV`
     process.env.NODE_ENV = 'production';
 
     expect(isAdsShouldShow(null)).toBeTruthy();

@@ -22,7 +22,6 @@ export type UserLazyLoadedContent = {
   buildId: string,
 };
 
-// For checking if `UserLazyLoadedContent` implements every possible `UserDataLoadingOpts['type']` only
-// @ts-ignore
+// @ts-ignore: For checking if `UserLazyLoadedContent` implements every possible `UserDataLoadingOpts['type']` only
 // noinspection JSUnusedLocalSymbols
 type _ = UserLazyLoadedContent[UserDataLoadingOpts['type']];

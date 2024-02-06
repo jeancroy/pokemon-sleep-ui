@@ -29,8 +29,7 @@ export const authOptions: AuthOptions = {
     maxAge: 30 * 24 * 60 * 60, // 30 days
     updateAge: 24 * 60 * 60, // 24 hours
   },
-  // See https://github.com/nextauthjs/next-auth/issues/9493#issuecomment-1913353082
-  // @ts-expect-error
+  // @ts-expect-error: See https://github.com/nextauthjs/next-auth/issues/9493#issuecomment-1913353082
   adapter: mongoDBAdapter(
     mongoPromise,
     {databaseName: 'auth'},
