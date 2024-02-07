@@ -6,7 +6,7 @@ import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
 import {NumberInputLayoutProps} from '@/components/shared/input/number/common/type';
-import {changeButtonClass} from '@/components/shared/input/number/const';
+import {numberInputChangeButtonClass} from '@/components/shared/input/number/const';
 import {Nullable} from '@/utils/type';
 
 
@@ -39,7 +39,7 @@ export const NumberInputLayout = ({
         </div>
       }
       <button
-        className={changeButtonClass}
+        className={numberInputChangeButtonClass}
         disabled={value === inUseMin || isDefaultUnavailable || disabled}
         onClick={() => setValue(isValueNumber ? Math.max(value - inUseStep, inUseMin) : (onClickDefault ?? value))}
         tabIndex={-1}
@@ -48,7 +48,7 @@ export const NumberInputLayout = ({
       </button>
       {children}
       <button
-        className={changeButtonClass}
+        className={numberInputChangeButtonClass}
         disabled={value === inUseMax || isDefaultUnavailable || disabled}
         onClick={() => setValue(isValueNumber ? Math.min(value + inUseStep, inUseMax) : (onClickDefault ?? value))}
         tabIndex={-1}

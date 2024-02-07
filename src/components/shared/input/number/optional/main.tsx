@@ -9,11 +9,12 @@ import {
   getNumberInputFormattedValue,
   getNumberInputParsedValue,
 } from '@/components/shared/input/number/common/utils';
+import {numberInputDefaultBoxWidth} from '@/components/shared/input/number/const';
 import {Nullable} from '@/utils/type';
 
 
 export const NumberInputOptional = (props: NumberInputLayoutProps<Nullable<number>>) => {
-  const {value, setValue, min, disabled} = props;
+  const {value, setValue, min, classOfInputWidth, disabled} = props;
 
   return (
     <NumberInputLayout {...props}>
@@ -21,7 +22,8 @@ export const NumberInputOptional = (props: NumberInputLayoutProps<Nullable<numbe
         type="number"
         value={getNumberInputFormattedValue(props)}
         className={clsx(
-          'w-12 text-center',
+          'text-center',
+          classOfInputWidth ?? numberInputDefaultBoxWidth,
           value != null && min && value < min && 'text-danger',
           disabled && 'text-disabled',
         )}

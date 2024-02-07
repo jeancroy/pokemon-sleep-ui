@@ -24,5 +24,6 @@ export type NumberInputLayoutProps<TValue extends Nullable<number>> = NumberInpu
   step?: number,
   className?: string,
   classOfText?: string,
+  classOfInputWidth?: string,
   disabled?: boolean,
 };

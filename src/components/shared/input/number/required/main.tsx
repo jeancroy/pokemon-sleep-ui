@@ -9,6 +9,7 @@ import {
   getNumberInputFormattedValue,
   getNumberInputParsedValue,
 } from '@/components/shared/input/number/common/utils';
+import {numberInputDefaultBoxWidth} from '@/components/shared/input/number/const';
 
 
 export const NumberInputRequired = ({
@@ -16,7 +17,7 @@ export const NumberInputRequired = ({
   max = Infinity,
   ...props
 }: NumberInputLayoutProps<number>) => {
-  const {setValue, disabled} = props;
+  const {setValue, classOfInputWidth, disabled} = props;
 
   return (
     <NumberInputLayout
@@ -28,7 +29,11 @@ export const NumberInputRequired = ({
       <InputBox
         value={getNumberInputFormattedValue(props)}
         type="number"
-        className={clsx('w-12 text-center', disabled && 'text-disabled')}
+        className={clsx(
+          'text-center',
+          classOfInputWidth ?? numberInputDefaultBoxWidth,
+          disabled && 'text-disabled',
+        )}
         onChange={({target}) => {
           const value = getNumberInputParsedValue({
             valueString: target.value,
