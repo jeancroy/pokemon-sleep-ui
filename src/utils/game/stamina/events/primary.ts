@@ -1,4 +1,5 @@
 import {staminaMaxRecovery} from '@/const/game/stamina';
+import {defaultRecoveryRate} from '@/const/user/settings';
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
 import {userCookingMeals} from '@/types/userData/cooking';
@@ -31,7 +32,6 @@ const getInitialSkillRecoveryAmount = ({
 
 const getInitialCookingRecoveryAmount = ({
   general,
-  recoveryRate,
   cookingRecoveryData,
 }: GetLogsWithPrimarySleepOpts): number => {
   const {strategy} = general;
@@ -43,7 +43,11 @@ const getInitialCookingRecoveryAmount = ({
   const maxSingleRecovery = Math.max(...cookingRecoveryData.map(({recovery}) => recovery));
 
   return (
-    getActualRecoveryAmount({amount: maxSingleRecovery, recoveryRate, isSleep: false}) *
+    getActualRecoveryAmount({
+      amount: maxSingleRecovery,
+      recoveryRate: defaultRecoveryRate,
+      isSleep: false,
+    }) *
     userCookingMeals.length
   );
 };

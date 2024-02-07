@@ -37,6 +37,7 @@ export const getSkillStaminaRecovery = ({
     return {
       timing: expectedTiming,
       getBaseAmount: () => amount * weight,
+      ignoreRecoveryRate: false,
     };
   });
 };

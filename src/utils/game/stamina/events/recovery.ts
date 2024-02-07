@@ -1,4 +1,5 @@
 import {staminaAbsoluteMax} from '@/const/game/stamina';
+import {defaultRecoveryRate} from '@/const/user/settings';
 import {StaminaEventLog, StaminaEventType} from '@/types/game/stamina/event';
 import {StaminaRecovery, StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
@@ -43,7 +44,7 @@ export const getLogsWithStaminaRecovery = ({
 
       const currentRecoveryAmount = getActualRecoveryAmount({
         amount: recoveryData.getBaseAmount(staminaBefore.inGame),
-        recoveryRate,
+        recoveryRate: recoveryData.ignoreRecoveryRate ? defaultRecoveryRate : recoveryRate,
         isSleep: false,
       });
 

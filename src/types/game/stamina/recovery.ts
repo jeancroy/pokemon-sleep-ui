@@ -5,6 +5,7 @@ import {UserCookingMeal} from '@/types/userData/cooking';
 export type StaminaRecovery = {
   timing: number,
   getBaseAmount: (staminaBeforeRecovery?: number) => number,
+  ignoreRecoveryRate: boolean,
 };
 
 export type StaminaRecoveryRateConfig = {

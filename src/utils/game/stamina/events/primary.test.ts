@@ -157,12 +157,12 @@ describe('Stamina / Event Log (+Primary)', () => {
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(151);
-    expect(logs[0].staminaUnderlying.after).toBe(151);
+    expect(logs[0].stamina.after).toBe(148);
+    expect(logs[0].staminaUnderlying.after).toBe(148);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(57600);
-    expect(logs[1].stamina.before).toBe(55);
-    expect(logs[1].staminaUnderlying.before).toBe(55);
+    expect(logs[1].stamina.before).toBe(52);
+    expect(logs[1].staminaUnderlying.before).toBe(52);
     expect(logs.length).toBe(2);
   });
 

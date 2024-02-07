@@ -60,6 +60,7 @@ export const getCookingRecoveryEntries = ({
         cookingRecoveryData,
         staminaBeforeCook,
       }),
+      ignoreRecoveryRate: true,
     }));
   }
 
