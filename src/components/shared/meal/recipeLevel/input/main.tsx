@@ -5,17 +5,22 @@ import {useTranslations} from 'next-intl';
 
 import {LevelIcon} from '@/components/shared/icon/lv';
 import {NumberInputRequired} from '@/components/shared/input/number/required/main';
+import {RecipeLevelInputCommonProps} from '@/components/shared/meal/recipeLevel/type';
 
 
-type Props = {
+type Props = RecipeLevelInputCommonProps & {
   level: number,
-  maxRecipeLevel: number,
   onUpdate: (updated: number) => void,
-  disabled?: boolean,
-  className?: string,
 };
 
-export const MealRecipeLevelInput = ({level, maxRecipeLevel, onUpdate, disabled, className}: Props) => {
+export const RecipeLevelInput = ({
+  maxRecipeLevel,
+  disabled,
+  classOfInputWidth,
+  className,
+  level,
+  onUpdate,
+}: Props) => {
   const t = useTranslations('UI.InPage.Cooking');
 
   return (
@@ -30,6 +35,7 @@ export const MealRecipeLevelInput = ({level, maxRecipeLevel, onUpdate, disabled,
       setValue={(level) => onUpdate(level)}
       disabled={disabled}
       className={className}
+      classOfInputWidth={classOfInputWidth}
     />
   );
 };

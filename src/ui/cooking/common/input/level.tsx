@@ -1,33 +1,28 @@
 import React from 'react';
 
 import {FilterWithUpdaterProps} from '@/components/input/filter/type';
-import {MealRecipeLevelInput} from '@/components/shared/meal/recipeLevel';
+import {RecipeLevelInput} from '@/components/shared/meal/recipeLevel/input/main';
+import {RecipeLevelInputCommonProps} from '@/components/shared/meal/recipeLevel/type';
 import {Meal} from '@/types/game/meal/main';
 import {CookingCommonFilter} from '@/ui/cooking/common/type';
 
 
-type Props<TFilter extends CookingCommonFilter> = FilterWithUpdaterProps<TFilter> & {
+type Props<TFilter extends CookingCommonFilter> = FilterWithUpdaterProps<TFilter> & RecipeLevelInputCommonProps & {
   meal: Meal,
-  maxRecipeLevel: number,
-  disabled?: boolean,
-  className?: string,
 };
 
 export const CookingInputRecipeLevel = <TFilter extends CookingCommonFilter>({
   filter,
   setFilter,
   meal,
-  maxRecipeLevel,
-  disabled,
-  className,
+  ...props
 }: Props<TFilter>) => {
   const {recipeLevel} = filter;
   const {id} = meal;
 
   return (
-    <MealRecipeLevelInput
+    <RecipeLevelInput
       level={recipeLevel[id] ?? 1}
-      maxRecipeLevel={maxRecipeLevel}
       onUpdate={(level) => setFilter((original) => ({
         ...original,
         recipeLevel: {
@@ -35,8 +30,7 @@ export const CookingInputRecipeLevel = <TFilter extends CookingCommonFilter>({
           [id]: level,
         },
       } satisfies CookingCommonFilter))}
-      disabled={disabled}
-      className={className}
+      {...props}
     />
   );
 };

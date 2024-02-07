@@ -9,7 +9,7 @@ import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
 import {MealImage} from '@/components/shared/meal/image';
 import {IngredientIconsFromMeal} from '@/components/shared/meal/ingredients/iconsFromMeal';
-import {MealRecipeLevelInput} from '@/components/shared/meal/recipeLevel';
+import {RecipeLevelInput} from '@/components/shared/meal/recipeLevel/input/main';
 import {MealSelectorLevelUpdatingProps} from '@/components/shared/meal/selector/type';
 import {mealTypeBackgroundStyle} from '@/styles/game/mealType';
 import {Meal} from '@/types/game/meal/main';
@@ -57,7 +57,7 @@ export const MealSelectorOption = ({
       </FlexButton>
       {
         meal && recipeLevel && onLevelUpdated &&
-        <MealRecipeLevelInput
+        <RecipeLevelInput
           level={recipeLevel[meal.id] ?? 1}
           maxRecipeLevel={maxRecipeLevel}
           onUpdate={(level) => onLevelUpdated(meal.id, level)}
