@@ -7,6 +7,7 @@ import {TeamAnalysisSetupInput} from '@/ui/team/analysis/setup/control/setup/inp
 import {TeamAnalysisSetupInputCommonProps} from '@/ui/team/analysis/setup/control/setup/input/type';
 import {TeamAnalysisLayoutControlUI} from '@/ui/team/analysis/setup/control/setup/layoutControl/main';
 import {TeamAnalysisLayoutControl} from '@/ui/team/analysis/setup/control/setup/layoutControl/type';
+import {TeamAnalysisQuickAction} from '@/ui/team/analysis/setup/control/setup/quickAction/main';
 
 
 type Props = TeamAnalysisSetupInputCommonProps & {
@@ -20,6 +21,7 @@ export const TeamAnalysisSetupControlUI = ({layoutControl, ...props}: Props) => 
   return (
     <Flex className="gap-1">
       <TeamAnalysisSetupInput {...props}/>
+      <TeamAnalysisQuickAction {...props}/>
       <InputRow className="justify-end gap-1">
         <TeamAnalysisLayoutControlUI layoutControl={layoutControl}/>
         <UserDataUploadButton

@@ -10,8 +10,10 @@ export type TeamAnalysisConfig = Migratable & {
   current: string,
 };
 
+export type TeamAnalysisCompMembers = {[slot in TeamAnalysisSlotName]: TeamMemberData | null};
+
 export type TeamAnalysisComp = Migratable & TeamConfig & {
-  members: {[slot in TeamAnalysisSlotName]: TeamMemberData | null},
+  members: TeamAnalysisCompMembers,
 };
 
 export type TeamAnalysisSetup = {

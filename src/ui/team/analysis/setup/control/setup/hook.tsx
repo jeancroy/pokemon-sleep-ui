@@ -6,7 +6,8 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {imageIconSizes} from '@/styles/image';
-import {TeamAnalysisSetup} from '@/types/teamAnalysis';
+import {TeamMemberData} from '@/types/game/team';
+import {TeamAnalysisCompMembers, TeamAnalysisSetup, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {TeamAnalysisSetMemberOpts, TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control/setup/type';
 import {getCurrentTeam} from '@/ui/team/analysis/utils';
 import {showToast} from '@/utils/toast';
@@ -63,6 +64,32 @@ export const useTeamAnalysisSetupControl = ({
     setup,
     setSetup,
     setCurrentMember,
+    setCurrentMemberReplaceAll: ({update}) => setSetup(({
+      comps,
+      config,
+      ...original
+    }) => ({
+      ...original,
+      config,
+      comps: {
+        ...comps,
+        [config.current]: {
+          ...comps[config.current],
+          members: Object.fromEntries(teamAnalysisSlotName.map((slotName) => {
+            const member = comps[config.current].members[slotName];
+
+            if (!member) {
+              return [slotName, null];
+            }
+
+            return [
+              slotName,
+              {...member, ...update} satisfies TeamMemberData,
+            ];
+          })) as TeamAnalysisCompMembers,
+        },
+      },
+    })),
     setCurrentMemberPartial: ({slotName, update}) => {
       if (!update) {
         setCurrentMember({slotName, member: null});
@@ -70,16 +97,17 @@ export const useTeamAnalysisSetupControl = ({
       }
 
       // `merge()` keeps the original value if the `update` is undefined, but `update` should overwrite it
-      setSetup((original) => ({
+      setSetup(({comps, config, ...original}) => ({
         ...original,
+        config,
         comps: {
-          ...original.comps,
-          [original.config.current]: {
-            ...original.comps[original.config.current],
+          ...comps,
+          [config.current]: {
+            ...comps[config.current],
             members: {
-              ...original.comps[original.config.current].members,
+              ...comps[config.current].members,
               [slotName]: {
-                ...original.comps[original.config.current].members[slotName],
+                ...comps[config.current].members[slotName],
                 ...update,
               },
             },
