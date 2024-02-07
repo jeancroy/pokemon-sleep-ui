@@ -36,6 +36,7 @@ export const MealPreparerClient = (props: CookingServerDataProps) => {
   const [filter, setFilter] = React.useState<MealPreparerFilter>({
     ...generateCookingCommonFilter(preloaded.cooking),
     mealsWanted: cloneMerge(defaultCookingPreset.mealsWanted, preloaded.cooking?.mealsWanted) ?? {},
+    showRecipeStrength: false,
   });
 
   const meals = Object.values(mealMap).filter(isNotNullish);

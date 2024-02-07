@@ -58,7 +58,7 @@ export const MealPrepareOfMealType = ({mealType, info, ...props}: Props) => {
         </Flex>
       }>
         <Grid className={clsx(
-          'grid-cols-1 gap-1 rounded-lg p-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5',
+          'grid-cols-1 gap-1 rounded-lg p-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 3xl:grid-cols-5',
         )}>
           {mealsOfType.map((meal) => <MealPreparerRecipe key={meal.id} meal={meal} info={info} {...props}/>)}
         </Grid>

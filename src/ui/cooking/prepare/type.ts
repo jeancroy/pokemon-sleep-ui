@@ -13,6 +13,7 @@ export type MealPreparerIngredientStats = {
 
 export type MealPreparerFilter = CookingCommonFilter & {
   mealsWanted: MealCounter,
+  showRecipeStrength: boolean,
 };
 
 export type MealPreparerCommonProps =

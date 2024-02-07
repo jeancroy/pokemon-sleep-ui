@@ -4,6 +4,7 @@ import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {InfoIcon} from '@/components/icons/info';
+import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQuick';
 import {Flex} from '@/components/layout/flex/common';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PotIcon} from '@/components/shared/icon/pot';
@@ -32,71 +33,78 @@ export const MealPreparerRecipe = (props: Props) => {
     meal,
     info,
   } = props;
+  const {mealsWanted, showRecipeStrength} = filter;
   const {id} = meal;
 
   const t = useTranslations('UI.InPage.Cooking');
   const t2 = useTranslations('Game.Food');
 
   const mealName = t2(id.toString());
-  const count = filter.mealsWanted[id];
+  const mealCount = mealsWanted[id];
 
   return (
     <Flex className={clsx(
       'bg-plate transform-smooth relative rounded-lg p-2',
-      filter.mealsMarked[meal.id] && 'ring-1 ring-slate-900/70 dark:ring-slate-400/60',
+      filter.mealsMarked[id] && 'ring-1 ring-slate-900/70 dark:ring-slate-400/60',
     )}>
       <Flex className={clsx(
-        'z-10 gap-1.5',
-        !count && 'text-slate-600/90 dark:text-slate-400/90',
+        'z-10 gap-1',
+        !mealCount && 'text-slate-600/90 dark:text-slate-400/90',
       )}>
-        <Flex direction="row" className="justify-between">
+        <Flex direction="row" className="justify-between gap-1">
           <Flex direction="row" className="gap-1 truncate" noFullWidth>
             <CookingMarkButton
-              marked={!!filter.mealsMarked[meal.id]}
+              marked={!!filter.mealsMarked[id]}
               setMarked={(updated) => setFilter((original) => ({
                 ...original,
                 mealsMarked: {
                   ...original.mealsMarked,
-                  [meal.id]: updated,
+                  [id]: updated,
                 },
               }))}
             />
+            <InfoIcon style="soft">
+              {getMealIngredientCount(meal)}
+            </InfoIcon>
             <div className="truncate text-sm">
               {mealName}
             </div>
           </Flex>
-          <CookingExternalLink mealId={id}/>
+          <Flex direction="row" noFullWidth className="shrink-0 items-center gap-1">
+            <IngredientIconsFromMeal meal={meal}/>
+            <CookingExternalLink mealId={id}/>
+          </Flex>
         </Flex>
-        <Flex direction="row" noFullWidth className="items-center gap-1">
-          <InfoIcon style="soft">
-            {getMealIngredientCount(meal)}
-          </InfoIcon>
-          <IngredientIconsFromMeal meal={meal}/>
-        </Flex>
-        <CookingInputRecipeLevel {...props}/>
-        <NumberInputOptional
-          text={<PotIcon alt={t('TargetMealCount')} dimension="size-6"/>}
-          value={count}
-          min={0}
-          onClickDefault={1}
-          setValue={(count) => setFilter((original) => ({
-            ...original,
-            mealsWanted: {
-              ...original.mealsWanted,
-              [id]: count,
-            },
-          } satisfies MealPreparerFilter))}
-        />
-        <Flex direction="row" noFullWidth className="items-center gap-1">
-          <ColoredEnergyIcon alt={t('Energy')}/>
-          <div>
-            {formatInt(info.finalStrength[id])}
-          </div>
+        <Flex direction="row" className="gap-1">
+          <NumberInputOptional
+            text={<PotIcon alt={t('TargetMealCount')} dimension="size-6"/>}
+            value={mealCount}
+            min={0}
+            onClickDefault={1}
+            setValue={(count) => setFilter((original) => ({
+              ...original,
+              mealsWanted: {
+                ...original.mealsWanted,
+                [id]: count,
+              },
+            } satisfies MealPreparerFilter))}
+            classOfInputWidth="w-8"
+          />
+          <CookingInputRecipeLevel
+            classOfInputWidth="w-8"
+            {...props}
+          />
         </Flex>
       </Flex>
+      <AnimatedCollapseQuick show={showRecipeStrength}>
+        <Flex direction="row" noFullWidth className="mt-1 items-center gap-1">
+          <ColoredEnergyIcon alt={t('Energy')}/>
+          <span>{formatInt(info.finalStrength[id])}</span>
+        </Flex>
+      </AnimatedCollapseQuick>
       <MealImage
         mealId={id}
-        dimension="size-20"
+        dimension="size-14"
         className="bottom-0 right-0 self-end opacity-30"
         isAbsolute
       />
