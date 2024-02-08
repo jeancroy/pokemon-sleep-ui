@@ -1,16 +1,16 @@
 apps:
-  - namespace: 'Pokemon.Sleep'
-    name: 'Pokemon.Sleep.UI'
+  - namespace: Pokemon.Sleep
+    name: Pokemon.Sleep.UI
     # Entry point
     # `yarn run start` / `npm run start` won't work here - or additional work required
-    script: './node_modules/next/dist/bin/next'
-    args: 'start'
+    script: ./node_modules/next/dist/bin/next
+    args: start
     # Execution configs
-    exec_mode: 'cluster'
+    exec_mode: cluster
     instances: 6
     # Environments
     env:
-      NODE_ENV: 'production'
+      NODE_ENV: production
       PORT: 6588
     # Others
-    time: true  # Log timestamp in logs
+    time: true # Log timestamp in logs

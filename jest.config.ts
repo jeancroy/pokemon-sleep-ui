@@ -1,4 +1,4 @@
-const nextJest = require('next/jest');
+import nextJest from 'next/jest';
 
 
 const createJestConfig = nextJest({
@@ -6,4 +6,4 @@ const createJestConfig = nextJest({
   dir: './',
 });
 
-module.exports = createJestConfig({});
+export default createJestConfig({});

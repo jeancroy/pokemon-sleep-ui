@@ -10,7 +10,7 @@
 
   // Prettier settings - runs with "source.formatDocument"
   "prettier.enable": true,
-  "prettier.enableDebugLogs": true,
+  "prettier.enableDebugLogs": false,
   "prettier.configPath": ".prettierrc.json",
   "prettier.ignorePath": ".prettierignore",
 
@@ -18,7 +18,8 @@
   "eslint.debug": false,
   "eslint.format.enable": true,
   "eslint.options": {
-    "overrideConfigFile": ".eslintrc.yml"
+    "overrideConfigFile": ".eslintrc.yml",
+    "ignorePath": ".eslintignore"
   },
   "eslint.probe": [
     "javascript",
@@ -26,13 +27,15 @@
     "typescript",
     "typescriptreact",
     "json",
-    "jsonc"
+    "yml"
   ],
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact"
+    "typescriptreact",
+    "json",
+    "yml"
   ],
 
   // Lock VSCode typescript version to project typescript
@@ -44,12 +47,9 @@
 
   // Configure formatting --> then --> linting IN SEQUENCE
   // Requires "Format Code Action" VSCode Extension
-  "[typescript][typescriptreact][javascript][json][jsonc]": {
+  "[typescript][typescriptreact][javascript][json][yml]": {
     "editor.formatOnSave": false,
-    "editor.codeActionsOnSave": [
-      "source.formatDocument",
-      "source.fixAll.eslint"
-    ]
+    "editor.codeActionsOnSave": ["source.fixAll.eslint"]
   },
 
   // Stylelint settings - runs with "source.fixAll.stylelint"
@@ -80,7 +80,6 @@
     "**/node_modules/**": true,
     "**/.git": true,
     "**/tests/*": false,
-    "package-lock.json": true,
     "**/.github": true,
     "**/logs": true,
     "**/.next": true,

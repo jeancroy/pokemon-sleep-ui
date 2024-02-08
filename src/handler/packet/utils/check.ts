@@ -8,11 +8,10 @@ export const isPacketRecordingEnabled = async (type: PacketRecordingType): Promi
 
   return !!settings && !!settings.enabled[type];
 };
+
 export const isPacketDataFromApiIncludingSource = <
   TData extends PacketDataCommonProps,
   TDataFromApi extends PacketDataFromApiCommonProps<TData>
->({
-  source,
-}: TDataFromApi): boolean => {
+>({source}: TDataFromApi): boolean => {
   return !!source;
 };
