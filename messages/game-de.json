@@ -96,6 +96,8 @@
     "3016": "Soja-Donuts „Kraftkoloss“",
     "3017": "Popcorn „Explosion“",
     "3018": "Mais-Scones „Teatime“",
+    "3019": "Schokotörtchen „Blättertanz“",
+    "3020": "Macarons „Pflanzengabe“",
     "4": "Kartoffel",
     "5": "Luxusapfel",
     "6": "Feuriges Kraut",
@@ -786,7 +788,7 @@
     "Description": {
       "1": "Erhöht die vom Team erhaltenen EP nach dem Schlaf um {bonus} %.",
       "10": "Erhöht die maximale Anzahl Beeren und Zutaten, die dieses Pokémon tragen kann, um {bonus}.",
-      "11": "Verstärkt den Level des Haupttalents dieses Pokémon um {bonus}.",
+      "11": "Erhöht den Level des Haupttalents dieses Pokémon um {bonus}.",
       "12": "Erhöht leicht die Wahrscheinlichkeit, dass dieses Pokémon Zutaten findet.",
       "13": "Erhöht die Wahrscheinlichkeit, dass dieses Pokémon Zutaten findet.",
       "14": "Erhöht leicht die Wahrscheinlichkeit, dass das Haupttalent dieses Pokémon ausgelöst wird.",

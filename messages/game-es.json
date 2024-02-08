@@ -96,6 +96,8 @@
     "3016": "Dónuts de Soja \"Potencia\"",
     "3017": "Palomitas \"Explosión\"",
     "3018": "Panecillos de Maíz \"Hora del Té\"",
+    "3019": "Tartaleta de Chocolate \"Danza Pétalo\"",
+    "3020": "Macarons \"Don Floral\"",
     "4": "Patata",
     "5": "Manzana Selecta",
     "6": "Hierba Picante",
@@ -786,7 +788,7 @@
     "Description": {
       "1": "Aumenta un {bonus}% los puntos de experiencia que gana el equipo al dormir.",
       "10": "Aumenta en {bonus} el número máximo de bayas e ingredientes que puede tener el Pokémon.",
-      "11": "Aumenta {bonus} nivel es la habilidad principal de este Pokémon.",
+      "11": "Potencia la habilidad principal del Pokémon {bonus} nivel es",
       "12": "Aumenta ligeramente la probabilidad de que el Pokémon encuentre ingredientes.",
       "13": "Aumenta la probabilidad de que el Pokémon encuentre ingredientes.",
       "14": "Aumenta ligeramente la probabilidad de que el Pokémon utilice su habilidad principal.",
