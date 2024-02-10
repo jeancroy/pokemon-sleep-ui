@@ -2,6 +2,7 @@ import React from 'react';
 
 import {clsx} from 'clsx';
 
+import {Flex} from '@/components/layout/flex/common';
 import {PokeInBoxMeta} from '@/components/shared/pokebox/meta';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {specialtyIdMap} from '@/const/game/pokemon';
@@ -19,14 +20,16 @@ export const PokeInBoxTableInfo = (props: PokeInBoxTableDetailsProps) => {
       <div className="w-60">
         <PokeInBoxMeta {...props}/>
       </div>
-      <div className={clsx(
-        'rounded-lg px-2',
-        specialty === specialtyIdMap.ingredient && 'info-highlight',
+      <Flex center noFullWidth className={clsx(
+        'mx-1 rounded-lg p-1',
+        specialty === specialtyIdMap.ingredient ? 'info-highlight' : 'bg-slate-500/30',
       )}>
         <PokemonIngredientIcons
           ingredients={[Object.values(pokeInBox.ingredients).map((ingredient) => ingredient)]}
+          dimension="size-5"
+          noQuantity
         />
-      </div>
+      </Flex>
     </>
   );
 };
