@@ -63,6 +63,7 @@ export const ratingResultCategoryI18nId: {
 } = {
   cross: 'Category.CrossSpecies',
   intra: 'Category.IntraSpecies',
+  intraSameIngredient: 'Category.IntraSpeciesSameIngredient',
 };
 
 export const defaultRatingBasisOfSpecialty: {[specialty in SpecialtyType]: RatingBasis} = {

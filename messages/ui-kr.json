@@ -552,7 +552,8 @@
     "Category": {
       "Title": "Comparing...",
       "CrossSpecies": "Cross-Species (Same Subskill/Nature)",
-      "IntraSpecies": "Intra-Species"
+      "IntraSpecies": "Intra-Species",
+      "IntraSpeciesSameIngredient": "Intra-Species (Same Ingredients)"
     }
   },
   "SleepStyle": {

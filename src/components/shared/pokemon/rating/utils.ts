@@ -7,6 +7,7 @@ export const generateInitialRatingResult = (level: number): RatingResultOfLevel 
     level,
     result: {
       intra: initialRatingResultOfCategory,
+      intraSameIngredient: initialRatingResultOfCategory,
       cross: initialRatingResultOfCategory,
     },
   };

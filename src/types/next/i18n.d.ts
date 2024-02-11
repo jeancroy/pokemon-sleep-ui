@@ -443,6 +443,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
         Title: string,
         CrossSpecies: string,
         IntraSpecies: string,
+        IntraSpeciesSameIngredient: string,
       },
     },
     SleepStyle: {

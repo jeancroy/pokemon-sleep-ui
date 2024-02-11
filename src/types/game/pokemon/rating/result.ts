@@ -23,6 +23,7 @@ export type RatingExtrema = {
 
 export const ratingResultCategory = [
   'intra',
+  'intraSameIngredient',
   'cross',
 ] as const;
 

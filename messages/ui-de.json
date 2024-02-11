@@ -552,7 +552,8 @@
     "Category": {
       "Title": "Im Vergleich zu: ",
       "CrossSpecies": "Artübergreifend (Gleiche Talente/Wesen)",
-      "IntraSpecies": "Gleicher Art"
+      "IntraSpecies": "Gleicher Art",
+      "IntraSpeciesSameIngredient": "Gleicher Art (Same Ingredient)"
     }
   },
   "SleepStyle": {

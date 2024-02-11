@@ -552,7 +552,8 @@
     "Category": {
       "Title": "比較對象",
       "CrossSpecies": "跨種族 (相同副技能/個性)",
-      "IntraSpecies": "同種族"
+      "IntraSpecies": "同種族",
+      "IntraSpeciesSameIngredient": "同種族 (同食材組合)"
     }
   },
   "SleepStyle": {
