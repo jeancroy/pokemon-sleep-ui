@@ -5,6 +5,11 @@ const {default: withPWAInit} = require('@ducanh2912/next-pwa');
 const {PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD} = require('next/constants');
 
 
+/**
+ * @typedef {import('webpack').Configuration} WebpackConfig
+ * @typedef {import('next/dist/server/config-shared').WebpackConfigContext} NextJsWebpackContext
+ */
+
 const buildId = childProcess
   .execSync('git show -s --format="%h-%cI"')
   .toString()
@@ -12,6 +17,33 @@ const buildId = childProcess
   .replaceAll(':', '-');
 
 const isProd = process.env.NODE_ENV !== 'development';
+
+/**
+ * Custom Webpack project configuration.
+ * @function
+ * @param {WebpackConfig} defaultConfig Default Nextjs Webpack configuration.
+ * @param {NextJsWebpackContext} context      Default Nextjs Webpack context.
+ *
+ * @return {WebpackConfig} The custom webpack configuration.
+ */
+const webpackConfig = (defaultConfig, context) => {
+  const {dev, isServer} = context;
+
+  /** @type {WebpackConfig} */
+  const config = {
+    ...defaultConfig,
+    experiments: {
+      layers: true,
+      topLevelAwait: true,
+    },
+  };
+
+  // Useful for advanced debugging.
+  return (dev || isServer) ? {
+    ...config,
+    devtool: dev ? 'eval-source-map' : config.devtool,
+  } : config;
+};
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -30,18 +62,21 @@ const nextConfig = {
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
+  webpack: webpackConfig,
 };
 
 /** @type {import('@ducanh2912/next-pwa').PluginOptions} */
 const pwaConfig = {
   dest: 'public',
-  disable: true,
+  disable: !isProd,
   register: true,
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
-  reloadOnOnline: true,
+  reloadOnOnline: false,
+  publicExcludes: ['!images/**/*.png'],
   workboxOptions: {
     disableDevLogs: isProd,
+    directoryIndex: '/_next/',
   },
   fallbacks: {
     // Failed page requests fallback to this.

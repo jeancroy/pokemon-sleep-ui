@@ -7,11 +7,69 @@
       "type": "process",
       "command": "yarn",
       "args": ["build"],
-      "options": {
-        "env": {
-          "NODE_ENV": "production"
+      "isBackground": true,
+      "problemMatcher": [
+        "$tsc-watch",
+        "$node-sass",
+        {
+          "owner": "typescript",
+          "source": "Typescript",
+          "fileLocation": ["relative", "${workspaceRoot}"],
+          "applyTo": "allDocuments",
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "^(▲ Next.js)",
+            "endsPattern": "^(✓ Ready in (.*)s)$"
+          },
+          "pattern": [
+            {
+              "regexp": "(ERROR|WARNING)\\(TypeScript\\)  (.*)",
+              "severity": 1,
+              "message": 2
+            },
+            {
+              "regexp": "^ FILE  (.*):(\\d*):(\\d*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "owner": "eslint",
+          "source": "ESLint",
+          "fileLocation": "relative",
+          "applyTo": "allDocuments",
+          "background": {
+            "activeOnStart": true
+            // "beginsPattern": "sd",
+            // "endsPattern": " > "
+          },
+          "pattern": [
+            {
+              "regexp": "^ (ERROR|WARNING)\\(ESLint\\)  (.*)$",
+              "severity": 1,
+              "message": 2
+            },
+            {
+              "regexp": "^ FILE  (.*):(\\d*):(\\d*)$",
+              "file": 1,
+              "line": 2,
+              "column": 3
+            }
+          ]
         }
-      },
+      ],
+      "presentation": {
+        "group": "dev"
+      }
+    },
+    {
+      "label": "yarn: start",
+      "detail": "Starts the next.js server in production mode.",
+      "command": "yarn",
+      "type": "process",
+      "args": ["run", "start"],
       "isBackground": true,
       "problemMatcher": [
         "$tsc-watch",
@@ -211,6 +269,21 @@
         "group": "dev",
         "focus": false,
         "close": true
+      }
+    },
+    {
+      "label": "yarn: build & start production",
+      "detail": "Builds and starts the nextjs app in production mode for PWA testing.",
+      "dependsOn": ["yarn: build", "yarn: start"],
+      "dependsOrder": "sequence",
+      "options": {
+        "env": {
+          "NODE_ENV": "production"
+        }
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "group": "dev"
       }
     },
     {
