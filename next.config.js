@@ -35,7 +35,7 @@ const nextConfig = {
 /** @type {import('@ducanh2912/next-pwa').PluginOptions} */
 const pwaConfig = {
   dest: 'public',
-  disable: !isProd,
+  disable: true,
   register: true,
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
