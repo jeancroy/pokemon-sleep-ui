@@ -7,7 +7,7 @@ import {showToast} from '@/utils/toast';
 export const usePremiumRequiredToast = () => {
   const showPremiumRequiredToast = React.useCallback(() => showToast({
     isAlert: true,
-    content: <PremiumOnlyNotice className="[&_a]:text-link-inverse"/>,
+    content: <PremiumOnlyNotice style="inverse"/>,
   }), []);
 
   return {showPremiumRequiredToast};
