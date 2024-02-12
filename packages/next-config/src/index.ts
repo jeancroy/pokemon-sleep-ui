@@ -1,4 +1,4 @@
-import runtimeCaching from '@/src/runtimeCache.js';
+import runtimeCaching from './runtimeCache.js';
 
 
 type Config = {

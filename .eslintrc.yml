@@ -68,6 +68,7 @@ rules:
   no-console:
     - error
     - allow:
+        - info
         - warn
         - error
 
@@ -237,6 +238,10 @@ overrides:
 
     parserOptions:
       sourceType: script
+
+  - files:
+      - "packages/**"
+      - "**/*.config.js"
 
     rules:
       # Config files have no concept of path mapping since it's prior to compile.

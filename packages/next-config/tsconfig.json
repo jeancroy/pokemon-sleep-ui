@@ -22,12 +22,6 @@
     "removeComments": false,
     "checkJs": true,
     "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./*"
-      ],
-    }
   },
   "include": [
     "globals.d.ts",

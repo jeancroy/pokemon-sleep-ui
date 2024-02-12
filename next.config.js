@@ -63,6 +63,9 @@ const nextConfig = {
     tsconfigPath: './tsconfig.json',
   },
   webpack: webpackConfig,
+  eslint: {
+    dirs: ['src'],
+  },
 };
 
 /** @type {import('@ducanh2912/next-pwa').PluginOptions} */
