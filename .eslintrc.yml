@@ -21,6 +21,7 @@ parserOptions:
     jsx: true
   ecmaVersion: latest
   sourceType: module
+  project: tsconfig.eslint.json
 
 plugins:
   - "@typescript-eslint"
@@ -197,6 +198,8 @@ overrides:
   - files:
       - "*.json"
 
+    parser: jsonc-eslint-parser
+
     rules:
       max-len: off
 
@@ -228,6 +231,16 @@ overrides:
       - "*.yml"
 
     parser: yaml-eslint-parser
+
+  - files:
+      - "**/*.config.js"
+
+    parserOptions:
+      sourceType: script
+
+    rules:
+      # Config files have no concept of path mapping since it's prior to compile.
+      "@typescript-eslint/no-restricted-imports": off
 
 settings:
   react:

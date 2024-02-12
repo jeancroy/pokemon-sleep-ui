@@ -52,3 +52,6 @@ logs/
 **/public/fallback-*.js
 
 certificates
+
+# Next.js Config Overrides
+**/dist/**

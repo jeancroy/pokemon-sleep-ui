@@ -3,16 +3,27 @@
   "packageManager": "yarn@4.1.0",
   "version": "^1.0.0",
   "author": "RaenonX",
-  "private": true,
+  "contributors": [
+    {
+      "name": "John Mitchell-Grant",
+      "email": "jgrant_dev@icloud.com"
+    }
+  ],
+  "license": "MIT",
   "engines": {
     "node": "^20.10",
     "npm": "^9.5.1"
   },
+  "workspaces": [
+    "packages/**"
+  ],
   "scripts": {
     "dev": "next dev",
     "dev:debug:server": "node $NODE_ARGS ./node_modules/next/dist/bin/next",
     "dev:debug:delay": "node scripts/client-ready.js",
     "dev:react-devtools": "react-devtools",
+    "config:build": "cd packages/next-config; yarn build",
+    "prebuild": "yarn config:build",
     "build": "next build",
     "start": "next start",
     "tsc": "tsc --noemit",
@@ -22,7 +33,7 @@
     "test:watch": "jest --watch",
     "test:ci": "jest --ci",
     "devops": "node scripts/discord-webhook.js",
-    "prepare": "husky install"
+    "prepare": "husky install && yarn config:build"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^2.2.0",
@@ -78,6 +89,7 @@
   },
   "devDependencies": {
     "@ducanh2912/next-pwa": "^10.2.4",
+    "@pokemon-sleep-ui/next-config": "workspace:^",
     "@savvywombat/tailwindcss-grid-areas": "^4.0.0",
     "@types/gtag.js": "^0.0.18",
     "@types/lodash": "^4.14.202",
@@ -98,6 +110,7 @@
     "eslint-plugin-yml": "^1.12.2",
     "husky": "^8.0.0",
     "jest": "^29.7.0",
+    "jsonc-eslint-parser": "^2.4.0",
     "lint-staged": "^15.2.1",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
