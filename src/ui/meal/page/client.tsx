@@ -7,8 +7,8 @@ import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {useUserActivation} from '@/hooks/userData/activation';
 import {useTranslatedUserSettings} from '@/hooks/userData/translated';
-import {MealInfo} from '@/ui/meal/page/info';
-import {MealPokemonOfIngredient} from '@/ui/meal/page/pokemon';
+import {MealInfo} from '@/ui/meal/page/content/info/main';
+import {MealPageContent} from '@/ui/meal/page/content/main';
 import {MealCommonProps, MealServerDataProps} from '@/ui/meal/page/type';
 
 
@@ -34,7 +34,7 @@ export const MealClient = (props: MealServerDataProps) => {
     <Flex center className="gap-1.5">
       <MealInfo {...commonProps}/>
       <AdsUnit hideIfNotBlocked/>
-      <MealPokemonOfIngredient isPremium={isPremium} {...commonProps}/>
+      <MealPageContent isPremium={isPremium} {...commonProps}/>
     </Flex>
   );
 };

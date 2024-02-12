@@ -7,7 +7,7 @@ import {FlexLink} from '@/components/layout/flex/link';
 import {NextImage} from '@/components/shared/common/image/main';
 import {MealMeta} from '@/components/shared/meal/meta';
 import {imageIconSizes} from '@/styles/image';
-import {MealExp} from '@/ui/meal/page/exp';
+import {MealExp} from '@/ui/meal/page/content/info/exp';
 import {MealCommonProps} from '@/ui/meal/page/type';
 
 

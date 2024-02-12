@@ -18,7 +18,7 @@ type Props = MealCommonProps & {
   ingredientProductionMapOfLevel: PokemonIngredientProductionMapOfLevel,
 };
 
-export const MealIngredientSection = ({
+export const MealContentIngredientSection = ({
   meal,
   translatedSettings,
   ingredient,
