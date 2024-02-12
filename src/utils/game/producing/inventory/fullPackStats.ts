@@ -5,14 +5,14 @@ import {getSecondsToFullPackInSleep} from '@/utils/game/producing/inventory/full
 
 
 type GetFullPackStatsOpts = {
-  dailyCount: number,
+  dailyBaseQty: number,
   carryLimit: number,
   intervalsDuringSleep: SleepSessions<EfficiencyInterval[]>,
   isFullPack: boolean,
 };
 
 export const getFullPackStats = ({
-  dailyCount,
+  dailyBaseQty,
   carryLimit,
   intervalsDuringSleep,
   isFullPack,
@@ -30,12 +30,12 @@ export const getFullPackStats = ({
     secondsToFull: {
       primary: getSecondsToFullPackInSleep({
         staminaIntervals: intervalsDuringSleep.primary,
-        dailyCount,
+        dailyBaseQty,
         carryLimit,
       }),
       secondary: getSecondsToFullPackInSleep({
         staminaIntervals: intervalsDuringSleep.secondary,
-        dailyCount,
+        dailyBaseQty,
         carryLimit,
       }),
     },

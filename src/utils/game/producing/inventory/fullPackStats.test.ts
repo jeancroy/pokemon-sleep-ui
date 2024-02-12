@@ -6,7 +6,7 @@ import {getFullPackStats} from '@/utils/game/producing/inventory/fullPackStats';
 describe('Pokemon Full Pack Stats', () => {
   it('is correct with single sleep session', () => {
     const {secondsToFull} = getFullPackStats({
-      dailyCount: 100,
+      dailyBaseQty: 100,
       carryLimit: 30,
       intervalsDuringSleep: {
         primary: [{efficiency: 1.5, duration: 30000}],
@@ -21,7 +21,7 @@ describe('Pokemon Full Pack Stats', () => {
 
   it('is correct with dual sleep sessions', () => {
     const {secondsToFull} = getFullPackStats({
-      dailyCount: 100,
+      dailyBaseQty: 100,
       carryLimit: 30,
       intervalsDuringSleep: {
         primary: [{efficiency: 1.5, duration: 30000}],
@@ -36,7 +36,7 @@ describe('Pokemon Full Pack Stats', () => {
 
   it('is correct if the inventory will not be full during sleep', () => {
     const {secondsToFull} = getFullPackStats({
-      dailyCount: 100,
+      dailyBaseQty: 100,
       carryLimit: 100,
       intervalsDuringSleep: {
         primary: [{efficiency: 1.5, duration: 30000}],
@@ -51,7 +51,7 @@ describe('Pokemon Full Pack Stats', () => {
 
   it('respects `isFullPack` with primary sleep efficiency intervals only', () => {
     const {secondsToFull} = getFullPackStats({
-      dailyCount: 100,
+      dailyBaseQty: 100,
       carryLimit: 30,
       intervalsDuringSleep: {
         primary: [{efficiency: 1.5, duration: 30000}],
@@ -66,7 +66,7 @@ describe('Pokemon Full Pack Stats', () => {
 
   it('respects `isFullPack` with secondary sleep efficiency intervals', () => {
     const {secondsToFull} = getFullPackStats({
-      dailyCount: 100,
+      dailyBaseQty: 100,
       carryLimit: 30,
       intervalsDuringSleep: {
         primary: [{efficiency: 1.5, duration: 30000}],

@@ -10,7 +10,7 @@ describe('Pokemon Full Pack Time Calculation', () => {
         {efficiency: 1 / 0.62, duration: 9000},
         {efficiency: 1 / 0.71, duration: 12000},
       ],
-      dailyCount: 200,
+      dailyBaseQty: 200,
       carryLimit: 50,
     });
 
@@ -23,7 +23,7 @@ describe('Pokemon Full Pack Time Calculation', () => {
         {efficiency: 1 / 0.62, duration: 9000},
         {efficiency: 1 / 0.71, duration: 12000},
       ],
-      dailyCount: 50,
+      dailyBaseQty: 50,
       carryLimit: 500,
     });
 

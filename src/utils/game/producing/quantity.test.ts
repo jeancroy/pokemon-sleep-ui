@@ -1,11 +1,12 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {getTheoreticalDailyQuantityInSleep} from '@/utils/game/producing/quantity';
+import {testBonus} from '@/tests/data/game/bonus';
+import {getDailyBaseQtyInSleep} from '@/utils/game/producing/quantity';
 
 
 describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
   it('is correct', () => {
-    const quantity = getTheoreticalDailyQuantityInSleep({
+    const quantity = getDailyBaseQtyInSleep({
       rate: {
         berry: {
           id: NaN, // Ignored
@@ -82,6 +83,7 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
           },
         ],
       },
+      bonus: testBonus['1'],
       produceSplit: {
         berry: 0.85,
         ingredient: 0.15,
@@ -89,11 +91,11 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
       },
     });
 
-    expect(quantity).toBeCloseTo(75 * 0.85 + (40 + 20 + 10) * 0.15);
+    expect(quantity).toBeCloseTo(75 / 2.2 * 0.85 + (40 + 20 + 10) / 2.2 * 0.15);
   });
 
   it('is correct with weekly rate', () => {
-    const quantity = getTheoreticalDailyQuantityInSleep({
+    const quantity = getDailyBaseQtyInSleep({
       rate: {
         berry: {
           id: NaN, // Ignored
@@ -170,6 +172,7 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
           },
         ],
       },
+      bonus: testBonus['1'],
       produceSplit: {
         berry: 0.85,
         ingredient: 0.15,
@@ -177,6 +180,6 @@ describe('Pokemon Theoretical Daily Quantity in Sleep', () => {
       },
     });
 
-    expect(quantity).toBeCloseTo((75 * 0.85 + (40 + 20) * 0.15) / 7);
+    expect(quantity).toBeCloseTo((75 / 2.2 * 0.85 + (40 + 20) / 2.2 * 0.15) / 7);
   });
 });
