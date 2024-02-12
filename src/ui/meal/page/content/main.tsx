@@ -3,25 +3,28 @@ import React from 'react';
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
+import {MealContentCoverage} from '@/ui/meal/page/content/coverage/main';
 import {MealContentIngredientProduction} from '@/ui/meal/page/content/production/main';
 import {MealPageContentCommonProps} from '@/ui/meal/page/content/type';
 import {MealCommonProps} from '@/ui/meal/page/type';
+import {getIngredientLevel} from '@/utils/game/ingredient';
 
 
-type Props = MealCommonProps & {
-  isPremium: boolean,
-};
-
-export const MealPageContent = ({isPremium, ...props}: Props) => {
+export const MealPageContent = (props: MealCommonProps) => {
   const {
     subSkillMap,
     pokemonMaxLevel,
+    isPremium,
   } = props;
   const [input, setInput] = React.useState<PokemonIndividualParams>(
     defaultPokemonIndividualParams,
   );
 
+  const {level} = input;
+  const ingredientLevel = React.useMemo(() => getIngredientLevel(level), [level]);
+
   const commonProps: MealPageContentCommonProps = {
+    ingredientLevel,
     input,
     setInput,
   };
@@ -36,6 +39,7 @@ export const MealPageContent = ({isPremium, ...props}: Props) => {
         subSkillMap={subSkillMap}
         className="info-section"
       />
+      <MealContentCoverage {...commonProps} {...props}/>
       <MealContentIngredientProduction {...commonProps} {...props}/>
     </>
   );

@@ -29,5 +29,6 @@ export type MealServerDataProps = UserSettingsRequiredData & {
 };
 
 export type MealCommonProps = MealServerDataProps & {
+  isPremium: boolean,
   translatedSettings: TranslatedUserSettings,
 };
