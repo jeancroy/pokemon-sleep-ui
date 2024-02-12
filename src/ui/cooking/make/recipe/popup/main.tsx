@@ -20,7 +20,7 @@ import {
   toMealIngredientFromIngredientCounter,
 } from '@/utils/game/cooking';
 import {subtractIngredientCount} from '@/utils/game/ingredientCounter';
-import {getMealFinalStrength} from '@/utils/game/meal/strength/final';
+import {getMealFinalStrength} from '@/utils/game/meal/strength/final/recipe';
 import {formatInt} from '@/utils/number/format/regular';
 
 
@@ -31,6 +31,7 @@ type Props = PopupProps & MealMakerPopupCommonProps & {
 
 export const MealMakerPopup = ({filter, calculatedSettings, status, onCook, ...props}: Props) => {
   const {meal, ingredientMap, setShow} = props;
+  const {mapMultiplier, strengthMultiplier} = calculatedSettings.bonus;
 
   const t = useTranslations('UI.InPage.Cooking');
   const requiredIngredients = React.useMemo(() => toIngredientCounterFromMealIngredient(meal.ingredients), [meal]);
@@ -40,7 +41,8 @@ export const MealMakerPopup = ({filter, calculatedSettings, status, onCook, ...p
     ...props,
     level: filter.recipeLevel[meal.id] ?? 1,
     filler: toMealIngredientFromIngredientCounter(subtractIngredientCount(usages, requiredIngredients)),
-    mapMultiplier: calculatedSettings.bonus.mapMultiplier,
+    mapMultiplier,
+    strengthMultiplier: strengthMultiplier.cooking,
   });
 
   const isRequirementSatisfied = Object.values(subtractIngredientCount(requiredIngredients, usages))

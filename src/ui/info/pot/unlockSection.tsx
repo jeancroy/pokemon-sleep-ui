@@ -35,6 +35,7 @@ export const PotRecipeUnlockSection = ({
   calculatedSettings,
 }: Props) => {
   const {mealLevel, capacity, showEnergy} = filter;
+  const {mapMultiplier, strengthMultiplier} = calculatedSettings.bonus;
 
   const t = useTranslations('UI.InPage.Info.Pot');
 
@@ -73,7 +74,8 @@ export const PotRecipeUnlockSection = ({
               showEnergy={showEnergy}
               ingredientMap={ingredientMap}
               recipeLevelData={recipeLevelData}
-              mapMultiplier={calculatedSettings.bonus.mapMultiplier}
+              mapMultiplier={mapMultiplier}
+              strengthMultiplier={strengthMultiplier.cooking}
             />
           ))}
         </Grid> :

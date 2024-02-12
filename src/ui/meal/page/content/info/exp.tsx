@@ -7,24 +7,25 @@ import {InfoSlider} from '@/components/shared/input/infoSlider';
 import {MealCommonProps} from '@/ui/meal/page/type';
 import {formatMealStrengthInfo} from '@/utils/game/meal/format';
 import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
-import {getMealFinalStrength} from '@/utils/game/meal/strength/final';
+import {getMealFinalStrength} from '@/utils/game/meal/strength/final/recipe';
 
 
 export const MealExp = ({recipeLevelData, meal, ingredientMap, translatedSettings}: MealCommonProps) => {
-  const {mapMultiplier} = translatedSettings.calculatedSettings.bonus;
+  const {mapMultiplier, strengthMultiplier} = translatedSettings.calculatedSettings.bonus;
   const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
 
   const t = useTranslations('UI.InPage.Cooking');
   const [level, setLevel] = React.useState(1);
 
-  const info = React.useMemo(() => getMealFinalStrength({
+  const info = getMealFinalStrength({
     filler: [],
     level,
     meal,
     ingredientMap,
     recipeLevelData,
     mapMultiplier,
-  }), [meal, ingredientMap, level, mapMultiplier]);
+    strengthMultiplier: strengthMultiplier.cooking,
+  });
 
   return (
     <InfoSlider

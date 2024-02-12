@@ -3,7 +3,7 @@ import React from 'react';
 import {Grid} from '@/components/layout/grid';
 import {MealMakerRecipeSingle} from '@/ui/cooking/make/recipe/single';
 import {MealMakerCommonProps, MealMakerRecipeData} from '@/ui/cooking/make/type';
-import {getMealFinalStrength} from '@/utils/game/meal/strength/final';
+import {getMealFinalStrength} from '@/utils/game/meal/strength/final/recipe';
 
 
 export const MealMakerRecipe = ({meals, ...props}: MealMakerCommonProps) => {
@@ -14,6 +14,7 @@ export const MealMakerRecipe = ({meals, ...props}: MealMakerCommonProps) => {
     calculatedSettings,
   } = props;
   const {showUnmakeableRecipe} = filter;
+  const {mapMultiplier, strengthMultiplier} = calculatedSettings.bonus;
 
   const data: MealMakerRecipeData[] = React.useMemo(
     () => meals.map((meal) => ({
@@ -24,7 +25,8 @@ export const MealMakerRecipe = ({meals, ...props}: MealMakerCommonProps) => {
         ingredientMap,
         recipeLevelData,
         filler: [],
-        mapMultiplier: calculatedSettings.bonus.mapMultiplier,
+        mapMultiplier,
+        strengthMultiplier: strengthMultiplier.cooking,
       }),
     })),
     [filter, meals, ingredientMap, calculatedSettings],

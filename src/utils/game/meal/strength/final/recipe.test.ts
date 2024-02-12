@@ -3,7 +3,7 @@ import {describe, expect, it} from '@jest/globals';
 import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testMealData} from '@/tests/data/game/meal';
 import {testRecipeLevelData} from '@/tests/data/game/recipeLevel';
-import {getMealFinalStrength} from '@/utils/game/meal/strength/final';
+import {getMealFinalStrength} from '@/utils/game/meal/strength/final/recipe';
 
 
 describe('Meal / Calculate Final Strength', () => {
@@ -16,6 +16,7 @@ describe('Meal / Calculate Final Strength', () => {
         {id: 13, quantity: 6},
       ],
       mapMultiplier: 1.15,
+      strengthMultiplier: 1,
       level: 16,
       meal: testMealData['1003'],
       ingredientMap: testIngredientMap,
@@ -31,13 +32,14 @@ describe('Meal / Calculate Final Strength', () => {
         {id: 6, quantity: 62},
       ],
       mapMultiplier: 1.45,
+      strengthMultiplier: 1.1,
       level: 1,
       meal: testMealData['3006'],
       ingredientMap: testIngredientMap,
       recipeLevelData: testRecipeLevelData,
     });
 
-    expect(strengthFinal).toBe(22698);
+    expect(strengthFinal).toBe(24968);
   });
 
   it('is correct (3)', () => {
@@ -48,13 +50,14 @@ describe('Meal / Calculate Final Strength', () => {
         {id: 12, quantity: 12},
       ],
       mapMultiplier: 1.45,
+      strengthMultiplier: 1.3,
       level: 10,
       meal: testMealData['3006'],
       ingredientMap: testIngredientMap,
       recipeLevelData: testRecipeLevelData,
     });
 
-    expect(strengthFinal).toBe(24188);
+    expect(strengthFinal).toBe(31445);
   });
 
   it('is correct (4)', () => {
@@ -65,13 +68,14 @@ describe('Meal / Calculate Final Strength', () => {
         {id: 12, quantity: 41},
       ],
       mapMultiplier: 1.45,
+      strengthMultiplier: 1.5,
       level: 14,
       meal: testMealData['3006'],
       ingredientMap: testIngredientMap,
       recipeLevelData: testRecipeLevelData,
     });
 
-    expect(strengthFinal).toBe(23852);
+    expect(strengthFinal).toBe(35778);
   });
 
   it('is correct (5)', () => {
@@ -86,12 +90,13 @@ describe('Meal / Calculate Final Strength', () => {
         {id: 15, quantity: 12},
       ],
       mapMultiplier: 1.45,
+      strengthMultiplier: 1.25,
       level: 17,
       meal: testMealData['3006'],
       ingredientMap: testIngredientMap,
       recipeLevelData: testRecipeLevelData,
     });
 
-    expect(strengthFinal).toBe(23975);
+    expect(strengthFinal).toBe(29969);
   });
 });
