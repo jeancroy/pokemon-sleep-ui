@@ -97,7 +97,7 @@ export const PokemonItemStatsFromPokeboxList = ({
           pokemon,
           pokeInBox,
           pokemonRate,
-          identifier: pokeInBox.uuid,
+          uniqueKey: pokeInBox.uuid,
           ingredients,
           dailyTotalEnergy: getTotalEnergyOfPokemonProducingRate(pokemonRate),
         };
