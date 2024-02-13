@@ -11,6 +11,7 @@ import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimi
 import {PokemonTimeToFullPack} from '@/components/shared/pokemon/inventory/fullPack/main';
 import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
 import {PokemonBerryProduction} from '@/components/shared/pokemon/production/berry';
+import {PokemonIngredientProbability} from '@/components/shared/pokemon/production/ingredient/probability';
 import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient/production';
 import {PokemonProbabilityOfNoSkill} from '@/components/shared/pokemon/production/noSkill';
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';
@@ -34,12 +35,14 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
   } = pokemon;
   const {
     fullPackStats,
+    produceSplit,
     skillRatePercent,
     ingredient,
     carryLimitInfo,
   } = rate;
 
   const t = useTranslations('Game');
+  const t2 = useTranslations('UI.InPage.Pokedex.Sort');
 
   const berryData = berryDataMap[berry.id];
   const ingredientRates = Object.values(ingredient);
@@ -72,6 +75,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
       </Flex>
       <HorizontalSplitter/>
       <Flex center className={clsx(specialty === specialtyIdMap.ingredient && 'text-energy')}>
+        <PokemonIngredientProbability alt={t2('IngredientRate')} probabilityRate={produceSplit.ingredient}/>
         {ingredientRates.map((rate) => (
           <PokemonIngredientProduction
             key={rate.id}

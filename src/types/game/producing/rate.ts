@@ -7,7 +7,7 @@ import {SeedUsage} from '@/types/game/pokemon/seed';
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
 import {CarryLimitInfo, FullPackStats} from '@/types/game/producing/carryLimit';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingSleepStateSplit} from '@/types/game/producing/split';
+import {ProduceSplit, ProducingSleepStateSplit} from '@/types/game/producing/split';
 import {ProducingState, ProducingStateOfRate} from '@/types/game/producing/state';
 import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {Indexable} from '@/utils/type';
@@ -65,6 +65,7 @@ export type PokemonProducingRate = {
   period: ProductionPeriod,
   fullPackStats: FullPackStats,
   sleepStateSplit: ProducingSleepStateSplit,
+  produceSplit: ProduceSplit,
   carryLimitInfo: CarryLimitInfo,
   skillRatePercent: number,
   berry: ProducingRateOfStates,

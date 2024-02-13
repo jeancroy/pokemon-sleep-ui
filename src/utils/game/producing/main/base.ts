@@ -120,6 +120,7 @@ export const getPokemonProducingRateBase = ({
     period,
     fullPackStats,
     sleepStateSplit,
+    produceSplit,
     carryLimitInfo,
     skillRatePercent,
     berry: getProducingRateOfStates({
