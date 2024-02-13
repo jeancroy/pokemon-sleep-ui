@@ -11,7 +11,7 @@ export type UserLazyLoadedContent = {
   // Keys has to match `UserDataLoadingOpts['type']`
   teamAnalysis: UserTeamAnalysisContent,
   teamAnalysisMember: TeamMemberData,
-  pokeboxSingle: PokeInBox,
+  pokeboxSingle: PokeInBox | null,
   pokeboxSorted: PokeInBox[],
   pokeboxWithFilter: PokeInBox[],
   sleepdex: SleepdexMap,

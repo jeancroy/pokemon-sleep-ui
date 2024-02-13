@@ -55,7 +55,7 @@ const loadData = async ({userId, options}: GetUserLazyDataOpts) => {
   }
 
   if (type === 'pokeboxSingle') {
-    return (await getSinglePokeInBox(opts.pokeInBoxUuid) ?? undefined) satisfies UserLazyLoadedData['pokeboxSingle'];
+    return await getSinglePokeInBox(opts.pokeInBoxUuid) satisfies UserLazyLoadedData['pokeboxSingle'];
   }
 
   if (type === 'pokeboxSorted') {
