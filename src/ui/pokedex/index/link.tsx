@@ -20,7 +20,7 @@ export const PokedexLink = (props: PokedexLinkProps) => {
   const {state, setState, showPokemon} = usePokemonLinkPopup();
 
   return (
-    <div className="relative">
+    <div className="button-clickable-bg group relative">
       <PokemonLinkPopup state={state} setState={setState}/>
       <Flex noFullWidth className="absolute bottom-1 left-1 z-10 gap-0.5 text-sm">
         <PokedexLinkDetail {...props}/>
@@ -28,13 +28,10 @@ export const PokedexLink = (props: PokedexLinkProps) => {
       <FlexButton
         noFullWidth={false}
         onClick={() => showPokemon(pokemon)}
-        className={clsx(
-          'group h-18 justify-end gap-1.5 rounded-lg',
-          'bg-slate-50 hover:bg-slate-100/50 dark:bg-slate-600/50 hover:dark:bg-slate-600',
-        )}
+        className="h-18 justify-end gap-1.5 rounded-lg"
       >
         <Flex direction="row" noFullWidth className={clsx(
-          'text-shadow-preset absolute left-1 top-1 z-10 items-center gap-0.5 whitespace-nowrap',
+          'absolute left-1 top-1 z-10 items-center gap-0.5 whitespace-nowrap',
         )}>
           <PokemonTypeIcon type={type} dimension="size-5"/>
           <div>
