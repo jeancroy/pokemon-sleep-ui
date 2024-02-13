@@ -244,6 +244,11 @@ overrides:
       - "**/*.config.js"
 
     rules:
+      arrow-body-style:
+        - error
+        - as-needed
+        - requireReturnForObjectLiteral: true
+
       # Config files have no concept of path mapping since it's prior to compile.
       "@typescript-eslint/no-restricted-imports": off
 
