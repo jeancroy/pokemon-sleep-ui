@@ -553,7 +553,7 @@
       "Title": "Comparando...",
       "CrossSpecies": "Entre-Especies (Igual Hab Secundaria/Naturaleza)",
       "IntraSpecies": "Misma-Especie",
-      "IntraSpeciesSameIngredient": "Intra-Species (Same Ingredients)"
+      "IntraSpeciesSameIngredient": "Misma-Especie (Igual Ingredientes)"
     }
   },
   "SleepStyle": {
