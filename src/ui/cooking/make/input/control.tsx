@@ -7,7 +7,7 @@ import {useTranslations} from 'next-intl';
 import {InputRow} from '@/components/input/filter/row';
 import {ToggleButton} from '@/components/input/toggleButton';
 import {Flex} from '@/components/layout/flex/common';
-import {GenericIcon} from '@/components/shared/icon/common/main';
+import {GenericIngredientSlashIcon} from '@/components/shared/icon/ingredientSlash';
 import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {textFilterButtonStyle} from '@/styles/input';
 import {MealMakerCommonProps} from '@/ui/cooking/make/type';
@@ -33,8 +33,7 @@ export const MealMakerInputControl = ({filter, setFilter, preloaded}: MealMakerC
           <div className="size-5">
             {showUnmakeableRecipe ? <EyeIcon/> : <EyeSlashIcon/>}
           </div>
-          <GenericIcon
-            src="/images/generic/ingredientSlash.png"
+          <GenericIngredientSlashIcon
             alt={t('ToggleUnmakeable')}
             dimension="size-5"
             noInvert

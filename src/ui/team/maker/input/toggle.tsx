@@ -11,7 +11,7 @@ import {InputRow} from '@/components/input/filter/row';
 import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {ToggleButton} from '@/components/input/toggleButton';
 import {Flex} from '@/components/layout/flex/common';
-import {GenericIcon} from '@/components/shared/icon/common/main';
+import {GenericIngredientSlashIcon} from '@/components/shared/icon/ingredientSlash';
 import {textFilterButtonStyle} from '@/styles/input';
 import {TeamMakerInputCommonProps} from '@/ui/team/maker/input/type';
 
@@ -68,8 +68,7 @@ export const TeamMakerInputToggles = ({
           <div className="size-5">
             {showInsufficientIngredients ? <EyeIcon/> : <EyeSlashIcon/>}
           </div>
-          <GenericIcon
-            src="/images/generic/ingredientSlash.png"
+          <GenericIngredientSlashIcon
             alt={t('Maker.Behavior.ToggleInsufficientIngredients')}
             dimension="size-5"
             noInvert
