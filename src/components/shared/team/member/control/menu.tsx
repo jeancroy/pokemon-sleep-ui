@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ArrowTopRightOnSquareIcon from '@heroicons/react/24/outline/ArrowTopRightOnSquareIcon';
+import DocumentDuplicateIcon from '@heroicons/react/24/outline/DocumentDuplicateIcon';
 import EllipsisVerticalIcon from '@heroicons/react/24/outline/EllipsisVerticalIcon';
 import PresentationChartLineIcon from '@heroicons/react/24/outline/PresentationChartLineIcon';
 import ShareIcon from '@heroicons/react/24/outline/ShareIcon';
@@ -40,7 +41,7 @@ export const TeamMemberControlMenu = ({
   isPremium,
   ...props
 }: Props) => {
-  const {member} = props;
+  const {member, onDuplicateClick} = props;
 
   const {act, status} = useUserDataActor({statusToast: true});
   const t = useTranslations('UI.InPage.Team.Analysis');
@@ -129,6 +130,12 @@ export const TeamMemberControlMenu = ({
             )}>
               <TeamMemberEditIcon/>
               <span>{t('Control.Edit')}</span>
+            </FlexButton>
+          ),
+          () => (
+            <FlexButton className={teamMemberControlMenuOptionStyle} onClick={onDuplicateClick}>
+              <DocumentDuplicateIcon className={teamMemberControlMenuIconStyle}/>
+              <span>{t('Control.Duplicate')}</span>
             </FlexButton>
           ),
         ],

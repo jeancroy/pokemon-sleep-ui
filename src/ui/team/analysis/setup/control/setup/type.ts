@@ -24,4 +24,5 @@ export type TeamAnalysisSetupControl = {
   setCurrentMember: (opts: TeamAnalysisSetMemberOpts) => void,
   setCurrentMemberReplaceAll: (opts: TeamAnalysisSetMemberReplaceAllOpts) => void,
   setCurrentMemberPartial: (opts: TeamAnalysisSetMemberFromPartialOpts) => void,
+  duplicateMemberToCurrentComp: (sourceSlot: TeamAnalysisSlotName) => void,
 };

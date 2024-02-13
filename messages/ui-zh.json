@@ -388,7 +388,8 @@
           "DetailedStats": "詳細分析資訊",
           "StrengthGrowth": "產量成長曲線",
           "MealCoverage": "食譜覆蓋率",
-          "Edit": "編輯"
+          "Edit": "編輯",
+          "Duplicate": "複製"
         },
         "Message": {
           "ShareableLink": "此連結綁定隊伍及成員位置，而非寶可夢本體。",

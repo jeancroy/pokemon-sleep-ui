@@ -388,7 +388,8 @@
           "DetailedStats": "詳細分析",
           "StrengthGrowth": "エナジー成長グラフ",
           "MealCoverage": "レシピカバー率",
-          "Edit": "編集"
+          "Edit": "編集",
+          "Duplicate": "Duplicate"
         },
         "Message": {
           "ShareableLink": "このチーム編成のこの枠に紐づいています。ポケモンには紐づいていません。",

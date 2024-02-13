@@ -34,6 +34,7 @@ export type TeamMemberProps = TeamMemberDataProps & {
   showPokemon: (pokemon: PokemonInfo) => void,
   setMember: (update: Partial<TeamMemberData> | null) => void,
   getRateByLevel: (level: number) => TeamMemberProduction | null,
+  onDuplicateClick: () => void,
   classOfButton?: string,
 };
 

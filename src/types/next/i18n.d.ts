@@ -279,6 +279,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
             StrengthGrowth: string,
             MealCoverage: string,
             Edit: string,
+            Duplicate: string,
           },
           Message: {
             ShareableLink: string,

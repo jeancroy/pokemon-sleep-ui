@@ -388,7 +388,8 @@
           "DetailedStats": "Detailed Stats",
           "StrengthGrowth": "Strength Growth Curve",
           "MealCoverage": "Meal Coverage",
-          "Edit": "Edit"
+          "Edit": "Edit",
+          "Duplicate": "Duplicate"
         },
         "Message": {
           "ShareableLink": "This link is bound to the team and the slot, not the Pokemon itself.",

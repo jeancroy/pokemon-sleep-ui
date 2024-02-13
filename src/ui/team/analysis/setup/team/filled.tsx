@@ -20,7 +20,7 @@ export const TeamAnalysisFilledSlot = ({collapsible, onMemberClear, ...props}: P
     currentTeam,
     slotName,
   } = props;
-  const {setup, setCurrentMemberPartial} = setupControl;
+  const {setup, setCurrentMemberPartial, duplicateMemberToCurrentComp} = setupControl;
 
   return (
     <TeamMember
@@ -29,6 +29,7 @@ export const TeamAnalysisFilledSlot = ({collapsible, onMemberClear, ...props}: P
       rate={stats}
       stateOfRate={stateOfRateToShow}
       collapsible={collapsible}
+      setMember={(update) => setCurrentMemberPartial({slotName, update})}
       getRateByLevel={(level) => getTeamCompCalcResult({
         period: currentTeam.analysisPeriod,
         state: stateOfRateToShow,
@@ -37,7 +38,7 @@ export const TeamAnalysisFilledSlot = ({collapsible, onMemberClear, ...props}: P
         setup,
         ...props,
       }).bySlot[slotName]}
-      setMember={(update) => setCurrentMemberPartial({slotName, update})}
+      onDuplicateClick={() => duplicateMemberToCurrentComp(slotName)}
       classOfButton="sm:flex-col 3xl:flex-row"
       {...props}
     />

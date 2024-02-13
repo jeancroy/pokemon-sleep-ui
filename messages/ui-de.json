@@ -388,7 +388,8 @@
           "DetailedStats": "Detaillierte Werte",
           "StrengthGrowth": "Stärkewachstums-Graph",
           "MealCoverage": "Gericht-Abdeckung",
-          "Edit": "Bearbeiten"
+          "Edit": "Bearbeiten",
+          "Duplicate": "Duplicate"
         },
         "Message": {
           "ShareableLink": "Dieser Link ist is an das Team und den Teamplatz gebunden, nicht an das Pokemon selbst.",

@@ -115,5 +115,17 @@ export const useTeamAnalysisSetupControl = ({
         },
       }));
     },
+    duplicateMemberToCurrentComp: (sourceSlot) => {
+      const {members} = getCurrentTeam({setup});
+
+      for (const slotName of teamAnalysisSlotName) {
+        if (!!members[slotName]) {
+          continue;
+        }
+
+        setCurrentMember({slotName, member: members[sourceSlot]});
+        return;
+      }
+    },
   };
 };

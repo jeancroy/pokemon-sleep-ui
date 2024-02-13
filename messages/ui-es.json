@@ -388,7 +388,8 @@
           "DetailedStats": "Estadísticas detalladas",
           "StrengthGrowth": "Curva de vigor",
           "MealCoverage": "Cobertura de comidas",
-          "Edit": "Editar"
+          "Edit": "Editar",
+          "Duplicate": "Duplicar"
         },
         "Message": {
           "ShareableLink": "Este enlace está vinculado al equipo y espacio, no al Pokémon en sí mismo.",
