@@ -68,10 +68,10 @@ export const PokedexTierListSingle = ({onPokemonClicked, ...props}: Props) => {
             const key = `${pokemonId}-${ingredientIds.join('-')}`;
 
             return (
-              <AnimatedCollapse key={key} show appear noFullWidth>
+              <AnimatedCollapse key={key} show appear noFullWidth className="button-clickable-bg">
                 <FlexButton
                   direction="col"
-                  className="button-clickable-bg w-28 items-center gap-1 p-2"
+                  className="w-28 items-center gap-1 p-2"
                   onClick={() => onPokemonClicked(pokemon)}
                 >
                   <Flex direction="row" center className="gap-1.5">
