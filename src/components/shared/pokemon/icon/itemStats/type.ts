@@ -32,7 +32,7 @@ export type PokemonBerryStatsCommonProps = PokemonProducingStatsCommonProps & {
 export type PokemonItemStatsCalcResult = {
   pokemon: PokemonInfo,
   pokemonRate: PokemonProducingRate,
-  identifier: string,
+  uniqueKey: string,
   ingredients: IngredientProduction[],
   dailyTotalEnergy: number,
 };

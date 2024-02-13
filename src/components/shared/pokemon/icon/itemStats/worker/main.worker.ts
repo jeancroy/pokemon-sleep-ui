@@ -58,7 +58,7 @@ const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
           return {
             pokemon,
             pokemonRate,
-            identifier: ingredients.map(({id}) => id).join('-'),
+            uniqueKey: `${pokemon.id}|${ingredients.map(({id}) => id).join('-')}`,
             ingredients,
             dailyTotalEnergy: getTotalEnergyOfPokemonProducingRate(pokemonRate),
           };
