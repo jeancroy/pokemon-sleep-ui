@@ -18,7 +18,6 @@
     "packages/**"
   ],
   "scripts": {
-    "postinstall": "yarn config:build",
     "dev": "next dev",
     "dev:debug:server": "node $NODE_ARGS ./node_modules/next/dist/bin/next",
     "dev:debug:delay": "node scripts/client-ready.js",

@@ -56,3 +56,4 @@ certificates
 
 # Next.js Config Overrides
 **/dist/**
+!packages/next-config/dist/**
