@@ -40,9 +40,7 @@ describe('Pokemon Skill Production', () => {
         // Override sleep session info calculated using custom sessions
         {bonus: {stamina: {sleepSessionInfo: calculatedUserSettings.bonus.stamina.sleepSessionInfo}}},
       ),
-      subSkillBonus: {},
       skillRatePercent: 10,
-      natureId: null,
       skillLevel: 2,
       skillData: testMainSkillMap['2'],
     });
@@ -97,9 +95,7 @@ describe('Pokemon Skill Production', () => {
         // Override sleep session info calculated using custom sessions
         {bonus: {stamina: {sleepSessionInfo: calculatedUserSettings.bonus.stamina.sleepSessionInfo}}},
       ),
-      subSkillBonus: {},
       skillRatePercent: 10,
-      natureId: null,
       skillLevel: 2,
       skillData: testMainSkillMap['2'],
     });

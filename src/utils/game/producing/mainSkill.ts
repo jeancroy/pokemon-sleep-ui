@@ -1,9 +1,6 @@
-import {NatureId} from '@/types/game/pokemon/nature';
-import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
 import {ProducingRateCommonParams, ProducingRateOfItemOfSessions} from '@/types/game/producing/rate';
 import {getMainSkillEquivalentStrengthOfSingle} from '@/utils/game/mainSkill/effect/main';
 import {GetMainSkillEquivalentStrengthOpts} from '@/utils/game/mainSkill/effect/type';
-import {getSkillTriggerRate} from '@/utils/game/mainSkill/utils';
 import {applyBonus} from '@/utils/game/producing/apply/bonus';
 import {applyBonusWithMainSkillCapping} from '@/utils/game/producing/apply/bonusWithMainSkillCap';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
@@ -13,25 +10,21 @@ import {getProducingRateBase} from '@/utils/game/producing/rateBase';
 export type GetMainSkillProducingRateOpts =
   Omit<ProducingRateCommonParams, 'level'> &
   GetMainSkillEquivalentStrengthOpts & {
-    subSkillBonus: GroupedSubSkillBonus | null,
-    skillRatePercent: number | null,
-    natureId: NatureId | null,
+    skillRatePercent: number,
   };
 
 export const getMainSkillProducingRate = ({
   pokemon,
   frequency,
   calculatedSettings,
-  subSkillBonus,
   skillRatePercent,
-  natureId,
   ...opts
 }: GetMainSkillProducingRateOpts): ProducingRateOfItemOfSessions => {
   const {bonus} = calculatedSettings;
   const {mapMultiplier, stamina} = bonus;
   const {primary, secondary} = stamina.sleepSessionInfo.session;
 
-  frequency *= (1 / getSkillTriggerRate({skillRatePercent, subSkillBonus, natureId}));
+  frequency *= (1 / (skillRatePercent / 100));
 
   const id = pokemon.skill;
 

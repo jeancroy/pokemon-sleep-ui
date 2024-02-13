@@ -66,6 +66,7 @@ export type PokemonProducingRate = {
   fullPackStats: FullPackStats,
   sleepStateSplit: ProducingSleepStateSplit,
   carryLimitInfo: CarryLimitInfo,
+  skillRatePercent: number,
   berry: ProducingRateOfStates,
   ingredient: {[ingredientId in IngredientId]: ProducingRateOfStates},
   skill: ProducingRateOfStates,

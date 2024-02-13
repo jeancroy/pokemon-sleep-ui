@@ -17,12 +17,12 @@ import {PokemonSkillProduction} from '@/components/shared/pokemon/production/ski
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {toProducingRateOfState} from '@/utils/game/producing/convert';
+import {formatFloat} from '@/utils/number/format/regular';
 
 
 export const TeamMemberDetails = (props: TeamMemberProps) => {
   const {
     pokemon,
-    pokemonProducingParams,
     rate,
     berryDataMap,
     stateOfRate,
@@ -34,6 +34,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
   } = pokemon;
   const {
     fullPackStats,
+    skillRatePercent,
     ingredient,
     carryLimitInfo,
   } = rate;
@@ -49,8 +50,11 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
         'button-clickable-bg group w-full gap-0.5 self-center truncate px-1.5 py-1 text-xs',
         pokemon.specialty === specialtyIdMap.skill && 'text-energy',
       )}>
-        <MainSkillIcon id={skill} dimension="size-4"/>
-        <span className="truncate">{t(`MainSkill.Name.${skill}`)}</span>
+        <Flex direction="row" className="gap-1 truncate">
+          <MainSkillIcon id={skill} dimension="size-4"/>
+          <span className="truncate">{t(`MainSkill.Name.${skill}`)}</span>
+        </Flex>
+        <span>{formatFloat(skillRatePercent)}%</span>
       </FlexLink>
       <HorizontalSplitter/>
       <PokemonFrequencyFromProducingRate pokemonRate={rate}/>
@@ -82,16 +86,8 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
           id={skill}
           rate={toProducingRateOfState({rate: rate.skill, state: stateOfRate})}
         />
-        <PokemonProbabilityOfNoSkill
-          rate={rate}
-          state="sleep1Vacant"
-          skillPercent={pokemonProducingParams.skillPercent}
-        />
-        <PokemonProbabilityOfNoSkill
-          rate={rate}
-          state="sleep2Vacant"
-          skillPercent={pokemonProducingParams.skillPercent}
-        />
+        <PokemonProbabilityOfNoSkill rate={rate} state="sleep1Vacant"/>
+        <PokemonProbabilityOfNoSkill rate={rate} state="sleep2Vacant"/>
       </Flex>
     </Flex>
   );

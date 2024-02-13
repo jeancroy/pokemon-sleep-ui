@@ -7,15 +7,15 @@ import {getFrequencyOfStateFromPokemonRate} from '@/utils/game/producing/frequen
 export type GetProbabilityOfNoSkillOpts = {
   rate: PokemonProducingRate,
   state: ProducingStateWithPack,
-  skillPercent: number | null,
 };
 
 export const getProbabilityOfNoSkill = ({
   rate,
   state,
-  skillPercent,
 }: GetProbabilityOfNoSkillOpts): number | null => {
-  if (!skillPercent) {
+  const {skillRatePercent} = rate;
+
+  if (!skillRatePercent) {
     return null;
   }
 
@@ -26,5 +26,5 @@ export const getProbabilityOfNoSkill = ({
     return null;
   }
 
-  return (1 - skillPercent / 100) ** helpCountDuringState;
+  return (1 - skillRatePercent / 100) ** helpCountDuringState;
 };

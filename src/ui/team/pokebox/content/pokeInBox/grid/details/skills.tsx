@@ -10,10 +10,7 @@ import {toProducingRateOfState} from '@/utils/game/producing/convert';
 
 
 export const PokeInBoxGridSkills = (props: PokeInBoxGridDetailsProps) => {
-  const {
-    pokemon,
-    pokemonProducingParams,
-  } = props;
+  const {pokemon} = props;
   const {skill} = pokemon;
 
   const {loading, rate} = useCalculatePokeInBoxProduction(props);
@@ -31,16 +28,8 @@ export const PokeInBoxGridSkills = (props: PokeInBoxGridDetailsProps) => {
         normalSize
       />
       <Flex className="text-sm">
-        <PokemonProbabilityOfNoSkill
-          rate={rate}
-          state="sleep1Vacant"
-          skillPercent={pokemonProducingParams.skillPercent}
-        />
-        <PokemonProbabilityOfNoSkill
-          rate={rate}
-          state="sleep2Vacant"
-          skillPercent={pokemonProducingParams.skillPercent}
-        />
+        <PokemonProbabilityOfNoSkill rate={rate} state="sleep1Vacant"/>
+        <PokemonProbabilityOfNoSkill rate={rate} state="sleep2Vacant"/>
       </Flex>
     </Flex>
   );

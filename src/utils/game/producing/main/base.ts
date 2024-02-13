@@ -8,6 +8,7 @@ import {
   ProducingRateSingleParams,
 } from '@/types/game/producing/rate';
 import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
+import {getSkillTriggerRatePercent} from '@/utils/game/mainSkill/utils';
 import {getBerryProducingRate, GetBerryProducingRateOpts} from '@/utils/game/producing/berry';
 import {getBaseFrequencyFromPokemon} from '@/utils/game/producing/frequency';
 import {getIngredientProducingRates, GetIngredientProducingRatesOpts} from '@/utils/game/producing/ingredient/multi';
@@ -43,6 +44,7 @@ export const getPokemonProducingRateBase = ({
     pokemon,
     calculatedSettings,
     pokemonProducingParams,
+    natureId,
   } = opts;
   const {
     behavior,
@@ -98,6 +100,11 @@ export const getPokemonProducingRateBase = ({
     fullPackStats,
   });
   // `skill` depends on `fullPackStats.secondsToFull`
+  const skillRatePercent = getSkillTriggerRatePercent({
+    baseSkillRatePercent: behavior.includeMainSkill ? pokemonProducingParams.skillPercent : 0,
+    subSkillBonus,
+    natureId,
+  });
   const skill = getMainSkillProducingRate({
     frequency,
     skillLevel: getMainSkillLevel({
@@ -105,7 +112,7 @@ export const getPokemonProducingRateBase = ({
       evolutionCount,
       subSkillBonus,
     }),
-    skillRatePercent: behavior.includeMainSkill ? pokemonProducingParams.skillPercent : 0,
+    skillRatePercent,
     ...opts,
   });
 
@@ -114,6 +121,7 @@ export const getPokemonProducingRateBase = ({
     fullPackStats,
     sleepStateSplit,
     carryLimitInfo,
+    skillRatePercent,
     berry: getProducingRateOfStates({
       period,
       rate: berry,

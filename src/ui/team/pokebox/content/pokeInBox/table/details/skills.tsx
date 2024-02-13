@@ -20,7 +20,6 @@ export const PokeInBoxTableSkills = ({
   pokemon,
   subSkillMap,
   rateOfPokemon,
-  pokemonProducingParams,
 }: PokeInBoxTableDetailsProps) => {
   const {
     skill,
@@ -58,20 +57,10 @@ export const PokeInBoxTableSkills = ({
         />
       </Flex>
       <Flex center noFullWidth className="w-32">
-        <PokemonProbabilityOfNoSkill
-          rate={rateOfPokemon}
-          state="sleep1Vacant"
-          skillPercent={pokemonProducingParams.skillPercent}
-          normalSize
-        />
+        <PokemonProbabilityOfNoSkill rate={rateOfPokemon} state="sleep1Vacant" normalSize/>
       </Flex>
       <Flex center noFullWidth className="w-32">
-        <PokemonProbabilityOfNoSkill
-          rate={rateOfPokemon}
-          state="sleep2Vacant"
-          skillPercent={pokemonProducingParams.skillPercent}
-          normalSize
-        />
+        <PokemonProbabilityOfNoSkill rate={rateOfPokemon} state="sleep2Vacant" normalSize/>
       </Flex>
     </>
   );
