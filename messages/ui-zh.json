@@ -42,6 +42,7 @@
     },
     "MealCoverageCombo": {
       "IngredientCoverage": "食材覆蓋率",
+      "IngredientExclusion": "不顯示含有下列食材的食譜",
       "CoveredStrength": "等效能量"
     }
   },

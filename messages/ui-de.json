@@ -42,6 +42,7 @@
     },
     "MealCoverageCombo": {
       "IngredientCoverage": "Zutaten Abdeckung",
+      "IngredientExclusion": "Zutaten Ausschluss",
       "CoveredStrength": "Abgedeckte Stärke"
     }
   },

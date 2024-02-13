@@ -5,6 +5,7 @@ import {toSum} from '@/utils/array';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {getMealIngredientCount} from '@/utils/game/meal/count';
 import {generateTargetMeals} from '@/utils/game/meal/generate';
+import {isNotNullish} from '@/utils/type';
 
 
 export const getMealCoverageComboData = ({
@@ -13,14 +14,23 @@ export const getMealCoverageComboData = ({
   period,
   filter,
 }: GetMealCoverageComboDataOpts): MealCoverageComboData[] => {
-  const {mealType, sort, resultCount} = filter;
+  const {
+    mealType,
+    ingredientExclusion,
+    sort,
+    resultCount,
+  } = filter;
   const sortBasisGetter = mealCoverageComboSortBasisGetter[sort];
 
   return [...generateTargetMeals({
     mealType,
     mealMap,
   })]
-    .map((meals): MealCoverageComboData => {
+    .map((meals): MealCoverageComboData | null => {
+      if (meals.some(({ingredients}) => ingredients.some(({id}) => !!ingredientExclusion[id]))) {
+        return null;
+      }
+
       const byMeal = Object.fromEntries(meals.map((meal) => [
         meal.id,
         getMealIngredientCount(meal),
@@ -41,6 +51,7 @@ export const getMealCoverageComboData = ({
         coveredStrength: toSum(meals.map(({baseStrength}) => baseStrength)) * coverage.total,
       };
     })
+    .filter(isNotNullish)
     .sort((a, b) => {
       const diff = sortBasisGetter(b) - sortBasisGetter(a);
 

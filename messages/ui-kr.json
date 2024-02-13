@@ -42,6 +42,7 @@
     },
     "MealCoverageCombo": {
       "IngredientCoverage": "Ingredient Coverage",
+      "IngredientExclusion": "Ingredient Exclusion",
       "CoveredStrength": "Covered Strength"
     }
   },

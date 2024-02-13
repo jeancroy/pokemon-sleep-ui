@@ -1,5 +1,6 @@
+import {FilterInclusionMap} from '@/components/input/filter/type';
 import {MealCoverage} from '@/types/game/cooking';
-import {IngredientCounter} from '@/types/game/ingredient';
+import {IngredientCounter, IngredientId} from '@/types/game/ingredient';
 import {Meal, MealId, MealMap, MealTypeId} from '@/types/game/meal/main';
 import {ProductionPeriod} from '@/types/game/producing/display';
 
@@ -19,6 +20,7 @@ export type MealCoverageComboCommonProps = {
 
 export type MealCoverageComboInput = {
   mealType: MealTypeId,
+  ingredientExclusion: FilterInclusionMap<IngredientId>,
   sort: MealCoverageComboSort,
   resultCount: number,
 };

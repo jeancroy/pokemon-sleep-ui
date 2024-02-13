@@ -42,6 +42,7 @@
     },
     "MealCoverageCombo": {
       "IngredientCoverage": "食材カバー率",
+      "IngredientExclusion": "Ingredient Exclusion",
       "CoveredStrength": "エナジーカバー量"
     }
   },

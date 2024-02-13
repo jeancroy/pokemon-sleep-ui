@@ -7,8 +7,10 @@ import {useTranslations} from 'next-intl';
 
 import {useFilterPremiumRestrictable} from '@/components/input/filter/common/premium/hook';
 import {FilterTextInput} from '@/components/input/filter/preset/text';
-import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
+import {getMultiSelectOnClickProps, getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {Flex} from '@/components/layout/flex/common';
+import {GenericIngredientSlashIcon} from '@/components/shared/icon/ingredientSlash';
+import {IngredientSelectionInput} from '@/components/shared/input/ingredient/selection';
 import {MealTypeInput} from '@/components/shared/input/mealType';
 import {useMealCoverageComboData} from '@/components/shared/meal/coverage/combo/calc/hook';
 import {mealCoverageComboSortI18nId} from '@/components/shared/meal/coverage/combo/const';
@@ -20,6 +22,7 @@ import {
 } from '@/components/shared/meal/coverage/combo/type';
 import {PremiumIcon} from '@/components/static/premium/icon';
 import {usePossibleMealTypes} from '@/hooks/meal';
+import {toUnique} from '@/utils/array';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -30,6 +33,7 @@ export const MealCoverageCombo = (props: MealCoverageComboCommonProps) => {
   const mealTypes = usePossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
   const [filter, setFilter] = React.useState<MealCoverageComboInput>({
     mealType: mealTypes[0],
+    ingredientExclusion: {},
     sort: 'ingredientCoverage',
     resultCount: 15,
   });
@@ -38,6 +42,13 @@ export const MealCoverageCombo = (props: MealCoverageComboCommonProps) => {
     premiumOnly: true,
     session,
   });
+  const ingredientIds = React.useMemo(
+    () => toUnique(Object.values(mealMap)
+      .filter(isNotNullish)
+      .flatMap(({ingredients}) => ingredients.map(({id}) => id))
+      .sort((a, b) => a - b)),
+    [mealMap],
+  );
 
   const data = useMealCoverageComboData({
     filter,
@@ -57,6 +68,17 @@ export const MealCoverageCombo = (props: MealCoverageComboCommonProps) => {
           setFilter,
           filterKey: 'mealType',
           allowNull: false,
+        })}
+      />
+      <IngredientSelectionInput
+        title={
+          <GenericIngredientSlashIcon alt={t('IngredientExclusion')}/>
+        }
+        ingredientIds={ingredientIds}
+        {...getMultiSelectOnClickProps({
+          filter,
+          filterKey: 'ingredientExclusion',
+          setFilter,
         })}
       />
       <FilterTextInput
