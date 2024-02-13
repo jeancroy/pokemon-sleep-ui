@@ -9,15 +9,16 @@ import {IngredientId} from '@/types/game/ingredient';
 
 type Props = FilterInputOnClickProps<IngredientId> & {
   ingredientIds: IngredientId[],
+  title?: React.ReactNode,
 };
 
-export const IngredientSelectionInput = ({ingredientIds, ...props}: Props) => {
+export const IngredientSelectionInput = ({ingredientIds, title, ...props}: Props) => {
   const t = useTranslations('Game');
   const t2 = useTranslations('UI.InPage.Cooking');
 
   return (
     <FilterIconInput
-      title={t2('Ingredient.Name')}
+      title={title ?? t2('Ingredient.Name')}
       ids={ingredientIds}
       idToAlt={(id) => t(`Food.${id.toString()}`)}
       idToImageSrc={(id) => `/images/ingredient/${id}.png`}
