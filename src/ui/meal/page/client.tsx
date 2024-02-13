@@ -26,6 +26,7 @@ export const MealClient = (props: MealServerDataProps) => {
   });
 
   const commonProps: MealCommonProps = {
+    isPremium,
     translatedSettings,
     ...props,
   };
@@ -34,7 +35,7 @@ export const MealClient = (props: MealServerDataProps) => {
     <Flex center className="gap-1.5">
       <MealInfo {...commonProps}/>
       <AdsUnit hideIfNotBlocked/>
-      <MealPageContent isPremium={isPremium} {...commonProps}/>
+      <MealPageContent {...commonProps}/>
     </Flex>
   );
 };

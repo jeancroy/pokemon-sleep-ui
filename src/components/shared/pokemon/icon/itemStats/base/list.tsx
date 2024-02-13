@@ -30,7 +30,7 @@ export const PokemonItemStatsList = <TResult extends PokemonItemStatsCalcResult>
     <Grid className="grid-cols-2 gap-1.5 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
       {toSortedCalcResult({producingStats, getItemRate}).map((result) => (
         <AnimatedCollapse
-          key={`${result.pokemon.id}-${result.identifier}`}
+          key={result.uniqueKey}
           show={isProductionIncluded ? isProductionIncluded(result.ingredients) : true}
           appear
           className={className}

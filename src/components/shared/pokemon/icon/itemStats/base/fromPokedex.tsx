@@ -71,7 +71,7 @@ export const PokemonItemStatsFromPokedex = (props: Props) => {
                   rate={itemRate}
                   display={control.display}
                   getIcon={(dimension) => getIcon(pokemon, dimension)}
-                  infoAtTotal={<PokemonIngredientIcons key="ingredients" ingredients={[ingredients]} noLink/>}
+                  infoAtTotal={<PokemonIngredientIcons ingredients={[ingredients]} noLink/>}
                   dailyTotalEnergy={dailyTotalEnergy}
                 />
               </Flex>

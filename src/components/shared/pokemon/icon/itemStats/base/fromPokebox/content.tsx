@@ -18,7 +18,7 @@ export const PokemonItemStatsFromPokeboxContent = ({session, ...props}: Props) =
   if (!session.data?.user.activation?.premium) {
     return (
       <Flex center className="info-highlight p-3">
-        <PremiumOnlyNotice className="[&_a]:text-link"/>
+        <PremiumOnlyNotice style="normal"/>
       </Flex>
     );
   }

@@ -144,7 +144,7 @@ export const PokemonItemStatsFromPokeboxList = ({
                   {name ?? pokemonDefaultName}
                 </div>
               </Flex>
-              <PokemonIngredientIcons key="ingredients" ingredients={[ingredients]} noLink/>
+              <PokemonIngredientIcons ingredients={[ingredients]} noLink/>
               <PokemonProducingRateSingleAtItem
                 rate={itemRate}
                 getIcon={(dimension) => getIcon(pokemon, dimension)}

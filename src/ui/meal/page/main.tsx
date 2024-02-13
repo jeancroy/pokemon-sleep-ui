@@ -84,6 +84,7 @@ export const MealPage = async ({params}: Props) => {
       <I18nProvider locale={locale} namespaces={[
         'Game',
         'UI.Common',
+        'UI.Component.MealCoverageCombo',
         'UI.Metadata',
         'UI.InPage.Cooking',
         'UI.InPage.Pokedex',
