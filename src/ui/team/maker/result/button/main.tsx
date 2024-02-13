@@ -2,7 +2,7 @@ import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient';
+import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient/production';
 import {TeamMakerResultButtonFinalEstimate} from '@/ui/team/maker/result/button/finalEstimate';
 import {TeamMakerIngredientSatisfactionIndicator} from '@/ui/team/maker/result/button/satisfyIngredients';
 import {TeamMakerResultSummary} from '@/ui/team/maker/result/button/summary';

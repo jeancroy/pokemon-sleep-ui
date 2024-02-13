@@ -11,7 +11,7 @@ import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimi
 import {PokemonTimeToFullPack} from '@/components/shared/pokemon/inventory/fullPack/main';
 import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
 import {PokemonBerryProduction} from '@/components/shared/pokemon/production/berry';
-import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient';
+import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient/production';
 import {PokemonProbabilityOfNoSkill} from '@/components/shared/pokemon/production/noSkill';
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
