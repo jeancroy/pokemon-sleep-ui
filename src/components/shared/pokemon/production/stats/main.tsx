@@ -71,7 +71,7 @@ export const PokemonDetailedProducingStats = (props: PokemonDetailedProducingSta
           <PokemonDetailedProducingStatsOfState
             {...props}
             key={breakPoint}
-            state="awake"
+            state="equivalent"
             title={
               <Flex direction="row" center className="gap-1.5 p-1">
                 <div>{t(pokemonProducingStatsStateI18nId.awake)}</div>

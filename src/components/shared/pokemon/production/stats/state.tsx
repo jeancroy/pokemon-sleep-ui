@@ -28,7 +28,7 @@ type Props = PokemonDetailedProducingStatsProps & {
   state: ProducingStateOfRate,
   targetMultiplier?: never,
 } | {
-  state: 'awake',
+  state: 'equivalent',
   targetMultiplier: number,
 });
 
@@ -45,7 +45,7 @@ export const PokemonDetailedProducingStatsOfState = ({
       rate,
       target: [...applyMultiplierTargets],
       multiplier: {
-        original: (calculatedSettings.bonus.stamina.multiplier.awake ?? NaN),
+        original: (calculatedSettings.bonus.stamina.multiplier.average ?? NaN),
         target: targetMultiplier,
       },
     });
