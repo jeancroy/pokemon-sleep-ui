@@ -474,7 +474,7 @@
         "Table": {
           "Level": "레벨",
           "Bonus": "보너스",
-          "ToNext": "다음으로",
+          "ToNext": "각 레벨업 필요량",
           "TotalRequired": "총 요구 사항",
           "Accumulated": "누적 수량",
           "Strength": "음식의 최종 에너지"
@@ -632,7 +632,7 @@
         },
         "Type": {
           "Berry": "나무열매",
-          "Cooking": "요라",
+          "Cooking": "요리",
           "Skill": "메인 스킬"
         }
       }
