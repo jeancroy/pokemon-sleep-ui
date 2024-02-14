@@ -9,7 +9,9 @@ import {pokemonKeyLevels} from '@/types/game/pokemon/level';
 import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/setup/common/type';
 
 
-export const TeamAnalysisQuickAction = ({setupControl}: TeamAnalysisSetupUpdateCommonProps) => {
+export const TeamAnalysisQuickActionGlobalLevel = ({
+  setupControl,
+}: TeamAnalysisSetupUpdateCommonProps) => {
   const {setCurrentMemberReplaceAll} = setupControl;
 
   return (
