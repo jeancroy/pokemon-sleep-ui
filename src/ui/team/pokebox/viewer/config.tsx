@@ -150,7 +150,7 @@ export const PokeboxViewerConfig = ({session, ...props}: PokeboxViewerInputCommo
             }}
             className={clsx('group gap-1', textFilterButtonStyle)}
           >
-            {!isPremium && <PremiumIcon/>}
+            <PremiumIcon isPremium={isPremium}/>
             {t2('FinalEvolution')}
           </ToggleButton>
         </InputRow>

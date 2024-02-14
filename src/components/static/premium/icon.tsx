@@ -7,9 +7,14 @@ import {Dimension} from '@/types/style';
 
 
 type Props = {
+  isPremium?: boolean,
   dimension?: Dimension,
 };
 
-export const PremiumIcon = ({dimension}: Props) => {
+export const PremiumIcon = ({isPremium, dimension}: Props) => {
+  if (isPremium) {
+    return null;
+  }
+
   return <LockClosedIcon className={clsx('shrink-0', dimension ?? 'size-5')}/>;
 };

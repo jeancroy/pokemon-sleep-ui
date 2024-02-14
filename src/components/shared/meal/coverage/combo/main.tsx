@@ -84,7 +84,7 @@ export const MealCoverageCombo = (props: MealCoverageComboCommonProps) => {
       <FilterTextInput
         title={
           <Flex direction="row" noFullWidth center className="gap-1.5">
-            {!isPremium && <PremiumIcon/>}
+            <PremiumIcon isPremium={isPremium}/>
             <Bars3BottomLeftIcon className="size-6"/>
           </Flex>
         }

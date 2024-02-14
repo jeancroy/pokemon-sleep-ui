@@ -49,7 +49,7 @@ export const RatingResultInput = ({session, config, setConfig}: Props) => {
       <FilterTextInput
         title={
           <Flex direction="row" noFullWidth center className="gap-1.5">
-            {!isPremium && <PremiumIcon/>}
+            <PremiumIcon isPremium={isPremium}/>
             <span>{t('Category.Title')}</span>
           </Flex>
         }

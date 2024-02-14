@@ -81,7 +81,7 @@ export const TeamMemberControlMenu = ({
               'pokeboxLink',
             )}>
               <LinkIcon className={teamMemberControlMenuIconStyle}/>
-              {!isPremium && <PremiumIcon/>}
+              <PremiumIcon isPremium={isPremium}/>
               <span>{t('Control.PokeboxLinking')}</span>
             </FlexButton>
           ),
@@ -109,7 +109,7 @@ export const TeamMemberControlMenu = ({
               'detailedStats',
             )}>
               <TeamMemberDetailedStatsIcon/>
-              {!isPremium && <PremiumIcon/>}
+              <PremiumIcon isPremium={isPremium}/>
               <span>{t('Control.DetailedStats')}</span>
             </FlexButton>
           ),
@@ -118,7 +118,7 @@ export const TeamMemberControlMenu = ({
               'growthChart',
             )}>
               <PresentationChartLineIcon className={teamMemberControlMenuIconStyle}/>
-              {!isPremium && <PremiumIcon/>}
+              <PremiumIcon isPremium={isPremium}/>
               <span>{t('Control.StrengthGrowth')}</span>
             </FlexButton>
           ),
@@ -128,7 +128,7 @@ export const TeamMemberControlMenu = ({
               onClick={() => onPopupButtonClick('mealCoverage')}
             >
               <MealCoverageIcon alt={t('Control.MealCoverage')} className={teamMemberControlMenuIconStyle}/>
-              {!isPremium && <PremiumIcon/>}
+              <PremiumIcon isPremium={isPremium}/>
               <span>{t('Control.MealCoverage')}</span>
             </FlexButton>
           ),

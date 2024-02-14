@@ -17,7 +17,7 @@ export const SleepdexLookupSortTypeUI = ({isPremium, sort}: Props) => {
 
   return (
     <Flex direction="row" center noFullWidth className="gap-1">
-      {!isPremium && sort === 'minSnorlaxRank' && <PremiumIcon/>}
+      {sort === 'minSnorlaxRank' && <PremiumIcon isPremium={isPremium}/>}
       <SleepdexLookupSortTypeIcon sort={sort}/>
       <div>{text}</div>
     </Flex>

@@ -67,7 +67,7 @@ export const TeamAnalysisQuickActionSyncAllPokemon = ({
       className={teamAnalysisSetupActionButtonStyle}
     >
       <ArrowPathIcon className="size-5"/>
-      {!isPremium && <PremiumIcon/>}
+      <PremiumIcon isPremium={isPremium}/>
       <span>{isSyncing ? t('Sync.Syncing') : t('Sync.Name')}</span>
     </FlexButton>
   );
