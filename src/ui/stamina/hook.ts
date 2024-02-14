@@ -40,7 +40,7 @@ export const useStaminaAnalysis = ({
           ...config,
           recoveryRate: toRecoveryRate({
             natureId: nature,
-            subSkillBonus,
+            subSkillBonuses: [subSkillBonus],
           }),
         },
         nature,
@@ -59,7 +59,7 @@ export const useStaminaAnalysis = ({
           ...config,
           recoveryRate: toRecoveryRate({
             natureId: original.nature,
-            subSkillBonus,
+            subSkillBonuses: [subSkillBonus],
           }),
         },
         subSkill,

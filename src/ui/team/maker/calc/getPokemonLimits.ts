@@ -69,9 +69,10 @@ export const getTeamMakerPokemonLimits = ({
       level,
       subSkillMap,
     });
+    const {natureId, subSkillBonus} = singleParams;
     const calculatedSettings = toCalculatedUserSettings({
       settings,
-      recoveryRate: toRecoveryRate(singleParams),
+      recoveryRate: toRecoveryRate({natureId, subSkillBonuses: [subSkillBonus]}),
       cookingRecoveryData,
       eventStrengthMultiplierData,
       snorlaxFavorite,

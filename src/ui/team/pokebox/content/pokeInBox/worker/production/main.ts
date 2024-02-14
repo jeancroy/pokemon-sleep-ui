@@ -34,6 +34,7 @@ export const getRateOfPokemon = ({
     subSkillMap,
     ...pokeInBox,
   });
+  const {natureId, subSkillBonus} = singleParams;
 
   return getPokemonProducingRateSingle({
     ...props,
@@ -42,7 +43,10 @@ export const getRateOfPokemon = ({
     ...toTranslatedSettings({
       ...bundle,
       mealMap,
-      recoveryRate: toRecoveryRate(singleParams),
+      recoveryRate: toRecoveryRate({
+        natureId,
+        subSkillBonuses: [subSkillBonus],
+      }),
       cookingRecoveryData,
       eventStrengthMultiplierData,
       snorlaxFavorite,

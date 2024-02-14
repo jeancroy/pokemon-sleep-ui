@@ -61,9 +61,13 @@ export const getTeamProducingStatsSlot = ({
     nature,
     subSkillMap,
   });
+  const {natureId, subSkillBonus} = singleParams;
   const calculatedSettings = toCalculatedUserSettings({
     ...bundle,
-    recoveryRate: toRecoveryRate(singleParams),
+    recoveryRate: toRecoveryRate({
+      natureId,
+      subSkillBonuses: [subSkillBonus],
+    }),
     behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
     cookingRecoveryData,
     eventStrengthMultiplierData,

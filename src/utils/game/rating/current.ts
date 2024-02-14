@@ -14,6 +14,7 @@ export const getRatingValueOfCurrent = (opts: GetRatingValueOfSimulationOpts) =>
   } = opts;
 
   const singleParams = getProducingRateSingleParams(opts);
+  const {natureId, subSkillBonus} = singleParams;
 
   return getRatingBasisValue({
     ...opts,
@@ -23,7 +24,10 @@ export const getRatingValueOfCurrent = (opts: GetRatingValueOfSimulationOpts) =>
       ...toTranslatedSettings({
         ...opts,
         ...bundle,
-        recoveryRate: toRecoveryRate(singleParams),
+        recoveryRate: toRecoveryRate({
+          natureId,
+          subSkillBonuses: [subSkillBonus],
+        }),
       }),
       calcBehavior: getRatingProducingRateCalcBehavior(basis),
     }).atStage.final,

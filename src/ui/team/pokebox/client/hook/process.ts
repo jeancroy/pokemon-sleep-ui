@@ -58,6 +58,7 @@ export const useProcessedPokebox = ({
         ...pokeInBox,
         subSkillMap,
       });
+      const {natureId, subSkillBonus} = singleParams;
 
       return {
         pokemon,
@@ -71,7 +72,10 @@ export const useProcessedPokebox = ({
         ingredients: getEffectiveIngredientProductions({level, ingredients: pokeInBox.ingredients}),
         calculatedSettings: toCalculatedUserSettings({
           ...bundle,
-          recoveryRate: toRecoveryRate(singleParams),
+          recoveryRate: toRecoveryRate({
+            natureId,
+            subSkillBonuses: [subSkillBonus],
+          }),
           cookingRecoveryData,
           eventStrengthMultiplierData,
           snorlaxFavorite: filter.snorlaxFavorite,

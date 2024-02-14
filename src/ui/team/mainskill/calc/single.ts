@@ -6,7 +6,6 @@ import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredie
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/game/producing/params';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
-import {getSubSkillBonus} from '@/utils/game/subSkill/effect';
 import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
 import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';
 
@@ -52,13 +51,13 @@ export const getSkillTriggerValueOfUnit = ({
     pokemonId,
     pokemonProducingParamsMap,
   });
-  const subSkillBonus = getSubSkillBonus({level, pokemonSubSkill: subSkill, subSkillMap});
   const singleParams = getProducingRateSingleParams({
     level,
     subSkill,
     nature,
     subSkillMap,
   });
+  const {natureId, subSkillBonus} = singleParams;
 
   const snorlaxFavorite = bundle.settings.snorlaxFavorite;
   const rate = getPokemonProducingRateSingle({
@@ -67,7 +66,7 @@ export const getSkillTriggerValueOfUnit = ({
     ...singleParams,
     calculatedSettings: toCalculatedUserSettings({
       ...bundle,
-      recoveryRate: toRecoveryRate(singleParams),
+      recoveryRate: toRecoveryRate({natureId, subSkillBonuses: [subSkillBonus]}),
       cookingRecoveryData,
       eventStrengthMultiplierData,
       snorlaxFavorite,

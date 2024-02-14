@@ -30,6 +30,7 @@ export const getRatingValueOfPossibility = ({combination, ...opts}: GetRatingVal
     nature,
     subSkillMap,
   });
+  const {natureId, subSkillBonus} = singleParams;
 
   return getRatingBasisValue({
     ...opts,
@@ -40,7 +41,10 @@ export const getRatingValueOfPossibility = ({combination, ...opts}: GetRatingVal
       ...toTranslatedSettings({
         ...opts,
         ...bundle,
-        recoveryRate: toRecoveryRate(singleParams),
+        recoveryRate: toRecoveryRate({
+          natureId,
+          subSkillBonuses: [subSkillBonus],
+        }),
       }),
       calcBehavior: getRatingProducingRateCalcBehavior(basis),
     }).atStage.final,

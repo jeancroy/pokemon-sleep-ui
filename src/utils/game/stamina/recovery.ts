@@ -4,16 +4,27 @@ import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {toSum} from '@/utils/array';
 import {getNatureMultiplier} from '@/utils/game/nature';
 import {getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
+import {Nullable} from '@/utils/type';
 
 
 type ToRecoveryRateOpts = {
-  subSkillBonus: GroupedSubSkillBonus | null,
   natureId: NatureId | null,
+  subSkillBonuses: Nullable<GroupedSubSkillBonus>[],
 };
 
-export const toRecoveryRate = ({subSkillBonus, natureId}: ToRecoveryRateOpts): StaminaRecoveryRateConfig => {
+export const toRecoveryRate = ({
+  natureId,
+  subSkillBonuses,
+}: ToRecoveryRateOpts): StaminaRecoveryRateConfig => {
+  const subSkillStaminaEffectValues = toSum(
+    subSkillBonuses
+      .flatMap((bonus) => getSubSkillBonusValue(bonus, 'stamina'))
+      // Subskill bonus value is 1-base, for example, 1.14
+      .map((bonus) => bonus - 1),
+  );
+
   return {
     general: getNatureMultiplier({id: natureId, effect: 'energy'}),
-    sleep: toSum(getSubSkillBonusValue(subSkillBonus, 'stamina')) || 1,
+    sleep: 1 + subSkillStaminaEffectValues,
   };
 };
