@@ -381,6 +381,10 @@
     "Team": {
       "Analysis": {
         "Period": "Período de Análisis",
+        "Sync": {
+          "Name": "Sync All Pokemon",
+          "Syncing": "Syncing..."
+        },
         "Control": {
           "ExportToPokebox": "Exportar a Pokebox",
           "PokeboxLinking": "Pokebox Linking",

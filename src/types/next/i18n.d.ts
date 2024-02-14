@@ -271,6 +271,10 @@ declare interface IntlMessages extends UiMessages, GameMessages {
       Team: {
         Analysis: {
           Period: string,
+          Sync: {
+            Name: string,
+            Syncing: string,
+          },
           Control: {
             ExportToPokebox: string,
             PokeboxLinking: string,

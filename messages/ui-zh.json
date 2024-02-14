@@ -381,6 +381,10 @@
     "Team": {
       "Analysis": {
         "Period": "分析週期",
+        "Sync": {
+          "Name": "同步所有寶可夢",
+          "Syncing": "同步中..."
+        },
         "Control": {
           "ExportToPokebox": "輸出至寶可夢盒",
           "PokeboxLinking": "同步寶可夢",

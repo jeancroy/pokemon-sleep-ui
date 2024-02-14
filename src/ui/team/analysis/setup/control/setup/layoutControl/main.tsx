@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl';
 
 import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
-import {teamAnalysisCollapsibleControlStyle} from '@/ui/team/analysis/setup/control/setup/layoutControl/const';
+import {teamAnalysisSetupActionButtonStyle} from '@/ui/team/analysis/setup/control/setup/const';
 import {TeamAnalysisLayoutControl} from '@/ui/team/analysis/setup/control/setup/layoutControl/type';
 
 
@@ -21,11 +21,11 @@ export const TeamAnalysisLayoutControlUI = ({layoutControl}: Props) => {
 
   return (
     <Flex direction="row" noFullWidth wrap className="gap-1">
-      <FlexButton className={teamAnalysisCollapsibleControlStyle} onClick={() => setAllCollapsible(true)}>
+      <FlexButton className={teamAnalysisSetupActionButtonStyle} onClick={() => setAllCollapsible(true)}>
         <ArrowsPointingOutIcon className="size-5"/>
         <span>{t('ExpandAll')}</span>
       </FlexButton>
-      <FlexButton className={teamAnalysisCollapsibleControlStyle} onClick={() => setAllCollapsible(false)}>
+      <FlexButton className={teamAnalysisSetupActionButtonStyle} onClick={() => setAllCollapsible(false)}>
         <ArrowsPointingInIcon className="size-5"/>
         <span>{t('CollapseAll')}</span>
       </FlexButton>

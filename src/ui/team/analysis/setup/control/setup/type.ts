@@ -2,11 +2,16 @@ import React from 'react';
 
 import {TeamMemberData} from '@/types/game/team';
 import {TeamAnalysisSetup, TeamAnalysisSlotName} from '@/types/teamAnalysis';
+import {Pokebox} from '@/types/userData/pokebox/main';
 
 
 export type TeamAnalysisSetMemberOpts = {
   slotName: TeamAnalysisSlotName,
   member: TeamMemberData | null,
+};
+
+export type TeamAnalysisUpdateMemberBatchedOpts = {
+  getUpdatedMember: (member: TeamMemberData) => TeamMemberData,
 };
 
 export type TeamAnalysisSetMemberReplaceAllOpts = {
@@ -25,4 +30,5 @@ export type TeamAnalysisSetupControl = {
   setCurrentMemberReplaceAll: (opts: TeamAnalysisSetMemberReplaceAllOpts) => void,
   setCurrentMemberPartial: (opts: TeamAnalysisSetMemberFromPartialOpts) => void,
   duplicateMemberToCurrentComp: (sourceSlot: TeamAnalysisSlotName) => void,
+  updatePokemonFromPokebox: (pokebox: Pokebox) => void,
 };

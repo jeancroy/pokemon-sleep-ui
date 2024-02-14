@@ -6,10 +6,16 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {imageIconSizes} from '@/styles/image';
-import {TeamMemberData} from '@/types/game/team';
 import {TeamAnalysisCompMembers, TeamAnalysisSetup, teamAnalysisSlotName} from '@/types/teamAnalysis';
-import {TeamAnalysisSetMemberOpts, TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control/setup/type';
+import {
+  TeamAnalysisSetMemberOpts,
+  TeamAnalysisSetupControl,
+  TeamAnalysisUpdateMemberBatchedOpts,
+} from '@/ui/team/analysis/setup/control/setup/type';
 import {getCurrentTeam} from '@/ui/team/analysis/utils';
+import {migrate} from '@/utils/migrate/main';
+import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
+import {toTeamMember} from '@/utils/team/toMember';
 import {showToast} from '@/utils/toast';
 
 
@@ -60,36 +66,39 @@ export const useTeamAnalysisSetupControl = ({
     )});
   };
 
+  const updateTeamMemberBatched = ({
+    getUpdatedMember,
+  }: TeamAnalysisUpdateMemberBatchedOpts) => setSetup(({
+    comps,
+    config,
+    ...original
+  }) => ({
+    ...original,
+    config,
+    comps: {
+      ...comps,
+      [config.current]: {
+        ...comps[config.current],
+        members: Object.fromEntries(teamAnalysisSlotName.map((slotName) => {
+          const member = comps[config.current].members[slotName];
+
+          if (!member) {
+            return [slotName, null];
+          }
+
+          return [slotName, getUpdatedMember(member)];
+        })) as TeamAnalysisCompMembers,
+      },
+    },
+  }));
+
   return {
     setup,
     setSetup,
     setCurrentMember,
-    setCurrentMemberReplaceAll: ({update}) => setSetup(({
-      comps,
-      config,
-      ...original
-    }) => ({
-      ...original,
-      config,
-      comps: {
-        ...comps,
-        [config.current]: {
-          ...comps[config.current],
-          members: Object.fromEntries(teamAnalysisSlotName.map((slotName) => {
-            const member = comps[config.current].members[slotName];
-
-            if (!member) {
-              return [slotName, null];
-            }
-
-            return [
-              slotName,
-              {...member, ...update} satisfies TeamMemberData,
-            ];
-          })) as TeamAnalysisCompMembers,
-        },
-      },
-    })),
+    setCurrentMemberReplaceAll: ({update}) => updateTeamMemberBatched({
+      getUpdatedMember: (member) => ({...member, ...update}),
+    }),
     setCurrentMemberPartial: ({slotName, update}) => {
       if (!update) {
         setCurrentMember({slotName, member: null});
@@ -127,5 +136,25 @@ export const useTeamAnalysisSetupControl = ({
         return;
       }
     },
+    updatePokemonFromPokebox: (pokebox) => updateTeamMemberBatched({
+      getUpdatedMember: (member) => {
+        const {linkedPokeInBoxUuid} = member;
+        if (!linkedPokeInBoxUuid) {
+          return member;
+        }
+
+        const pokeInBox = pokebox[linkedPokeInBoxUuid];
+        if (!pokeInBox) {
+          return member;
+        }
+
+        return toTeamMember(migrate({
+          original: pokeInBox,
+          override: null,
+          migrators: pokeInBoxMigrators,
+          migrateParams: {},
+        }));
+      },
+    }),
   };
 };

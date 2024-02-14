@@ -18,12 +18,13 @@ export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
     <UserDataLazyLoad
       options={{type: 'teamAnalysis'}}
       loadingText="Team"
-      content={({data, session}) => (
+      content={({data, session, actorReturn}) => (
         <TeamAnalysisLoadedClient
           data={data?.teamAnalysis}
           pokemonList={pokemonList}
           maxEvolutionCount={maxEvolutionCount}
           bundleFromClient={session.data?.user.preloaded}
+          actorReturn={actorReturn}
           {...props}
         />
       )}

@@ -1,17 +1,14 @@
 import React from 'react';
 
-import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {getInitialTeamAnalysisSetup} from '@/ui/team/analysis/client/utils';
 import {useTeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control/setup/hook';
 import {TeamAnalysisSetupView} from '@/ui/team/analysis/setup/main';
+import {TeamAnalysisSetupViewCommonProps} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {getCurrentTeam} from '@/ui/team/analysis/utils';
-import {DeepPartial} from '@/utils/type';
 
 
-type Props = TeamAnalysisDataProps & {
-  bundleFromClient: DeepPartial<UserSettingsBundle> | undefined,
-};
+type Props = TeamAnalysisDataProps & TeamAnalysisSetupViewCommonProps;
 
 export const TeamAnalysisLoadedClient = (props: Props) => {
   const {data} = props;

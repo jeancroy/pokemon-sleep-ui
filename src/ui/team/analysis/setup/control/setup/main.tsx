@@ -8,6 +8,7 @@ import {TeamAnalysisSetupInputCommonProps} from '@/ui/team/analysis/setup/contro
 import {TeamAnalysisLayoutControlUI} from '@/ui/team/analysis/setup/control/setup/layoutControl/main';
 import {TeamAnalysisLayoutControl} from '@/ui/team/analysis/setup/control/setup/layoutControl/type';
 import {TeamAnalysisQuickActionGlobalLevel} from '@/ui/team/analysis/setup/control/setup/quickAction/globalLevel';
+import {TeamAnalysisQuickActionSyncAllPokemon} from '@/ui/team/analysis/setup/control/setup/quickAction/syncAll';
 
 
 type Props = TeamAnalysisSetupInputCommonProps & {
@@ -23,6 +24,7 @@ export const TeamAnalysisSetupControlUI = ({layoutControl, ...props}: Props) => 
       <TeamAnalysisSetupInput {...props}/>
       <TeamAnalysisQuickActionGlobalLevel {...props}/>
       <InputRow className="justify-end gap-1">
+        <TeamAnalysisQuickActionSyncAllPokemon {...props}/>
         <TeamAnalysisLayoutControlUI layoutControl={layoutControl}/>
         <UserDataUploadButton
           opts={{

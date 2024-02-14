@@ -16,7 +16,6 @@ import {TeamContributionSplitIndicator} from '@/components/shared/team/contribut
 import {useUserSettingsBundle} from '@/hooks/userData/bundle';
 import {useCookingUserSettings} from '@/hooks/userData/cookingSettings';
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook';
 import {TeamAnalysisCompControl} from '@/ui/team/analysis/setup/control/comp/main';
 import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/setup/common/type';
@@ -24,13 +23,12 @@ import {useTeamAnalysisLayoutControl} from '@/ui/team/analysis/setup/control/set
 import {TeamAnalysisSetupControlUI} from '@/ui/team/analysis/setup/control/setup/main';
 import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';
 import {TeamAnalysisTeamView} from '@/ui/team/analysis/setup/team/main';
+import {TeamAnalysisSetupViewCommonProps} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
-import {DeepPartial, isNotNullish} from '@/utils/type';
+import {isNotNullish} from '@/utils/type';
 
 
-type Props = TeamAnalysisDataProps & TeamAnalysisSetupUpdateCommonProps & {
-  bundleFromClient: DeepPartial<UserSettingsBundle> | undefined,
-};
+type Props = TeamAnalysisDataProps & TeamAnalysisSetupUpdateCommonProps & TeamAnalysisSetupViewCommonProps;
 
 export const TeamAnalysisSetupView = (props: Props) => {
   const {
