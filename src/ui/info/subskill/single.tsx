@@ -25,7 +25,7 @@ export const SubSkillInfoSingle = ({data}: Props) => {
 
   return (
     <Flex center className={clsx(
-      'gap-1 rounded-lg p-2',
+      'justify-between gap-1 rounded-lg p-2',
       rarity ? subSkillRaritySectionBg[rarity] : subSkillRarityDisabled,
     )}>
       <Flex direction="row" center className="gap-1 text-lg">
