@@ -24,6 +24,7 @@ import {
 } from '@/utils/game/producing/rateReducer';
 import {formatFloat} from '@/utils/number/format/regular';
 import {generateNumberTicks} from '@/utils/number/generator';
+import {toTeamMember} from '@/utils/team/toMember';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -143,8 +144,11 @@ export const TeamMemberPopupContent = ({
     return (
       <Flex className="sm:w-[60vw] md:w-[50vw] lg:w-[30rem]">
         <PokeboxLinker
-          onLinked={(linkedPokeInBoxUuid) => {
-            setMember({linkedPokeInBoxUuid});
+          onLinked={(pokeInBox) => {
+            if (pokeInBox) {
+              setMember(toTeamMember(pokeInBox));
+            }
+
             hide();
           }}
           {...props}

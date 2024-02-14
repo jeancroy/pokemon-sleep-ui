@@ -13,10 +13,13 @@ import {PokeboxImporter} from '@/components/shared/pokebox/importer/main';
 import {PokeboxLinkerCurrentPokemon} from '@/components/shared/pokebox/linker/current/main';
 import {usePokeboxLinker} from '@/components/shared/pokebox/linker/hook';
 import {PokeboxLinkerDataProps, PokeboxLinkerState} from '@/components/shared/pokebox/linker/type';
+import {PokeInBox} from '@/types/userData/pokebox/main';
+import {migrate} from '@/utils/migrate/main';
+import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 
 
 type Props = PokeboxLinkerDataProps & {
-  onLinked: (uuid: string | null) => void,
+  onLinked: (pokeInBox: PokeInBox | null) => void,
 };
 
 export const PokeboxLinker = ({onLinked, ...props}: Props) => {
@@ -41,7 +44,16 @@ export const PokeboxLinker = ({onLinked, ...props}: Props) => {
         } satisfies PokeboxLinkerState))}
         {...props}
       />
-      <FlexForm direction="row" className="items-center gap-1" onSubmit={() => onLinked(effectivePokeInBoxUuid)}>
+      <FlexForm direction="row" className="items-center gap-1" onSubmit={() => onLinked(
+        pokeInBoxPreview ?
+          migrate({
+            original: pokeInBoxPreview,
+            override: null,
+            migrators: pokeInBoxMigrators,
+            migrateParams: {},
+          }) :
+          null,
+      )}>
         <InputBox
           type="text"
           value={pokeInBoxUuid}
