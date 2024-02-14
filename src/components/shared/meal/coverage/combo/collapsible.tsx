@@ -17,7 +17,7 @@ type Props = MealCoverageComboCommonProps & {
 export const MealCoverageComboCollapsible = ({collapsible, children, disabled, ...props}: Props) => {
   return (
     <Collapsible control={collapsible} button={children} disabled={disabled} classNameForHeight={clsx(
-      'h-[70vh] lg:h-[50vh]',
+      'h-[80vh] lg:h-[60vh]',
     )}>
       <MealCoverageCombo {...props}/>
     </Collapsible>
