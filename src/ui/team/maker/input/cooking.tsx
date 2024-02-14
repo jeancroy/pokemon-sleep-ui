@@ -1,7 +1,9 @@
 import React from 'react';
 
+import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {IngredientInventoryInput} from '@/components/shared/input/ingredient/inventory';
 import {MealTypeInput} from '@/components/shared/input/mealType';
+import {PotCapacityInput} from '@/components/shared/input/potCapacity';
 import {MealPlanner} from '@/components/shared/meal/planner/main';
 import {usePossibleMealTypes} from '@/hooks/meal';
 import {TeamMakerInputCommonProps} from '@/ui/team/maker/input/type';
@@ -31,6 +33,14 @@ export const TeamMakerInputCooking = ({
         mealTypes={mealTypes}
         isActive={(mealType) => mealType === input.mealType}
         onClick={(mealType) => setInput((original) => ({...original, mealType}))}
+      />
+      <PotCapacityInput
+        {...getSingleSelectOnClickProps({
+          filter: input,
+          setFilter: setInput,
+          filterKey: 'potCapacity',
+          allowNull: false,
+        })}
       />
       <MealPlanner
         target={target}

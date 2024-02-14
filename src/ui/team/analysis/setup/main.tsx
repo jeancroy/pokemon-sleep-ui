@@ -103,6 +103,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
           Object.entries(statsOfTeam.grouped.ingredient)
             .map(([id, rate]) => [id, rate?.quantity ?? 0]),
         )}
+        actualPotCapacity={cookingSettings.actualPotCapacity}
         period={currentTeam.analysisPeriod}
       >
         <MealCoverageDetails coverage={statsOfTeam.mealCoverage} className="p-2"/>

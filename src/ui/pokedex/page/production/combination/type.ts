@@ -1,8 +1,7 @@
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {PokemonProducingRate} from '@/types/game/producing/rate';
-import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
-import {PokemonDataProps} from '@/ui/pokedex/page/type';
+import {PokemonDataCommonProps} from '@/ui/pokedex/page/type';
 
 
 export type PokemonProductionCombinationRateCollectionItem = {
@@ -15,7 +14,6 @@ export type PokemonProductionCombinationRateCollection = {
   [key in string]?: PokemonProductionCombinationRateCollectionItem
 };
 
-export type PokemonProductionCombinationCommonProps = PokemonDataProps & {
+export type PokemonProductionCombinationCommonProps = PokemonDataCommonProps & {
   input: PokemonIndividualParams,
-  translatedSettings: TranslatedUserSettings,
 };

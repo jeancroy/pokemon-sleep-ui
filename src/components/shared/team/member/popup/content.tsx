@@ -33,6 +33,7 @@ export const TeamMemberPopupContent = ({
   ...props
 }: TeamMemberPopupCommonProps) => {
   const {
+    cookingSettings,
     setMember,
     mealMap,
     config,
@@ -134,6 +135,7 @@ export const TeamMemberPopupContent = ({
             Object.entries(rate.ingredient)
               .map(([id, rate]) => [id, rate?.quantity[stateOfRate] ?? 0]),
           )}
+          actualPotCapacity={cookingSettings.actualPotCapacity}
           period={config.analysisPeriod}
         />
       </Flex>

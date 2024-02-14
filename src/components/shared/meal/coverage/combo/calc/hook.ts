@@ -8,6 +8,7 @@ import {useWorker} from '@/hooks/worker/main';
 export const useMealCoverageComboData = ({
   mealMap,
   ingredientProduction,
+  actualPotCapacity,
   period,
   filter,
 }: GetMealCoverageComboDataOpts): MealCoverageComboData[] | null => {
@@ -28,10 +29,11 @@ export const useMealCoverageComboData = ({
     work({
       mealMap,
       ingredientProduction,
+      actualPotCapacity,
       period,
       filter,
     });
-  }, [ingredientProduction, filter]);
+  }, [ingredientProduction, actualPotCapacity, filter]);
 
   return result;
 };

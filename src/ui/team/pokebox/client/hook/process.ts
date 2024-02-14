@@ -14,7 +14,7 @@ import {
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {isNotNullish} from '@/utils/type';
 import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
-import {toCookingUserSettings} from '@/utils/user/settings/cooking';
+import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';
 
 
 type UseProcessedPokeboxOpts = PokeboxCommonProps & {

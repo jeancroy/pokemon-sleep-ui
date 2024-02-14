@@ -25,6 +25,7 @@ describe('Ingredient Production / Multiplier', () => {
           1007: 15,
           3006: 20,
         },
+        actualPotCapacity: 40,
       },
     });
 
@@ -54,6 +55,7 @@ describe('Ingredient Production / Multiplier', () => {
           1007: 15,
           3006: 20,
         },
+        actualPotCapacity: 40,
       },
     });
 
@@ -83,6 +85,7 @@ describe('Ingredient Production / Multiplier', () => {
           1007: 15,
           3006: 20,
         },
+        actualPotCapacity: 40,
       },
     });
 

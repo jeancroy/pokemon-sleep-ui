@@ -1,6 +1,7 @@
 import {describe, expect, it} from '@jest/globals';
 
 import {defaultCookingPreset} from '@/const/user/cooking';
+import {defaultUserSettings} from '@/const/user/settings';
 import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testMealData} from '@/tests/data/game/meal';
 import {testRecipeLevelData} from '@/tests/data/game/recipeLevel';
@@ -8,7 +9,7 @@ import {UserCookingTargetOfType} from '@/types/userData/cooking';
 import {getMealIngredientInfo} from '@/utils/game/meal/ingredient';
 import {getIngredientBonusOfMeals} from '@/utils/game/producing/ingredient/bonus';
 import {isNotNullish} from '@/utils/type';
-import {toCookingUserSettings} from '@/utils/user/settings/cooking';
+import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';
 
 
 describe('Ingredient Production / Bonus of Meals', () => {
@@ -29,6 +30,7 @@ describe('Ingredient Production / Bonus of Meals', () => {
       }),
       cookingSettings: {
         ...toCookingUserSettings({
+          settings: {...defaultUserSettings},
           cooking: {
             ...defaultCookingPreset,
             mealType: 1,

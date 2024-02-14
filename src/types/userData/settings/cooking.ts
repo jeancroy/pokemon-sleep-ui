@@ -11,5 +11,6 @@ export type CookingUserSettingsRequiredData = {
 export type CookingUserSettings = {
   recipeLevel: RecipeLevel,
   targetMeals: Meal[],
+  actualPotCapacity: number,
   overrideRecipeLevel?: number,
 };

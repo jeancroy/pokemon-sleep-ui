@@ -22,8 +22,9 @@ type Props = PokemonProductionCombinationCommonProps & {
 };
 
 export const PokemonProductionCombination = ({chain, ...props}: Props) => {
-  const {input, mealMap} = props;
+  const {input, translatedSettings, mealMap} = props;
   const {level} = input;
+  const {actualPotCapacity} = translatedSettings.cookingSettings;
 
   const [rateKey, setRateKey] = React.useState<string | null>(null);
   const collapsible = useCollapsibleControl();
@@ -70,6 +71,7 @@ export const PokemonProductionCombination = ({chain, ...props}: Props) => {
               .map(({id, quantity}) => [id, quantity.equivalent]) :
             [],
         ) as IngredientCounter}
+        actualPotCapacity={actualPotCapacity}
         period={pokemonInfoProductionRatePeriod}
         disabled={!rateKey}
       >

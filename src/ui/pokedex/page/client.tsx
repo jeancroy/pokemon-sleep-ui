@@ -23,7 +23,7 @@ export const PokemonClient = (props: PokemonDataProps) => {
 
   const pokemonLinkPopup = usePokemonLinkPopup();
   const {data} = useSession();
-  const {translatedSettings} = useTranslatedUserSettings({
+  const {translatedSettings, bundle} = useTranslatedUserSettings({
     bundle: {
       server: preloaded,
       client: data?.user.preloaded,
@@ -32,8 +32,9 @@ export const PokemonClient = (props: PokemonDataProps) => {
   });
 
   const commonProps: PokemonDataCommonProps = {
-    ...props,
     translatedSettings,
+    bundle,
+    ...props,
   };
 
   return (

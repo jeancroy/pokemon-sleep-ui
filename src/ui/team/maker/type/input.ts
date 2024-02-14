@@ -20,7 +20,10 @@ export const teamMakerSource = [
 
 export type TeamMakerSource = typeof teamMakerSource[number];
 
-export type TeamMakerInput = Pick<UserCookingPreset, 'mealType' | 'target' | 'recipeLevel' | 'ingredientCount'> & {
+export type TeamMakerInput = Pick<
+  UserCookingPreset,
+  'mealType' | 'target' | 'recipeLevel' | 'ingredientCount' | 'potCapacity'
+> & {
   source: TeamMakerSource,
   snorlaxFavorite: SnorlaxFavorite,
   pokemon: PokemonInputFilter,

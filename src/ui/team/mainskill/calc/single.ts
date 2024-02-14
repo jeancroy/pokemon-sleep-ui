@@ -8,7 +8,7 @@ import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/g
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {getSubSkillBonus} from '@/utils/game/subSkill/effect';
 import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
-import {toCookingUserSettings} from '@/utils/user/settings/cooking';
+import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';
 
 
 type GetSkillTriggerValueOfUnitOpts = GetSkillTriggerValueCommonOpts & {

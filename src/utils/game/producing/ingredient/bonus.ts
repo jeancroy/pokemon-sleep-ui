@@ -5,7 +5,7 @@ import {CookingUserSettings} from '@/types/userData/settings/cooking';
 import {toSum} from '@/utils/array';
 import {getMealBaseStrength} from '@/utils/game/meal/strength/base';
 import {isNotNullish} from '@/utils/type';
-import {getRecipeLevelFromCookingSettings} from '@/utils/user/settings/cooking';
+import {getRecipeLevelFromCookingSettings} from '@/utils/user/settings/cooking/recipeLevel';
 
 
 type GetIngredientBonusOfMealsOpts = {

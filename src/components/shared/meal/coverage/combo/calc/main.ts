@@ -11,6 +11,7 @@ import {isNotNullish} from '@/utils/type';
 export const getMealCoverageComboData = ({
   mealMap,
   ingredientProduction,
+  actualPotCapacity,
   period,
   filter,
 }: GetMealCoverageComboDataOpts): MealCoverageComboData[] => {
@@ -25,6 +26,7 @@ export const getMealCoverageComboData = ({
   return [...generateTargetMeals({
     mealType,
     mealMap,
+    maxIngredientCount: actualPotCapacity,
   })]
     .map((meals): MealCoverageComboData | null => {
       if (meals.some(({ingredients}) => ingredients.some(({id}) => !!ingredientExclusion[id]))) {

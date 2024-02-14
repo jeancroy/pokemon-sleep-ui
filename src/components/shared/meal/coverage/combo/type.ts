@@ -15,6 +15,7 @@ export type MealCoverageComboSort = typeof mealCoverageComboSort[number];
 export type MealCoverageComboCommonProps = {
   mealMap: MealMap,
   ingredientProduction: IngredientCounter,
+  actualPotCapacity: number,
   period: ProductionPeriod,
 };
 

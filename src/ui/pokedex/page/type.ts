@@ -34,4 +34,5 @@ export type PokemonDataProps = UserSettingsRequiredData & {
 
 export type PokemonDataCommonProps = PokemonDataProps & {
   translatedSettings: TranslatedUserSettings,
+  bundle: UserSettingsBundle,
 };

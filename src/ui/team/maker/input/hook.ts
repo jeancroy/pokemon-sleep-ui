@@ -24,6 +24,7 @@ export const useTeamMakerInput = ({preloaded}: UseTeamMakerInputOpts) => {
     mealType: preloaded.cooking.mealType,
     recipeLevel: preloaded.cooking.recipeLevel,
     ingredientCount: preloaded.cooking.ingredientCount,
+    potCapacity: preloaded.cooking.potCapacity,
     memberCount: 5,
     basis: 'strength',
     previewLevel: null,
