@@ -42,7 +42,7 @@
     },
     "MealCoverageCombo": {
       "IngredientCoverage": "食材カバー率",
-      "IngredientExclusion": "Ingredient Exclusion",
+      "IngredientExclusion": "禁止食材",
       "CoveredStrength": "エナジーカバー量"
     }
   },
@@ -382,19 +382,19 @@
       "Analysis": {
         "Period": "分析周期",
         "Sync": {
-          "Name": "Sync All Pokemon",
-          "Syncing": "Syncing..."
+          "Name": "ポケモンをすべて同期",
+          "Syncing": "同期中…"
         },
         "Control": {
           "ExportToPokebox": "ボックスにエクスポート",
-          "PokeboxLinking": "Pokebox Linking",
+          "PokeboxLinking": "ポケモンボックス連携",
           "ShareableLink": "シェアURL",
           "Rating": "個体評価",
           "DetailedStats": "詳細分析",
           "StrengthGrowth": "エナジー成長グラフ",
           "MealCoverage": "レシピカバー率",
           "Edit": "編集",
-          "Duplicate": "Duplicate"
+          "Duplicate": "複製"
         },
         "Message": {
           "ShareableLink": "このチーム編成のこの枠に紐づいています。ポケモンには紐づいていません。",
