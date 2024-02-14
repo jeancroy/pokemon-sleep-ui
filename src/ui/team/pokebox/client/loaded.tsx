@@ -16,6 +16,7 @@ import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerInput} from '@/ui/team/pokebox/viewer/main';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getSortedSubSkills} from '@/utils/game/subSkill/sort';
+import {toPokebox} from '@/utils/team/pokebox/toPokebox';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -33,9 +34,7 @@ export const PokeboxLoadedClient = (props: Props) => {
   const [loading, setLoading] = React.useState(false);
   // Keeping a local copy of the pokebox so no need to lazy load the whole box on every change
   // Not doing so could potentially create large unnecessary I/Os for large Pokebox
-  const [pokebox, setPokebox] = React.useState<Pokebox>(
-    Object.fromEntries(pokeInBoxList.map((pokeInBox) => [pokeInBox.uuid, pokeInBox])),
-  );
+  const [pokebox, setPokebox] = React.useState<Pokebox>(toPokebox(pokeInBoxList));
   const [editingPokeInBox, setEditingPokeInBox] = React.useState<PokeInBoxEditorState>();
 
   const {
