@@ -11,24 +11,24 @@ import {Flex} from '@/components/layout/flex/common';
 import {FlexForm} from '@/components/layout/flex/form';
 import {PokeboxImporter} from '@/components/shared/pokebox/importer/main';
 import {PokeboxLinkerCurrentPokemon} from '@/components/shared/pokebox/linker/current/main';
-import {usePokeboxLinker} from '@/components/shared/pokebox/linker/hook';
+import {usePokeboxLinker, UsePokeboxLinkerOpts} from '@/components/shared/pokebox/linker/hook';
 import {PokeboxLinkerDataProps, PokeboxLinkerState} from '@/components/shared/pokebox/linker/type';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 
 
-type Props = PokeboxLinkerDataProps & {
+type Props = PokeboxLinkerDataProps & UsePokeboxLinkerOpts & {
   onLinked: (pokeInBox: PokeInBox | null) => void,
 };
 
-export const PokeboxLinker = ({onLinked, ...props}: Props) => {
+export const PokeboxLinker = ({initialPokeInBoxUuid, onLinked, ...props}: Props) => {
   const t = useTranslations('UI.Common');
   const {
     state,
     setState,
     onPokeInBoxSelected,
-  } = usePokeboxLinker();
+  } = usePokeboxLinker({initialPokeInBoxUuid});
 
   const {pokeInBoxUuid, pokeInBoxPreview, showImporter} = state;
   const effectivePokeInBoxUuid = pokeInBoxPreview ? pokeInBoxUuid : null;

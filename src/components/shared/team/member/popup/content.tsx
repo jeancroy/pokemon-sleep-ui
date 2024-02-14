@@ -33,10 +33,11 @@ export const TeamMemberPopupContent = ({
   ...props
 }: TeamMemberPopupCommonProps) => {
   const {
-    cookingSettings,
+    member,
     setMember,
     mealMap,
     config,
+    cookingSettings,
     memberIdForShare,
     pokemonMaxLevel,
     pokemon,
@@ -44,6 +45,7 @@ export const TeamMemberPopupContent = ({
     stateOfRate,
     getRateByLevel,
   } = props;
+  const {linkedPokeInBoxUuid} = member;
   const {control, hide} = state;
   const {type} = control;
 
@@ -146,6 +148,7 @@ export const TeamMemberPopupContent = ({
     return (
       <Flex className="sm:w-[60vw] md:w-[50vw] lg:w-[30rem]">
         <PokeboxLinker
+          initialPokeInBoxUuid={linkedPokeInBoxUuid}
           onLinked={(pokeInBox) => {
             if (pokeInBox) {
               setMember(toTeamMember(pokeInBox));

@@ -5,10 +5,14 @@ import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 
 
-export const usePokeboxLinker = (): PokeboxLinkerControl => {
+export type UsePokeboxLinkerOpts = {
+  initialPokeInBoxUuid: string | null,
+};
+
+export const usePokeboxLinker = ({initialPokeInBoxUuid}: UsePokeboxLinkerOpts): PokeboxLinkerControl => {
   // `pokeInBoxPreview`
   const [state, setState] = React.useState<PokeboxLinkerState>({
-    pokeInBoxUuid: '',
+    pokeInBoxUuid: initialPokeInBoxUuid ?? '',
     pokeInBoxPreview: null,
     showImporter: false,
   });
