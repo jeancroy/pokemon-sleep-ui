@@ -3,7 +3,7 @@ import {v4} from 'uuid';
 import {TeamAnalysisComp} from '@/types/teamAnalysis';
 import {getDefaultTeamName} from '@/ui/team/analysis/utils';
 import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';
-import {toTeamAnalysisMemberNullable} from '@/utils/team/toMember';
+import {toTeamMemberNullable} from '@/utils/team/toMember';
 import {ToTeamAnalysisCompFromPokeboxCommonOpts, ToTeamAnalysisMemberNullableData} from '@/utils/team/type';
 
 
@@ -26,11 +26,11 @@ export const toTeamAnalysisCompFromPokebox = ({
     snorlaxFavorite,
     analysisPeriod: 'daily',
     members: {
-      A: toTeamAnalysisMemberNullable({pokeInBox: members.at(0), ...opts}) ?? null,
-      B: toTeamAnalysisMemberNullable({pokeInBox: members.at(1), ...opts}) ?? null,
-      C: toTeamAnalysisMemberNullable({pokeInBox: members.at(2), ...opts}) ?? null,
-      D: toTeamAnalysisMemberNullable({pokeInBox: members.at(3), ...opts}) ?? null,
-      E: toTeamAnalysisMemberNullable({pokeInBox: members.at(4), ...opts}) ?? null,
+      A: toTeamMemberNullable({pokeInBox: members.at(0), ...opts}) ?? null,
+      B: toTeamMemberNullable({pokeInBox: members.at(1), ...opts}) ?? null,
+      C: toTeamMemberNullable({pokeInBox: members.at(2), ...opts}) ?? null,
+      D: toTeamMemberNullable({pokeInBox: members.at(3), ...opts}) ?? null,
+      E: toTeamMemberNullable({pokeInBox: members.at(4), ...opts}) ?? null,
     },
   };
 };

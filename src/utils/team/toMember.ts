@@ -7,7 +7,8 @@ import {ToTeamAnalysisMemberNullableData} from '@/utils/team/type';
 import {Nullable} from '@/utils/type';
 
 
-export const toTeamAnalysisMember = ({
+export const toTeamMember = ({
+  uuid,
   name,
   level,
   pokemon,
@@ -26,6 +27,7 @@ export const toTeamAnalysisMember = ({
     ingredients,
     evolutionCount,
     seeds,
+    linkedPokeInBoxUuid: uuid,
   };
 };
 
@@ -33,7 +35,7 @@ type ToTeamAnalysisMemberNullableOpts = ToTeamAnalysisMemberNullableData & {
   pokeInBox: Nullable<PokeInBox>,
 };
 
-export const toTeamAnalysisMemberNullable = ({
+export const toTeamMemberNullable = ({
   pokedexMap,
   ingredientChainMap,
   pokeInBox,
@@ -55,5 +57,5 @@ export const toTeamAnalysisMemberNullable = ({
     migrateParams: {},
   });
 
-  return toTeamAnalysisMember(migratedPokeInBox);
+  return toTeamMember(migratedPokeInBox);
 };

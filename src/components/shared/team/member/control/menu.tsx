@@ -24,10 +24,10 @@ import {TeamMemberRatingIcon} from '@/components/shared/team/member/control/icon
 import {teamMemberSendRatingRequest} from '@/components/shared/team/member/control/utils';
 import {TeamMemberPopupType} from '@/components/shared/team/member/popup/type';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
-import {toPokeInBox} from '@/components/shared/team/member/utils';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {PremiumIcon} from '@/components/static/premium/icon';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
+import {toPokeInBox} from '@/utils/team/pokebox/toPokeInBox';
 
 
 type Props = TeamMemberProps & {
