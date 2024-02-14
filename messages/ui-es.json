@@ -383,6 +383,7 @@
         "Period": "Período de Análisis",
         "Control": {
           "ExportToPokebox": "Exportar a Pokebox",
+          "PokeboxLinking": "Pokebox Linking",
           "ShareableLink": "Compartir",
           "Rating": "Clasificación",
           "DetailedStats": "Estadísticas detalladas",

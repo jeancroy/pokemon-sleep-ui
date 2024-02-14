@@ -7,4 +7,5 @@ export const teamMemberPopupPremiumRequired: {[type in TeamMemberPopupType]: boo
   growthChart: true,
   mealCoverage: true,
   sharableLink: false,
+  pokeboxLink: true,
 };

@@ -3,6 +3,7 @@ import React from 'react';
 import ArrowTopRightOnSquareIcon from '@heroicons/react/24/outline/ArrowTopRightOnSquareIcon';
 import DocumentDuplicateIcon from '@heroicons/react/24/outline/DocumentDuplicateIcon';
 import EllipsisVerticalIcon from '@heroicons/react/24/outline/EllipsisVerticalIcon';
+import LinkIcon from '@heroicons/react/24/outline/LinkIcon';
 import PresentationChartLineIcon from '@heroicons/react/24/outline/PresentationChartLineIcon';
 import ShareIcon from '@heroicons/react/24/outline/ShareIcon';
 import {clsx} from 'clsx';
@@ -73,6 +74,15 @@ export const TeamMemberControlMenu = ({
                 <UserActionStatusIcon status={status} onWaitingOverride={<ArrowTopRightOnSquareIcon/>}/>
               </div>
               <span>{t('Control.ExportToPokebox')}</span>
+            </FlexButton>
+          ),
+          () => (
+            <FlexButton disabled={!act} className={teamMemberControlMenuOptionStyle} onClick={() => onPopupButtonClick(
+              'pokeboxLink',
+            )}>
+              <LinkIcon className={teamMemberControlMenuIconStyle}/>
+              {!isPremium && <PremiumIcon/>}
+              <span>{t('Control.PokeboxLinking')}</span>
             </FlexButton>
           ),
           () => (

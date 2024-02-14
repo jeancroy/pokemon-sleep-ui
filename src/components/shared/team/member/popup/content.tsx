@@ -8,6 +8,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {StrengthGrowthChart} from '@/components/shared/chart/strength/main';
 import {StrengthGrowthDataEntry} from '@/components/shared/chart/strength/type';
 import {MealCoverageCombo} from '@/components/shared/meal/coverage/combo/main';
+import {PokeboxLinker} from '@/components/shared/pokebox/linker/main';
 import {PokemonDetailedProducingStats} from '@/components/shared/pokemon/production/stats/main';
 import {PokemonSpecialtyIcon} from '@/components/shared/pokemon/specialty/icon';
 import {TeamMemberConfig} from '@/components/shared/team/member/popup/config';
@@ -132,6 +133,14 @@ export const TeamMemberPopupContent = ({
           )}
           period={config.analysisPeriod}
         />
+      </Flex>
+    );
+  }
+
+  if (type === 'pokeboxLink') {
+    return (
+      <Flex className="sm:w-[60vw] md:w-[50vw] lg:w-[30rem]">
+        <PokeboxLinker onLinked={() => void 0} {...props}/>
       </Flex>
     );
   }

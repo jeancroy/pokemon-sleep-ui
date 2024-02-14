@@ -273,6 +273,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
           Period: string,
           Control: {
             ExportToPokebox: string,
+            PokeboxLinking: string,
             ShareableLink: string,
             Rating: string,
             DetailedStats: string,

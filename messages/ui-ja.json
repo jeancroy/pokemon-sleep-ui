@@ -383,6 +383,7 @@
         "Period": "分析周期",
         "Control": {
           "ExportToPokebox": "ボックスにエクスポート",
+          "PokeboxLinking": "Pokebox Linking",
           "ShareableLink": "シェアURL",
           "Rating": "個体評価",
           "DetailedStats": "詳細分析",

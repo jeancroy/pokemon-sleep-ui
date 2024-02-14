@@ -9,7 +9,8 @@ export type TeamMemberPopupType =
   'detailedStats' |
   'growthChart' |
   'mealCoverage' |
-  'sharableLink';
+  'sharableLink' |
+  'pokeboxLink';
 
 export type TeamMemberPopupState = {
   show: boolean,
