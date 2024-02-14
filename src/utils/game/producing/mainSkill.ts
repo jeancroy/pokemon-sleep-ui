@@ -2,7 +2,7 @@ import {ProducingRateCommonParams, ProducingRateOfItemOfSessions} from '@/types/
 import {getMainSkillEquivalentStrengthOfSingle} from '@/utils/game/mainSkill/effect/main';
 import {GetMainSkillEquivalentStrengthOpts} from '@/utils/game/mainSkill/effect/type';
 import {applyBonus} from '@/utils/game/producing/apply/bonus';
-import {applyBonusWithMainSkillCapping} from '@/utils/game/producing/apply/bonusWithMainSkillCap';
+import {applyBonusWithCapping} from '@/utils/game/producing/apply/bonusWithCap';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {getProducingRateBase} from '@/utils/game/producing/rateBase';
 
@@ -36,7 +36,7 @@ export const getMainSkillProducingRate = ({
 
   return {
     id,
-    sleep1: applyBonusWithMainSkillCapping({
+    sleep1: applyBonusWithCapping({
       bonus,
       strengthMultiplier,
       producingState: 'sleep1',
@@ -48,10 +48,9 @@ export const getMainSkillProducingRate = ({
         quantity: 1,
       },
       // While asleep, skills can only trigger at most 1
-      cappingDuration: primary.duration.actual,
-      maxCount: 1,
+      maxFrequency: primary.duration.actual,
     }),
-    sleep2: applyBonusWithMainSkillCapping({
+    sleep2: applyBonusWithCapping({
       bonus,
       strengthMultiplier,
       producingState: 'sleep2',
@@ -65,8 +64,7 @@ export const getMainSkillProducingRate = ({
       // While asleep, skills can only trigger at most 1
       // `0` on null because if `sleepSessionInfo.session.secondary` is `null`,
       // it means no secondary sleep session, which also means length of 0
-      cappingDuration: (secondary?.duration.actual ?? 0),
-      maxCount: 1,
+      maxFrequency: (secondary?.duration.actual ?? 0),
     }),
     awake: applyBonus({
       bonus,

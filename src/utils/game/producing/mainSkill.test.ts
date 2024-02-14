@@ -62,9 +62,9 @@ describe('Pokemon Skill Production', () => {
     expect(rate.awake.quantity).toBeCloseTo(durationOfDay / awakeFreq / 10);
     expect(rate.awake.energy).toBeCloseTo(durationOfDay / awakeFreq / 10 * energyMultiplier * skillStrength);
     expect(rate.sleep1.id).toBe(2);
-    expect(rate.sleep1.frequency).toBeCloseTo(14400);
-    expect(rate.sleep1.quantity).toBeCloseTo(1);
-    expect(rate.sleep1.energy).toBeCloseTo(energyMultiplier * skillStrength);
+    expect(rate.sleep1.frequency).toBeCloseTo(28800);
+    expect(rate.sleep1.quantity).toBeCloseTo(3);
+    expect(rate.sleep1.energy).toBeCloseTo(3 * energyMultiplier * skillStrength);
   });
 
   it('is correct when sleep duration < skill freq', () => {
@@ -118,7 +118,7 @@ describe('Pokemon Skill Production', () => {
     expect(rate.awake.energy).toBeCloseTo(durationOfDay / awakeFreq / 10 * energyMultiplier * skillStrength);
     expect(rate.sleep1.id).toBe(2);
     expect(rate.sleep1.frequency).toBeCloseTo(21600);
-    expect(rate.sleep1.quantity).toBeCloseTo(2 / 3);
-    expect(rate.sleep1.energy).toBeCloseTo((2 / 3) * energyMultiplier * skillStrength);
+    expect(rate.sleep1.quantity).toBeCloseTo(4);
+    expect(rate.sleep1.energy).toBeCloseTo(4 * energyMultiplier * skillStrength);
   });
 });
