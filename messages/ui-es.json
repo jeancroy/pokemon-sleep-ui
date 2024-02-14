@@ -382,12 +382,12 @@
       "Analysis": {
         "Period": "Período de Análisis",
         "Sync": {
-          "Name": "Sync All Pokemon",
-          "Syncing": "Syncing..."
+          "Name": "Sincronizar Pokémon",
+          "Syncing": "Sincronizando..."
         },
         "Control": {
           "ExportToPokebox": "Exportar a Pokebox",
-          "PokeboxLinking": "Pokebox Linking",
+          "PokeboxLinking": "Enlace Pokebox",
           "ShareableLink": "Compartir",
           "Rating": "Clasificación",
           "DetailedStats": "Estadísticas detalladas",
