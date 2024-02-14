@@ -32,6 +32,7 @@ export const TeamMemberPopupContent = ({
   ...props
 }: TeamMemberPopupCommonProps) => {
   const {
+    setMember,
     mealMap,
     config,
     memberIdForShare,
@@ -41,7 +42,8 @@ export const TeamMemberPopupContent = ({
     stateOfRate,
     getRateByLevel,
   } = props;
-  const {type} = state.control;
+  const {control, hide} = state;
+  const {type} = control;
 
   const t = useTranslations('UI.Producing');
   const t2 = useTranslations('UI.InPage.Team.Analysis');
@@ -140,7 +142,13 @@ export const TeamMemberPopupContent = ({
   if (type === 'pokeboxLink') {
     return (
       <Flex className="sm:w-[60vw] md:w-[50vw] lg:w-[30rem]">
-        <PokeboxLinker onLinked={() => void 0} {...props}/>
+        <PokeboxLinker
+          onLinked={(linkedPokeInBoxUuid) => {
+            setMember({linkedPokeInBoxUuid});
+            hide();
+          }}
+          {...props}
+        />
       </Flex>
     );
   }

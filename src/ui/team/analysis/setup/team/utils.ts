@@ -23,5 +23,6 @@ export const toTeamAnalysisMemberFromVanilla = ({
     ingredients: generateDefaultIngredientProductionAtLevels(chain),
     evolutionCount: getEvolutionCountFromPokemonInfo({pokemon}),
     seeds: defaultSeedUsage,
+    linkedPokeInBoxUuid: null,
   };
 };

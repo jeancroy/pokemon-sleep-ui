@@ -1,5 +1,6 @@
 import React from 'react';
 
+import LinkIcon from '@heroicons/react/24/outline/LinkIcon';
 import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
@@ -30,7 +31,7 @@ export const TeamMemberCollapsibleButton = ({
 }: Props) => {
   const {specialty} = pokemon;
   const {total} = rate;
-  const {level, subSkill, nature} = member;
+  const {level, subSkill, nature, linkedPokeInBoxUuid} = member;
 
   return (
     <Flex className="gap-1 p-1 pb-5">
@@ -39,6 +40,7 @@ export const TeamMemberCollapsibleButton = ({
         <Flex direction="row" noFullWidth className="items-end gap-1">
           <span className="text-xs leading-none">Lv</span>
           <span className="text-sm leading-none">{level}</span>
+          {linkedPokeInBoxUuid && <LinkIcon className="size-3.5"/>}
         </Flex>
       </Flex>
       <HorizontalSplitter/>

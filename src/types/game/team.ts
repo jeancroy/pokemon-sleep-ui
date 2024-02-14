@@ -17,6 +17,7 @@ export type TeamConfig = {
 export type TeamMemberData = PokemonConfigPokemonData & {
   name?: string | null,
   alwaysFullPack?: boolean | null,
+  linkedPokeInBoxUuid: string | null,
 };
 
 export type TeamMemberProduction = PokemonProducingRate & {

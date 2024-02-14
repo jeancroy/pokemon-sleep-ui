@@ -1,4 +1,5 @@
 import {defaultSeedUsage} from '@/const/game/seed';
+import {TeamMemberData} from '@/types/game/team';
 import {Migrator} from '@/types/migrate';
 import {TeamAnalysisComp, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {TeamAnalysisCompMigrateParams} from '@/utils/migrate/teamAnalysis/comp/type';
@@ -40,6 +41,22 @@ export const teamAnalysisCompMigrators: Migrator<TeamAnalysisComp, TeamAnalysisC
         mapId: null,
         berry: snorlaxFavorite,
       },
+    }),
+  },
+  {
+    // Added `linkedPokeInBoxUuid`
+    toVersion: 5,
+    migrate: ({members, ...old}) => ({
+      ...old,
+      members: Object.fromEntries(teamAnalysisSlotName.map((slot) => {
+        const member = members[slot];
+
+        if (!member) {
+          return [slot, null];
+        }
+
+        return [slot, {...member, linkedPokeInBoxUuid: null} satisfies TeamMemberData | null];
+      })) as TeamAnalysisComp['members'],
     }),
   },
 ];
