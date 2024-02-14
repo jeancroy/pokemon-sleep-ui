@@ -41,9 +41,9 @@
       "ExpandAll": "접기"
     },
     "MealCoverageCombo": {
-      "IngredientCoverage": "Ingredient Coverage",
-      "IngredientExclusion": "Ingredient Exclusion",
-      "CoveredStrength": "Covered Strength"
+      "IngredientCoverage": "식재료 커버리지",
+      "IngredientExclusion": "특정 식재료 제외",
+      "CoveredStrength": "보장되는 에너지"
     }
   },
   "Evolution": {
@@ -382,19 +382,19 @@
       "Analysis": {
         "Period": "분석 주기",
         "Sync": {
-          "Name": "Sync All Pokemon",
+          "Name": "모든 포켓몬 동기화",
           "Syncing": "Syncing..."
         },
         "Control": {
           "ExportToPokebox": "Export to Pokebox",
-          "PokeboxLinking": "Pokebox Linking",
+          "PokeboxLinking": "포켓몬 박스 연동",
           "ShareableLink": "Sharable Link",
           "Rating": "Rating",
           "DetailedStats": "Detailed Stats",
           "StrengthGrowth": "Strength Growth Curve",
           "MealCoverage": "Meal Coverage",
           "Edit": "Edit",
-          "Duplicate": "Duplicate"
+          "Duplicate": "사본 만들기"
         },
         "Message": {
           "ShareableLink": "This link is bound to the team and the slot, not the Pokemon itself.",
@@ -474,10 +474,10 @@
         "Table": {
           "Level": "레벨",
           "Bonus": "보너스",
-          "ToNext": "각 레벨업 필요량",
-          "TotalRequired": "총 필요량",
-          "Accumulated": "총 누적량",
-          "Strength": "Final strength from cooked meal"
+          "ToNext": "다음으로",
+          "TotalRequired": "총 요구 사항",
+          "Accumulated": "누적 수량",
+          "Strength": "음식의 최종 에너지"
         }
       }
     },
@@ -560,7 +560,7 @@
       "Title": "Comparing...",
       "CrossSpecies": "Cross-Species (Same Subskill/Nature)",
       "IntraSpecies": "Intra-Species",
-      "IntraSpeciesSameIngredient": "Intra-Species (Same Ingredients)"
+      "IntraSpeciesSameIngredient": "동일한 식재료"
     }
   },
   "SleepStyle": {
@@ -623,17 +623,17 @@
       "SettingsNotStored": "기본 사용자 설정이 표시됩니다. 사용자 설정을 저장하거나 설정이 적용되도록 하려면 로그인이 필요합니다."
     },
     "Multiplier": {
-      "Overall": "Overall",
+      "Overall": "전체",
       "Strength": {
-        "Name": "Strength Multiplier",
+        "Name": "에너지 승수",
         "Behavior": {
-          "Custom": "Custom",
-          "Default": "Default (Current: {multiplier}x)"
+          "Custom": "커스텀",
+          "Default": "기본 (Current: {multiplier}x)"
         },
         "Type": {
-          "Berry": "Berry",
-          "Cooking": "Cooking",
-          "Skill": "Skill"
+          "Berry": "나무열매",
+          "Cooking": "요라",
+          "Skill": "메인 스킬"
         }
       }
     },
