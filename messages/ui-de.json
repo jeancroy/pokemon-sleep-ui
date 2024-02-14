@@ -382,8 +382,8 @@
       "Analysis": {
         "Period": "Analysezeitraum",
         "Sync": {
-          "Name": "Sync All Pokemon",
-          "Syncing": "Syncing..."
+          "Name": "Synchronisiere alle Pokemon",
+          "Syncing": "Synchronisiere..."
         },
         "Control": {
           "ExportToPokebox": "Export zur Pokebox",
