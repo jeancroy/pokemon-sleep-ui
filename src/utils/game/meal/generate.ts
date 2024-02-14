@@ -7,15 +7,21 @@ import {isNotNullish} from '@/utils/type';
 type GenerateTargetMealsOpts = {
   mealType: MealTypeId,
   mealMap: MealMap,
+  maxIngredientCount?: number,
 };
 
 export const generateTargetMeals = ({
   mealType,
   mealMap,
+  maxIngredientCount,
 }: GenerateTargetMealsOpts): Generator<Meal[]> => {
-  const possibleMeals = Object.values(mealMap)
+  let possibleMeals = Object.values(mealMap)
     .filter(isNotNullish)
     .filter(({type}) => type === mealType);
+
+  if (!!maxIngredientCount) {
+    possibleMeals = possibleMeals.filter(({ingredientCount}) => ingredientCount <= maxIngredientCount);
+  }
 
   return combineWithRepetitionIterator(possibleMeals, 3);
 };
