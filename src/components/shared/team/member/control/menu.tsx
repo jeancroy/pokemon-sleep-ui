@@ -150,7 +150,7 @@ export const TeamMemberControlMenu = ({
           ),
         ],
       ]}
-      origin="topRight"
+      origin="topLeft"
     />
   );
 };

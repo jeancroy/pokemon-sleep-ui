@@ -27,15 +27,17 @@ export const TeamMemberControls = ({teamMemberPopup, ratingControl, ...props}: P
 
   return (
     <Flex direction="row" className="justify-end gap-1">
+      <div className="mr-auto">
+        <TeamMemberControlMenu
+          ratingControl={ratingControl}
+          onPopupButtonClick={(type) => teamMemberPopup.show(type, isPremium)}
+          isPremium={isPremium}
+          {...props}
+        />
+      </div>
       <TeamMemberControlPokemonLink {...props}/>
       <TeamMemberControlEdit onClick={() => teamMemberPopup.show('memberConfig', isPremium)}/>
       <TeamMemberControlDetailedStats onClick={() => teamMemberPopup.show('detailedStats', isPremium)}/>
-      <TeamMemberControlMenu
-        ratingControl={ratingControl}
-        onPopupButtonClick={(type) => teamMemberPopup.show(type, isPremium)}
-        isPremium={isPremium}
-        {...props}
-      />
       <TeamMemberControlClear onClearClicked={() => setMember(null)} disabled={!member}/>
     </Flex>
   );

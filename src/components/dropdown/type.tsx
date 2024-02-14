@@ -11,4 +11,4 @@ export type DropdownItemGroup = DropdownItem[];
 
 export type DropdownItemList = DropdownItemGroup[];
 
-export type DropdownExpandOrigin = 'topRight';
+export type DropdownExpandOrigin = 'topRight' | 'topLeft';
