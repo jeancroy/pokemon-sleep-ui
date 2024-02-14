@@ -15,6 +15,7 @@ export type Meal = {
   id: MealId,
   type: MealTypeId,
   ingredients: MealIngredient[],
+  ingredientCount: number,
   baseStrength: number,
 };
 
