@@ -5,7 +5,8 @@ import {SleepMapId, SleepStyleMerged, SleepStyleSpoRequirement} from '@/types/ga
 
 
 export const sleepdexLookupSortType = [
-  'drowsyPowerRequirements',
+  'drowsyPowerRequirement',
+  'spo',
   'shards',
   'researchExp',
   'minSnorlaxRank',

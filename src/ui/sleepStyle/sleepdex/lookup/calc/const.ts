@@ -5,7 +5,8 @@ import {getSnorlaxRankEquivalentNumber} from '@/utils/game/snorlax';
 export const sleepdexLookupEntriesSortBasisGetter: {
   [sort in SleepdexLookupSortType]: (entry: SleepdexLookupDataEntry) => number
 } = {
-  drowsyPowerRequirements: ({spoRequirement}) => spoRequirement.drowsyScore,
+  drowsyPowerRequirement: ({spoRequirement}) => spoRequirement.drowsyScore,
+  spo: ({spoRequirement}) => spoRequirement.spo,
   shards: ({sleepStyle}) => sleepStyle.rewards.shards,
   researchExp: ({sleepStyle}) => sleepStyle.rewards.exp,
   minSnorlaxRank: ({spoRequirement}) => (

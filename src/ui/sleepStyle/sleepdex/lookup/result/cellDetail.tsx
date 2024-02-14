@@ -16,11 +16,20 @@ type Props = {
 export const SleepdexLookupResultCellDetails = ({display, data}: Props) => {
   const {spoRequirement, sleepStyle} = data;
 
-  if (display === 'drowsyPowerRequirements') {
+  if (display === 'drowsyPowerRequirement') {
     return (
       <Flex direction="row" center noFullWidth className="gap-1">
-        <SleepdexLookupSortTypeIcon sort="drowsyPowerRequirements"/>
+        <SleepdexLookupSortTypeIcon sort="drowsyPowerRequirement"/>
         <div>{formatToAbbreviation({num: spoRequirement.drowsyScore, decimals: 2})}</div>
+      </Flex>
+    );
+  }
+
+  if (display === 'spo') {
+    return (
+      <Flex direction="row" center noFullWidth className="gap-1">
+        <SleepdexLookupSortTypeIcon sort="spo"/>
+        <div>{formatInt(spoRequirement.spo)}</div>
       </Flex>
     );
   }

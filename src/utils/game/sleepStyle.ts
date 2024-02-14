@@ -45,6 +45,7 @@ export const getSpoRequirement = ({
     .at(-1) ?? null;
 
   return {
+    spo,
     drowsyScore,
     snorlaxStrength,
     snorlaxRankMinimum,

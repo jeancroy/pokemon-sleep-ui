@@ -60,8 +60,8 @@ export const useSleepdexLookupFilter = ({
       drowsyPowerMultiplier: getCurrentDrowsyPowerMultiplier(eventDrowsyPowerMultiplierData),
       drowsyPowerRequirement: 0,
       incenseOnly: false,
-      display: 'drowsyPowerRequirements',
-      sort: 'drowsyPowerRequirements',
+      display: 'drowsyPowerRequirement',
+      sort: 'drowsyPowerRequirement',
     },
     isDataIncluded: (filter, data) => {
       if (filter.mapId !== null && !data.sleepStyle.mapIds.includes(filter.mapId)) {

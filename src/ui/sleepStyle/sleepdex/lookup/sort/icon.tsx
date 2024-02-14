@@ -12,7 +12,7 @@ type Props = {
 export const SleepdexLookupSortTypeIcon = ({sort}: Props) => {
   const text = useSleepdexLookupSortTypeText(sort);
 
-  if (sort === 'drowsyPowerRequirements') {
+  if (sort === 'drowsyPowerRequirement' || sort === 'spo') {
     return (
       <GenericIconLarger src="/images/generic/snorlax.png" alt={text} noInvert/>
     );

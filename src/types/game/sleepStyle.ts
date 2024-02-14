@@ -16,6 +16,7 @@ export type SleepReward = {
 };
 
 export type SleepStyleSpoRequirement = {
+  spo: number,
   drowsyScore: number,
   snorlaxStrength: number,
   snorlaxRankMinimum: SnorlaxRank | null,

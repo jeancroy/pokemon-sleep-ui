@@ -33,8 +33,8 @@ export const enforceFilterSelectedMapToShowSnorlaxRank = ({
     if (updated.mapId === null) {
       return {
         ...updated,
-        sort: isMinSnorlaxRankSort ? 'drowsyPowerRequirements' : updated.sort,
-        display: isMinSnorlaxRankDisplay ? 'drowsyPowerRequirements' : updated.display,
+        sort: isMinSnorlaxRankSort ? 'drowsyPowerRequirement' : updated.sort,
+        display: isMinSnorlaxRankDisplay ? 'drowsyPowerRequirement' : updated.display,
       };
     }
   }

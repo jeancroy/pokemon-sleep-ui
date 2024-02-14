@@ -7,8 +7,12 @@ export const useSleepdexLookupSortTypeText = (sort: SleepdexLookupSortType) => {
   const t = useTranslations('UI.Common');
   const t2 = useTranslations('UI.SleepStyle');
 
-  if (sort === 'drowsyPowerRequirements') {
+  if (sort === 'drowsyPowerRequirement') {
     return t2('DrowsyPowerRequirement');
+  }
+
+  if (sort === 'spo') {
+    return t2('SPO');
   }
 
   if (sort === 'shards') {

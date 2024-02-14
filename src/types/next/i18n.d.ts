@@ -449,6 +449,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
       },
     },
     SleepStyle: {
+      SPO: string,
       DrowsyPowerRequirement: string,
       DrowsyPowerMultiplier: string,
       IncenseOnly: string,
