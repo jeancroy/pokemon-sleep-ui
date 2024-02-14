@@ -2,6 +2,7 @@ import React from 'react';
 
 import {InboxArrowDownIcon} from '@heroicons/react/24/outline';
 import LinkIcon from '@heroicons/react/24/outline/LinkIcon';
+import {pick} from 'lodash';
 import {useTranslations} from 'next-intl';
 
 import {AdsUnit} from '@/components/ads/main';
@@ -42,7 +43,7 @@ export const PokeboxLinker = ({initialPokeInBoxUuid, onLinked, ...props}: Props)
           ...original,
           showImporter,
         } satisfies PokeboxLinkerState))}
-        {...props}
+        {...pick(props, ['ingredientMap', 'ingredientChainMap', 'pokedexMap', 'subSkillMap'])}
       />
       <FlexForm direction="row" className="items-center gap-1" onSubmit={() => onLinked(
         pokeInBoxPreview ?
