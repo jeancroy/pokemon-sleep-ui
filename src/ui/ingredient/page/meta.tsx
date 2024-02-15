@@ -4,8 +4,9 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
+import {DreamShardIcon} from '@/components/shared/icon/dreamShard';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
-import {imagePortraitSizes, imageSmallIconSizes} from '@/styles/image';
+import {imagePortraitSizes} from '@/styles/image';
 import {Ingredient} from '@/types/game/ingredient';
 
 
@@ -37,9 +38,7 @@ export const IngredientMeta = (ingredient: Ingredient) => {
           </tr>
           <tr>
             <td>
-              <div className="relative size-7">
-                <NextImage src="/images/generic/shard.png" alt={t2('DreamShards')} sizes={imageSmallIconSizes}/>
-              </div>
+              <DreamShardIcon alt={t2('DreamShards')} dimension="size-7" noInvert/>
             </td>
             <td>
               {price}

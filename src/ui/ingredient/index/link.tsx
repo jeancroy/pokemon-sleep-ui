@@ -4,6 +4,7 @@ import {useTranslations} from 'next-intl';
 
 import {FlexLink} from '@/components/layout/flex/link';
 import {NextImage} from '@/components/shared/common/image/main';
+import {DreamShardIcon} from '@/components/shared/icon/dreamShard';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {imageSmallIconSizes} from '@/styles/image';
 import {Ingredient} from '@/types/game/ingredient';
@@ -45,11 +46,7 @@ export const IngredientLink = ({ingredient}: Props) => {
           </tr>
           <tr>
             <td>
-              <div className="relative size-4">
-                <NextImage
-                  src="/images/generic/shard.png" alt={t('DreamShards')} sizes={imageSmallIconSizes}
-                />
-              </div>
+              <DreamShardIcon alt={t('DreamShards')} dimension="size-4" noInvert/>
             </td>
             <td>
               {price}

@@ -4,6 +4,7 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {GenericIcon} from '@/components/shared/icon/common/main';
+import {DreamShardIcon} from '@/components/shared/icon/dreamShard';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
 import {MapUnlockTableRowProps} from '@/components/shared/sleepStyle/page/unlockTable/type';
@@ -54,7 +55,7 @@ export const MapUnlockTableRankMeta = (props: MapUnlockTableRowProps) => {
         </Flex>
         <Flex direction="row" center>
           <GenericIcon src="/images/generic/gift.png" alt={t('DreamShards')} dimension="size-6"/>
-          <GenericIcon src="/images/generic/shard.png" alt={t('DreamShards')} dimension="size-6" noInvert/>
+          <DreamShardIcon alt={t('DreamShards')} dimension="size-6" noInvert/>
           <div>
             {formatInt(snorlaxDataAtRank.rewardShard)}
           </div>

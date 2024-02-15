@@ -5,6 +5,7 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {GenericIconLarger} from '@/components/shared/icon/common/larger';
+import {DreamShardIcon} from '@/components/shared/icon/dreamShard';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
 import {PokemonDataProps} from '@/ui/pokedex/page/type';
 
@@ -58,7 +59,7 @@ export const PokemonStats = ({pokemon}: PokemonDataProps) => {
                 </tr>
                 <tr>
                   <td>
-                    <GenericIconLarger src="/images/generic/shard.png" alt={t2('DreamShards')} noInvert/>
+                    <DreamShardIcon alt={t2('DreamShards')} dimension="size-6" noInvert/>
                   </td>
                   <td>
                     {stats.recruit.shards}
