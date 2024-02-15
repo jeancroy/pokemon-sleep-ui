@@ -553,6 +553,7 @@ declare interface IntlMessages extends UiMessages, GameMessages {
     MealType: GameObjectIdToString,
     Nature: GameObjectIdToString,
     NatureEffect: GameObjectIdToString,
+    PokemonCandy: GameObjectIdToString,
     PokemonType: GameObjectIdToString,
     PokemonName: GameObjectIdToString,
     RankTitle: GameObjectIdToString,
