@@ -34,7 +34,7 @@ export type PokedexFilter = PokemonInputFilterExtended & PokedexDisplay & {
   name: string,
 };
 
-export type PokedexDataProps = Omit<PokedexCalcDataProps, 'session' | 'pokemonList' | 'preloaded'> & {
+export type PokedexDataProps = Omit<PokedexCalcDataProps, 'pokemonList' | 'preloaded'> & {
   pokedex: PokedexData,
   maxLevel: number,
   mapMeta: FieldMetaMap,
@@ -49,6 +49,7 @@ export type PokedexLinkProps = Pick<PokedexFilter, 'display' | keyof PokemonIndi
   pokemonProducingParams: PokemonProducingParams,
   snorlaxFavorite: SnorlaxFavorite,
   ingredients: IngredientProduction[],
+  bundle: UserSettingsBundle,
   cookingSettings: CookingUserSettings,
   calculatedSettings: CalculatedUserSettings,
 };

@@ -2,10 +2,8 @@ import {defaultMapBonus} from '@/const/user/settings';
 import {EffectiveBonus} from '@/types/game/bonus/main';
 import {StrengthMultiplier, strengthMultiplierType} from '@/types/game/bonus/strength';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
-import {UserSettings} from '@/types/userData/settings/main';
-import {UserMultiplierSettingsRequiredData} from '@/types/userData/settings/multiplier';
+import {UserSettings, UserSettingsRequiredData} from '@/types/userData/settings/main';
 import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 import {
   getCurrentEventStrengthMultiplier,
@@ -13,10 +11,9 @@ import {
 } from '@/utils/user/settings/eventStrengthMultiplier';
 
 
-export type ToEffectiveBonusOpts = UserMultiplierSettingsRequiredData & {
+export type ToEffectiveBonusOpts = Omit<UserSettingsRequiredData, 'mealMap'> & {
   settings: UserSettings,
   snorlaxFavorite: SnorlaxFavorite,
-  cookingRecoveryData: StaminaCookingRecoveryData[],
   additionalSkillTriggers?: StaminaSkillTriggerData[],
 };
 

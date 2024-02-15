@@ -19,7 +19,7 @@ export const BerryProducingRatesOfPokemon = ({
 
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
-  const {translatedSettings} = useTranslatedUserSettings({
+  const {translatedSettings, bundle} = useTranslatedUserSettings({
     bundle: {
       server: preloaded,
       client: data?.user.preloaded,
@@ -42,6 +42,7 @@ export const BerryProducingRatesOfPokemon = ({
       />
       <PokemonBerryStats
         input={input}
+        bundle={bundle}
         translatedSettings={translatedSettings}
         {...props}
       />

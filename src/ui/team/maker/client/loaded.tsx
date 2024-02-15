@@ -13,7 +13,7 @@ import {LazyLoad} from '@/components/layout/lazyLoad';
 import {ProgressBarSingle} from '@/components/progressBar/single';
 import {ButtonToStartTheSorcery} from '@/components/shared/common/button/sorcery';
 import {CompletionResultUI} from '@/components/shared/completion/main';
-import {useUserSettings} from '@/hooks/userData/settings';
+import {useUserSettingsBundle} from '@/hooks/userData/bundle';
 import {
   teamMakerCompCountWarningThreshold,
   teamMakerStatusI18nId,
@@ -32,9 +32,11 @@ export const TeamMakerLoadedClient = (props: TeamMakerDataProps) => {
 
   const t = useTranslations('UI.InPage.Team.Maker');
   const {data} = useSession();
-  const settings = useUserSettings({
-    server: preloaded.settings,
-    client: data?.user.preloaded.settings,
+  const bundle = useUserSettingsBundle({
+    bundle: {
+      server: preloaded,
+      client: data?.user.preloaded,
+    },
   });
 
   const {input, setInput} = useTeamMakerInput({preloaded});
@@ -66,7 +68,7 @@ export const TeamMakerLoadedClient = (props: TeamMakerDataProps) => {
       <Flex direction="row" className="gap-1.5">
         <ButtonToStartTheSorcery
           ref={resultsRef}
-          onClick={() => calculateTeam({...props, input, settings})}
+          onClick={() => calculateTeam({...props, input, bundle})}
           disabled={isLoading}
         />
         {

@@ -16,57 +16,44 @@ export const getTeamCompCalcResult = ({
   snorlaxFavorite,
   ...opts
 }: TeamCompCalcOpts) => {
-  const {
-    ingredientMap,
-    recipeLevelData,
-    setup,
-    cookingSettings,
-  } = opts;
+  const {setup} = opts;
   const currentTeam = getCurrentTeam({setup});
 
   const {rates, grouped} = getPokemonProducingRateMulti({
-    ingredientMap,
-    recipeLevelData,
-    cookingSettings,
+    ...opts,
     groupingState: state,
     sharedOpts: {
+      ...opts,
       snorlaxFavorite,
       period,
     },
-    rateOpts: teamAnalysisSlotName
-      .map((slotName) => {
-        const producingStatsOpts = getTeamProducingStatsSlot({
-          // `slotName` has to be after `opts` because `opts` got `slotName` in it as well
-          ...opts,
-          slotName,
-        });
+    rateOpts: teamAnalysisSlotName.map((slotName) => {
+      const producingStatsOpts = getTeamProducingStatsSlot({
+        // `slotName` has to be after `opts` because `opts` got `slotName` in it as well
+        ...opts,
+        slotName,
+      });
 
-        if (!producingStatsOpts) {
-          return null;
-        }
+      if (!producingStatsOpts) {
+        return null;
+      }
 
-        const {
-          rateOpts,
-          calculatedSettings,
-        } = producingStatsOpts;
+      const {rateOpts} = producingStatsOpts;
 
-        return {
-          opts: rateOpts,
-          payload: {
-            slotName,
-            calculatedSettings,
-          },
-        };
-      })
-      .filter(isNotNullish),
+      return {
+        opts: rateOpts,
+        payload: {slotName},
+      };
+    }).filter(isNotNullish),
   });
 
   return {
     bySlot: Object.fromEntries(rates.map(({
       payload,
+      calculatedSettings,
       atStage,
     }): [TeamAnalysisSlotName, TeamMemberProduction] => {
-      const {slotName, calculatedSettings} = payload;
+      const {slotName} = payload;
       const total: ProducingRate = getTotalOfPokemonProducingRate({rate: atStage.final, state});
 
       return [

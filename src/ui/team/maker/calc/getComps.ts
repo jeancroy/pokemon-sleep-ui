@@ -15,7 +15,7 @@ import {getSnorlaxRankFinalEstimate} from '@/utils/game/rank';
 import {isNotNullish} from '@/utils/type';
 
 
-type GetTeamMakerCompsOpts = TeamMakerDataProps & Omit<TeamMakerCalcResultsOpts, 'settings' | 'calculatedSettings'>;
+type GetTeamMakerCompsOpts = TeamMakerDataProps & TeamMakerCalcResultsOpts;
 
 export const getTeamMakerComps = ({
   ingredientMap,
@@ -24,6 +24,7 @@ export const getTeamMakerComps = ({
   input,
   cookingSettings,
   teamComps,
+  ...opts
 }: GetTeamMakerCompsOpts): TeamMakerResultComp[] => {
   const {
     snorlaxFavorite,
@@ -43,6 +44,7 @@ export const getTeamMakerComps = ({
         payload: payload.refData,
       })),
       sharedOpts: {
+        ...opts,
         snorlaxFavorite,
         period: teamMakerProductionPeriod,
       },

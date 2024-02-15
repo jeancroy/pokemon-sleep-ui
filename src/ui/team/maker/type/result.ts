@@ -1,5 +1,5 @@
-import {ProduceType} from '@/types/game/producing/common';
 import {PokemonProducingRateFinal} from '@/types/game/producing/rate';
+import {ProduceType} from '@/types/game/producing/type';
 import {SnorlaxRankFinalEstimate} from '@/types/game/rank';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamMakerBasisValue, TeamMakerIngredientStats, TeamMakerReferenceUnit} from '@/ui/team/maker/type/common';

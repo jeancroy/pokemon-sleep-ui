@@ -6,7 +6,7 @@ import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/set
 
 export type BerryPageDataProps =
   UserSettingsRequiredData &
-  Omit<PokemonBerryStatsCommonProps, 'translatedSettings'> & {
+  Omit<PokemonBerryStatsCommonProps, 'bundle' | 'translatedSettings'> & {
     berryData: BerryData,
     favoriteInfo: BerryFavoriteInfo,
     preloaded: UserSettingsBundle,

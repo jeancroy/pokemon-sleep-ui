@@ -11,9 +11,7 @@ import {
   getProducingRateImplicitParamsFromPokeInbox,
   getProducingRateSingleParams,
 } from '@/utils/game/producing/params';
-import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {isNotNullish} from '@/utils/type';
-import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
 import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';
 
 
@@ -34,9 +32,9 @@ export const useProcessedPokebox = ({
   mainSkillMap,
   subSkillMap,
   mealMap,
-  recipeLevelData,
-  cookingRecoveryData,
   eventStrengthMultiplierData,
+  cookingRecoveryData,
+  recipeLevelData,
   pokebox,
   bundle,
   pokeInBoxToCalc,
@@ -58,9 +56,10 @@ export const useProcessedPokebox = ({
         ...pokeInBox,
         subSkillMap,
       });
-      const {natureId, subSkillBonus} = singleParams;
 
       return {
+        // Do not directly use `opts` to spread to avoid passing down unwanted props
+        bundle,
         pokemon,
         pokemonProducingParams: getPokemonProducingParams({
           pokemonId: pokemon.id,
@@ -70,20 +69,13 @@ export const useProcessedPokebox = ({
         dateAdded,
         extra: pokeInBox,
         ingredients: getEffectiveIngredientProductions({level, ingredients: pokeInBox.ingredients}),
-        calculatedSettings: toCalculatedUserSettings({
-          ...bundle,
-          recoveryRate: toRecoveryRate({
-            natureId,
-            subSkillBonuses: [subSkillBonus],
-          }),
-          cookingRecoveryData,
-          eventStrengthMultiplierData,
-          snorlaxFavorite: filter.snorlaxFavorite,
-        }),
         cookingSettings: toCookingUserSettings({
           ...bundle,
           mealMap,
         }),
+        mealMap,
+        eventStrengthMultiplierData,
+        cookingRecoveryData,
         ...singleParams,
         ...getProducingRateImplicitParamsFromPokeInbox({pokeInBox}),
       } satisfies PokemonInfoWithSortingPayload<PokeInBox>;

@@ -33,6 +33,7 @@ export const PokedexClient = (props: PokedexDataProps) => {
   });
 
   const {
+    bundle,
     translatedSettings,
     result,
     count,
@@ -107,6 +108,7 @@ export const PokedexClient = (props: PokedexDataProps) => {
                 subSkill={filter.subSkill}
                 nature={filter.nature}
                 ingredients={source.ingredients}
+                bundle={bundle}
                 {...translatedSettings}
                 {...props}
               />

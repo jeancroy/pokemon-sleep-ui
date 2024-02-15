@@ -17,7 +17,7 @@ export const MealClient = (props: MealServerDataProps) => {
 
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
-  const {translatedSettings} = useTranslatedUserSettings({
+  const {translatedSettings, bundle} = useTranslatedUserSettings({
     bundle: {
       server: preloaded,
       client: data?.user.preloaded,
@@ -27,6 +27,7 @@ export const MealClient = (props: MealServerDataProps) => {
 
   const commonProps: MealCommonProps = {
     isPremium,
+    bundle,
     translatedSettings,
     ...props,
   };

@@ -22,6 +22,7 @@ export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): Ana
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
+    bundle,
   } = opts;
 
   const currentPokemonProducingParams = getPokemonProducingParams({
@@ -30,6 +31,7 @@ export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): Ana
   });
   const currentRate = getPokemonProducingRateSingle({
     ...opts,
+    bundle,
     pokemonProducingParams: currentPokemonProducingParams,
     berryData: berryDataMap[pokemon.berry.id],
     skillData: mainSkillMap[pokemon.skill],

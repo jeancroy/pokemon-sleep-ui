@@ -1,5 +1,5 @@
 import {CookingUserSettings} from '@/types/userData/settings/cooking';
-import {UserSettings} from '@/types/userData/settings/main';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerCandidateData} from '@/ui/team/maker/type/common';
 import {TeamMakerInput} from '@/ui/team/maker/type/input';
@@ -7,7 +7,7 @@ import {TeamMakerInput} from '@/ui/team/maker/type/input';
 
 export type TeamMakerCalcInitOpts = TeamMakerDataProps & {
   input: TeamMakerInput,
-  settings: UserSettings,
+  bundle: UserSettingsBundle,
 };
 
 export type TeamMakerCalcGenerateCompOpts = TeamMakerCalcInitOpts & {

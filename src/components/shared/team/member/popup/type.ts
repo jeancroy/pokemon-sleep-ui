@@ -1,7 +1,7 @@
 import {RatingPopupControl} from '@/components/shared/pokemon/rating/type';
 import {useTeamMemberPopup} from '@/components/shared/team/member/popup/hook';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
-import {produceTypes} from '@/types/game/producing/common';
+import {produceTypes} from '@/types/game/producing/type';
 
 
 export type TeamMemberPopupType =

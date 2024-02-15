@@ -36,7 +36,7 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
     .map((level) => filter.ingredients[level]), [filter]);
 
   const {data: session} = useSession();
-  const {translatedSettings} = useTranslatedUserSettings({
+  const {translatedSettings, bundle} = useTranslatedUserSettings({
     bundle: {
       server: preloaded,
       client: session?.user.preloaded,
@@ -53,6 +53,7 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
     ...translatedSettings,
     ...props,
     ...filter,
+    bundle,
     ingredients,
   });
 

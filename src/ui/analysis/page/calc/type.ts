@@ -12,6 +12,7 @@ import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {SnorlaxRank} from '@/types/game/rank';
 import {SleepMapId} from '@/types/game/sleepStyle';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
+import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 import {AnalysisPageCommonProps} from '@/ui/analysis/page/type';
 
@@ -90,4 +91,5 @@ export type GetAnalysisStatsOpts =
   PokemonIndividualParams & {
     ingredients: IngredientProduction[],
     snorlaxFavorite: SnorlaxFavorite,
+    bundle: UserSettingsBundle,
   };

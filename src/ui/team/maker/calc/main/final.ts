@@ -3,10 +3,7 @@ import {TeamMakerCalcResultsOpts} from '@/ui/team/maker/type/calc';
 import {TeamMakerResult} from '@/ui/team/maker/type/result';
 
 
-export const getTeamMakerFinalResult = ({
-  settings,
-  ...opts
-}: TeamMakerCalcResultsOpts): TeamMakerResult => {
+export const getTeamMakerFinalResult = (opts: TeamMakerCalcResultsOpts): TeamMakerResult => {
   const {input} = opts;
   const {basis, snorlaxFavorite} = input;
 

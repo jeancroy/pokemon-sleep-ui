@@ -1,11 +1,8 @@
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
 import {GetTeamProducingStatsOpts} from '@/ui/team/analysis/calc/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
 import {GetPokemonProducingRateOpts} from '@/utils/game/producing/main/type';
 import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/game/producing/params';
-import {toRecoveryRate} from '@/utils/game/stamina/recovery';
-import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
 
 
 type GetTeamProducingStatsSlotOpts = GetTeamProducingStatsOpts & {
@@ -14,25 +11,21 @@ type GetTeamProducingStatsSlotOpts = GetTeamProducingStatsOpts & {
 
 type GetProducingStatsOptsSlotReturn = {
   rateOpts: GetPokemonProducingRateOpts,
-  calculatedSettings: CalculatedUserSettings,
 };
 
 export const getTeamProducingStatsSlot = ({
   overrideLevel,
-  bundle,
   pokedexMap,
   pokemonProducingParamsMap,
   berryDataMap,
   ingredientMap,
   mainSkillMap,
   subSkillMap,
-  cookingRecoveryData,
-  eventStrengthMultiplierData,
   recipeLevelData,
   currentTeam,
   slotName,
 }: GetTeamProducingStatsSlotOpts): GetProducingStatsOptsSlotReturn | null => {
-  const {members, snorlaxFavorite} = currentTeam;
+  const {members} = currentTeam;
 
   const member = members[slotName];
   if (!member) {
@@ -61,23 +54,10 @@ export const getTeamProducingStatsSlot = ({
     nature,
     subSkillMap,
   });
-  const {natureId, subSkillBonus} = singleParams;
-  const calculatedSettings = toCalculatedUserSettings({
-    ...bundle,
-    recoveryRate: toRecoveryRate({
-      natureId,
-      subSkillBonuses: [subSkillBonus],
-    }),
-    behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
-    cookingRecoveryData,
-    eventStrengthMultiplierData,
-    snorlaxFavorite,
-  });
 
   return {
     rateOpts: {
       ...singleParams,
-      calculatedSettings,
       level,
       pokemon,
       pokemonProducingParams: getPokemonProducingParams({
@@ -91,7 +71,7 @@ export const getTeamProducingStatsSlot = ({
       skillData: mainSkillMap[pokemon.skill],
       evolutionCount,
       seeds,
+      alwaysFullPack,
     },
-    calculatedSettings,
   };
 };

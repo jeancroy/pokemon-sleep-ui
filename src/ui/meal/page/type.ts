@@ -30,5 +30,6 @@ export type MealServerDataProps = UserSettingsRequiredData & {
 
 export type MealCommonProps = MealServerDataProps & {
   isPremium: boolean,
+  bundle: UserSettingsBundle,
   translatedSettings: TranslatedUserSettings,
 };

@@ -7,10 +7,11 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {PokemonProducingRate, ProducingRateOfStates} from '@/types/game/producing/rate';
+import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
 import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 
 
-export type PokemonProducingStatsCommonProps = {
+export type PokemonProducingStatsCommonProps = UserSettingsRequiredData & {
   pokedex: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   pokemonIngredientProduction: PokemonIngredientProduction[],
@@ -20,6 +21,7 @@ export type PokemonProducingStatsCommonProps = {
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
   recipeLevelData: RecipeLevelData[],
+  bundle: UserSettingsBundle,
   translatedSettings: TranslatedUserSettings,
 };
 

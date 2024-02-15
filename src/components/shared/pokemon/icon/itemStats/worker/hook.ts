@@ -17,10 +17,14 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
     berryDataMap,
     ingredientMap,
     ingredientChainMap,
+    mealMap,
     mainSkillMap,
     subSkillMap,
     recipeLevelData,
+    eventStrengthMultiplierData,
+    cookingRecoveryData,
     input,
+    bundle,
     translatedSettings,
   } = opts;
 
@@ -58,7 +62,11 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
       mainSkillMap,
       subSkillMap,
       recipeLevelData,
+      mealMap,
+      eventStrengthMultiplierData,
+      cookingRecoveryData,
       input,
+      bundle,
       translatedSettings,
     });
     if (setLoading) {

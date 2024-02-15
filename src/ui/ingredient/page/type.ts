@@ -3,7 +3,7 @@ import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/set
 
 
 export type IngredientProductionDataProps =
-  Omit<PokemonIngredientStatsCommonProps, 'translatedSettings'> &
+  Omit<PokemonIngredientStatsCommonProps, 'bundle' | 'translatedSettings'> &
   UserSettingsRequiredData & {
     preloaded: UserSettingsBundle,
   };

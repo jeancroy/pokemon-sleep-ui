@@ -30,7 +30,7 @@ export const IngredientPokemonProduction = ({
   );
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
-  const {translatedSettings} = useTranslatedUserSettings({
+  const {translatedSettings, bundle} = useTranslatedUserSettings({
     bundle: {
       server: preloaded,
       client: data?.user.preloaded,
@@ -51,6 +51,7 @@ export const IngredientPokemonProduction = ({
       <PokemonIngredientStats
         input={input}
         ingredient={ingredient}
+        bundle={bundle}
         translatedSettings={translatedSettings}
         subSkillMap={subSkillMap}
         {...props}

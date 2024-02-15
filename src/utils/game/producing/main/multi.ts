@@ -13,7 +13,9 @@ import {getPokemonProducingRateBase} from '@/utils/game/producing/main/base';
 import {GetPokemonProducingRateOptsWithPayload} from '@/utils/game/producing/main/type';
 import {getHelpingBonusStack} from '@/utils/game/producing/params';
 import {GetProducingRateSharedOpts} from '@/utils/game/producing/type';
+import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {isNotNullish} from '@/utils/type';
+import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
 
 
 export type GetPokemonProducingRateMultiOpts<TPayload> = {
@@ -33,28 +35,50 @@ export const getPokemonProducingRateMulti = <TPayload>({
   groupingState,
   cookingSettings,
 }: GetPokemonProducingRateMultiOpts<TPayload>): PokemonProducingRateFinal<TPayload> => {
-  const {calcBehavior} = sharedOpts;
+  const {
+    eventStrengthMultiplierData,
+    cookingRecoveryData,
+    bundle,
+    calcBehavior,
+    snorlaxFavorite,
+    subSkillBonusOverride,
+  } = sharedOpts;
 
   const period = sharedOpts.period ?? defaultProductionPeriod;
-  // Have to calculate HB stack count first to know if HB is active
-  const helpingBonusStacks = toSum(rateOpts.map(({opts}) => getHelpingBonusStack({
-    subSkillBonus: opts.subSkillBonus ?? {},
-  })));
+  const subSkillBonuses = subSkillBonusOverride ?? rateOpts
+    .map(({opts}) => opts.subSkillBonus)
+    .filter(isNotNullish);
+
+  const helpingBonusStacks = toSum(subSkillBonuses.map((subSkillBonus) => getHelpingBonusStack({subSkillBonus})));
   const helpingBonusEffect: HelpingBonusEffect = (
     calcBehavior?.asSingle ?
       {context: 'single', active: !!helpingBonusStacks} :
       {context: 'team', stack: helpingBonusStacks}
   );
 
-  const ratesWithPayload = rateOpts.map(({opts, payload}) => ({
-    rawRate: getPokemonProducingRateBase({
-      ...opts,
-      ...sharedOpts,
-      helpingBonusEffect,
-    }),
-    payload,
-    calculatedSettings: opts.calculatedSettings,
-  }));
+  const ratesWithPayload = rateOpts.map(({opts, payload}) => {
+    const {natureId, alwaysFullPack} = opts;
+
+    const calculatedSettings = toCalculatedUserSettings({
+      ...bundle,
+      recoveryRate: toRecoveryRate({natureId, subSkillBonuses}),
+      behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
+      cookingRecoveryData,
+      eventStrengthMultiplierData,
+      snorlaxFavorite,
+    });
+
+    return {
+      rawRate: getPokemonProducingRateBase({
+        ...opts,
+        ...sharedOpts,
+        helpingBonusEffect,
+        calculatedSettings,
+      }),
+      payload,
+      calculatedSettings,
+    };
+  });
   const groupedOriginalRates = groupPokemonProducingRate({
     period,
     rates: ratesWithPayload.map(({rawRate}) => rawRate),

@@ -19,7 +19,13 @@ type UsePokemonSortingWorkerOpts<
 export const usePokemonSortingWorker = <TExtra, TData extends PokemonInfoWithSortingPayload<TExtra>>({
   triggerDeps,
   setLoading,
-  ...opts
+  data,
+  sort,
+  snorlaxFavorite,
+  ingredientMap,
+  berryDataMap,
+  mainSkillMap,
+  recipeLevelData,
 }: UsePokemonSortingWorkerOpts<TExtra, TData>) => {
   const [sorted, setSorted] = React.useState<SortedPokemonInfo<TExtra, TData>[]>([]);
   const {work} = useWorker<SortingWorkerOpts<TExtra, TData>, SortedPokemonInfo<TExtra, TData>[]>({
@@ -33,7 +39,16 @@ export const usePokemonSortingWorker = <TExtra, TData extends PokemonInfoWithSor
   });
 
   const triggerSort = () => {
-    work(opts);
+    // Explicit to avoid passing unintentional props
+    work({
+      data,
+      sort,
+      snorlaxFavorite,
+      ingredientMap,
+      berryDataMap,
+      mainSkillMap,
+      recipeLevelData,
+    });
     setLoading(true);
   };
 

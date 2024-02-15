@@ -5,8 +5,6 @@ import {getSkillTriggerValue} from '@/utils/game/mainSkill/utils';
 import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/game/producing/params';
-import {toRecoveryRate} from '@/utils/game/stamina/recovery';
-import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
 import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';
 
 
@@ -24,14 +22,13 @@ export const getSkillTriggerValueOfUnit = ({
   mainSkillMap,
   subSkillMap,
   mealMap,
-  cookingRecoveryData,
-  eventStrengthMultiplierData,
   recipeLevelData,
   bundle,
   id,
   unit,
   base,
-} :GetSkillTriggerValueOfUnitOpts): SkillTriggerAnalysisCalculatedUnit | null => {
+  ...opts
+}: GetSkillTriggerValueOfUnitOpts): SkillTriggerAnalysisCalculatedUnit | null => {
   const {
     level,
     pokemonId,
@@ -57,20 +54,15 @@ export const getSkillTriggerValueOfUnit = ({
     nature,
     subSkillMap,
   });
-  const {natureId, subSkillBonus} = singleParams;
+  const {subSkillBonus} = singleParams;
 
   const snorlaxFavorite = bundle.settings.snorlaxFavorite;
   const rate = getPokemonProducingRateSingle({
+    ...opts,
     // `unit` could have `pokemon` from Poke-in-box, therefore it should always be at the top
     ...unit,
     ...singleParams,
-    calculatedSettings: toCalculatedUserSettings({
-      ...bundle,
-      recoveryRate: toRecoveryRate({natureId, subSkillBonuses: [subSkillBonus]}),
-      cookingRecoveryData,
-      eventStrengthMultiplierData,
-      snorlaxFavorite,
-    }),
+    bundle,
     cookingSettings: toCookingUserSettings({
       ...bundle,
       mealMap,
@@ -79,6 +71,7 @@ export const getSkillTriggerValueOfUnit = ({
     snorlaxFavorite,
     berryData: berryDataMap[berry.id],
     ingredientMap,
+    mealMap,
     skillData: mainSkillMap[skill],
     recipeLevelData,
     pokemonProducingParams,
