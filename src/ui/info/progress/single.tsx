@@ -9,23 +9,24 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {GenericIconLarger} from '@/components/shared/icon/common/larger';
-import {DiamondIcon} from '@/components/shared/icon/diamond';
-import {ItemIcon} from '@/components/shared/icon/item';
 import {PotIcon} from '@/components/shared/icon/pot';
+import {ItemPackUI} from '@/components/shared/item/pack';
 import {MapLink} from '@/components/shared/map/link';
 import {gameFeatureI18nId} from '@/const/game/progress';
 import {potCapacityData} from '@/data/potCapacity';
+import {PokedexMap} from '@/types/game/pokemon';
 import {GameProgressData} from '@/types/game/progress';
-import {GameProgressRewardItem} from '@/ui/info/progress/rewardItem';
 import {GameProgressInfoSection} from '@/ui/info/progress/section';
+import {getItemPackKey} from '@/utils/game/item';
 import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {
+  pokedexMap: PokedexMap,
   data: GameProgressData,
 };
 
-export const GameProgressSingle = ({data}: Props) => {
+export const GameProgressSingle = ({pokedexMap, data}: Props) => {
   const {
     sleepStyleUnlocksRequired,
     mapUnlock,
@@ -40,7 +41,6 @@ export const GameProgressSingle = ({data}: Props) => {
   const t2 = useTranslations('UI.InPage.Info');
   const t3 = useTranslations('UI.Game.Feature');
   const t4 = useTranslations('Game.Field');
-  const t5 = useTranslations('Game.Item');
 
   return (
     <Flex center className="bg-plate gap-1">
@@ -108,20 +108,15 @@ export const GameProgressSingle = ({data}: Props) => {
           <span>{t2('Progress.Rewards')}</span>
         </>
       }>
-        <GameProgressRewardItem
-          icon={<DiamondIcon alt={t('Diamond')} noInvert/>}
-          count={rewardDiamonds}
+        <ItemPackUI
+          itemPack={{meta: {type: 'diamond'}, count: rewardDiamonds}}
+          pokedexMap={pokedexMap}
         />
-        {rewardItems.map(({id, count}) => (
-          <GameProgressRewardItem
-            key={id}
-            icon={
-              <>
-                <ItemIcon itemId={id} alt={t5(id.toString())} dimension="size-6" noInvert/>
-                <span>{t5(id.toString())}</span>
-              </>
-            }
-            count={count}
+        {rewardItems.map((itemPack) => (
+          <ItemPackUI
+            key={getItemPackKey(itemPack)}
+            itemPack={itemPack}
+            pokedexMap={pokedexMap}
           />
         ))}
       </GameProgressInfoSection>
