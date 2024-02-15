@@ -21,6 +21,7 @@ import {getSleepStyleNormalList} from '@/controller/sleepStyle';
 import {getSleepStyleSpecialListOfPokemon} from '@/controller/sleepStyleSpecial';
 import {getSnorlaxDataMap} from '@/controller/snorlax';
 import {getSubSkillMap} from '@/controller/subSkill';
+import {PageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {PokemonClient} from '@/ui/pokedex/page/client';
 import {PokemonDataProps} from '@/ui/pokedex/page/type';
@@ -28,11 +29,7 @@ import {getRelatedPokemonIds} from '@/utils/game/pokemon/branch';
 import {createUserSettingsBundle} from '@/utils/user/settings/create';
 
 
-type Props = {
-  params: PokedexPageParams,
-};
-
-export const Pokemon = async ({params}: Props) => {
+export const Pokemon = async ({params}: PageProps<PokedexPageParams>) => {
   const {id, locale} = params;
   const idNumber = Number(id);
   const pokemon = await getSinglePokemonInfo(idNumber);
