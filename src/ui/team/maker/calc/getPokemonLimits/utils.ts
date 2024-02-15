@@ -3,7 +3,7 @@ import {
   TeamMakerGetTeamMakerPokemonLimitsOpts,
   TeamMakerPokeInBoxDataForLimits,
 } from '@/ui/team/maker/calc/getPokemonLimits/type';
-import {getPokemonFinalEvolutionIds} from '@/utils/game/pokemon/evolution';
+import {getPokemonFinalEvolutionIds} from '@/utils/game/pokemon/evolution/final';
 import {getProducingRateSingleParams} from '@/utils/game/producing/params';
 import {getLevelToCalcForPokeInBox} from '@/utils/team/previewLevel';
 

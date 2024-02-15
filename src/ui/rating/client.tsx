@@ -21,7 +21,7 @@ import {useUserSettingsBundle} from '@/hooks/userData/bundle';
 import {RatingOnDeskState, RatingRequest} from '@/types/game/pokemon/rating/request';
 import {RatingDataProps, RatingServerDataProps} from '@/ui/rating/type';
 import {toRatingRequest} from '@/ui/rating/utils';
-import {getPokemonMaxEvolutionCount} from '@/utils/game/pokemon/evolution';
+import {getPokemonMaxEvolutionCount} from '@/utils/game/pokemon/evolution/count';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getPokemonProducingParams} from '@/utils/game/producing/params';
 import {getDefaultRatingBasis} from '@/utils/game/rating/utils';

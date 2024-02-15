@@ -10,7 +10,7 @@ import {
   ProducingRateSingleParams,
 } from '@/types/game/producing/rate';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution';
+import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution/count';
 import {getSubSkillBonus, getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
 
 

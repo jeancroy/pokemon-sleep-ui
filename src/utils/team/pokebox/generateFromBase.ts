@@ -5,7 +5,7 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution';
+import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution/count';
 import {generatePossibleIngredientProductionAtLevels} from '@/utils/game/producing/ingredient/chain';
 
 
