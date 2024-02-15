@@ -37,6 +37,7 @@ export const PokemonSingleSleepStyle = <TSleepStyle extends SleepStyleCommon>({
   const pokemonId = pokemon.id;
 
   const t = useTranslations('UI.Common');
+  const t2 = useTranslations('Game.PokemonCandy');
   const updateSleepdex = useUpdateSleepdex({sleepdex, setSleepdex});
 
   return (
@@ -69,9 +70,10 @@ export const PokemonSingleSleepStyle = <TSleepStyle extends SleepStyleCommon>({
             value={rewards.shards}
           />
           <PokemonSleepStyleRewardCell
-            iconSrc="/images/generic/candy.png"
-            iconAlt={t('Candy')}
+            iconSrc="/images/generic/candyWhite.png"
+            iconAlt={t2(pokemon.evolution.initial.toString())}
             value={rewards.candy}
+            noInvert={false}
           />
         </Flex>
       </Flex>

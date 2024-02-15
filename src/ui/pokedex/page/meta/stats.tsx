@@ -6,14 +6,17 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {GenericIconLarger} from '@/components/shared/icon/common/larger';
 import {DreamShardIcon} from '@/components/shared/icon/dreamShard';
+import {PokemonCandyIcon} from '@/components/shared/icon/pokemon/candy';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
 import {PokemonDataProps} from '@/ui/pokedex/page/type';
 
 
 export const PokemonStats = ({pokemon}: PokemonDataProps) => {
+  const {stats, evolution} = pokemon;
+
   const t = useTranslations('UI.InPage.Pokedex');
   const t2 = useTranslations('UI.Common');
-  const {stats} = pokemon;
+  const t3 = useTranslations('Game.PokemonCandy');
 
   return (
     <table className="border-separate border-spacing-1">
@@ -75,7 +78,7 @@ export const PokemonStats = ({pokemon}: PokemonDataProps) => {
           </td>
           <td>
             <Flex direction="row" center noFullWidth className="gap-1.5">
-              <GenericIconLarger src="/images/generic/candyWhite.png" alt={t2('Candy')}/>
+              <PokemonCandyIcon pokemon={pokemon} alt={t3(evolution.initial.toString())} className="scale-150"/>
               <div>{stats.transfer.candy}</div>
             </Flex>
           </td>
