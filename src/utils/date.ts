@@ -24,3 +24,9 @@ export const toUtcIsoTimestampString = (timestamp: string): IsoTimestampString =
     return toIsoTimestampString(new Date()) as IsoTimestampString;
   }
 };
+
+export const getDateFromEpochSecAtLocal = (epochSecAtLocal: number): Date => {
+  const dateAtUtc = new Date(epochSecAtLocal * 1000);
+
+  return new Date(dateAtUtc.getTime() + dateAtUtc.getTimezoneOffset() * 60 * 1000);
+};
