@@ -30,6 +30,7 @@ export type EvolutionBranch = {
 };
 
 export type EvolutionData = {
+  initial: PokemonId,
   next: EvolutionBranch[],
 } & ({
   stage: 1,
