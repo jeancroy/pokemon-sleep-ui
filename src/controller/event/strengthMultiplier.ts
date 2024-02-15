@@ -23,7 +23,7 @@ const addIndex = async () => {
   const collection = await getCollection();
 
   return Promise.all([
-    collection.createIndex({entryId: 1}, {unique: true}),
+    collection.createIndex({internalId: 1}, {unique: true}),
     collection.createIndex({startEpoch: 1, endEpoch: 1, multiplier: -1}),
   ]);
 };

@@ -1,5 +1,7 @@
+export type EventId = number;
+
 export type EventCommonData = {
-  entryId: number,
+  internalId: number,
   startEpoch: number,
   endEpoch: number,
 };
