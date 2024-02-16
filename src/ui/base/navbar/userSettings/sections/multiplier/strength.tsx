@@ -8,7 +8,8 @@ import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQui
 import {Flex} from '@/components/layout/flex/common';
 import {EnergyIcon} from '@/components/shared/icon/energy';
 import {NumberInputRequired} from '@/components/shared/input/number/required/main';
-import {strengthMultiplierBehaviorI18nId, strengthMultiplierTypeI18nId} from '@/const/user/multiplier';
+import {strengthMultiplierTypeI18nId} from '@/const/game/multiplier';
+import {strengthMultiplierBehaviorI18nId} from '@/const/user/multiplier';
 import {textFilterButtonStyle} from '@/styles/input';
 import {StrengthMultiplierType} from '@/types/game/bonus/strength';
 import {userStrengthMultiplierApplyBehavior} from '@/types/userData/settings/multiplier';
@@ -31,7 +32,8 @@ export const UserSettingsStrengthMultiplierUI = ({
   const {multiplier} = settings;
   const current = multiplier.strength[type];
 
-  const t = useTranslations('UI.UserSettings.Multiplier');
+  const t = useTranslations('UI.Multiplier');
+  const t2 = useTranslations('UI.UserSettings.Multiplier');
 
   const currentMultiplier = getCurrentEventStrengthMultiplier({
     type,
@@ -52,7 +54,7 @@ export const UserSettingsStrengthMultiplierUI = ({
           className={textFilterButtonStyle}
           ids={[...userStrengthMultiplierApplyBehavior]}
           idToButton={(behavior) => (
-            t(strengthMultiplierBehaviorI18nId[behavior], {multiplier: formatFloat(currentMultiplier)})
+            t2(strengthMultiplierBehaviorI18nId[behavior], {multiplier: formatFloat(currentMultiplier)})
           )}
           isActive={(behavior) => current.behavior === behavior}
           onClick={(behavior) => setSettings((original) => cloneMerge(

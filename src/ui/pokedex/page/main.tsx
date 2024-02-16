@@ -108,6 +108,7 @@ export const Pokemon = async ({params}: PageProps<PokedexPageParams>) => {
           'UI.InPage.Team',
           'UI.Image',
           'UI.Metadata',
+          'UI.Multiplier',
           'UI.SleepStyle',
         ]}>
           <PokemonClient {...props}/>

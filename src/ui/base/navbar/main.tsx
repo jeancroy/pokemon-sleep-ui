@@ -52,6 +52,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
       'UI.InPage.Cooking',
       'UI.InPage.Pokedex.Info',
       'UI.Metadata',
+      'UI.Multiplier',
       'UI.Stamina',
       'UI.UserSettings',
       'UI.UserControl',

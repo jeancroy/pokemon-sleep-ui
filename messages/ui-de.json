@@ -285,6 +285,17 @@
       }
     }
   },
+  "Multiplier": {
+    "Strength": {
+      "Name": "Stärke-Multiplizierer",
+      "Type": {
+        "Berry": "Beeren",
+        "Cooking": "Kochen",
+        "Skill": "Fähigkeiten"
+      }
+    },
+    "DrowsyPower": "Stärke × Resultat"
+  },
   "InPage": {
     "Home": {
       "Welcome": "Willkommen!"
@@ -588,7 +599,6 @@
   "SleepStyle": {
     "SPO": "SPO",
     "DrowsyPowerRequirement": "Schlafkraft Erfordert",
-    "DrowsyPowerMultiplier": "Stärke × Resultat",
     "IncenseOnly": "Nur Rauch",
     "Unreleased": "Unveröffentlicht",
     "Message": {
@@ -647,15 +657,9 @@
     "Multiplier": {
       "Overall": "Gesamt",
       "Strength": {
-        "Name": "Stärke-Multiplizierer",
         "Behavior": {
           "Custom": "Benutzerdefiniert",
           "Default": "Standard (Aktuell: {multiplier}x)"
-        },
-        "Type": {
-          "Berry": "Beeren",
-          "Cooking": "Kochen",
-          "Skill": "Fähigkeiten"
         }
       }
     },

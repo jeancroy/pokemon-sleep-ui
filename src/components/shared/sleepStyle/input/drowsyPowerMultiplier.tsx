@@ -25,7 +25,7 @@ export const DrowsyPowerMultiplierInput = ({
   maxMultiplier,
   ...props
 }: Props) => {
-  const t = useTranslations('UI.SleepStyle');
+  const t = useTranslations('UI.Multiplier');
 
   const {isInputRestricted, isInputChangeRestricted} = useFilterPremiumRestrictable(props);
 
@@ -34,7 +34,7 @@ export const DrowsyPowerMultiplierInput = ({
       title={
         <Flex direction="row" center className="items-center gap-1 px-2">
           {isInputRestricted && <PremiumIcon/>}
-          <div>{t('DrowsyPowerMultiplier')}</div>
+          <div>{t('DrowsyPower')}</div>
         </Flex>
       }
       ids={[...generateNumberTicks({

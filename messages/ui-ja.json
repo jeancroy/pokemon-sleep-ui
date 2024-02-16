@@ -285,6 +285,17 @@
       }
     }
   },
+  "Multiplier": {
+    "Strength": {
+      "Name": "エナジー補正",
+      "Type": {
+        "Berry": "きのみ",
+        "Cooking": "料理",
+        "Skill": "メインスキル"
+      }
+    },
+    "DrowsyPower": "エナジー x スコア"
+  },
   "InPage": {
     "Home": {
       "Welcome": "ようこそ！"
@@ -588,7 +599,6 @@
   "SleepStyle": {
     "SPO": "SPO",
     "DrowsyPowerRequirement": "必要ねむけパワー",
-    "DrowsyPowerMultiplier": "エナジー xスコア",
     "IncenseOnly": "お香限定",
     "Unreleased": "未実装",
     "Message": {
@@ -647,15 +657,9 @@
     "Multiplier": {
       "Overall": "全体補正",
       "Strength": {
-        "Name": "エナジー補正",
         "Behavior": {
           "Custom": "カスタム",
           "Default": "デフォルト (現在 {multiplier}x)"
-        },
-        "Type": {
-          "Berry": "きのみ",
-          "Cooking": "料理",
-          "Skill": "メインスキル"
         }
       }
     },

@@ -169,6 +169,17 @@ declare global {
           View: I18nMetadata,
         },
       },
+      Multiplier: {
+        Strength: {
+          Name: string,
+          Type: {
+            Berry: string,
+            Cooking: string,
+            Skill: string,
+          },
+        },
+        DrowsyPower: string,
+      },
       InPage: {
         Home: {
           Welcome: string,
@@ -472,7 +483,6 @@ declare global {
       SleepStyle: {
         SPO: string,
         DrowsyPowerRequirement: string,
-        DrowsyPowerMultiplier: string,
         IncenseOnly: string,
         Unreleased: string,
         Message: {
@@ -531,15 +541,9 @@ declare global {
         Multiplier: {
           Overall: string,
           Strength: {
-            Name: string,
             Behavior: {
               Custom: string,
               Default: string,
-            },
-            Type: {
-              Berry: string,
-              Cooking: string,
-              Skill: string,
             },
           },
         },

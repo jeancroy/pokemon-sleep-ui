@@ -285,6 +285,17 @@
       }
     }
   },
+  "Multiplier": {
+    "Strength": {
+      "Name": "에너지 승수",
+      "Type": {
+        "Berry": "나무열매",
+        "Cooking": "요리",
+        "Skill": "메인 스킬"
+      }
+    },
+    "DrowsyPower": "에너지 x 스코어"
+  },
   "InPage": {
     "Home": {
       "Welcome": "환영합니다"
@@ -588,7 +599,6 @@
   "SleepStyle": {
     "SPO": "SPO",
     "DrowsyPowerRequirement": "필요한 졸음 파워",
-    "DrowsyPowerMultiplier": "에너지 x 스코어",
     "IncenseOnly": "향로 전용",
     "Unreleased": "미구현",
     "Message": {
@@ -647,15 +657,9 @@
     "Multiplier": {
       "Overall": "전체",
       "Strength": {
-        "Name": "에너지 승수",
         "Behavior": {
           "Custom": "커스텀",
           "Default": "기본 (Current: {multiplier}x)"
-        },
-        "Type": {
-          "Berry": "나무열매",
-          "Cooking": "요리",
-          "Skill": "메인 스킬"
         }
       }
     },

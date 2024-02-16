@@ -285,6 +285,17 @@
       }
     }
   },
+  "Multiplier": {
+    "Strength": {
+      "Name": "能量倍率",
+      "Type": {
+        "Berry": "樹果",
+        "Cooking": "料理",
+        "Skill": "能量技能"
+      }
+    },
+    "DrowsyPower": "能量 x 分數"
+  },
   "InPage": {
     "Home": {
       "Welcome": "歡迎！"
@@ -588,7 +599,6 @@
   "SleepStyle": {
     "SPO": "SPO",
     "DrowsyPowerRequirement": "睡意之力需求",
-    "DrowsyPowerMultiplier": "能量 x 分數",
     "IncenseOnly": "薰香限定",
     "Unreleased": "未釋出",
     "Message": {
@@ -647,15 +657,9 @@
     "Multiplier": {
       "Overall": "最終",
       "Strength": {
-        "Name": "能量倍率",
         "Behavior": {
           "Custom": "自訂",
           "Default": "預設 (目前: {multiplier}x)"
-        },
-        "Type": {
-          "Berry": "樹果",
-          "Cooking": "料理",
-          "Skill": "能量技能"
         }
       }
     },

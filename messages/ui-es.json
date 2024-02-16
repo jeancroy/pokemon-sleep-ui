@@ -285,6 +285,17 @@
       }
     }
   },
+  "Multiplier": {
+    "Strength": {
+      "Name": "Multiplicador de Vigor",
+      "Type": {
+        "Berry": "Baya",
+        "Cooking": "Cocina",
+        "Skill": "Habilidad"
+      }
+    },
+    "DrowsyPower": "Vigor × Puntaje"
+  },
   "InPage": {
     "Home": {
       "Welcome": "Bienvenido!"
@@ -588,7 +599,6 @@
   "SleepStyle": {
     "SPO": "SPO",
     "DrowsyPowerRequirement": "Requisito de Poder de Somnolencia",
-    "DrowsyPowerMultiplier": "Vigor × Puntaje",
     "IncenseOnly": "Solo Incineso",
     "Unreleased": "Sin publicar",
     "Message": {
@@ -647,15 +657,9 @@
     "Multiplier": {
       "Overall": "General",
       "Strength": {
-        "Name": "Multiplicador de Vigor",
         "Behavior": {
           "Custom": "Editar",
           "Default": "Por defecto (Actual: {multiplier}x)"
-        },
-        "Type": {
-          "Berry": "Baya",
-          "Cooking": "Cocina",
-          "Skill": "Habilidad"
         }
       }
     },

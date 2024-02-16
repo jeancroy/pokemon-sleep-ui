@@ -285,6 +285,17 @@
       }
     }
   },
+  "Multiplier": {
+    "Strength": {
+      "Name": "Strength Multiplier",
+      "Type": {
+        "Berry": "Berry",
+        "Cooking": "Cooking",
+        "Skill": "Skill"
+      }
+    },
+    "DrowsyPower": "Strength × Score"
+  },
   "InPage": {
     "Home": {
       "Welcome": "Welcome!"
@@ -588,7 +599,6 @@
   "SleepStyle": {
     "SPO": "SPO",
     "DrowsyPowerRequirement": "Drowsy Power Requirement",
-    "DrowsyPowerMultiplier": "Strength × Score",
     "IncenseOnly": "Incense Only",
     "Unreleased": "Unreleased",
     "Message": {
@@ -647,15 +657,9 @@
     "Multiplier": {
       "Overall": "Overall",
       "Strength": {
-        "Name": "Strength Multiplier",
         "Behavior": {
           "Custom": "Custom",
           "Default": "Default (Current: {multiplier}x)"
-        },
-        "Type": {
-          "Berry": "Berry",
-          "Cooking": "Cooking",
-          "Skill": "Skill"
         }
       }
     },
