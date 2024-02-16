@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
+import {Flex} from '@/components/layout/flex/common';
 import {PokedexCalcResultEntry} from '@/ui/pokedex/common/calc/type';
 import {PokedexTierListInput} from '@/ui/pokedex/tier/input/type';
 import {PokedexTierListSorterValue} from '@/ui/pokedex/tier/result/single/details/common/sorterValue';
@@ -17,7 +18,9 @@ export const PokedexTierListEntryDetails = ({input, entry}: Props) => {
 
   return (
     <AnimatedCollapse show={showDetails}>
-      <PokedexTierListSorterValue basis={sort} value={entry.sorter}/>
+      <Flex className="mt-1.5">
+        <PokedexTierListSorterValue basis={sort} value={entry.sorter}/>
+      </Flex>
     </AnimatedCollapse>
   );
 };

@@ -14,7 +14,7 @@ export const PokedexTierListTierDetails = ({input, bucket}: PokedexTierListSingl
 
   return (
     <AnimatedCollapseQuick show={showDetails}>
-      <Flex direction="row" center className="gap-1">
+      <Flex direction="row" center className="mt-1.5 gap-1">
         <PokedexTierListSorterValue basis={sort} value={Math.min(...sorters)}/>
         <span>~</span>
         <PokedexTierListSorterValue basis={sort} value={Math.max(...sorters)}/>

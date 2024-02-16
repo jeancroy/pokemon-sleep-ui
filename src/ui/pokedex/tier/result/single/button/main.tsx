@@ -22,7 +22,7 @@ export const PokedexTierListButton = ({collapsible, ...props}: Props) => {
     <Flex className="group">
       <Flex direction="row" center noFullWidth className="gap-1 p-2">
         <PokedexTierListTierMeta {...props}/>
-        <Flex className="gap-2">
+        <Flex>
           <PokedexTierListPreview show={!collapsible.show} {...props}/>
           <PokedexTierListTierDetails {...props}/>
         </Flex>
