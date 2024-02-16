@@ -2,11 +2,12 @@ import React from 'react';
 
 import {useTranslations} from 'next-intl';
 
-import {Flex} from '@/components/layout/flex/common';
 import {DiamondIcon} from '@/components/shared/icon/diamond';
+import {DreamShardIcon} from '@/components/shared/icon/dreamShard';
 import {ItemIcon} from '@/components/shared/icon/item';
 import {PokemonCandyIcon} from '@/components/shared/icon/pokemon/candy';
 import {PokemonIncenseIcon} from '@/components/shared/icon/pokemon/incense';
+import {ItemMetaLayout} from '@/components/shared/item/metaLayout';
 import {ItemMetaCommonProps} from '@/components/shared/item/type';
 
 
@@ -22,19 +23,30 @@ export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMet
     const name = t(`Item.${id}`);
 
     return (
-      <Flex noFullWidth direction="row" className="items-center gap-1">
-        <ItemIcon itemId={id} alt={name} dimension={dimension} noInvert/>
-        <span>{name}</span>
-      </Flex>
+      <ItemMetaLayout name={name}>
+        <ItemIcon itemId={id} alt={name} dimension={dimension} noInvert className="scale-125"/>
+      </ItemMetaLayout>
     );
   }
 
   if (type === 'diamond') {
-    return <DiamondIcon dimension={dimension} alt={t2('Diamond')}/>;
+    const name = t2('Diamond');
+
+    return (
+      <ItemMetaLayout name={name}>
+        <DiamondIcon dimension={dimension} alt={name} className="scale-125"/>
+      </ItemMetaLayout>
+    );
   }
 
   if (type === 'dreamShard') {
-    return <DiamondIcon dimension={dimension} alt={t2('DreamShards')}/>;
+    const name = t2('DreamShards');
+
+    return (
+      <ItemMetaLayout name={name}>
+        <DreamShardIcon dimension={dimension} alt={t2('DreamShards')} className="scale-125"/>
+      </ItemMetaLayout>
+    );
   }
 
   if (type === 'pokemonIncense') {
@@ -44,12 +56,12 @@ export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMet
       return null;
     }
 
+    const name = t(`PokemonName.${pokemon.id}`);
+
     return (
-      <PokemonIncenseIcon
-        pokemonType={pokemon.type}
-        dimension={dimension}
-        alt={t(`PokemonType.${pokemon.type}`)}
-      />
+      <ItemMetaLayout name={name}>
+        <PokemonIncenseIcon pokemonType={pokemon.type} dimension={dimension} alt={name}/>
+      </ItemMetaLayout>
     );
   }
 
@@ -60,12 +72,12 @@ export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMet
       return null;
     }
 
+    const name = t(`PokemonCandy.${pokemon.evolution.initial}`);
+
     return (
-      <PokemonCandyIcon
-        pokemon={pokemon}
-        dimension={dimension}
-        alt={t(`PokemonCandy.${pokemon.evolution.initial}`)}
-      />
+      <ItemMetaLayout name={name}>
+        <PokemonCandyIcon pokemon={pokemon} dimension={dimension} alt={name} className="scale-150"/>
+      </ItemMetaLayout>
     );
   }
 
