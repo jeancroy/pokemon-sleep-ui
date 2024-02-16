@@ -1,8 +1,10 @@
 import {Collection} from 'mongodb';
 
 import {defaultDrowsyPowerMultiplier} from '@/const/game/event';
+import {getDataAsArray} from '@/controller/common';
 import {getCurrentEventData} from '@/controller/event/utils';
 import mongoPromise from '@/lib/mongodb';
+import {EventId} from '@/types/game/event/common';
 import {
   EventDrowsyPowerMultiplierData,
   EventDrowsyPowerMultiplierEntry,
@@ -29,11 +31,22 @@ export const getEventDrowsyPowerMultiplierData = async (): Promise<EventDrowsyPo
   };
 };
 
+type GetEventDrowsyPowerMultiplierOfEventsOpts = {
+  eventIds: EventId[],
+};
+
+export const getEventDrowsyPowerMultiplierOfEvents = ({
+  eventIds,
+}: GetEventDrowsyPowerMultiplierOfEventsOpts) => {
+  return getDataAsArray(getCollection(), {eventId: {$in: eventIds}}, {startEpoch: 1});
+};
+
 const addIndex = async () => {
   const collection = await getCollection();
 
   return Promise.all([
     collection.createIndex({internalId: 1}, {unique: true}),
+    collection.createIndex({eventId: 1}),
     collection.createIndex({startEpoch: 1, endEpoch: 1, multiplier: -1}),
   ]);
 };

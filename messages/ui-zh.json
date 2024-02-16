@@ -485,6 +485,11 @@
             "Current": "進行中",
             "Ended": "已結束"
           }
+        },
+        "Page": {
+          "Section": {
+            "Mission": "任務"
+          }
         }
       },
       "Pot": {

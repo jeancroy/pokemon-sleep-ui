@@ -485,6 +485,11 @@
             "Current": "Aktuell",
             "Ended": "Beendet"
           }
+        },
+        "Page": {
+          "Section": {
+            "Mission": "Missionen"
+          }
         }
       },
       "Pot": {

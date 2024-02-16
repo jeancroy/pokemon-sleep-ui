@@ -485,6 +485,11 @@
             "Current": "開催中",
             "Ended": "終了"
           }
+        },
+        "Page": {
+          "Section": {
+            "Mission": "ミッション"
+          }
         }
       },
       "Pot": {

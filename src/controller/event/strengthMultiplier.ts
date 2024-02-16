@@ -1,7 +1,9 @@
 import {Collection} from 'mongodb';
 
+import {getDataAsArray} from '@/controller/common';
 import {getCurrentEventData} from '@/controller/event/utils';
 import mongoPromise from '@/lib/mongodb';
+import {EventId} from '@/types/game/event/common';
 import {EventStrengthMultiplierData, EventStrengthMultiplierEntry} from '@/types/game/event/strengthMultiplier';
 
 
@@ -19,11 +21,22 @@ export const getEventStrengthMultiplierData = async (): Promise<EventStrengthMul
   return {current};
 };
 
+type GetEventStrengthMultiplierOfEventsOpts = {
+  eventIds: EventId[],
+};
+
+export const getEventStrengthMultiplierOfEvents = ({
+  eventIds,
+}: GetEventStrengthMultiplierOfEventsOpts) => {
+  return getDataAsArray(getCollection(), {eventId: {$in: eventIds}}, {startEpoch: 1});
+};
+
 const addIndex = async () => {
   const collection = await getCollection();
 
   return Promise.all([
     collection.createIndex({internalId: 1}, {unique: true}),
+    collection.createIndex({eventId: 1}),
     collection.createIndex({startEpoch: 1, endEpoch: 1, multiplier: -1}),
   ]);
 };

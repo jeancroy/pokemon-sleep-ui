@@ -370,6 +370,11 @@ declare global {
                 Ended: string,
               },
             },
+            Page: {
+              Section: {
+                Mission: string,
+              },
+            },
           },
           Pot: {
             Capacity: string,

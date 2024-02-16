@@ -485,6 +485,11 @@
             "Current": "En curso",
             "Ended": "Finalizado"
           }
+        },
+        "Page": {
+          "Section": {
+            "Mission": "Misiones"
+          }
         }
       },
       "Pot": {
