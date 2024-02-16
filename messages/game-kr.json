@@ -872,5 +872,16 @@
       "8": "한 번에 줍는 나무열매 수가 {num}개 늘어난다",
       "9": "나무열매와 식재료의 최대 소지 수가 {num}개 늘어난다"
     }
+  },
+  "WeeklyMission": {
+    "useBiscuit": "포켓사블레 등을 {num}개 사용하자",
+    "useCandy": "사탕을 {num}개 사용하자",
+    "useIncense": "향로를 {num}개 사용하자",
+    "rank": "잠만보를 <SnorlaxRank></SnorlaxRank>촅로 만들자",
+    "cook": "{num}회 요리하자",
+    "berry": "잠만보에게 나무열매를 {num}개 주자",
+    "berryFavorite": "잠만보가 좋아하는 나무열매를 {num}개 주자",
+    "onBedTime": "잠자기 약속을 {num}회 지키자",
+    "catchPokemon": "포켓몬 {num}마리와 동료가 되자"
   }
 }

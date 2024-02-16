@@ -872,5 +872,16 @@
       "8": "Erhöht die Anzahl der Beeren, die dieses Pokémon findet, einmalig um {num}.",
       "9": "Erhöht die maximale Anzahl Beeren und Zutaten, die dieses Pokémon tragen kann, um {num}."
     }
+  },
+  "WeeklyMission": {
+    "useBiscuit": "Give out {num} biscuits",
+    "useCandy": "Use {num} candies",
+    "useIncense": "Use {num} incenses",
+    "rank": "Get Snorlax to <SnorlaxRank></SnorlaxRank>",
+    "cook": "Cook {num} times",
+    "berry": "Give Snorlax {num} Berries",
+    "berryFavorite": "Give Snorlax {num} of its favorite Berries",
+    "onBedTime": "Stick to your bedtime {num} times",
+    "catchPokemon": "Befriend {num} Pokémon"
   }
 }

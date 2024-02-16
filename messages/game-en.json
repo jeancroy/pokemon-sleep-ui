@@ -872,5 +872,16 @@
       "8": "Increases the number of Berries this Pokémon finds at one time by {num}.",
       "9": "Increases the max number of Berries and ingredients this Pokémon can have by {num}."
     }
+  },
+  "WeeklyMission": {
+    "useBiscuit": "Give out {num} biscuits",
+    "useCandy": "Use {num} candies",
+    "useIncense": "Use {num} incenses",
+    "rank": "Get Snorlax to <SnorlaxRank></SnorlaxRank>",
+    "cook": "Cook {num} times",
+    "berry": "Give Snorlax {num} Berries",
+    "berryFavorite": "Give Snorlax {num} of its favorite Berries",
+    "onBedTime": "Stick to your bedtime {num} times",
+    "catchPokemon": "Befriend {num} Pokémon"
   }
 }

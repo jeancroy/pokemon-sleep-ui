@@ -872,5 +872,16 @@
       "8": "一次撿來的樹果數量會增加{num}個。",
       "9": "樹果、食材的持有上限會增加{num}個。"
     }
+  },
+  "WeeklyMission": {
+    "useBiscuit": "使用{num}個寶可沙布蕾",
+    "useCandy": "使用{num}個糖果",
+    "useIncense": "使用{num}個薰香",
+    "rank": "讓卡比獸達到<SnorlaxRank></SnorlaxRank>",
+    "cook": "做{num}次料理",
+    "berry": "給卡比獸吃{num}個樹果",
+    "berryFavorite": "給卡比獸吃{num}個牠喜歡的樹果",
+    "onBedTime": "守住{num}次就寢約定",
+    "catchPokemon": "讓{num}隻寶可夢成為夥伴"
   }
 }

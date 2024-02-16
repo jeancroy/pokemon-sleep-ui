@@ -872,5 +872,16 @@
       "8": "一度に拾うきのみの数が{num}個増える",
       "9": "きのみ・食材の最大所持数が{num}個増える"
     }
+  },
+  "WeeklyMission": {
+    "useBiscuit": "ポケサブレ等を{num}個使おう",
+    "useCandy": "アメを{num}個使おう",
+    "useIncense": "おこうを{num}個使おう",
+    "rank": "カビゴンを<SnorlaxRank></SnorlaxRank>にしよう",
+    "cook": "料理を{num}回つくろう",
+    "berry": "カビゴンにきのみを{num}個あげよう",
+    "berryFavorite": "カビゴンの好きなきのみを{num}個あげよう",
+    "onBedTime": "ねむりの約束を{num}回まもろう",
+    "catchPokemon": "ポケモンを{num}匹仲間にしよう"
   }
 }
