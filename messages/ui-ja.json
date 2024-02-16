@@ -207,6 +207,14 @@
       "Index": {
         "Title": "その他"
       },
+      "Event": {
+        "Index": {
+          "Title": "イベント"
+        },
+        "Page": {
+          "Title": "{name} - イベント"
+        }
+      },
       "Pot": {
         "Title": "なべ"
       },
@@ -459,6 +467,15 @@
       }
     },
     "Info": {
+      "Event": {
+        "Index": {
+          "Section": {
+            "Upcoming": "近日開催",
+            "Current": "開催中",
+            "Ended": "終了"
+          }
+        }
+      },
       "Pot": {
         "Capacity": "現在の容量",
         "Expand": "拡張",

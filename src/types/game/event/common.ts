@@ -1,7 +1,9 @@
+import {TimePeriod} from '@/types/game/timePeriod';
+
+
 export type EventId = number;
 
-export type EventCommonData = {
+export type EventCommonData = TimePeriod & {
   internalId: number,
-  startEpoch: number,
-  endEpoch: number,
+  eventId: number,
 };

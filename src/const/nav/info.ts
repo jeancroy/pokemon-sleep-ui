@@ -10,6 +10,12 @@ export const navEntriesForInfo: NavEntryLink[] = [
   },
   {
     type: 'link',
+    href: '/info/event',
+    imageSrc: '/images/generic/calendar.png',
+    i18nTextId: 'Info.Event.Index.Title',
+  },
+  {
+    type: 'link',
     href: '/info/pot',
     imageSrc: '/images/generic/pot.png',
     i18nTextId: 'Info.Pot.Title',

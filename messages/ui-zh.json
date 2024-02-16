@@ -207,6 +207,14 @@
       "Index": {
         "Title": "其他"
       },
+      "Event": {
+        "Index": {
+          "Title": "活動"
+        },
+        "Page": {
+          "Title": "{name} - 活動"
+        }
+      },
       "Pot": {
         "Title": "鍋子"
       },
@@ -459,6 +467,15 @@
       }
     },
     "Info": {
+      "Event": {
+        "Index": {
+          "Section": {
+            "Upcoming": "即將開始",
+            "Current": "進行中",
+            "Ended": "已結束"
+          }
+        }
+      },
       "Pot": {
         "Capacity": "目前容量",
         "Expand": "擴充",

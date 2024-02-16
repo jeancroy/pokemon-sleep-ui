@@ -207,6 +207,14 @@
       "Index": {
         "Title": "Other"
       },
+      "Event": {
+        "Index": {
+          "Title": "Events"
+        },
+        "Page": {
+          "Title": "{name} - Event"
+        }
+      },
       "Pot": {
         "Title": "Pot"
       },
@@ -459,6 +467,15 @@
       }
     },
     "Info": {
+      "Event": {
+        "Index": {
+          "Section": {
+            "Upcoming": "Upcoming",
+            "Current": "Current",
+            "Ended": "Ended"
+          }
+        }
+      },
       "Pot": {
         "Capacity": "Current Capacity",
         "Expand": "Expand",

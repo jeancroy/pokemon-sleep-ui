@@ -207,6 +207,14 @@
       "Index": {
         "Title": "Otros"
       },
+      "Event": {
+        "Index": {
+          "Title": "Eventos"
+        },
+        "Page": {
+          "Title": "{name} - Evento"
+        }
+      },
       "Pot": {
         "Title": "Puchero"
       },
@@ -459,6 +467,15 @@
       }
     },
     "Info": {
+      "Event": {
+        "Index": {
+          "Section": {
+            "Upcoming": "Próximo",
+            "Current": "En curso",
+            "Ended": "Finalizado"
+          }
+        }
+      },
       "Pot": {
         "Capacity": "Capacidad",
         "Expand": "Aumento",

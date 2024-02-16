@@ -144,6 +144,7 @@ declare global {
         },
         Info: {
           Index: I18nMetadata,
+          Event: PageWithIndividual,
           Pot: I18nMetadata,
           Nature: I18nMetadata,
           MainSkill: PageWithIndividual,
@@ -350,6 +351,15 @@ declare global {
           },
         },
         Info: {
+          Event: {
+            Index: {
+              Section: {
+                Upcoming: string,
+                Current: string,
+                Ended: string,
+              },
+            },
+          },
           Pot: {
             Capacity: string,
             Expand: string,
@@ -549,6 +559,7 @@ declare global {
     },
     Game: {
       Berry: GameObjectIdToString,
+      EventDetail: GameObjectIdToString,
       Field: GameObjectIdToString,
       Food: GameObjectIdToString,
       Item: GameObjectIdToString,
