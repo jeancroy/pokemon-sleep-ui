@@ -5,8 +5,8 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {EventInfo} from '@/types/game/event/info';
 import {EventMissionMap} from '@/types/game/event/mission';
-import {EventPageMissionSection} from '@/ui/info/event/page/content/mission/section';
-import {EventPageMissionCommonProps} from '@/ui/info/event/page/content/mission/type';
+import {EventPageMissionSection} from '@/ui/info/event/page/client/mission/section';
+import {EventPageMissionCommonProps} from '@/ui/info/event/page/client/mission/type';
 
 
 type Props = EventPageMissionCommonProps & {

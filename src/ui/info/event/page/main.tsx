@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {EventPageParams} from '@/app/[locale]/info/event/[identifier]/page';
+import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {getEventDrowsyPowerMultiplierOfEvents} from '@/controller/event/drowsyPowerMultiplier';
 import {getEventInfo} from '@/controller/event/info';
@@ -9,7 +10,7 @@ import {getEventStrengthMultiplierOfEvents} from '@/controller/event/strengthMul
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {PageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
-import {EventPageContent} from '@/ui/info/event/page/content/main';
+import {EventPageClient} from '@/ui/info/event/page/client/main';
 import {EventPageDataProps} from '@/ui/info/event/page/type';
 
 
@@ -45,7 +46,17 @@ export const EventPage = async ({params}: PageProps<EventPageParams>) => {
 
   return (
     <PublicPageLayout locale={locale}>
-      <EventPageContent {...props}/>
+      <I18nProvider
+        locale={locale}
+        namespaces={[
+          'Game',
+          'UI.Component.TimePeriodSchedule',
+          'UI.Multiplier',
+          'UI.InPage.Info.Event.Page',
+        ]}
+      >
+        <EventPageClient {...props}/>
+      </I18nProvider>
     </PublicPageLayout>
   );
 };

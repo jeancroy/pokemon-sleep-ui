@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import {useTranslations} from 'next-intl';
@@ -7,7 +8,7 @@ import {EventIndexSection} from '@/ui/info/event/index/section';
 import {EventIndexDataProps} from '@/ui/info/event/index/type';
 
 
-export const EventIndexContent = ({eventInfoList}: EventIndexDataProps) => {
+export const EventIndexClient = ({eventInfoList}: EventIndexDataProps) => {
   const t = useTranslations('UI.InPage.Info.Event.Index');
 
   const currentEpochSec = Date.now() / 1000;

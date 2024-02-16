@@ -1,13 +1,14 @@
+'use client';
 import React from 'react';
 
-import {EventPageDrowsyPowerMultiplier} from '@/ui/info/event/page/content/drowsyPowerMultiplier';
-import {EventPageMeta} from '@/ui/info/event/page/content/meta';
-import {EventPageMissions} from '@/ui/info/event/page/content/mission/main';
-import {EventPageStrengthMultiplier} from '@/ui/info/event/page/content/strengthMultiplier';
+import {EventPageDrowsyPowerMultiplier} from '@/ui/info/event/page/client/drowsyPowerMultiplier';
+import {EventPageMeta} from '@/ui/info/event/page/client/meta';
+import {EventPageMissions} from '@/ui/info/event/page/client/mission/main';
+import {EventPageStrengthMultiplier} from '@/ui/info/event/page/client/strengthMultiplier';
 import {EventPageDataProps} from '@/ui/info/event/page/type';
 
 
-export const EventPageContent = ({
+export const EventPageClient = ({
   eventInfo,
   pokedexMap,
   eventMissionMap,
