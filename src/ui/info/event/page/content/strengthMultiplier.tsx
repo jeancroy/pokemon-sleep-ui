@@ -8,7 +8,7 @@ import {StrengthMultiplierTypeIcon} from '@/components/shared/icon/multiplier/st
 import {strengthMultiplierTypeI18nId} from '@/const/game/multiplier';
 import {strengthMultiplierType} from '@/types/game/bonus/strength';
 import {EventStrengthMultiplierEntry} from '@/types/game/event/strengthMultiplier';
-import {EventPageTimePeriodUnit} from '@/ui/event/page/common/timePeriodUnit';
+import {EventPageTimePeriodUnit} from '@/ui/info/event/page/common/timePeriodUnit';
 import {formatFloat} from '@/utils/number/format/regular';
 
 

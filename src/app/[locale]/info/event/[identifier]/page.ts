@@ -2,7 +2,7 @@ import {getEventInfoList} from '@/controller/event/info';
 import {EventIdentifier} from '@/types/game/event/info';
 import {GenerateMetadata, GenerateMetadataParams} from '@/types/next/metadata';
 import {GenerateStaticParamsFunc} from '@/types/next/static';
-import {EventPage} from '@/ui/event/page/main';
+import {EventPage} from '@/ui/info/event/page/main';
 import {getI18nTranslator} from '@/utils/i18n';
 import {generatePageMeta} from '@/utils/meta';
 

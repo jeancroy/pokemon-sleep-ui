@@ -3,8 +3,8 @@ import React from 'react';
 import {getEventInfoList} from '@/controller/event/info';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
-import {EventIndexContent} from '@/ui/event/index/content';
-import {EventIndexDataProps} from '@/ui/event/index/type';
+import {EventIndexContent} from '@/ui/info/event/index/content';
+import {EventIndexDataProps} from '@/ui/info/event/index/type';
 
 
 export const EventIndex = async ({params}: DefaultPageProps) => {

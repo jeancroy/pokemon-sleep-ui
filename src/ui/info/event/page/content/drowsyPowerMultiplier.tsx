@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {EventDrowsyPowerMultiplierEntry} from '@/types/game/event/drowsyPowerMultiplier';
-import {EventPageTimePeriodUnit} from '@/ui/event/page/common/timePeriodUnit';
+import {EventPageTimePeriodUnit} from '@/ui/info/event/page/common/timePeriodUnit';
 
 
 type Props = {

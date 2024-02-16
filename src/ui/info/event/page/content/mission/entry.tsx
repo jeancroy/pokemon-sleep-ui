@@ -5,7 +5,7 @@ import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {ItemPackUI} from '@/components/shared/item/pack';
 import {MissionUI} from '@/components/shared/mission/main';
 import {EventMission} from '@/types/game/event/mission';
-import {EventPageMissionCommonProps} from '@/ui/event/page/content/mission/type';
+import {EventPageMissionCommonProps} from '@/ui/info/event/page/content/mission/type';
 
 
 type Props = EventPageMissionCommonProps & {

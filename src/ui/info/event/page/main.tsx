@@ -9,8 +9,8 @@ import {getEventStrengthMultiplierOfEvents} from '@/controller/event/strengthMul
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {PageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
-import {EventPageContent} from '@/ui/event/page/content/main';
-import {EventPageDataProps} from '@/ui/event/page/type';
+import {EventPageContent} from '@/ui/info/event/page/content/main';
+import {EventPageDataProps} from '@/ui/info/event/page/type';
 
 
 export const EventPage = async ({params}: PageProps<EventPageParams>) => {

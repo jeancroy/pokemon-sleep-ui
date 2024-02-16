@@ -8,8 +8,8 @@ import {Grid} from '@/components/layout/grid';
 import {TimePeriodSchedule} from '@/components/shared/timePeriod/schedule';
 import {EventInfo} from '@/types/game/event/info';
 import {EventMission} from '@/types/game/event/mission';
-import {EventPageMissionEntry} from '@/ui/event/page/content/mission/entry';
-import {EventPageMissionCommonProps} from '@/ui/event/page/content/mission/type';
+import {EventPageMissionEntry} from '@/ui/info/event/page/content/mission/entry';
+import {EventPageMissionCommonProps} from '@/ui/info/event/page/content/mission/type';
 import {toTimePeriodInDate} from '@/utils/timePeriod';
 
 

@@ -3,8 +3,8 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {EventIndexSection} from '@/ui/event/index/section';
-import {EventIndexDataProps} from '@/ui/event/index/type';
+import {EventIndexSection} from '@/ui/info/event/index/section';
+import {EventIndexDataProps} from '@/ui/info/event/index/type';
 
 
 export const EventIndexContent = ({eventInfoList}: EventIndexDataProps) => {

@@ -1,4 +1,4 @@
-import {EventIndex} from '@/ui/event/index/main';
+import {EventIndex} from '@/ui/info/event/index/main';
 import {generatePageMeta} from '@/utils/meta';
 
 
