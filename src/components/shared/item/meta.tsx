@@ -7,10 +7,10 @@ import {DiamondIcon} from '@/components/shared/icon/diamond';
 import {ItemIcon} from '@/components/shared/icon/item';
 import {PokemonCandyIcon} from '@/components/shared/icon/pokemon/candy';
 import {PokemonIncenseIcon} from '@/components/shared/icon/pokemon/incense';
-import {ItemPackCommonProps} from '@/components/shared/item/type';
+import {ItemMetaCommonProps} from '@/components/shared/item/type';
 
 
-export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemPackCommonProps) => {
+export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMetaCommonProps) => {
   const {meta} = itemPack;
   const {type} = meta;
 
