@@ -19,6 +19,19 @@
     "8": "Baya Atania",
     "9": "Baya Higog"
   },
+  "EventDetail": {
+    "name_10": "Valentine’s Day",
+    "name_4": "Good Sleep Day",
+    "name_5": "Halloween",
+    "name_6": "Eevee Week",
+    "name_7": "Holiday",
+    "name_8": "New Year",
+    "name_9": "Lapis Lakeside",
+    "short_name_10": "Valentine’s",
+    "short_name_6": "Eevee",
+    "short_name_9_1": "Lakeside 1",
+    "short_name_9_2": "Lakeside 2"
+  },
   "Field": {
     "1": "Isla Verdegal",
     "2": "Playa Turquesa",
