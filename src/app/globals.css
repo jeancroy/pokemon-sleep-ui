@@ -557,12 +557,8 @@
   }
   
   /* endregion */
-
-  /* region Miscellaneous text styling (text-*) */
   
-  .text-shadow-preset {
-    @apply shadow-slate-200 text-shadow dark:shadow-slate-900;
-  }
+  /* region Text color styling (text-*) */
   
   .text-energy {
     @apply text-amber-700 dark:text-amber-400 group-hover:text-amber-400 dark:group-hover:text-amber-700;
@@ -580,6 +576,14 @@
       transform-smooth text-green-600 group-hover:text-green-400
       dark:text-green-400 dark:group-hover:text-green-600
     ;
+  }
+  
+  /* endregion */
+
+  /* region Miscellaneous text styling (text-*) */
+  
+  .text-shadow-preset {
+    @apply shadow-slate-200 text-shadow dark:shadow-slate-900;
   }
   
   /* endregion */
@@ -648,6 +652,22 @@
   
   .nav-button-text {
     @apply nav-button button-clickable-bg text-sm whitespace-nowrap px-2.5;
+  }
+  
+  /* endregion */
+  
+  /* region Background color styling (bg-*) */
+  
+  .bg-energy {
+    @apply bg-amber-700 dark:bg-amber-400 group-hover:bg-amber-400 dark:group-hover:bg-amber-700;
+  }
+  
+  .bg-danger {
+    @apply bg-red-600 dark:bg-red-400 group-hover:bg-red-400 dark:group-hover:bg-red-600;
+  }
+  
+  .bg-safe {
+    @apply bg-green-600 dark:bg-green-400 group-hover:bg-green-400 dark:group-hover:bg-green-600;
   }
   
   /* endregion */

@@ -10462,6 +10462,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-hot-toast: "npm:^2.4.1"
     react-markdown: "npm:^9.0.1"
+    react-timer-hook: "npm:^3.0.7"
     react-toggle-dark-mode: "npm:^1.1.1"
     react-virtualized-auto-sizer: "npm:^1.0.21"
     react-window: "npm:^1.8.10"
@@ -10947,6 +10948,15 @@ __metadata:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
   checksum: 10c0/99fed1e53dcc4249ac5deec2e6b1cf709623957d1bec3bede548cecf1eee469b71cfc5d3fb2d9113ed2074ed5038d2f2f9f3d93478b4edccf2bf0253cd45e255
+  languageName: node
+  linkType: hard
+
+"react-timer-hook@npm:^3.0.7":
+  version: 3.0.7
+  resolution: "react-timer-hook@npm:3.0.7"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10c0/76a6419e8471be18023b907cb65c894566501305002186e9fa5ec42614ef21f0310f8ea0bed88b61efb75fc9bdc0430dcb92dc8f9a0a3c3a1956b6c27f6c8e2d
   languageName: node
   linkType: hard
 
