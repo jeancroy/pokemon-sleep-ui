@@ -62,6 +62,11 @@ declare global {
           IngredientExclusion: string,
           CoveredStrength: string,
         },
+        TimePeriodSchedule: {
+          Start: string,
+          End: string,
+          Close: string,
+        },
       },
       Evolution: {
         SleepTime: string,

@@ -44,6 +44,11 @@
       "IngredientCoverage": "Ingredient Coverage",
       "IngredientExclusion": "Ingredient Exclusion",
       "CoveredStrength": "Covered Strength"
+    },
+    "TimePeriodSchedule": {
+      "Start": "From",
+      "End": "To",
+      "Close": "Close"
     }
   },
   "Evolution": {

@@ -44,6 +44,11 @@
       "IngredientCoverage": "Cobertura de Ingrediente",
       "IngredientExclusion": "Excluir Ingredientes",
       "CoveredStrength": "Cobertura de Vigor"
+    },
+    "TimePeriodSchedule": {
+      "Start": "Desde",
+      "End": "Hasta",
+      "Close": "Cierre"
     }
   },
   "Evolution": {

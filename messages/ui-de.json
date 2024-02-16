@@ -44,6 +44,11 @@
       "IngredientCoverage": "Zutaten Abdeckung",
       "IngredientExclusion": "Zutaten Ausschluss",
       "CoveredStrength": "Abgedeckte Stärke"
+    },
+    "TimePeriodSchedule": {
+      "Start": "Von",
+      "End": "Bis",
+      "Close": "Schließen"
     }
   },
   "Evolution": {

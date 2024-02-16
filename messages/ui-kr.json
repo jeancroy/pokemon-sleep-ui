@@ -44,6 +44,11 @@
       "IngredientCoverage": "식재료 커버리지",
       "IngredientExclusion": "특정 식재료 제외",
       "CoveredStrength": "보장되는 에너지"
+    },
+    "TimePeriodSchedule": {
+      "Start": "From",
+      "End": "To",
+      "Close": "Close"
     }
   },
   "Evolution": {

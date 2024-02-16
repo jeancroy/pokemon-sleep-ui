@@ -44,6 +44,11 @@
       "IngredientCoverage": "食材カバー率",
       "IngredientExclusion": "禁止食材",
       "CoveredStrength": "エナジーカバー量"
+    },
+    "TimePeriodSchedule": {
+      "Start": "開始",
+      "End": "終了",
+      "Close": "受取期限"
     }
   },
   "Evolution": {

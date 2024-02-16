@@ -44,6 +44,11 @@
       "IngredientCoverage": "食材覆蓋率",
       "IngredientExclusion": "不顯示含有下列食材的食譜",
       "CoveredStrength": "等效能量"
+    },
+    "TimePeriodSchedule": {
+      "Start": "開始",
+      "End": "終止",
+      "Close": "領獎結束"
     }
   },
   "Evolution": {
