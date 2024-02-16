@@ -6,7 +6,7 @@ import {PokedexFilterCommon} from '@/ui/pokedex/common/type';
 export const pokedexTierListBasis = [
   'totalEnergy',
   'ingredientEnergy',
-  'mainSkillTriggerValue',
+  'mainSkillTriggerRate',
 ] as const;
 
 export type PokedexTierListBasis = typeof pokedexTierListBasis[number];

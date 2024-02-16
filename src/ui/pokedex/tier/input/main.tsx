@@ -82,7 +82,7 @@ export const PokedexTierListInputUI = ({
         } satisfies PokedexTierListInputFilter))}
         options={[...pokedexTierListBasis]}
       />
-      <AnimatedCollapseQuick show={filter.sort === 'mainSkillTriggerValue'}>
+      <AnimatedCollapseQuick show={filter.sort === 'mainSkillTriggerRate'}>
         <FilterTextInput
           title={<PokemonFilterTitle type="mainSkill"/>}
           idToText={(id) => t(`MainSkill.Name.${id}`)}

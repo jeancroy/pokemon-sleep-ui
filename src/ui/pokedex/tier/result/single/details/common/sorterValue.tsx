@@ -7,7 +7,7 @@ import {EnergyIcon} from '@/components/shared/icon/energy';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MainSkillTriggerValueIcon} from '@/components/shared/pokemon/mainSkill/icon/trigger';
 import {PokedexTierListBasis} from '@/ui/pokedex/tier/input/type';
-import {formatFloat} from '@/utils/number/format/regular';
+import {formatFloat, formatFloat3} from '@/utils/number/format/regular';
 
 
 type Props = {
@@ -36,11 +36,11 @@ export const PokedexTierListSorterValue = ({basis, value}: Props) => {
     );
   }
 
-  if (basis === 'mainSkillTriggerValue') {
+  if (basis === 'mainSkillTriggerRate') {
     return (
       <Flex direction="row" center noFullWidth className="gap-0.5">
-        <MainSkillTriggerValueIcon alt={t('Stats.MainSkillTriggerValue')}/>
-        <span>{formatFloat(value)}</span>
+        <MainSkillTriggerValueIcon alt={t('Stats.MainSkillTriggerRate')}/>
+        <span>{formatFloat3(value)}%</span>
       </Flex>
     );
   }

@@ -1,6 +1,5 @@
 import {useFilterInput} from '@/components/input/filter/hook';
 import {isFilterIncludingSome, isFilterMismatchOnSingle} from '@/components/input/filter/utils/match';
-import {enforceFilterWithSkillValue} from '@/components/shared/pokemon/sorter/enforcer/skillValue';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
@@ -9,7 +8,6 @@ import {initialPokedexTierListInputSortDisplay} from '@/ui/pokedex/tier/input/co
 import {
   PokedexTierListInput,
   PokedexTierListInputControls,
-  PokedexTierListInputFilter,
 } from '@/ui/pokedex/tier/input/type';
 import {getPossibleIngredientsFromChain} from '@/utils/game/producing/ingredient/level';
 
@@ -50,41 +48,6 @@ export const usePokedexTierListInput = (opts: UsePokedexTierListInputOpts): Poke
           chain: ingredientChainMap[pokemon.ingredientChain],
         }),
       });
-    },
-    onSetFilter: (original, updated) => {
-      // If sort becomes non-main skill, force clear out main skills
-      if (updated.filter.sort !== 'mainSkillTriggerValue') {
-        return {
-          ...updated,
-          filter: {
-            ...original.filter,
-            ...updated.filter,
-            mainSkill: {},
-          },
-        };
-      }
-
-      // Regular main skill enforcing behavior
-      return {
-        ...updated,
-        filter: enforceFilterWithSkillValue<
-          PokedexTierListInputFilter,
-          PokedexTierListInputFilter['sort'] | PokedexTierListInputFilter['display']
-        >({
-          original: original.filter,
-          updated: updated.filter,
-          config: {
-            mainSkill: {
-              key: 'mainSkill',
-              defaultValue: {[pokemonList[0].skill]: true},
-            },
-            sort: [
-              {key: 'sort', defaultValue: 'totalEnergy'},
-              {key: 'display', defaultValue: 'totalEnergy'},
-            ],
-          },
-        }),
-      };
     },
   });
 };
