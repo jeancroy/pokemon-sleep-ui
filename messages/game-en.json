@@ -852,25 +852,25 @@
       "9": "Inventory Up S"
     },
     "Description": {
-      "1": "Boosts the EXP earned by the team after sleep sessions by {bonus}%.",
-      "10": "Increases the max number of Berries and ingredients this Pokémon can have by {bonus}.",
-      "11": "Boosts the level of this Pokémon’s main skill by {bonus}.",
+      "1": "Boosts the EXP earned by the team after sleep sessions by {num}%.",
+      "10": "Increases the max number of Berries and ingredients this Pokémon can have by {num}.",
+      "11": "Boosts the level of this Pokémon’s main skill by {num}.",
       "12": "Slightly boosts the likelihood of this Pokémon finding ingredients.",
       "13": "Boosts the likelihood of this Pokémon finding ingredients.",
       "14": "Slightly boosts the chance of this Pokémon’s main skill being used.",
       "15": "Boosts the chance of this Pokémon’s main skill being used.",
-      "16": "Boosts the Energy this Pokémon recovers from sleep sessions by {bonus}%.",
-      "17": "Boosts the Energy this Pokémon recovers from sleep sessions by {bonus}%.",
-      "18": "Boosts the level of this Pokémon’s main skill by {bonus}.",
-      "19": "Increases the max number of Berries and ingredients this Pokémon can have by {bonus}.",
-      "2": "Allows team members to help {bonus}% faster.",
-      "3": "Multiplies the Energy the team recovers from sleep sessions by {bonus}.",
-      "4": "Boosts the number of Dream Shards you earn from sleep research by {bonus}%.",
-      "5": "Boosts the EXP you earn from performing sleep research by {bonus}%.",
-      "6": "Allows this Pokémon to help out {bonus}% faster.",
-      "7": "Allows this Pokémon to help out {bonus}% faster.",
-      "8": "Increases the number of Berries this Pokémon finds at one time by {bonus}.",
-      "9": "Increases the max number of Berries and ingredients this Pokémon can have by {bonus}."
+      "16": "Boosts the Energy this Pokémon recovers from sleep sessions by {num}%.",
+      "17": "Boosts the Energy this Pokémon recovers from sleep sessions by {num}%.",
+      "18": "Boosts the level of this Pokémon’s main skill by {num}.",
+      "19": "Increases the max number of Berries and ingredients this Pokémon can have by {num}.",
+      "2": "Allows team members to help {num}% faster.",
+      "3": "Multiplies the Energy the team recovers from sleep sessions by {num}.",
+      "4": "Boosts the number of Dream Shards you earn from sleep research by {num}%.",
+      "5": "Boosts the EXP you earn from performing sleep research by {num}%.",
+      "6": "Allows this Pokémon to help out {num}% faster.",
+      "7": "Allows this Pokémon to help out {num}% faster.",
+      "8": "Increases the number of Berries this Pokémon finds at one time by {num}.",
+      "9": "Increases the max number of Berries and ingredients this Pokémon can have by {num}."
     }
   }
 }

@@ -34,7 +34,7 @@ export const SubSkillInfoSingle = ({data}: Props) => {
         <div>{t(`Name.${id}`)}</div>
       </Flex>
       <div className="text-sm text-slate-600 dark:text-slate-400">
-        {t(`Description.${id}`, {bonus: bonusValue})}
+        {t(`Description.${id}`, {num: bonusValue})}
       </div>
       <Flex direction="row">
         <Flex direction="row" center className="gap-1.5">
