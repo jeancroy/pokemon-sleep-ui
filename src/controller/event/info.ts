@@ -13,8 +13,12 @@ const getCollection = async (): Promise<Collection<EventInfo>> => {
     .collection<EventInfo>('info');
 };
 
-export const getEventInfoList = async (): Promise<EventInfo[]> => {
-  return getDataAsArray(getCollection(), {}, {startEpoch: -1});
+export const getEventInfoList = async (epochSec?: number): Promise<EventInfo[]> => {
+  return getDataAsArray(
+    getCollection(),
+    epochSec ? {startEpoch: {$lte: epochSec}, endEpoch: {$gte: epochSec}} : {},
+    {startEpoch: -1},
+  );
 };
 
 export const getEventInfo = async (eventIdentifier: EventIdentifier): Promise<EventInfo | null> => {
