@@ -580,6 +580,7 @@ declare global {
       Nature: GameObjectIdToString,
       NatureEffect: GameObjectIdToString,
       PokemonCandy: GameObjectIdToString,
+      PokemonIncense: GameObjectIdToString,
       PokemonType: GameObjectIdToString,
       PokemonName: GameObjectIdToString,
       RankTitle: GameObjectIdToString,

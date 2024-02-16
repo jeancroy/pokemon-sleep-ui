@@ -9,6 +9,7 @@ import {PokemonCandyIcon} from '@/components/shared/icon/pokemon/candy';
 import {PokemonIncenseIcon} from '@/components/shared/icon/pokemon/incense';
 import {ItemMetaLayout} from '@/components/shared/item/metaLayout';
 import {ItemMetaCommonProps} from '@/components/shared/item/type';
+import {PokemonImage} from '@/components/shared/pokemon/image/main';
 
 
 export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMetaCommonProps) => {
@@ -56,11 +57,19 @@ export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMet
       return null;
     }
 
-    const name = t(`PokemonName.${pokemon.id}`);
+    const name = t(`PokemonIncense.${pokemon.id}`);
 
     return (
       <ItemMetaLayout name={name}>
-        <PokemonIncenseIcon pokemonType={pokemon.type} dimension={dimension} alt={name}/>
+        <div className="relative size-5">
+          <PokemonImage
+            pokemonId={pokemon.id}
+            image={{type: 'default', image: 'icon'}}
+            isShiny={false}
+            className="rounded-full"
+          />
+        </div>
+        <PokemonIncenseIcon pokemonType={pokemon.type} dimension={dimension} alt={name} className="scale-125"/>
       </ItemMetaLayout>
     );
   }
