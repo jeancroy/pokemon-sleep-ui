@@ -1,6 +1,3 @@
-type UiMessages = typeof import('./src/translations/ui-en.json');
-type GameMessages = typeof import('./src/translations/ui-en.json');
-
 type I18nMetadata = {
   Title: string,
 };
@@ -12,7 +9,7 @@ type PageWithIndividual = {
 
 type GameObjectIdToString = {[id in string]: string};
 
-declare interface IntlMessages extends UiMessages, GameMessages {
+declare interface IntlMessages {
   Locale: string,
   UI: {
     Subscription: {
