@@ -20,17 +20,17 @@
     "9": "Baya Higog"
   },
   "EventDetail": {
-    "name_10": "Valentine’s Day",
-    "name_4": "Good Sleep Day",
+    "name_10": "Día de los Enamorados",
+    "name_4": "Día de los dormilones",
     "name_5": "Halloween",
-    "name_6": "Eevee Week",
-    "name_7": "Holiday",
-    "name_8": "New Year",
-    "name_9": "Lapis Lakeside",
-    "short_name_10": "Valentine’s",
+    "name_6": "Semana de Eevee",
+    "name_7": "Fiestas",
+    "name_8": "Año Nuevo",
+    "name_9": "Lago Lazulita",
+    "short_name_10": "Día de los Enamorados",
     "short_name_6": "Eevee",
-    "short_name_9_1": "Lakeside 1",
-    "short_name_9_2": "Lakeside 2"
+    "short_name_9_1": "Lazulita 1",
+    "short_name_9_2": "Lazulita 2"
   },
   "Field": {
     "1": "Isla Verdegal",
@@ -852,25 +852,36 @@
       "9": "Inventario S"
     },
     "Description": {
-      "1": "Aumenta un {bonus}% los puntos de experiencia que gana el equipo al dormir.",
-      "10": "Aumenta en {bonus} el número máximo de bayas e ingredientes que puede tener el Pokémon.",
-      "11": "Potencia la habilidad principal del Pokémon {bonus} nivel es",
+      "1": "Aumenta un {num}% los puntos de experiencia que gana el equipo al dormir.",
+      "10": "Aumenta en {num} el número máximo de bayas e ingredientes que puede tener el Pokémon.",
+      "11": "Potencia la habilidad principal del Pokémon {num} nivel es",
       "12": "Aumenta ligeramente la probabilidad de que el Pokémon encuentre ingredientes.",
       "13": "Aumenta la probabilidad de que el Pokémon encuentre ingredientes.",
       "14": "Aumenta ligeramente la probabilidad de que el Pokémon utilice su habilidad principal.",
       "15": "Aumenta la probabilidad de que el Pokémon utilice su habilidad principal.",
-      "16": "Aumenta un {bonus}% la energía que recupera el Pokémon al dormir.",
-      "17": "Aumenta un {bonus}% la energía que recupera el Pokémon al dormir.",
-      "18": "Aumenta {bonus} nivel es la habilidad principal de este Pokémon.",
-      "19": "Aumenta en {bonus} el número máximo de bayas e ingredientes que puede tener el Pokémon.",
-      "2": "Reduce un {bonus}% el tiempo que tardan en ayudar los miembros del equipo.",
-      "3": "Multiplica por {bonus} la energía que recupera el equipo al dormir.",
-      "4": "Aumenta un {bonus}% la cantidad de fragmentos de sueños obtenidos con el estudio del sueño.",
-      "5": "Aumenta un {bonus}% la cantidad de EXP de estudio obtenida con el estudio del sueño.",
-      "6": "Reduce un {bonus}% el tiempo que tarda en ayudar el Pokémon.",
-      "7": "Reduce un {bonus}% el tiempo que tarda en ayudar el Pokémon.",
-      "8": "Aumenta en {bonus} el número de bayas que encuentra el Pokémon cada vez.",
-      "9": "Aumenta en {bonus} el número máximo de bayas e ingredientes que puede tener el Pokémon."
+      "16": "Aumenta un {num}% la energía que recupera el Pokémon al dormir.",
+      "17": "Aumenta un {num}% la energía que recupera el Pokémon al dormir.",
+      "18": "Aumenta {num} nivel es la habilidad principal de este Pokémon.",
+      "19": "Aumenta en {num} el número máximo de bayas e ingredientes que puede tener el Pokémon.",
+      "2": "Reduce un {num}% el tiempo que tardan en ayudar los miembros del equipo.",
+      "3": "Multiplica por {num} la energía que recupera el equipo al dormir.",
+      "4": "Aumenta un {num}% la cantidad de fragmentos de sueños obtenidos con el estudio del sueño.",
+      "5": "Aumenta un {num}% la cantidad de EXP de estudio obtenida con el estudio del sueño.",
+      "6": "Reduce un {num}% el tiempo que tarda en ayudar el Pokémon.",
+      "7": "Reduce un {num}% el tiempo que tarda en ayudar el Pokémon.",
+      "8": "Aumenta en {num} el número de bayas que encuentra el Pokémon cada vez.",
+      "9": "Aumenta en {num} el número máximo de bayas e ingredientes que puede tener el Pokémon."
     }
+  },
+  "WeeklyMission": {
+    "useBiscuit": "Entrega {num} galletas",
+    "useCandy": "Usa {num} caramelos",
+    "useIncense": "Usa {num} inciensos",
+    "rank": "Haz que Snorlax consiga la valoración <SnorlaxRank></SnorlaxRank>",
+    "cook": "Prepara {num} platos",
+    "berry": "Dale {num} bayas a Snorlax",
+    "berryFavorite": "Dale a Snorlax {num} de sus bayas favoritas",
+    "onBedTime": "Ve a dormir a la hora acordada {num} veces",
+    "catchPokemon": "Traba amistad con {num} Pokémon"
   }
 }
