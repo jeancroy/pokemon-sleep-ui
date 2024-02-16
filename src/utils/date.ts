@@ -26,6 +26,12 @@ export const toUtcIsoTimestampString = (timestamp: string): IsoTimestampString =
 };
 
 export const getDateFromEpochSecAtLocal = (epochSecAtLocal: number): Date => {
+  if (typeof window === 'undefined') {
+    throw new Error(
+      'To ensure conversion correctness, `getDateFromEpochSecAtLocal()` can only run at client side.',
+    );
+  }
+
   const dateAtUtc = new Date(epochSecAtLocal * 1000);
 
   return new Date(dateAtUtc.getTime() + dateAtUtc.getTimezoneOffset() * 60 * 1000);
