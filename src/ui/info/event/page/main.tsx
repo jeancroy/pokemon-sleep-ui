@@ -50,6 +50,7 @@ export const EventPage = async ({params}: PageProps<EventPageParams>) => {
         locale={locale}
         namespaces={[
           'Game',
+          'UI.Common',
           'UI.Component.TimePeriodSchedule',
           'UI.Multiplier',
           'UI.InPage.Info.Event.Page',
