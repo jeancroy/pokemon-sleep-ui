@@ -36,6 +36,11 @@ export type PokemonBerry = {
   quantity: number,
 };
 
+export type PokemonCandy = {
+  i18nId: string,
+  imageId: string,
+};
+
 export type PokemonInfo = {
   id: PokemonId,
   type: PokemonTypeId,
@@ -48,6 +53,7 @@ export type PokemonInfo = {
   evolution: EvolutionData,
   expType: PokemonExpTypeId,
   eventType: PokemonEventTypeId,
+  candy: PokemonCandy,
   internalId: number,
 };
 

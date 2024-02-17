@@ -81,7 +81,7 @@ export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMet
       return null;
     }
 
-    const name = t(`PokemonCandy.${pokemon.evolution.initial}`);
+    const name = t(`PokemonCandy.${pokemon.candy.i18nId}`);
 
     return (
       <ItemMetaLayout name={name}>

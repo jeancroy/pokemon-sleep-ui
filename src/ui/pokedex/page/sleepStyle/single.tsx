@@ -63,6 +63,7 @@ export const PokemonSingleSleepStyle = <TSleepStyle extends SleepStyleCommon>({
             iconSrc="/images/generic/research.png"
             iconAlt={t('ResearchExp')}
             value={rewards.exp}
+            classImage="scale-125"
           />
           <PokemonSleepStyleRewardCell
             iconSrc="/images/generic/shard.png"
@@ -70,10 +71,11 @@ export const PokemonSingleSleepStyle = <TSleepStyle extends SleepStyleCommon>({
             value={rewards.shards}
           />
           <PokemonSleepStyleRewardCell
-            iconSrc="/images/generic/candyWhite.png"
-            iconAlt={t2(pokemon.evolution.initial.toString())}
+            iconSrc={`/images/candy/${pokemon.candy.imageId}.png`}
+            iconAlt={t2(pokemon.candy.i18nId)}
             value={rewards.candy}
             noInvert={false}
+            classImage="scale-150"
           />
         </Flex>
       </Flex>

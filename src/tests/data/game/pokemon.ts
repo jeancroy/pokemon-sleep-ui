@@ -31,10 +31,13 @@ export const testPokemonData: {[name in string]: PokemonInfo} = {
       next: [],
       stage: 1,
       previous: null,
-      initial: 359,
     },
     expType: defaultExpType,
     eventType: defaultPokemonEventType,
+    candy: {
+      i18nId: '359',
+      imageId: '359',
+    },
     internalId: 91,
   },
   ampharos: {
@@ -64,10 +67,13 @@ export const testPokemonData: {[name in string]: PokemonInfo} = {
       next: [],
       stage: 3,
       previous: 180,
-      initial: 179,
     },
     expType: defaultExpType,
     eventType: defaultPokemonEventType,
+    candy: {
+      i18nId: '179',
+      imageId: '179',
+    },
     internalId: 82,
   },
 };

@@ -10,12 +10,13 @@ type Props = {
   iconAlt: string,
   value: number,
   noInvert?: boolean,
+  classImage?: string,
 };
 
-export const PokemonSleepStyleRewardCell = ({iconSrc, iconAlt, value, noInvert}: Props) => {
+export const PokemonSleepStyleRewardCell = ({iconSrc, iconAlt, value, noInvert, classImage}: Props) => {
   return (
     <Flex direction="row" center className="gap-0.5">
-      <GenericIconLarger src={iconSrc} alt={iconAlt} noInvert={noInvert ?? true}/>
+      <GenericIconLarger src={iconSrc} alt={iconAlt} noInvert={noInvert ?? true} className={classImage}/>
       <div>{formatInt(value)}</div>
     </Flex>
   );

@@ -10,5 +10,5 @@ type Props = IconProps & {
 };
 
 export const PokemonCandyIcon = ({pokemon, ...props}: Props) => {
-  return <GenericIcon src={`/images/candy/${pokemon.evolution.initial}.png`} noInvert {...props}/>;
+  return <GenericIcon src={`/images/candy/${pokemon.candy.imageId}.png`} noInvert {...props}/>;
 };

@@ -12,7 +12,7 @@ import {PokemonDataProps} from '@/ui/pokedex/page/type';
 
 
 export const PokemonStats = ({pokemon}: PokemonDataProps) => {
-  const {stats, evolution} = pokemon;
+  const {stats, candy} = pokemon;
 
   const t = useTranslations('UI.InPage.Pokedex');
   const t2 = useTranslations('UI.Common');
@@ -78,7 +78,7 @@ export const PokemonStats = ({pokemon}: PokemonDataProps) => {
           </td>
           <td>
             <Flex direction="row" center noFullWidth className="gap-1.5">
-              <PokemonCandyIcon pokemon={pokemon} alt={t3(evolution.initial.toString())} className="scale-150"/>
+              <PokemonCandyIcon pokemon={pokemon} alt={t3(candy.i18nId)} className="scale-150"/>
               <div>{stats.transfer.candy}</div>
             </Flex>
           </td>
