@@ -1,0 +1,1 @@
+import {runtimeCaching}from'@ducanh2912/next-pwa';let e=[/^https:\/\/fonts\.(?:googleapis)\.com\/.*/i,/\.(?:eot|otf|ttc|ttf|woff|woff2|font.css)$/i,/\.(?:jpg|jpeg|gif|png|svg|ico|webp)$/i,/\.(?:js)$/i,/\.(?:css|less)$/i],s=runtimeCaching.map(t=>e.includes(t.urlPattern)?{...t,handler:"CacheFirst"}:t);var index = {runtimeCaching:s};export{index as default,s as runtimeCaching};

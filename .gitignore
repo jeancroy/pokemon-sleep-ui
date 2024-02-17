@@ -28,6 +28,7 @@ yarn-error.log*
 
 # Local env files
 .env*.local
+.eslintcache
 
 # Vercel
 .vercel
@@ -52,3 +53,7 @@ logs/
 **/public/fallback-*.js
 
 certificates
+
+# Next.js Config Overrides
+**/dist/**
+!packages/next-config/dist/**

@@ -3,21 +3,40 @@
   "packageManager": "yarn@4.1.0",
   "version": "^1.0.0",
   "author": "RaenonX",
-  "private": true,
+  "contributors": [
+    {
+      "name": "RaenonX",
+      "email": "raenonx0710@gmail.com"
+    },
+    {
+      "name": "John Mitchell-Grant",
+      "email": "jgrant_dev@icloud.com"
+    }
+  ],
+  "license": "MIT",
   "engines": {
     "node": "^20.10",
     "npm": "^9.5.1"
   },
+  "workspaces": [
+    "packages/**"
+  ],
   "scripts": {
     "dev": "next dev",
     "dev:debug:server": "node $NODE_ARGS ./node_modules/next/dist/bin/next",
     "dev:debug:delay": "node scripts/client-ready.js",
     "dev:react-devtools": "react-devtools",
+    "config:build": "cd packages/next-config; yarn build",
     "build": "next build",
     "start": "next start",
     "tsc": "tsc --noemit",
-    "lint": "next lint",
-    "lint:css": "stylelint **/*.css",
+    "lint": "concurrently \"yarn:lint:*(!next:base)\"",
+    "lint:next:base": "next lint . --config .eslintrc.yml --dir src",
+    "lint:next:json": "yarn lint:next:base -- --ext json",
+    "lint:next:typescript": "yarn lint:next:base -- --ext ts",
+    "lint:next:javascript": "yarn lint:next:base -- --ext js",
+    "lint:next:typescriptreact": "yarn lint:next:base -- --ext tsx",
+    "lint:css": "stylelint src/**/*.css --config .stylelintrc.yml",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --ci",
@@ -68,9 +87,7 @@
     "tailwindcss": "^3.4.1",
     "tesseract.js": "5.0.4",
     "threads": "^1.7.0",
-    "treeify-paths": "^2.0.1",
-    "use-custom-compare": "^1.4.0",
-    "uuid": "^9.0.1"
+    "treeify-paths": "^2.0.1"
   },
   "dependenciesComments": {
     "@auth/mongodb-adapter": "See https://github.com/nextauthjs/next-auth/issues/9493 if `next-auth` gives any error.",
@@ -78,33 +95,44 @@
   },
   "devDependencies": {
     "@ducanh2912/next-pwa": "^10.2.4",
+    "@pokemon-sleep-ui/next-config": "workspace:^",
     "@savvywombat/tailwindcss-grid-areas": "^4.0.0",
     "@types/gtag.js": "^0.0.18",
     "@types/lodash": "^4.14.202",
+    "@types/micromatch": "^4.0.6",
     "@types/node": "^20.11.16",
     "@types/nodemailer": "^6.4.14",
+    "@types/prop-types": "^15.7.11",
     "@types/react": "^18.2.51",
     "@types/react-dom": "^18.2.18",
     "@types/react-window": "^1.8.8",
     "@types/uuid": "^9.0.8",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.20.0",
+    "concurrently": "^8.2.2",
     "encoding": "^0.1.13",
     "eslint": "^8.56.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-next": "^14.1.0",
+    "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-tailwindcss": "^3.14.1",
     "eslint-plugin-unused-imports": "^3.0.0",
     "eslint-plugin-yml": "^1.12.2",
-    "husky": "^8.0.0",
+    "husky": "^9.0.10",
     "jest": "^29.7.0",
+    "jsonc-eslint-parser": "^2.4.0",
     "lint-staged": "^15.2.1",
+    "micromatch": "^4.0.5",
+    "prop-types": "^15.8.1",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
     "stylelint-config-tailwindcss": "^0.0.7",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "use-custom-compare": "^1.4.0",
+    "uuid": "^9.0.1",
+    "webpack": "^5.90.1"
   },
   "optionalDependencies": {
     "@types/webpack": "^5.28.5",

@@ -17,6 +17,7 @@ See [credit list on the website](https://pks.raenonx.cc/en/docs/view/credits).
 ### React DevTools
 
 To enable React DevTools, follow the steps below to enable it:
+
 1. Set environment variable `REACT_APP_DEV_TOOLS` to any value. This can be done using either `.env` or `.env.local` file.
 2. Run both `yarn run dev:react-devtools` and `yarn dev`.
 3. React debug/profiling on Safari will be available at `http://localhost:8097`.

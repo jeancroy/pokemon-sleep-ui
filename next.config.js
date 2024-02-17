@@ -1,7 +1,7 @@
-// @ts-check
 const childProcess = require('child_process');
 
 const {default: withPWAInit} = require('@ducanh2912/next-pwa');
+const {runtimeCaching} = require('@pokemon-sleep-ui/next-config');
 const {PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD} = require('next/constants');
 
 
@@ -63,6 +63,9 @@ const nextConfig = {
     tsconfigPath: './tsconfig.json',
   },
   webpack: webpackConfig,
+  eslint: {
+    dirs: ['src'],
+  },
 };
 
 /** @type {import('@ducanh2912/next-pwa').PluginOptions} */
@@ -75,6 +78,7 @@ const pwaConfig = {
   reloadOnOnline: false,
   publicExcludes: ['!images/**/*.png'],
   workboxOptions: {
+    runtimeCaching,
     disableDevLogs: isProd,
     directoryIndex: '/_next/',
   },
