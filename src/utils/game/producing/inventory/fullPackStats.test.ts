@@ -48,8 +48,8 @@ describe('Pokemon Full Pack Stats', () => {
       frequency: 1500,
     });
 
-    expect(bySleep.primary?.secsToFull).toBeNull();
-    expect(bySleep.secondary?.secsToFull).toBeNull();
+    expect(bySleep.primary).toBeNull();
+    expect(bySleep.secondary).toBeNull();
   });
 
   it('respects `isFullPack` with primary sleep efficiency intervals only', () => {
@@ -65,7 +65,7 @@ describe('Pokemon Full Pack Stats', () => {
     });
 
     expect(bySleep.primary?.secsToFull).toBeCloseTo(0);
-    expect(bySleep.secondary?.secsToFull).toBeNull();
+    expect(bySleep.secondary).toBeNull();
   });
 
   it('respects `isFullPack` with secondary sleep efficiency intervals', () => {
