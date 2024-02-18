@@ -2,6 +2,7 @@ import {describe, expect, it} from '@jest/globals';
 
 import {defaultUserCalculationBehavior} from '@/const/user/settings';
 import {testPokemonData} from '@/tests/data/game/pokemon';
+import {testBaseProducingRateOfBranch} from '@/tests/producing/rate';
 import {getBaseFrequencyFromPokemon, getFrequencyFromItemRateOfSessions} from '@/utils/game/producing/frequency';
 
 
@@ -89,26 +90,18 @@ describe('Item Rate of Sessions Frequency', () => {
       produceItemSplit: 0.8,
       rate: {
         id: NaN, // Ignored
+        rateBase: testBaseProducingRateOfBranch,
         awake: {
-          id: NaN, // Ignored
-          period: 'daily',
+          ...testBaseProducingRateOfBranch,
           frequency: 1600,
-          energy: NaN, // Ignored
-          quantity: NaN, // Ignored
         },
         sleep1: {
-          id: NaN,
-          period: 'daily',
+          ...testBaseProducingRateOfBranch,
           frequency: 2400,
-          energy: NaN, // Ignored
-          quantity: NaN, // Ignored
         },
         sleep2: {
-          id: NaN,
-          period: 'daily',
+          ...testBaseProducingRateOfBranch,
           frequency: 2400,
-          energy: NaN, // Ignored
-          quantity: NaN, // Ignored
         },
       },
       sleepStateSplit: {
@@ -143,26 +136,18 @@ describe('Item Rate of Sessions Frequency', () => {
       produceItemSplit: 0.2,
       rate: {
         id: NaN, // Ignored
+        rateBase: testBaseProducingRateOfBranch,
         awake: {
-          id: NaN, // Ignored
-          period: 'daily',
+          ...testBaseProducingRateOfBranch,
           frequency: 1600,
-          energy: NaN, // Ignored
-          quantity: NaN, // Ignored
         },
         sleep1: {
-          id: NaN,
-          period: 'daily',
+          ...testBaseProducingRateOfBranch,
           frequency: 2400,
-          energy: NaN, // Ignored
-          quantity: NaN, // Ignored
         },
         sleep2: {
-          id: NaN,
-          period: 'daily',
+          ...testBaseProducingRateOfBranch,
           frequency: 2400,
-          energy: NaN, // Ignored
-          quantity: NaN, // Ignored
         },
       },
       sleepStateSplit: {

@@ -5,10 +5,11 @@ import {GenericIconLarger} from '@/components/shared/icon/common/larger';
 import {PokemonInventoryCommonProps} from '@/components/shared/pokemon/inventory/type';
 import {getPackStatsStyle} from '@/components/shared/pokemon/utils';
 import {formatSeconds} from '@/utils/time';
+import {Nullable} from '@/utils/type';
 
 
 type Props = PokemonInventoryCommonProps & {
-  seconds: number | null,
+  seconds: Nullable<number>,
   alt: string,
   title?: React.ReactNode,
 };

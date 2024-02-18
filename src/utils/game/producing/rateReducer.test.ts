@@ -1,6 +1,7 @@
 import {describe, expect, it} from '@jest/globals';
 
 
+import {testBaseProducingRateOfBranch} from '@/tests/producing/rate';
 import {getValueAfterSplitFromItemRateOfSessions} from '@/utils/game/producing/rateReducer';
 
 
@@ -18,26 +19,18 @@ describe('Pokemon Production Value After Split', () => {
       period: 'daily',
       rate: {
         id: NaN, // Ignored
+        rateBase: testBaseProducingRateOfBranch,
         sleep1: {
-          id: NaN,
-          period: 'daily',
-          frequency: NaN, // Ignored
+          ...testBaseProducingRateOfBranch,
           energy: 500,
-          quantity: NaN, // Ignored
         },
         sleep2: {
-          id: NaN,
-          period: 'daily',
-          frequency: NaN, // Ignored
+          ...testBaseProducingRateOfBranch,
           energy: 0,
-          quantity: NaN, // Ignored
         },
         awake: {
-          id: NaN, // Ignored
-          period: 'daily',
-          frequency: NaN, // Ignored
+          ...testBaseProducingRateOfBranch,
           energy: 300,
-          quantity: NaN, // Ignored
         },
       },
       valueKey: 'energy',
@@ -74,26 +67,18 @@ describe('Pokemon Production Value After Split', () => {
       period: 'daily',
       rate: {
         id: NaN, // Ignored
+        rateBase: testBaseProducingRateOfBranch,
         sleep1: {
-          id: NaN,
-          period: 'daily',
-          frequency: NaN, // Ignored
+          ...testBaseProducingRateOfBranch,
           energy: 500,
-          quantity: NaN, // Ignored
         },
         sleep2: {
-          id: NaN,
-          period: 'daily',
-          frequency: NaN, // Ignored
+          ...testBaseProducingRateOfBranch,
           energy: 0,
-          quantity: NaN, // Ignored
         },
         awake: {
-          id: NaN, // Ignored
-          period: 'daily',
-          frequency: NaN, // Ignored
+          ...testBaseProducingRateOfBranch,
           energy: 300,
-          quantity: NaN, // Ignored
         },
       },
       valueKey: 'energy',
@@ -107,7 +92,6 @@ describe('Pokemon Production Value After Split', () => {
       produceType: 'ingredient',
       produceItemSplit: 0.2,
     });
-
 
     expect(awake).toBeCloseTo(300 * 0.2 * (16 / 24));
     expect(sleep1Vacant).toBeCloseTo(500 * 0.2 * (6 / 24));

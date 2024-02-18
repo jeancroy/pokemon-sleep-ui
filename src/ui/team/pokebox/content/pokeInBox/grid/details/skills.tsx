@@ -2,7 +2,7 @@ import React from 'react';
 
 import {LoadingText} from '@/components/icons/loading';
 import {Flex} from '@/components/layout/flex/common';
-import {PokemonProbabilityOfNoSkill} from '@/components/shared/pokemon/production/noSkill';
+import {PokemonNoSkillProbability} from '@/components/shared/pokemon/production/noSkill/main';
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
 import {useCalculatePokeInBoxProduction} from '@/ui/team/pokebox/content/pokeInBox/worker/production/hook';
@@ -28,8 +28,8 @@ export const PokeInBoxGridSkills = (props: PokeInBoxGridDetailsProps) => {
         normalSize
       />
       <Flex className="text-sm">
-        <PokemonProbabilityOfNoSkill rate={rate} state="sleep1Vacant"/>
-        <PokemonProbabilityOfNoSkill rate={rate} state="sleep2Vacant"/>
+        <PokemonNoSkillProbability rate={rate} sleepSession="primary"/>
+        <PokemonNoSkillProbability rate={rate} sleepSession="secondary"/>
       </Flex>
     </Flex>
   );

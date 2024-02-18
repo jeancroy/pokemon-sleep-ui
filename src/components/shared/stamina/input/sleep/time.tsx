@@ -2,11 +2,11 @@ import React from 'react';
 
 import {StaminaConfigTimeInput} from '@/components/shared/stamina/input/time';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
-import {SleepSessions, SleepSessionTimes} from '@/types/game/sleep';
+import {SleepSession, SleepSessionTimes} from '@/types/game/sleep';
 
 
 type Props = Pick<StaminaConfigProps, 'config' | 'setConfig'> & {
-  session: keyof SleepSessions<never>,
+  session: SleepSession,
   times: SleepSessionTimes | null,
   timing: keyof SleepSessionTimes,
   isActive: boolean,

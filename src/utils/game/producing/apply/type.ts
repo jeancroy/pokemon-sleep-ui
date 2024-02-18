@@ -1,11 +1,11 @@
 import {EffectiveBonus} from '@/types/game/bonus/main';
-import {ProducingRateOfItem} from '@/types/game/producing/rate';
+import {ProducingRateOfBranch} from '@/types/game/producing/rate';
 import {ProducingState} from '@/types/game/producing/state';
 
 
-export type ApplyBonusCommonOpts<T extends ProducingRateOfItem | null> = {
+export type ApplyBonusCommonOpts = {
   bonus: EffectiveBonus,
   strengthMultiplier: number,
   producingState: ProducingState,
-  data: T,
+  rateBase: ProducingRateOfBranch,
 };

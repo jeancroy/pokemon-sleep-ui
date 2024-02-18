@@ -20,12 +20,7 @@ export const PokeInBoxTableMaxCarry = (props: PokeInBoxTableDetailsProps) => {
         <GenericIconLarger src="/images/generic/bag.png" alt={t('MaxCarry')}/>
         <div>{carryLimitInfo.final}</div>
       </Flex>
-      <PokemonTimeToFullPack
-        direction="row"
-        timeToFullPack={fullPackStats.secondsToFull}
-        normalTextSize
-        className="w-32"
-      />
+      <PokemonTimeToFullPack direction="row" fullPackStats={fullPackStats} normalTextSize className="w-32"/>
     </Flex>
   );
 };

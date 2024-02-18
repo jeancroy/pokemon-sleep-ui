@@ -51,8 +51,11 @@ describe('Pokemon Producing Sleep State Split', () => {
         },
       }),
       fullPackStats: {
-        secondsToFull: {
-          primary: 6 * 3600,
+        bySleep: {
+          primary: {
+            secsToFull: 6 * 3600,
+            helpCount: NaN, // ignore
+          },
           secondary: null,
         },
       },
@@ -75,9 +78,15 @@ describe('Pokemon Producing Sleep State Split', () => {
         },
       }),
       fullPackStats: {
-        secondsToFull: {
-          primary: 5 * 3600,
-          secondary: 0.5 * 3600,
+        bySleep: {
+          primary: {
+            secsToFull: 5 * 3600,
+            helpCount: NaN, // ignore
+          },
+          secondary: {
+            secsToFull: 0.5 * 3600,
+            helpCount: NaN, // ignore
+          },
         },
       },
     });

@@ -1,8 +1,10 @@
-export type SleepSessions<T> = {
+export type SleepSessionData<T> = {
   primary: T,
   // Can't use `undefined` because `cloneMerge()` will not consider `null` as an actual value
   secondary: T | null,
 };
+
+export type SleepSession = keyof SleepSessionData<never>;
 
 export type SleepSessionTimes = {
   start: number,
@@ -25,7 +27,7 @@ export type SleepSessionMeta = SleepSessionRecovery & {
 };
 
 export type SleepSessionInfo = {
-  session: SleepSessions<SleepSessionMeta>,
+  session: SleepSessionData<SleepSessionMeta>,
   // Timing offset applied to sleep sessions.
   // A value of 3600 indicates that the original timing advanced 3600 secs
   // for making the end of the primary session be 0.

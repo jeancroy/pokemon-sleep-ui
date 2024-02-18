@@ -56,13 +56,13 @@ export const getProducingSleepStateSplit = ({
     session,
     duration,
   } = sleepSessionInfo;
-  const {secondsToFull} = fullPackStats;
+  const {bySleep} = fullPackStats;
   const {primary, secondary} = session;
 
   const secondaryDuration = secondary?.duration.actual ?? 0;
 
-  const primaryTimeToFull = secondsToFull.primary ?? primary.duration.actual;
-  const secondaryTimeToFull = secondsToFull.secondary ?? secondaryDuration;
+  const primaryTimeToFull = bySleep.primary?.secsToFull ?? primary.duration.actual;
+  const secondaryTimeToFull = bySleep.secondary?.secsToFull ?? secondaryDuration;
 
   return {
     awake: duration.awake / durationOfDay,

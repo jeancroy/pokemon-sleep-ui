@@ -1,26 +1,24 @@
-import {ProducingRateOfItem} from '@/types/game/producing/rate';
+import {ProducingRateOfBranch} from '@/types/game/producing/rate';
 import {ApplyBonusCommonOpts} from '@/utils/game/producing/apply/type';
 
 
-type ApplyBonusOpts<T extends ProducingRateOfItem | null> = ApplyBonusCommonOpts<T>;
-
-export const applyBonus = <T extends ProducingRateOfItem | null>({
+export const applyBonus = ({
   bonus,
   strengthMultiplier,
   producingState,
-  data,
-}: ApplyBonusOpts<T>): T => {
-  if (!data) {
-    return data;
+  rateBase,
+}: ApplyBonusCommonOpts): ProducingRateOfBranch => {
+  if (!rateBase) {
+    return rateBase;
   }
 
   const {stamina} = bonus;
   const staminaBonus = stamina.multiplier[producingState] ?? 0;
 
   return {
-    ...data,
-    frequency: data.frequency / staminaBonus,
-    quantity: data.quantity * staminaBonus,
-    energy: data.energy * staminaBonus * strengthMultiplier,
+    ...rateBase,
+    frequency: rateBase.frequency / staminaBonus,
+    quantity: rateBase.quantity * staminaBonus,
+    energy: rateBase.energy * staminaBonus * strengthMultiplier,
   };
 };

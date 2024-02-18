@@ -1,4 +1,4 @@
-import {SleepSessions} from '@/types/game/sleep';
+import {SleepSessionData} from '@/types/game/sleep';
 
 
 export type CarryLimitInfo = {
@@ -6,8 +6,11 @@ export type CarryLimitInfo = {
   final: number, // Base + subskill bonus
 };
 
-export type TimeToFullPack = SleepSessions<number | null>;
+export type FullPackStatsOfSleep = {
+  helpCount: number,
+  secsToFull: number,
+};
 
 export type FullPackStats = {
-  secondsToFull: TimeToFullPack,
+  bySleep: SleepSessionData<FullPackStatsOfSleep | null>,
 };

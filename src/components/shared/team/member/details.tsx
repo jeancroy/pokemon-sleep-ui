@@ -13,7 +13,7 @@ import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
 import {PokemonBerryProduction} from '@/components/shared/pokemon/production/berry';
 import {PokemonIngredientProbability} from '@/components/shared/pokemon/production/ingredient/probability';
 import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient/production';
-import {PokemonProbabilityOfNoSkill} from '@/components/shared/pokemon/production/noSkill';
+import {PokemonNoSkillProbability} from '@/components/shared/pokemon/production/noSkill/main';
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
@@ -63,7 +63,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
       <PokemonFrequencyFromProducingRate pokemonRate={rate}/>
       <HorizontalSplitter/>
       <Flex direction="row" center className="gap-1.5">
-        <PokemonTimeToFullPack direction="col" timeToFullPack={fullPackStats.secondsToFull}/>
+        <PokemonTimeToFullPack direction="col" fullPackStats={fullPackStats}/>
         <PokemonCarryLimit carryLimit={carryLimitInfo.final} normalTextSize/>
       </Flex>
       <HorizontalSplitter/>
@@ -90,8 +90,8 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
           id={skill}
           rate={toProducingRateOfState({rate: rate.skill, state: stateOfRate})}
         />
-        <PokemonProbabilityOfNoSkill rate={rate} state="sleep1Vacant"/>
-        <PokemonProbabilityOfNoSkill rate={rate} state="sleep2Vacant"/>
+        <PokemonNoSkillProbability rate={rate} sleepSession="primary"/>
+        <PokemonNoSkillProbability rate={rate} sleepSession="secondary"/>
       </Flex>
     </Flex>
   );

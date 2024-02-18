@@ -3,8 +3,8 @@ import {
   GroupedProducingRate,
   PokemonProducingRate,
   ProducingRate,
-  ProducingRateOfItem,
-  ProducingRateOfItemOfSessions,
+  ProducingRateOfBranch,
+  ProducingRateOfBranchByState,
   ProducingRateOfStates,
   ProducingValueOfStates,
 } from '@/types/game/producing/rate';
@@ -59,15 +59,15 @@ export const getProducingRateOfStates = (opts: GetProducingRateOfStatesOpts): Pr
   };
 };
 
-type GetMergedItemRateOfSessionsOpts = {
-  rates: ProducingRateOfItemOfSessions[],
+type GetMergedItemRateByStateOpts = {
+  rates: ProducingRateOfBranchByState[],
   frequencyMultiplier: number,
 };
 
-export const getMergedItemRateOfSessions = ({
+export const getMergedItemRateByState = ({
   rates,
   frequencyMultiplier,
-}: GetMergedItemRateOfSessionsOpts): ProducingRateOfItemOfSessions => {
+}: GetMergedItemRateByStateOpts): ProducingRateOfBranchByState => {
   const firstRate = rates.at(0);
 
   if (!firstRate) {
@@ -76,6 +76,7 @@ export const getMergedItemRateOfSessions = ({
 
   return {
     id: firstRate.id,
+    rateBase: firstRate.rateBase,
     ...Object.fromEntries(producingState.map((state) => [
       state,
       {
@@ -83,13 +84,14 @@ export const getMergedItemRateOfSessions = ({
         frequency: firstRate[state].frequency * (frequencyMultiplier / rates.length),
         quantity: toSum(rates.map((rate) => rate[state].quantity)),
         energy: toSum(rates.map((rate) => rate[state].energy)),
-      } satisfies ProducingRateOfItem,
-    ])) as {[state in ProducingState]: ProducingRateOfItem},
+        qtyPerHelp: toSum(rates.map((rate) => rate[state].qtyPerHelp)),
+      } satisfies ProducingRateOfBranch,
+    ])) as {[state in ProducingState]: ProducingRateOfBranch},
   };
 };
 
 type GetValueAfterSplitFromItemSessionRateOpts = GetSpecificItemRateOfSessionCommonOpts & {
-  valueKey: KeysOfType<ProducingRateOfItem, number>,
+  valueKey: KeysOfType<ProducingRateOfBranch, number>,
 };
 
 export const getValueAfterSplitFromItemRateOfSessions = ({

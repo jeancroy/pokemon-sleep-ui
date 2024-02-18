@@ -2,10 +2,10 @@ import groupBy from 'lodash/groupBy';
 
 import {IngredientMap} from '@/types/game/ingredient';
 import {IngredientProduction, IngredientProductionAtLevels} from '@/types/game/pokemon/ingredient';
-import {ProducingRateCommonParams, ProducingRateOfItemOfSessions} from '@/types/game/producing/rate';
+import {ProducingRateCommonParams, ProducingRateOfBranchByState} from '@/types/game/producing/rate';
 import {getEffectiveIngredientLevels} from '@/utils/game/producing/ingredient/level';
 import {getIngredientProducingRate} from '@/utils/game/producing/ingredient/single';
-import {getMergedItemRateOfSessions} from '@/utils/game/producing/rateReducer';
+import {getMergedItemRateByState} from '@/utils/game/producing/rateReducer';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -22,7 +22,7 @@ export const getIngredientProducingRates = ({
   ingredients,
   ingredientMap,
   ...opts
-}: GetIngredientProducingRatesOpts): ProducingRateOfItemOfSessions[] => {
+}: GetIngredientProducingRatesOpts): ProducingRateOfBranchByState[] => {
   const grouped = groupBy(
     ingredients
       .map(({id, qty}) => getIngredientProducingRate({
@@ -37,7 +37,7 @@ export const getIngredientProducingRates = ({
     (item) => item.id,
   );
 
-  return Object.values(grouped).map((rates) => getMergedItemRateOfSessions({
+  return Object.values(grouped).map((rates) => getMergedItemRateByState({
     rates,
     frequencyMultiplier: ingredients.length,
   }));

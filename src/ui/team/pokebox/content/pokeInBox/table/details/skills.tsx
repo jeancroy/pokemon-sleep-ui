@@ -7,7 +7,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
 import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
-import {PokemonProbabilityOfNoSkill} from '@/components/shared/pokemon/production/noSkill';
+import {PokemonNoSkillProbability} from '@/components/shared/pokemon/production/noSkill/main';
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {specialtyIdMap} from '@/const/game/pokemon';
@@ -57,10 +57,10 @@ export const PokeInBoxTableSkills = ({
         />
       </Flex>
       <Flex center noFullWidth className="w-32">
-        <PokemonProbabilityOfNoSkill rate={rateOfPokemon} state="sleep1Vacant" normalSize/>
+        <PokemonNoSkillProbability rate={rateOfPokemon} sleepSession="primary" normalSize/>
       </Flex>
       <Flex center noFullWidth className="w-32">
-        <PokemonProbabilityOfNoSkill rate={rateOfPokemon} state="sleep2Vacant" normalSize/>
+        <PokemonNoSkillProbability rate={rateOfPokemon} sleepSession="secondary" normalSize/>
       </Flex>
     </>
   );

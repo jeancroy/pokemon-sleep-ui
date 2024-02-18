@@ -1,32 +1,25 @@
-import {specialtyIdMap} from '@/const/game/pokemon';
 import {Ingredient} from '@/types/game/ingredient';
 import {
-  ProducingRateCommonParams,
-  ProducingRateOfItemOfSessions,
+  ProducingRateCommonParams, ProducingRateOfBranch,
+  ProducingRateOfBranchByState,
   ProducingRateProportion,
 } from '@/types/game/producing/rate';
 import {applyBonus} from '@/utils/game/producing/apply/bonus';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
-import {getProducingRateBase} from '@/utils/game/producing/rateBase';
+import {getProducingRateOfBranch} from '@/utils/game/producing/rateOfBranch';
 
 
-export type GetIngredientProducingRateOpts = ProducingRateCommonParams & {
+export type GetIngredientProducingRateOpts = ProducingRateCommonParams & ProducingRateProportion & {
   ingredient: Ingredient | undefined,
-} & (
-  ProducingRateProportion | {
-    count?: never,
-    picks?: never,
-  }
-);
+};
 
 export const getIngredientProducingRate = ({
-  pokemon,
   frequency,
   calculatedSettings,
   ingredient,
   count,
   picks,
-}: GetIngredientProducingRateOpts): ProducingRateOfItemOfSessions | null => {
+}: GetIngredientProducingRateOpts): ProducingRateOfBranchByState | null => {
   const {bonus} = calculatedSettings;
 
   if (!ingredient) {
@@ -39,36 +32,34 @@ export const getIngredientProducingRate = ({
     bonus,
     strengthMultiplierType: 'cooking',
   });
-  const data = {
+  const rateBase: ProducingRateOfBranch = getProducingRateOfBranch({
     id: ingredient.id,
     frequency,
-    ...getProducingRateBase({
-      frequency,
-      count: count || (pokemon.specialty === specialtyIdMap.ingredient ? 2 : 1),
-      picks: picks ?? 1,
-      energyPerCount: ingredient.energy * mapMultiplier,
-    }),
-  };
+    count,
+    picks,
+    energyPerCount: ingredient.energy * mapMultiplier,
+  });
 
   return {
     id: ingredient.id,
+    rateBase,
     sleep1: applyBonus({
       bonus,
       strengthMultiplier,
       producingState: 'sleep1',
-      data,
+      rateBase,
     }),
     sleep2: applyBonus({
       bonus,
       strengthMultiplier,
       producingState: 'sleep2',
-      data,
+      rateBase,
     }),
     awake: applyBonus({
       bonus,
       strengthMultiplier,
       producingState: 'awake',
-      data,
+      rateBase,
     }),
   };
 };

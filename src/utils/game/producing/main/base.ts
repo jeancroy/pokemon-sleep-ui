@@ -15,7 +15,7 @@ import {getIngredientProducingRates, GetIngredientProducingRatesOpts} from '@/ut
 import {getCarryLimitInfo} from '@/utils/game/producing/inventory/carryLimit';
 import {getFullPackStats} from '@/utils/game/producing/inventory/fullPackStats';
 import {getMainSkillProducingRate, GetMainSkillProducingRateOpts} from '@/utils/game/producing/mainSkill';
-import {getDailyBaseQtyInSleep} from '@/utils/game/producing/quantity';
+import {getExpectedQtyPerHelp} from '@/utils/game/producing/qtyPerHelp';
 import {getProducingRateOfStates} from '@/utils/game/producing/rateReducer';
 import {getProduceSplit, getProducingSleepStateSplit} from '@/utils/game/producing/split';
 import {GetProducingRateSharedOpts} from '@/utils/game/producing/type';
@@ -86,14 +86,14 @@ export const getPokemonProducingRateBase = ({
     ...opts,
   });
   const fullPackStats = getFullPackStats({
-    carryLimit: carryLimitInfo.final,
-    dailyBaseQty: getDailyBaseQtyInSleep({
-      rate: {berry, ingredient},
-      bonus,
-      produceSplit,
-    }),
     intervalsDuringSleep: bonus.stamina.intervalsDuringSleep,
     isFullPack,
+    carryLimit: carryLimitInfo.final,
+    qtyPerHelp: getExpectedQtyPerHelp({
+      rate: {berry, ingredient},
+      produceSplit,
+    }),
+    frequency,
   });
   const sleepStateSplit = getProducingSleepStateSplit({
     sleepSessionInfo,

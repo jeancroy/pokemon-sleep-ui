@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {Flex} from '@/components/layout/flex/common';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
-import {productionStatsPeriodI18nId} from '@/const/game/production';
+import {productionPeriodI18nId} from '@/const/game/production';
 import {productionPeriod} from '@/types/game/producing/display';
 import {TeamAnalysisComp} from '@/types/teamAnalysis';
 import {TeamAnalysisSetupInputCommonProps} from '@/ui/team/analysis/setup/control/setup/input/type';
@@ -42,7 +42,7 @@ export const TeamAnalysisSetupInput = ({
       />
       <FilterTextInput
         title={t('Analysis.Period')}
-        idToText={(period) => t2(productionStatsPeriodI18nId[period])}
+        idToText={(period) => t2(productionPeriodI18nId[period])}
         ids={[...productionPeriod]}
         isActive={(period) => period === currentTeam.analysisPeriod}
         onClick={(analysisPeriod) => setSetup((setup) => ({

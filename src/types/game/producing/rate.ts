@@ -24,13 +24,15 @@ export type ProducingRateProportion = {
   picks: number,
 };
 
-export type ProducingRateOfItem = ProducingRate & {
+export type ProducingRateOfBranch = ProducingRate & {
   id: number,
   frequency: number,
+  qtyPerHelp: number,
 };
 
-export type ProducingRateOfItemOfSessions = {[state in ProducingState]: ProducingRateOfItem} & {
+export type ProducingRateOfBranchByState = {[state in ProducingState]: ProducingRateOfBranch} & {
   id: number,
+  rateBase: ProducingRateOfBranch,
 };
 
 export type ProducingValueOfStates = {[state in ProducingStateOfRate]: number};

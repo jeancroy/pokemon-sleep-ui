@@ -6,11 +6,11 @@ import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {GenericIcon} from '@/components/shared/icon/common/main';
-import {pokemonProducingStatsStateI18nId} from '@/components/shared/pokemon/production/stats/const';
 import {PokemonDetailedProducingStatsOfState} from '@/components/shared/pokemon/production/stats/state';
 import {PokemonDetailedProducingStatsProps} from '@/components/shared/pokemon/production/stats/type';
 import {StaminaChartOfStamina} from '@/components/shared/stamina/chart/stamina';
 import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
+import {pokemonProducingStateI18nId} from '@/const/game/production';
 import {staminaLevelImageSrc} from '@/const/game/stamina';
 import {efficiencyBreakPoints} from '@/types/game/producing/efficiency';
 import {getEfficiency} from '@/utils/game/stamina/efficiency';
@@ -29,34 +29,34 @@ export const PokemonDetailedProducingStats = (props: PokemonDetailedProducingSta
       <PokemonDetailedProducingStatsOfState
         {...props}
         state="equivalent"
-        title={t(pokemonProducingStatsStateI18nId.equivalent)}
+        title={t(pokemonProducingStateI18nId.equivalent)}
       />
       <AdsUnit/>
       <Grid className="gap-1 2xl:grid-cols-2">
         <PokemonDetailedProducingStatsOfState
           {...props}
           state="awake"
-          title={t(pokemonProducingStatsStateI18nId.awake)}
+          title={t(pokemonProducingStateI18nId.awake)}
         />
         <PokemonDetailedProducingStatsOfState
           {...props}
           state="sleep1Vacant"
-          title={t(pokemonProducingStatsStateI18nId.sleep1Vacant)}
+          title={t(pokemonProducingStateI18nId.sleep1Vacant)}
         />
         <PokemonDetailedProducingStatsOfState
           {...props}
           state="sleep1Filled"
-          title={t(pokemonProducingStatsStateI18nId.sleep1Filled)}
+          title={t(pokemonProducingStateI18nId.sleep1Filled)}
         />
         <PokemonDetailedProducingStatsOfState
           {...props}
           state="sleep2Vacant"
-          title={t(pokemonProducingStatsStateI18nId.sleep2Vacant)}
+          title={t(pokemonProducingStateI18nId.sleep2Vacant)}
         />
         <PokemonDetailedProducingStatsOfState
           {...props}
           state="sleep2Filled"
-          title={t(pokemonProducingStatsStateI18nId.sleep2Filled)}
+          title={t(pokemonProducingStateI18nId.sleep2Filled)}
         />
       </Grid>
       <AdsUnit/>
@@ -74,7 +74,7 @@ export const PokemonDetailedProducingStats = (props: PokemonDetailedProducingSta
             state="equivalent"
             title={
               <Flex direction="row" center className="gap-1.5 p-1">
-                <div>{t(pokemonProducingStatsStateI18nId.awake)}</div>
+                <div>{t(pokemonProducingStateI18nId.awake)}</div>
                 <div>/</div>
                 <GenericIcon
                   src={staminaLevelImageSrc[breakPoint]}

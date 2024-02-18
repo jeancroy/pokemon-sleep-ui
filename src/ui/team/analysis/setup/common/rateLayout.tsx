@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImageProps} from '@/components/shared/common/image/main';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
-import {productionStatsPeriodI18nId} from '@/const/game/production';
+import {productionPeriodI18nId} from '@/const/game/production';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {ProducingRate} from '@/types/game/producing/rate';
 import {toProducingRateOfPeriod} from '@/utils/game/producing/convert';
@@ -39,7 +39,7 @@ export const TeamAnalysisRateLayout = ({
   return (
     <Flex direction="row" noFullWidth center className="gap-0.5">
       <div className={titleClass}>
-        {t(productionStatsPeriodI18nId[period])}
+        {t(productionPeriodI18nId[period])}
       </div>
       {
         icon &&

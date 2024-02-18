@@ -8,15 +8,15 @@ import {FlexDirection} from '@/components/layout/flex/type';
 import {ProducingStateIcon} from '@/components/shared/icon/producingState';
 import {PokemonTimeToFullPackSingle} from '@/components/shared/pokemon/inventory/fullPack/single';
 import {PokemonInventoryCommonProps} from '@/components/shared/pokemon/inventory/type';
-import {TimeToFullPack} from '@/types/game/producing/carryLimit';
+import {FullPackStats} from '@/types/game/producing/carryLimit';
 
 
 type Props = PokemonInventoryCommonProps & {
   direction: FlexDirection,
-  timeToFullPack: TimeToFullPack,
+  fullPackStats: FullPackStats,
 };
 
-export const PokemonTimeToFullPack = ({direction, timeToFullPack, ...props}: Props) => {
+export const PokemonTimeToFullPack = ({direction, fullPackStats, ...props}: Props) => {
   const t = useTranslations('UI.InPage.Pokedex');
   const t2 = useTranslations('UI.Producing.State.Asleep');
 
@@ -25,13 +25,13 @@ export const PokemonTimeToFullPack = ({direction, timeToFullPack, ...props}: Pro
       <PokemonTimeToFullPackSingle
         title={<ProducingStateIcon state="sleep1Filled" alt={t2('Primary.Filled')}/>}
         alt={t('Stats.TimeToFullPack.Primary')}
-        seconds={timeToFullPack.primary}
+        seconds={fullPackStats.bySleep.primary?.secsToFull}
         {...props}
       />
       <PokemonTimeToFullPackSingle
         title={<ProducingStateIcon state="sleep2Filled" alt={t2('Secondary.Filled')}/>}
         alt={t('Stats.TimeToFullPack.Secondary')}
-        seconds={timeToFullPack.secondary}
+        seconds={fullPackStats.bySleep.secondary?.secsToFull}
         {...props}
       />
     </Flex>

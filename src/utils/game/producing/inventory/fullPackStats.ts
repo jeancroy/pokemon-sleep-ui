@@ -1,42 +1,39 @@
 import {FullPackStats} from '@/types/game/producing/carryLimit';
-import {SleepSessions} from '@/types/game/sleep';
+import {SleepSessionData} from '@/types/game/sleep';
 import {EfficiencyInterval} from '@/types/game/stamina/efficiency';
-import {getSecondsToFullPackInSleep} from '@/utils/game/producing/inventory/fullPackTime';
+import {fullPackStatsOfSleepAtFilled} from '@/utils/game/producing/inventory/const';
+import {getFullPackStatsOfSleep} from '@/utils/game/producing/inventory/fullPackStatsOfSleep';
+import {GetFullPackStatsCommonOpts} from '@/utils/game/producing/inventory/type';
 
 
-type GetFullPackStatsOpts = {
-  dailyBaseQty: number,
-  carryLimit: number,
-  intervalsDuringSleep: SleepSessions<EfficiencyInterval[]>,
+type GetFullPackStatsOpts = GetFullPackStatsCommonOpts & {
+  intervalsDuringSleep: SleepSessionData<EfficiencyInterval[]>,
   isFullPack: boolean,
 };
 
 export const getFullPackStats = ({
-  dailyBaseQty,
-  carryLimit,
   intervalsDuringSleep,
   isFullPack,
+  ...opts
 }: GetFullPackStatsOpts): FullPackStats => {
   if (isFullPack) {
     return {
-      secondsToFull: {
-        primary: 0,
-        secondary: intervalsDuringSleep.secondary ? 0 : null,
+      bySleep: {
+        primary: fullPackStatsOfSleepAtFilled,
+        secondary: intervalsDuringSleep.secondary ? fullPackStatsOfSleepAtFilled : null,
       },
     };
   }
 
   return {
-    secondsToFull: {
-      primary: getSecondsToFullPackInSleep({
+    bySleep: {
+      primary: getFullPackStatsOfSleep({
         staminaIntervals: intervalsDuringSleep.primary,
-        dailyBaseQty,
-        carryLimit,
+        ...opts,
       }),
-      secondary: getSecondsToFullPackInSleep({
+      secondary: getFullPackStatsOfSleep({
         staminaIntervals: intervalsDuringSleep.secondary,
-        dailyBaseQty,
-        carryLimit,
+        ...opts,
       }),
     },
   };
