@@ -63,14 +63,14 @@ export const MealMakerPopup = ({filter, calculatedSettings, status, onCook, ...p
                 ...original,
                 [id]: count,
               }))}
-              onReset={() => setUsages({})}
+              onReset={() => setUsages(requiredIngredients)}
             />
             <HorizontalSplitter className="w-full"/>
             <Flex direction="row" className="justify-between text-xl">
               <Flex direction="row" noFullWidth className="items-center gap-1">
                 <ColoredEnergyIcon dimension="size-6" alt={t('Energy')}/>
                 <div>
-                  {formatInt(strengthFinal)}
+                  {isRequirementSatisfied ? formatInt(strengthFinal) : '-'}
                 </div>
               </Flex>
               {

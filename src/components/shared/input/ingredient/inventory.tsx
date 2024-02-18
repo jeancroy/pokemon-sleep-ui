@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ArrowPathIcon from '@heroicons/react/24/outline/ArrowPathIcon';
+import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
@@ -40,16 +41,19 @@ export const IngredientInventoryInput = ({
           }
 
           const id = ingredient.id;
+          const isRequirementSatisfied = (counter[id] ?? 0) >= ((minCount && minCount[id]) ?? 0);
 
           return (
             <NumberInputOptional
               key={id}
               text={<PokemonIngredientIcon dimension="size-7" id={id}/>}
-              min={(minCount && minCount[id]) ?? 0}
               onClickDefault={1}
               value={counter[id]}
               setValue={(value) => onValueChanged(ingredient, value)}
-              className="button-bg gap-1 rounded-lg p-1.5"
+              className={clsx(
+                'button-bg gap-1 rounded-lg p-1.5',
+                !isRequirementSatisfied && 'ring-danger ring-1',
+              )}
             />
           );
         })}

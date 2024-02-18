@@ -656,6 +656,14 @@
   
   /* endregion */
   
+  /* region Ring styling (ring-*) */
+  
+  .ring-danger {
+    @apply ring-red-600 dark:ring-red-400 group-hover:ring-red-400 dark:group-hover:ring-red-600;
+  }
+  
+  /* endregion */
+  
   /* region Background color styling (bg-*) */
   
   .bg-energy {
