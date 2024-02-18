@@ -1,4 +1,4 @@
-import {defaultProductionPeriod} from '@/const/game/production';
+import {defaultProductionPeriod} from '@/const/game/production/defaults';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';

@@ -10,7 +10,7 @@ import {
   sleepSessionToProducingStateForNoSkillProbability,
 } from '@/components/shared/pokemon/production/noSkill/const';
 import {ProducingRateContentCommonProps} from '@/components/shared/production/rate/type';
-import {pokemonProducingStateI18nId} from '@/const/game/production';
+import {pokemonProducingStateI18nId} from '@/const/game/production/i18n';
 import {Dimension} from '@/types/style';
 import {getNoSkillProbability, GetNoSkillProbabilityOpts} from '@/utils/game/producing/probability/noSkill';
 import {formatFloat} from '@/utils/number/format/regular';

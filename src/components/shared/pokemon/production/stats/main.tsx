@@ -10,7 +10,7 @@ import {PokemonDetailedProducingStatsOfState} from '@/components/shared/pokemon/
 import {PokemonDetailedProducingStatsProps} from '@/components/shared/pokemon/production/stats/type';
 import {StaminaChartOfStamina} from '@/components/shared/stamina/chart/stamina';
 import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
-import {pokemonProducingStateI18nId} from '@/const/game/production';
+import {pokemonProducingStateI18nId} from '@/const/game/production/i18n';
 import {staminaLevelImageSrc} from '@/const/game/stamina';
 import {efficiencyBreakPoints} from '@/types/game/producing/efficiency';
 import {getEfficiency} from '@/utils/game/stamina/efficiency';

@@ -1,4 +1,4 @@
-import {defaultLevel} from '@/const/game/production';
+import {defaultLevel} from '@/const/game/production/defaults';
 import {PokemonEventTypeId, PokemonSpecialtyId} from '@/types/game/pokemon';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {SpecialtyType} from '@/types/game/pokemon/specialty';

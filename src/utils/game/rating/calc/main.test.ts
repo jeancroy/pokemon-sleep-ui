@@ -1,6 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {defaultProducingParams} from '@/const/game/production';
+import {defaultProducingParams} from '@/const/game/production/defaults';
 import {defaultSeedUsage} from '@/const/game/seed';
 import {defaultUserSettingsBundle} from '@/const/user/bundle';
 import {testBerryDataMap} from '@/tests/data/game/berry';

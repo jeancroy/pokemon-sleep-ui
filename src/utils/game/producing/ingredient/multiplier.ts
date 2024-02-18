@@ -1,6 +1,6 @@
 import {countBy} from 'lodash';
 
-import {productionMultiplierByPeriod} from '@/const/game/production';
+import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
 import {IngredientCounter, IngredientId, IngredientMap} from '@/types/game/ingredient';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {ProductionPeriod} from '@/types/game/producing/display';

@@ -1,6 +1,6 @@
 import {PokemonInputFilter, PokemonInputFilterExtended} from '@/components/shared/pokemon/filter/type';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
-import {defaultLevel} from '@/const/game/production';
+import {defaultLevel} from '@/const/game/production/defaults';
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {toUnique} from '@/utils/array';

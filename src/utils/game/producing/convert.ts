@@ -1,4 +1,4 @@
-import {productionMultiplierByPeriod} from '@/const/game/production';
+import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {ProducingRate, ProducingRateOfStates} from '@/types/game/producing/rate';
 import {ProducingStateOfRate} from '@/types/game/producing/state';

@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {Flex} from '@/components/layout/flex/common';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
-import {productionPeriodI18nId} from '@/const/game/production';
+import {productionPeriodI18nId} from '@/const/game/production/i18n';
 import {productionPeriod} from '@/types/game/producing/display';
 import {TeamAnalysisComp} from '@/types/teamAnalysis';
 import {TeamAnalysisSetupInputCommonProps} from '@/ui/team/analysis/setup/control/setup/input/type';

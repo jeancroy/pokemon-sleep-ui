@@ -1,4 +1,4 @@
-import {productionMultiplierByPeriod} from '@/const/game/production';
+import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
 import {
   GroupedProducingRate,
   PokemonProducingRate,

@@ -1,4 +1,4 @@
-import {defaultLevel} from '@/const/game/production';
+import {defaultLevel} from '@/const/game/production/defaults';
 import {BerryData} from '@/types/game/berry';
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
 import {

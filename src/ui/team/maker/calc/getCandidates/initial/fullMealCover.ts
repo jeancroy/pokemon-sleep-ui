@@ -1,4 +1,4 @@
-import {productionMultiplierByPeriod} from '@/const/game/production';
+import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
 import {teamMakerProductionPeriod} from '@/ui/team/maker/calc/const';
 import {TeamMakerFullMealCoverCandidateData} from '@/ui/team/maker/calc/getCandidates/initial/type';
 import {GetTeamMakerCandidatesOpts} from '@/ui/team/maker/calc/getCandidates/type';

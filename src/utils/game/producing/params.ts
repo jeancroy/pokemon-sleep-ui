@@ -1,4 +1,4 @@
-import {defaultNeutralOpts, defaultProducingParams} from '@/const/game/production';
+import {defaultNeutralOpts, defaultProducingParams} from '@/const/game/production/defaults';
 import {defaultSeedUsage} from '@/const/game/seed';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';

@@ -1,4 +1,4 @@
-import {helpingBonusEffectPerStack} from '@/const/game/production';
+import {helpingBonusEffectPerStack} from '@/const/game/production/const';
 import {EffectiveBonus} from '@/types/game/bonus/main';
 import {StrengthMultiplierType} from '@/types/game/bonus/strength';
 import {getAverage} from '@/utils/number/average';

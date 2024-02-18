@@ -1,4 +1,4 @@
-import {defaultNeutralOpts} from '@/const/game/production';
+import {defaultNeutralOpts} from '@/const/game/production/defaults';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {PokemonProducingRate} from '@/types/game/producing/rate';

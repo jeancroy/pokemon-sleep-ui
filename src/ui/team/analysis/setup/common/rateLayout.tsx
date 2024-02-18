@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImageProps} from '@/components/shared/common/image/main';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
-import {productionPeriodI18nId} from '@/const/game/production';
+import {productionPeriodI18nId} from '@/const/game/production/i18n';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {ProducingRate} from '@/types/game/producing/rate';
 import {toProducingRateOfPeriod} from '@/utils/game/producing/convert';

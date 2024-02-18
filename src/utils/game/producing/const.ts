@@ -1,4 +1,4 @@
-import {maxTeamMemberCount} from '@/const/game/production';
+import {maxTeamMemberCount} from '@/const/game/production/const';
 import {getHelpingBonusSimpleMultiplier} from '@/utils/game/producing/multiplier';
 
 

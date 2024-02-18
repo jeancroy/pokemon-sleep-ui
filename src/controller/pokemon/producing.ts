@@ -1,6 +1,6 @@
 import {Collection} from 'mongodb';
 
-import {defaultProducingParams} from '@/const/game/production';
+import {defaultProducingParams} from '@/const/game/production/defaults';
 import {getDataAsMap, getSingleData} from '@/controller/common';
 import mongoPromise from '@/lib/mongodb';
 import {PokemonProducingParams, PokemonProducingParamsMap} from '@/types/game/pokemon/producing';

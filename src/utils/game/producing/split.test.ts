@@ -1,6 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {defaultProducingParams} from '@/const/game/production';
+import {defaultProducingParams} from '@/const/game/production/defaults';
 import {defaultRecoveryRate} from '@/const/user/settings';
 import {getProduceSplit, getProducingSleepStateSplit} from '@/utils/game/producing/split';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
