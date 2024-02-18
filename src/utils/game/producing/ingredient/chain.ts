@@ -1,14 +1,11 @@
-import groupBy from 'lodash/groupBy';
-
 import {
   IngredientChain,
   ingredientLevels,
   IngredientProduction,
   IngredientProductionAtLevels,
 } from '@/types/game/pokemon/ingredient';
-import {toSum} from '@/utils/array';
 import {cartesianIterator} from '@/utils/compute/cartesian';
-import {getEffectiveIngredientLevels} from '@/utils/game/producing/ingredient/level';
+import {getEffectiveIngredientLevels} from '@/utils/game/ingredient/level';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -49,13 +46,4 @@ export const generateDefaultIngredientProductionAtLevels = (chain: IngredientCha
       return [ingredientLevel, production];
     })
     .filter(isNotNullish));
-};
-
-export const groupIngredientProductions = (productions: IngredientProduction[]): IngredientProduction[] => {
-  return Object
-    .entries(groupBy(productions, (item) => item.id))
-    .map(([id, productions]) => ({
-      id: parseInt(id),
-      qty: toSum(productions.map(({qty}) => qty)),
-    }));
 };

@@ -12,7 +12,7 @@ import {MealMakerInputUI} from '@/ui/cooking/make/input/main';
 import {MealMakerRecipe} from '@/ui/cooking/make/recipe/main';
 import {MealMakerCommonProps, MealMakerFilter} from '@/ui/cooking/make/type';
 import {toCookingPreset} from '@/ui/cooking/make/utils';
-import {subtractIngredientCount} from '@/utils/game/ingredientCounter';
+import {subtractIngredientCount} from '@/utils/game/ingredient/counter';
 import {isNotNullish} from '@/utils/type';
 
 

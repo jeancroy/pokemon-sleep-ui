@@ -5,7 +5,7 @@ import {
   TeamMakerFullMealCoverProductionMap,
   TeamMakerFullMealCoverRemainder,
 } from '@/ui/team/maker/calc/getFullMealCoverComps/type';
-import {getTotalIngredientCount, subtractIngredientCount} from '@/utils/game/ingredientCounter';
+import {getTotalIngredientCount, subtractIngredientCount} from '@/utils/game/ingredient/counter';
 
 
 type GetTeamMakerFullMealCoverCompsOpts<TPayload> = {

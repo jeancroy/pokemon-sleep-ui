@@ -4,7 +4,7 @@ import {
   PokemonInputFilterCheckingOpts,
   PokemonInputType,
 } from '@/components/shared/pokemon/filter/type';
-import {getPossibleIngredientsFromChain} from '@/utils/game/producing/ingredient/level';
+import {getPossibleIngredientsFromChain} from '@/utils/game/ingredient/chain';
 
 
 export const pokemonInputExclusionChecker: {[inputType in PokemonInputType]: PokemonInputFilterCheckExclusion} = {

@@ -19,7 +19,7 @@ import {
   toIngredientCounterFromMealIngredient,
   toMealIngredientFromIngredientCounter,
 } from '@/utils/game/cooking';
-import {subtractIngredientCount} from '@/utils/game/ingredientCounter';
+import {subtractIngredientCount} from '@/utils/game/ingredient/counter';
 import {getMealFinalStrength} from '@/utils/game/meal/strength/final/recipe';
 import {formatInt} from '@/utils/number/format/regular';
 

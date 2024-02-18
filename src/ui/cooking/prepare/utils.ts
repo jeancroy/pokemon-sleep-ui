@@ -1,6 +1,6 @@
 import {IngredientCounter} from '@/types/game/ingredient';
 import {MealPreparerIngredientStats} from '@/ui/cooking/prepare/type';
-import {subtractIngredientCount} from '@/utils/game/ingredientCounter';
+import {subtractIngredientCount} from '@/utils/game/ingredient/counter';
 
 
 type GetMealPreparerIngredientStatsOpts = {

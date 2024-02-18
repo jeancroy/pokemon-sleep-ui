@@ -3,7 +3,7 @@ import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {PokedexDisplayType, PokedexFilterCommon} from '@/ui/pokedex/common/type';
-import {getPossibleIngredientsFromChain} from '@/utils/game/ingredientChain';
+import {getPossibleIngredientsFromChain} from '@/utils/game/ingredient/chain';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
 import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';
 
@@ -77,8 +77,9 @@ export const toPokemonInfoWithSortingPayloadFromPokemonList = <TFilter extends P
   if (!toCalculateAllIngredientPossibilities(filter)) {
     return [{
       ...commonOpts,
-      // Count of 0 to avoid accidental inclusion in the calculation
-      ingredients: getPossibleIngredientsFromChain({chain, count: 0}),
+      // Qty of 0 to avoid accidental inclusion in the calculation
+      ingredients: getPossibleIngredientsFromChain({level: null, chain})
+        .map((id) => ({id, qty: 0})),
     }];
   }
 

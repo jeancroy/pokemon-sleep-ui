@@ -3,8 +3,8 @@ import groupBy from 'lodash/groupBy';
 import {IngredientMap} from '@/types/game/ingredient';
 import {IngredientProduction, IngredientProductionAtLevels} from '@/types/game/pokemon/ingredient';
 import {ProducingRateCommonParams, ProducingRateOfBranchByState} from '@/types/game/producing/rate';
-import {getEffectiveIngredientLevels} from '@/utils/game/producing/ingredient/level';
-import {getIngredientProducingRate} from '@/utils/game/producing/ingredient/single';
+import {getEffectiveIngredientLevels} from '@/utils/game/ingredient/level';
+import {getIngredientProducingRate} from '@/utils/game/producing/branch/ingredient/single';
 import {getMergedItemRateByState} from '@/utils/game/producing/rateReducer';
 import {isNotNullish} from '@/utils/type';
 
@@ -42,15 +42,3 @@ export const getIngredientProducingRates = ({
     frequencyMultiplier: ingredients.length,
   }));
 };
-
-type GetEffectiveIngredientProductionsOpts = {
-  level: number,
-  ingredients: IngredientProductionAtLevels,
-};
-
-export const getEffectiveIngredientProductions = ({
-  level,
-  ingredients,
-}: GetEffectiveIngredientProductionsOpts): IngredientProduction[] => (
-  getEffectiveIngredientLevels(level).map((level) => ingredients[level])
-);

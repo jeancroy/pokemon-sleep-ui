@@ -4,7 +4,7 @@ import {IngredientCounter, IngredientId} from '@/types/game/ingredient';
 import {Meal, MealIngredient} from '@/types/game/meal/main';
 import {PokemonProducingItem} from '@/types/game/pokemon/producing';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {applyMultiplierToIngredientCount, getTotalIngredientCount} from '@/utils/game/ingredientCounter';
+import {applyMultiplierToIngredientCount, getTotalIngredientCount} from '@/utils/game/ingredient/counter';
 import {getMealIngredientInfoFromTargetMeals} from '@/utils/game/meal/ingredient';
 import {isNotNullish} from '@/utils/type';
 

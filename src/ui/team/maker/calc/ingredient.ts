@@ -1,7 +1,7 @@
 import {IngredientCounter} from '@/types/game/ingredient';
 import {GroupedProducingRate} from '@/types/game/producing/rate';
 import {TeamMakerIngredientStats} from '@/ui/team/maker/type/common';
-import {addIngredientCount, subtractIngredientCount} from '@/utils/game/ingredientCounter';
+import {addIngredientCount, subtractIngredientCount} from '@/utils/game/ingredient/counter';
 import {isNotNullish} from '@/utils/type';
 
 

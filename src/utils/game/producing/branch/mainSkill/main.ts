@@ -1,8 +1,8 @@
 import {ProducingRateCommonParams, ProducingRateOfBranchByState} from '@/types/game/producing/rate';
 import {getMainSkillEquivalentStrengthOfSingle} from '@/utils/game/mainSkill/effect/main';
 import {GetMainSkillEquivalentStrengthOpts} from '@/utils/game/mainSkill/effect/type';
-import {applyBonus} from '@/utils/game/producing/apply/bonus';
-import {applyBonusWithCapping} from '@/utils/game/producing/apply/bonusWithCap';
+import {applyBonusWithCapping} from '@/utils/game/producing/apply/bonus/bonusWithCap';
+import {applyBonus} from '@/utils/game/producing/apply/bonus/bonusWithMultiplier';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {getProducingRateOfBranch} from '@/utils/game/producing/rateOfBranch';
 

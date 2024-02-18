@@ -7,7 +7,7 @@ import {MealContentCoverage} from '@/ui/meal/page/content/coverage/main';
 import {MealContentIngredientProduction} from '@/ui/meal/page/content/production/main';
 import {MealPageContentCommonProps} from '@/ui/meal/page/content/type';
 import {MealCommonProps} from '@/ui/meal/page/type';
-import {getIngredientLevel} from '@/utils/game/ingredient';
+import {getEffectiveIngredientLevel} from '@/utils/game/ingredient/level';
 
 
 export const MealPageContent = (props: MealCommonProps) => {
@@ -21,7 +21,7 @@ export const MealPageContent = (props: MealCommonProps) => {
   );
 
   const {level} = input;
-  const ingredientLevel = React.useMemo(() => getIngredientLevel(level), [level]);
+  const ingredientLevel = React.useMemo(() => getEffectiveIngredientLevel(level), [level]);
 
   const commonProps: MealPageContentCommonProps = {
     ingredientLevel,

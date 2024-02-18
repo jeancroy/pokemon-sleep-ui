@@ -1,6 +1,6 @@
 import {PokemonProducingRate} from '@/types/game/producing/rate';
 import {PokeInBoxCommonProps} from '@/ui/team/pokebox/content/type';
-import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
+import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {
   getPokemonProducingParams,

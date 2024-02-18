@@ -1,5 +1,5 @@
 import {ProducingRateOfBranch} from '@/types/game/producing/rate';
-import {ApplyBonusCommonOpts} from '@/utils/game/producing/apply/type';
+import {ApplyBonusCommonOpts} from '@/utils/game/producing/apply/bonus/type';
 
 
 export const applyBonus = ({

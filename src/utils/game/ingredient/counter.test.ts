@@ -1,6 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {addIngredientCount, isIngredientCounterEmpty, subtractIngredientCount} from '@/utils/game/ingredientCounter';
+import {addIngredientCount, isIngredientCounterEmpty, subtractIngredientCount} from '@/utils/game/ingredient/counter';
 
 
 describe('Ingredient Counter / Addition', () => {

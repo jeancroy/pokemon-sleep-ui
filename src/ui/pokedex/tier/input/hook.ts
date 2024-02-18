@@ -9,7 +9,7 @@ import {
   PokedexTierListInput,
   PokedexTierListInputControls,
 } from '@/ui/pokedex/tier/input/type';
-import {getPossibleIngredientsFromChain} from '@/utils/game/producing/ingredient/level';
+import {getPossibleIngredientsFromChain} from '@/utils/game/ingredient/chain';
 
 
 type UsePokedexTierListInputOpts = PokedexCalcDataProps;

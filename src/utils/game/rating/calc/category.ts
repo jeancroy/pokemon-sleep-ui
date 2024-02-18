@@ -1,6 +1,6 @@
 import {RatingWorkerOpts} from '@/types/game/pokemon/rating/request';
 import {RatingCombination, RatingExtrema, RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
-import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
+import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {getRatingValueOfBase} from '@/utils/game/rating/base';
 import {RatingWorkerDataPointCalcReturn} from '@/utils/game/rating/calc/promises/type';
 import {GetRatingResultOfCategoryPromisesOpts} from '@/utils/game/rating/calc/type';

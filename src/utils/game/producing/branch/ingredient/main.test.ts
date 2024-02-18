@@ -6,7 +6,7 @@ import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testIngredientProductions} from '@/tests/data/game/ingredient/production';
 import {testPokemonData} from '@/tests/data/game/pokemon';
 import {testDefaultCalculatedUserSettings} from '@/tests/data/user/settings';
-import {getIngredientProducingRates} from '@/utils/game/producing/ingredient/multi';
+import {getIngredientProducingRates} from '@/utils/game/producing/branch/ingredient/main';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 
 

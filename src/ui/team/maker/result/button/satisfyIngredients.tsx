@@ -9,7 +9,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {IngredientCounter} from '@/types/game/ingredient';
 import {Dimension} from '@/types/style';
-import {isIngredientCounterEmpty} from '@/utils/game/ingredientCounter';
+import {isIngredientCounterEmpty} from '@/utils/game/ingredient/counter';
 
 
 type Props = {

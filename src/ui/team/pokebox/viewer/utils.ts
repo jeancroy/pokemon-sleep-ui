@@ -10,7 +10,7 @@ import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {natureDataMap} from '@/data/nature';
 import {PokeboxDataProps} from '@/ui/team/pokebox/type';
 import {PokeboxPokemonForView, PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
-import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
+import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {migrate} from '@/utils/migrate/main';
 import {pokeboxDisplayMigrators} from '@/utils/migrate/pokeboxDisplay/migrators';
 

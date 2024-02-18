@@ -7,7 +7,7 @@ import {
 } from '@/types/game/producing/rate';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {toSum} from '@/utils/array';
-import {applyBonus} from '@/utils/game/producing/apply/bonus';
+import {applyBonus} from '@/utils/game/producing/apply/bonus/bonusWithMultiplier';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {getProducingRateOfBranch} from '@/utils/game/producing/rateOfBranch';
 import {getSubSkillBonusValue} from '@/utils/game/subSkill/effect';

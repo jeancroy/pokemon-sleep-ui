@@ -60,7 +60,7 @@ const getBaseFrequency = ({
   return roundDown({value: frequency * bonus, decimals: 0});
 };
 
-export type GetFrequencyFromPokemonOpts = Pick<
+export type GetBaseFrequencyFromPokemonOpts = Pick<
   GetBaseFrequencyOpts,
   'behavior' | 'helpingBonusEffect' | 'natureId'
 > & {
@@ -73,7 +73,7 @@ export const getBaseFrequencyFromPokemon = ({
   subSkillBonus,
   pokemon,
   ...opts
-}: GetFrequencyFromPokemonOpts): number => {
+}: GetBaseFrequencyFromPokemonOpts): number => {
   const {stats} = pokemon;
 
   return getBaseFrequency({
@@ -123,12 +123,12 @@ export const getFrequencyFromItemRateOfSessions = ({
   };
 };
 
-type GetHelpingCountFromPokemonRateOpts = {
+type GetHelpCountFromPokemonRateOpts = {
   rate: PokemonProducingRate,
   state: ProducingStateOfRate,
 };
 
-export const getDailyHelpsOfStateFromPokemonRate = ({rate, state}: GetHelpingCountFromPokemonRateOpts) => {
+export const getDailyHelpsOfStateFromPokemonRate = ({rate, state}: GetHelpCountFromPokemonRateOpts) => {
   const {berry, ingredient} = rate;
 
   return durationOfDay * (
@@ -137,6 +137,6 @@ export const getDailyHelpsOfStateFromPokemonRate = ({rate, state}: GetHelpingCou
   );
 };
 
-export const getFrequencyOfStateFromPokemonRate = (opts: GetHelpingCountFromPokemonRateOpts) => {
+export const getFrequencyOfStateFromPokemonRate = (opts: GetHelpCountFromPokemonRateOpts) => {
   return durationOfDay / getDailyHelpsOfStateFromPokemonRate(opts);
 };

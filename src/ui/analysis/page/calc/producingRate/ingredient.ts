@@ -17,7 +17,7 @@ import {
   AnalysisStatsProducingRate,
 } from '@/ui/analysis/page/calc/type';
 import {toSum} from '@/utils/array';
-import {groupIngredientProductions} from '@/utils/game/producing/ingredient/chain';
+import {groupIngredientProductions} from '@/utils/game/producing/ingredient/group';
 import {getTotalOfItemRates} from '@/utils/game/producing/rateReducer';
 
 

@@ -6,7 +6,7 @@ import {testBonus} from '@/tests/data/game/bonus';
 import {testMainSkillMap} from '@/tests/data/game/mainSkill';
 import {testPokemonData} from '@/tests/data/game/pokemon';
 import {testDefaultToCalculatedUserSettingsOpts} from '@/tests/data/user/settings';
-import {getMainSkillProducingRate} from '@/utils/game/producing/mainSkill';
+import {getMainSkillProducingRate} from '@/utils/game/producing/branch/mainSkill/main';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';

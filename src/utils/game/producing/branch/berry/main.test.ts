@@ -6,7 +6,7 @@ import {testBonus} from '@/tests/data/game/bonus';
 import {testPokemonData} from '@/tests/data/game/pokemon';
 import {testDefaultSnorlaxFavorite} from '@/tests/data/game/snorlax';
 import {testDefaultCalculatedUserSettings} from '@/tests/data/user/settings';
-import {getBerryProducingRate} from '@/utils/game/producing/berry';
+import {getBerryProducingRate} from '@/utils/game/producing/branch/berry/main';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 
 

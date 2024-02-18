@@ -4,7 +4,7 @@ import {
   ProducingRateOfBranchByState,
   ProducingRateProportion,
 } from '@/types/game/producing/rate';
-import {applyBonus} from '@/utils/game/producing/apply/bonus';
+import {applyBonus} from '@/utils/game/producing/apply/bonus/bonusWithMultiplier';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {getProducingRateOfBranch} from '@/utils/game/producing/rateOfBranch';
 

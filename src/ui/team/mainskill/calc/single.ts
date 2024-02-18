@@ -1,8 +1,8 @@
 import {GetSkillTriggerValueCommonOpts} from '@/ui/team/mainskill/calc/type';
 import {SkillTriggerAnalysisCalcResult, SkillTriggerAnalysisCalculatedUnit} from '@/ui/team/mainskill/targets/type';
 import {SkillTriggerAnalysisUnit} from '@/ui/team/mainskill/type';
+import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {getSkillTriggerValue} from '@/utils/game/mainSkill/utils';
-import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/game/producing/params';
 import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';

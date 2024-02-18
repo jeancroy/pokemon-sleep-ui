@@ -2,7 +2,7 @@ import {getTeamMakerDataSorter} from '@/ui/team/maker/calc/getSorter';
 import {TeamMakerBasisValue} from '@/ui/team/maker/type/common';
 import {TeamMakerBasis} from '@/ui/team/maker/type/input';
 import {TeamMakerResultComp} from '@/ui/team/maker/type/result';
-import {addIngredientCount} from '@/utils/game/ingredientCounter';
+import {addIngredientCount} from '@/utils/game/ingredient/counter';
 
 
 type ReduceTeamMakerResultCompOpts = {

@@ -13,7 +13,7 @@ import {PokemonSpecialty} from '@/components/shared/pokemon/specialty/main';
 import {AnalysisStatsGroupedUI} from '@/ui/analysis/page/result/group';
 import {AnalysisStatsLayout} from '@/ui/analysis/page/stats/layout';
 import {AnalysisStatsUiProps} from '@/ui/analysis/page/stats/type';
-import {getEffectiveIngredientLevels} from '@/utils/game/producing/ingredient/level';
+import {getEffectiveIngredientLevels} from '@/utils/game/ingredient/level';
 
 
 export const AnalysisStatsOfPokemonMeta = ({pokemon, stats, level}: AnalysisStatsUiProps) => {

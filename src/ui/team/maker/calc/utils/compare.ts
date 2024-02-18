@@ -1,6 +1,6 @@
 import {TeamMakerBasisValue} from '@/ui/team/maker/type/common';
 import {TeamMakerBasis} from '@/ui/team/maker/type/input';
-import {subtractIngredientCount} from '@/utils/game/ingredientCounter';
+import {subtractIngredientCount} from '@/utils/game/ingredient/counter';
 import {isNotNullish} from '@/utils/type';
 
 

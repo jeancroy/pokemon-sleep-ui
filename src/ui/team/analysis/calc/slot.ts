@@ -1,6 +1,6 @@
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {GetTeamProducingStatsOpts} from '@/ui/team/analysis/calc/type';
-import {getEffectiveIngredientProductions} from '@/utils/game/producing/ingredient/multi';
+import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {GetPokemonProducingRateOpts} from '@/utils/game/producing/main/type';
 import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/game/producing/params';
 
