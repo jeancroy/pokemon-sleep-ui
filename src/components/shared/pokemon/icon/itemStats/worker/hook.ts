@@ -67,7 +67,7 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
       cookingRecoveryData,
       input,
       bundle,
-      calculatedConfigBundle: calculatedConfigBundle,
+      calculatedConfigBundle,
     });
     if (setLoading) {
       setLoading(true);

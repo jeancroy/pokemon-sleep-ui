@@ -28,7 +28,7 @@ export const MealClient = (props: MealServerDataProps) => {
   const commonProps: MealCommonProps = {
     isPremium,
     bundle,
-    calculatedConfigBundle: calculatedConfigBundle,
+    calculatedConfigBundle,
     ...props,
   };
 

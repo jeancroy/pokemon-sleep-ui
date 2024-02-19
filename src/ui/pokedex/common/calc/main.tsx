@@ -45,7 +45,7 @@ export const usePokedexCalc = ({
   const allInfoWithSortingPayload = toPokemonInfoWithSortingPayloadFromPokemonList({
     filter,
     bundle,
-    calculatedConfigBundle: calculatedConfigBundle,
+    calculatedConfigBundle,
     ...opts,
   });
 
@@ -82,7 +82,7 @@ export const usePokedexCalc = ({
 
   return {
     bundle,
-    calculatedConfigBundle: calculatedConfigBundle,
+    calculatedConfigBundle,
     result,
     count: {
       total: allInfoWithSortingPayload.length,

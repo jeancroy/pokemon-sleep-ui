@@ -32,7 +32,7 @@ export const PokemonClient = (props: PokemonDataProps) => {
   });
 
   const commonProps: PokemonDataCommonProps = {
-    calculatedConfigBundle: calculatedConfigBundle,
+    calculatedConfigBundle,
     bundle,
     ...props,
   };

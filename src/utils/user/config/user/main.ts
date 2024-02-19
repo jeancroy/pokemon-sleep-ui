@@ -43,7 +43,7 @@ export const toCalculatedUserConfig = ({
     origin: cloneMerge(userConfig, {behavior: behaviorOverride}),
     bonus: toEffectiveBonus({
       ...opts,
-      userConfig: userConfig,
+      userConfig,
     }),
   };
 };
