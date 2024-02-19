@@ -1,22 +1,11 @@
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {RecipeLevel} from '@/types/game/cooking';
 import {IngredientCounter, IngredientId} from '@/types/game/ingredient';
-import {MealCounter, MealId, MealsMarked, MealTypeId} from '@/types/game/meal/main';
+import {MealCounter, MealsMarked, MealTypeId} from '@/types/game/meal/main';
+import {UserCookingTarget} from '@/types/userData/settings/cooking/common';
 
 
-export const userCookingMeals = [
-  'breakfast',
-  'lunch',
-  'dinner',
-] as const;
-
-export type UserCookingMeal = typeof userCookingMeals[number];
-
-export type UserCookingTargetOfType = {[meal in UserCookingMeal]?: MealId | null};
-
-export type UserCookingTarget = {[mealType in MealTypeId]?: UserCookingTargetOfType};
-
-export type UserCookingPreset = {
+export type UserCookingSettings = {
   mealType: MealTypeId,
   target: UserCookingTarget,
   potCapacity: number,

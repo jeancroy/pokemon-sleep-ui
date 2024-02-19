@@ -1,8 +1,8 @@
-import {UserCookingPreset} from '@/types/userData/cooking';
+import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
 import {NonNullableRecord} from '@/utils/type';
 
 
-export const defaultCookingPreset: NonNullableRecord<UserCookingPreset> = {
+export const defaultUserCookingSettings: NonNullableRecord<UserCookingSettings> = {
   mealType: 1,
   target: {
     1: {

@@ -11,7 +11,7 @@ import {GenericIngredientSlashIcon} from '@/components/shared/icon/ingredientSla
 import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {textFilterButtonStyle} from '@/styles/input';
 import {MealMakerCommonProps} from '@/ui/cooking/make/type';
-import {toCookingPreset} from '@/ui/cooking/make/utils';
+import {toUserCookingSettingsFromMealMakerFilter} from '@/ui/cooking/make/utils';
 
 
 export const MealMakerInputControl = ({filter, setFilter, preloaded}: MealMakerCommonProps) => {
@@ -44,7 +44,7 @@ export const MealMakerInputControl = ({filter, setFilter, preloaded}: MealMakerC
       <UserDataUploadButton
         opts={{
           type: 'cooking',
-          data: toCookingPreset({preloaded, filter}),
+          data: toUserCookingSettingsFromMealMakerFilter({preloaded, filter}),
         }}
       />
     </InputRow>

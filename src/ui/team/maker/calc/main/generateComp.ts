@@ -1,4 +1,4 @@
-import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking/calculated';
 import {getTeamMakerCandidates} from '@/ui/team/maker/calc/getCandidates/main';
 import {getTeamMakerPokeboxSource} from '@/ui/team/maker/calc/getPokeboxSource';
 import {getTeamMakerPokemonLimits} from '@/ui/team/maker/calc/getPokemonLimits/main';

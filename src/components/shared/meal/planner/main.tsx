@@ -13,7 +13,7 @@ import {mealOfDayIcon} from '@/const/game/cooking';
 import {mealTypeBorderStyle, mealTypeTextStyle} from '@/styles/game/mealType';
 import {RecipeLevel} from '@/types/game/cooking';
 import {MealMap, MealTypeId} from '@/types/game/meal/main';
-import {userCookingMeals, UserCookingTarget} from '@/types/userData/cooking';
+import {userCookingMeals, UserCookingTarget} from '@/types/userData/settings/cooking/common';
 
 
 type Props = {

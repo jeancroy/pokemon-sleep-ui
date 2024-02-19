@@ -8,7 +8,7 @@ import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {TeamConfig, TeamMemberData, TeamMemberProduction} from '@/types/game/team';
-import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking/calculated';
 import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
 
 

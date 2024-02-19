@@ -13,7 +13,7 @@ import {
 import {updateActivationKeyByKey} from '@/controller/user/activation/key';
 import {updateActivationPresets} from '@/controller/user/activation/preset';
 import {
-  userDataCooking,
+  userDataCookingSettings,
   userDataPokeboxDisplay,
   userDataPokedex,
   userDataSettings,
@@ -101,7 +101,7 @@ export const uploadUserData = async ({userId, opts}: UploadUserDataOpts) => {
   }
 
   if (type === 'cooking') {
-    await userDataCooking.setData(userId, data);
+    await userDataCookingSettings.setData(userId, data);
     return;
   }
 
@@ -109,7 +109,7 @@ export const uploadUserData = async ({userId, opts}: UploadUserDataOpts) => {
     const {settings, cooking} = data;
     await Promise.all([
       userDataSettings.setData(userId, settings),
-      userDataCooking.setData(userId, cooking),
+      userDataCookingSettings.setData(userId, cooking),
     ]);
     return;
   }

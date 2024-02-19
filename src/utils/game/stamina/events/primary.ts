@@ -2,7 +2,7 @@ import {staminaMaxRecovery} from '@/const/game/stamina';
 import {defaultRecoveryRate} from '@/const/user/settings';
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
-import {userCookingMeals} from '@/types/userData/cooking';
+import {userCookingMeals} from '@/types/userData/settings/cooking/common';
 import {toSum} from '@/utils/array';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 import {GetLogsCommonOpts} from '@/utils/game/stamina/events/type';

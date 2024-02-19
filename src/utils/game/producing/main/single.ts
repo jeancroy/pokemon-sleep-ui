@@ -1,5 +1,5 @@
 import {PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
-import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking/calculated';
 import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/multi';
 import {GetPokemonProducingRateOpts, GetProducingRateSharedOpts} from '@/utils/game/producing/main/type';
 

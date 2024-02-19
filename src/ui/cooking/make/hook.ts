@@ -1,6 +1,6 @@
 import {useFilterInput} from '@/components/input/filter/hook';
 import {isFilterIncludingAllOfData} from '@/components/input/filter/utils/match';
-import {defaultCookingPreset} from '@/const/user/cooking';
+import {defaultUserCookingSettings} from '@/const/user/cooking';
 import {Meal, MealId} from '@/types/game/meal/main';
 import {CookingServerDataProps} from '@/ui/cooking/common/type';
 import {generateCookingCommonFilter} from '@/ui/cooking/common/utils/main';
@@ -17,10 +17,10 @@ export const useMealMakerFilter = ({mealMap, preloaded}: CookingServerDataProps)
     dataToId: ({id}) => id,
     initialFilter: {
       ...generateCookingCommonFilter(preloadedCooking),
-      type: preloadedCooking?.mealType ?? defaultCookingPreset.mealType,
-      capacity: preloadedCooking?.potCapacity ?? defaultCookingPreset.potCapacity,
+      type: preloadedCooking?.mealType ?? defaultUserCookingSettings.mealType,
+      capacity: preloadedCooking?.potCapacity ?? defaultUserCookingSettings.potCapacity,
       ingredient: {},
-      showUnmakeableRecipe: preloadedCooking?.showUnmakeableRecipe ?? defaultCookingPreset.showUnmakeableRecipe,
+      showUnmakeableRecipe: preloadedCooking?.showUnmakeableRecipe ?? defaultUserCookingSettings.showUnmakeableRecipe,
     },
     isDataIncluded: (filter, meal) => {
       if (filter.type !== meal.type) {

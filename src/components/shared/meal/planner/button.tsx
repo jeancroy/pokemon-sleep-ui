@@ -8,7 +8,7 @@ import {MealImage} from '@/components/shared/meal/image';
 import {mealTypeTextStyle} from '@/styles/game/mealType';
 import {RecipeLevel} from '@/types/game/cooking';
 import {MealTypeId} from '@/types/game/meal/main';
-import {userCookingMeals, UserCookingTarget} from '@/types/userData/cooking';
+import {userCookingMeals, UserCookingTarget} from '@/types/userData/settings/cooking/common';
 
 
 type Props = {

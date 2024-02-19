@@ -1,4 +1,7 @@
-import {CalculatedCookingSettings, CalculatedCookingSettingsRequiredData} from '@/types/userData/settings/cooking';
+import {
+  CalculatedCookingSettings,
+  CalculatedCookingSettingsRequiredData,
+} from '@/types/userData/settings/cooking/calculated';
 import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {toActualPotCapacity} from '@/utils/user/settings/cooking/potCapacity';
 import {toTargetMeals} from '@/utils/user/settings/utils';

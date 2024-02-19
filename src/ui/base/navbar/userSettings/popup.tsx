@@ -4,7 +4,7 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
-import {defaultCookingPreset} from '@/const/user/cooking';
+import {defaultUserCookingSettings} from '@/const/user/cooking';
 import {defaultUserSettings} from '@/const/user/settings';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
@@ -44,7 +44,7 @@ export const UserSettingsPopup = ({
       migrateParams: {},
     }),
     cooking: {
-      ...defaultCookingPreset,
+      ...defaultUserCookingSettings,
       ...session?.user.preloaded.cooking,
     },
   });
@@ -94,8 +94,8 @@ export const UserSettingsPopup = ({
           } satisfies UserSettingsBundle))}
         />
         <UserSettingsCooking
-          cookingPreset={cooking}
-          setCookingPreset={(updated) => setBundle(({cooking, ...original}) => ({
+          cookingSettings={cooking}
+          setCookingSettings={(updated) => setBundle(({cooking, ...original}) => ({
             ...original,
             cooking: cloneMerge(cooking, updated),
           } satisfies UserSettingsBundle))}

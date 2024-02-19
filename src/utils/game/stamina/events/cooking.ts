@@ -3,7 +3,7 @@ import {
   StaminaCookingRecoveryData,
   StaminaRecovery,
 } from '@/types/game/stamina/recovery';
-import {userCookingMeals} from '@/types/userData/cooking';
+import {userCookingMeals} from '@/types/userData/settings/cooking/common';
 import {getLogsWithStaminaRecovery} from '@/utils/game/stamina/events/recovery';
 import {GetLogsCommonOpts} from '@/utils/game/stamina/events/type';
 import {rotateTime} from '@/utils/time';

@@ -1,5 +1,5 @@
 import {Interval} from '@/types/compute';
-import {UserCookingMeal} from '@/types/userData/cooking';
+import {UserCookingMeal} from '@/types/userData/settings/cooking/common';
 
 
 export type StaminaRecovery = {

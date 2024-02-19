@@ -1,4 +1,4 @@
-import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking/calculated';
 import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerCandidateData} from '@/ui/team/maker/type/common';

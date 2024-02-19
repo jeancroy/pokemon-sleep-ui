@@ -2,9 +2,9 @@ import {UserBonus} from '@/types/game/bonus/main';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {Migratable} from '@/types/migrate';
-import {UserCookingPreset} from '@/types/userData/cooking';
 import {UserCalculationBehavior} from '@/types/userData/settings/behavior';
-import {CalculatedCookingSettingsRequiredData} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettingsRequiredData} from '@/types/userData/settings/cooking/calculated';
+import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
 import {UserMultiplierSettings, UserMultiplierSettingsRequiredData} from '@/types/userData/settings/multiplier';
 
 
@@ -18,7 +18,7 @@ export type UserSettings = Migratable & {
 
 export type UserSettingsBundle = {
   settings: UserSettings,
-  cooking: UserCookingPreset,
+  cooking: UserCookingSettings,
 };
 
 export type UserSettingsRequiredData = CalculatedCookingSettingsRequiredData & UserMultiplierSettingsRequiredData;

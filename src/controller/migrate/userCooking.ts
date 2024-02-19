@@ -1,10 +1,10 @@
-import {defaultCookingPreset} from '@/const/user/cooking';
+import {defaultUserCookingSettings} from '@/const/user/cooking';
 import {createUserDataManager} from '@/controller/user/common';
-import {userDataCooking} from '@/controller/user/manager';
+import {userDataCookingSettings} from '@/controller/user/manager';
 import {RecipeLevel} from '@/types/game/cooking';
 import {IngredientCounter} from '@/types/game/ingredient';
 import {MealTypeId} from '@/types/game/meal/main';
-import {UserCookingPreset} from '@/types/userData/cooking';
+import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
 
 
 const userDataRecipeLevel = createUserDataManager<RecipeLevel>('recipeLevel');
@@ -28,13 +28,13 @@ export const migrateUserCookingData = async (userId: string) => {
     userDataIngredientCount.getData(userId),
   ]);
 
-  const newPreset: UserCookingPreset = {
-    ...defaultCookingPreset,
-    mealType: mealType?.data ?? defaultCookingPreset.mealType,
-    recipeLevel: recipeLevel?.data ?? defaultCookingPreset.recipeLevel,
-    potCapacity: potCapacity?.data ?? defaultCookingPreset.potCapacity,
-    ingredientCount: ingredientCount?.data ?? defaultCookingPreset.ingredientCount,
+  const newPreset: UserCookingSettings = {
+    ...defaultUserCookingSettings,
+    mealType: mealType?.data ?? defaultUserCookingSettings.mealType,
+    recipeLevel: recipeLevel?.data ?? defaultUserCookingSettings.recipeLevel,
+    potCapacity: potCapacity?.data ?? defaultUserCookingSettings.potCapacity,
+    ingredientCount: ingredientCount?.data ?? defaultUserCookingSettings.ingredientCount,
   };
 
-  await userDataCooking.setData(userId, newPreset);
+  await userDataCookingSettings.setData(userId, newPreset);
 };

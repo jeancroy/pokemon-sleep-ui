@@ -1,5 +1,5 @@
 import {MealId} from '@/types/game/meal/main';
-import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking/calculated';
 
 
 type GetRecipeLevelFromCalculatedCookingSettingsOpts = {

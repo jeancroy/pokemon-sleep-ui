@@ -1,11 +1,11 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {defaultCookingPreset} from '@/const/user/cooking';
+import {defaultUserCookingSettings} from '@/const/user/cooking';
 import {defaultUserSettings} from '@/const/user/settings';
 import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testMealData} from '@/tests/data/game/meal';
 import {testRecipeLevelData} from '@/tests/data/game/recipeLevel';
-import {UserCookingTargetOfType} from '@/types/userData/cooking';
+import {UserCookingTargetOfType} from '@/types/userData/settings/cooking/common';
 import {getMealIngredientInfo} from '@/utils/game/meal/ingredient';
 import {getIngredientBonusOfMeals} from '@/utils/game/producing/ingredient/bonus';
 import {isNotNullish} from '@/utils/type';
@@ -32,7 +32,7 @@ describe('Pokemon Production (Ingredient) / Meal Bonus', () => {
         ...toCalculatedCookingSettings({
           settings: {...defaultUserSettings},
           cooking: {
-            ...defaultCookingPreset,
+            ...defaultUserCookingSettings,
             mealType: 1,
             target: {
               1: cookingTargetOfType,

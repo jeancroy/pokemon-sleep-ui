@@ -8,7 +8,7 @@ import {staminaConfigSectionStyling} from '@/components/shared/stamina/input/con
 import {StaminaConfigTimeInput} from '@/components/shared/stamina/input/time';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 import {mealOfDayIcon} from '@/const/game/cooking';
-import {userCookingMeals} from '@/types/userData/cooking';
+import {userCookingMeals} from '@/types/userData/settings/cooking/common';
 
 
 export const StaminaConfigCookingRecovery = ({config, setConfig}: StaminaConfigProps) => {

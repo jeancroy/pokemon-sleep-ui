@@ -3,7 +3,7 @@ import React from 'react';
 
 import {useSession} from 'next-auth/react';
 
-import {defaultCookingPreset} from '@/const/user/cooking';
+import {defaultUserCookingSettings} from '@/const/user/cooking';
 import {usePossibleMealTypes} from '@/hooks/meal';
 import {useTranslatedUserSettings} from '@/hooks/userData/translated';
 import {CookingServerDataProps} from '@/ui/cooking/common/type';
@@ -35,7 +35,7 @@ export const MealPreparerClient = (props: CookingServerDataProps) => {
   });
   const [filter, setFilter] = React.useState<MealPreparerFilter>({
     ...generateCookingCommonFilter(preloaded.cooking),
-    mealsWanted: cloneMerge(defaultCookingPreset.mealsWanted, preloaded.cooking?.mealsWanted) ?? {},
+    mealsWanted: cloneMerge(defaultUserCookingSettings.mealsWanted, preloaded.cooking?.mealsWanted) ?? {},
     showRecipeStrength: false,
   });
 

@@ -21,11 +21,11 @@ export const UserSettingsCooking = (props: UserSettingsCookingCommonProps) => {
     mealMap,
     recipeLevelData,
     ingredientIds,
-    cookingPreset,
-    setCookingPreset,
+    cookingSettings,
+    setCookingSettings,
   } = props;
   const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
-  const {unlockedIngredients} = cookingPreset;
+  const {unlockedIngredients} = cookingSettings;
 
   const mealTypes = usePossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
   const t = useTranslations('UI.UserSettings');
@@ -37,13 +37,13 @@ export const UserSettingsCooking = (props: UserSettingsCookingCommonProps) => {
       title={t('Section.Cooking')}
     >
       <PotCapacityInput
-        isActive={(potCapacity) => potCapacity === cookingPreset.potCapacity}
-        onClick={(potCapacity) => setCookingPreset({potCapacity})}
+        isActive={(potCapacity) => potCapacity === cookingSettings.potCapacity}
+        onClick={(potCapacity) => setCookingSettings({potCapacity})}
       />
       <MealTypeInput
         mealTypes={mealTypes}
-        isActive={(mealType) => mealType === cookingPreset.mealType}
-        onClick={(mealType) => setCookingPreset({mealType})}
+        isActive={(mealType) => mealType === cookingSettings.mealType}
+        onClick={(mealType) => setCookingSettings({mealType})}
       />
       <FilterIconInput
         idToAlt={(id) => t2(`Food.${id}`)}
@@ -55,16 +55,16 @@ export const UserSettingsCooking = (props: UserSettingsCookingCommonProps) => {
           </Flex>
         }
         isActive={(id) => !!unlockedIngredients[id]}
-        onClick={(id) => setCookingPreset({unlockedIngredients: {[id]: !unlockedIngredients[id]}})}
+        onClick={(id) => setCookingSettings({unlockedIngredients: {[id]: !unlockedIngredients[id]}})}
       />
       <MealPlanner
         mealMap={mealMap}
         mealTypes={mealTypes}
         maxRecipeLevel={maxRecipeLevel}
-        target={cookingPreset.target}
-        setTarget={(target) => setCookingPreset({target})}
-        recipeLevel={cookingPreset.recipeLevel}
-        setRecipeLevel={(recipeLevel) => setCookingPreset({recipeLevel})}
+        target={cookingSettings.target}
+        setTarget={(target) => setCookingSettings({target})}
+        recipeLevel={cookingSettings.recipeLevel}
+        setRecipeLevel={(recipeLevel) => setCookingSettings({recipeLevel})}
       />
     </UserSettingsSection>
   );

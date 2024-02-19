@@ -5,8 +5,8 @@ import {ActivationPresetMap} from '@/types/mongo/activationPreset';
 import {AnnouncementClientMap} from '@/types/mongo/announcement';
 import {DocsData, DocsDataEditable, DocsDataEditableFetched} from '@/types/mongo/docs';
 import {PacketRecordingSettings} from '@/types/packet/settings';
-import {UserCookingPreset} from '@/types/userData/cooking';
 import {PokeInBox} from '@/types/userData/pokebox/main';
+import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
 import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
 import {PokedexDisplay} from '@/ui/pokedex/index/type';
@@ -37,7 +37,7 @@ export type UserDataUploadOpts = {
   data: ToTeamAnalysisCompFromPokeboxCommonOpts,
 } | {
   type: 'cooking',
-  data: UserCookingPreset,
+  data: UserCookingSettings,
 } | {
   type: 'rating',
   data: RatingConfig,

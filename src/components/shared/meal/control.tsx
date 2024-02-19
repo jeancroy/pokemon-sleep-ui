@@ -11,13 +11,13 @@ import {Flex} from '@/components/layout/flex/common';
 import {EnergyIcon} from '@/components/shared/icon/energy';
 import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {textFilterButtonStyle} from '@/styles/input';
-import {UserCookingPreset} from '@/types/userData/cooking';
+import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
 
 
 type Props = {
   showEnergy: boolean,
   setShowEnergy: (updated: boolean) => void,
-  uploadData: UserCookingPreset,
+  uploadData: UserCookingSettings,
 };
 
 export const MealDisplayControl = ({showEnergy, setShowEnergy, uploadData}: Props) => {

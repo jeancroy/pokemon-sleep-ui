@@ -1,7 +1,7 @@
 import React from 'react';
 
-import {useUserCookingPreset} from '@/hooks/userData/cookingPreset';
 import {useUserSettings} from '@/hooks/userData/settings';
+import {useUserCookingSettings} from '@/hooks/userData/settings/cooking';
 import {UseUserDataOpts} from '@/hooks/userData/type';
 import {UserSettingsBundle} from '@/types/userData/settings/main';
 
@@ -17,7 +17,7 @@ export const useUserSettingsBundle = ({bundle}: UseTranslatedUserSettingsOpts): 
     server: server.settings,
     client: client?.settings,
   });
-  const cooking = useUserCookingPreset({
+  const cooking = useUserCookingSettings({
     server: server.cooking,
     client: client?.cooking,
   });
