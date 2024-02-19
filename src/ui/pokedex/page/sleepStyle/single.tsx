@@ -74,7 +74,6 @@ export const PokemonSingleSleepStyle = <TSleepStyle extends SleepStyleCommon>({
             iconSrc={`/images/candy/${pokemon.candy.imageId}.png`}
             iconAlt={t2(pokemon.candy.i18nId)}
             value={rewards.candy}
-            noInvert={false}
             classImage="scale-150"
           />
         </Flex>
