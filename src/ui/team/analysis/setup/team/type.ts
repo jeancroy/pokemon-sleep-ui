@@ -3,7 +3,7 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {TeamMemberData, TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
 import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/setup/common/type';
 
@@ -11,7 +11,7 @@ import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/contr
 export type TeamAnalysisFilledProps = TeamAnalysisSetupUpdateCommonProps & {
   showPokemon: (pokemon: PokemonInfo) => void,
   bundle: UserSettingsBundle,
-  cookingSettings: CookingUserSettings,
+  calculatedCookingSettings: CalculatedCookingSettings,
 };
 
 export type TeamAnalysisFilledSlotProps = TeamAnalysisFilledProps & {

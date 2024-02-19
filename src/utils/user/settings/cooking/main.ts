@@ -1,16 +1,18 @@
-import {CookingUserSettings, CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings, CalculatedCookingSettingsRequiredData} from '@/types/userData/settings/cooking';
 import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {toActualPotCapacity} from '@/utils/user/settings/cooking/potCapacity';
 import {toTargetMeals} from '@/utils/user/settings/utils';
 
 
-export type ToCookingUserSettingsOpts = UserSettingsBundle & Pick<CookingUserSettingsRequiredData, 'mealMap'>;
+export type ToCalculatedCookingSettingsOpts =
+  UserSettingsBundle &
+  Pick<CalculatedCookingSettingsRequiredData, 'mealMap'>;
 
-export const toCookingUserSettings = ({
+export const toCalculatedCookingSettings = ({
   settings,
   cooking,
   mealMap,
-}: ToCookingUserSettingsOpts): CookingUserSettings => {
+}: ToCalculatedCookingSettingsOpts): CalculatedCookingSettings => {
   return {
     recipeLevel: cooking.recipeLevel,
     targetMeals: toTargetMeals({

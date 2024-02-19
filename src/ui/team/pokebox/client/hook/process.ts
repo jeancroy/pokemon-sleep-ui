@@ -12,7 +12,7 @@ import {
   getProducingRateSingleParams,
 } from '@/utils/game/producing/params';
 import {isNotNullish} from '@/utils/type';
-import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';
+import {toCalculatedCookingSettings} from '@/utils/user/settings/cooking/main';
 
 
 type UseProcessedPokeboxOpts = PokeboxCommonProps & {
@@ -69,7 +69,7 @@ export const useProcessedPokebox = ({
         dateAdded,
         extra: pokeInBox,
         ingredients: getEffectiveIngredientProductions({level, ingredients: pokeInBox.ingredients}),
-        cookingSettings: toCookingUserSettings({
+        calculatedCookingSettings: toCalculatedCookingSettings({
           ...bundle,
           mealMap,
         }),

@@ -1,12 +1,14 @@
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 import {toCalculatedUserSettings, ToCalculatedUserSettingsOpts} from '@/utils/user/settings/calculated';
-import {toCookingUserSettings, ToCookingUserSettingsOpts} from '@/utils/user/settings/cooking/main';
+import {toCalculatedCookingSettings, ToCalculatedCookingSettingsOpts} from '@/utils/user/settings/cooking/main';
 
 
-type ToTranslatedSettingsOpts = Omit<ToCalculatedUserSettingsOpts, 'snorlaxFavorite'> & ToCookingUserSettingsOpts & {
-  snorlaxFavorite?: SnorlaxFavorite,
-};
+type ToTranslatedSettingsOpts =
+  Omit<ToCalculatedUserSettingsOpts, 'snorlaxFavorite'> &
+  ToCalculatedCookingSettingsOpts & {
+    snorlaxFavorite?: SnorlaxFavorite,
+  };
 
 export const toTranslatedSettings = (opts: ToTranslatedSettingsOpts): TranslatedUserSettings => {
   const {settings} = opts;
@@ -17,6 +19,6 @@ export const toTranslatedSettings = (opts: ToTranslatedSettingsOpts): Translated
     snorlaxFavorite,
     // `opts` might have explicit `undefined`, therefore `snorlaxFavorite` goes after `opts` to force override
     calculatedSettings: toCalculatedUserSettings({...opts, snorlaxFavorite}),
-    cookingSettings: toCookingUserSettings(opts),
+    calculatedCookingSettings: toCalculatedCookingSettings(opts),
   };
 };

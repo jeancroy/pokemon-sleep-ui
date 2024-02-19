@@ -2,10 +2,10 @@ import {IngredientId} from '@/types/game/ingredient';
 import {MealTypeId} from '@/types/game/meal/main';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {UserCookingPreset} from '@/types/userData/cooking';
-import {CookingUserSettingsRequiredData} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettingsRequiredData} from '@/types/userData/settings/cooking';
 
 
-export type UserSettingsCookingDataProps = CookingUserSettingsRequiredData & {
+export type UserSettingsCookingDataProps = CalculatedCookingSettingsRequiredData & {
   recipeLevelData: RecipeLevelData[],
   mealTypes: MealTypeId[],
   ingredientIds: IngredientId[],

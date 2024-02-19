@@ -37,7 +37,7 @@ export const TeamMemberPopupContent = ({
     setMember,
     mealMap,
     config,
-    cookingSettings,
+    calculatedCookingSettings,
     memberIdForShare,
     pokemonMaxLevel,
     pokemon,
@@ -137,7 +137,7 @@ export const TeamMemberPopupContent = ({
             Object.entries(rate.ingredient)
               .map(([id, rate]) => [id, rate?.qty[stateOfRate] ?? 0]),
           )}
-          actualPotCapacity={cookingSettings.actualPotCapacity}
+          actualPotCapacity={calculatedCookingSettings.actualPotCapacity}
           period={config.analysisPeriod}
         />
       </Flex>

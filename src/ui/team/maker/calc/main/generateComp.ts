@@ -1,4 +1,4 @@
-import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
 import {getTeamMakerCandidates} from '@/ui/team/maker/calc/getCandidates/main';
 import {getTeamMakerPokeboxSource} from '@/ui/team/maker/calc/getPokeboxSource';
 import {getTeamMakerPokemonLimits} from '@/ui/team/maker/calc/getPokemonLimits/main';
@@ -15,7 +15,7 @@ export const getTeamMakerCalcGenerateCompOpts = (opts: TeamMakerCalcInitOpts): T
   } = opts;
   const {settings} = bundle;
 
-  const cookingSettings: CookingUserSettings = {
+  const calculatedCookingSettings: CalculatedCookingSettings = {
     recipeLevel: input.recipeLevel,
     targetMeals: toTargetMeals({
       mealType: input.mealType,
@@ -26,18 +26,18 @@ export const getTeamMakerCalcGenerateCompOpts = (opts: TeamMakerCalcInitOpts): T
   };
 
   const pokemonLimits = getTeamMakerPokemonLimits({
-    cookingSettings,
+    calculatedCookingSettings,
     pokeboxSource: getTeamMakerPokeboxSource(opts),
     ...opts,
   });
   const candidates = getTeamMakerCandidates({
     input,
     pokemonLimits,
-    cookingSettings,
+    calculatedCookingSettings,
   });
 
   return {
-    cookingSettings,
+    calculatedCookingSettings,
     candidates: [...candidates.values()],
     ...opts,
   };

@@ -64,10 +64,10 @@ export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonS
   mainSkillDailyCount: (opts) => getPokemonRateSorter(opts).skill.qty.equivalent,
   mainSkillDailyStrength: (opts) => getPokemonRateSorter(opts).skill.strength.equivalent,
   mealCoverage: (opts) => {
-    const {cookingSettings} = opts;
+    const {calculatedCookingSettings} = opts;
 
     return getMealCoverage({
-      meals: cookingSettings.targetMeals,
+      meals: calculatedCookingSettings.targetMeals,
       ingredientProduction: toIngredientProductionCounterFromPokemonRate({
         pokemonRate: getPokemonRateSorter(opts),
         state: 'equivalent',

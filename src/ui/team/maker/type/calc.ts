@@ -1,4 +1,4 @@
-import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
 import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerCandidateData} from '@/ui/team/maker/type/common';
@@ -11,7 +11,7 @@ export type TeamMakerCalcInitOpts = TeamMakerDataProps & {
 };
 
 export type TeamMakerCalcGenerateCompOpts = TeamMakerCalcInitOpts & {
-  cookingSettings: CookingUserSettings,
+  calculatedCookingSettings: CalculatedCookingSettings,
   candidates: TeamMakerCandidateData[],
 };
 

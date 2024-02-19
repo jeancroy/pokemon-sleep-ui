@@ -14,7 +14,7 @@ import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
 import {TeamContributionSplitIndicator} from '@/components/shared/team/contributionSplit/main';
 import {useUserSettingsBundle} from '@/hooks/userData/bundle';
-import {useCookingUserSettings} from '@/hooks/userData/cookingSettings';
+import {useCalculatedCookingSettings} from '@/hooks/userData/settings/calculatedCooking';
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook';
 import {TeamAnalysisCompControl} from '@/ui/team/analysis/setup/control/comp/main';
@@ -47,12 +47,12 @@ export const TeamAnalysisSetupView = (props: Props) => {
       client: bundleFromClient,
     },
   });
-  const cookingSettings = useCookingUserSettings({...bundle, mealMap});
+  const calculatedCookingSettings = useCalculatedCookingSettings({...bundle, mealMap});
   const statsOfTeam = useTeamProducingStats({
     ...props,
     setup,
     bundle,
-    cookingSettings,
+    calculatedCookingSettings,
   });
   const layoutControl = useTeamAnalysisLayoutControl({setup});
   const {state, setState, showPokemon} = usePokemonLinkPopup();
@@ -73,7 +73,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
       <TeamAnalysisTeamView
         showPokemon={showPokemon}
         bundle={bundle}
-        cookingSettings={cookingSettings}
+        calculatedCookingSettings={calculatedCookingSettings}
         layoutControl={layoutControl}
         statsOfTeam={statsOfTeam}
         {...props}
@@ -103,7 +103,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
           Object.entries(statsOfTeam.grouped.ingredient)
             .map(([id, rate]) => [id, rate?.qty ?? 0]),
         )}
-        actualPotCapacity={cookingSettings.actualPotCapacity}
+        actualPotCapacity={calculatedCookingSettings.actualPotCapacity}
         period={currentTeam.analysisPeriod}
       >
         <MealCoverageDetails coverage={statsOfTeam.mealCoverage} className="p-2"/>

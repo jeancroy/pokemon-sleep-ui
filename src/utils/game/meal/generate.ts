@@ -1,5 +1,5 @@
 import {Meal, MealMap, MealTypeId} from '@/types/game/meal/main';
-import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
 import {combineWithRepetitionIterator} from '@/utils/compute/combination';
 import {isNotNullish} from '@/utils/type';
 
@@ -26,14 +26,14 @@ export const generateTargetMeals = ({
   return combineWithRepetitionIterator(possibleMeals, 3);
 };
 
-type GenerateUserCookingSettingsFromAllTargetMealsOpts = GenerateTargetMealsOpts & {
-  predefined: Omit<CookingUserSettings, 'targetMeals'>,
+type GenerateCalculatedCookingSettingsFromAllTargetMealsOpts = GenerateTargetMealsOpts & {
+  predefined: Omit<CalculatedCookingSettings, 'targetMeals'>,
 };
 
-export function* generateUserCookingSettingsFromAllTargetMeals({
+export function* generateCalculatedCookingSettingsFromAllTargetMeals({
   predefined,
   ...opts
-}: GenerateUserCookingSettingsFromAllTargetMealsOpts): Generator<CookingUserSettings> {
+}: GenerateCalculatedCookingSettingsFromAllTargetMealsOpts): Generator<CalculatedCookingSettings> {
   for (const targetMeals of generateTargetMeals(opts)) {
     yield {
       ...predefined,

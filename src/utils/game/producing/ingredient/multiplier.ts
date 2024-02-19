@@ -5,7 +5,7 @@ import {IngredientCounter, IngredientId, IngredientMap} from '@/types/game/ingre
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {IngredientMultiplier} from '@/types/game/producing/multiplier';
-import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
 import {getMealIngredientInfo} from '@/utils/game/meal/ingredient';
 import {getIngredientBonusOfMeals} from '@/utils/game/producing/ingredient/bonus';
 
@@ -15,7 +15,7 @@ export type GetIngredientMultiplierOpts = {
   recipeLevelData: RecipeLevelData[],
   period: ProductionPeriod,
   production: IngredientCounter,
-  cookingSettings: CookingUserSettings,
+  calculatedCookingSettings: CalculatedCookingSettings,
 };
 
 export const getIngredientMultiplier = ({
@@ -23,9 +23,9 @@ export const getIngredientMultiplier = ({
   recipeLevelData,
   period,
   production,
-  cookingSettings,
+  calculatedCookingSettings,
 }: GetIngredientMultiplierOpts): IngredientMultiplier => {
-  const {targetMeals} = cookingSettings;
+  const {targetMeals} = calculatedCookingSettings;
 
   const mealIngredientInfo = getMealIngredientInfo({
     meals: targetMeals,
@@ -37,7 +37,7 @@ export const getIngredientMultiplier = ({
     recipeLevelData,
     ingredientMap,
     mealIngredientInfo,
-    cookingSettings,
+    calculatedCookingSettings,
   });
 
   return {

@@ -1,17 +1,17 @@
 import {MealId} from '@/types/game/meal/main';
-import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
 
 
-type GetRecipeLevelFromCookingSettingsOpts = {
-  cookingSettings: CookingUserSettings,
+type GetRecipeLevelFromCalculatedCookingSettingsOpts = {
+  calculatedCookingSettings: CalculatedCookingSettings,
   mealId: MealId,
 };
 
-export const getRecipeLevelFromCookingSettings = ({
-  cookingSettings,
+export const getRecipeLevelFromCalculatedCookingSettings = ({
+  calculatedCookingSettings,
   mealId,
-}: GetRecipeLevelFromCookingSettingsOpts): number => {
-  const {overrideRecipeLevel, recipeLevel} = cookingSettings;
+}: GetRecipeLevelFromCalculatedCookingSettingsOpts): number => {
+  const {overrideRecipeLevel, recipeLevel} = calculatedCookingSettings;
 
   return overrideRecipeLevel ?? recipeLevel[mealId] ?? 1;
 };

@@ -9,7 +9,7 @@ import {UserCookingTargetOfType} from '@/types/userData/cooking';
 import {getMealIngredientInfo} from '@/utils/game/meal/ingredient';
 import {getIngredientBonusOfMeals} from '@/utils/game/producing/ingredient/bonus';
 import {isNotNullish} from '@/utils/type';
-import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';
+import {toCalculatedCookingSettings} from '@/utils/user/settings/cooking/main';
 
 
 describe('Pokemon Production (Ingredient) / Meal Bonus', () => {
@@ -28,8 +28,8 @@ describe('Pokemon Production (Ingredient) / Meal Bonus', () => {
           .filter(isNotNullish),
         mealCount: {1007: 1, 3006: 2},
       }),
-      cookingSettings: {
-        ...toCookingUserSettings({
+      calculatedCookingSettings: {
+        ...toCalculatedCookingSettings({
           settings: {...defaultUserSettings},
           cooking: {
             ...defaultCookingPreset,

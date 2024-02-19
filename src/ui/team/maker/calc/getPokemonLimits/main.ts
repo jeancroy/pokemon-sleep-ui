@@ -29,10 +29,10 @@ export const getTeamMakerPokemonLimits = (opts: TeamMakerGetTeamMakerPokemonLimi
     maxRecipeLevel,
     input,
     bundle,
-    cookingSettings,
+    calculatedCookingSettings,
   } = opts;
   const {snorlaxFavorite} = input;
-  const {targetMeals} = cookingSettings;
+  const {targetMeals} = calculatedCookingSettings;
 
   const pokeInBoxDataList: TeamMakerPokeInBoxDataForLimits[] = getTeamMakerPokeInBoxDataForLimits(opts);
   const subSkillBonuses = pokeInBoxDataList
@@ -80,8 +80,8 @@ export const getTeamMakerPokemonLimits = (opts: TeamMakerGetTeamMakerPokemonLimi
       bundle,
       snorlaxFavorite,
       period: teamMakerProductionPeriod,
-      cookingSettings: {
-        ...cookingSettings,
+      calculatedCookingSettings: {
+        ...calculatedCookingSettings,
         // Reason unknown, but recipe level impacts candidates list, therefore impacting the result.
         // Without this, the result might be incorrect. See #670.
         overrideRecipeLevel: maxRecipeLevel,

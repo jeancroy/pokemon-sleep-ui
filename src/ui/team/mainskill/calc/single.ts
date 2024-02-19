@@ -5,7 +5,7 @@ import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/product
 import {getSkillTriggerValue} from '@/utils/game/mainSkill/utils';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/game/producing/params';
-import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';
+import {toCalculatedCookingSettings} from '@/utils/user/settings/cooking/main';
 
 
 type GetSkillTriggerValueOfUnitOpts = GetSkillTriggerValueCommonOpts & {
@@ -63,7 +63,7 @@ export const getSkillTriggerValueOfUnit = ({
     ...unit,
     ...singleParams,
     bundle,
-    cookingSettings: toCookingUserSettings({
+    calculatedCookingSettings: toCalculatedCookingSettings({
       ...bundle,
       mealMap,
     }),

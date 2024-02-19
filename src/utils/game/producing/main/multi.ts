@@ -4,7 +4,7 @@ import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
 import {PokemonProducingRateFinal, PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
-import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
 import {toSum} from '@/utils/array';
 import {applyIngredientMultiplier} from '@/utils/game/producing/apply/ingredient';
 import {groupPokemonProducingRate} from '@/utils/game/producing/group';
@@ -23,7 +23,7 @@ export type GetPokemonProducingRateMultiOpts<TPayload> = {
   rateOpts: GetPokemonProducingRateOptsWithPayload<TPayload>[],
   sharedOpts: GetProducingRateSharedOpts,
   groupingState: ProducingStateCalculated,
-  cookingSettings: CookingUserSettings,
+  calculatedCookingSettings: CalculatedCookingSettings,
 };
 
 export const getPokemonProducingRateMulti = <TPayload>({
@@ -32,7 +32,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
   rateOpts,
   sharedOpts,
   groupingState,
-  cookingSettings,
+  calculatedCookingSettings,
 }: GetPokemonProducingRateMultiOpts<TPayload>): PokemonProducingRateFinal<TPayload> => {
   const {
     eventStrengthMultiplierData,
@@ -96,7 +96,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
       })
       .filter(isNotNullish)),
     period,
-    cookingSettings,
+    calculatedCookingSettings,
   });
 
   const ratesAfterIngredient: PokemonProducingRateWithPayload<TPayload>[] = ratesWithPayload.map((rateWithPayload) => {

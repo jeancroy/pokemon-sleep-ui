@@ -1,5 +1,5 @@
 import {PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
-import {CookingUserSettings} from '@/types/userData/settings/cooking';
+import {CalculatedCookingSettings} from '@/types/userData/settings/cooking';
 import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/multi';
 import {GetPokemonProducingRateOpts, GetProducingRateSharedOpts} from '@/utils/game/producing/main/type';
 
@@ -7,7 +7,7 @@ import {GetPokemonProducingRateOpts, GetProducingRateSharedOpts} from '@/utils/g
 export type GetPokemonProducingRateSingleOpts =
   GetPokemonProducingRateOpts &
   GetProducingRateSharedOpts & {
-    cookingSettings: CookingUserSettings,
+    calculatedCookingSettings: CalculatedCookingSettings,
   };
 
 export const getPokemonProducingRateSingle = ({
