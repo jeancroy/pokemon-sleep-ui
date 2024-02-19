@@ -3,15 +3,15 @@ import {CookingConfig} from '@/types/userData/config/cooking/main';
 import {MealPreparerFilter} from '@/ui/cooking/prepare/type';
 
 
-type ToCookingSettingsFromMealPreparerFilterOpts = {
+type ToCookingConfigFromMealPreparerFilterOpts = {
   preloaded: CookingConfig,
   filter: MealPreparerFilter,
 };
 
-export const toCookingSettingsFromMealPreparerFilter = ({
+export const toCookingConfigFromMealPreparerFilter = ({
   preloaded,
   filter,
-}: ToCookingSettingsFromMealPreparerFilterOpts): CookingConfig => {
+}: ToCookingConfigFromMealPreparerFilterOpts): CookingConfig => {
   return {
     ...defaultCookingConfig,
     ...preloaded,

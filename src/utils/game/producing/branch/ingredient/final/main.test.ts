@@ -27,7 +27,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredients: testIngredientProductions.abx,
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
-        calculatedSettings: {
+        calculatedUserConfig: {
           ...testDefaultCalculatedUserConfig,
           bonus,
         },
@@ -91,7 +91,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredients: testIngredientProductions.axx,
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
-        calculatedSettings: {
+        calculatedUserConfig: {
           ...testDefaultCalculatedUserConfig,
           bonus,
         },
@@ -120,7 +120,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredients: testIngredientProductions.aax,
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
-        calculatedSettings: {
+        calculatedUserConfig: {
           ...testDefaultCalculatedUserConfig,
           bonus,
         },
@@ -149,7 +149,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredients: testIngredientProductions.aaa,
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
-        calculatedSettings: {
+        calculatedUserConfig: {
           ...testDefaultCalculatedUserConfig,
           bonus,
         },
@@ -178,7 +178,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredients: testIngredientProductions.aab,
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
-        calculatedSettings: {
+        calculatedUserConfig: {
           ...testDefaultCalculatedUserConfig,
           bonus,
         },
@@ -217,7 +217,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredients: testIngredientProductions.abc,
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
-        calculatedSettings: {
+        calculatedUserConfig: {
           ...testDefaultCalculatedUserConfig,
           bonus,
         },

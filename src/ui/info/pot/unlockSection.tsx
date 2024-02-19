@@ -21,7 +21,7 @@ type Props = Omit<PotInfoDataProps, 'mealMap'> & {
   potInfo: PotLevelInfo,
   unlockedMeals: Meal[],
   unlockedRecipes: number,
-  calculatedSettings: CalculatedUserConfig,
+  calculatedUserConfig: CalculatedUserConfig,
 };
 
 export const PotRecipeUnlockSection = ({
@@ -32,10 +32,10 @@ export const PotRecipeUnlockSection = ({
   potInfo,
   unlockedMeals,
   unlockedRecipes,
-  calculatedSettings,
+  calculatedUserConfig,
 }: Props) => {
   const {mealLevel, capacity, showEnergy} = filter;
-  const {mapMultiplier, strengthMultiplier} = calculatedSettings.bonus;
+  const {mapMultiplier, strengthMultiplier} = calculatedUserConfig.bonus;
 
   const t = useTranslations('UI.InPage.Info.Pot');
 

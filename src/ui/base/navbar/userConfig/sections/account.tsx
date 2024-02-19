@@ -16,7 +16,7 @@ type Props = {
   session: Session,
 };
 
-export const UserSettingsAccountInfo = ({session}: Props) => {
+export const UserConfigAccountInfo = ({session}: Props) => {
   const [show, setShow] = React.useState(false);
   const t = useTranslations('UI.Subscription.Activation');
 

@@ -63,7 +63,7 @@ export const getSkillTriggerValueOfUnit = ({
     ...unit,
     ...singleParams,
     bundle,
-    calculatedCookingSettings: toCalculatedCookingConfig({
+    calculatedCookingConfig: toCalculatedCookingConfig({
       ...bundle,
       mealMap,
     }),

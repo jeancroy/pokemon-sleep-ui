@@ -17,11 +17,11 @@ import {ToFinalProducingRateOfDropCommonOpts} from '@/utils/game/producing/toFin
 
 export const getPokemonProducingRateBase = (opts: GetPokemonProducingRateBaseOpts): PokemonProducingRate => {
   const {
-    calculatedSettings,
+    calculatedUserConfig,
     seeds,
     evolutionCount,
   } = opts;
-  const {bonus} = calculatedSettings;
+  const {bonus} = calculatedUserConfig;
   const {sleepSessionInfo, intervalsDuringSleep} = bonus.stamina;
 
   const {
@@ -80,7 +80,7 @@ export const getPokemonProducingRateBase = (opts: GetPokemonProducingRateBaseOpt
   //    the result will be 40 instead of 80.
   const finalCommonOpts: ToFinalProducingRateOfDropCommonOpts = {
     fullPackStats,
-    calculatedSettings,
+    calculatedUserConfig,
     sleepSessionInfo,
   };
   const berryFinal = getBerryProducingRateFinal({

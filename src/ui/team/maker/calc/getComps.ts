@@ -22,7 +22,7 @@ export const getTeamMakerComps = ({
   recipeLevelData,
   snorlaxData,
   input,
-  calculatedCookingSettings,
+  calculatedCookingConfig,
   teamComps,
   ...opts
 }: GetTeamMakerCompsOpts): TeamMakerResultComp[] => {
@@ -49,7 +49,7 @@ export const getTeamMakerComps = ({
         period: teamMakerProductionPeriod,
       },
       groupingState: 'equivalent',
-      calculatedCookingSettings,
+      calculatedCookingConfig: calculatedCookingConfig,
     });
     const strengthByType = {
       berry: getTotalOfGroupedProducingRate({rate: rates.grouped.berry, key: 'strength'}),
@@ -59,7 +59,7 @@ export const getTeamMakerComps = ({
     const strengthTotal = toSum(Object.values(strengthByType));
     const ingredientStats = getTeamMakerIngredientStats({
       required: getMealIngredientInfoFromTargetMeals({
-        targetMeals: calculatedCookingSettings.targetMeals,
+        targetMeals: calculatedCookingConfig.targetMeals,
         days: productionMultiplierByPeriod[teamMakerProductionPeriod],
       }).ingredientsRequired,
       inventory: ingredientCount,
@@ -81,7 +81,7 @@ export const getTeamMakerComps = ({
       strengthByType,
       basisValue: {
         mealCoverage: getMealCoverage({
-          meals: calculatedCookingSettings.targetMeals,
+          meals: calculatedCookingConfig.targetMeals,
           ingredientProduction,
           period: teamMakerProductionPeriod,
         }),

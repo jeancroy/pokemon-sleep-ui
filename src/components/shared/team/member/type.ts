@@ -26,7 +26,7 @@ export type TeamMemberDataProps = UsePokemonFilterCommonData & ConfigRequiredDat
 export type TeamMemberProps = TeamMemberDataProps & {
   config: TeamConfig,
   bundle: ConfigBundle,
-  calculatedCookingSettings: CalculatedCookingConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
   member: TeamMemberData,
   memberIdForShare: string,
   pokemon: PokemonInfo,

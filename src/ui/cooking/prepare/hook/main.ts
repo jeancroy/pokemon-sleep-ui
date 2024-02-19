@@ -18,7 +18,7 @@ export const useMealPreparerInfo = ({
 }: UseMealPreparerInfoOfMealTypeOpts): MealPreparerInfo => {
   const {
     filter,
-    calculatedSettings,
+    calculatedUserConfig,
     ingredientMap,
   } = props;
 
@@ -38,6 +38,6 @@ export const useMealPreparerInfo = ({
           )),
       }),
     ])),
-    [filter, calculatedSettings, meals, ingredientMap],
+    [filter, calculatedUserConfig, meals, ingredientMap],
   );
 };

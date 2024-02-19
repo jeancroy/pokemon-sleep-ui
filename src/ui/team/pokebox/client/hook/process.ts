@@ -69,7 +69,7 @@ export const useProcessedPokebox = ({
         dateAdded,
         extra: pokeInBox,
         ingredients: getEffectiveIngredientProductions({level, ingredients: pokeInBox.ingredients}),
-        calculatedCookingSettings: toCalculatedCookingConfig({
+        calculatedCookingConfig: toCalculatedCookingConfig({
           ...bundle,
           mealMap,
         }),

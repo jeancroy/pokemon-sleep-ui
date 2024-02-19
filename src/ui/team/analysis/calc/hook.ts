@@ -29,7 +29,7 @@ export const useTeamProducingStats = ({
   setup,
   bundle,
   currentTeam,
-  calculatedCookingSettings,
+  calculatedCookingConfig,
   overrideLevel,
 }: GetTeamProducingStatsOpts) => {
   const [result, setResult] = React.useState<TeamProducingStats>();
@@ -65,7 +65,7 @@ export const useTeamProducingStats = ({
       setup,
       bundle,
       currentTeam,
-      calculatedCookingSettings,
+      calculatedCookingConfig,
       overrideLevel,
     };
 
@@ -76,7 +76,7 @@ export const useTeamProducingStats = ({
     }
 
     work(opts);
-  }, [data, maxEvolutionCount, setup, bundle, currentTeam, calculatedCookingSettings, overrideLevel]);
+  }, [data, maxEvolutionCount, setup, bundle, currentTeam, calculatedCookingConfig, overrideLevel]);
 
   return result;
 };

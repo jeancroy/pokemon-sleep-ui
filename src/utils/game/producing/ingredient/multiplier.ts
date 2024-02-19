@@ -15,7 +15,7 @@ export type GetIngredientMultiplierOpts = {
   recipeLevelData: RecipeLevelData[],
   period: ProductionPeriod,
   production: IngredientCounter,
-  calculatedCookingSettings: CalculatedCookingConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
 };
 
 export const getIngredientMultiplier = ({
@@ -23,9 +23,9 @@ export const getIngredientMultiplier = ({
   recipeLevelData,
   period,
   production,
-  calculatedCookingSettings,
+  calculatedCookingConfig,
 }: GetIngredientMultiplierOpts): IngredientMultiplier => {
-  const {targetMeals} = calculatedCookingSettings;
+  const {targetMeals} = calculatedCookingConfig;
 
   const mealIngredientInfo = getMealIngredientInfo({
     meals: targetMeals,
@@ -37,7 +37,7 @@ export const getIngredientMultiplier = ({
     recipeLevelData,
     ingredientMap,
     mealIngredientInfo,
-    calculatedCookingSettings,
+    calculatedCookingConfig,
   });
 
   return {

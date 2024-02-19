@@ -60,7 +60,7 @@ export type PokemonSortingRequiredData = ProducingRateImplicitParams & ConfigReq
   ingredients: IngredientProduction[],
   dateAdded: number | null,
   bundle: ConfigBundle,
-  calculatedCookingSettings: CalculatedCookingConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
 };
 
 export type PokemonInfoWithSortingPayload<TExtra> = PokemonSortingRequiredData & ProducingRateSingleParams & {

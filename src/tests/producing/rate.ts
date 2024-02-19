@@ -33,7 +33,7 @@ export const getTestFinalProducingRateOfDropCommonOpts = (
       secondary: null,
     },
   },
-  calculatedSettings: {
+  calculatedUserConfig: {
     ...testDefaultCalculatedUserConfig,
     bonus,
   },

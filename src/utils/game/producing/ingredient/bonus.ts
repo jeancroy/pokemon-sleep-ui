@@ -12,23 +12,23 @@ type GetIngredientBonusOfMealsOpts = {
   ingredientMap: IngredientMap,
   recipeLevelData: RecipeLevelData[],
   mealIngredientInfo: MealIngredientInfo,
-  calculatedCookingSettings: CalculatedCookingConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
 };
 
 export const getIngredientBonusOfMeals = ({
   ingredientMap,
   recipeLevelData,
   mealIngredientInfo,
-  calculatedCookingSettings,
+  calculatedCookingConfig,
 }: GetIngredientBonusOfMealsOpts): IngredientCounter => {
-  const {targetMeals} = calculatedCookingSettings;
+  const {targetMeals} = calculatedCookingConfig;
   const {ingredientsRequired, ingredientOfMeals} = mealIngredientInfo;
 
   const mealBonusMap = Object.fromEntries(targetMeals.map((meal) => [
     meal.id,
     getMealBaseStrength({
       level: getRecipeLevelFromCalculatedCookingConfig({
-        calculatedCookingConfig: calculatedCookingSettings,
+        calculatedCookingConfig,
         mealId: meal.id,
       }),
       meal,

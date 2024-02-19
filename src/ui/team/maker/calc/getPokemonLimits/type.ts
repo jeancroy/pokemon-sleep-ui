@@ -14,5 +14,5 @@ export type TeamMakerPokeInBoxDataForLimits = {
 export type TeamMakerGetTeamMakerPokemonLimitsOpts = Omit<TeamMakerCalcInitOpts, 'pokeboxList'> & {
   pokeboxSource: PokeInBox[],
   bundle: ConfigBundle,
-  calculatedCookingSettings: CalculatedCookingConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
 };

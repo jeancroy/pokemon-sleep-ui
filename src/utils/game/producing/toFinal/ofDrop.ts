@@ -11,12 +11,12 @@ type ToFinalProducingRateOfDropOpts = ToFinalProducingRateOfDropCommonOpts & ToF
 
 export const toFinalProducingRateOfDrop = ({
   fullPackStats,
-  calculatedSettings,
+  calculatedUserConfig,
   sleepSessionInfo,
   ...opts
 }: ToFinalProducingRateOfDropOpts): ProducingRateOfDropByStateWithPack => {
   const {base} = opts;
-  const {bonus} = calculatedSettings;
+  const {bonus} = calculatedUserConfig;
 
   const primary = toFinalProducingRateForSleep({
     fullPackStatsOfSleep: fullPackStats.bySleep.primary,

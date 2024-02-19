@@ -65,7 +65,7 @@ export type ProducingRateCommonParams = {
   level: number,
   pokemon: PokemonInfo,
   baseFrequency: number,
-  calculatedSettings: CalculatedUserConfig,
+  calculatedUserConfig: CalculatedUserConfig,
 };
 
 export type PokemonProducingRate = {
@@ -91,7 +91,7 @@ export type PokemonProducingRateAtStage = {[stage in PokemonProducingRateStage]:
 
 export type PokemonProducingRateWithPayload<TPayload> = {
   payload: TPayload,
-  calculatedSettings: CalculatedUserConfig,
+  calculatedUserConfig: CalculatedUserConfig,
   atStage: PokemonProducingRateAtStage,
 };
 

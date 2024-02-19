@@ -78,7 +78,7 @@ export const PokemonSleepStylesLoaded = ({
             setSleepdex={setSleepdex}
             drowsyPowerMultiplier={drowsyPowerMultiplier}
             pokemon={pokemon}
-            calculatedSettings={calculatedConfigBundle.calculatedSettings}
+            calculatedUserConfig={calculatedConfigBundle.calculatedUserConfig}
             snorlaxData={snorlaxDataMap[sleepStyleOfMap.mapId]}
             sleepStyleOfMap={sleepStyleOfMap}
           />

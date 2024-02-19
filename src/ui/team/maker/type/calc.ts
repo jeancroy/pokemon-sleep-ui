@@ -11,7 +11,7 @@ export type TeamMakerCalcInitOpts = TeamMakerDataProps & {
 };
 
 export type TeamMakerCalcGenerateCompOpts = TeamMakerCalcInitOpts & {
-  calculatedCookingSettings: CalculatedCookingConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
   candidates: TeamMakerCandidateData[],
 };
 

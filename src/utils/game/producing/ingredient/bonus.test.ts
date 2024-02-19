@@ -28,7 +28,7 @@ describe('Pokemon Production (Ingredient) / Meal Bonus', () => {
           .filter(isNotNullish),
         mealCount: {1007: 1, 3006: 2},
       }),
-      calculatedCookingSettings: {
+      calculatedCookingConfig: {
         ...toCalculatedCookingConfig({
           userConfig: {...defaultUserConfig},
           cookingConfig: {

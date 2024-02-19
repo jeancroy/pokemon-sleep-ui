@@ -48,7 +48,7 @@ export const MealPreparerClient = (props: CookingServerDataProps) => {
     setFilter,
     mealTypes,
     maxRecipeLevel: getMaxRecipeLevel({recipeLevelData}),
-    calculatedSettings: calculatedConfigBundle.calculatedSettings,
+    calculatedUserConfig: calculatedConfigBundle.calculatedUserConfig,
     preloaded: preloaded.cookingConfig,
   };
 

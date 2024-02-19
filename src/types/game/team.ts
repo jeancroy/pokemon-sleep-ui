@@ -22,6 +22,6 @@ export type TeamMemberData = PokemonConfigPokemonData & {
 
 export type TeamMemberProduction = PokemonProducingRate & {
   total: ProducingRate,
-  calculatedSettings: CalculatedUserConfig,
+  calculatedUserConfig: CalculatedUserConfig,
   level: Nullable<number>,
 };

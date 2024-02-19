@@ -6,5 +6,5 @@ import {TeamMakerInput} from '@/ui/team/maker/type/input';
 export type GetTeamMakerCandidatesOpts = {
   input: TeamMakerInput,
   pokemonLimits: TeamMakerPokemonLimits[],
-  calculatedCookingSettings: CalculatedCookingConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
 };

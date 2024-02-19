@@ -11,7 +11,7 @@ import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/contr
 export type TeamAnalysisFilledProps = TeamAnalysisSetupUpdateCommonProps & {
   showPokemon: (pokemon: PokemonInfo) => void,
   bundle: ConfigBundle,
-  calculatedCookingSettings: CalculatedCookingConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
 };
 
 export type TeamAnalysisFilledSlotProps = TeamAnalysisFilledProps & {

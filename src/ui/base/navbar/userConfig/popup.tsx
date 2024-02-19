@@ -9,26 +9,26 @@ import {defaultUserConfig} from '@/const/user/config/user';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
 import {ConfigBundle} from '@/types/userData/config/bundle';
-import {UserSettingsAccountInfo} from '@/ui/base/navbar/userSettings/sections/account';
-import {UserSettingsAppInfo} from '@/ui/base/navbar/userSettings/sections/app/main';
-import {UserCalculationBehaviorUI} from '@/ui/base/navbar/userSettings/sections/behavior';
-import {UserSettingsCooking} from '@/ui/base/navbar/userSettings/sections/cooking/main';
-import {UserSettingsLanguage} from '@/ui/base/navbar/userSettings/sections/language';
-import {UserSettingsMapBonusUI} from '@/ui/base/navbar/userSettings/sections/mapBonus/main';
-import {UserSettingsMultiplierUI} from '@/ui/base/navbar/userSettings/sections/multiplier/main';
-import {UserSettingsStamina} from '@/ui/base/navbar/userSettings/sections/stamina';
-import {UserSettingsProps} from '@/ui/base/navbar/userSettings/type';
+import {UserConfigAccountInfo} from '@/ui/base/navbar/userConfig/sections/account';
+import {UserConfigAppInfo} from '@/ui/base/navbar/userConfig/sections/app/main';
+import {UserCalculationBehaviorUI} from '@/ui/base/navbar/userConfig/sections/behavior';
+import {UserConfigCooking} from '@/ui/base/navbar/userConfig/sections/cooking/main';
+import {UserConfigLanguage} from '@/ui/base/navbar/userConfig/sections/language';
+import {UserConfigMapBonusUI} from '@/ui/base/navbar/userConfig/sections/mapBonus/main';
+import {UserConfigMultiplierUI} from '@/ui/base/navbar/userConfig/sections/multiplier/main';
+import {UserConfigStamina} from '@/ui/base/navbar/userConfig/sections/stamina';
+import {UserConfigProps} from '@/ui/base/navbar/userConfig/type';
 import {migrate} from '@/utils/migrate/main';
 import {userConfigMigrators} from '@/utils/migrate/userConfig/migrators';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
-type Props = UserSettingsProps & {
+type Props = UserConfigProps & {
   show: boolean,
   setShow: React.Dispatch<React.SetStateAction<boolean>>,
 };
 
-export const UserSettingsPopup = ({
+export const UserConfigPopup = ({
   session,
   show,
   setShow,
@@ -68,13 +68,13 @@ export const UserSettingsPopup = ({
       setShow(show);
     }}>
       <Flex className="gap-1.5 sm:w-[70vw]">
-        {session && <UserSettingsAccountInfo session={session}/>}
+        {session && <UserConfigAccountInfo session={session}/>}
         {!session && (
           <div className="rounded-lg bg-rose-300 p-2 text-lg dark:bg-rose-700">
             {t('Message.ConfigNotStored')}
           </div>
         )}
-        <UserSettingsStamina
+        <UserConfigStamina
           {...props}
           config={userConfig.stamina}
           setConfig={(stamina) => setBundle(({userConfig, ...original}) => ({
@@ -93,15 +93,15 @@ export const UserSettingsPopup = ({
             userConfig: {...userConfig, behavior},
           } satisfies ConfigBundle))}
         />
-        <UserSettingsCooking
-          cookingSettings={cookingConfig}
-          setCookingSettings={(updated) => setBundle(({cookingConfig, ...original}) => ({
+        <UserConfigCooking
+          cookingConfig={cookingConfig}
+          setCookingConfig={(updated) => setBundle(({cookingConfig, ...original}) => ({
             ...original,
             cookingConfig: cloneMerge(cookingConfig, updated),
           } satisfies ConfigBundle))}
           {...props}
         />
-        <UserSettingsMapBonusUI
+        <UserConfigMapBonusUI
           bonus={userConfig.bonus}
           setBonus={(bonus) => setBundle(({userConfig, ...original}) => ({
             ...original,
@@ -114,7 +114,7 @@ export const UserSettingsPopup = ({
           } satisfies ConfigBundle))}
           {...props}
         />
-        <UserSettingsMultiplierUI
+        <UserConfigMultiplierUI
           config={userConfig}
           setConfig={(getUpdated) => setBundle(({userConfig, ...original}) => ({
             ...original,
@@ -122,8 +122,8 @@ export const UserSettingsPopup = ({
           } satisfies ConfigBundle))}
           {...props}
         />
-        <UserSettingsLanguage/>
-        <UserSettingsAppInfo/>
+        <UserConfigLanguage/>
+        <UserConfigAppInfo/>
       </Flex>
     </PopupCommon>
   );

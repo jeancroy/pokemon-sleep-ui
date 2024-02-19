@@ -15,7 +15,7 @@ export const getTeamMakerCalcGenerateCompOpts = (opts: TeamMakerCalcInitOpts): T
   } = opts;
   const {userConfig} = bundle;
 
-  const calculatedCookingSettings: CalculatedCookingConfig = {
+  const calculatedCookingConfig: CalculatedCookingConfig = {
     recipeLevel: input.recipeLevel,
     targetMeals: toTargetMeals({
       mealType: input.mealType,
@@ -26,18 +26,18 @@ export const getTeamMakerCalcGenerateCompOpts = (opts: TeamMakerCalcInitOpts): T
   };
 
   const pokemonLimits = getTeamMakerPokemonLimits({
-    calculatedCookingSettings,
+    calculatedCookingConfig,
     pokeboxSource: getTeamMakerPokeboxSource(opts),
     ...opts,
   });
   const candidates = getTeamMakerCandidates({
     input,
     pokemonLimits,
-    calculatedCookingSettings,
+    calculatedCookingConfig,
   });
 
   return {
-    calculatedCookingSettings,
+    calculatedCookingConfig,
     candidates: [...candidates.values()],
     ...opts,
   };

@@ -12,6 +12,6 @@ export type ToFinalProducingRateForSleepCommonOpts = {
 
 export type ToFinalProducingRateOfDropCommonOpts = {
   fullPackStats: FullPackStats,
-  calculatedSettings: CalculatedUserConfig,
+  calculatedUserConfig: CalculatedUserConfig,
   sleepSessionInfo: SleepSessionInfo,
 };

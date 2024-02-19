@@ -13,12 +13,12 @@ type GetIngredientProducingRateBaseOpts = ProducingRateCommonParams & {
 
 export const getIngredientProducingRateBase = ({
   baseFrequency,
-  calculatedSettings,
+  calculatedUserConfig,
   ingredient,
   ingredientBranchCount,
   qtyPerHelp,
 }: GetIngredientProducingRateBaseOpts): ProducingRateOfDrop | null => {
-  const {bonus} = calculatedSettings;
+  const {bonus} = calculatedUserConfig;
 
   if (!ingredient) {
     return null;

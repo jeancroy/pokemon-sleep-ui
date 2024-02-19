@@ -37,7 +37,7 @@ export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...p
 
   const {isIncluded, filter} = mealFilterProps;
   const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
-  const {mapMultiplier, strengthMultiplier} = calculatedConfigBundle.calculatedSettings.bonus;
+  const {mapMultiplier, strengthMultiplier} = calculatedConfigBundle.calculatedUserConfig.bonus;
 
   return (
     <>

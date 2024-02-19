@@ -47,12 +47,12 @@ export const TeamAnalysisSetupView = (props: Props) => {
     },
     ...props,
   });
-  const {calculatedCookingSettings} = calculatedConfigBundle;
+  const {calculatedCookingConfig} = calculatedConfigBundle;
   const statsOfTeam = useTeamProducingStats({
     ...props,
     setup,
     bundle,
-    calculatedCookingSettings,
+    calculatedCookingConfig,
   });
   const layoutControl = useTeamAnalysisLayoutControl({setup});
   const {state, setState, showPokemon} = usePokemonLinkPopup();
@@ -73,7 +73,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
       <TeamAnalysisTeamView
         showPokemon={showPokemon}
         bundle={bundle}
-        calculatedCookingSettings={calculatedCookingSettings}
+        calculatedCookingConfig={calculatedCookingConfig}
         layoutControl={layoutControl}
         statsOfTeam={statsOfTeam}
         {...props}
@@ -103,7 +103,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
           Object.entries(statsOfTeam.grouped.ingredient)
             .map(([id, rate]) => [id, rate?.qty ?? 0]),
         )}
-        actualPotCapacity={calculatedCookingSettings.actualPotCapacity}
+        actualPotCapacity={calculatedCookingConfig.actualPotCapacity}
         period={currentTeam.analysisPeriod}
       >
         <MealCoverageDetails coverage={statsOfTeam.mealCoverage} className="p-2"/>

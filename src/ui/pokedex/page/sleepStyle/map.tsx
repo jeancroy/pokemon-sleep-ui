@@ -14,13 +14,13 @@ import {PokemonSleepStyleProps} from '@/ui/pokedex/page/sleepStyle/type';
 
 
 type Props = PokemonSleepStyleProps & {
-  calculatedSettings: CalculatedUserConfig,
+  calculatedUserConfig: CalculatedUserConfig,
   snorlaxData: SnorlaxDataOfMap,
   sleepStyleOfMap: SleepStyleNormal,
 };
 
 export const PokemonSleepStylesOfMap = ({
-  calculatedSettings,
+  calculatedUserConfig,
   snorlaxData,
   sleepStyleOfMap,
   ...props

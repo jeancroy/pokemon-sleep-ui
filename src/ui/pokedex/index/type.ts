@@ -50,6 +50,6 @@ export type PokedexLinkProps = Pick<PokedexFilter, 'display' | keyof PokemonIndi
   snorlaxFavorite: SnorlaxFavorite,
   ingredients: IngredientProduction[],
   bundle: ConfigBundle,
-  calculatedCookingSettings: CalculatedCookingConfig,
-  calculatedSettings: CalculatedUserConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
+  calculatedUserConfig: CalculatedUserConfig,
 };

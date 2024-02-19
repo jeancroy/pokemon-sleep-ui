@@ -11,10 +11,10 @@ export const MealMakerRecipe = ({meals, ...props}: MealMakerCommonProps) => {
     filter,
     ingredientMap,
     recipeLevelData,
-    calculatedSettings,
+    calculatedUserConfig,
   } = props;
   const {showUnmakeableRecipe} = filter;
-  const {mapMultiplier, strengthMultiplier} = calculatedSettings.bonus;
+  const {mapMultiplier, strengthMultiplier} = calculatedUserConfig.bonus;
 
   const data: MealMakerRecipeData[] = React.useMemo(
     () => meals.map((meal) => ({
@@ -29,7 +29,7 @@ export const MealMakerRecipe = ({meals, ...props}: MealMakerCommonProps) => {
         strengthMultiplier: strengthMultiplier.cooking,
       }),
     })),
-    [filter, meals, ingredientMap, calculatedSettings],
+    [filter, meals, ingredientMap, calculatedUserConfig],
   );
 
   return (

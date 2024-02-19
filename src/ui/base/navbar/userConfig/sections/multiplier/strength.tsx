@@ -13,7 +13,7 @@ import {strengthMultiplierBehaviorI18nId} from '@/const/user/multiplier';
 import {textFilterButtonStyle} from '@/styles/input';
 import {StrengthMultiplierType} from '@/types/game/bonus/strength';
 import {userStrengthMultiplierApplyBehavior} from '@/types/userData/config/user/multiplier';
-import {UserConfigMultiplierCommonProps} from '@/ui/base/navbar/userSettings/sections/multiplier/type';
+import {UserConfigMultiplierCommonProps} from '@/ui/base/navbar/userConfig/sections/multiplier/type';
 import {getCurrentEventStrengthMultiplier} from '@/utils/game/event/strengthMultiplier';
 import {formatFloat} from '@/utils/number/format/regular';
 import {cloneMerge} from '@/utils/object/cloneMerge';
@@ -23,7 +23,7 @@ type Props = UserConfigMultiplierCommonProps & {
   type: StrengthMultiplierType,
 };
 
-export const UserSettingsStrengthMultiplierUI = ({
+export const UserConfigStrengthMultiplierUI = ({
   eventStrengthMultiplierData,
   type,
   config,

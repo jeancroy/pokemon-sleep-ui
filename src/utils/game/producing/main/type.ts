@@ -10,7 +10,7 @@ import {Nullable} from '@/utils/type';
 
 export type GetPokemonProducingRateOpts = Omit<
   GetPokemonProducingRateBaseOpts,
-  keyof GetProducingRateSharedOpts | 'helpingBonusEffect' | 'calculatedSettings'
+  keyof GetProducingRateSharedOpts | 'helpingBonusEffect' | 'calculatedUserConfig'
 > & {
   alwaysFullPack?: Nullable<boolean>,
 };

@@ -26,14 +26,14 @@ export const generateTargetMeals = ({
   return combineWithRepetitionIterator(possibleMeals, 3);
 };
 
-type GenerateCalculatedCookingSettingsFromAllTargetMealsOpts = GenerateTargetMealsOpts & {
+type GenerateCalculatedCookingConfigFromAllTargetMealsOpts = GenerateTargetMealsOpts & {
   predefined: Omit<CalculatedCookingConfig, 'targetMeals'>,
 };
 
-export function* generateCalculatedCookingSettingsFromAllTargetMeals({
+export function* generateCalculatedCookingConfigFromAllTargetMeals({
   predefined,
   ...opts
-}: GenerateCalculatedCookingSettingsFromAllTargetMealsOpts): Generator<CalculatedCookingConfig> {
+}: GenerateCalculatedCookingConfigFromAllTargetMealsOpts): Generator<CalculatedCookingConfig> {
   for (const targetMeals of generateTargetMeals(opts)) {
     yield {
       ...predefined,

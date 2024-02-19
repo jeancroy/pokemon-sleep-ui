@@ -29,9 +29,9 @@ type Props = PopupProps & MealMakerPopupCommonProps & {
   filter: MealMakerFilter,
 };
 
-export const MealMakerPopup = ({filter, calculatedSettings, status, onCook, ...props}: Props) => {
+export const MealMakerPopup = ({filter, calculatedUserConfig, status, onCook, ...props}: Props) => {
   const {meal, ingredientMap, setShow} = props;
-  const {mapMultiplier, strengthMultiplier} = calculatedSettings.bonus;
+  const {mapMultiplier, strengthMultiplier} = calculatedUserConfig.bonus;
 
   const t = useTranslations('UI.InPage.Cooking');
   const requiredIngredients = React.useMemo(() => toIngredientCounterFromMealIngredient(meal.ingredients), [meal]);

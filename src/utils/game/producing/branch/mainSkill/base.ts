@@ -8,11 +8,11 @@ import {getProducingRateBase} from '@/utils/game/producing/toBase/main';
 export const getMainSkillProducingRateBase = ({
   pokemon,
   baseFrequency,
-  calculatedSettings,
+  calculatedUserConfig,
   skillRatePercent,
   ...opts
 }: GetMainSkillProducingRateBaseOpts): ProducingRateOfDrop => {
-  const {bonus} = calculatedSettings;
+  const {bonus} = calculatedUserConfig;
   const {mapMultiplier} = bonus;
 
   const strengthMultiplier = getStrengthMultiplier({

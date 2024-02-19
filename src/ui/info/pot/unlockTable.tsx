@@ -73,7 +73,7 @@ export const PotRecipeUnlockTable = ({filter, validMeals, ...props}: Props) => {
               potInfo={potInfo}
               unlockedMeals={unlockedMeals}
               unlockedRecipes={mealCursorIdx}
-              calculatedSettings={calculatedConfigBundle.calculatedSettings}
+              calculatedUserConfig={calculatedConfigBundle.calculatedUserConfig}
               {...props}
             />
           );

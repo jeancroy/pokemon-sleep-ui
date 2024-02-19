@@ -4,7 +4,7 @@ import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 
 
 export type PokemonDetailedProducingStatsProps = {
-  calculatedSettings: CalculatedUserConfig,
+  calculatedUserConfig: CalculatedUserConfig,
   rate: PokemonProducingRate,
   specialty: PokemonSpecialtyId,
 };

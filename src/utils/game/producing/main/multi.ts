@@ -23,7 +23,7 @@ export type GetPokemonProducingRateMultiOpts<TPayload> = {
   rateOpts: GetPokemonProducingRateOptsWithPayload<TPayload>[],
   sharedOpts: GetProducingRateSharedOpts,
   groupingState: ProducingStateCalculated,
-  calculatedCookingSettings: CalculatedCookingConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
 };
 
 export const getPokemonProducingRateMulti = <TPayload>({
@@ -32,7 +32,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
   rateOpts,
   sharedOpts,
   groupingState,
-  calculatedCookingSettings,
+  calculatedCookingConfig,
 }: GetPokemonProducingRateMultiOpts<TPayload>): PokemonProducingRateFinal<TPayload> => {
   const {
     eventStrengthMultiplierData,
@@ -58,7 +58,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
   const ratesWithPayload = rateOpts.map(({opts, payload}) => {
     const {natureId, alwaysFullPack} = opts;
 
-    const calculatedSettings = toCalculatedUserConfig({
+    const calculatedUserConfig = toCalculatedUserConfig({
       ...bundle,
       recoveryRate: toRecoveryRate({natureId, subSkillBonuses}),
       behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
@@ -72,10 +72,10 @@ export const getPokemonProducingRateMulti = <TPayload>({
         ...opts,
         ...sharedOpts,
         helpingBonusEffect,
-        calculatedSettings,
+        calculatedUserConfig,
       }),
       payload,
-      calculatedSettings,
+      calculatedUserConfig,
     };
   });
   const groupedOriginalRates = groupPokemonProducingRate({
@@ -96,15 +96,15 @@ export const getPokemonProducingRateMulti = <TPayload>({
       })
       .filter(isNotNullish)),
     period,
-    calculatedCookingSettings,
+    calculatedCookingConfig,
   });
 
   const ratesAfterIngredient: PokemonProducingRateWithPayload<TPayload>[] = ratesWithPayload.map((rateWithPayload) => {
-    const {rawRate, calculatedSettings, payload} = rateWithPayload;
+    const {rawRate, calculatedUserConfig, payload} = rateWithPayload;
 
     return {
       payload,
-      calculatedSettings,
+      calculatedUserConfig,
       atStage: {
         original: rawRate,
         final: applyIngredientMultiplier({rate: rawRate, ingredientMultiplier}),

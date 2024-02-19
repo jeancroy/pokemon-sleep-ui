@@ -62,16 +62,16 @@ export const defaultUserCalculationBehavior: UserCalculationBehavior = {
   includeMainSkill: true,
 };
 
-export const defaultUserMultiplierSettingsEntry: UserStrengthMultiplierConfigEntry = {
+export const defaultUserMultiplierConfigEntry: UserStrengthMultiplierConfigEntry = {
   behavior: 'default',
   value: 1,
 };
 
 export const defaultUserMultiplierConfig: UserMultiplierConfig = {
   strength: {
-    berry: defaultUserMultiplierSettingsEntry,
-    cooking: defaultUserMultiplierSettingsEntry,
-    skill: defaultUserMultiplierSettingsEntry,
+    berry: defaultUserMultiplierConfigEntry,
+    cooking: defaultUserMultiplierConfigEntry,
+    skill: defaultUserMultiplierConfigEntry,
   },
 };
 

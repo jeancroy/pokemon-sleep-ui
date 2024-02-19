@@ -8,7 +8,7 @@ type Props = {
   title: string,
 };
 
-export const UserSettingsSection = ({titleIcon, title, children}: React.PropsWithChildren<Props>) => {
+export const UserConfigSection = ({titleIcon, title, children}: React.PropsWithChildren<Props>) => {
   return (
     <Flex className="bg-plate gap-1.5">
       <Flex direction="row" className="items-center gap-1">

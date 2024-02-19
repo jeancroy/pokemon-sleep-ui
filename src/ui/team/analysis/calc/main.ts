@@ -13,7 +13,7 @@ import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/reducer/sum
 export const getTeamProducingStats = (opts: GetTeamProducingStatsOpts): TeamProducingStats => {
   const {
     currentTeam,
-    calculatedCookingSettings,
+    calculatedCookingConfig,
   } = opts;
   const {
     snorlaxFavorite,
@@ -44,7 +44,7 @@ export const getTeamProducingStats = (opts: GetTeamProducingStatsOpts): TeamProd
   };
 
   const mealCoverage: MealCoverage = getMealCoverage({
-    meals: calculatedCookingSettings.targetMeals,
+    meals: calculatedCookingConfig.targetMeals,
     ingredientProduction: toIngredientProductionCounterFromGroupedRate(grouped.ingredient),
     period: analysisPeriod,
   });

@@ -15,7 +15,7 @@ const userDataMealType = createUserDataManager<MealTypeId>('mealType');
 
 const userDataIngredientCount = createUserDataManager<IngredientCounter>('ingredientCount');
 
-export const migrateUserCookingSettings = async (userId: string) => {
+export const migrateUserCookingConfig = async (userId: string) => {
   const [
     mealType,
     recipeLevel,

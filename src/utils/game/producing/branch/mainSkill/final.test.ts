@@ -12,7 +12,7 @@ import {cloneMerge} from '@/utils/object/cloneMerge';
 describe('Pokemon Production (Skill) / Final', () => {
   const bonus = testBonus['1'];
   const commonOpts = getTestFinalProducingRateOfDropCommonOpts(bonus);
-  const {calculatedSettings} = commonOpts;
+  const {calculatedUserConfig} = commonOpts;
 
   const awakeDuration = commonOpts.sleepSessionInfo.duration.awake;
 
@@ -21,7 +21,7 @@ describe('Pokemon Production (Skill) / Final', () => {
       base: getMainSkillProducingRateBase({
         pokemon: testPokemonData.ampharos,
         baseFrequency: 3168,
-        calculatedSettings,
+        calculatedUserConfig: calculatedUserConfig,
         skillRatePercent: 10,
         skillLevel: 2,
         skillData: testMainSkillMap['2'],
@@ -66,7 +66,7 @@ describe('Pokemon Production (Skill) / Final', () => {
       base: getMainSkillProducingRateBase({
         pokemon: testPokemonData.ampharos,
         baseFrequency: 6336,
-        calculatedSettings,
+        calculatedUserConfig: calculatedUserConfig,
         skillRatePercent: 10,
         skillLevel: 2,
         skillData: testMainSkillMap['2'],

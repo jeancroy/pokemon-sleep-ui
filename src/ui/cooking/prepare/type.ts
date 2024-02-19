@@ -22,6 +22,6 @@ export type MealPreparerCommonProps =
   Omit<CookingServerDataProps, 'preloaded'> & {
     mealTypes: MealTypeId[],
     maxRecipeLevel: number,
-    calculatedSettings: CalculatedUserConfig,
+    calculatedUserConfig: CalculatedUserConfig,
     preloaded: CookingConfig,
   };

@@ -10,40 +10,40 @@ import {MealTypeInput} from '@/components/shared/input/mealType';
 import {PotCapacityInput} from '@/components/shared/input/potCapacity';
 import {MealPlanner} from '@/components/shared/meal/planner/main';
 import {usePossibleMealTypes} from '@/hooks/meal';
-import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
-import {UserSettingsCookingCommonProps} from '@/ui/base/navbar/userSettings/sections/cooking/type';
+import {UserConfigSection} from '@/ui/base/navbar/userConfig/sections/base';
+import {UserConfigCookingCommonProps} from '@/ui/base/navbar/userConfig/sections/cooking/type';
 import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {isNotNullish} from '@/utils/type';
 
 
-export const UserSettingsCooking = (props: UserSettingsCookingCommonProps) => {
+export const UserConfigCooking = (props: UserConfigCookingCommonProps) => {
   const {
     mealMap,
     recipeLevelData,
     ingredientIds,
-    cookingSettings,
-    setCookingSettings,
+    cookingConfig,
+    setCookingConfig,
   } = props;
   const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
-  const {unlockedIngredients} = cookingSettings;
+  const {unlockedIngredients} = cookingConfig;
 
   const mealTypes = usePossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
   const t = useTranslations('UI.UserConfig');
   const t2 = useTranslations('Game');
 
   return (
-    <UserSettingsSection
+    <UserConfigSection
       titleIcon={<GenericIngredientIcon alt={t('Cooking.Title')} dimension="size-7"/>}
       title={t('Section.Cooking')}
     >
       <PotCapacityInput
-        isActive={(potCapacity) => potCapacity === cookingSettings.potCapacity}
-        onClick={(potCapacity) => setCookingSettings({potCapacity})}
+        isActive={(potCapacity) => potCapacity === cookingConfig.potCapacity}
+        onClick={(potCapacity) => setCookingConfig({potCapacity})}
       />
       <MealTypeInput
         mealTypes={mealTypes}
-        isActive={(mealType) => mealType === cookingSettings.mealType}
-        onClick={(mealType) => setCookingSettings({mealType})}
+        isActive={(mealType) => mealType === cookingConfig.mealType}
+        onClick={(mealType) => setCookingConfig({mealType})}
       />
       <FilterIconInput
         idToAlt={(id) => t2(`Food.${id}`)}
@@ -55,17 +55,17 @@ export const UserSettingsCooking = (props: UserSettingsCookingCommonProps) => {
           </Flex>
         }
         isActive={(id) => !!unlockedIngredients[id]}
-        onClick={(id) => setCookingSettings({unlockedIngredients: {[id]: !unlockedIngredients[id]}})}
+        onClick={(id) => setCookingConfig({unlockedIngredients: {[id]: !unlockedIngredients[id]}})}
       />
       <MealPlanner
         mealMap={mealMap}
         mealTypes={mealTypes}
         maxRecipeLevel={maxRecipeLevel}
-        target={cookingSettings.target}
-        setTarget={(target) => setCookingSettings({target})}
-        recipeLevel={cookingSettings.recipeLevel}
-        setRecipeLevel={(recipeLevel) => setCookingSettings({recipeLevel})}
+        target={cookingConfig.target}
+        setTarget={(target) => setCookingConfig({target})}
+        recipeLevel={cookingConfig.recipeLevel}
+        setRecipeLevel={(recipeLevel) => setCookingConfig({recipeLevel})}
       />
-    </UserSettingsSection>
+    </UserConfigSection>
   );
 };

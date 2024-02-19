@@ -9,7 +9,7 @@ import {isFullPackEffective} from '@/utils/user/config/user/fullPack';
 
 export const getPokemonProducingRateParams = ({
   evolutionCount,
-  calculatedSettings,
+  calculatedUserConfig,
   period,
   ...opts
 }: GetPokemonProducingRateBaseOpts): PokemonProducingRateParams => {
@@ -18,7 +18,7 @@ export const getPokemonProducingRateParams = ({
     pokemonProducingParams,
     natureId,
   } = opts;
-  const {behavior} = calculatedSettings.origin;
+  const {behavior} = calculatedUserConfig.origin;
 
   const subSkillBonus = opts.subSkillBonus ?? {};
 

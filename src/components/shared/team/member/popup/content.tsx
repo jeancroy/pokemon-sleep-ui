@@ -37,7 +37,7 @@ export const TeamMemberPopupContent = ({
     setMember,
     mealMap,
     config,
-    calculatedCookingSettings,
+    calculatedCookingConfig,
     memberIdForShare,
     pokemonMaxLevel,
     pokemon,
@@ -60,7 +60,7 @@ export const TeamMemberPopupContent = ({
     return (
       <PokemonDetailedProducingStats
         rate={rate}
-        calculatedSettings={rate.calculatedSettings}
+        calculatedUserConfig={rate.calculatedUserConfig}
         specialty={pokemon.specialty}
       />
     );
@@ -137,7 +137,7 @@ export const TeamMemberPopupContent = ({
             Object.entries(rate.ingredient)
               .map(([id, rate]) => [id, rate?.qty[stateOfRate] ?? 0]),
           )}
-          actualPotCapacity={calculatedCookingSettings.actualPotCapacity}
+          actualPotCapacity={calculatedCookingConfig.actualPotCapacity}
           period={config.analysisPeriod}
         />
       </Flex>

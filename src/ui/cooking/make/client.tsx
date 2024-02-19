@@ -11,7 +11,7 @@ import {useMealMakerFilter} from '@/ui/cooking/make/hook';
 import {MealMakerInputUI} from '@/ui/cooking/make/input/main';
 import {MealMakerRecipe} from '@/ui/cooking/make/recipe/main';
 import {MealMakerCommonProps, MealMakerFilter} from '@/ui/cooking/make/type';
-import {toCookingSettingsFromMealMakerFilter} from '@/ui/cooking/make/utils';
+import {toCookingConfigFromMealMakerFilter} from '@/ui/cooking/make/utils';
 import {subtractIngredientCount} from '@/utils/game/ingredient/counter';
 import {isNotNullish} from '@/utils/type';
 
@@ -49,7 +49,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
     mealTypes,
     ingredientMap,
     recipeLevelData,
-    calculatedSettings: calculatedConfigBundle.calculatedSettings,
+    calculatedUserConfig: calculatedConfigBundle.calculatedUserConfig,
     status,
     onCook: async (ingredientsUsed) => {
       setFilter((original) => ({
@@ -65,7 +65,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
         action: 'upload',
         options: {
           type: 'config.cooking',
-          data: toCookingSettingsFromMealMakerFilter({preloaded: preloaded.cookingConfig, filter}),
+          data: toCookingConfigFromMealMakerFilter({preloaded: preloaded.cookingConfig, filter}),
         },
       });
     },

@@ -11,12 +11,12 @@ export const getBerryProducingRateBase = ({
   level,
   pokemon,
   baseFrequency,
-  calculatedSettings,
+  calculatedUserConfig,
   subSkillBonus,
   snorlaxFavorite,
   berryData,
 }: GetBerryProducingRateBaseOpts): ProducingRateOfDrop => {
-  const {bonus} = calculatedSettings;
+  const {bonus} = calculatedUserConfig;
   const {mapMultiplier} = bonus;
 
   const isSnorlaxFavorite = snorlaxFavorite.berry[berryData.id] ?? false;

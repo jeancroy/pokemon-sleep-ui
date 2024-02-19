@@ -7,7 +7,7 @@ import {GetPokemonProducingRateOpts, GetProducingRateSharedOpts} from '@/utils/g
 export type GetPokemonProducingRateSingleOpts =
   GetPokemonProducingRateOpts &
   GetProducingRateSharedOpts & {
-    calculatedCookingSettings: CalculatedCookingConfig,
+    calculatedCookingConfig: CalculatedCookingConfig,
   };
 
 export const getPokemonProducingRateSingle = ({

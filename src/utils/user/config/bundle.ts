@@ -18,7 +18,7 @@ export const toCalculatedConfigBundle = (opts: ToCalculatedConfigBundleOpts): Ca
   return {
     snorlaxFavorite,
     // `opts` might have explicit `undefined`, therefore `snorlaxFavorite` goes after `opts` to force override
-    calculatedSettings: toCalculatedUserConfig({...opts, snorlaxFavorite}),
-    calculatedCookingSettings: toCalculatedCookingConfig(opts),
+    calculatedUserConfig: toCalculatedUserConfig({...opts, snorlaxFavorite}),
+    calculatedCookingConfig: toCalculatedCookingConfig(opts),
   };
 };

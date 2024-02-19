@@ -7,15 +7,15 @@ import {useTranslations} from 'next-intl';
 import {Grid} from '@/components/layout/grid';
 import {localeName} from '@/const/website';
 import {useLanguageSwitch} from '@/ui/base/navbar/languageSwitch/hook';
-import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
+import {UserConfigSection} from '@/ui/base/navbar/userConfig/sections/base';
 
 
-export const UserSettingsLanguage = () => {
+export const UserConfigLanguage = () => {
   const t = useTranslations('UI.UserConfig');
   const {currentLocale, isPending, onLocaleSwitch} = useLanguageSwitch();
 
   return (
-    <UserSettingsSection titleIcon={<LanguageIcon/>} title={t('Section.Language')}>
+    <UserConfigSection titleIcon={<LanguageIcon/>} title={t('Section.Language')}>
       <Grid className="auto-cols-fr grid-cols-3 gap-2 lg:grid-flow-col lg:grid-cols-none lg:grid-rows-1">
         {Object.entries(localeName).map(([locale, name]) => (
           <button
@@ -31,6 +31,6 @@ export const UserSettingsLanguage = () => {
           </button>
         ))}
       </Grid>
-    </UserSettingsSection>
+    </UserConfigSection>
   );
 };

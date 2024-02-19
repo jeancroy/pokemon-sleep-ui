@@ -10,9 +10,9 @@ import {getMealIngredientInfoFromTargetMeals} from '@/utils/game/meal/ingredient
 export const getTeamMakerFullMealCoverCandidates = ({
   input,
   pokemonLimits,
-  calculatedCookingSettings,
+  calculatedCookingConfig,
 }: GetTeamMakerCandidatesOpts): TeamMakerFullMealCoverCandidateData[] => {
-  const {targetMeals} = calculatedCookingSettings;
+  const {targetMeals} = calculatedCookingConfig;
 
   const dataMap = getTeamMakerFullMealCoverProductionMap({
     pokemonLimits,

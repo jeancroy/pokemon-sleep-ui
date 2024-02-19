@@ -7,7 +7,7 @@ import {UserDataActionStatus} from '@/types/userData/main';
 export type MealMakerPopupCommonProps = {
   ingredientMap: IngredientMap,
   recipeLevelData: RecipeLevelData[],
-  calculatedSettings: CalculatedUserConfig,
+  calculatedUserConfig: CalculatedUserConfig,
   status: UserDataActionStatus,
   onCook: (ingredientsUsed: IngredientCounter) => Promise<void>,
 };

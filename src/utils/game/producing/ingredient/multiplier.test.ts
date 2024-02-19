@@ -19,7 +19,7 @@ describe('Pokemon Production (Ingredient) / Multiplier', () => {
         4: 40,
         5: 20,
       },
-      calculatedCookingSettings: {
+      calculatedCookingConfig: {
         targetMeals: meals,
         recipeLevel: {
           1007: 15,
@@ -49,7 +49,7 @@ describe('Pokemon Production (Ingredient) / Multiplier', () => {
         4: 40 * 7,
         5: 20 * 7,
       },
-      calculatedCookingSettings: {
+      calculatedCookingConfig: {
         targetMeals: meals,
         recipeLevel: {
           1007: 15,
@@ -79,7 +79,7 @@ describe('Pokemon Production (Ingredient) / Multiplier', () => {
         4: 0,
         5: 0,
       },
-      calculatedCookingSettings: {
+      calculatedCookingConfig: {
         targetMeals: meals,
         recipeLevel: {
           1007: 15,

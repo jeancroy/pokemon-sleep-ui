@@ -13,7 +13,7 @@ export type GetTeamProducingStatsOpts = TeamAnalysisDataProps & {
   setup: TeamAnalysisSetup,
   bundle: ConfigBundle,
   currentTeam: TeamAnalysisComp,
-  calculatedCookingSettings: CalculatedCookingConfig,
+  calculatedCookingConfig: CalculatedCookingConfig,
   overrideLevel?: number,
 };
 
