@@ -16,10 +16,10 @@ export const producingStateWithPack = [
 
 export type ProducingStateWithPack = typeof producingStateWithPack[number];
 
-export const producingStateOfRate = [
+export const producingStateCalculated = [
   ...producingStateWithPack,
   'equivalent',
   'unfilledOnly',
 ] as const;
 
-export type ProducingStateOfRate = typeof producingStateOfRate[number];
+export type ProducingStateCalculated = typeof producingStateCalculated[number];

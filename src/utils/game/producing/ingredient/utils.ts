@@ -1,6 +1,6 @@
 import {IngredientCounter} from '@/types/game/ingredient';
 import {GroupedProducingRate, PokemonProducingRate} from '@/types/game/producing/rate';
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {toProducingRateOfState} from '@/utils/game/producing/convert';
 import {isNotNullish} from '@/utils/type';
 
@@ -10,7 +10,7 @@ export const toIngredientProductionCounterFromGroupedRate = (grouped: GroupedPro
     Object.entries(grouped)
       .map(([id, rate]) => [
         id,
-        rate?.quantity,
+        rate?.qty,
       ])
       .filter(isNotNullish),
   );
@@ -18,7 +18,7 @@ export const toIngredientProductionCounterFromGroupedRate = (grouped: GroupedPro
 
 type ToIngredientProductionCounterFromPokemonRateOpts = {
   pokemonRate: PokemonProducingRate,
-  state: ProducingStateOfRate,
+  state: ProducingStateCalculated,
 };
 
 export const toIngredientProductionCounterFromPokemonRate = ({
@@ -27,6 +27,6 @@ export const toIngredientProductionCounterFromPokemonRate = ({
 }: ToIngredientProductionCounterFromPokemonRateOpts): IngredientCounter => {
   return Object.fromEntries(Object.entries(pokemonRate.ingredient).map(([id, rate]) => [
     id,
-    toProducingRateOfState({rate, state}).quantity,
+    toProducingRateOfState({rate, state}).qty,
   ]));
 };

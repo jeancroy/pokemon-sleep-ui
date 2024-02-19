@@ -19,7 +19,7 @@ import {teamMakerUnitStrengthAtState} from '@/ui/team/maker/result/const';
 import {TeamMakerResultCommonProps} from '@/ui/team/maker/result/type';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerReferenceUnit} from '@/ui/team/maker/type/common';
-import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 import {formatFloat} from '@/utils/number/format/regular';
 
 
@@ -56,7 +56,7 @@ export const TeamMakerResultUnit = ({
   const unitStrength = getTotalOfPokemonProducingRate({
     rate: pokemonRate,
     state: teamMakerUnitStrengthAtState,
-  }).energy;
+  }).strength;
 
   return (
     <Flex className="bg-plate gap-1.5">

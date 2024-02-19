@@ -24,7 +24,7 @@ export const getTeamMakerIngredientStats = ({
           return null;
         }
 
-        return [id, rate.quantity];
+        return [id, rate.qty];
       })
       .filter(isNotNullish),
     ),

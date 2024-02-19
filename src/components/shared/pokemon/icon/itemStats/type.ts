@@ -6,7 +6,7 @@ import {IngredientChainMap, IngredientProduction} from '@/types/game/pokemon/ing
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {PokemonProducingRate, ProducingRateOfStates} from '@/types/game/producing/rate';
+import {PokemonProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
 import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
 import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
 
@@ -40,5 +40,5 @@ export type PokemonItemStatsCalcResult = {
 };
 
 export type PokemonItemStatsCalcResultToDisplay<TResult extends PokemonItemStatsCalcResult> = TResult & {
-  itemRate: ProducingRateOfStates,
+  itemRate: ProducingRateByCalculatedStates,
 };

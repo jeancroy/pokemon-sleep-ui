@@ -3,7 +3,7 @@ import {PokemonItemStatsWorkerOpts} from '@/components/shared/pokemon/icon/itemS
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';
-import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -60,7 +60,7 @@ const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
             pokemonRate,
             uniqueKey: `${pokemon.id}|${ingredients.map(({id}) => id).join('-')}`,
             ingredients,
-            dailyTotalEnergy: getTotalEnergyOfPokemonProducingRate(pokemonRate),
+            dailyTotalEnergy: getTotalStrengthOfPokemonProducingRate(pokemonRate),
           };
         });
     })

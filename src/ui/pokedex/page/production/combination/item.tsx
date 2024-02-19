@@ -17,7 +17,7 @@ import {
   PokemonProductionCombinationRateCollectionItem,
 } from '@/ui/pokedex/page/production/combination/type';
 import {PokemonProductionIngredientLink} from '@/ui/pokedex/page/production/ingredient/link';
-import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 
 
 type Props = PokemonProductionCombinationCommonProps & {
@@ -67,7 +67,7 @@ export const PokemonProductionCombinationItem = ({rateCollectionItem, onClick, .
             </Flex>
             <HorizontalSplitter/>
             <ProducingRateContent
-              dailyRate={getTotalEnergyOfPokemonProducingRate(rate)}
+              dailyRate={getTotalStrengthOfPokemonProducingRate(rate)}
               isEnergy
               normalSize
               className="self-end"

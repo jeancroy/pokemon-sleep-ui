@@ -1,5 +1,5 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {I18nMessageKeysOfNamespace} from '@/types/i18n';
 
 
@@ -11,7 +11,7 @@ export const productionPeriodI18nId: {
 };
 
 export const pokemonProducingStateI18nId: {
-  [state in ProducingStateOfRate]: I18nMessageKeysOfNamespace<'UI.Producing'>
+  [state in ProducingStateCalculated]: I18nMessageKeysOfNamespace<'UI.Producing'>
 } = {
   awake: 'State.Awake',
   sleep1Vacant: 'State.Asleep.Primary.Vacant',

@@ -21,30 +21,30 @@ export const getTeamProducingStatsTotal = ({
   return {
     berry: {
       period,
-      energy: toSum(stats.map(({berry}) => berry.energy[state])),
-      quantity: toSum(stats.map(({berry}) => berry.quantity[state])),
+      strength: toSum(stats.map(({berry}) => berry.strength[state])),
+      qty: toSum(stats.map(({berry}) => berry.qty[state])),
     },
     ingredient: {
       period,
-      energy: toSum(
+      strength: toSum(
         stats
           .flatMap(({ingredient}) => (
-            Object.values(ingredient).map(({energy}) => energy[state])
+            Object.values(ingredient).map(({strength}) => strength[state])
           ))
           .filter(isNotNullish),
       ),
-      quantity: toSum(
+      qty: toSum(
         stats
           .flatMap(({ingredient}) => (
-            Object.values(ingredient).map(({quantity}) => quantity[state])
+            Object.values(ingredient).map(({qty}) => qty[state])
           ))
           .filter(isNotNullish),
       ),
     },
     skill: {
       period,
-      energy: toSum(stats.map(({skill}) => skill.energy[state])),
-      quantity: toSum(stats.map(({skill}) => skill.quantity[state])),
+      strength: toSum(stats.map(({skill}) => skill.strength[state])),
+      qty: toSum(stats.map(({skill}) => skill.qty[state])),
     },
   };
 };

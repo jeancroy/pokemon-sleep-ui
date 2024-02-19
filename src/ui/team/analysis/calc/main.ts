@@ -7,7 +7,7 @@ import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
 import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {toIngredientProductionCounterFromGroupedRate} from '@/utils/game/producing/ingredient/utils';
-import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/reducer/sum';
 
 
 export const getTeamProducingStats = (opts: GetTeamProducingStatsOpts): TeamProducingStats => {
@@ -39,8 +39,8 @@ export const getTeamProducingStats = (opts: GetTeamProducingStatsOpts): TeamProd
 
   const overall: ProducingRate = {
     period: analysisPeriod,
-    energy: getTotalOfGroupedProducingRate({rate: total, key: 'energy'}),
-    quantity: getTotalOfGroupedProducingRate({rate: total, key: 'quantity'}),
+    strength: getTotalOfGroupedProducingRate({rate: total, key: 'strength'}),
+    qty: getTotalOfGroupedProducingRate({rate: total, key: 'qty'}),
   };
 
   const mealCoverage: MealCoverage = getMealCoverage({

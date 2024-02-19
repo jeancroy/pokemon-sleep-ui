@@ -6,7 +6,7 @@ import {TeamCompCalcOpts} from '@/ui/team/analysis/calc/type';
 import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
 import {getCurrentTeam} from '@/ui/team/analysis/utils';
 import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/multi';
-import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 import {isNotNullish} from '@/utils/type';
 
 

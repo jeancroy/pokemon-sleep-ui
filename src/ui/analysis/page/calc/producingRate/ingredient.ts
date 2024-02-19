@@ -4,7 +4,7 @@ import sortBy from 'lodash/sortBy';
 import {IngredientId} from '@/types/game/ingredient';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
-import {PokemonProducingRate, ProducingRateOfStates} from '@/types/game/producing/rate';
+import {PokemonProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
 import {getAnalysisStatsOfContinuous} from '@/ui/analysis/page/calc/continuous';
 import {
   PokemonAnalysisRateInfo,
@@ -18,15 +18,15 @@ import {
 } from '@/ui/analysis/page/calc/type';
 import {toSum} from '@/utils/array';
 import {groupIngredientProductions} from '@/utils/game/producing/ingredient/group';
-import {getTotalOfItemRates} from '@/utils/game/producing/rateReducer';
+import {getTotalOfItemRates} from '@/utils/game/producing/reducer/sum';
 
 
 type GetContinuousIngredientStatsOpts = {
   samples: ProducingRateOfIngredientsOnPokemon[],
-  currentRate: ProducingRateOfStates[],
+  currentRate: ProducingRateByCalculatedStates[],
   currentIngredients: IngredientProduction[],
   pokemon: PokemonInfo,
-  getComparer: (rates: ProducingRateOfStates[]) => number,
+  getComparer: (rates: ProducingRateByCalculatedStates[]) => number,
 };
 
 const getContinuousIngredientStats = ({
@@ -75,13 +75,13 @@ export const toAnalysisIngredientProducingRate = <T>({
     count: getContinuousIngredientStats({
       ...props,
       getComparer: (rates) => (
-        toSum(rates.filter(({id}) => id === itemId).map(({quantity}) => quantity.equivalent))
+        toSum(rates.filter(({id}) => id === itemId).map(({qty}) => qty.equivalent))
       ),
     }),
-    energy: getContinuousIngredientStats({
+    strength: getContinuousIngredientStats({
       ...props,
       getComparer: (rates) => (
-        toSum(rates.filter(({id}) => id === itemId).map(({energy}) => energy.equivalent))
+        toSum(rates.filter(({id}) => id === itemId).map(({strength}) => strength.equivalent))
       ),
     }),
   };
@@ -121,7 +121,7 @@ export const toAnalysisIngredientProducingStats = ({
   const currentIngredientRates = Object.values(current.ingredient);
   const currentDailyTotalOfIngredient = getTotalOfItemRates({
     rates: currentIngredientRates,
-    target: 'energy',
+    target: 'strength',
     state: 'equivalent',
   });
 
@@ -140,7 +140,7 @@ export const toAnalysisIngredientProducingStats = ({
           ...rateOfPokemon,
           totalEnergy: getTotalOfItemRates({
             rates: Object.values(rateOfPokemon.rate.ingredient),
-            target: 'energy',
+            target: 'strength',
             state: 'equivalent',
           }),
         })),

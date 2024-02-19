@@ -41,7 +41,7 @@ export type AnalysisStatsContinuous<TData> = AnalysisStatsCommon<TData> & {
 export type AnalysisStatsProducingRate<TItemId, TData> = {
   itemId: TItemId,
   count: AnalysisStatsContinuous<TData>,
-  energy: AnalysisStatsContinuous<TData>,
+  strength: AnalysisStatsContinuous<TData>,
 };
 
 export type AnalysisStatsSleepStyleAppearance = AnalysisStatsContinuous<SnorlaxRank> & {

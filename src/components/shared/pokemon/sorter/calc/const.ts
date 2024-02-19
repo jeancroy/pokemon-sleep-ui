@@ -10,7 +10,7 @@ import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
 import {getSkillTriggerValue} from '@/utils/game/mainSkill/utils';
 import {getFrequencyOfStateFromPokemonRate} from '@/utils/game/producing/frequency';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
-import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 
 
 export const sortInAsc: PokemonSortType[] = [
@@ -25,11 +25,11 @@ export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonS
   id: ({pokemon}) => pokemon.id,
   level: ({level}) => level,
   dateAdded: ({dateAdded}) => dateAdded ?? 0,
-  ingredientEnergy: (opts) => getIngredientTotalRateSorter({key: 'energy', opts}),
-  ingredientCount: (opts) => getIngredientTotalRateSorter({key: 'quantity', opts}),
+  ingredientEnergy: (opts) => getIngredientTotalRateSorter({key: 'strength', opts}),
+  ingredientCount: (opts) => getIngredientTotalRateSorter({key: 'qty', opts}),
   ingredientRate: ({pokemonProducingParams}) => pokemonProducingParams.ingredientSplit,
-  berryEnergy: (opts) => getBerryRateSorter({key: 'energy', opts}),
-  berryCount: (opts) => getBerryRateSorter({key: 'quantity', opts}),
+  berryEnergy: (opts) => getBerryRateSorter({key: 'strength', opts}),
+  berryCount: (opts) => getBerryRateSorter({key: 'qty', opts}),
   friendshipPoint: ({pokemon}) => pokemon.stats.friendshipPoints,
   transferReward: ({pokemon}) => pokemon.stats.transfer.candy,
   frequencyBase: ({pokemon}) => pokemon.stats.frequency,
@@ -40,12 +40,12 @@ export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonS
   frequencyOfBerry: (opts) => getBerryRateSorter({key: 'frequency', opts}),
   frequencyOfIngredient: (opts) => getIngredientFirstRateSorter({key: 'frequency', opts}),
   timeToFullPackPrimary: (opts) => (
-    getPokemonRateSorter(opts).fullPackStats.bySleep.primary?.secsToFull ?? Infinity
+    getPokemonRateSorter(opts).fullPackStats.bySleep.primary?.duration.vacant ?? Infinity
   ),
   timeToFullPackSecondary: (opts) => (
-    getPokemonRateSorter(opts).fullPackStats.bySleep.secondary?.secsToFull ?? Infinity
+    getPokemonRateSorter(opts).fullPackStats.bySleep.secondary?.duration.vacant ?? Infinity
   ),
-  totalEnergy: (opts) => getTotalEnergyOfPokemonProducingRate(getPokemonRateSorter(opts)),
+  totalEnergy: (opts) => getTotalStrengthOfPokemonProducingRate(getPokemonRateSorter(opts)),
   mainSkillLevel: ({seeds, ...opts}) => getMainSkillLevel({
     seedsUsed: seeds.gold,
     ...opts,
@@ -61,8 +61,8 @@ export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonS
     });
   },
   mainSkillTriggerRate: ({pokemonProducingParams}) => pokemonProducingParams.skillPercent ?? 0,
-  mainSkillDailyCount: (opts) => getPokemonRateSorter(opts).skill.quantity.equivalent,
-  mainSkillDailyStrength: (opts) => getPokemonRateSorter(opts).skill.energy.equivalent,
+  mainSkillDailyCount: (opts) => getPokemonRateSorter(opts).skill.qty.equivalent,
+  mainSkillDailyStrength: (opts) => getPokemonRateSorter(opts).skill.strength.equivalent,
   mealCoverage: (opts) => {
     const {cookingSettings} = opts;
 

@@ -1,7 +1,7 @@
 export const applyMultiplierTargets = [
   'frequency',
-  'quantity',
-  'energy',
+  'qty',
+  'strength',
 ] as const;
 
 export type ApplyMultiplierTarget = typeof applyMultiplierTargets[number];

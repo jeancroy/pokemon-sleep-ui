@@ -5,7 +5,7 @@ import {testPokemonData} from '@/tests/data/game/pokemon';
 import {getCarryLimitInfo} from '@/utils/game/producing/inventory/carryLimit';
 
 
-describe('Pokemon Carry Limit Info', () => {
+describe('Pokemon Production (Inventory) / Carry Limit Info', () => {
   it('gets correct info for clean Pokemon', () => {
     const {base, final} = getCarryLimitInfo({
       pokemon: testPokemonData.absol,

@@ -36,7 +36,7 @@ export const TeamAnalysisFinalEstimate = ({energyRate, snorlaxData}: Props) => {
   const finalEnergy = (
     currentEnergy +
     (
-      toProducingRateOfPeriod({rate: energyRate, period: 'daily'}).energy *
+      toProducingRateOfPeriod({rate: energyRate, period: 'daily'}).strength *
       (new Date(endsAt).getTime() - Date.now()) /
       (durationOfDay * 1000)
     )

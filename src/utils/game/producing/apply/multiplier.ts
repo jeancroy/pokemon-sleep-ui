@@ -1,27 +1,31 @@
 import {ApplyMultiplierTarget} from '@/types/game/producing/apply';
-import {PokemonProducingRate, ProducingRateOfStates, ProducingValueOfStates} from '@/types/game/producing/rate';
-import {producingStateOfRate} from '@/types/game/producing/state';
+import {
+  PokemonProducingRate,
+  ProducingRateByCalculatedStates,
+  ProducingValueByCalculatedStates,
+} from '@/types/game/producing/rate';
+import {producingStateCalculated} from '@/types/game/producing/state';
 
 
-type ApplyMultiplierToProducingValueOfStatesOpts = {
-  value: ProducingValueOfStates,
+type ApplyMultiplierToProducingValueByCalculatedStatesOpts = {
+  value: ProducingValueByCalculatedStates,
   isEffective: boolean,
   multiplier: number,
 };
 
-const applyMultiplierToProducingValueOfStates = ({
+const applyMultiplierToProducingValueByCalculatedStates = ({
   value,
   isEffective,
   multiplier,
-}: ApplyMultiplierToProducingValueOfStatesOpts): ProducingValueOfStates => {
+}: ApplyMultiplierToProducingValueByCalculatedStatesOpts): ProducingValueByCalculatedStates => {
   if (!isEffective) {
     return value;
   }
 
   return (
     Object.fromEntries(
-      producingStateOfRate.map((state) => [state, value[state] * multiplier]),
-    ) as ProducingValueOfStates
+      producingStateCalculated.map((state) => [state, value[state] * multiplier]),
+    ) as ProducingValueByCalculatedStates
   );
 };
 
@@ -34,31 +38,31 @@ type ApplyMultiplierCommonOpts = {
 };
 
 type ApplyMultiplierToRateOfStatesOpts = ApplyMultiplierCommonOpts & {
-  rate: ProducingRateOfStates,
+  rate: ProducingRateByCalculatedStates,
 };
 
 export const applyMultiplierToRateOfStates = ({
   target,
   multiplier,
   rate,
-}: ApplyMultiplierToRateOfStatesOpts): ProducingRateOfStates => {
+}: ApplyMultiplierToRateOfStatesOpts): ProducingRateByCalculatedStates => {
   const multiplierToApply = multiplier.target / multiplier.original;
 
   return {
     ...rate,
-    frequency: applyMultiplierToProducingValueOfStates({
+    frequency: applyMultiplierToProducingValueByCalculatedStates({
       value: rate.frequency,
       isEffective: target.includes('frequency'),
       multiplier: 1 / multiplierToApply,
     }),
-    quantity: applyMultiplierToProducingValueOfStates({
-      value: rate.quantity,
-      isEffective: target.includes('quantity'),
+    qty: applyMultiplierToProducingValueByCalculatedStates({
+      value: rate.qty,
+      isEffective: target.includes('qty'),
       multiplier: multiplierToApply,
     }),
-    energy: applyMultiplierToProducingValueOfStates({
-      value: rate.energy,
-      isEffective: target.includes('energy'),
+    strength: applyMultiplierToProducingValueByCalculatedStates({
+      value: rate.strength,
+      isEffective: target.includes('strength'),
       multiplier: multiplierToApply,
     }),
   };

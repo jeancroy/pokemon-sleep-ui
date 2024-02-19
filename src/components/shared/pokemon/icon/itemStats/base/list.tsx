@@ -8,11 +8,11 @@ import {
   PokemonItemStatsCalcResultToDisplay,
 } from '@/components/shared/pokemon/icon/itemStats/type';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
-import {PokemonProducingRate, ProducingRateOfStates} from '@/types/game/producing/rate';
+import {PokemonProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
 
 
 type Props<TResult extends PokemonItemStatsCalcResult> = {
-  getItemRate: (pokemonRate: PokemonProducingRate) => ProducingRateOfStates | undefined,
+  getItemRate: (pokemonRate: PokemonProducingRate) => ProducingRateByCalculatedStates | undefined,
   producingStats: TResult[],
   toItem: (result: PokemonItemStatsCalcResultToDisplay<TResult>) => React.ReactNode,
   isProductionIncluded?: (productions: IngredientProduction[]) => boolean,

@@ -4,49 +4,49 @@ import {describe, expect, it} from '@jest/globals';
 import {toProducingRateOfPeriod} from '@/utils/game/producing/convert';
 
 
-describe('Pokemon Producing Rate Applicator', () => {
+describe('Pokemon Production (Convert) / By Period', () => {
   it('is correct when rate period = desired period', () => {
-    const {period, quantity, energy} = toProducingRateOfPeriod({
+    const {period, qty, strength} = toProducingRateOfPeriod({
       period: 'daily',
       rate: {
         period: 'daily',
-        quantity: 1,
-        energy: 100,
+        qty: 1,
+        strength: 100,
       },
     });
 
     expect(period).toBe('daily');
-    expect(quantity).toBe(1);
-    expect(energy).toBe(100);
+    expect(qty).toBe(1);
+    expect(strength).toBe(100);
   });
 
   it('is correct when rate period is daily and desired period is weekly', () => {
-    const {period, quantity, energy} = toProducingRateOfPeriod({
+    const {period, qty, strength} = toProducingRateOfPeriod({
       period: 'weekly',
       rate: {
         period: 'daily',
-        quantity: 1,
-        energy: 100,
+        qty: 1,
+        strength: 100,
       },
     });
 
     expect(period).toBe('weekly');
-    expect(quantity).toBe(7);
-    expect(energy).toBe(700);
+    expect(qty).toBe(7);
+    expect(strength).toBe(700);
   });
 
   it('is correct when rate period is weekly and desired period is daily', () => {
-    const {period, quantity, energy} = toProducingRateOfPeriod({
+    const {period, qty, strength} = toProducingRateOfPeriod({
       period: 'daily',
       rate: {
         period: 'weekly',
-        quantity: 7,
-        energy: 700,
+        qty: 7,
+        strength: 700,
       },
     });
 
     expect(period).toBe('daily');
-    expect(quantity).toBe(1);
-    expect(energy).toBe(100);
+    expect(qty).toBe(1);
+    expect(strength).toBe(100);
   });
 });

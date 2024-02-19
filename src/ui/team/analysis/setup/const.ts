@@ -1,4 +1,4 @@
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingStateCalculated} from '@/types/game/producing/state';
 
 
-export const stateOfRateToShow: ProducingStateOfRate = 'equivalent';
+export const stateOfRateToShow: ProducingStateCalculated = 'equivalent';

@@ -19,7 +19,7 @@ export const applyIngredientMultiplier = ({
       rate.id,
       applyMultiplierToRateOfStates({
         rate,
-        target: ['energy'],
+        target: ['strength'],
         multiplier: {
           original: 1,
           target: getIngredientMultiplierValue({

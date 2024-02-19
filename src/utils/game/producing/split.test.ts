@@ -2,11 +2,11 @@ import {describe, expect, it} from '@jest/globals';
 
 import {defaultProducingParams} from '@/const/game/production/defaults';
 import {defaultRecoveryRate} from '@/const/user/settings';
-import {getProduceSplit, getProducingSleepStateSplit} from '@/utils/game/producing/split';
+import {getProduceSplit, getProducingStateSplit} from '@/utils/game/producing/split';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
 
 
-describe('Pokemon Producing Split', () => {
+describe('Pokemon Production (Split) / Item', () => {
   it('is correct in non-full pack', () => {
     const split = getProduceSplit({
       pokemonProducingParams: {
@@ -40,9 +40,9 @@ describe('Pokemon Producing Split', () => {
   });
 });
 
-describe('Pokemon Producing Sleep State Split', () => {
+describe('Pokemon Production (Split) / Producing State', () => {
   it('is correct with single sleep session', () => {
-    const split = getProducingSleepStateSplit({
+    const split = getProducingStateSplit({
       sleepSessionInfo: getSleepSessionInfo({
         recoveryRate: defaultRecoveryRate,
         sleepSession: {
@@ -53,8 +53,8 @@ describe('Pokemon Producing Sleep State Split', () => {
       fullPackStats: {
         bySleep: {
           primary: {
-            secsToFull: 6 * 3600,
-            helpCount: NaN, // ignore
+            duration: {vacant: 6 * 3600, filled: 2 * 3600},
+            helpCount: {vacant: NaN, filled: NaN}, // ignore
           },
           secondary: null,
         },
@@ -69,7 +69,7 @@ describe('Pokemon Producing Sleep State Split', () => {
   });
 
   it('is correct with dual sleep sessions', () => {
-    const split = getProducingSleepStateSplit({
+    const split = getProducingStateSplit({
       sleepSessionInfo: getSleepSessionInfo({
         recoveryRate: defaultRecoveryRate,
         sleepSession: {
@@ -80,12 +80,12 @@ describe('Pokemon Producing Sleep State Split', () => {
       fullPackStats: {
         bySleep: {
           primary: {
-            secsToFull: 5 * 3600,
-            helpCount: NaN, // ignore
+            duration: {vacant: 5 * 3600, filled: 2 * 3600},
+            helpCount: {vacant: NaN, filled: NaN}, // ignore
           },
           secondary: {
-            secsToFull: 0.5 * 3600,
-            helpCount: NaN, // ignore
+            duration: {vacant: 0.5 * 3600, filled: 3600},
+            helpCount: {vacant: NaN, filled: NaN}, // ignore
           },
         },
       },

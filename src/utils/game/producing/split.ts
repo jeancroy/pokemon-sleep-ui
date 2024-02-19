@@ -2,8 +2,8 @@ import {durationOfDay} from '@/const/common';
 import {NatureId} from '@/types/game/pokemon/nature';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
-import {FullPackStats} from '@/types/game/producing/carryLimit';
-import {ProduceSplit, ProducingSleepStateSplit} from '@/types/game/producing/split';
+import {FullPackStats} from '@/types/game/producing/inventory';
+import {ProduceSplit, ProducingStateSplit} from '@/types/game/producing/split';
 import {SleepSessionInfo} from '@/types/game/sleep';
 import {toSum} from '@/utils/array';
 import {getNatureMultiplier} from '@/utils/game/nature';
@@ -43,15 +43,15 @@ export const getProduceSplit = ({
   };
 };
 
-type GetProducingSleepStateSplitOpts = {
+type GetProducingStateSplitOpts = {
   sleepSessionInfo: SleepSessionInfo,
   fullPackStats: FullPackStats,
 };
 
-export const getProducingSleepStateSplit = ({
+export const getProducingStateSplit = ({
   sleepSessionInfo,
   fullPackStats,
-}: GetProducingSleepStateSplitOpts): ProducingSleepStateSplit => {
+}: GetProducingStateSplitOpts): ProducingStateSplit => {
   const {
     session,
     duration,
@@ -61,8 +61,8 @@ export const getProducingSleepStateSplit = ({
 
   const secondaryDuration = secondary?.duration.actual ?? 0;
 
-  const primaryTimeToFull = bySleep.primary?.secsToFull ?? primary.duration.actual;
-  const secondaryTimeToFull = bySleep.secondary?.secsToFull ?? secondaryDuration;
+  const primaryTimeToFull = bySleep.primary?.duration.vacant ?? primary.duration.actual;
+  const secondaryTimeToFull = bySleep.secondary?.duration.vacant ?? secondaryDuration;
 
   return {
     awake: duration.awake / durationOfDay,

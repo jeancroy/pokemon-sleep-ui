@@ -86,7 +86,7 @@ export const getSkillTriggerValueOfUnit = ({
     natureId: nature,
     subSkillBonus,
   });
-  const skillTriggerCount = rate.skill.quantity.equivalent;
+  const skillTriggerCount = rate.skill.qty.equivalent;
 
   return {
     ...unit,

@@ -1,6 +1,6 @@
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
-import {PokemonProducingRate, ProducingRateOfStates} from '@/types/game/producing/rate';
+import {PokemonProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
 
 
 export type ProducingRateOfPokemon = {
@@ -10,7 +10,7 @@ export type ProducingRateOfPokemon = {
 
 export type ProducingRateOfBerryOnPokemon = {
   pokemon: PokemonInfo,
-  rate: ProducingRateOfStates,
+  rate: ProducingRateByCalculatedStates,
 };
 
 export type ProducingRateOfIngredientsOnPokemon = {
@@ -18,7 +18,7 @@ export type ProducingRateOfIngredientsOnPokemon = {
   productions: IngredientProduction[],
   // Grouped productions are mainly used for comparison
   productionsGrouped: IngredientProduction[],
-  rates: ProducingRateOfStates[],
+  rates: ProducingRateByCalculatedStates[],
 };
 
 export type PokemonAnalysisRateInfo = {

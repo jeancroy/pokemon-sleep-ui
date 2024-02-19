@@ -17,10 +17,16 @@ export const getNoSkillProbability = ({
     return null;
   }
 
-  const helpCount = fullPackStats.bySleep[sleepSession]?.helpCount;
-  if (!helpCount) {
+  const statsOfSleep = fullPackStats.bySleep[sleepSession];
+  if (!statsOfSleep) {
     return null;
   }
 
-  return (1 - skillRatePercent / 100) ** helpCount;
+  const {helpCount, duration} = statsOfSleep;
+  if (!duration.filled) {
+    // Return `null` if the inventory never fills
+    return null;
+  }
+
+  return (1 - skillRatePercent / 100) ** helpCount.vacant;
 };

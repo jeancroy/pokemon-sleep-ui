@@ -1,4 +1,4 @@
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingStateCalculated} from '@/types/game/producing/state';
 
 
-export const teamMakerUnitStrengthAtState: ProducingStateOfRate = 'equivalent';
+export const teamMakerUnitStrengthAtState: ProducingStateCalculated = 'equivalent';

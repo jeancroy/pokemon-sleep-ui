@@ -31,15 +31,15 @@ export const PokeInBoxGridProductionIngredient = (props: PokeInBoxGridDetailsPro
       'w-fit gap-0.5 pr-1.5 text-sm',
       pokemon.specialty === specialtyIdMap.ingredient && 'info-highlight',
     )}>
-      {Object.values(ingredient).map(({id, quantity, energy}) => (
+      {Object.values(ingredient).map(({id, qty, strength}) => (
         <Flex key={id} direction="row" noFullWidth className="items-center gap-0.5">
           <PokemonIngredientIcon id={id}/>
           <div>
-            x{formatFloat(quantity[pokeInBoxStateOfRate])}
+            x{formatFloat(qty[pokeInBoxStateOfRate])}
           </div>
           <ColoredEnergyIcon alt={t('Stats.Energy.Name')}/>
           <div>
-            {formatFloat(energy[pokeInBoxStateOfRate])}
+            {formatFloat(strength[pokeInBoxStateOfRate])}
           </div>
         </Flex>
       ))}

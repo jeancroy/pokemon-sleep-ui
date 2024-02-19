@@ -45,9 +45,9 @@ export const TeamAnalysisSummary = ({snorlaxData, stats, period}: Props) => {
         </Flex>
         <PokemonProductionSplit
           specialty={null}
-          berry={berry.energy}
-          ingredient={ingredient?.energy ?? 0}
-          skill={skill.energy}
+          berry={berry.strength}
+          ingredient={ingredient?.strength ?? 0}
+          skill={skill.strength}
         />
         <Flex direction="row" noFullWidth className="justify-end">
           <TeamAnalysisRateLayout period={period} larger showQuantity={false} rate={stats.overall}/>

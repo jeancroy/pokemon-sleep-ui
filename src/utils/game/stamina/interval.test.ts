@@ -4,7 +4,7 @@ import {efficiencyBeforeBreakPoint} from '@/const/game/efficiency';
 import {extractIntervalsDuringSleep} from '@/utils/game/stamina/interval';
 
 
-describe('Efficiency Interval Extracting', () => {
+describe('Stamina / Extract Interval', () => {
   it('extracts intervals with primary session only', () => {
     const intervals = extractIntervalsDuringSleep({
       hasSecondary: false,

@@ -3,7 +3,7 @@ import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {PokemonProducingRate, ProducingRateSingleParams} from '@/types/game/producing/rate';
 import {toSum} from '@/utils/array';
 import {getSkillTriggerValue} from '@/utils/game/mainSkill/utils';
-import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 
 
 type GetRatingBasisValueOpts = {
@@ -20,15 +20,15 @@ export const getRatingBasisValue = ({
   singleParams,
 }: GetRatingBasisValueOpts): number => {
   if (basis === 'totalProduction') {
-    return getTotalEnergyOfPokemonProducingRate(rate);
+    return getTotalStrengthOfPokemonProducingRate(rate);
   }
 
   if (basis === 'ingredientCount') {
-    return toSum(Object.values(rate.ingredient).map(({quantity}) => quantity.equivalent));
+    return toSum(Object.values(rate.ingredient).map(({qty}) => qty.equivalent));
   }
 
   if (basis === 'ingredientProduction') {
-    return toSum(Object.values(rate.ingredient).map(({energy}) => energy.equivalent));
+    return toSum(Object.values(rate.ingredient).map(({strength}) => strength.equivalent));
   }
 
   if (basis === 'skillTriggerValue') {

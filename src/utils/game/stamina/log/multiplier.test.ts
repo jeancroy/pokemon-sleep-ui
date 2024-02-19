@@ -3,7 +3,7 @@ import {describe, expect, it} from '@jest/globals';
 import {getStaminaEfficiencyMultiplierFromLogs} from '@/utils/game/stamina/log/multiplier';
 
 
-describe('Stamina Log / Get Multiplier', () => {
+describe('Stamina / Get Multiplier', () => {
   it('is correctly handling secondary sleep', () => {
     const efficiency = getStaminaEfficiencyMultiplierFromLogs({
       hasSecondary: true,

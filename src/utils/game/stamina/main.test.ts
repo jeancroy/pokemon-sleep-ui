@@ -7,7 +7,7 @@ import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
 
-describe('Stamina Efficiency / From Config', () => {
+describe('Stamina / From Config', () => {
   it('is correct', () => {
     const config: StaminaCalcConfig = {
       sleepSession: {

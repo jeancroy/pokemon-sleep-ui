@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {PokemonProducingRateProps} from '@/components/shared/pokemon/production/type';
-import {ProducingRateOfStates} from '@/types/game/producing/rate';
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {Dimension} from '@/types/style';
 
 
@@ -19,10 +19,10 @@ export type UsePokemonProducingRateSingleDisplayReturn = {
 };
 
 export type PokemonProducingRateSingleProps = PokemonProducingRateProps & {
-  rate: ProducingRateOfStates | null,
+  rate: ProducingRateByCalculatedStates | null,
   getIcon: (dimension: Dimension) => React.ReactNode,
   display: PokemonProducingRateSingleDisplay,
   infoAtTotal?: React.ReactNode,
   dailyTotalEnergy?: number,
-  state?: ProducingStateOfRate,
+  state?: ProducingStateCalculated,
 };

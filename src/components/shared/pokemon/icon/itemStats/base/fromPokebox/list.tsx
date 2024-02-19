@@ -21,7 +21,7 @@ import {
   getProducingRateImplicitParamsFromPokeInbox,
   getProducingRateSingleParams,
 } from '@/utils/game/producing/params';
-import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 import {isNotNullish} from '@/utils/type';
@@ -99,7 +99,7 @@ export const PokemonItemStatsFromPokeboxList = ({
           pokemonRate,
           uniqueKey: pokeInBox.uuid,
           ingredients,
-          dailyTotalEnergy: getTotalEnergyOfPokemonProducingRate(pokemonRate),
+          dailyTotalEnergy: getTotalStrengthOfPokemonProducingRate(pokemonRate),
         };
       })
   ), [pokeInBoxList, ...reCalcDeps]);

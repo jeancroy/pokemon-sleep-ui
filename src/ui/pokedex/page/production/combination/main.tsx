@@ -68,7 +68,7 @@ export const PokemonProductionCombination = ({chain, ...props}: Props) => {
         ingredientProduction={Object.fromEntries(
           rateKey ?
             Object.values(rateCollection[rateKey]?.rate.ingredient ?? {})
-              .map(({id, quantity}) => [id, quantity.equivalent]) :
+              .map(({id, qty}) => [id, qty.equivalent]) :
             [],
         ) as IngredientCounter}
         actualPotCapacity={actualPotCapacity}

@@ -3,15 +3,15 @@ import {
   GroupedProducingRate,
   PokemonProducingRate,
   PokemonProducingRateByType,
-  ProducingRateOfStates,
+  ProducingRateByCalculatedStates,
 } from '@/types/game/producing/rate';
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingStateCalculated} from '@/types/game/producing/state';
 
 
 type GroupProducingRatesOpts = {
   period: ProductionPeriod,
-  rates: ProducingRateOfStates[],
-  state: ProducingStateOfRate,
+  rates: ProducingRateByCalculatedStates[],
+  state: ProducingStateCalculated,
 };
 
 export const groupProducingRates = ({
@@ -20,12 +20,12 @@ export const groupProducingRates = ({
   state,
 }: GroupProducingRatesOpts): GroupedProducingRate<number> => {
   return rates.reduce((group, single) => {
-    const {id, quantity, energy} = single;
+    const {id, qty, strength} = single;
 
     group[id] = {
       period,
-      quantity: (group[id]?.quantity ?? 0) + quantity[state],
-      energy: (group[id]?.energy ?? 0) + energy[state],
+      qty: (group[id]?.qty ?? 0) + qty[state],
+      strength: (group[id]?.strength ?? 0) + strength[state],
     };
     return group;
   }, {} as GroupedProducingRate<number>);
@@ -34,7 +34,7 @@ export const groupProducingRates = ({
 type GroupPokemonProducingRateOpts = {
   period: ProductionPeriod,
   rates: PokemonProducingRate[],
-  state: ProducingStateOfRate,
+  state: ProducingStateCalculated,
 };
 
 export const groupPokemonProducingRate = ({

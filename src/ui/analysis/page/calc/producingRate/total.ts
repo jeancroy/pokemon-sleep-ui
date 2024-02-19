@@ -3,7 +3,7 @@ import {PokemonProducingRate} from '@/types/game/producing/rate';
 import {getAnalysisStatsOfContinuous} from '@/ui/analysis/page/calc/continuous';
 import {PokemonAnalysisRateInfo} from '@/ui/analysis/page/calc/producingRate/type';
 import {isRateOfPokemonSame} from '@/ui/analysis/page/calc/producingRate/utils';
-import {getTotalEnergyOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 
 
 type ToAnalysisTotalProducingStatsOpts = {
@@ -17,13 +17,13 @@ export const toAnalysisTotalProducingStats = ({
   current,
   rateOfAllPokemon,
 }: ToAnalysisTotalProducingStatsOpts) => {
-  const currentDailyTotal = getTotalEnergyOfPokemonProducingRate(current);
+  const currentDailyTotal = getTotalStrengthOfPokemonProducingRate(current);
 
   return getAnalysisStatsOfContinuous({
     samples: rateOfAllPokemon
       .map((rateOfPokemon) => ({
         ...rateOfPokemon,
-        dailyTotal: getTotalEnergyOfPokemonProducingRate(rateOfPokemon.rate),
+        dailyTotal: getTotalStrengthOfPokemonProducingRate(rateOfPokemon.rate),
       })),
     getPokemonId: ({pokemon}) => pokemon.id,
     getValue: ({dailyTotal}) => dailyTotal,

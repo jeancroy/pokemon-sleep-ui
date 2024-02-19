@@ -88,7 +88,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
 
           return {
             pokemonId,
-            production: statsOfTeam.bySlot[slotName]?.total.energy ?? 0,
+            production: statsOfTeam.bySlot[slotName]?.total.strength ?? 0,
           };
         }).filter(isNotNullish)}
       />
@@ -101,7 +101,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
         mealMap={mealMap}
         ingredientProduction={Object.fromEntries(
           Object.entries(statsOfTeam.grouped.ingredient)
-            .map(([id, rate]) => [id, rate?.quantity ?? 0]),
+            .map(([id, rate]) => [id, rate?.qty ?? 0]),
         )}
         actualPotCapacity={cookingSettings.actualPotCapacity}
         period={currentTeam.analysisPeriod}

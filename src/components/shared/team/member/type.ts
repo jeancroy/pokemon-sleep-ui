@@ -6,7 +6,7 @@ import {PokedexMap, PokemonInfo} from '@/types/game/pokemon';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {TeamConfig, TeamMemberData, TeamMemberProduction} from '@/types/game/team';
 import {CookingUserSettings} from '@/types/userData/settings/cooking';
 import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
@@ -31,7 +31,7 @@ export type TeamMemberProps = TeamMemberDataProps & {
   pokemon: PokemonInfo,
   pokemonProducingParams: PokemonProducingParams,
   rate: TeamMemberProduction,
-  stateOfRate: ProducingStateOfRate,
+  stateOfRate: ProducingStateCalculated,
   collapsible: CollapsibleControl,
   showPokemon: (pokemon: PokemonInfo) => void,
   setMember: (update: Partial<TeamMemberData> | null) => void,

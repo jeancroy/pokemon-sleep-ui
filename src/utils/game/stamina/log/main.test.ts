@@ -7,7 +7,7 @@ import {getSleepSessionInfo} from '@/utils/game/sleep';
 import {getStaminaEventLogs} from '@/utils/game/stamina/log/main';
 
 
-describe('Stamina Log / Get Logs', () => {
+describe('Stamina / Get Logs', () => {
   it('starts from 100 if net change is > 0', () => {
     const config: StaminaCalcConfig = {
       sleepSession: {

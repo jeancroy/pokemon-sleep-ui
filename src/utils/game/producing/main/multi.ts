@@ -3,16 +3,15 @@ import {IngredientMap} from '@/types/game/ingredient';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
 import {PokemonProducingRateFinal, PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {CookingUserSettings} from '@/types/userData/settings/cooking';
 import {toSum} from '@/utils/array';
 import {applyIngredientMultiplier} from '@/utils/game/producing/apply/ingredient';
 import {groupPokemonProducingRate} from '@/utils/game/producing/group';
 import {getIngredientMultiplier} from '@/utils/game/producing/ingredient/multiplier';
-import {getPokemonProducingRateBase} from '@/utils/game/producing/main/base';
-import {GetPokemonProducingRateOptsWithPayload} from '@/utils/game/producing/main/type';
+import {getPokemonProducingRateBase} from '@/utils/game/producing/main/base/main';
+import {GetPokemonProducingRateOptsWithPayload, GetProducingRateSharedOpts} from '@/utils/game/producing/main/type';
 import {getHelpingBonusStack} from '@/utils/game/producing/params';
-import {GetProducingRateSharedOpts} from '@/utils/game/producing/type';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {isNotNullish} from '@/utils/type';
 import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
@@ -23,7 +22,7 @@ export type GetPokemonProducingRateMultiOpts<TPayload> = {
   recipeLevelData: RecipeLevelData[],
   rateOpts: GetPokemonProducingRateOptsWithPayload<TPayload>[],
   sharedOpts: GetProducingRateSharedOpts,
-  groupingState: ProducingStateOfRate,
+  groupingState: ProducingStateCalculated,
   cookingSettings: CookingUserSettings,
 };
 
@@ -93,7 +92,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
           return null;
         }
 
-        return [id, rate.quantity];
+        return [id, rate.qty];
       })
       .filter(isNotNullish)),
     period,

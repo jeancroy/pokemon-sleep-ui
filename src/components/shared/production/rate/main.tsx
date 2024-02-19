@@ -24,8 +24,8 @@ type Props = ProducingRateContentCommonProps & {
 export const ProducingRateUI = ({rate, className, hideStrength, hideQuantity, getIcon, ...props}: Props) => {
   return (
     <Flex direction="row" noFullWidth className={clsx('gap-1', className)}>
-      {!hideQuantity && <ProducingRateContent dailyRate={rate?.quantity} getIcon={getIcon} {...props}/>}
-      {!hideStrength && <ProducingRateContent dailyRate={rate?.energy} isEnergy {...props}/>}
+      {!hideQuantity && <ProducingRateContent dailyRate={rate?.qty} getIcon={getIcon} {...props}/>}
+      {!hideStrength && <ProducingRateContent dailyRate={rate?.strength} isEnergy {...props}/>}
     </Flex>
   );
 };

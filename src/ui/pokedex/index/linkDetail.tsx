@@ -113,6 +113,64 @@ export const PokedexLinkDetail = React.memo(({
     pokemon,
     subSkillMap,
   });
+
+  if (display === 'ingredientCount' || display === 'timeToFullPackPrimary' || display === 'timeToFullPackSecondary') {
+    const {ingredient, fullPackStats} = getPokemonProducingRateSingle({
+      pokemon,
+      pokemonProducingParams,
+      berryData: berryDataMap[pokemon.berry.id],
+      mealMap,
+      ingredientMap,
+      ingredients,
+      skillData: mainSkillMap[pokemon.skill],
+      snorlaxFavorite,
+      cookingSettings,
+      recipeLevelData,
+      eventStrengthMultiplierData,
+      cookingRecoveryData,
+      bundle,
+      ...individualParams,
+    }).atStage.final;
+
+    if (display === 'ingredientCount') {
+      return (
+        <Flex>
+          <div className="text-xs">
+            <PokemonIngredientIcons ingredients={[ingredients]} dimension="size-4"/>
+          </div>
+          <PokemonIngredientIcons
+            numberFormat="float"
+            ingredients={[Object.values(ingredient)
+              .sort((a, b) => b.qty.equivalent - a.qty.equivalent)
+              .map(({id, qty}) => ({
+                id,
+                qty: qty.equivalent,
+              })),
+            ]}
+          />
+        </Flex>
+      );
+    }
+
+    if (display === 'timeToFullPackPrimary') {
+      return (
+        <PokemonTimeToFullPackSingle
+          alt={t2('Stats.TimeToFullPack.Primary')}
+          fullPackStatsOfSleep={fullPackStats.bySleep.primary}
+        />
+      );
+    }
+
+    if (display === 'timeToFullPackSecondary') {
+      return (
+        <PokemonTimeToFullPackSingle
+          alt={t2('Stats.TimeToFullPack.Secondary')}
+          fullPackStatsOfSleep={fullPackStats.bySleep.secondary}
+        />
+      );
+    }
+  }
+
   // Need to calculate here because display and sort could be different
   const sorter = getPokemonSorter({
     type: display,
@@ -137,7 +195,11 @@ export const PokedexLinkDetail = React.memo(({
     return (
       <Flex direction="row" className="gap-0.5">
         <div className="relative size-5">
-          <NextImage src="/images/generic/friendship.png" alt={t2('Stats.Friendship')} sizes={imageSmallIconSizes}/>
+          <NextImage
+            src="/images/generic/friendship.png"
+            alt={t2('Stats.Friendship')}
+            sizes={imageSmallIconSizes}
+          />
         </div>
         <div>
           {sorter}
@@ -159,14 +221,6 @@ export const PokedexLinkDetail = React.memo(({
     return <PokemonFrequency frequency={sorter}/>;
   }
 
-  if (display === 'timeToFullPackPrimary') {
-    return <PokemonTimeToFullPackSingle alt={t2('Stats.TimeToFullPack.Primary')} seconds={sorter}/>;
-  }
-
-  if (display === 'timeToFullPackSecondary') {
-    return <PokemonTimeToFullPackSingle alt={t2('Stats.TimeToFullPack.Secondary')} seconds={sorter}/>;
-  }
-
   if (display === 'id') {
     return `#${sorter}`;
   }
@@ -183,43 +237,6 @@ export const PokedexLinkDetail = React.memo(({
             {formatFloat(sorter)}
           </div>
         </Flex>
-      </Flex>
-    );
-  }
-
-  if (display === 'ingredientCount') {
-    const {ingredient} = getPokemonProducingRateSingle({
-      pokemon,
-      pokemonProducingParams,
-      berryData: berryDataMap[pokemon.berry.id],
-      mealMap,
-      ingredientMap,
-      ingredients,
-      skillData: mainSkillMap[pokemon.skill],
-      snorlaxFavorite,
-      cookingSettings,
-      recipeLevelData,
-      eventStrengthMultiplierData,
-      cookingRecoveryData,
-      bundle,
-      ...individualParams,
-    }).atStage.final;
-
-    return (
-      <Flex>
-        <div className="text-xs">
-          <PokemonIngredientIcons ingredients={[ingredients]} dimension="size-4"/>
-        </div>
-        <PokemonIngredientIcons
-          numberFormat="float"
-          ingredients={[Object.values(ingredient)
-            .sort((a, b) => b.quantity.equivalent - a.quantity.equivalent)
-            .map(({id, quantity}) => ({
-              id,
-              qty: quantity.equivalent,
-            })),
-          ]}
-        />
       </Flex>
     );
   }

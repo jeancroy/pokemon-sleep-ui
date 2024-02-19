@@ -3,7 +3,7 @@ import {PokemonProducingRate} from '@/types/game/producing/rate';
 import {TeamMakerBasisValue} from '@/ui/team/maker/type/common';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
-import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 
 
 export type GetTeamMakerBasisValueOpts = {
@@ -21,7 +21,7 @@ export const getTeamMakerBasisValue = ({
   });
 
   return {
-    strength: getTotalOfPokemonProducingRate({rate: pokemonRate, state: 'equivalent'}).energy,
+    strength: getTotalOfPokemonProducingRate({rate: pokemonRate, state: 'equivalent'}).strength,
     mealCoverage: getMealCoverage({
       meals: targetMeals,
       ingredientProduction,

@@ -14,6 +14,10 @@ export type StaminaEfficiencyCounter<TValue = number> = {[state in ProducingStat
 
 export type StaminaEfficiency = {
   logs: StaminaEventLog[],
+  // This multiplier is the average coming from the integral of the stamina log.
+  // Since helps trigger more at the earlier stages during sleep,
+  //  this multiplier should NOT be used for calculating any production related stats.
+  // This is solely for easy displaying purpose.
   multiplier: StaminaEfficiencyCounter<number | null>,
   sleepSessionInfo: SleepSessionInfo,
   intervalsDuringSleep: SleepSessionData<EfficiencyInterval[]>,

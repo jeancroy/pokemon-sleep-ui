@@ -50,12 +50,12 @@ export const TeamAnalysisRateLayout = ({
       {
         showQuantity && calculatedRate &&
         <div className={textClass}>
-          x{formatFloat(calculatedRate.quantity)}
+          x{formatFloat(calculatedRate.qty)}
         </div>
       }
       <ColoredEnergyIcon dimension={dimension} alt={t('Name')}/>
       <div className={clsx('text-energy', textClass)}>
-        {calculatedRate ? formatFloat(calculatedRate.energy) : '-'}
+        {calculatedRate ? formatFloat(calculatedRate.strength) : '-'}
       </div>
     </Flex>
   );

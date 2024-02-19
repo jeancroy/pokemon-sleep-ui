@@ -1,5 +1,5 @@
 import {PokemonInfo} from '@/types/game/pokemon';
-import {ProducingRateOfStates} from '@/types/game/producing/rate';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
 import {getAnalysisStatsOfContinuous} from '@/ui/analysis/page/calc/continuous';
 import {PokemonAnalysisRateInfo, ProducingRateOfBerryOnPokemon} from '@/ui/analysis/page/calc/producingRate/type';
 import {AnalysisStatsProducingRate} from '@/ui/analysis/page/calc/type';
@@ -8,8 +8,8 @@ import {AnalysisStatsProducingRate} from '@/ui/analysis/page/calc/type';
 type GetContinuousBerryStatsOpts = {
   samples: ProducingRateOfBerryOnPokemon[],
   pokemon: PokemonInfo,
-  currentRate: ProducingRateOfStates,
-  getComparer: (rate: ProducingRateOfStates) => number,
+  currentRate: ProducingRateByCalculatedStates,
+  getComparer: (rate: ProducingRateByCalculatedStates) => number,
 };
 
 const getContinuousBerryStats = ({
@@ -49,12 +49,12 @@ export const toAnalysisBerryProducingRate = <T>({
   return {
     itemId,
     count: getContinuousBerryStats({
-      getComparer: (rate) => rate.quantity.equivalent,
+      getComparer: (rate) => rate.qty.equivalent,
       samples: berryRates,
       ...props,
     }),
-    energy: getContinuousBerryStats({
-      getComparer: (rate) => rate.energy.equivalent,
+    strength: getContinuousBerryStats({
+      getComparer: (rate) => rate.strength.equivalent,
       samples: berryRates,
       ...props,
     }),

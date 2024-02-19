@@ -5,7 +5,7 @@ import {getHelpingBonusSimpleMultiplier, getStrengthMultiplier} from '@/utils/ga
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
-describe('Pokemon Energy Multiplier', () => {
+describe('Pokemon Production (Multiplier) / General Strength', () => {
   const bonus = testBonus['1'];
 
   it('is correct', () => {
@@ -27,7 +27,7 @@ describe('Pokemon Energy Multiplier', () => {
   });
 });
 
-describe('Pokemon Helping Bonus Simple Multiplier', () => {
+describe('Pokemon Production (Multiplier) / Helping Bonus Simple Multiplier', () => {
   it('is correct', () => {
     const multiplier = getHelpingBonusSimpleMultiplier(5);
 

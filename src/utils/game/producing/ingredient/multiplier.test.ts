@@ -6,7 +6,7 @@ import {testRecipeLevelData} from '@/tests/data/game/recipeLevel';
 import {getIngredientMultiplier} from '@/utils/game/producing/ingredient/multiplier';
 
 
-describe('Ingredient Production / Multiplier', () => {
+describe('Pokemon Production (Ingredient) / Multiplier', () => {
   it('is correct using daily production', () => {
     const meals = [testMealData['1007'], testMealData['3006'], testMealData['3006']];
     const {override, defaultValue} = getIngredientMultiplier({

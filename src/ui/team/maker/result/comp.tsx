@@ -20,7 +20,7 @@ import {TeamMakerResultCommonProps} from '@/ui/team/maker/result/type';
 import {TeamMakerResultUnit} from '@/ui/team/maker/result/unit';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerResultComp} from '@/ui/team/maker/type/result';
-import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 import {formatFloat} from '@/utils/number/format/regular';
 
 
@@ -63,7 +63,7 @@ export const TeamMakerResultCompUI = ({comp, ...props}: Props) => {
             production: getTotalOfPokemonProducingRate({
               rate: atStage.final,
               state: teamMakerUnitStrengthAtState,
-            }).energy,
+            }).strength,
           }))}
         />
         <PokemonGroupedProduction grouped={rates.grouped}/>

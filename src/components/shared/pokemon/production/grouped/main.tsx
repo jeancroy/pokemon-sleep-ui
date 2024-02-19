@@ -39,7 +39,7 @@ export const PokemonGroupedProduction = ({grouped}: Props) => {
         icon={<GenericIngredientIcon alt={t('Ingredient')} noWrap/>}
         data={Object.entries(grouped.ingredient)
           .map(([id, rate]) => ({id: Number(id), rate}))
-          .filter(({rate}) => !!rate?.quantity)}
+          .filter(({rate}) => !!rate?.qty)}
         getReactNode={(id, rate) => (
           <div className="px-4">
             <PokemonIngredientProduction key={id} id={Number(id)} rate={rate}/>

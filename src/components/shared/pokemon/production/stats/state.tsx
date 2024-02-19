@@ -16,16 +16,16 @@ import {PokemonDetailedProducingStatsLayout} from '@/components/shared/pokemon/p
 import {PokemonDetailedProducingStatsProps} from '@/components/shared/pokemon/production/stats/type';
 import {ProducingRateUI} from '@/components/shared/production/rate/main';
 import {applyMultiplierTargets} from '@/types/game/producing/apply';
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {applyMultiplierToPokemonRate} from '@/utils/game/producing/apply/multiplier';
 import {getFrequencyOfStateFromPokemonRate} from '@/utils/game/producing/frequency';
-import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/rateReducer';
+import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 
 
 type Props = PokemonDetailedProducingStatsProps & {
   title: React.ReactNode,
 } & ({
-  state: ProducingStateOfRate,
+  state: ProducingStateCalculated,
   targetMultiplier?: never,
 } | {
   state: 'equivalent',

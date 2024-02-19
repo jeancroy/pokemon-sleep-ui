@@ -75,7 +75,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         </div>
       </AnalysisStatsContinuousUI>
       <AnalysisStatsContinuousUI
-        stats={producingRate.berry.energy}
+        stats={producingRate.berry.strength}
         title={
           <Flex direction="row" center className="gap-1.5">
             <PokemonBerryIcon dimension="size-6" id={berry.id}/>
@@ -92,7 +92,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         )}
       >
         <div className="text-2xl">
-          {formatFloat(producingRate.berry.energy.current)}
+          {formatFloat(producingRate.berry.strength.current)}
         </div>
       </AnalysisStatsContinuousUI>
       {producingRate.ingredient.individual.map((rate) => (
@@ -124,7 +124,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
             </div>
           </AnalysisStatsContinuousUI>
           <AnalysisStatsContinuousUI
-            stats={rate.energy}
+            stats={rate.strength}
             linkedIconKey={({data, pokemonId}) => (
               `${pokemonId}-${data.productions.map(({id, qty}) => `${id}x${qty}`).join('-')}`
             )}
@@ -147,7 +147,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
             )}
           >
             <div className="text-2xl">
-              {formatFloat(rate.energy.current)}
+              {formatFloat(rate.strength.current)}
             </div>
           </AnalysisStatsContinuousUI>
         </React.Fragment>

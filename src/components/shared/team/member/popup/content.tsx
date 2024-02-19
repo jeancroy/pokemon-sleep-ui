@@ -19,9 +19,9 @@ import {
 } from '@/components/shared/team/member/popup/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {
-  getTotalEnergyOfPokemonProducingRate,
+  getTotalStrengthOfPokemonProducingRate,
   getTotalIngredientRateOfPokemon,
-} from '@/utils/game/producing/rateReducer';
+} from '@/utils/game/producing/reducer/sum';
 import {formatFloat} from '@/utils/number/format/regular';
 import {generateNumberTicks} from '@/utils/number/generator';
 import {toTeamMember} from '@/utils/team/toMember';
@@ -103,14 +103,14 @@ export const TeamMemberPopupContent = ({
             return {
               level,
               strength: {
-                berry: rate.berry.energy.equivalent,
+                berry: rate.berry.strength.equivalent,
                 ingredient: getTotalIngredientRateOfPokemon({
                   rate,
-                  target: 'energy',
+                  target: 'strength',
                   state: stateOfRate,
                 }),
-                skill: rate.skill.energy.equivalent,
-                total: getTotalEnergyOfPokemonProducingRate(rate),
+                skill: rate.skill.strength.equivalent,
+                total: getTotalStrengthOfPokemonProducingRate(rate),
               },
             };
           }).filter(isNotNullish)}
@@ -135,7 +135,7 @@ export const TeamMemberPopupContent = ({
           mealMap={mealMap}
           ingredientProduction={Object.fromEntries(
             Object.entries(rate.ingredient)
-              .map(([id, rate]) => [id, rate?.quantity[stateOfRate] ?? 0]),
+              .map(([id, rate]) => [id, rate?.qty[stateOfRate] ?? 0]),
           )}
           actualPotCapacity={cookingSettings.actualPotCapacity}
           period={config.analysisPeriod}

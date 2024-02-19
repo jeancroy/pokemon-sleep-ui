@@ -1,6 +1,6 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {PokemonProducingRateByType} from '@/types/game/producing/rate';
-import {ProducingStateOfRate} from '@/types/game/producing/state';
+import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';
 import {CookingUserSettings} from '@/types/userData/settings/cooking';
@@ -19,7 +19,7 @@ export type GetTeamProducingStatsOpts = TeamAnalysisDataProps & {
 
 export type GetTeamProducingStatsCommonOpts = {
   period: ProductionPeriod,
-  state: ProducingStateOfRate,
+  state: ProducingStateCalculated,
 };
 
 export type TeamCompCalcResult = {

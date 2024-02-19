@@ -12,7 +12,7 @@ import {isNotNullish} from '@/utils/type';
 import {toCookingUserSettings} from '@/utils/user/settings/cooking/main';
 
 
-describe('Ingredient Production / Bonus of Meals', () => {
+describe('Pokemon Production (Ingredient) / Meal Bonus', () => {
   it('is correct', () => {
     const cookingTargetOfType: UserCookingTargetOfType = {
       breakfast: 1007,

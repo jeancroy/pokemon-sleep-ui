@@ -4,18 +4,21 @@ import {Flex} from '@/components/layout/flex/common';
 import {GenericIconLarger} from '@/components/shared/icon/common/larger';
 import {PokemonInventoryCommonProps} from '@/components/shared/pokemon/inventory/type';
 import {getPackStatsStyle} from '@/components/shared/pokemon/utils';
+import {FullPackStatsOfSleep} from '@/types/game/producing/inventory';
 import {formatSeconds} from '@/utils/time';
 import {Nullable} from '@/utils/type';
 
 
 type Props = PokemonInventoryCommonProps & {
-  seconds: Nullable<number>,
+  fullPackStatsOfSleep: Nullable<FullPackStatsOfSleep>,
   alt: string,
   title?: React.ReactNode,
 };
 
-export const PokemonTimeToFullPackSingle = ({seconds, alt, title, ...props}: Props) => {
+export const PokemonTimeToFullPackSingle = ({fullPackStatsOfSleep, alt, title, ...props}: Props) => {
   const {normalTextSize} = props;
+
+  const isPossibleToFill = !!fullPackStatsOfSleep?.duration.filled;
 
   return (
     <Flex direction="row" noFullWidth center className={getPackStatsStyle(props)}>
@@ -27,7 +30,7 @@ export const PokemonTimeToFullPackSingle = ({seconds, alt, title, ...props}: Pro
         noShrink
       />
       <Flex noFullWidth center>
-        {seconds ? formatSeconds({seconds}) : '-'}
+        {isPossibleToFill ? formatSeconds({seconds: fullPackStatsOfSleep?.duration.vacant}) : '-'}
       </Flex>
     </Flex>
   );

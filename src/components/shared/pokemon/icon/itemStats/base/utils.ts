@@ -2,13 +2,13 @@ import {
   PokemonItemStatsCalcResult,
   PokemonItemStatsCalcResultToDisplay,
 } from '@/components/shared/pokemon/icon/itemStats/type';
-import {PokemonProducingRate, ProducingRateOfStates} from '@/types/game/producing/rate';
+import {PokemonProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
 import {isNotNullish} from '@/utils/type';
 
 
 type ToSortedCalcResultOpts<TResult extends PokemonItemStatsCalcResult> = {
   producingStats: TResult[],
-  getItemRate: (pokemonRate: PokemonProducingRate) => ProducingRateOfStates | undefined,
+  getItemRate: (pokemonRate: PokemonProducingRate) => ProducingRateByCalculatedStates | undefined,
 };
 
 export const toSortedCalcResult = <TResult extends PokemonItemStatsCalcResult>({
@@ -26,6 +26,6 @@ export const toSortedCalcResult = <TResult extends PokemonItemStatsCalcResult>({
     })
     .filter(isNotNullish)
     .sort((a, b) => (
-      b.itemRate.energy.equivalent - a.itemRate.energy.equivalent
+      b.itemRate.strength.equivalent - a.itemRate.strength.equivalent
     ));
 };

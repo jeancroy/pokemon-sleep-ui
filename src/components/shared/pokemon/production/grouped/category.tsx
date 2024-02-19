@@ -21,7 +21,7 @@ type Props = {
 };
 
 export const PokemonGroupedProductionCategory = ({icon, data, getReactNode, showQuantity, dimension}: Props) => {
-  const quantity = toSum(data.map((row) => row.rate?.quantity).filter(isNotNullish));
+  const quantity = toSum(data.map((row) => row.rate?.qty).filter(isNotNullish));
 
   return (
     <Flex className="gap-3 rounded-lg p-2 md:flex-row">
@@ -39,7 +39,7 @@ export const PokemonGroupedProductionCategory = ({icon, data, getReactNode, show
       <Flex direction="row" center wrap className="gap-1">
         {data.length ?
           data
-            .sort((a, b) => (a.rate?.energy ?? 0) - (b.rate?.energy ?? 0))
+            .sort((a, b) => (a.rate?.strength ?? 0) - (b.rate?.strength ?? 0))
             .map(({id, rate}) => {
               if (!rate) {
                 return null;
