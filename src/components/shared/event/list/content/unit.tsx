@@ -14,7 +14,7 @@ type Props = {
   info: EventInfo,
 };
 
-export const EventInfoUI = ({info}: Props) => {
+export const EventInfoUnit = ({info}: Props) => {
   const {
     eventIdentifier,
     i18nKey,

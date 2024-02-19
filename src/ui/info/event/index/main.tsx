@@ -1,25 +1,13 @@
 import React from 'react';
 
 import {I18nProvider} from '@/components/i18n/provider';
-import {getEventInfoList} from '@/controller/event/info';
+import {EventList} from '@/components/shared/event/list/main';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
-import {EventIndexClient} from '@/ui/info/event/index/client';
-import {EventIndexDataProps} from '@/ui/info/event/index/type';
 
 
 export const EventIndex = async ({params}: DefaultPageProps) => {
   const {locale} = params;
-
-  const [
-    eventInfoList,
-  ] = await Promise.all([
-    getEventInfoList(),
-  ]);
-
-  const props: EventIndexDataProps = {
-    eventInfoList,
-  };
 
   return (
     <PublicPageLayout locale={locale}>
@@ -28,10 +16,10 @@ export const EventIndex = async ({params}: DefaultPageProps) => {
         namespaces={[
           'Game',
           'UI.Component.TimePeriodSchedule',
-          'UI.InPage.Info.Event.Index',
+          'UI.Component.EventList',
         ]}
       >
-        <EventIndexClient {...props}/>
+        <EventList includePast showLoading/>
       </I18nProvider>
     </PublicPageLayout>
   );

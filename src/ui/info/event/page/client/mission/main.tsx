@@ -15,7 +15,7 @@ type Props = EventPageMissionCommonProps & {
 };
 
 export const EventPageMissions = ({eventInfo, eventMissionMap, ...props}: Props) => {
-  const t = useTranslations('UI.InPage.Info.Event.Page');
+  const t = useTranslations('UI.InPage.Info.Event');
 
   if (!Object.keys(eventMissionMap).length) {
     return null;
@@ -24,7 +24,7 @@ export const EventPageMissions = ({eventInfo, eventMissionMap, ...props}: Props)
   return (
     <Flex className="info-section">
       <div className="text-xl">
-        {t('Section.Mission')}
+        {t('Mission')}
       </div>
       {Object.entries(eventMissionMap).map(([eventId, missions]) => {
         if (!missions) {

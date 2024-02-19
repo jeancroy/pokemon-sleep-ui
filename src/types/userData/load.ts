@@ -1,5 +1,6 @@
 import {Filter} from 'mongodb';
 
+import {GetEventInfoListOpts} from '@/controller/event/info';
 import {PokemonId} from '@/types/game/pokemon';
 import {ActivationPropertiesAtClient} from '@/types/mongo/activation';
 import {PokeInBoxData} from '@/types/mongo/pokebox/main';
@@ -35,6 +36,9 @@ export type UserDataLoadingOpts = {
 } | {
   type: 'ratingConfig',
   opts?: never,
+} | {
+  type: 'eventList',
+  opts: GetEventInfoListOpts,
 } | {
   type: 'adminActivationCreate',
   opts: ActivationPropertiesAtClient,

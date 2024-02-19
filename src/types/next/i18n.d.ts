@@ -67,6 +67,13 @@ declare global {
           End: string,
           Close: string,
         },
+        EventList: {
+          Section: {
+            Upcoming: string,
+            Current: string,
+            Ended: string,
+          },
+        },
       },
       Evolution: {
         SleepTime: string,
@@ -363,18 +370,7 @@ declare global {
         },
         Info: {
           Event: {
-            Index: {
-              Section: {
-                Upcoming: string,
-                Current: string,
-                Ended: string,
-              },
-            },
-            Page: {
-              Section: {
-                Mission: string,
-              },
-            },
+            Mission: string,
           },
           Pot: {
             Capacity: string,

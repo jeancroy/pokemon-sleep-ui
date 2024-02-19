@@ -49,6 +49,13 @@
       "Start": "From",
       "End": "To",
       "Close": "Close"
+    },
+    "EventList": {
+      "Section": {
+        "Upcoming": "Upcoming",
+        "Current": "Current",
+        "Ended": "Ended"
+      }
     }
   },
   "Evolution": {
@@ -479,18 +486,7 @@
     },
     "Info": {
       "Event": {
-        "Index": {
-          "Section": {
-            "Upcoming": "Upcoming",
-            "Current": "Current",
-            "Ended": "Ended"
-          }
-        },
-        "Page": {
-          "Section": {
-            "Mission": "Missions"
-          }
-        }
+        "Mission": "Missions"
       },
       "Pot": {
         "Capacity": "Current Capacity",

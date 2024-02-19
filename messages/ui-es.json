@@ -49,6 +49,13 @@
       "Start": "Desde",
       "End": "Hasta",
       "Close": "Cierre"
+    },
+    "EventList": {
+      "Section": {
+        "Upcoming": "Próximo",
+        "Current": "En curso",
+        "Ended": "Finalizado"
+      }
     }
   },
   "Evolution": {
@@ -479,18 +486,7 @@
     },
     "Info": {
       "Event": {
-        "Index": {
-          "Section": {
-            "Upcoming": "Próximo",
-            "Current": "En curso",
-            "Ended": "Finalizado"
-          }
-        },
-        "Page": {
-          "Section": {
-            "Mission": "Misiones"
-          }
-        }
+        "Mission": "Misiones"
       },
       "Pot": {
         "Capacity": "Capacidad",

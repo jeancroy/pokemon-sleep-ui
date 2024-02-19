@@ -49,6 +49,13 @@
       "Start": "開始",
       "End": "終止",
       "Close": "領獎結束"
+    },
+    "EventList": {
+      "Section": {
+        "Upcoming": "即將開始",
+        "Current": "進行中",
+        "Ended": "已結束"
+      }
     }
   },
   "Evolution": {
@@ -479,18 +486,7 @@
     },
     "Info": {
       "Event": {
-        "Index": {
-          "Section": {
-            "Upcoming": "即將開始",
-            "Current": "進行中",
-            "Ended": "已結束"
-          }
-        },
-        "Page": {
-          "Section": {
-            "Mission": "任務"
-          }
-        }
+        "Mission": "任務"
       },
       "Pot": {
         "Capacity": "目前容量",

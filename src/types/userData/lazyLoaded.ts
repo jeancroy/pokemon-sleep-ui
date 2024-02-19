@@ -1,3 +1,4 @@
+import {EventInfo} from '@/types/game/event/info';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
 import {SleepdexMap} from '@/types/game/sleepdex';
 import {TeamMemberData} from '@/types/game/team';
@@ -19,9 +20,10 @@ export type UserLazyLoadedContent = {
   ratingConfig: RatingConfig,
   adminActivationCreate: string,
   adminActivationCheck: ActivationInfo | null,
+  eventList: EventInfo[],
   buildId: string,
 };
 
-// @ts-ignore: For checking if `UserLazyLoadedContent` implements every possible `UserDataLoadingOpts['type']` only
-// noinspection JSUnusedLocalSymbols
-type _ = UserLazyLoadedContent[UserDataLoadingOpts['type']];
+// For checking if `UserLazyLoadedContent` implements every possible `UserDataLoadingOpts['type']` only
+// > Have to have `export` here, otherwise TS compilation will fail
+export type _ = UserLazyLoadedContent[UserDataLoadingOpts['type']];

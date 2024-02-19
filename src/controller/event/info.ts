@@ -1,4 +1,4 @@
-import {Collection} from 'mongodb';
+import {Collection, Filter} from 'mongodb';
 
 import {getDataAsArray, getSingleData} from '@/controller/common';
 import mongoPromise from '@/lib/mongodb';
@@ -13,12 +13,22 @@ const getCollection = async (): Promise<Collection<EventInfo>> => {
     .collection<EventInfo>('info');
 };
 
-export const getEventInfoList = async (epochSec?: number): Promise<EventInfo[]> => {
-  return getDataAsArray(
-    getCollection(),
-    epochSec ? {startEpoch: {$lte: epochSec}, endEpoch: {$gte: epochSec}} : {},
-    {startEpoch: -1},
-  );
+export type GetEventInfoListOpts = {
+  epochSec?: number,
+  includePast: true,
+} | {
+  epochSec: number,
+  includePast: false,
+};
+
+export const getEventInfoList = async ({epochSec, includePast}: GetEventInfoListOpts): Promise<EventInfo[]> => {
+  let filter: Filter<EventInfo> = {};
+
+  if (!includePast) {
+    filter = {endEpoch: {$gte: epochSec}};
+  }
+
+  return getDataAsArray(getCollection(), filter, {startEpoch: -1});
 };
 
 export const getEventInfo = async (eventIdentifier: EventIdentifier): Promise<EventInfo | null> => {

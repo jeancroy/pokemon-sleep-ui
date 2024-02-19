@@ -49,6 +49,13 @@
       "Start": "Von",
       "End": "Bis",
       "Close": "Schließen"
+    },
+    "EventList": {
+      "Section": {
+        "Upcoming": "Anstehend",
+        "Current": "Aktuell",
+        "Ended": "Beendet"
+      }
     }
   },
   "Evolution": {
@@ -479,18 +486,7 @@
     },
     "Info": {
       "Event": {
-        "Index": {
-          "Section": {
-            "Upcoming": "Anstehend",
-            "Current": "Aktuell",
-            "Ended": "Beendet"
-          }
-        },
-        "Page": {
-          "Section": {
-            "Mission": "Missionen"
-          }
-        }
+        "Mission": "Missionen"
       },
       "Pot": {
         "Capacity": "Aktuelle Kapazität",
@@ -558,7 +554,7 @@
   },
   "Producing": {
     "State": {
-      "Base": "Base",
+      "Base": "Grundwert",
       "Awake": "Wach",
       "Asleep": {
         "Primary": {

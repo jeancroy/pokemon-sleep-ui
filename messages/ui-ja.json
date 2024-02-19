@@ -49,6 +49,13 @@
       "Start": "開始",
       "End": "終了",
       "Close": "受取期限"
+    },
+    "EventList": {
+      "Section": {
+        "Upcoming": "近日開催",
+        "Current": "開催中",
+        "Ended": "終了"
+      }
     }
   },
   "Evolution": {
@@ -479,18 +486,7 @@
     },
     "Info": {
       "Event": {
-        "Index": {
-          "Section": {
-            "Upcoming": "近日開催",
-            "Current": "開催中",
-            "Ended": "終了"
-          }
-        },
-        "Page": {
-          "Section": {
-            "Mission": "ミッション"
-          }
-        }
+        "Mission": "ミッション"
       },
       "Pot": {
         "Capacity": "現在の容量",

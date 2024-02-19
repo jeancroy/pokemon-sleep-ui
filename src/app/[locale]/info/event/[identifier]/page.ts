@@ -8,7 +8,8 @@ import {generatePageMeta} from '@/utils/meta';
 
 
 export const generateStaticParams: GenerateStaticParamsFunc<EventPageParams> = async () => {
-  return (await getEventInfoList()).map(({eventIdentifier}) => ({identifier: eventIdentifier}));
+  return (await getEventInfoList({includePast: true}))
+    .map(({eventIdentifier}) => ({identifier: eventIdentifier}));
 };
 
 export type EventPageParams = GenerateMetadataParams & {

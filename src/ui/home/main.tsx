@@ -4,7 +4,6 @@ import {Announcements} from '@/components/announcement/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {getUserCount} from '@/controller/auth';
-import {getEventInfoList} from '@/controller/event/info';
 import {getPaidUserCount} from '@/controller/user/activation/data';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
@@ -17,17 +16,14 @@ export const Home = async ({params}: DefaultPageProps) => {
   const [
     userCount,
     paidUserCount,
-    eventInfoList,
   ] = await Promise.all([
     getUserCount(),
     getPaidUserCount(),
-    getEventInfoList(Date.now() / 1000),
   ]);
 
   const props: HomeDataProps = {
     userCount,
     paidUserCount,
-    eventInfoList,
   };
 
   return (
@@ -38,10 +34,10 @@ export const Home = async ({params}: DefaultPageProps) => {
         locale={locale}
         namespaces={[
           'Game',
+          'UI.Component.EventList',
           'UI.Component.TimePeriodSchedule',
           'UI.Metadata',
           'UI.InPage.Home',
-          'UI.InPage.Info.Event.Index',
         ]}>
         <HomeClient {...props}/>
       </I18nProvider>

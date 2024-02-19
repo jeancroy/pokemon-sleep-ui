@@ -1,6 +1,7 @@
 import {ObjectId} from 'bson';
 import {Filter} from 'mongodb';
 
+import {getEventInfoList} from '@/controller/event/info';
 import {getSinglePokeInBox, getUserPokeboxSorted, getUserPokeboxWithFilter} from '@/controller/pokebox/main';
 import {getSleepdexMap, getSleepdexMapOfPokemon} from '@/controller/sleepdex';
 import {getActivationDataByFilter} from '@/controller/user/activation/data';
@@ -76,6 +77,10 @@ const loadData = async ({userId, options}: GetUserLazyDataOpts) => {
 
   if (type === 'ratingConfig') {
     return (await userRatingConfig.getData(userId))?.data satisfies UserLazyLoadedData['ratingConfig'];
+  }
+
+  if (type === 'eventList') {
+    return await getEventInfoList(opts) satisfies UserLazyLoadedData['eventList'];
   }
 
   if (type === 'adminActivationCreate') {

@@ -53,7 +53,7 @@ export const EventPage = async ({params}: PageProps<EventPageParams>) => {
           'UI.Common',
           'UI.Component.TimePeriodSchedule',
           'UI.Multiplier',
-          'UI.InPage.Info.Event.Page',
+          'UI.InPage.Info.Event',
         ]}
       >
         <EventPageClient {...props}/>
