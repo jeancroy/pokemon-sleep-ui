@@ -18,6 +18,8 @@ export const getFinalizedProducingRateSingleStats = ({
   produceSplitRate,
   key,
 }: GetFinalizedProducingRateSingleStatsOpts): ProducingValueByCalculatedStates => {
+  const {base, final} = rate;
+
   const periodMultiplier = productionMultiplierByPeriod[period];
 
   // Stats are already the production in the given period under the certain state,
@@ -27,16 +29,17 @@ export const getFinalizedProducingRateSingleStats = ({
   const unfilledOnly = toSum(
     producingStateWithPack
       .filter((state) => isProducingStateVacant[state])
-      .map((state) => rate[state][key]),
+      .map((state) => final[state][key]),
   ) * multiplier;
   const equivalent = unfilledOnly + toSum(
     producingStateWithPack
       .filter((state) => !isProducingStateVacant[state])
-      .map((state) => rate[state][key]),
+      .map((state) => final[state][key]),
   ) * multiplier;
 
   return {
-    ...extractProducingValueForFinalization({rate, key, multiplier}),
+    ...extractProducingValueForFinalization({rateFinal: final, key, multiplier}),
+    base: base[key] * multiplier,
     equivalent,
     unfilledOnly,
   };

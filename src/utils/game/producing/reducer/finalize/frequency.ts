@@ -13,23 +13,26 @@ export const getFinalizedProducingFrequency = ({
   producingStateSplit,
   produceSplitRate,
 }: GetFinalizedProducingFrequencyOpts): ProducingValueByCalculatedStates => {
+  const {base, final} = rate;
+
   const unfilledOnlyDivisor = toSum(
     producingStateWithPack
       .filter((state) => isProducingStateVacant[state])
-      .map((state) => producingStateSplit[state] / rate[state].frequency),
+      .map((state) => producingStateSplit[state] / final[state].frequency),
   ) * produceSplitRate;
   const filledDivisor = toSum(
     producingStateWithPack
       .filter((state) => !isProducingStateVacant[state])
-      .map((state) => producingStateSplit[state] / rate[state].frequency),
+      .map((state) => producingStateSplit[state] / final[state].frequency),
   ) * produceSplitRate;
 
   return {
     ...extractProducingValueForFinalization({
-      rate,
+      rateFinal: final,
       key: 'frequency',
       multiplier: 1 / produceSplitRate,
     }),
+    base: base.frequency / produceSplitRate,
     equivalent: 1 / (unfilledOnlyDivisor + filledDivisor),
     unfilledOnly: 1 / unfilledOnlyDivisor,
   };

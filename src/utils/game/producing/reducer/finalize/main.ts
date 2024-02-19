@@ -8,7 +8,7 @@ export const getFinalizedProducingRate = (
   opts: GetFinalizedProducingRateCommonOpts,
 ): ProducingRateByCalculatedStates => {
   const {period, rate} = opts;
-  const {id} = rate;
+  const {id} = rate.base;
 
   return {
     id,

@@ -442,6 +442,7 @@ declare global {
       },
       Producing: {
         State: {
+          Base: string,
           Awake: string,
           Asleep: {
             Primary: {

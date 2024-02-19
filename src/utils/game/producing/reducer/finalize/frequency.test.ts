@@ -12,30 +12,37 @@ describe('Pokemon Production (Finalization) / Frequency', () => {
       sleep1Filled,
       sleep2Vacant,
       sleep2Filled,
+      base,
       equivalent,
       unfilledOnly,
     } = getFinalizedProducingFrequency({
       rate: {
-        id: NaN, // ignore
-        awake: {
+        base: {
           ...testBaseProducingRateOfDrop,
-          frequency: 1600,
+          frequency: 1000,
         },
-        sleep1Vacant: {
-          ...testBaseProducingRateOfDrop,
-          frequency: 2400,
-        },
-        sleep1Filled: {
-          ...testBaseProducingRateOfDrop,
-          frequency: 3200,
-        },
-        sleep2Vacant: {
-          ...testBaseProducingRateOfDrop,
-          frequency: 3600,
-        },
-        sleep2Filled: {
-          ...testBaseProducingRateOfDrop,
-          frequency: 4000,
+        final: {
+          id: NaN, // ignore
+          awake: {
+            ...testBaseProducingRateOfDrop,
+            frequency: 1600,
+          },
+          sleep1Vacant: {
+            ...testBaseProducingRateOfDrop,
+            frequency: 2400,
+          },
+          sleep1Filled: {
+            ...testBaseProducingRateOfDrop,
+            frequency: 3200,
+          },
+          sleep2Vacant: {
+            ...testBaseProducingRateOfDrop,
+            frequency: 3600,
+          },
+          sleep2Filled: {
+            ...testBaseProducingRateOfDrop,
+            frequency: 4000,
+          },
         },
       },
       producingStateSplit: {
@@ -53,6 +60,7 @@ describe('Pokemon Production (Finalization) / Frequency', () => {
     expect(sleep1Filled).toBeCloseTo(4000);
     expect(sleep2Vacant).toBeCloseTo(4500);
     expect(sleep2Filled).toBeCloseTo(5000);
+    expect(base).toBeCloseTo(1250);
     expect(equivalent).toBeCloseTo(2285.714);
     expect(unfilledOnly).toBeCloseTo(2400);
   });
@@ -64,30 +72,37 @@ describe('Pokemon Production (Finalization) / Frequency', () => {
       sleep1Filled,
       sleep2Vacant,
       sleep2Filled,
+      base,
       equivalent,
       unfilledOnly,
     } = getFinalizedProducingFrequency({
       rate: {
-        id: NaN, // ignore
-        awake: {
+        base: {
           ...testBaseProducingRateOfDrop,
-          frequency: 1600,
+          frequency: 2000,
         },
-        sleep1Vacant: {
-          ...testBaseProducingRateOfDrop,
-          frequency: 2400,
-        },
-        sleep1Filled: {
-          ...testBaseProducingRateOfDrop,
-          frequency: Infinity,
-        },
-        sleep2Vacant: {
-          ...testBaseProducingRateOfDrop,
-          frequency: 3600,
-        },
-        sleep2Filled: {
-          ...testBaseProducingRateOfDrop,
-          frequency: Infinity,
+        final: {
+          id: NaN, // ignore
+          awake: {
+            ...testBaseProducingRateOfDrop,
+            frequency: 1600,
+          },
+          sleep1Vacant: {
+            ...testBaseProducingRateOfDrop,
+            frequency: 2400,
+          },
+          sleep1Filled: {
+            ...testBaseProducingRateOfDrop,
+            frequency: Infinity,
+          },
+          sleep2Vacant: {
+            ...testBaseProducingRateOfDrop,
+            frequency: 3600,
+          },
+          sleep2Filled: {
+            ...testBaseProducingRateOfDrop,
+            frequency: Infinity,
+          },
         },
       },
       producingStateSplit: {
@@ -105,6 +120,7 @@ describe('Pokemon Production (Finalization) / Frequency', () => {
     expect(sleep1Filled).toBeCloseTo(Infinity);
     expect(sleep2Vacant).toBeCloseTo(18000);
     expect(sleep2Filled).toBeCloseTo(Infinity);
+    expect(base).toBeCloseTo(10000);
     expect(equivalent).toBeCloseTo(9391.304);
     expect(unfilledOnly).toBeCloseTo(9391.304);
   });

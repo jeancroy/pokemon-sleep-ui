@@ -32,6 +32,7 @@ export const getIngredientProducingRateBaseList = ({
     (item) => item.id,
   );
 
+  // `groupBy()` from `lodash` sorts the key by default
   return Object.values(grouped).map((rates) => getMergedRateOfDrop({
     rates,
     baseFrequency,

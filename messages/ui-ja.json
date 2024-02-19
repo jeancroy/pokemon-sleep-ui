@@ -558,6 +558,7 @@
   },
   "Producing": {
     "State": {
+      "Base": "ベース",
       "Awake": "非睡眠",
       "Asleep": {
         "Primary": {

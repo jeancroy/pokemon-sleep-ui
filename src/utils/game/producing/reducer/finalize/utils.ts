@@ -4,18 +4,18 @@ import {KeysOfType} from '@/utils/type';
 
 
 type ExtractProducingValueForFinalizationOpts = {
-  rate: ProducingRateOfDropByStateWithPack,
+  rateFinal: ProducingRateOfDropByStateWithPack,
   key: KeysOfType<ProducingRateOfDrop, number>,
   multiplier: number,
 };
 
 export const extractProducingValueForFinalization = ({
-  rate,
+  rateFinal,
   key,
   multiplier,
 }: ExtractProducingValueForFinalizationOpts) => {
   return Object.fromEntries(producingStateWithPack.map((state) => [
     state,
-    rate[state][key] * multiplier,
+    rateFinal[state][key] * multiplier,
   ])) as {[state in ProducingStateWithPack]: number};
 };

@@ -12,31 +12,38 @@ describe('Pokemon Production (Finalization) / Single Stats', () => {
       sleep1Filled,
       sleep2Vacant,
       sleep2Filled,
+      base,
       equivalent,
       unfilledOnly,
     } = getFinalizedProducingRateSingleStats({
       period: 'daily',
       rate: {
-        id: NaN, // ignore
-        awake: {
+        base: {
           ...testBaseProducingRateOfDrop,
-          strength: 300,
+          strength: 888,
         },
-        sleep1Vacant: {
-          ...testBaseProducingRateOfDrop,
-          strength: 500,
-        },
-        sleep1Filled: {
-          ...testBaseProducingRateOfDrop,
-          strength: 200,
-        },
-        sleep2Vacant: {
-          ...testBaseProducingRateOfDrop,
-          strength: 0,
-        },
-        sleep2Filled: {
-          ...testBaseProducingRateOfDrop,
-          strength: 0,
+        final: {
+          id: NaN, // ignore
+          awake: {
+            ...testBaseProducingRateOfDrop,
+            strength: 300,
+          },
+          sleep1Vacant: {
+            ...testBaseProducingRateOfDrop,
+            strength: 500,
+          },
+          sleep1Filled: {
+            ...testBaseProducingRateOfDrop,
+            strength: 200,
+          },
+          sleep2Vacant: {
+            ...testBaseProducingRateOfDrop,
+            strength: 0,
+          },
+          sleep2Filled: {
+            ...testBaseProducingRateOfDrop,
+            strength: 0,
+          },
         },
       },
       key: 'strength',
@@ -55,6 +62,7 @@ describe('Pokemon Production (Finalization) / Single Stats', () => {
     expect(sleep1Filled).toBeCloseTo(200 * 0.8);
     expect(sleep2Vacant).toBeCloseTo(0);
     expect(sleep2Filled).toBeCloseTo(0);
+    expect(base).toBeCloseTo(888 * 0.8);
     expect(equivalent).toBeCloseTo((300 + 500 + 200) * 0.8);
     expect(unfilledOnly).toBeCloseTo((300 + 500) * 0.8);
   });

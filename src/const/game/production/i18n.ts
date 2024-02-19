@@ -18,6 +18,7 @@ export const pokemonProducingStateI18nId: {
   sleep1Filled: 'State.Asleep.Primary.Filled',
   sleep2Vacant: 'State.Asleep.Secondary.Vacant',
   sleep2Filled: 'State.Asleep.Secondary.Filled',
+  base: 'State.Base',
   equivalent: 'Total',
   unfilledOnly: 'Preset.UnfilledOnly',
 };

@@ -44,7 +44,7 @@ export const getPokemonProducingRateBase = (opts: GetPokemonProducingRateBaseOpt
     baseFrequency: frequency,
     ...opts,
   });
-  const mainSkillBase = getMainSkillProducingRateBase({
+  const skillBase = getMainSkillProducingRateBase({
     baseFrequency: frequency,
     skillLevel: getMainSkillLevel({
       seedsUsed: seeds.gold,
@@ -92,7 +92,7 @@ export const getPokemonProducingRateBase = (opts: GetPokemonProducingRateBaseOpt
     ...finalCommonOpts,
   });
   const skillFinal = getMainSkillProducingRateFinal({
-    base: mainSkillBase,
+    base: skillBase,
     ...finalCommonOpts,
   });
 
@@ -105,22 +105,31 @@ export const getPokemonProducingRateBase = (opts: GetPokemonProducingRateBaseOpt
     skillRatePercent,
     berry: getFinalizedProducingRate({
       period,
-      rate: berryFinal,
+      rate: {
+        base: berryBase,
+        final: berryFinal,
+      },
       produceSplitRate: produceSplit.berry,
       producingStateSplit,
     }),
-    ingredient: Object.fromEntries(Object.values(ingredientFinalList).map((rate) => [
-      rate.id,
+    ingredient: Object.fromEntries(ingredientFinalList.map((final, idx) => [
+      final.id,
       getFinalizedProducingRate({
         period,
-        rate,
+        rate: {
+          base: ingredientBaseList[idx],
+          final,
+        },
         produceSplitRate: produceSplit.ingredient,
         producingStateSplit,
       }),
     ])),
     skill: getFinalizedProducingRate({
       period,
-      rate: skillFinal,
+      rate: {
+        base: skillBase,
+        final: skillFinal,
+      },
       produceSplitRate: produceSplit.skill,
       producingStateSplit,
     }),

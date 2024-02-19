@@ -18,6 +18,7 @@ export type ProducingStateWithPack = typeof producingStateWithPack[number];
 
 export const producingStateCalculated = [
   ...producingStateWithPack,
+  'base',
   'equivalent',
   'unfilledOnly',
 ] as const;

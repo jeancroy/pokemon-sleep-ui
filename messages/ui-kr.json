@@ -558,6 +558,7 @@
   },
   "Producing": {
     "State": {
+      "Base": "Base",
       "Awake": "깨 있을 때",
       "Asleep": {
         "Primary": {

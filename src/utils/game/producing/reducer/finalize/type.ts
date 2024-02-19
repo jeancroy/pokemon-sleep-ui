@@ -1,11 +1,14 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop, ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate';
 import {ProducingStateSplit} from '@/types/game/producing/split';
 
 
 export type GetFinalizedProducingRateCommonOpts = {
   period: ProductionPeriod,
-  rate: ProducingRateOfDropByStateWithPack,
+  rate: {
+    base: ProducingRateOfDrop,
+    final: ProducingRateOfDropByStateWithPack,
+  },
   producingStateSplit: ProducingStateSplit,
   produceSplitRate: number,
 };

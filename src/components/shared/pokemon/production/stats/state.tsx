@@ -28,12 +28,11 @@ type Props = PokemonDetailedProducingStatsProps & {
   state: ProducingStateCalculated,
   targetMultiplier?: never,
 } | {
-  state: 'equivalent',
+  state: 'base',
   targetMultiplier: number,
 });
 
 export const PokemonDetailedProducingStatsOfState = ({
-  calculatedSettings,
   rate,
   specialty,
   title,
@@ -44,10 +43,7 @@ export const PokemonDetailedProducingStatsOfState = ({
     rate = applyMultiplierToPokemonRate({
       rate,
       target: [...applyMultiplierTargets],
-      multiplier: {
-        original: (calculatedSettings.bonus.stamina.multiplier.average ?? NaN),
-        target: targetMultiplier,
-      },
+      multiplier: {original: 1, target: targetMultiplier},
     });
   }
 
