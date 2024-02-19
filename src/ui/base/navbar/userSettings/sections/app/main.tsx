@@ -16,7 +16,7 @@ import {isStringReplaceAllSupported} from '@/utils/compatibility/stringReplaceAl
 
 
 export const UserSettingsAppInfo = () => {
-  const t = useTranslations('UI.UserSettings');
+  const t = useTranslations('UI.UserConfig');
   // Only check once on load to avoid duplicated checking
   const isNestedWorkerSupportedResult = React.useMemo(isNestedWorkerSupported, []);
 

@@ -25,7 +25,7 @@ export type OcrState = {
   text: null,
 };
 
-export type OcrSettings = {
+export type OcrConfig = {
   locale: OcrLocale,
   tolerance: number,
 };

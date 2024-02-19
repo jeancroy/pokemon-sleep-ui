@@ -1,5 +1,5 @@
 import {staminaAbsoluteMax} from '@/const/game/stamina';
-import {defaultRecoveryRate} from '@/const/user/settings';
+import {defaultRecoveryRate} from '@/const/user/config/user';
 import {StaminaEventLog, StaminaEventType} from '@/types/game/stamina/event';
 import {StaminaRecovery, StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';

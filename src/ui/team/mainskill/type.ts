@@ -10,7 +10,8 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {OcrTranslationsForPokemonInfo} from '@/types/ocr/extracted/pokemon';
-import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
 export type SkillTriggerOnDeskState = PokemonOnDeskState & {
@@ -26,7 +27,7 @@ export type SkillTriggerAnalysisUnit = PokemonConfigPokemonData & {
   show: boolean,
 };
 
-export type SkillTriggerAnalysisServerDataProps = UsePokemonFilterCommonData & UserSettingsRequiredData & {
+export type SkillTriggerAnalysisServerDataProps = UsePokemonFilterCommonData & ConfigRequiredData & {
   pokedexMap: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   mainSkillMap: MainSkillMap,
@@ -36,12 +37,12 @@ export type SkillTriggerAnalysisServerDataProps = UsePokemonFilterCommonData & U
   recipeLevelData: RecipeLevelData[],
   pokemonMaxLevel: number,
   ocrTranslations: OcrTranslationsForPokemonInfo,
-  preloaded: UserSettingsBundle,
+  preloaded: ConfigBundle,
 };
 
 export type SkillTriggerAnalysisDataProps =
   SkillTriggerAnalysisServerDataProps &
   PokemonComplexFilterDataProps &
   PokemonOnDeskDataProps & {
-    bundle: UserSettingsBundle,
+    bundle: ConfigBundle,
   };

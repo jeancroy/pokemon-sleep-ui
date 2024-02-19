@@ -11,13 +11,13 @@ import {Flex} from '@/components/layout/flex/common';
 import {EnergyIcon} from '@/components/shared/icon/energy';
 import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {textFilterButtonStyle} from '@/styles/input';
-import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
+import {CookingConfig} from '@/types/userData/config/cooking/main';
 
 
 type Props = {
   showEnergy: boolean,
   setShowEnergy: (updated: boolean) => void,
-  uploadData: UserCookingSettings,
+  uploadData: CookingConfig,
 };
 
 export const MealDisplayControl = ({showEnergy, setShowEnergy, uploadData}: Props) => {
@@ -37,7 +37,7 @@ export const MealDisplayControl = ({showEnergy, setShowEnergy, uploadData}: Prop
           <EnergyIcon alt={t('Energy')} noInvert isActive={showEnergy}/>
         </Flex>
       </ToggleButton>
-      <UserDataUploadButton opts={{type: 'cooking', data: uploadData}}/>
+      <UserDataUploadButton opts={{type: 'config.cooking', data: uploadData}}/>
     </InputRow>
   );
 };

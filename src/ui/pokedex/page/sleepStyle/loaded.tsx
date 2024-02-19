@@ -24,7 +24,7 @@ export const PokemonSleepStylesLoaded = ({
   sleepStylesSpecial,
   snorlaxDataMap,
   eventDrowsyPowerMultiplierData,
-  translatedSettings,
+  calculatedConfigBundle,
   initialSleepdex,
 }: Props) => {
   const [sleepdex, setSleepdex] = React.useState(initialSleepdex);
@@ -78,7 +78,7 @@ export const PokemonSleepStylesLoaded = ({
             setSleepdex={setSleepdex}
             drowsyPowerMultiplier={drowsyPowerMultiplier}
             pokemon={pokemon}
-            calculatedSettings={translatedSettings.calculatedSettings}
+            calculatedSettings={calculatedConfigBundle.calculatedSettings}
             snorlaxData={snorlaxDataMap[sleepStyleOfMap.mapId]}
             sleepStyleOfMap={sleepStyleOfMap}
           />

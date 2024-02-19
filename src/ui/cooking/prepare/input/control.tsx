@@ -11,7 +11,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {EnergyIcon} from '@/components/shared/icon/energy';
 import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {textFilterButtonStyle} from '@/styles/input';
-import {toUserCookingSettingsFromMealPreparerFilter} from '@/ui/cooking/prepare/input/utils';
+import {toCookingSettingsFromMealPreparerFilter} from '@/ui/cooking/prepare/input/utils';
 import {MealPreparerCommonProps} from '@/ui/cooking/prepare/type';
 
 
@@ -38,8 +38,8 @@ export const MealPreparerControl = ({filter, setFilter, preloaded}: MealPreparer
         </Flex>
       </ToggleButton>
       <UserDataUploadButton opts={{
-        type: 'cooking',
-        data: toUserCookingSettingsFromMealPreparerFilter({preloaded, filter}),
+        type: 'config.cooking',
+        data: toCookingSettingsFromMealPreparerFilter({preloaded, filter}),
       }}/>
     </InputRow>
   );

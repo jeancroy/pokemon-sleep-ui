@@ -2,7 +2,7 @@ import {describe, expect, it} from '@jest/globals';
 
 import {defaultProducingParams} from '@/const/game/production/defaults';
 import {defaultSeedUsage} from '@/const/game/seed';
-import {defaultUserSettingsBundle} from '@/const/user/bundle';
+import {defaultConfigBundle} from '@/const/user/config/bundle';
 import {testBerryDataMap} from '@/tests/data/game/berry';
 import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {testEventStrengthMultiplierData} from '@/tests/data/game/eventStrengthMultiplier';
@@ -46,7 +46,7 @@ describe('Rating / Calculate', () => {
       recipeLevelData: testRecipeLevelData,
       basis: 'totalProduction',
       friendshipLevel: 0,
-      bundle: defaultUserSettingsBundle,
+      bundle: defaultConfigBundle,
       useNestedWorker: false,
     });
 
@@ -80,7 +80,7 @@ describe('Rating / Calculate', () => {
       recipeLevelData: testRecipeLevelData,
       basis: 'totalProduction',
       friendshipLevel: 0,
-      bundle: defaultUserSettingsBundle,
+      bundle: defaultConfigBundle,
       useNestedWorker: false,
     });
 
@@ -114,7 +114,7 @@ describe('Rating / Calculate', () => {
       recipeLevelData: testRecipeLevelData,
       basis: 'totalProduction',
       friendshipLevel: 0,
-      bundle: defaultUserSettingsBundle,
+      bundle: defaultConfigBundle,
       useNestedWorker: false,
     });
 

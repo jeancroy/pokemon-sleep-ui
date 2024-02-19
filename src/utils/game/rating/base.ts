@@ -5,7 +5,7 @@ import {getRatingBasisValue} from '@/utils/game/rating/basis';
 import {GetRatingValueOfSimulationOpts} from '@/utils/game/rating/type';
 import {getRatingProducingRateCalcBehavior} from '@/utils/game/rating/utils';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
-import {toTranslatedSettings} from '@/utils/user/settings/translated';
+import {toCalculatedConfigBundle} from '@/utils/user/config/bundle';
 
 
 export const getRatingValueOfBase = (opts: GetRatingValueOfSimulationOpts) => {
@@ -32,7 +32,7 @@ export const getRatingValueOfBase = (opts: GetRatingValueOfSimulationOpts) => {
       // Override `evolutionCount` in `opts` to apply default evolution count of the Pokémon
       evolutionCount: getEvolutionCountFromPokemonInfo({pokemon}),
       ...singleParams,
-      ...toTranslatedSettings({
+      ...toCalculatedConfigBundle({
         ...opts,
         ...bundle,
         recoveryRate: toRecoveryRate({

@@ -1,10 +1,10 @@
 import {PokemonSpecialtyId} from '@/types/game/pokemon';
 import {PokemonProducingRate} from '@/types/game/producing/rate';
-import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
+import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 
 
 export type PokemonDetailedProducingStatsProps = {
-  calculatedSettings: CalculatedUserSettings,
+  calculatedSettings: CalculatedUserConfig,
   rate: PokemonProducingRate,
   specialty: PokemonSpecialtyId,
 };

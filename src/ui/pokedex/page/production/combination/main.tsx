@@ -22,9 +22,9 @@ type Props = PokemonProductionCombinationCommonProps & {
 };
 
 export const PokemonProductionCombination = ({chain, ...props}: Props) => {
-  const {input, translatedSettings, mealMap} = props;
+  const {input, calculatedConfigBundle, mealMap} = props;
   const {level} = input;
-  const {actualPotCapacity} = translatedSettings.calculatedCookingSettings;
+  const {actualPotCapacity} = calculatedConfigBundle.calculatedCookingSettings;
 
   const [rateKey, setRateKey] = React.useState<string | null>(null);
   const collapsible = useCollapsibleControl();

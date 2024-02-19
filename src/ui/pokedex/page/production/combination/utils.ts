@@ -20,7 +20,7 @@ export const getPokemonProductionCombinationRateCollection = ({
   const {
     input,
     pokemon,
-    translatedSettings,
+    calculatedConfigBundle,
     mainSkillMap,
     subSkillMap,
   } = props;
@@ -44,7 +44,7 @@ export const getPokemonProductionCombinationRateCollection = ({
             pokemon,
             subSkillMap,
           }),
-          ...translatedSettings,
+          ...calculatedConfigBundle,
           ...props,
         }).atStage.final,
       } satisfies PokemonProductionCombinationRateCollectionItem,

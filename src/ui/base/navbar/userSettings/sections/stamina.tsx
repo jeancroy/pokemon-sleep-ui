@@ -14,7 +14,7 @@ export const UserSettingsStamina = (props: StaminaConfigProps) => {
   const {config, cookingRecoveryData} = props;
 
   const t = useTranslations('UI.Stamina');
-  const t2 = useTranslations('UI.UserSettings');
+  const t2 = useTranslations('UI.UserConfig');
 
   return (
     <UserSettingsSection

@@ -1,7 +1,7 @@
-import {PacketRecordingSettings, PacketRecordingType} from '@/types/packet/settings';
+import {PacketRecordingConfig, PacketRecordingType} from '@/types/packet/config';
 
 
-export const defaultPacketRecordingSettings: PacketRecordingSettings = {
+export const defaultPacketRecordingConfig: PacketRecordingConfig = {
   enabled: {
     lotteryInfo: true,
     updatePokemonData: true,

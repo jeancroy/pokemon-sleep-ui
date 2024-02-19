@@ -645,7 +645,7 @@
       }
     }
   },
-  "UserSettings": {
+  "UserConfig": {
     "AlwaysFullPack": "全時滿包",
     "BerryPokemonFullPack": "樹果專長全時滿包",
     "GoodCampTicket": "好露營券",
@@ -654,7 +654,7 @@
       "Title": "料理相關"
     },
     "Message": {
-      "SettingsNotStored": "以下僅為顯示預設設定用。使用者必須登入才能儲存設定，並套用至各項計算。"
+      "ConfigNotStored": "以下僅為顯示預設設定用。使用者必須登入才能儲存設定，並套用至各項計算。"
     },
     "Multiplier": {
       "Overall": "最終",

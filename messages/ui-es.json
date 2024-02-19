@@ -645,7 +645,7 @@
       }
     }
   },
-  "UserSettings": {
+  "UserConfig": {
     "AlwaysFullPack": "Capacidad Completa",
     "BerryPokemonFullPack": "Capacidad Completa (Especialistas en Bayas)",
     "GoodCampTicket": "Lote de Acampada",
@@ -654,7 +654,7 @@
       "Title": "Cocina"
     },
     "Message": {
-      "SettingsNotStored": "Mostrando la configuración de usuario por defecto. Inicia sesión para guardar la configuración o deja que tome efecto."
+      "ConfigNotStored": "Mostrando la configuración de usuario por defecto. Inicia sesión para guardar la configuración o deja que tome efecto."
     },
     "Multiplier": {
       "Overall": "General",

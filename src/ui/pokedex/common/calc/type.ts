@@ -6,13 +6,11 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {
-  UserSettingsBundle, UserSettingsRequiredData,
-} from '@/types/userData/settings/main';
-import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
+import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
-export type PokedexCalcDataProps = UsePokemonFilterCommonData & UserSettingsRequiredData & {
+export type PokedexCalcDataProps = UsePokemonFilterCommonData & ConfigRequiredData & {
   pokemonList: PokemonInfo[],
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   berryDataMap: BerryDataMap,
@@ -20,15 +18,15 @@ export type PokedexCalcDataProps = UsePokemonFilterCommonData & UserSettingsRequ
   subSkillMap: SubSkillMap,
   recipeLevelData: RecipeLevelData[],
   preloaded: {
-    bundle: UserSettingsBundle,
+    bundle: ConfigBundle,
   },
 };
 
 export type PokedexCalcResultEntry = SortedPokemonInfo<null, PokemonInfoWithSortingPayload<null>>;
 
 export type PokedexCalcResult = {
-  bundle: UserSettingsBundle,
-  translatedSettings: TranslatedUserSettings,
+  bundle: ConfigBundle,
+  calculatedConfigBundle: CalculatedConfigBundle,
   result: PokedexCalcResultEntry[],
   count: {
     selected: number,

@@ -5,7 +5,7 @@ import {getRatingBasisValue} from '@/utils/game/rating/basis';
 import {GetRatingValueOfSimulationOpts} from '@/utils/game/rating/type';
 import {getRatingProducingRateCalcBehavior} from '@/utils/game/rating/utils';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
-import {toTranslatedSettings} from '@/utils/user/settings/translated';
+import {toCalculatedConfigBundle} from '@/utils/user/config/bundle';
 
 
 type GetRatingValueSingleOpts = Omit<
@@ -38,7 +38,7 @@ export const getRatingValueOfPossibility = ({combination, ...opts}: GetRatingVal
       ...opts,
       ingredients,
       ...singleParams,
-      ...toTranslatedSettings({
+      ...toCalculatedConfigBundle({
         ...opts,
         ...bundle,
         recoveryRate: toRecoveryRate({

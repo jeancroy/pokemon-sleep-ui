@@ -10,8 +10,8 @@ import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {getMealFinalStrength} from '@/utils/game/meal/strength/final/recipe';
 
 
-export const MealExp = ({recipeLevelData, meal, ingredientMap, translatedSettings}: MealCommonProps) => {
-  const {mapMultiplier, strengthMultiplier} = translatedSettings.calculatedSettings.bonus;
+export const MealExp = ({recipeLevelData, meal, ingredientMap, calculatedConfigBundle}: MealCommonProps) => {
+  const {mapMultiplier, strengthMultiplier} = calculatedConfigBundle.calculatedSettings.bonus;
   const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
 
   const t = useTranslations('UI.InPage.Cooking');

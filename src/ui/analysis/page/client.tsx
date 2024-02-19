@@ -5,7 +5,7 @@ import {useSession} from 'next-auth/react';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
-import {useTranslatedUserSettings} from '@/hooks/userData/translated';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {useCalculationWorker} from '@/ui/analysis/page/calc/hook';
 import {AnalysisStats} from '@/ui/analysis/page/calc/type';
 import {useAnalysisFilter} from '@/ui/analysis/page/hook';
@@ -36,7 +36,7 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
     .map((level) => filter.ingredients[level]), [filter]);
 
   const {data: session} = useSession();
-  const {translatedSettings, bundle} = useTranslatedUserSettings({
+  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: session?.user.preloaded,
@@ -49,8 +49,8 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
     pokemonToAnalyze: pokemonList.filter(({id}) => isIncluded[id]),
     setStats,
     setLoading,
-    calculateDeps: [filter, translatedSettings],
-    ...translatedSettings,
+    calculateDeps: [filter, calculatedConfigBundle],
+    ...calculatedConfigBundle,
     ...props,
     ...filter,
     bundle,

@@ -5,7 +5,7 @@ import {getServerSession} from 'next-auth';
 import {Announcements} from '@/components/announcement/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
-import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
+import {getConfigRequiredData} from '@/controller/dataBundle/config';
 import {getIngredientIds} from '@/controller/ingredient';
 import {getFieldMetaMap, getMapIds} from '@/controller/mapMeta';
 import {getPokemonList} from '@/controller/pokemon/info';
@@ -30,7 +30,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
     pokemonList,
     mapMeta,
     recipeLevelData,
-    userSettingsRequiredData,
+    configRequiredData,
   ] = React.use(Promise.all([
     getServerSession(authOptions),
     getMapIds(),
@@ -39,10 +39,10 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
     getPokemonList(),
     getFieldMetaMap(),
     getRecipeLevelData(),
-    getUserSettingsRequiredData(),
+    getConfigRequiredData(),
   ]));
 
-  const {mealMap} = userSettingsRequiredData;
+  const {mealMap} = configRequiredData;
   const mealTypes = getPossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
 
   return (
@@ -54,7 +54,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
       'UI.Metadata',
       'UI.Multiplier',
       'UI.Stamina',
-      'UI.UserSettings',
+      'UI.UserConfig',
       'UI.UserControl',
     ]}>
       <NavBarClient
@@ -67,7 +67,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
         pokemonList={pokemonList}
         mapMeta={mapMeta}
         recipeLevelData={recipeLevelData}
-        {...userSettingsRequiredData}
+        {...configRequiredData}
       >
         {announcement && <Announcements showOn="landscape"/>}
       </NavBarClient>

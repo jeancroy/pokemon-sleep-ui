@@ -1,7 +1,7 @@
 import {ProducingRateSingleParams} from '@/types/game/producing/rate';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {CalculatedCookingSettings} from '@/types/userData/settings/cooking/calculated';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {TeamMakerCalcInitOpts} from '@/ui/team/maker/type/calc';
 
 
@@ -13,6 +13,6 @@ export type TeamMakerPokeInBoxDataForLimits = {
 
 export type TeamMakerGetTeamMakerPokemonLimitsOpts = Omit<TeamMakerCalcInitOpts, 'pokeboxList'> & {
   pokeboxSource: PokeInBox[],
-  bundle: UserSettingsBundle,
-  calculatedCookingSettings: CalculatedCookingSettings,
+  bundle: ConfigBundle,
+  calculatedCookingSettings: CalculatedCookingConfig,
 };

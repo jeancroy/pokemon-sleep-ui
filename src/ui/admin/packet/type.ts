@@ -1,7 +1,7 @@
-import {PacketRecordingSettings} from '@/types/packet/settings';
+import {PacketRecordingConfig} from '@/types/packet/config';
 import {Nullable} from '@/utils/type';
 
 
 export type AdminPacketSettingsServerDataProps = {
-  preloaded: Nullable<PacketRecordingSettings>,
+  preloaded: Nullable<PacketRecordingConfig>,
 };

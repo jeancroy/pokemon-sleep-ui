@@ -5,7 +5,7 @@ import {getServerSession} from 'next-auth';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
+import {getConfigRequiredData} from '@/controller/dataBundle/config';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -18,7 +18,7 @@ import {DefaultPageProps} from '@/types/next/page/common';
 import {LoginRequiredPageLayout} from '@/ui/base/layout/loginRequired';
 import {PokeboxClient} from '@/ui/team/pokebox/client/main';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
-import {createUserSettingsBundle} from '@/utils/user/settings/create';
+import {createConfigBundle} from '@/utils/user/config/create';
 
 
 const Pokebox = async () => {
@@ -34,7 +34,7 @@ const Pokebox = async () => {
     mapMeta,
     recipeLevelData,
     pokemonMaxLevel,
-    userSettingsRequiredData,
+    configRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(),
@@ -47,7 +47,7 @@ const Pokebox = async () => {
     getFieldMetaMap(),
     getRecipeLevelData(),
     getPokemonMaxLevelByBerry(),
-    getUserSettingsRequiredData(),
+    getConfigRequiredData(),
   ]);
 
   const props: PokeboxCommonProps = {
@@ -61,11 +61,11 @@ const Pokebox = async () => {
     mapMeta,
     recipeLevelData,
     preloaded: {
-      bundle: createUserSettingsBundle(session),
+      bundle: createConfigBundle(session),
       display: session?.user.preloaded.pokeboxDisplay,
     },
     pokemonMaxLevel,
-    ...userSettingsRequiredData,
+    ...configRequiredData,
   };
 
   return <PokeboxClient {...props}/>;

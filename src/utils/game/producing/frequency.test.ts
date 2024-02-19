@@ -1,6 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {defaultUserCalculationBehavior} from '@/const/user/settings';
+import {defaultUserCalculationBehavior} from '@/const/user/config/user';
 import {testPokemonData} from '@/tests/data/game/pokemon';
 import {getBaseFrequencyFromPokemon} from '@/utils/game/producing/frequency';
 

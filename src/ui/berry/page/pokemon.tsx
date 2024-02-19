@@ -6,7 +6,7 @@ import {PokemonBerryStats} from '@/components/shared/pokemon/icon/itemStats/berr
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {useUserActivation} from '@/hooks/userData/activation';
-import {useTranslatedUserSettings} from '@/hooks/userData/translated';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {BerryPageDataProps} from '@/ui/berry/page/type';
 
@@ -19,7 +19,7 @@ export const BerryProducingRatesOfPokemon = ({
 
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
-  const {translatedSettings, bundle} = useTranslatedUserSettings({
+  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: data?.user.preloaded,
@@ -43,7 +43,7 @@ export const BerryProducingRatesOfPokemon = ({
       <PokemonBerryStats
         input={input}
         bundle={bundle}
-        translatedSettings={translatedSettings}
+        calculatedConfigBundle={calculatedConfigBundle}
         {...props}
       />
     </>

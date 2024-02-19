@@ -10,7 +10,7 @@ import {mealFilterMigrators} from '@/utils/migrate/mealFilter/migrators';
 
 type UseMealFilterOpts = {
   data: Meal[],
-  preloaded: UserPreloadedData['cooking'],
+  preloaded: UserPreloadedData['cookingConfig'],
 };
 
 export const useMealFilter = ({data, preloaded}: UseMealFilterOpts) => {

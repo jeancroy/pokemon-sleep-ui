@@ -13,15 +13,16 @@ import {mealOfDayIcon} from '@/const/game/cooking';
 import {mealTypeBorderStyle, mealTypeTextStyle} from '@/styles/game/mealType';
 import {RecipeLevel} from '@/types/game/cooking';
 import {MealMap, MealTypeId} from '@/types/game/meal/main';
-import {userCookingMeals, UserCookingTarget} from '@/types/userData/settings/cooking/common';
+import {cookingMeals} from '@/types/userData/config/cooking/meal';
+import {CookingTarget} from '@/types/userData/config/cooking/target';
 
 
 type Props = {
   mealMap: MealMap,
   mealTypes: MealTypeId[],
   maxRecipeLevel: number,
-  target: UserCookingTarget,
-  setTarget: (updated: Partial<UserCookingTarget>) => void,
+  target: CookingTarget,
+  setTarget: (updated: Partial<CookingTarget>) => void,
   recipeLevel: RecipeLevel,
   setRecipeLevel: (updated: Partial<RecipeLevel>) => void,
 };
@@ -49,7 +50,7 @@ export const MealPlanner = ({
               {t(`MealType.${mealType}`)}
             </div>
             <Grid className="grid-cols-1 gap-1.5 lg:grid-cols-3">
-              {userCookingMeals.map((mealOfDay) => {
+              {cookingMeals.map((mealOfDay) => {
                 const targetOfType = target[mealType];
 
                 return (

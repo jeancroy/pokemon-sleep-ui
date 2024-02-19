@@ -1,23 +1,23 @@
-import {migrateUserCookingData} from '@/controller/migrate/userCooking';
+import {migrateUserCookingSettings} from '@/controller/migrate/userCooking';
 import {
-  userDataCookingSettings,
+  userDataCookingConfig,
   userDataPokeboxDisplay,
   userDataPokedex,
-  userDataSettings,
+  userDataUserConfig,
 } from '@/controller/user/manager';
 import {UserPreloadedData} from '@/types/userData/main';
 
 
-const getUserCookingData = async (userId: string) => {
-  const data = await userDataCookingSettings.getData(userId);
+const getUserCookingSettings = async (userId: string) => {
+  const data = await userDataCookingConfig.getData(userId);
 
   if (data) {
     return data;
   }
 
-  await migrateUserCookingData(userId);
+  await migrateUserCookingSettings(userId);
 
-  return await userDataCookingSettings.getData(userId);
+  return await userDataCookingConfig.getData(userId);
 };
 
 export const getUserPreloadedData = async (userId: string): Promise<UserPreloadedData> => {
@@ -25,18 +25,18 @@ export const getUserPreloadedData = async (userId: string): Promise<UserPreloade
     cooking,
     pokedex,
     pokeboxDisplay,
-    settings,
+    userConfig,
   ] = await Promise.all([
-    getUserCookingData(userId),
+    getUserCookingSettings(userId),
     userDataPokedex.getData(userId),
     userDataPokeboxDisplay.getData(userId),
-    userDataSettings.getData(userId),
+    userDataUserConfig.getData(userId),
   ]);
 
   return {
-    cooking: cooking?.data,
+    cookingConfig: cooking?.data,
     pokedex: pokedex?.data,
     pokeboxDisplay: pokeboxDisplay?.data,
-    settings: settings?.data,
+    userConfig: userConfig?.data,
   };
 };

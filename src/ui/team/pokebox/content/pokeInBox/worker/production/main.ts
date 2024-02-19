@@ -8,7 +8,7 @@ import {
   getProducingRateSingleParams,
 } from '@/utils/game/producing/params';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
-import {toTranslatedSettings} from '@/utils/user/settings/translated';
+import {toCalculatedConfigBundle} from '@/utils/user/config/bundle';
 
 
 export const getRateOfPokemon = ({
@@ -40,7 +40,7 @@ export const getRateOfPokemon = ({
     ...props,
     ...singleParams,
     ...getProducingRateImplicitParamsFromPokeInbox({pokeInBox}),
-    ...toTranslatedSettings({
+    ...toCalculatedConfigBundle({
       ...bundle,
       mealMap,
       recoveryRate: toRecoveryRate({

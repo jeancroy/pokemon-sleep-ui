@@ -1,7 +1,7 @@
 import {updateAnnouncements} from '@/controller/announcement/main';
 import {addDoc, deleteDoc, updateDoc} from '@/controller/docs';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
-import {updatePacketRecordingSettings} from '@/controller/packet/settings';
+import {updatePacketRecordingConfig} from '@/controller/packet/config';
 import {addSinglePokeInBox, deleteSinglePokeInBox, upsertSinglePokeInBox} from '@/controller/pokebox/main';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {addSleepdexRecord, removeSleepdexRecord} from '@/controller/sleepdex';
@@ -13,10 +13,10 @@ import {
 import {updateActivationKeyByKey} from '@/controller/user/activation/key';
 import {updateActivationPresets} from '@/controller/user/activation/preset';
 import {
-  userDataCookingSettings,
+  userDataCookingConfig,
   userDataPokeboxDisplay,
   userDataPokedex,
-  userDataSettings,
+  userDataUserConfig,
   userRatingConfig,
 } from '@/controller/user/manager';
 import {addTeamAnalysisComp, updateTeamAnalysisComps} from '@/controller/user/teamAnalysis/comp';
@@ -100,21 +100,21 @@ export const uploadUserData = async ({userId, opts}: UploadUserDataOpts) => {
     return;
   }
 
-  if (type === 'cooking') {
-    await userDataCookingSettings.setData(userId, data);
+  if (type === 'config.cooking') {
+    await userDataCookingConfig.setData(userId, data);
     return;
   }
 
-  if (type === 'settings') {
-    const {settings, cooking} = data;
+  if (type === 'config.bundle') {
+    const {userConfig, cookingConfig} = data;
     await Promise.all([
-      userDataSettings.setData(userId, settings),
-      userDataCookingSettings.setData(userId, cooking),
+      userDataUserConfig.setData(userId, userConfig),
+      userDataCookingConfig.setData(userId, cookingConfig),
     ]);
     return;
   }
 
-  if (type === 'rating') {
+  if (type === 'config.rating') {
     await userRatingConfig.setData(userId, data);
     return;
   }
@@ -160,7 +160,7 @@ export const uploadUserData = async ({userId, opts}: UploadUserDataOpts) => {
   }
 
   if (type === 'admin.packets') {
-    await updatePacketRecordingSettings({executorUserId: userId, updated: data});
+    await updatePacketRecordingConfig({executorUserId: userId, updated: data});
     return;
   }
 

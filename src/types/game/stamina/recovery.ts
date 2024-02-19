@@ -1,5 +1,5 @@
 import {Interval} from '@/types/compute';
-import {UserCookingMeal} from '@/types/userData/settings/cooking/common';
+import {CookingMeal} from '@/types/userData/config/cooking/meal';
 
 
 export type StaminaRecovery = {
@@ -13,7 +13,7 @@ export type StaminaRecoveryRateConfig = {
   sleep: number,
 };
 
-export type StaminaCookingRecoveryConfig = {[mealOfDay in UserCookingMeal]: number};
+export type StaminaCookingRecoveryConfig = {[mealOfDay in CookingMeal]: number};
 
 export type StaminaCookingRecoveryData = {
   internalId: number,

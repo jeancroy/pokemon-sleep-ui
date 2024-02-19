@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {InputRow} from '@/components/input/filter/row';
 import {ToggleButton} from '@/components/input/toggleButton';
 import {textFilterButtonStyle} from '@/styles/input';
-import {UserCalculationBehavior} from '@/types/userData/settings/behavior';
+import {UserCalculationBehavior} from '@/types/userData/config/user/behavior';
 
 
 type Props = {
@@ -20,7 +20,7 @@ export const UserCalculationBehaviorUI = ({behavior, setBehavior}: Props) => {
     includeMainSkill,
   } = behavior;
 
-  const t = useTranslations('UI.UserSettings');
+  const t = useTranslations('UI.UserConfig');
 
   const isAlwaysFullPack = alwaysFullPack === 'berryOnly';
 

@@ -10,7 +10,7 @@ import {GenericIcon} from '@/components/shared/icon/common/main';
 import {PotIcon} from '@/components/shared/icon/pot';
 import {MealLink} from '@/components/shared/meal/link';
 import {Meal} from '@/types/game/meal/main';
-import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
+import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 import {PotInfoDataProps, PotInfoFilter, PotLevelInfo} from '@/ui/info/pot/type';
 import {formatInt} from '@/utils/number/format/regular';
 
@@ -21,7 +21,7 @@ type Props = Omit<PotInfoDataProps, 'mealMap'> & {
   potInfo: PotLevelInfo,
   unlockedMeals: Meal[],
   unlockedRecipes: number,
-  calculatedSettings: CalculatedUserSettings,
+  calculatedSettings: CalculatedUserConfig,
 };
 
 export const PotRecipeUnlockSection = ({

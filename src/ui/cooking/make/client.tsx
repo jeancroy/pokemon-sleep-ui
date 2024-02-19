@@ -5,13 +5,13 @@ import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {usePossibleMealTypes} from '@/hooks/meal';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
-import {useTranslatedUserSettings} from '@/hooks/userData/translated';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {CookingServerDataProps} from '@/ui/cooking/common/type';
 import {useMealMakerFilter} from '@/ui/cooking/make/hook';
 import {MealMakerInputUI} from '@/ui/cooking/make/input/main';
 import {MealMakerRecipe} from '@/ui/cooking/make/recipe/main';
 import {MealMakerCommonProps, MealMakerFilter} from '@/ui/cooking/make/type';
-import {toUserCookingSettingsFromMealMakerFilter} from '@/ui/cooking/make/utils';
+import {toCookingSettingsFromMealMakerFilter} from '@/ui/cooking/make/utils';
 import {subtractIngredientCount} from '@/utils/game/ingredient/counter';
 import {isNotNullish} from '@/utils/type';
 
@@ -30,7 +30,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
     isIncluded,
   } = useMealMakerFilter(props);
   const {actAsync, session, status} = useUserDataActor();
-  const {translatedSettings} = useTranslatedUserSettings({
+  const {calculatedConfigBundle} = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: session.data?.user.preloaded,
@@ -49,7 +49,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
     mealTypes,
     ingredientMap,
     recipeLevelData,
-    calculatedSettings: translatedSettings.calculatedSettings,
+    calculatedSettings: calculatedConfigBundle.calculatedSettings,
     status,
     onCook: async (ingredientsUsed) => {
       setFilter((original) => ({
@@ -64,12 +64,12 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
       await actAsync({
         action: 'upload',
         options: {
-          type: 'cooking',
-          data: toUserCookingSettingsFromMealMakerFilter({preloaded: preloaded.cooking, filter}),
+          type: 'config.cooking',
+          data: toCookingSettingsFromMealMakerFilter({preloaded: preloaded.cookingConfig, filter}),
         },
       });
     },
-    preloaded: preloaded.cooking,
+    preloaded: preloaded.cookingConfig,
   };
 
   return (

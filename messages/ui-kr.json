@@ -375,7 +375,7 @@
       "FriendshipLevel": "프렌드 레벨",
       "AdvancedOptions": "고급 옵션",
       "Message": {
-        "RatingBasisIsIngredientRelated": "Ingredient-related rating basis is picked. Make sure the cooking schedule in user settings is set up.\n\nCheck the documentation available at the top right side of the page for details."
+        "RatingBasisIsIngredientRelated": "Ingredient-related rating basis is picked. Make sure the cooking schedule in user config is set up.\n\nCheck the documentation available at the top right side of the page for details."
       }
     },
     "Cooking": {
@@ -645,7 +645,7 @@
       }
     }
   },
-  "UserSettings": {
+  "UserConfig": {
     "AlwaysFullPack": "항상 가득 차 있음",
     "BerryPokemonFullPack": "가득 차 있음 (특기: 나무열매)",
     "GoodCampTicket": "좋은캠프티켓",
@@ -654,7 +654,7 @@
       "Title": "요리 관련"
     },
     "Message": {
-      "SettingsNotStored": "기본 사용자 설정이 표시됩니다. 사용자 설정을 저장하거나 설정이 적용되도록 하려면 로그인이 필요합니다."
+      "ConfigNotStored": "기본 사용자 설정이 표시됩니다. 사용자 설정을 저장하거나 설정이 적용되도록 하려면 로그인이 필요합니다."
     },
     "Multiplier": {
       "Overall": "전체",

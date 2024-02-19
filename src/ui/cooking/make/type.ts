@@ -2,7 +2,8 @@ import {FilterInclusionMap, FilterWithUpdaterProps} from '@/components/input/fil
 import {IngredientId} from '@/types/game/ingredient';
 import {MealStrengthInfo} from '@/types/game/meal/info';
 import {Meal, MealTypeId} from '@/types/game/meal/main';
-import {CookingCommonFilter, CookingPreloadedData} from '@/ui/cooking/common/type';
+import {CookingConfig} from '@/types/userData/config/cooking/main';
+import {CookingCommonFilter} from '@/ui/cooking/common/type';
 import {MealMakerPopupCommonProps} from '@/ui/cooking/make/recipe/popup/type';
 
 
@@ -21,5 +22,5 @@ export type MealMakerFilter = CookingCommonFilter & {
 export type MealMakerCommonProps = FilterWithUpdaterProps<MealMakerFilter> & MealMakerPopupCommonProps & {
   meals: Meal[],
   mealTypes: MealTypeId[],
-  preloaded: CookingPreloadedData['cooking'],
+  preloaded: CookingConfig,
 };

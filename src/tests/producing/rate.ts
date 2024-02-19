@@ -1,4 +1,4 @@
-import {testDefaultCalculatedUserSettings} from '@/tests/data/user/settings';
+import {testDefaultCalculatedUserConfig} from '@/tests/data/user/config';
 import {EffectiveBonus} from '@/types/game/bonus/main';
 import {ProducingRateOfDrop} from '@/types/game/producing/rate';
 import {ToFinalProducingRateOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
@@ -34,7 +34,7 @@ export const getTestFinalProducingRateOfDropCommonOpts = (
     },
   },
   calculatedSettings: {
-    ...testDefaultCalculatedUserSettings,
+    ...testDefaultCalculatedUserConfig,
     bonus,
   },
   sleepSessionInfo: {

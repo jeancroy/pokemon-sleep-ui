@@ -25,7 +25,7 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
     cookingRecoveryData,
     input,
     bundle,
-    translatedSettings,
+    calculatedConfigBundle,
   } = opts;
 
   const [
@@ -67,7 +67,7 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
       cookingRecoveryData,
       input,
       bundle,
-      translatedSettings,
+      calculatedConfigBundle: calculatedConfigBundle,
     });
     if (setLoading) {
       setLoading(true);
@@ -76,7 +76,7 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
 
   React.useEffect(() => {
     calculate();
-  }, [input, translatedSettings, pokemonIngredientProduction]);
+  }, [input, calculatedConfigBundle, pokemonIngredientProduction]);
 
   return producingStats;
 };

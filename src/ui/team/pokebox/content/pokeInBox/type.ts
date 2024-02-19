@@ -3,8 +3,8 @@ import React from 'react';
 import {PokemonInfoWithSortingPayload, SortedPokemonInfo} from '@/components/shared/pokemon/sorter/type';
 import {PokedexMap, PokemonInfo} from '@/types/game/pokemon';
 import {RatingSetupData} from '@/types/game/pokemon/rating/request';
+import {ConfigBundle} from '@/types/userData/config/bundle';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {PokeInBoxChangeableProps} from '@/ui/team/pokebox/content/type';
 import {PokeInBoxEditorState} from '@/ui/team/pokebox/editor/type';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
@@ -22,7 +22,7 @@ export type PokeInBoxPopupProps = {
 };
 
 export type PokeInBoxViewCommonProps = {
-  bundle: UserSettingsBundle,
+  bundle: ConfigBundle,
   setEditingPokeInBox: React.Dispatch<React.SetStateAction<PokeInBoxEditorState | undefined>>,
 };
 

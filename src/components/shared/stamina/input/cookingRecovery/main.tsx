@@ -8,7 +8,7 @@ import {staminaConfigSectionStyling} from '@/components/shared/stamina/input/con
 import {StaminaConfigTimeInput} from '@/components/shared/stamina/input/time';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 import {mealOfDayIcon} from '@/const/game/cooking';
-import {userCookingMeals} from '@/types/userData/settings/cooking/common';
+import {cookingMeals} from '@/types/userData/config/cooking/meal';
 
 
 export const StaminaConfigCookingRecovery = ({config, setConfig}: StaminaConfigProps) => {
@@ -24,20 +24,20 @@ export const StaminaConfigCookingRecovery = ({config, setConfig}: StaminaConfigP
         <span>{title}</span>
       </Flex>
       <Flex className="items-center gap-1.5 lg:flex-row">
-        {userCookingMeals.map((userCookingMeal) => (
+        {cookingMeals.map((cookingMeal) => (
           <StaminaConfigTimeInput
-            key={userCookingMeal}
-            timeValue={cookingRecovery[userCookingMeal]}
+            key={cookingMeal}
+            timeValue={cookingRecovery[cookingMeal]}
             onUpdate={(time) => setConfig({
               ...config,
               cookingRecovery: {
                 ...config.cookingRecovery,
-                [userCookingMeal]: time,
+                [cookingMeal]: time,
               },
             })}
             icon={
               <div className="size-7 shrink-0">
-                {mealOfDayIcon[userCookingMeal]}
+                {mealOfDayIcon[cookingMeal]}
               </div>
             }
           />

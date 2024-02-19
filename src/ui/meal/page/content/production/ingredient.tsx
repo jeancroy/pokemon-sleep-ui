@@ -20,7 +20,7 @@ type Props = MealCommonProps & {
 
 export const MealContentIngredientSection = ({
   meal,
-  translatedSettings,
+  calculatedConfigBundle,
   ingredient,
   ingredientProductionMapOfLevel,
   ...props
@@ -41,7 +41,7 @@ export const MealContentIngredientSection = ({
         ingredient={ingredientMap[id]}
         pokemonIngredientProduction={ingredientProductionMapOfLevel[id] ?? []}
         hidePokebox
-        translatedSettings={translatedSettings}
+        calculatedConfigBundle={calculatedConfigBundle}
         {...props}
       />
       <AdsUnit/>

@@ -4,7 +4,7 @@ import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
 import {PokemonProducingRateFinal, PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
-import {CalculatedCookingSettings} from '@/types/userData/settings/cooking/calculated';
+import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {toSum} from '@/utils/array';
 import {applyIngredientMultiplier} from '@/utils/game/producing/apply/ingredient';
 import {groupPokemonProducingRate} from '@/utils/game/producing/group';
@@ -14,7 +14,7 @@ import {GetPokemonProducingRateOptsWithPayload, GetProducingRateSharedOpts} from
 import {getHelpingBonusStack} from '@/utils/game/producing/params';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {isNotNullish} from '@/utils/type';
-import {toCalculatedUserSettings} from '@/utils/user/settings/calculated';
+import {toCalculatedUserConfig} from '@/utils/user/config/user/main';
 
 
 export type GetPokemonProducingRateMultiOpts<TPayload> = {
@@ -23,7 +23,7 @@ export type GetPokemonProducingRateMultiOpts<TPayload> = {
   rateOpts: GetPokemonProducingRateOptsWithPayload<TPayload>[],
   sharedOpts: GetProducingRateSharedOpts,
   groupingState: ProducingStateCalculated,
-  calculatedCookingSettings: CalculatedCookingSettings,
+  calculatedCookingSettings: CalculatedCookingConfig,
 };
 
 export const getPokemonProducingRateMulti = <TPayload>({
@@ -58,7 +58,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
   const ratesWithPayload = rateOpts.map(({opts, payload}) => {
     const {natureId, alwaysFullPack} = opts;
 
-    const calculatedSettings = toCalculatedUserSettings({
+    const calculatedSettings = toCalculatedUserConfig({
       ...bundle,
       recoveryRate: toRecoveryRate({natureId, subSkillBonuses}),
       behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},

@@ -7,7 +7,7 @@ import {PokemonIngredientStats} from '@/components/shared/pokemon/icon/itemStats
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {useUserActivation} from '@/hooks/userData/activation';
-import {useTranslatedUserSettings} from '@/hooks/userData/translated';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {Ingredient} from '@/types/game/ingredient';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {IngredientProductionDataProps} from '@/ui/ingredient/page/type';
@@ -30,7 +30,7 @@ export const IngredientPokemonProduction = ({
   );
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
-  const {translatedSettings, bundle} = useTranslatedUserSettings({
+  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: data?.user.preloaded,
@@ -52,7 +52,7 @@ export const IngredientPokemonProduction = ({
         input={input}
         ingredient={ingredient}
         bundle={bundle}
-        translatedSettings={translatedSettings}
+        calculatedConfigBundle={calculatedConfigBundle}
         subSkillMap={subSkillMap}
         {...props}
       />

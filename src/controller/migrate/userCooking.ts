@@ -1,10 +1,10 @@
-import {defaultUserCookingSettings} from '@/const/user/cooking';
+import {defaultCookingConfig} from '@/const/user/config/cooking';
 import {createUserDataManager} from '@/controller/user/common';
-import {userDataCookingSettings} from '@/controller/user/manager';
+import {userDataCookingConfig} from '@/controller/user/manager';
 import {RecipeLevel} from '@/types/game/cooking';
 import {IngredientCounter} from '@/types/game/ingredient';
 import {MealTypeId} from '@/types/game/meal/main';
-import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
+import {CookingConfig} from '@/types/userData/config/cooking/main';
 
 
 const userDataRecipeLevel = createUserDataManager<RecipeLevel>('recipeLevel');
@@ -15,7 +15,7 @@ const userDataMealType = createUserDataManager<MealTypeId>('mealType');
 
 const userDataIngredientCount = createUserDataManager<IngredientCounter>('ingredientCount');
 
-export const migrateUserCookingData = async (userId: string) => {
+export const migrateUserCookingSettings = async (userId: string) => {
   const [
     mealType,
     recipeLevel,
@@ -28,13 +28,13 @@ export const migrateUserCookingData = async (userId: string) => {
     userDataIngredientCount.getData(userId),
   ]);
 
-  const newPreset: UserCookingSettings = {
-    ...defaultUserCookingSettings,
-    mealType: mealType?.data ?? defaultUserCookingSettings.mealType,
-    recipeLevel: recipeLevel?.data ?? defaultUserCookingSettings.recipeLevel,
-    potCapacity: potCapacity?.data ?? defaultUserCookingSettings.potCapacity,
-    ingredientCount: ingredientCount?.data ?? defaultUserCookingSettings.ingredientCount,
+  const newPreset: CookingConfig = {
+    ...defaultCookingConfig,
+    mealType: mealType?.data ?? defaultCookingConfig.mealType,
+    recipeLevel: recipeLevel?.data ?? defaultCookingConfig.recipeLevel,
+    potCapacity: potCapacity?.data ?? defaultCookingConfig.potCapacity,
+    ingredientCount: ingredientCount?.data ?? defaultCookingConfig.ingredientCount,
   };
 
-  await userDataCookingSettings.setData(userId, newPreset);
+  await userDataCookingConfig.setData(userId, newPreset);
 };

@@ -4,11 +4,11 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
-import {defaultUserCookingSettings} from '@/const/user/cooking';
-import {defaultUserSettings} from '@/const/user/settings';
+import {defaultCookingConfig} from '@/const/user/config/cooking';
+import {defaultUserConfig} from '@/const/user/config/user';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
 import {UserSettingsAccountInfo} from '@/ui/base/navbar/userSettings/sections/account';
 import {UserSettingsAppInfo} from '@/ui/base/navbar/userSettings/sections/app/main';
 import {UserCalculationBehaviorUI} from '@/ui/base/navbar/userSettings/sections/behavior';
@@ -19,7 +19,7 @@ import {UserSettingsMultiplierUI} from '@/ui/base/navbar/userSettings/sections/m
 import {UserSettingsStamina} from '@/ui/base/navbar/userSettings/sections/stamina';
 import {UserSettingsProps} from '@/ui/base/navbar/userSettings/type';
 import {migrate} from '@/utils/migrate/main';
-import {userSettingsMigrators} from '@/utils/migrate/userSettings/migrators';
+import {userConfigMigrators} from '@/utils/migrate/userConfig/migrators';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
@@ -34,23 +34,23 @@ export const UserSettingsPopup = ({
   setShow,
   ...props
 }: Props) => {
-  const t = useTranslations('UI.UserSettings');
+  const t = useTranslations('UI.UserConfig');
   const {act} = useUserDataActor({statusToast: true});
-  const [bundle, setBundleInternal] = React.useState<UserSettingsBundle>({
-    settings: migrate({
-      original: defaultUserSettings,
-      override: session?.user.preloaded.settings ?? null,
-      migrators: userSettingsMigrators,
+  const [bundle, setBundleInternal] = React.useState<ConfigBundle>({
+    userConfig: migrate({
+      original: defaultUserConfig,
+      override: session?.user.preloaded.userConfig ?? null,
+      migrators: userConfigMigrators,
       migrateParams: {},
     }),
-    cooking: {
-      ...defaultUserCookingSettings,
-      ...session?.user.preloaded.cooking,
+    cookingConfig: {
+      ...defaultCookingConfig,
+      ...session?.user.preloaded.cookingConfig,
     },
   });
 
-  const {settings, cooking} = bundle;
-  const setBundle: ReactStateUpdaterFromOriginal<UserSettingsBundle> = (getUpdated) => {
+  const {userConfig, cookingConfig} = bundle;
+  const setBundle: ReactStateUpdaterFromOriginal<ConfigBundle> = (getUpdated) => {
     // Only really update the state if the user is logged in
     if (!session) {
       return;
@@ -62,7 +62,7 @@ export const UserSettingsPopup = ({
   return (
     <PopupCommon show={show} setShow={(show) => {
       if (act) {
-        act({action: 'upload', options: {type: 'settings', data: bundle}});
+        act({action: 'upload', options: {type: 'config.bundle', data: bundle}});
       }
 
       setShow(show);
@@ -71,55 +71,55 @@ export const UserSettingsPopup = ({
         {session && <UserSettingsAccountInfo session={session}/>}
         {!session && (
           <div className="rounded-lg bg-rose-300 p-2 text-lg dark:bg-rose-700">
-            {t('Message.SettingsNotStored')}
+            {t('Message.ConfigNotStored')}
           </div>
         )}
         <UserSettingsStamina
           {...props}
-          config={settings.stamina}
-          setConfig={(stamina) => setBundle(({settings, ...original}) => ({
+          config={userConfig.stamina}
+          setConfig={(stamina) => setBundle(({userConfig, ...original}) => ({
             ...original,
-            settings: {...settings, stamina},
-          } satisfies UserSettingsBundle))}
-          setTrigger={(recovery) => setBundle(({settings, ...original}) => ({
+            userConfig: {...userConfig, stamina},
+          } satisfies ConfigBundle))}
+          setTrigger={(recovery) => setBundle(({userConfig, ...original}) => ({
             ...original,
-            settings: cloneMerge(settings, {stamina: {skillRecovery: {recovery}}}),
-          } satisfies UserSettingsBundle))}
+            userConfig: cloneMerge(userConfig, {stamina: {skillRecovery: {recovery}}}),
+          } satisfies ConfigBundle))}
         />
         <UserCalculationBehaviorUI
-          behavior={settings.behavior}
-          setBehavior={(behavior) => setBundle(({settings, ...original}) => ({
+          behavior={userConfig.behavior}
+          setBehavior={(behavior) => setBundle(({userConfig, ...original}) => ({
             ...original,
-            settings: {...settings, behavior},
-          } satisfies UserSettingsBundle))}
+            userConfig: {...userConfig, behavior},
+          } satisfies ConfigBundle))}
         />
         <UserSettingsCooking
-          cookingSettings={cooking}
-          setCookingSettings={(updated) => setBundle(({cooking, ...original}) => ({
+          cookingSettings={cookingConfig}
+          setCookingSettings={(updated) => setBundle(({cookingConfig, ...original}) => ({
             ...original,
-            cooking: cloneMerge(cooking, updated),
-          } satisfies UserSettingsBundle))}
+            cookingConfig: cloneMerge(cookingConfig, updated),
+          } satisfies ConfigBundle))}
           {...props}
         />
         <UserSettingsMapBonusUI
-          bonus={settings.bonus}
-          setBonus={(bonus) => setBundle(({settings, ...original}) => ({
+          bonus={userConfig.bonus}
+          setBonus={(bonus) => setBundle(({userConfig, ...original}) => ({
             ...original,
-            settings: {...settings, bonus},
-          } satisfies UserSettingsBundle))}
-          settings={settings}
-          setSettings={(getUpdated) => setBundle(({settings, ...original}) => ({
+            userConfig: {...userConfig, bonus},
+          } satisfies ConfigBundle))}
+          config={userConfig}
+          setConfig={(getUpdated) => setBundle(({userConfig, ...original}) => ({
             ...original,
-            settings: getUpdated(settings),
-          } satisfies UserSettingsBundle))}
+            userConfig: getUpdated(userConfig),
+          } satisfies ConfigBundle))}
           {...props}
         />
         <UserSettingsMultiplierUI
-          settings={settings}
-          setSettings={(getUpdated) => setBundle(({settings, ...original}) => ({
+          config={userConfig}
+          setConfig={(getUpdated) => setBundle(({userConfig, ...original}) => ({
             ...original,
-            settings: getUpdated(settings),
-          } satisfies UserSettingsBundle))}
+            userConfig: getUpdated(userConfig),
+          } satisfies ConfigBundle))}
           {...props}
         />
         <UserSettingsLanguage/>

@@ -7,7 +7,7 @@ import {SleepIcon} from '@/components/shared/icon/sleep';
 import {staminaConfigSectionStyling} from '@/components/shared/stamina/input/const';
 import {StaminaConfigSleepSession} from '@/components/shared/stamina/input/sleep/session';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
-import {defaultStaminaCalcConfig} from '@/const/user/settings';
+import {defaultStaminaCalcConfig} from '@/const/user/config/user';
 
 
 export const StaminaConfigSleepSchedule = (props: StaminaConfigProps) => {

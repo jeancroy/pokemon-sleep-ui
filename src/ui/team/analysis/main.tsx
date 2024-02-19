@@ -5,7 +5,7 @@ import {getServerSession} from 'next-auth';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
+import {getConfigRequiredData} from '@/controller/dataBundle/config';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -19,7 +19,7 @@ import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {TeamAnalysisClient} from '@/ui/team/analysis/client/main';
 import {TeamAnalysisServerDataProps} from '@/ui/team/analysis/type';
-import {createUserSettingsBundle} from '@/utils/user/settings/create';
+import {createConfigBundle} from '@/utils/user/config/create';
 
 
 export const TeamAnalysis = async ({params}: DefaultPageProps) => {
@@ -37,7 +37,7 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
     subSkillMap,
     pokemonMaxLevel,
     recipeLevelData,
-    userSettingsRequiredData,
+    configRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(),
@@ -51,7 +51,7 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
     getSubSkillMap(),
     getPokemonMaxLevelByBerry(),
     getRecipeLevelData(),
-    getUserSettingsRequiredData(),
+    getConfigRequiredData(),
   ]);
 
   const props: TeamAnalysisServerDataProps = {
@@ -66,8 +66,8 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
     subSkillMap,
     pokemonMaxLevel,
     recipeLevelData,
-    preloaded: createUserSettingsBundle(session),
-    ...userSettingsRequiredData,
+    preloaded: createConfigBundle(session),
+    ...configRequiredData,
   };
 
   return (
@@ -84,7 +84,7 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
         'UI.Producing',
         'UI.Stamina',
         'UI.Rating',
-        'UI.UserSettings',
+        'UI.UserConfig',
       ]}>
         <TeamAnalysisClient {...props}/>
       </I18nProvider>

@@ -1,6 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {defaultCookingRecovery} from '@/const/user/settings';
+import {defaultCookingRecovery} from '@/const/user/config/user';
 import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';

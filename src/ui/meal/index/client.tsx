@@ -7,7 +7,7 @@ import {useSession} from 'next-auth/react';
 import {AdsUnit} from '@/components/ads/main';
 import {Grid} from '@/components/layout/grid';
 import {MealLink} from '@/components/shared/meal/link';
-import {useTranslatedUserSettings} from '@/hooks/userData/translated';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {useMealFilter} from '@/ui/meal/index/hook';
 import {MealInput} from '@/ui/meal/index/input/main';
 import {MealDataProps} from '@/ui/meal/index/type';
@@ -18,10 +18,10 @@ import {isNotNullish} from '@/utils/type';
 
 export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...props}: MealDataProps) => {
   const {mealMap} = props;
-  const {cooking} = preloaded;
+  const {cookingConfig} = preloaded;
 
   const {data: session} = useSession();
-  const {translatedSettings} = useTranslatedUserSettings({
+  const {calculatedConfigBundle} = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: session?.user.preloaded,
@@ -32,16 +32,16 @@ export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...p
   const meals = Object.values(mealMap).filter(isNotNullish);
   const mealFilterProps = useMealFilter({
     data: meals,
-    preloaded: cooking,
+    preloaded: cookingConfig,
   });
 
   const {isIncluded, filter} = mealFilterProps;
   const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
-  const {mapMultiplier, strengthMultiplier} = translatedSettings.calculatedSettings.bonus;
+  const {mapMultiplier, strengthMultiplier} = calculatedConfigBundle.calculatedSettings.bonus;
 
   return (
     <>
-      <MealInput preloaded={cooking} maxRecipeLevel={maxRecipeLevel} {...mealFilterProps}/>
+      <MealInput preloaded={cookingConfig} maxRecipeLevel={maxRecipeLevel} {...mealFilterProps}/>
       <AdsUnit hideIfNotBlocked/>
       <Grid className={clsx(
         'grid-cols-1 gap-1.5 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5',

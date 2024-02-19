@@ -1,6 +1,5 @@
 import {PokemonInfoWithSortingPayload, PokemonSortType} from '@/components/shared/pokemon/sorter/type';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
-import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
+import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {PokedexDisplayType, PokedexFilterCommon} from '@/ui/pokedex/common/type';
 import {getPossibleIngredientsFromChain} from '@/utils/game/ingredient/chain';
@@ -39,8 +38,8 @@ type ToPokemonInfoWithSortingPayloadFromPokemonListOpts<
   TFilter extends PokedexFilterCommon,
 > = PokedexCalcDataProps & {
   filter: TFilter,
-  bundle: UserSettingsBundle,
-  translatedSettings: TranslatedUserSettings,
+  bundle: ConfigBundle,
+  calculatedConfigBundle: CalculatedConfigBundle,
 };
 
 export const toPokemonInfoWithSortingPayloadFromPokemonList = <TFilter extends PokedexFilterCommon>({
@@ -49,7 +48,7 @@ export const toPokemonInfoWithSortingPayloadFromPokemonList = <TFilter extends P
   subSkillMap,
   ingredientChainMap,
   bundle,
-  translatedSettings,
+  calculatedConfigBundle,
   filter,
   ...opts
 }: ToPokemonInfoWithSortingPayloadFromPokemonListOpts<TFilter>) => pokemonList.flatMap((
@@ -65,7 +64,7 @@ export const toPokemonInfoWithSortingPayloadFromPokemonList = <TFilter extends P
     dateAdded: null,
     extra: null,
     bundle,
-    ...translatedSettings,
+    ...calculatedConfigBundle,
     ...getProducingRateIndividualParams({
       input: filter,
       pokemon,

@@ -2,7 +2,7 @@ import {PokemonConfigPokemonData} from '@/components/shared/pokemon/predefined/c
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {PokemonProducingRate, ProducingRate} from '@/types/game/producing/rate';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
+import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 import {Nullable} from '@/utils/type';
 
 
@@ -22,6 +22,6 @@ export type TeamMemberData = PokemonConfigPokemonData & {
 
 export type TeamMemberProduction = PokemonProducingRate & {
   total: ProducingRate,
-  calculatedSettings: CalculatedUserSettings,
+  calculatedSettings: CalculatedUserConfig,
   level: Nullable<number>,
 };

@@ -3,15 +3,15 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {TeamMemberData, TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {CalculatedCookingSettings} from '@/types/userData/settings/cooking/calculated';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/setup/common/type';
 
 
 export type TeamAnalysisFilledProps = TeamAnalysisSetupUpdateCommonProps & {
   showPokemon: (pokemon: PokemonInfo) => void,
-  bundle: UserSettingsBundle,
-  calculatedCookingSettings: CalculatedCookingSettings,
+  bundle: ConfigBundle,
+  calculatedCookingSettings: CalculatedCookingConfig,
 };
 
 export type TeamAnalysisFilledSlotProps = TeamAnalysisFilledProps & {

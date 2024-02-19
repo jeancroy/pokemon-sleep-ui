@@ -5,7 +5,7 @@ import {getServerSession} from 'next-auth';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
+import {getConfigRequiredData} from '@/controller/dataBundle/config';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -18,7 +18,7 @@ import {PublicPageLayout} from '@/ui/base/layout/public';
 import {SkillTriggerAnalysisClient} from '@/ui/team/mainskill/client';
 import {SkillTriggerAnalysisServerDataProps} from '@/ui/team/mainskill/type';
 import {getOcrTranslationsForPokemonInfo} from '@/utils/ocr/translations/pokemon';
-import {createUserSettingsBundle} from '@/utils/user/settings/create';
+import {createConfigBundle} from '@/utils/user/config/create';
 
 
 export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
@@ -35,7 +35,7 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
     recipeLevelData,
     pokemonMaxLevel,
     ocrTranslations,
-    userSettingsRequiredData,
+    configRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(),
@@ -48,7 +48,7 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
     getRecipeLevelData(),
     getPokemonMaxLevelByBerry(),
     getOcrTranslationsForPokemonInfo(),
-    getUserSettingsRequiredData(),
+    getConfigRequiredData(),
   ]);
 
   const props: SkillTriggerAnalysisServerDataProps = {
@@ -61,9 +61,9 @@ export const SkillTriggerAnalysis = async ({params}: DefaultPageProps) => {
     subSkillMap,
     recipeLevelData,
     pokemonMaxLevel,
-    preloaded: createUserSettingsBundle(session),
+    preloaded: createConfigBundle(session),
     ocrTranslations,
-    ...userSettingsRequiredData,
+    ...configRequiredData,
   };
 
   return (

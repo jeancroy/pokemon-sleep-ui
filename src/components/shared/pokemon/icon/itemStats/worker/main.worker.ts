@@ -17,7 +17,7 @@ const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
     mainSkillMap,
     subSkillMap,
     input,
-    translatedSettings,
+    calculatedConfigBundle,
   } = data;
   const {level} = input;
 
@@ -52,7 +52,7 @@ const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
               subSkillMap,
             }),
             ...data,
-            ...translatedSettings,
+            ...calculatedConfigBundle,
           }).atStage.final;
 
           return {

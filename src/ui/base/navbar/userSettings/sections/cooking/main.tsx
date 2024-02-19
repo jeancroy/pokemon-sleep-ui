@@ -28,7 +28,7 @@ export const UserSettingsCooking = (props: UserSettingsCookingCommonProps) => {
   const {unlockedIngredients} = cookingSettings;
 
   const mealTypes = usePossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
-  const t = useTranslations('UI.UserSettings');
+  const t = useTranslations('UI.UserConfig');
   const t2 = useTranslations('Game');
 
   return (

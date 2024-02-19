@@ -1,4 +1,4 @@
-import {defaultRecoveryRate, defaultUserSettings} from '@/const/user/settings';
+import {defaultRecoveryRate, defaultUserConfig} from '@/const/user/config/user';
 import {EffectiveBonus} from '@/types/game/bonus/main';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
 
@@ -9,7 +9,7 @@ export const testBonus: {[id in number]: EffectiveBonus} = {
     stamina: {
       logs: [], // ignore
       sleepSessionInfo: getSleepSessionInfo({
-        sleepSession: defaultUserSettings.stamina.sleepSession,
+        sleepSession: defaultUserConfig.stamina.sleepSession,
         recoveryRate: defaultRecoveryRate,
       }),
       multiplier: {

@@ -645,7 +645,7 @@
       }
     }
   },
-  "UserSettings": {
+  "UserConfig": {
     "AlwaysFullPack": "Immer volles Inventar",
     "BerryPokemonFullPack": "Immer volles Inventar für Beeren-Spezialisten",
     "GoodCampTicket": "Profi-Camping-Ticket",
@@ -654,7 +654,7 @@
       "Title": "Kochen bezogen"
     },
     "Message": {
-      "SettingsNotStored": "Zeige Standard Benutzereinstellungen. Login erforderlich um Benutzereinstellungen zu speichern oder um wirksam zu werden."
+      "ConfigNotStored": "Zeige Standard Benutzereinstellungen. Login erforderlich um Benutzereinstellungen zu speichern oder um wirksam zu werden."
     },
     "Multiplier": {
       "Overall": "Gesamt",

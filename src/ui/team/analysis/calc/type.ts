@@ -3,17 +3,17 @@ import {PokemonProducingRateByType} from '@/types/game/producing/rate';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';
-import {CalculatedCookingSettings} from '@/types/userData/settings/cooking/calculated';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 
 
 export type GetTeamProducingStatsOpts = TeamAnalysisDataProps & {
   setup: TeamAnalysisSetup,
-  bundle: UserSettingsBundle,
+  bundle: ConfigBundle,
   currentTeam: TeamAnalysisComp,
-  calculatedCookingSettings: CalculatedCookingSettings,
+  calculatedCookingSettings: CalculatedCookingConfig,
   overrideLevel?: number,
 };
 

@@ -8,7 +8,7 @@ import {Failed} from '@/components/icons/failed';
 import {Flex} from '@/components/layout/flex/common';
 import {authOptions} from '@/const/auth';
 import {getBerryData} from '@/controller/berry';
-import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
+import {getConfigRequiredData} from '@/controller/dataBundle/config';
 import {getEventDrowsyPowerMultiplierData} from '@/controller/event/drowsyPowerMultiplier';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
@@ -26,7 +26,7 @@ import {PublicPageLayout} from '@/ui/base/layout/public';
 import {PokemonClient} from '@/ui/pokedex/page/client';
 import {PokemonDataProps} from '@/ui/pokedex/page/type';
 import {getRelatedPokemonIds} from '@/utils/game/pokemon/branch';
-import {createUserSettingsBundle} from '@/utils/user/settings/create';
+import {createConfigBundle} from '@/utils/user/config/create';
 
 
 export const Pokemon = async ({params}: PageProps<PokedexPageParams>) => {
@@ -54,7 +54,7 @@ export const Pokemon = async ({params}: PageProps<PokedexPageParams>) => {
     snorlaxDataMap,
     recipeLevelData,
     eventDrowsyPowerMultiplierData,
-    settingsRequiredData,
+    configRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexMap(getRelatedPokemonIds({pokemon, branchData: pokemonBranch})),
@@ -69,7 +69,7 @@ export const Pokemon = async ({params}: PageProps<PokedexPageParams>) => {
     getSnorlaxDataMap(),
     getRecipeLevelData(),
     getEventDrowsyPowerMultiplierData(),
-    getUserSettingsRequiredData(),
+    getConfigRequiredData(),
   ]);
 
   if (!berryData) {
@@ -91,8 +91,8 @@ export const Pokemon = async ({params}: PageProps<PokedexPageParams>) => {
     snorlaxDataMap,
     recipeLevelData,
     eventDrowsyPowerMultiplierData,
-    preloaded: createUserSettingsBundle(session),
-    ...settingsRequiredData,
+    preloaded: createConfigBundle(session),
+    ...configRequiredData,
   };
 
   return (

@@ -529,7 +529,7 @@ declare global {
           },
         },
       },
-      UserSettings: {
+      UserConfig: {
         AlwaysFullPack: string,
         BerryPokemonFullPack: string,
         GoodCampTicket: string,
@@ -538,7 +538,7 @@ declare global {
           Title: string,
         },
         Message: {
-          SettingsNotStored: string,
+          ConfigNotStored: string,
         },
         Multiplier: {
           Overall: string,

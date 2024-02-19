@@ -9,7 +9,7 @@ import {Failed} from '@/components/icons/failed';
 import {Flex} from '@/components/layout/flex/common';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
+import {getConfigRequiredData} from '@/controller/dataBundle/config';
 import {getIngredientData, getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -23,7 +23,7 @@ import {IngredientMeta} from '@/ui/ingredient/page/meta';
 import {IngredientPokemonProduction} from '@/ui/ingredient/page/pokemon';
 import {IngredientCookableMeals} from '@/ui/ingredient/page/recipe';
 import {IngredientProductionDataProps} from '@/ui/ingredient/page/type';
-import {createUserSettingsBundle} from '@/utils/user/settings/create';
+import {createConfigBundle} from '@/utils/user/config/create';
 
 
 type Props = {
@@ -51,7 +51,7 @@ export const IngredientPage = async ({params}: Props) => {
     pokedex,
     pokemonMaxLevel,
     recipeLevelData,
-    userSettingsRequiredData,
+    configRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokemonIngredientProductionByIngredient(ingredient.id),
@@ -64,10 +64,10 @@ export const IngredientPage = async ({params}: Props) => {
     getPokedexMap(),
     getPokemonMaxLevelByBerry(),
     getRecipeLevelData(),
-    getUserSettingsRequiredData(),
+    getConfigRequiredData(),
   ]);
 
-  const {mealMap} = userSettingsRequiredData;
+  const {mealMap} = configRequiredData;
 
   const props: IngredientProductionDataProps = {
     pokedex,
@@ -79,8 +79,8 @@ export const IngredientPage = async ({params}: Props) => {
     mainSkillMap,
     subSkillMap,
     recipeLevelData,
-    preloaded: createUserSettingsBundle(session),
-    ...userSettingsRequiredData,
+    preloaded: createConfigBundle(session),
+    ...configRequiredData,
   };
 
   return (

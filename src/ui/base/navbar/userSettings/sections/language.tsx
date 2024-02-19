@@ -11,7 +11,7 @@ import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
 
 
 export const UserSettingsLanguage = () => {
-  const t = useTranslations('UI.UserSettings');
+  const t = useTranslations('UI.UserConfig');
   const {currentLocale, isPending, onLocaleSwitch} = useLanguageSwitch();
 
   return (

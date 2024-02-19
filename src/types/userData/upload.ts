@@ -4,10 +4,10 @@ import {ActivationDataAtClient, ActivationKeyAtClient} from '@/types/mongo/activ
 import {ActivationPresetMap} from '@/types/mongo/activationPreset';
 import {AnnouncementClientMap} from '@/types/mongo/announcement';
 import {DocsData, DocsDataEditable, DocsDataEditableFetched} from '@/types/mongo/docs';
-import {PacketRecordingSettings} from '@/types/packet/settings';
+import {PacketRecordingConfig} from '@/types/packet/config';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {CookingConfig} from '@/types/userData/config/cooking/main';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
 import {PokedexDisplay} from '@/ui/pokedex/index/type';
 import {PokeboxViewerDisplay} from '@/ui/team/pokebox/viewer/type';
@@ -36,14 +36,14 @@ export type UserDataUploadOpts = {
   type: 'team.maker.export',
   data: ToTeamAnalysisCompFromPokeboxCommonOpts,
 } | {
-  type: 'cooking',
-  data: UserCookingSettings,
+  type: 'config.cooking',
+  data: CookingConfig,
 } | {
-  type: 'rating',
+  type: 'config.rating',
   data: RatingConfig,
 } | {
-  type: 'settings',
-  data: UserSettingsBundle,
+  type: 'config.bundle',
+  data: ConfigBundle,
 } | {
   type: 'admin.activation.update.key',
   data: ActivationKeyAtClient,
@@ -64,7 +64,7 @@ export type UserDataUploadOpts = {
   data: AnnouncementClientMap,
 } | {
   type: 'admin.packets',
-  data: PacketRecordingSettings,
+  data: PacketRecordingConfig,
 } | {
   type: 'cms.docs.create',
   data: DocsDataEditable,

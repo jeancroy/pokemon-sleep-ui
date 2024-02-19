@@ -1,9 +1,10 @@
 import {PokemonIngredientStatsCommonProps} from '@/components/shared/pokemon/icon/itemStats/type';
-import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
 export type IngredientProductionDataProps =
-  Omit<PokemonIngredientStatsCommonProps, 'bundle' | 'translatedSettings'> &
-  UserSettingsRequiredData & {
-    preloaded: UserSettingsBundle,
+  Omit<PokemonIngredientStatsCommonProps, 'bundle' | 'calculatedConfigBundle'> &
+  ConfigRequiredData & {
+    preloaded: ConfigBundle,
   };

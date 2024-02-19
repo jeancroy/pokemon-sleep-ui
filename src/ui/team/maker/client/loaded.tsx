@@ -13,7 +13,7 @@ import {LazyLoad} from '@/components/layout/lazyLoad';
 import {ProgressBarSingle} from '@/components/progressBar/single';
 import {ButtonToStartTheSorcery} from '@/components/shared/common/button/sorcery';
 import {CompletionResultUI} from '@/components/shared/completion/main';
-import {useUserSettingsBundle} from '@/hooks/userData/bundle';
+import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
 import {
   teamMakerCompCountWarningThreshold,
   teamMakerStatusI18nId,
@@ -32,7 +32,7 @@ export const TeamMakerLoadedClient = (props: TeamMakerDataProps) => {
 
   const t = useTranslations('UI.InPage.Team.Maker');
   const {data} = useSession();
-  const bundle = useUserSettingsBundle({
+  const bundle = useConfigBundle({
     bundle: {
       server: preloaded,
       client: data?.user.preloaded,

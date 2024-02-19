@@ -10,14 +10,15 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {SleepStyleNormalMap} from '@/types/game/sleepStyle';
-import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
 export type AnalysisComparisonFilter = PokemonInputFilterExtended & {
   ingredients: IngredientProductionAtLevels,
 };
 
-export type AnalysisPageCommonProps = UsePokemonFilterCommonData & UserSettingsRequiredData & {
+export type AnalysisPageCommonProps = UsePokemonFilterCommonData & ConfigRequiredData & {
   pokemonList: PokemonInfo[],
   pokemon: PokemonInfo,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
@@ -30,5 +31,5 @@ export type AnalysisPageCommonProps = UsePokemonFilterCommonData & UserSettingsR
   mapMeta: FieldMetaMap,
   recipeLevelData: RecipeLevelData[],
   pokemonMaxLevel: number,
-  preloaded: UserSettingsBundle,
+  preloaded: ConfigBundle,
 };

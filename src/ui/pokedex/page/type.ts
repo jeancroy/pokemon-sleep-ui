@@ -10,11 +10,11 @@ import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {SleepStyleNormal, SleepStyleSpecial} from '@/types/game/sleepStyle';
 import {SnorlaxDataMap} from '@/types/game/snorlax';
-import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
-import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
+import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
-export type PokemonDataProps = UserSettingsRequiredData & {
+export type PokemonDataProps = ConfigRequiredData & {
   pokedex: PokedexMap,
   pokemon: PokemonInfo,
   pokemonBranch: PokemonBranchData | null,
@@ -29,10 +29,10 @@ export type PokemonDataProps = UserSettingsRequiredData & {
   snorlaxDataMap: SnorlaxDataMap,
   recipeLevelData: RecipeLevelData[],
   eventDrowsyPowerMultiplierData: EventDrowsyPowerMultiplierData,
-  preloaded: UserSettingsBundle,
+  preloaded: ConfigBundle,
 };
 
 export type PokemonDataCommonProps = PokemonDataProps & {
-  translatedSettings: TranslatedUserSettings,
-  bundle: UserSettingsBundle,
+  calculatedConfigBundle: CalculatedConfigBundle,
+  bundle: ConfigBundle,
 };

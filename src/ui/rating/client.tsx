@@ -17,7 +17,7 @@ import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {ratingBasisSpecialty} from '@/const/game/rating';
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
-import {useUserSettingsBundle} from '@/hooks/userData/bundle';
+import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
 import {RatingOnDeskState, RatingRequest} from '@/types/game/pokemon/rating/request';
 import {RatingDataProps, RatingServerDataProps} from '@/ui/rating/type';
 import {toRatingRequest} from '@/ui/rating/utils';
@@ -38,7 +38,7 @@ export const RatingClient = (props: RatingServerDataProps) => {
   const t = useTranslations('UI.InPage.Rating');
   const [request, setRequest] = React.useState<RatingRequest>();
   const {data: session} = useSession();
-  const bundle = useUserSettingsBundle({
+  const bundle = useConfigBundle({
     bundle: {
       server: preloaded,
       client: session?.user.preloaded,

@@ -3,14 +3,14 @@ import React from 'react';
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
 import {defaultTeamMakerMaxResultCount} from '@/ui/team/maker/const';
 import {enforceTeamMakerInput} from '@/ui/team/maker/input/utils';
 import {TeamMakerInput} from '@/ui/team/maker/type/input';
 
 
 type UseTeamMakerInputOpts = {
-  preloaded: UserSettingsBundle,
+  preloaded: ConfigBundle,
 };
 
 export const useTeamMakerInput = ({preloaded}: UseTeamMakerInputOpts) => {
@@ -21,10 +21,10 @@ export const useTeamMakerInput = ({preloaded}: UseTeamMakerInputOpts) => {
       isLevelAgnostic: false,
       defaultPokemonLevel: 1,
     }),
-    mealType: preloaded.cooking.mealType,
-    recipeLevel: preloaded.cooking.recipeLevel,
-    ingredientCount: preloaded.cooking.ingredientCount,
-    potCapacity: preloaded.cooking.potCapacity,
+    mealType: preloaded.cookingConfig.mealType,
+    recipeLevel: preloaded.cookingConfig.recipeLevel,
+    ingredientCount: preloaded.cookingConfig.ingredientCount,
+    potCapacity: preloaded.cookingConfig.potCapacity,
     memberCount: 5,
     basis: 'strength',
     previewLevel: null,
@@ -38,7 +38,7 @@ export const useTeamMakerInput = ({preloaded}: UseTeamMakerInputOpts) => {
       mode: 'shared',
     },
     previewFinalEvolution: false,
-    target: preloaded.cooking.target,
+    target: preloaded.cookingConfig.target,
     showInsufficientIngredients: true,
     teamCompsToShow: defaultTeamMakerMaxResultCount,
   });

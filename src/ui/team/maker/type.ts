@@ -7,11 +7,12 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {SnorlaxDataOfMap} from '@/types/game/snorlax';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
 
 
-export type TeamMakerServerDataProps = UsePokemonFilterCommonData & UserSettingsRequiredData & {
+export type TeamMakerServerDataProps = UsePokemonFilterCommonData & ConfigRequiredData & {
   pokedexMap: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   berryDataMap: BerryDataMap,
@@ -21,7 +22,7 @@ export type TeamMakerServerDataProps = UsePokemonFilterCommonData & UserSettings
   snorlaxData: SnorlaxDataOfMap[],
   recipeLevelData: RecipeLevelData[],
   pokemonMaxLevel: number,
-  preloaded: UserSettingsBundle,
+  preloaded: ConfigBundle,
 };
 
 

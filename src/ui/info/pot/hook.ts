@@ -6,7 +6,7 @@ import {isNotNullish} from '@/utils/type';
 
 
 export const usePotInfoFilter = ({mealMap, preloaded}: PotInfoDataProps) => {
-  const {cooking} = preloaded;
+  const {cookingConfig} = preloaded;
 
   return useFilterInput<PotInfoFilter, Meal, MealId>({
     data: Object.values(mealMap).filter(isNotNullish),
@@ -15,9 +15,9 @@ export const usePotInfoFilter = ({mealMap, preloaded}: PotInfoDataProps) => {
       mealType: {},
       mealLevel: 1,
       ingredients: {},
-      capacity: cooking?.potCapacity ?? null,
+      capacity: cookingConfig?.potCapacity ?? null,
       showEmpty: false,
-      showEnergy: cooking?.showEnergy ?? true,
+      showEnergy: cookingConfig?.showEnergy ?? true,
     },
     isDataIncluded: (filter, meal) => {
       return !isFilterMismatchOnSingle({filter, filterKey: 'mealType', id: meal.type});

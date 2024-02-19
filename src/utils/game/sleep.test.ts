@@ -1,6 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {defaultRecoveryRate} from '@/const/user/settings';
+import {defaultRecoveryRate} from '@/const/user/config/user';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
 

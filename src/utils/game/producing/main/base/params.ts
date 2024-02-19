@@ -4,7 +4,7 @@ import {getBaseFrequencyFromPokemon} from '@/utils/game/producing/frequency';
 import {getCarryLimitInfo} from '@/utils/game/producing/inventory/carryLimit';
 import {GetPokemonProducingRateBaseOpts, PokemonProducingRateParams} from '@/utils/game/producing/main/base/type';
 import {getProduceSplit} from '@/utils/game/producing/split';
-import {isFullPackEffective} from '@/utils/user/settings/utils';
+import {isFullPackEffective} from '@/utils/user/config/user/fullPack';
 
 
 export const getPokemonProducingRateParams = ({
@@ -18,7 +18,7 @@ export const getPokemonProducingRateParams = ({
     pokemonProducingParams,
     natureId,
   } = opts;
-  const {behavior} = calculatedSettings;
+  const {behavior} = calculatedSettings.origin;
 
   const subSkillBonus = opts.subSkillBonus ?? {};
 

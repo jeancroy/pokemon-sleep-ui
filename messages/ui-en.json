@@ -375,7 +375,7 @@
       "FriendshipLevel": "Friendship Level",
       "AdvancedOptions": "Advanced Options",
       "Message": {
-        "RatingBasisIsIngredientRelated": "Ingredient-related rating basis is picked. Make sure the cooking schedule in user settings is set up.\n\nCheck the documentation available at the top right side of the page for details."
+        "RatingBasisIsIngredientRelated": "Ingredient-related rating basis is picked. Make sure the cooking schedule in user config is set up.\n\nCheck the documentation available at the top right side of the page for details."
       }
     },
     "Cooking": {
@@ -645,7 +645,7 @@
       }
     }
   },
-  "UserSettings": {
+  "UserConfig": {
     "AlwaysFullPack": "Always Full Pack",
     "BerryPokemonFullPack": "Always Full Pack for Berry Specialists",
     "GoodCampTicket": "Good Camp Ticket",
@@ -654,7 +654,7 @@
       "Title": "Cooking Related"
     },
     "Message": {
-      "SettingsNotStored": "Showing default user settings. Login required to save the user settings, or let the settings takes effect."
+      "ConfigNotStored": "Showing default user config. Login required to save the user config, and let the config takes effect."
     },
     "Multiplier": {
       "Overall": "Overall",

@@ -1,20 +1,20 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {defaultUserCookingSettings} from '@/const/user/cooking';
-import {defaultUserSettings} from '@/const/user/settings';
+import {defaultCookingConfig} from '@/const/user/config/cooking';
+import {defaultUserConfig} from '@/const/user/config/user';
 import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testMealData} from '@/tests/data/game/meal';
 import {testRecipeLevelData} from '@/tests/data/game/recipeLevel';
-import {UserCookingTargetOfType} from '@/types/userData/settings/cooking/common';
+import {CookingTargetOfType} from '@/types/userData/config/cooking/target';
 import {getMealIngredientInfo} from '@/utils/game/meal/ingredient';
 import {getIngredientBonusOfMeals} from '@/utils/game/producing/ingredient/bonus';
 import {isNotNullish} from '@/utils/type';
-import {toCalculatedCookingSettings} from '@/utils/user/settings/cooking/main';
+import {toCalculatedCookingConfig} from '@/utils/user/config/cooking/main';
 
 
 describe('Pokemon Production (Ingredient) / Meal Bonus', () => {
   it('is correct', () => {
-    const cookingTargetOfType: UserCookingTargetOfType = {
+    const cookingTargetOfType: CookingTargetOfType = {
       breakfast: 1007,
       lunch: 3006,
       dinner: 3006,
@@ -29,10 +29,10 @@ describe('Pokemon Production (Ingredient) / Meal Bonus', () => {
         mealCount: {1007: 1, 3006: 2},
       }),
       calculatedCookingSettings: {
-        ...toCalculatedCookingSettings({
-          settings: {...defaultUserSettings},
-          cooking: {
-            ...defaultUserCookingSettings,
+        ...toCalculatedCookingConfig({
+          userConfig: {...defaultUserConfig},
+          cookingConfig: {
+            ...defaultCookingConfig,
             mealType: 1,
             target: {
               1: cookingTargetOfType,

@@ -4,7 +4,7 @@ import {useSession} from 'next-auth/react';
 
 import {Flex} from '@/components/layout/flex/common';
 import potCapacity from '@/data/potCapacity.json';
-import {useTranslatedUserSettings} from '@/hooks/userData/translated';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {Meal} from '@/types/game/meal/main';
 import {PotInfoDataProps, PotInfoFilter} from '@/ui/info/pot/type';
 import {PotRecipeUnlockSection} from '@/ui/info/pot/unlockSection';
@@ -21,7 +21,7 @@ export const PotRecipeUnlockTable = ({filter, validMeals, ...props}: Props) => {
   const {capacity, showEmpty} = filter;
 
   const {data: session} = useSession();
-  const {translatedSettings} = useTranslatedUserSettings({
+  const {calculatedConfigBundle} = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: session?.user.preloaded,
@@ -73,7 +73,7 @@ export const PotRecipeUnlockTable = ({filter, validMeals, ...props}: Props) => {
               potInfo={potInfo}
               unlockedMeals={unlockedMeals}
               unlockedRecipes={mealCursorIdx}
-              calculatedSettings={translatedSettings.calculatedSettings}
+              calculatedSettings={calculatedConfigBundle.calculatedSettings}
               {...props}
             />
           );

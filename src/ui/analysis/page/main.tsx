@@ -7,7 +7,7 @@ import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {authOptions} from '@/const/auth';
 import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getUserSettingsRequiredData} from '@/controller/dataBundle/settings';
+import {getConfigRequiredData} from '@/controller/dataBundle/config';
 import {getIngredientMap} from '@/controller/ingredient';
 import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMainSkillMap} from '@/controller/mainSkill';
@@ -20,7 +20,7 @@ import {getSubSkillMap} from '@/controller/subSkill';
 import {AnalysisPageClient} from '@/ui/analysis/page/client';
 import {AnalysisPageCommonProps} from '@/ui/analysis/page/type';
 import {PublicPageLayout} from '@/ui/base/layout/public';
-import {createUserSettingsBundle} from '@/utils/user/settings/create';
+import {createConfigBundle} from '@/utils/user/config/create';
 
 
 type Props = {
@@ -42,7 +42,7 @@ export const AnalysisPage = async ({params}: Props) => {
     mapMeta,
     recipeLevelData,
     pokemonMaxLevel,
-    userSettingsRequiredData,
+    configRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokemonList(),
@@ -56,7 +56,7 @@ export const AnalysisPage = async ({params}: Props) => {
     getFieldMetaMap(),
     getRecipeLevelData(),
     getPokemonMaxLevelByBerry(),
-    getUserSettingsRequiredData(),
+    getConfigRequiredData(),
   ]);
 
   const pokemon = pokemonList.find((pokemon) => pokemon.id === Number(id));
@@ -78,8 +78,8 @@ export const AnalysisPage = async ({params}: Props) => {
     mapMeta,
     recipeLevelData,
     pokemonMaxLevel,
-    preloaded: createUserSettingsBundle(session),
-    ...userSettingsRequiredData,
+    preloaded: createConfigBundle(session),
+    ...configRequiredData,
   };
 
   return (

@@ -1,8 +1,8 @@
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {PokemonInfoWithSortingPayload} from '@/components/shared/pokemon/sorter/type';
 import {usePokemonSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
+import {ConfigBundle} from '@/types/userData/config/bundle';
 import {Pokebox, PokeInBox} from '@/types/userData/pokebox/main';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
@@ -12,12 +12,12 @@ import {
   getProducingRateSingleParams,
 } from '@/utils/game/producing/params';
 import {isNotNullish} from '@/utils/type';
-import {toCalculatedCookingSettings} from '@/utils/user/settings/cooking/main';
+import {toCalculatedCookingConfig} from '@/utils/user/config/cooking/main';
 
 
 type UseProcessedPokeboxOpts = PokeboxCommonProps & {
   pokebox: Pokebox,
-  bundle: UserSettingsBundle,
+  bundle: ConfigBundle,
   pokeInBoxToCalc: PokeInBox[],
   filter: PokeboxViewerFilter,
   isIncluded: FilterInclusionMap<PokeInBox['uuid']>,
@@ -69,7 +69,7 @@ export const useProcessedPokebox = ({
         dateAdded,
         extra: pokeInBox,
         ingredients: getEffectiveIngredientProductions({level, ingredients: pokeInBox.ingredients}),
-        calculatedCookingSettings: toCalculatedCookingSettings({
+        calculatedCookingSettings: toCalculatedCookingConfig({
           ...bundle,
           mealMap,
         }),

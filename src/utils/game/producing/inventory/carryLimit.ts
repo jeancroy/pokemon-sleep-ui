@@ -1,7 +1,7 @@
 import {PokemonInfo} from '@/types/game/pokemon';
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
 import {CarryLimitInfo} from '@/types/game/producing/inventory';
-import {UserCalculationBehavior} from '@/types/userData/settings/behavior';
+import {UserCalculationBehavior} from '@/types/userData/config/user/behavior';
 import {toSum} from '@/utils/array';
 import {getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
 

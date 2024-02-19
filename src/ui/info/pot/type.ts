@@ -3,13 +3,14 @@ import potCapacity from '@/data/potCapacity.json';
 import {IngredientId, IngredientMap} from '@/types/game/ingredient';
 import {MealTypeId} from '@/types/game/meal/main';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
-import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
-export type PotInfoDataProps = UserSettingsRequiredData & {
+export type PotInfoDataProps = ConfigRequiredData & {
   ingredientMap: IngredientMap,
   recipeLevelData: RecipeLevelData[],
-  preloaded: UserSettingsBundle,
+  preloaded: ConfigBundle,
 };
 
 export type PotInfoFilter = {

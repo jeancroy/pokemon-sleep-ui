@@ -3,13 +3,13 @@ import {MealCoverage} from '@/types/game/cooking';
 import {ProducingRate} from '@/types/game/producing/rate';
 import {TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {UserSettingsBundle} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
 import {TeamCompCalcResult} from '@/ui/team/analysis/calc/type';
 import {DeepPartial} from '@/utils/type';
 
 
 export type TeamAnalysisSetupViewCommonProps = {
-  bundleFromClient: DeepPartial<UserSettingsBundle> | undefined,
+  bundleFromClient: DeepPartial<ConfigBundle> | undefined,
   actorReturn: UseUserDataActorReturn,
 };
 

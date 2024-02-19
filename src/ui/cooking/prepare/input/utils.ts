@@ -1,20 +1,19 @@
-import {defaultUserCookingSettings} from '@/const/user/cooking';
-import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
-import {CookingPreloadedData} from '@/ui/cooking/common/type';
+import {defaultCookingConfig} from '@/const/user/config/cooking';
+import {CookingConfig} from '@/types/userData/config/cooking/main';
 import {MealPreparerFilter} from '@/ui/cooking/prepare/type';
 
 
-type ToUserCookingSettingsFromMealPreparerFilterOpts = {
-  preloaded: CookingPreloadedData['cooking'],
+type ToCookingSettingsFromMealPreparerFilterOpts = {
+  preloaded: CookingConfig,
   filter: MealPreparerFilter,
 };
 
-export const toUserCookingSettingsFromMealPreparerFilter = ({
+export const toCookingSettingsFromMealPreparerFilter = ({
   preloaded,
   filter,
-}: ToUserCookingSettingsFromMealPreparerFilterOpts): UserCookingSettings => {
+}: ToCookingSettingsFromMealPreparerFilterOpts): CookingConfig => {
   return {
-    ...defaultUserCookingSettings,
+    ...defaultCookingConfig,
     ...preloaded,
     ingredientCount: filter.inventory,
     recipeLevel: filter.recipeLevel,

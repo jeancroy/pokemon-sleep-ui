@@ -3,20 +3,20 @@ import React from 'react';
 import {createWorker, OEM} from 'tesseract.js';
 
 import {ocrLocaleToTesseract} from '@/components/ocr/const';
-import {OcrSettings, OcrState, UseOcrReturn} from '@/components/ocr/type';
+import {OcrConfig, OcrState, UseOcrReturn} from '@/components/ocr/type';
 import {ocrThresholdImage} from '@/components/ocr/utils';
 import {useGatedUpdateState} from '@/hooks/gatedUpdate';
 import {getCanvas2dContext} from '@/utils/ocr/canvas';
 
 
 type UseOcrOpts = {
-  settings: OcrSettings,
+  config: OcrConfig,
   whitelistChars: string | null,
   onError: (message: string) => void,
 };
 
 export const useOcr = ({
-  settings,
+  config,
   whitelistChars,
   onError,
 }: UseOcrOpts): UseOcrReturn => {
@@ -61,7 +61,7 @@ export const useOcr = ({
       return;
     }
 
-    const {locale, tolerance} = settings;
+    const {locale, tolerance} = config;
 
     setState({
       error: null,
@@ -140,7 +140,7 @@ export const useOcr = ({
       text,
     });
     await worker.terminate();
-  }, [settings, whitelistChars]);
+  }, [config, whitelistChars]);
 
   return {state, canvasRef, imageRef, runOcr};
 };

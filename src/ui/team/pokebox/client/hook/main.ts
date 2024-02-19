@@ -4,7 +4,7 @@ import {useSession} from 'next-auth/react';
 import {useTranslations} from 'next-intl';
 
 import {useAutoUpload} from '@/hooks/userData/autoUpload';
-import {useUserSettingsBundle} from '@/hooks/userData/bundle';
+import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
 import {Pokebox} from '@/types/userData/pokebox/main';
 import {useProcessedPokebox} from '@/ui/team/pokebox/client/hook/process';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
@@ -33,7 +33,7 @@ export const useCalculatedData = (
 
   const t = useTranslations('Game');
 
-  const bundle = useUserSettingsBundle({
+  const bundle = useConfigBundle({
     bundle: {
       server: preloaded.bundle,
       client: session.data?.user.preloaded,

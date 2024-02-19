@@ -8,7 +8,7 @@ import {MealTypeInput} from '@/components/shared/input/mealType';
 import {PotCapacityInput} from '@/components/shared/input/potCapacity';
 import {MealDisplayControl} from '@/components/shared/meal/control';
 import {MealLevelInput} from '@/components/shared/meal/level';
-import {defaultUserCookingSettings} from '@/const/user/cooking';
+import {defaultCookingConfig} from '@/const/user/config/cooking';
 import {usePossibleMealTypes} from '@/hooks/meal';
 import {Meal} from '@/types/game/meal/main';
 import {UserPreloadedData} from '@/types/userData/main';
@@ -20,7 +20,7 @@ import {toUnique} from '@/utils/array';
 type Props = MealIndexInputProps & {
   data: Meal[],
   maxRecipeLevel: number,
-  preloaded: UserPreloadedData['cooking'],
+  preloaded: UserPreloadedData['cookingConfig'],
 };
 
 export const MealInput = ({filter, setFilter, data, maxRecipeLevel, preloaded}: Props) => {
@@ -65,7 +65,7 @@ export const MealInput = ({filter, setFilter, data, maxRecipeLevel, preloaded}: 
           showEnergy,
         } satisfies MealFilter))}
         uploadData={{
-          ...defaultUserCookingSettings,
+          ...defaultCookingConfig,
           ...preloaded,
           ingredients: filter.ingredient,
           showEnergy: filter.showEnergy,

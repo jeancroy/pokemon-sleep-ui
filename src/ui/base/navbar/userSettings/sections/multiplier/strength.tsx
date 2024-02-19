@@ -12,28 +12,28 @@ import {strengthMultiplierTypeI18nId} from '@/const/game/multiplier';
 import {strengthMultiplierBehaviorI18nId} from '@/const/user/multiplier';
 import {textFilterButtonStyle} from '@/styles/input';
 import {StrengthMultiplierType} from '@/types/game/bonus/strength';
-import {userStrengthMultiplierApplyBehavior} from '@/types/userData/settings/multiplier';
-import {UserSettingsMultiplierCommonProps} from '@/ui/base/navbar/userSettings/sections/multiplier/type';
+import {userStrengthMultiplierApplyBehavior} from '@/types/userData/config/user/multiplier';
+import {UserConfigMultiplierCommonProps} from '@/ui/base/navbar/userSettings/sections/multiplier/type';
+import {getCurrentEventStrengthMultiplier} from '@/utils/game/event/strengthMultiplier';
 import {formatFloat} from '@/utils/number/format/regular';
 import {cloneMerge} from '@/utils/object/cloneMerge';
-import {getCurrentEventStrengthMultiplier} from '@/utils/user/settings/eventStrengthMultiplier';
 
 
-type Props = UserSettingsMultiplierCommonProps & {
+type Props = UserConfigMultiplierCommonProps & {
   type: StrengthMultiplierType,
 };
 
 export const UserSettingsStrengthMultiplierUI = ({
   eventStrengthMultiplierData,
   type,
-  settings,
-  setSettings,
+  config,
+  setConfig,
 }: Props) => {
-  const {multiplier} = settings;
+  const {multiplier} = config;
   const current = multiplier.strength[type];
 
   const t = useTranslations('UI.Multiplier');
-  const t2 = useTranslations('UI.UserSettings.Multiplier');
+  const t2 = useTranslations('UI.UserConfig.Multiplier');
 
   const currentMultiplier = getCurrentEventStrengthMultiplier({
     type,
@@ -57,7 +57,7 @@ export const UserSettingsStrengthMultiplierUI = ({
             t2(strengthMultiplierBehaviorI18nId[behavior], {multiplier: formatFloat(currentMultiplier)})
           )}
           isActive={(behavior) => current.behavior === behavior}
-          onClick={(behavior) => setSettings((original) => cloneMerge(
+          onClick={(behavior) => setConfig((original) => cloneMerge(
             original,
             {multiplier: {strength: {[type]: {behavior}}}},
           ))}
@@ -73,7 +73,7 @@ export const UserSettingsStrengthMultiplierUI = ({
             min={1}
             step={0.1}
             disabled={current.behavior !== 'custom'}
-            setValue={(value) => setSettings((original) => cloneMerge(
+            setValue={(value) => setConfig((original) => cloneMerge(
               original,
               {multiplier: {strength: {[type]: {value}}}},
             ))}

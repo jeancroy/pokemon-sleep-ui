@@ -8,11 +8,12 @@ import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {TeamConfig, TeamMemberData, TeamMemberProduction} from '@/types/game/team';
-import {CalculatedCookingSettings} from '@/types/userData/settings/cooking/calculated';
-import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
-export type TeamMemberDataProps = UsePokemonFilterCommonData & UserSettingsRequiredData & {
+export type TeamMemberDataProps = UsePokemonFilterCommonData & ConfigRequiredData & {
   pokedexMap: PokedexMap,
   berryDataMap: BerryDataMap,
   mainSkillMap: MainSkillMap,
@@ -24,8 +25,8 @@ export type TeamMemberDataProps = UsePokemonFilterCommonData & UserSettingsRequi
 
 export type TeamMemberProps = TeamMemberDataProps & {
   config: TeamConfig,
-  bundle: UserSettingsBundle,
-  calculatedCookingSettings: CalculatedCookingSettings,
+  bundle: ConfigBundle,
+  calculatedCookingSettings: CalculatedCookingConfig,
   member: TeamMemberData,
   memberIdForShare: string,
   pokemon: PokemonInfo,

@@ -1,8 +1,8 @@
 import {staminaMaxRecovery} from '@/const/game/stamina';
-import {defaultRecoveryRate} from '@/const/user/settings';
+import {defaultRecoveryRate} from '@/const/user/config/user';
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
-import {userCookingMeals} from '@/types/userData/settings/cooking/common';
+import {cookingMeals} from '@/types/userData/config/cooking/meal';
 import {toSum} from '@/utils/array';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 import {GetLogsCommonOpts} from '@/utils/game/stamina/events/type';
@@ -48,7 +48,7 @@ const getInitialCookingRecoveryAmount = ({
       recoveryRate: defaultRecoveryRate,
       isSleep: false,
     }) *
-    userCookingMeals.length
+    cookingMeals.length
   );
 };
 

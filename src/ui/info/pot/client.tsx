@@ -27,7 +27,7 @@ export const PotInfoClient = (props: PotInfoDataProps) => {
         setFilter={setFilter}
         maxMealLevel={getMaxRecipeLevel({recipeLevelData})}
         mealTypes={mealTypes}
-        preloaded={preloaded.cooking}
+        preloaded={preloaded.cookingConfig}
       />
       <PotRecipeUnlockTable filter={filter} validMeals={validMeals} {...props}/>
     </>

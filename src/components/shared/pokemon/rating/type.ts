@@ -12,10 +12,10 @@ import {RatingConfig} from '@/types/game/pokemon/rating/config';
 import {RatingRequest, RatingSetupData} from '@/types/game/pokemon/rating/request';
 import {RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {UserSettingsRequiredData} from '@/types/userData/settings/main';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
-export type RatingResultProps = UserSettingsRequiredData & {
+export type RatingResultProps = ConfigRequiredData & {
   pokemon: PokemonInfo,
   pokemonList: PokemonInfo[],
   pokemonProducingParams: PokemonProducingParams,

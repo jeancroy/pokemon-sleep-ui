@@ -4,7 +4,7 @@ import {getServerSession} from 'next-auth';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
-import {defaultStaminaCalcConfig} from '@/const/user/settings';
+import {defaultStaminaCalcConfig} from '@/const/user/config/user';
 import {getStaminaCookingRecoveryData} from '@/controller/cookingRecovery';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {DefaultPageProps} from '@/types/next/page/common';
@@ -32,7 +32,7 @@ export const StaminaAnalysis = async ({params}: DefaultPageProps) => {
     preloaded: {
       config: cloneMerge(
         defaultStaminaCalcConfig,
-        session?.user.preloaded.settings?.stamina,
+        session?.user.preloaded.userConfig?.stamina,
       ),
     },
   };

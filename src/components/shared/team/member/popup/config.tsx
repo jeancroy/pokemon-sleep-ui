@@ -16,7 +16,7 @@ export const TeamMemberConfig = (props: TeamMemberProps) => {
   } = props;
   const {pokemonId, name} = member;
 
-  const t = useTranslations('UI.UserSettings');
+  const t = useTranslations('UI.UserConfig');
   const t2 = useTranslations('Game');
 
   const alwaysFullPack = member.alwaysFullPack ?? null;

@@ -11,7 +11,7 @@ import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
 import {ocrStatusToI18nId} from '@/components/ocr/const';
 import {useOcr} from '@/components/ocr/hook';
-import {OcrCommonProps, OcrSettings} from '@/components/ocr/type';
+import {OcrCommonProps, OcrConfig} from '@/components/ocr/type';
 import {ProgressBarSingle} from '@/components/progressBar/single';
 import {NextImage} from '@/components/shared/common/image/main';
 import {InfoSlider} from '@/components/shared/input/infoSlider';
@@ -24,7 +24,7 @@ import {showToast} from '@/utils/toast';
 
 export const Ocr = <TData, >({buttonText, textToData, renderData, getWhitelistChars}: OcrCommonProps<TData>) => {
   const [image, setImage] = React.useState<string | null>(null);
-  const [settings, setSettings] = React.useState<OcrSettings>({
+  const [config, setConfig] = React.useState<OcrConfig>({
     locale: 'en',
     tolerance: 25,
   });
@@ -36,8 +36,8 @@ export const Ocr = <TData, >({buttonText, textToData, renderData, getWhitelistCh
     canvasRef,
     runOcr,
   } = useOcr({
-    settings,
-    whitelistChars: getWhitelistChars(settings.locale),
+    config,
+    whitelistChars: getWhitelistChars(config.locale),
     onError: (message) => showToast({
       isAlert: true,
       content: message,
@@ -69,11 +69,11 @@ export const Ocr = <TData, >({buttonText, textToData, renderData, getWhitelistCh
       <Flex className="items-center gap-1.5 md:flex-row">
         <FilterTextInput
           style="none"
-          onClick={(locale) => setSettings((original) => ({
+          onClick={(locale) => setConfig((original) => ({
             ...original,
             locale,
           }))}
-          isActive={(ocrLang) => ocrLang === settings.locale}
+          isActive={(ocrLang) => ocrLang === config.locale}
           title={
             <Flex center className="px-2">
               <LanguageIcon className="size-6"/>
@@ -102,8 +102,8 @@ export const Ocr = <TData, >({buttonText, textToData, renderData, getWhitelistCh
       </Flex>
       <InfoSlider
         title={t('Tolerance.Title')}
-        value={settings.tolerance}
-        setValue={(tolerance) => setSettings((original) => ({
+        value={config.tolerance}
+        setValue={(tolerance) => setConfig((original) => ({
           ...original,
           tolerance,
         }))}
@@ -116,7 +116,7 @@ export const Ocr = <TData, >({buttonText, textToData, renderData, getWhitelistCh
       <ProgressBarSingle percent={progress}/>
       <AnimatedCollapse show={!!text && status === 'completed'}>
         {text && renderData({
-          data: textToData(text, settings.locale),
+          data: textToData(text, config.locale),
           text,
           image: {
             raw: image,

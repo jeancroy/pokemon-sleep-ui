@@ -7,13 +7,11 @@ import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {
-  UserSettingsBundle, UserSettingsRequiredData,
-} from '@/types/userData/settings/main';
-import {TranslatedUserSettings} from '@/types/userData/settings/transformed';
+import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
-export type MealServerDataProps = UserSettingsRequiredData & {
+export type MealServerDataProps = ConfigRequiredData & {
   meal: Meal,
   pokedex: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
@@ -25,11 +23,11 @@ export type MealServerDataProps = UserSettingsRequiredData & {
   pokemonIngredientProductionMap: PokemonIngredientProductionMap,
   pokemonMaxLevel: number,
   recipeLevelData: RecipeLevelData[],
-  preloaded: UserSettingsBundle,
+  preloaded: ConfigBundle,
 };
 
 export type MealCommonProps = MealServerDataProps & {
   isPremium: boolean,
-  bundle: UserSettingsBundle,
-  translatedSettings: TranslatedUserSettings,
+  bundle: ConfigBundle,
+  calculatedConfigBundle: CalculatedConfigBundle,
 };

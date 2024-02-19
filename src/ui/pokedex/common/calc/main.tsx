@@ -3,7 +3,7 @@ import {Session} from 'next-auth';
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {isDataIncludingAllOfFilter} from '@/components/input/filter/utils/match';
 import {usePokemonSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
-import {useTranslatedUserSettings} from '@/hooks/userData/translated';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {PokemonId} from '@/types/game/pokemon';
 import {PokedexCalcDataProps, PokedexCalcResult} from '@/ui/pokedex/common/calc/type';
 import {toPokemonInfoWithSortingPayloadFromPokemonList} from '@/ui/pokedex/common/calc/utils';
@@ -33,7 +33,7 @@ export const usePokedexCalc = ({
     preloaded,
   } = opts;
 
-  const {translatedSettings, bundle} = useTranslatedUserSettings({
+  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
     bundle: {
       server: preloaded.bundle,
       client: session?.user.preloaded,
@@ -45,7 +45,7 @@ export const usePokedexCalc = ({
   const allInfoWithSortingPayload = toPokemonInfoWithSortingPayloadFromPokemonList({
     filter,
     bundle,
-    translatedSettings,
+    calculatedConfigBundle: calculatedConfigBundle,
     ...opts,
   });
 
@@ -76,13 +76,13 @@ export const usePokedexCalc = ({
     mainSkillMap,
     recipeLevelData,
     snorlaxFavorite: filter.snorlaxFavorite,
-    triggerDeps: [filter, translatedSettings],
+    triggerDeps: [filter, calculatedConfigBundle],
     setLoading,
   });
 
   return {
     bundle,
-    translatedSettings,
+    calculatedConfigBundle: calculatedConfigBundle,
     result,
     count: {
       total: allInfoWithSortingPayload.length,

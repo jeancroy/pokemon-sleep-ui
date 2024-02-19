@@ -2,7 +2,7 @@ import {PokemonInputFilter} from '@/components/shared/pokemon/filter/type';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {PokemonVanillaPreset} from '@/types/game/pokemon/params';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
+import {CookingConfig} from '@/types/userData/config/cooking/main';
 import {TeamMakerMemberCount} from '@/ui/team/maker/type/common';
 
 
@@ -21,7 +21,7 @@ export const teamMakerSource = [
 export type TeamMakerSource = typeof teamMakerSource[number];
 
 export type TeamMakerInput = Pick<
-  UserCookingSettings,
+  CookingConfig,
   'mealType' | 'target' | 'recipeLevel' | 'ingredientCount' | 'potCapacity'
 > & {
   source: TeamMakerSource,

@@ -1,11 +1,11 @@
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
-import {UserSettings} from '@/types/userData/settings/main';
-import {UserMultiplierSettingsRequiredData} from '@/types/userData/settings/multiplier';
+import {UserMultiplierConfigRequiredData} from '@/types/userData/config/data';
+import {UserConfig} from '@/types/userData/config/user/main';
 
 
-export type UserSettingsMultiplierDataProps = UserMultiplierSettingsRequiredData;
+export type UserConfigMultiplierDataProps = UserMultiplierConfigRequiredData;
 
-export type UserSettingsMultiplierCommonProps = UserSettingsMultiplierDataProps & {
-  settings: UserSettings,
-  setSettings: ReactStateUpdaterFromOriginal<UserSettings>,
+export type UserConfigMultiplierCommonProps = UserConfigMultiplierDataProps & {
+  config: UserConfig,
+  setConfig: ReactStateUpdaterFromOriginal<UserConfig>,
 };

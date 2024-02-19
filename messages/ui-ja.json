@@ -645,7 +645,7 @@
       }
     }
   },
-  "UserSettings": {
+  "UserConfig": {
     "AlwaysFullPack": "常時満杯",
     "BerryPokemonFullPack": "きのみポケモン常時満杯",
     "GoodCampTicket": "いいキャンプチケット",
@@ -654,7 +654,7 @@
       "Title": "料理関連"
     },
     "Message": {
-      "SettingsNotStored": "当サイトのデフォルト設定を表示しています。設定変更の保存・適用にはログインが必要です。"
+      "ConfigNotStored": "当サイトのデフォルト設定を表示しています。設定変更の保存・適用にはログインが必要です。"
     },
     "Multiplier": {
       "Overall": "全体補正",

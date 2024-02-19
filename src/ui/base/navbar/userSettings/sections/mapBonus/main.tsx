@@ -8,14 +8,14 @@ import {MapBonusSlider} from '@/components/shared/production/bonus/map';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {UserBonus} from '@/types/game/bonus/main';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
-import {UserSettings} from '@/types/userData/settings/main';
+import {UserConfig} from '@/types/userData/config/user/main';
 import {UserSettingsSection} from '@/ui/base/navbar/userSettings/sections/base';
 import {UserSettingsMapBonusDataProps} from '@/ui/base/navbar/userSettings/sections/mapBonus/type';
 
 
 type Props = UserSettingsMapBonusDataProps & {
-  settings: UserSettings,
-  setSettings: ReactStateUpdaterFromOriginal<UserSettings>,
+  config: UserConfig,
+  setConfig: ReactStateUpdaterFromOriginal<UserConfig>,
   bonus: UserBonus,
   setBonus: (newBonus: UserBonus) => void,
 };
@@ -25,18 +25,18 @@ export const UserSettingsMapBonusUI = ({
   maxMapBonusPercent,
   pokemonList,
   mapMeta,
-  settings,
-  setSettings,
+  config,
+  setConfig,
   bonus,
   setBonus,
 }: Props) => {
-  const t = useTranslations('UI.UserSettings');
+  const t = useTranslations('UI.UserConfig');
 
   return (
     <UserSettingsSection titleIcon={<MapPinIcon/>} title={t('Section.MapBonus')}>
       <SnorlaxFavoriteInput
-        filter={settings}
-        setFilter={setSettings}
+        filter={config}
+        setFilter={setConfig}
         filterKey="snorlaxFavorite"
         pokemonList={pokemonList}
         mapMeta={mapMeta}

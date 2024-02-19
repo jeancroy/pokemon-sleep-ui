@@ -9,7 +9,7 @@ import {ProductionPeriod} from '@/types/game/producing/display';
 import {CarryLimitInfo, FullPackStats} from '@/types/game/producing/inventory';
 import {ProduceSplit, ProducingStateSplit} from '@/types/game/producing/split';
 import {ProducingStateCalculated, ProducingStateWithPack} from '@/types/game/producing/state';
-import {CalculatedUserSettings} from '@/types/userData/settings/transformed';
+import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 import {Indexable} from '@/utils/type';
 
 
@@ -65,7 +65,7 @@ export type ProducingRateCommonParams = {
   level: number,
   pokemon: PokemonInfo,
   baseFrequency: number,
-  calculatedSettings: CalculatedUserSettings,
+  calculatedSettings: CalculatedUserConfig,
 };
 
 export type PokemonProducingRate = {
@@ -91,7 +91,7 @@ export type PokemonProducingRateAtStage = {[stage in PokemonProducingRateStage]:
 
 export type PokemonProducingRateWithPayload<TPayload> = {
   payload: TPayload,
-  calculatedSettings: CalculatedUserSettings,
+  calculatedSettings: CalculatedUserConfig,
   atStage: PokemonProducingRateAtStage,
 };
 

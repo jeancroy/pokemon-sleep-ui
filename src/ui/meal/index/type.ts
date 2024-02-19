@@ -3,7 +3,8 @@ import {IngredientId, IngredientMap} from '@/types/game/ingredient';
 import {MealTypeId} from '@/types/game/meal/main';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {Migratable} from '@/types/migrate';
-import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
 export type MealFilter = Migratable & {
@@ -14,8 +15,8 @@ export type MealFilter = Migratable & {
   showEnergy: boolean,
 };
 
-export type MealDataProps = UserSettingsRequiredData & {
+export type MealDataProps = ConfigRequiredData & {
   ingredientMap: IngredientMap,
   recipeLevelData: RecipeLevelData[],
-  preloaded: UserSettingsBundle,
+  preloaded: ConfigBundle,
 };

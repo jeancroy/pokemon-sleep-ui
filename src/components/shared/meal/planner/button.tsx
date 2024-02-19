@@ -8,11 +8,12 @@ import {MealImage} from '@/components/shared/meal/image';
 import {mealTypeTextStyle} from '@/styles/game/mealType';
 import {RecipeLevel} from '@/types/game/cooking';
 import {MealTypeId} from '@/types/game/meal/main';
-import {userCookingMeals, UserCookingTarget} from '@/types/userData/settings/cooking/common';
+import {cookingMeals} from '@/types/userData/config/cooking/meal';
+import {CookingTarget} from '@/types/userData/config/cooking/target';
 
 
 type Props = {
-  target: UserCookingTarget,
+  target: CookingTarget,
   recipeLevel: RecipeLevel,
   mealTypes: MealTypeId[],
 };
@@ -27,7 +28,7 @@ export const MealPlannerButton = ({target, recipeLevel, mealTypes}: Props) => {
 
         return (
           <Flex key={mealType} center className={mealTypeTextStyle[mealType]}>
-            {userCookingMeals.map((cookingMeal) => {
+            {cookingMeals.map((cookingMeal) => {
               const mealId = mealsOfDay ? mealsOfDay[cookingMeal] : undefined;
 
               if (!mealId) {

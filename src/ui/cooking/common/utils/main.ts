@@ -1,4 +1,4 @@
-import {UserCookingSettings} from '@/types/userData/settings/cooking/settings';
+import {CookingConfig} from '@/types/userData/config/cooking/main';
 import {CookingCommonFilter} from '@/ui/cooking/common/type';
 
 
@@ -6,7 +6,7 @@ export const generateCookingCommonFilter = ({
   recipeLevel,
   ingredientCount,
   mealsMarked,
-}: UserCookingSettings): CookingCommonFilter => ({
+}: CookingConfig): CookingCommonFilter => ({
   recipeLevel,
   mealsMarked,
   inventory: ingredientCount,

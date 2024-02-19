@@ -6,11 +6,12 @@ import {PokedexMap} from '@/types/game/pokemon';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 import {PokeboxViewerDisplay} from '@/ui/team/pokebox/viewer/type';
 
 
-export type PokeboxDataProps = UsePokemonFilterCommonData & UserSettingsRequiredData & {
+export type PokeboxDataProps = UsePokemonFilterCommonData & ConfigRequiredData & {
   pokedexMap: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   mainSkillMap: MainSkillMap,
@@ -18,7 +19,7 @@ export type PokeboxDataProps = UsePokemonFilterCommonData & UserSettingsRequired
   recipeLevelData: RecipeLevelData[],
   pokemonMaxLevel: number,
   preloaded: {
-    bundle: UserSettingsBundle,
+    bundle: ConfigBundle,
     display: Partial<PokeboxViewerDisplay> | undefined,
   },
 };

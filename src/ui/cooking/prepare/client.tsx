@@ -3,9 +3,9 @@ import React from 'react';
 
 import {useSession} from 'next-auth/react';
 
-import {defaultUserCookingSettings} from '@/const/user/cooking';
+import {defaultCookingConfig} from '@/const/user/config/cooking';
 import {usePossibleMealTypes} from '@/hooks/meal';
-import {useTranslatedUserSettings} from '@/hooks/userData/translated';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {CookingServerDataProps} from '@/ui/cooking/common/type';
 import {generateCookingCommonFilter} from '@/ui/cooking/common/utils/main';
 import {useMealPreparerInfo} from '@/ui/cooking/prepare/hook/main';
@@ -26,7 +26,7 @@ export const MealPreparerClient = (props: CookingServerDataProps) => {
   } = props;
 
   const {data: session} = useSession();
-  const {translatedSettings} = useTranslatedUserSettings({
+  const {calculatedConfigBundle} = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: session?.user.preloaded,
@@ -34,8 +34,8 @@ export const MealPreparerClient = (props: CookingServerDataProps) => {
     ...props,
   });
   const [filter, setFilter] = React.useState<MealPreparerFilter>({
-    ...generateCookingCommonFilter(preloaded.cooking),
-    mealsWanted: cloneMerge(defaultUserCookingSettings.mealsWanted, preloaded.cooking?.mealsWanted) ?? {},
+    ...generateCookingCommonFilter(preloaded.cookingConfig),
+    mealsWanted: cloneMerge(defaultCookingConfig.mealsWanted, preloaded.cookingConfig?.mealsWanted) ?? {},
     showRecipeStrength: false,
   });
 
@@ -48,8 +48,8 @@ export const MealPreparerClient = (props: CookingServerDataProps) => {
     setFilter,
     mealTypes,
     maxRecipeLevel: getMaxRecipeLevel({recipeLevelData}),
-    calculatedSettings: translatedSettings.calculatedSettings,
-    preloaded: preloaded.cooking,
+    calculatedSettings: calculatedConfigBundle.calculatedSettings,
+    preloaded: preloaded.cookingConfig,
   };
 
   const info = useMealPreparerInfo({

@@ -4,7 +4,7 @@ import {testBonus} from '@/tests/data/game/bonus';
 import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testIngredientProductions} from '@/tests/data/game/ingredient/production';
 import {testPokemonData} from '@/tests/data/game/pokemon';
-import {testDefaultCalculatedUserSettings} from '@/tests/data/user/settings';
+import {testDefaultCalculatedUserConfig} from '@/tests/data/user/config';
 import {getTestFinalProducingRateOfDropCommonOpts} from '@/tests/producing/rate';
 import {getIngredientProducingRateBaseList} from '@/utils/game/producing/branch/ingredient/base/main';
 import {getIngredientProducingRateFinalList} from '@/utils/game/producing/branch/ingredient/final/main';
@@ -28,7 +28,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
         calculatedSettings: {
-          ...testDefaultCalculatedUserSettings,
+          ...testDefaultCalculatedUserConfig,
           bonus,
         },
       }),
@@ -92,7 +92,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
         calculatedSettings: {
-          ...testDefaultCalculatedUserSettings,
+          ...testDefaultCalculatedUserConfig,
           bonus,
         },
       }),
@@ -121,7 +121,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
         calculatedSettings: {
-          ...testDefaultCalculatedUserSettings,
+          ...testDefaultCalculatedUserConfig,
           bonus,
         },
       }),
@@ -150,7 +150,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
         calculatedSettings: {
-          ...testDefaultCalculatedUserSettings,
+          ...testDefaultCalculatedUserConfig,
           bonus,
         },
       }),
@@ -179,7 +179,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
         calculatedSettings: {
-          ...testDefaultCalculatedUserSettings,
+          ...testDefaultCalculatedUserConfig,
           bonus,
         },
       }),
@@ -218,7 +218,7 @@ describe('Pokemon Production (Ingredient) / Final', () => {
         ingredientMap: testIngredientMap,
         baseFrequency: frequency,
         calculatedSettings: {
-          ...testDefaultCalculatedUserSettings,
+          ...testDefaultCalculatedUserConfig,
           bonus,
         },
       }),

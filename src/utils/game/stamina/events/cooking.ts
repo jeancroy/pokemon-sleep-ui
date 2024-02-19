@@ -3,7 +3,7 @@ import {
   StaminaCookingRecoveryData,
   StaminaRecovery,
 } from '@/types/game/stamina/recovery';
-import {userCookingMeals} from '@/types/userData/settings/cooking/common';
+import {cookingMeals} from '@/types/userData/config/cooking/meal';
 import {getLogsWithStaminaRecovery} from '@/utils/game/stamina/events/recovery';
 import {GetLogsCommonOpts} from '@/utils/game/stamina/events/type';
 import {rotateTime} from '@/utils/time';
@@ -54,8 +54,8 @@ export const getCookingRecoveryEntries = ({
   }
 
   if (strategy === 'conservative') {
-    return userCookingMeals.map((userCookingMeal): StaminaRecovery => ({
-      timing: rotateTime(cookingRecoveryConfig[userCookingMeal] + offset),
+    return cookingMeals.map((cookingMeal): StaminaRecovery => ({
+      timing: rotateTime(cookingRecoveryConfig[cookingMeal] + offset),
       getBaseAmount: (staminaBeforeCook) => getEffectiveStaminaCookingRecovery({
         cookingRecoveryData,
         staminaBeforeCook,

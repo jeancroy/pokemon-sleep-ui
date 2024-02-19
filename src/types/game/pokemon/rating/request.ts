@@ -9,7 +9,8 @@ import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {FriendshipLevelOfGoldLock, SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {UserSettingsBundle, UserSettingsRequiredData} from '@/types/userData/settings/main';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
 export type RatingOnDeskState = PokemonOnDeskState & {
@@ -19,7 +20,7 @@ export type RatingOnDeskState = PokemonOnDeskState & {
 };
 
 export type RatingSetupData = Omit<RatingOnDeskState, 'origin'> & {
-  bundle: UserSettingsBundle,
+  bundle: ConfigBundle,
 };
 
 export type RatingRequest = {
@@ -27,7 +28,7 @@ export type RatingRequest = {
   timestamp: number,
 };
 
-export type RatingOpts = UserSettingsRequiredData & {
+export type RatingOpts = ConfigRequiredData & {
   level: number,
   pokemon: PokemonInfo | undefined,
   pokemonList: PokemonInfo[],

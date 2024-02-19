@@ -57,7 +57,7 @@ const RatingResultLoadedInternal = ({
 
   useAutoUpload({
     opts: {
-      type: 'rating',
+      type: 'config.rating',
       data: config,
     },
     triggerDeps: [config],

@@ -1,12 +1,12 @@
-import {getPacketRecordingSettings} from '@/controller/packet/settings';
+import {getPacketRecordingConfig} from '@/controller/packet/config';
 import {PacketDataCommonProps, PacketDataFromApiCommonProps} from '@/types/packet/common';
-import {PacketRecordingType} from '@/types/packet/settings';
+import {PacketRecordingType} from '@/types/packet/config';
 
 
 export const isPacketRecordingEnabled = async (type: PacketRecordingType): Promise<boolean> => {
-  const settings = await getPacketRecordingSettings();
+  const config = await getPacketRecordingConfig();
 
-  return !!settings && !!settings.enabled[type];
+  return !!config && !!config.enabled[type];
 };
 
 export const isPacketDataFromApiIncludingSource = <

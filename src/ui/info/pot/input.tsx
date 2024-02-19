@@ -8,14 +8,14 @@ import {MealTypeInput} from '@/components/shared/input/mealType';
 import {PotCapacityInput} from '@/components/shared/input/potCapacity';
 import {MealDisplayControl} from '@/components/shared/meal/control';
 import {MealLevelInput} from '@/components/shared/meal/level';
-import {defaultUserCookingSettings} from '@/const/user/cooking';
+import {defaultCookingConfig} from '@/const/user/config/cooking';
 import {MealTypeId} from '@/types/game/meal/main';
 import {UserPreloadedData} from '@/types/userData/main';
 import {PotInfoDataProps, PotInfoFilter} from '@/ui/info/pot/type';
 
 
 type Props = FilterWithUpdaterProps<PotInfoFilter> & Pick<PotInfoDataProps, 'ingredientMap'> & {
-  preloaded: UserPreloadedData['cooking'],
+  preloaded: UserPreloadedData['cookingConfig'],
   maxMealLevel: number,
   mealTypes: MealTypeId[],
 };
@@ -60,7 +60,7 @@ export const PotInfoInput = ({filter, setFilter, maxMealLevel, mealTypes, preloa
           showEnergy,
         } satisfies PotInfoFilter))}
         uploadData={{
-          ...defaultUserCookingSettings,
+          ...defaultCookingConfig,
           ...preloaded,
           ...(filter.capacity && {
             potCapacity: filter.capacity,

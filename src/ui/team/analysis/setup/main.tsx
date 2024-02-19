@@ -13,8 +13,7 @@ import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
 import {TeamContributionSplitIndicator} from '@/components/shared/team/contributionSplit/main';
-import {useUserSettingsBundle} from '@/hooks/userData/bundle';
-import {useCalculatedCookingSettings} from '@/hooks/userData/settings/calculatedCooking';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook';
 import {TeamAnalysisCompControl} from '@/ui/team/analysis/setup/control/comp/main';
@@ -41,13 +40,14 @@ export const TeamAnalysisSetupView = (props: Props) => {
   } = props;
   const {setup} = setupControl;
 
-  const bundle = useUserSettingsBundle({
+  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: bundleFromClient,
     },
+    ...props,
   });
-  const calculatedCookingSettings = useCalculatedCookingSettings({...bundle, mealMap});
+  const {calculatedCookingSettings} = calculatedConfigBundle;
   const statsOfTeam = useTeamProducingStats({
     ...props,
     setup,
