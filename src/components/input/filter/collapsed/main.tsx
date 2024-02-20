@@ -35,6 +35,8 @@ export const FilterCollapsedInput = <TId extends IndexableNonSymbol | null>(prop
           idToButton={idToText}
           isHidden={(id) => !isActive(id)}
           {...props}
+          // Force overwrite `onClick` in props so clicking on the active option opens the dialog
+          onClick={() => setShow(true)}
         />
       </Flex>
     </FilterInputLayout>
