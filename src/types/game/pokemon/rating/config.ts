@@ -4,10 +4,10 @@ import {Migratable} from '@/types/migrate';
 
 
 export const ratingBasis = [
-  'totalProduction',
-  'ingredientCount',
+  'totalStrength',
   'ingredientProduction',
-  'skillTriggerValue',
+  'mealCoverage',
+  'mainSkillTriggerCount',
 ] as const;
 
 export type RatingBasis = typeof ratingBasis[number];

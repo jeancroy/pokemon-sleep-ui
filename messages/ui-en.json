@@ -373,10 +373,7 @@
     },
     "Rating": {
       "FriendshipLevel": "Friendship Level",
-      "AdvancedOptions": "Advanced Options",
-      "Message": {
-        "RatingBasisIsIngredientRelated": "Ingredient-related rating basis is picked. Make sure the cooking schedule in user config is set up.\n\nCheck the documentation available at the top right side of the page for details."
-      }
+      "AdvancedOptions": "Advanced Options"
     },
     "Cooking": {
       "Energy": "Final Strength",
@@ -586,6 +583,24 @@
     }
   },
   "Rating": {
+    "Basis": {
+      "TotalStrength": {
+        "Name": "Total strength",
+        "Explainer": "Expected total daily strength production. **Cooking schedule in the user config affects the outcome.**"
+      },
+      "IngredientStrength": {
+        "Name": "Ingredient strength",
+        "Explainer": "Expected strength originated from ingredient production. **Cooking schedule in the user config affects the outcome.**"
+      },
+      "MealCoverage": {
+        "Name": "Meal Coverage",
+        "Explainer": "Percentage of the ingredient requirements covered based on the current cooking schedule in the user config."
+      },
+      "MainSkillTriggerCount": {
+        "Name": "Expected skill count",
+        "Explainer": "Expected skill trigger count per day. This factors in the inventory limit."
+      }
+    },
     "WeightedStatsBasis": {
       "Percentile": "Percentile",
       "Percentage": "Percentage",

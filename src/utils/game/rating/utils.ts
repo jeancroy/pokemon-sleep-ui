@@ -10,5 +10,5 @@ export const getDefaultRatingBasis = (specialtyId: PokemonSpecialtyId): RatingBa
 );
 
 export const getRatingProducingRateCalcBehavior = (basis: RatingBasis): ProducingRateCalcBehavior => ({
-  asSingle: basis !== 'skillTriggerValue',
+  asSingle: basis !== 'mainSkillTriggerCount',
 });

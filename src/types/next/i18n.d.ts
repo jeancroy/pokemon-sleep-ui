@@ -12,6 +12,11 @@ type PageWithIndividual = {
 
 type GameObjectIdToString = {[id in string]: string};
 
+type RatingBasisI18n = {
+  Name: string,
+  Explainer: string,
+};
+
 declare global {
   declare interface IntlMessages {
     Locale: string,
@@ -258,9 +263,6 @@ declare global {
         Rating: {
           FriendshipLevel: string,
           AdvancedOptions: string,
-          Message: {
-            RatingBasisIsIngredientRelated: string,
-          },
         },
         Cooking: {
           Energy: string,
@@ -470,6 +472,12 @@ declare global {
         },
       },
       Rating: {
+        Basis: {
+          TotalStrength: RatingBasisI18n,
+          IngredientStrength: RatingBasisI18n,
+          MealCoverage: RatingBasisI18n,
+          MainSkillTriggerCount: RatingBasisI18n,
+        },
         WeightedStatsBasis: {
           Percentile: string,
           Percentage: string,

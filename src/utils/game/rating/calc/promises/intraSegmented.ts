@@ -1,6 +1,6 @@
 import {RatingCombination, RatingDataPoint} from '@/types/game/pokemon/rating/result';
 import {CalculateRatingDataWorkerOpts} from '@/utils/game/rating/calc/type';
-import {getRatingValueOfPossibility} from '@/utils/game/rating/possibility';
+import {getRatingValueOfPossibility} from '@/utils/game/rating/value/possibility';
 import {generatePossiblePokemonSubSkills} from '@/utils/game/subSkill/generate';
 
 

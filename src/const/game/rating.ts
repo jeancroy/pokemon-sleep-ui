@@ -35,19 +35,28 @@ export const initialRatingResultOfCategory: RatingResultOfCategoryAtLevel = {
 };
 
 export const ratingBasisSpecialty: {[basis in RatingBasis]: PokemonSpecialtyId[]} = {
-  totalProduction: [specialtyIdMap.berry, specialtyIdMap.ingredient],
-  ingredientCount: [specialtyIdMap.ingredient],
+  totalStrength: [specialtyIdMap.berry, specialtyIdMap.ingredient],
   ingredientProduction: [specialtyIdMap.ingredient],
-  skillTriggerValue: [specialtyIdMap.skill],
+  mealCoverage: [specialtyIdMap.ingredient],
+  mainSkillTriggerCount: [specialtyIdMap.skill],
 };
 
-export const ratingBasisI18nId: {
-  [basis in RatingBasis]: I18nMessageKeysOfNamespace<'UI.InPage.Pokedex'>
+export const ratingBasisNameI18nId: {
+  [basis in RatingBasis]: I18nMessageKeysOfNamespace<'UI.Rating.Basis'>
 } = {
-  totalProduction: 'Sort.TotalEnergy',
-  ingredientCount: 'Sort.IngredientCount',
-  ingredientProduction: 'Sort.IngredientEnergy',
-  skillTriggerValue: 'Stats.MainSkillTriggerValue',
+  totalStrength: 'TotalStrength.Name',
+  ingredientProduction: 'IngredientStrength.Name',
+  mealCoverage: 'MealCoverage.Name',
+  mainSkillTriggerCount: 'MainSkillTriggerCount.Name',
+};
+
+export const ratingBasisExplainerI18nId: {
+  [basis in RatingBasis]: I18nMessageKeysOfNamespace<'UI.Rating.Basis'>
+} = {
+  totalStrength: 'TotalStrength.Explainer',
+  ingredientProduction: 'IngredientStrength.Explainer',
+  mealCoverage: 'MealCoverage.Explainer',
+  mainSkillTriggerCount: 'MainSkillTriggerCount.Explainer',
 };
 
 export const ratingWeightedStatsBasisI18nId: {
@@ -67,7 +76,7 @@ export const ratingResultCategoryI18nId: {
 };
 
 export const defaultRatingBasisOfSpecialty: {[specialty in SpecialtyType]: RatingBasis} = {
-  berry: 'totalProduction',
+  berry: 'totalStrength',
   ingredient: 'ingredientProduction',
-  skill: 'skillTriggerValue',
+  skill: 'mainSkillTriggerCount',
 };

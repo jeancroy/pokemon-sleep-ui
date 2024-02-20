@@ -5,8 +5,9 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
-import {MainSkillTriggerValueIcon} from '@/components/shared/pokemon/mainSkill/icon/trigger';
-import {ratingBasisI18nId} from '@/const/game/rating';
+import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
+import {GenericMainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/generic';
+import {ratingBasisNameI18nId} from '@/const/game/rating';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 
 
@@ -15,16 +16,12 @@ type Props = {
 };
 
 export const RatingBasisIcon = ({basis}: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Rating.Basis');
 
-  const basisName = t(ratingBasisI18nId[basis]);
+  const basisName = t(ratingBasisNameI18nId[basis]);
 
-  if (basis === 'totalProduction') {
+  if (basis === 'totalStrength') {
     return <ColoredEnergyIcon alt={basisName} dimension="size-7"/>;
-  }
-
-  if (basis === 'ingredientCount') {
-    return <GenericIngredientIcon alt={basisName} dimension="size-7"/>;
   }
 
   if (basis === 'ingredientProduction') {
@@ -36,9 +33,13 @@ export const RatingBasisIcon = ({basis}: Props) => {
     );
   }
 
-  if (basis === 'skillTriggerValue') {
-    return <MainSkillTriggerValueIcon alt={basisName} dimension="size-7"/>;
+  if (basis === 'mealCoverage') {
+    return <MealCoverageIcon alt={basisName} dimension="size-7"/>;
   }
 
-  throw new Error(`Unhandled rating icon of basis - ${basis satisfies never}`);
+  if (basis === 'mainSkillTriggerCount') {
+    return <GenericMainSkillIcon alt={basisName} dimension="size-7"/>;
+  }
+
+  throw new Error(`Unhandled rating icon of basis [${basis satisfies never}]`);
 };

@@ -1,36 +1,37 @@
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
-import {getProducingRateSingleParams} from '@/utils/game/producing/params';
 import {getRatingBasisValue} from '@/utils/game/rating/basis';
 import {GetRatingValueOfSimulationOpts} from '@/utils/game/rating/type';
 import {getRatingProducingRateCalcBehavior} from '@/utils/game/rating/utils';
-import {toRecoveryRate} from '@/utils/game/stamina/recovery';
-import {toCalculatedConfigBundle} from '@/utils/user/config/bundle';
+import {getRatingValueCommon} from '@/utils/game/rating/value/common';
 
 
 export const getRatingValueOfCurrent = (opts: GetRatingValueOfSimulationOpts) => {
   const {
     basis,
-    bundle,
+    level,
+    subSkill,
+    nature,
   } = opts;
 
-  const singleParams = getProducingRateSingleParams(opts);
-  const {natureId, subSkillBonus} = singleParams;
+  const {
+    singleParams,
+    calculatedCookingConfig,
+    targetMeals,
+  } = getRatingValueCommon({
+    baseOpts: opts,
+    level,
+    subSkill,
+    nature,
+  });
 
   return getRatingBasisValue({
     ...opts,
     rate: getPokemonProducingRateSingle({
       ...opts,
       ...singleParams,
-      ...toCalculatedConfigBundle({
-        ...opts,
-        ...bundle,
-        recoveryRate: toRecoveryRate({
-          natureId,
-          subSkillBonuses: [subSkillBonus],
-        }),
-      }),
+      calculatedCookingConfig,
       calcBehavior: getRatingProducingRateCalcBehavior(basis),
     }).atStage.final,
-    singleParams,
+    targetMeals,
   });
 };

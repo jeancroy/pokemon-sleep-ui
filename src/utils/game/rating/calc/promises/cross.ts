@@ -3,7 +3,7 @@ import {RatingCombination, RatingDataPoint} from '@/types/game/pokemon/rating/re
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
 import {RatingWorkerDataPointCalcReturn} from '@/utils/game/rating/calc/promises/type';
 import {GetRatingResultOfCategoryPromisesOpts} from '@/utils/game/rating/calc/type';
-import {getRatingValueOfPossibility} from '@/utils/game/rating/possibility';
+import {getRatingValueOfPossibility} from '@/utils/game/rating/value/possibility';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -31,7 +31,7 @@ export const calculateRatingResultOfCrossSpecies = ({
       resolve(pokemonList.flatMap((pokemon) => {
         const {ingredientChain, berry, skill} = pokemon;
 
-        if (basis === 'skillTriggerValue' && pokemon.skill !== currentPokemon.skill) {
+        if (basis === 'mainSkillTriggerCount' && pokemon.skill !== currentPokemon.skill) {
           return null;
         }
 

@@ -1,10 +1,10 @@
 import {RatingWorkerOpts} from '@/types/game/pokemon/rating/request';
 import {RatingCombination, RatingExtrema, RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
-import {getRatingValueOfBase} from '@/utils/game/rating/base';
 import {RatingWorkerDataPointCalcReturn} from '@/utils/game/rating/calc/promises/type';
 import {GetRatingResultOfCategoryPromisesOpts} from '@/utils/game/rating/calc/type';
-import {getRatingValueOfCurrent} from '@/utils/game/rating/current';
+import {getRatingValueOfBase} from '@/utils/game/rating/value/base';
+import {getRatingValueOfCurrent} from '@/utils/game/rating/value/current';
 
 
 type CalculateRatingResultOfCategoryOpts = RatingWorkerOpts & {

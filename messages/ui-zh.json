@@ -373,10 +373,7 @@
     },
     "Rating": {
       "FriendshipLevel": "友情等級",
-      "AdvancedOptions": "進階選項",
-      "Message": {
-        "RatingBasisIsIngredientRelated": "目前評級基準和食材有關。請確認使用者設定中的料理製作行程是否正確。\n\n詳情請見頁面右上方的相關說明文件。"
-      }
+      "AdvancedOptions": "進階選項"
     },
     "Cooking": {
       "Energy": "最終能量",
@@ -586,6 +583,24 @@
     }
   },
   "Rating": {
+    "Basis": {
+      "TotalStrength": {
+        "Name": "總能量",
+        "Explainer": "每日總能量產量。**使用者設定中的料理製作排程會影響結果。**"
+      },
+      "IngredientStrength": {
+        "Name": "食材能量",
+        "Explainer": "每日來自食材的能量產量。**使用者設定中的料理製作排程會影響結果。**"
+      },
+      "MealCoverage": {
+        "Name": "食譜覆蓋率",
+        "Explainer": "使用者設定中，料理製作排程需要的食材產量的滿足率。"
+      },
+      "MainSkillTriggerCount": {
+        "Name": "既能觸發數",
+        "Explainer": "每日技能觸發次數。計算結果已考量達到持有上限後無法再觸發技能。"
+      }
+    },
     "WeightedStatsBasis": {
       "Percentile": "百分位數",
       "Percentage": "百分比",

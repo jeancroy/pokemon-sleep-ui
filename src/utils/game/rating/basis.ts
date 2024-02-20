@@ -1,42 +1,44 @@
-import {PokemonProducingParams} from '@/types/game/pokemon/producing';
+import {Meal} from '@/types/game/meal/main';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
-import {PokemonProducingRate, ProducingRateSingleParams} from '@/types/game/producing/rate';
+import {PokemonProducingRate} from '@/types/game/producing/rate';
 import {toSum} from '@/utils/array';
-import {getSkillTriggerValue} from '@/utils/game/mainSkill/utils';
+import {getMealCoverage} from '@/utils/game/cooking';
+import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
 import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 
 
 type GetRatingBasisValueOpts = {
   rate: PokemonProducingRate,
   basis: RatingBasis,
-  pokemonProducingParams: PokemonProducingParams,
-  singleParams: ProducingRateSingleParams,
+  targetMeals: Meal[],
 };
 
 export const getRatingBasisValue = ({
   rate,
   basis,
-  pokemonProducingParams,
-  singleParams,
+  targetMeals,
 }: GetRatingBasisValueOpts): number => {
-  if (basis === 'totalProduction') {
+  if (basis === 'totalStrength') {
     return getTotalStrengthOfPokemonProducingRate(rate);
-  }
-
-  if (basis === 'ingredientCount') {
-    return toSum(Object.values(rate.ingredient).map(({qty}) => qty.equivalent));
   }
 
   if (basis === 'ingredientProduction') {
     return toSum(Object.values(rate.ingredient).map(({strength}) => strength.equivalent));
   }
 
-  if (basis === 'skillTriggerValue') {
-    return getSkillTriggerValue({
-      rate,
-      skillValue: pokemonProducingParams.skillValue,
-      ...singleParams,
-    });
+  if (basis === 'mealCoverage') {
+    return getMealCoverage({
+      meals: targetMeals,
+      ingredientProduction: toIngredientProductionCounterFromPokemonRate({
+        pokemonRate: rate,
+        state: 'equivalent',
+      }),
+      period: rate.period,
+    }).total;
+  }
+
+  if (basis === 'mainSkillTriggerCount') {
+    return rate.skill.qty.equivalent;
   }
 
   throw new Error(`Unhandled rating basis - ${basis satisfies never}`);

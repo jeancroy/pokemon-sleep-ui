@@ -2,7 +2,6 @@ import {natureData} from '@/data/nature';
 import {RatingWorkerOpts} from '@/types/game/pokemon/rating/request';
 import {RatingDataPoint} from '@/types/game/pokemon/rating/result';
 import {isNestedWorkerSupported} from '@/utils/compatibility/nestedWorker';
-import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
 import {calculateRatingValueIntraSpeciesSegmented} from '@/utils/game/rating/calc/promises/intraSegmented';
 import {RatingWorkerDataPointCalcReturn} from '@/utils/game/rating/calc/promises/type';
@@ -12,10 +11,8 @@ import {isNotNullish} from '@/utils/type';
 
 export const calculateRatingResultOfIntraSpecies = (opts: RatingWorkerOpts): RatingWorkerDataPointCalcReturn => {
   const {
-    basis,
     level,
     pokemon,
-    ingredients,
     ingredientChainMap,
     berryDataMap,
     mainSkillMap,
@@ -32,9 +29,10 @@ export const calculateRatingResultOfIntraSpecies = (opts: RatingWorkerOpts): Rat
   const subSkillData = Object.values(subSkillMap).filter(isNotNullish);
   const natureIds = natureData.map(({id}) => id);
 
-  const ingredientProductions = basis == 'ingredientCount' ?
-    [getEffectiveIngredientProductions({level, ingredients})] :
-    generatePossibleIngredientProductions({level, chain});
+  const ingredientProductions = generatePossibleIngredientProductions({
+    level,
+    chain,
+  });
 
   const promises: Promise<RatingDataPoint[]>[] = [];
   const runAsNestedWorker = useNestedWorker && level >= 50 && isNestedWorkerSupported();

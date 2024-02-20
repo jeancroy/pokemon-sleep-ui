@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonSpecialtyIcon} from '@/components/shared/pokemon/specialty/icon';
-import {ratingBasisI18nId, ratingBasisSpecialty} from '@/const/game/rating';
+import {ratingBasisNameI18nId, ratingBasisSpecialty} from '@/const/game/rating';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 
 
@@ -16,7 +16,7 @@ type Props = {
 };
 
 export const RatingBasisTitle = ({basis, isActive, larger}: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Rating.Basis');
 
   if (!basis) {
     return null;
@@ -32,7 +32,7 @@ export const RatingBasisTitle = ({basis, isActive, larger}: Props) => {
           dimension={larger ? 'size-6' : undefined}
         />
       ))}
-      {t(ratingBasisI18nId[basis])}
+      {t(ratingBasisNameI18nId[basis])}
     </Flex>
   );
 };

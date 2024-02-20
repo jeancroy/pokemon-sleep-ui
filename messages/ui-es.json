@@ -373,10 +373,7 @@
     },
     "Rating": {
       "FriendshipLevel": "Nivel de Amistad",
-      "AdvancedOptions": "Modo Avanzado",
-      "Message": {
-        "RatingBasisIsIngredientRelated": "La clasificación relacionada con Ingredientes está seleccionada. Configura el calendario de comidas en la configuración del usuario.\n\nRevisa la documentación disponible en la parte superior derecha de la página para más detalles."
-      }
+      "AdvancedOptions": "Modo Avanzado"
     },
     "Cooking": {
       "Energy": "Vigor Final",
@@ -586,6 +583,24 @@
     }
   },
   "Rating": {
+    "Basis": {
+      "TotalStrength": {
+        "Name": "Vigor total",
+        "Explainer": "Vigor total esperado diariamente. **Calendario de comidas en la configuración del usuario afecta el resultado.**"
+      },
+      "IngredientStrength": {
+        "Name": "Vigor de Ingredientes",
+        "Explainer": "Vigor esperado de la producción de Ingredientes. **Calendario de comidas en la configuración del usuario afecta el resultado.**"
+      },
+      "MealCoverage": {
+        "Name": "Cobertura de comidas",
+        "Explainer": "Porcentaje de los ingredientes necesarios cubiertos según el calendario de comidas en la configuración del usuario."
+      },
+      "MainSkillTriggerCount": {
+        "Name": "Recuento de habilidades esperado",
+        "Explainer": "Cantidad esperada de activaciones de habilidad por día. Tiene en cuenta el límite de inventario."
+      }
+    },
     "WeightedStatsBasis": {
       "Percentile": "Percentil",
       "Percentage": "Porcentaje",

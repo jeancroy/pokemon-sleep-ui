@@ -373,10 +373,7 @@
     },
     "Rating": {
       "FriendshipLevel": "フレンドレベル",
-      "AdvancedOptions": "詳細オプション",
-      "Message": {
-        "RatingBasisIsIngredientRelated": "評価基準に食材系統が選ばれています。ユーザ設定の料理スケジュールが評価を大きく左右するので、設定抜かりなく。\n\n詳細は右上のヘルプボタンから。"
-      }
+      "AdvancedOptions": "詳細オプション"
     },
     "Cooking": {
       "Energy": "最終エナジー",
@@ -554,7 +551,7 @@
   },
   "Producing": {
     "State": {
-      "Base": "ベース",
+      "Base": "基礎",
       "Awake": "非睡眠",
       "Asleep": {
         "Primary": {
@@ -586,6 +583,24 @@
     }
   },
   "Rating": {
+    "Basis": {
+      "TotalStrength": {
+        "Name": "Total strength",
+        "Explainer": "Expected total daily strength production. **Cooking schedule in the user config affects the outcome.**"
+      },
+      "IngredientStrength": {
+        "Name": "Ingredient strength",
+        "Explainer": "Expected strength originated from ingredient production. **Cooking schedule in the user config affects the outcome.**"
+      },
+      "MealCoverage": {
+        "Name": "Meal Coverage",
+        "Explainer": "Percentage of the ingredient requirements covered based on the current cooking schedule in the user config."
+      },
+      "MainSkillTriggerCount": {
+        "Name": "Expected skill count",
+        "Explainer": "Expected skill trigger count per day. This factors in the inventory limit."
+      }
+    },
     "WeightedStatsBasis": {
       "Percentile": "パーセンタイル (PR)",
       "Percentage": "パーセンテージ",

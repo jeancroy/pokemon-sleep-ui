@@ -1,11 +1,9 @@
 import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution/count';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
-import {getProducingRateSingleParams} from '@/utils/game/producing/params';
 import {getRatingBasisValue} from '@/utils/game/rating/basis';
 import {GetRatingValueOfSimulationOpts} from '@/utils/game/rating/type';
 import {getRatingProducingRateCalcBehavior} from '@/utils/game/rating/utils';
-import {toRecoveryRate} from '@/utils/game/stamina/recovery';
-import {toCalculatedConfigBundle} from '@/utils/user/config/bundle';
+import {getRatingValueCommon} from '@/utils/game/rating/value/common';
 
 
 export const getRatingValueOfBase = (opts: GetRatingValueOfSimulationOpts) => {
@@ -13,35 +11,29 @@ export const getRatingValueOfBase = (opts: GetRatingValueOfSimulationOpts) => {
     level,
     basis,
     pokemon,
-    subSkillMap,
-    bundle,
   } = opts;
 
-  const singleParams = getProducingRateSingleParams({
+  const {
+    singleParams,
+    calculatedCookingConfig,
+    targetMeals,
+  } = getRatingValueCommon({
+    baseOpts: opts,
     level,
     subSkill: {},
     nature: null,
-    subSkillMap,
   });
-  const {natureId, subSkillBonus} = singleParams;
 
   return getRatingBasisValue({
     ...opts,
     rate: getPokemonProducingRateSingle({
       ...opts,
+      ...singleParams,
       // Override `evolutionCount` in `opts` to apply default evolution count of the Pokémon
       evolutionCount: getEvolutionCountFromPokemonInfo({pokemon}),
-      ...singleParams,
-      ...toCalculatedConfigBundle({
-        ...opts,
-        ...bundle,
-        recoveryRate: toRecoveryRate({
-          natureId,
-          subSkillBonuses: [subSkillBonus],
-        }),
-      }),
+      calculatedCookingConfig,
       calcBehavior: getRatingProducingRateCalcBehavior(basis),
     }).atStage.final,
-    singleParams,
+    targetMeals,
   });
 };

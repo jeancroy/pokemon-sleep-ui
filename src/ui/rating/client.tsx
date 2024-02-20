@@ -3,9 +3,7 @@ import React from 'react';
 
 import {useSession} from 'next-auth/react';
 import {useTranslations} from 'next-intl';
-import ReactMarkdown from 'react-markdown';
 
-import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
 import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
@@ -14,8 +12,6 @@ import {RatingBasisSelection} from '@/components/shared/pokemon/rating/basis/sel
 import {RatingFriendshipLevel} from '@/components/shared/pokemon/rating/friendship/main';
 import {RatingResult} from '@/components/shared/pokemon/rating/main';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
-import {specialtyIdMap} from '@/const/game/pokemon';
-import {ratingBasisSpecialty} from '@/const/game/rating';
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
 import {RatingOnDeskState, RatingRequest} from '@/types/game/pokemon/rating/request';
@@ -93,11 +89,6 @@ export const RatingClient = (props: RatingServerDataProps) => {
               basis,
             }))}
           />
-          <AnimatedCollapse show={ratingBasisSpecialty[onDesk.basis].includes(specialtyIdMap.ingredient)}>
-            <ReactMarkdown className="info-highlight-inner p-2 text-left">
-              {t('Message.RatingBasisIsIngredientRelated')}
-            </ReactMarkdown>
-          </AnimatedCollapse>
           <CollapsibleFull control={advancedOptionsCollapsible} button={t('AdvancedOptions')}>
             <Flex className="gap-1.5">
               <SnorlaxFavoriteInput
