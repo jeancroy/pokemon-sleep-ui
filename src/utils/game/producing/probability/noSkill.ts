@@ -22,11 +22,7 @@ export const getNoSkillProbability = ({
     return null;
   }
 
-  const {helpCount, duration} = statsOfSleep;
-  if (!duration.filled) {
-    // Return `null` if the inventory never fills
-    return null;
-  }
+  const {helpCount} = statsOfSleep;
 
   return (1 - skillRatePercent / 100) ** helpCount.vacant;
 };
