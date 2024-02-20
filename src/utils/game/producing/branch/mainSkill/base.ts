@@ -1,5 +1,5 @@
 import {ProducingRateOfDrop} from '@/types/game/producing/rate';
-import {getMainSkillEquivalentStrengthOfSingle} from '@/utils/game/mainSkill/effect/main';
+import {getMainSkillStrengthEffect} from '@/utils/game/mainSkill/bySkill/strength';
 import {GetMainSkillProducingRateBaseOpts} from '@/utils/game/producing/branch/mainSkill/type';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {getProducingRateBase} from '@/utils/game/producing/toBase/main';
@@ -26,7 +26,7 @@ export const getMainSkillProducingRateBase = ({
     triggerRate: skillRatePercent / 100,
     qtyPerHelp: 1,
     strengthPerQtyPerHelp: Math.ceil(
-      getMainSkillEquivalentStrengthOfSingle(opts) * mapMultiplier * strengthMultiplier,
+      getMainSkillStrengthEffect(opts) * mapMultiplier * strengthMultiplier,
     ),
   });
 };

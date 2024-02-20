@@ -1,9 +1,9 @@
 import {ProducingRateCommonParams} from '@/types/game/producing/rate';
-import {GetMainSkillEquivalentStrengthOpts} from '@/utils/game/mainSkill/effect/type';
+import {GetMainSkillStrengthEffectOpts} from '@/utils/game/mainSkill/bySkill/strength';
 
 
 export type GetMainSkillProducingRateBaseOpts =
   Omit<ProducingRateCommonParams, 'level'> &
-  GetMainSkillEquivalentStrengthOpts & {
+  GetMainSkillStrengthEffectOpts & {
     skillRatePercent: number,
   };
