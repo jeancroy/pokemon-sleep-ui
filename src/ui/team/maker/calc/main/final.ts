@@ -5,11 +5,9 @@ import {TeamMakerResult} from '@/ui/team/maker/type/result';
 
 export const getTeamMakerFinalResult = (opts: TeamMakerCalcResultsOpts): TeamMakerResult => {
   const {input} = opts;
-  const {basis, snorlaxFavorite} = input;
 
   return {
     comps: getTeamMakerComps(opts),
-    basis,
-    snorlaxFavorite,
+    inputUsed: input,
   };
 };

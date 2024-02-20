@@ -106,7 +106,7 @@ export const useTeamMaker = ({teamCompsToShow}: UseTeamMakerOpts) => {
             });
 
             setState((original): TeamMakerState => {
-              const {basis} = result;
+              const {inputUsed} = result;
               let {teamCompsCalculated, teamCompsTotal} = original;
 
               if (teamCompsCalculated === null || teamCompsTotal === null) {
@@ -134,7 +134,7 @@ export const useTeamMaker = ({teamCompsToShow}: UseTeamMakerOpts) => {
                 result: {
                   ...result,
                   comps: reduceTeamMakerResultComp({
-                    basis,
+                    basis: inputUsed.basis,
                     comps: [...(original.result?.comps ?? []), ...result.comps],
                     count: teamCompsToShow,
                   }),

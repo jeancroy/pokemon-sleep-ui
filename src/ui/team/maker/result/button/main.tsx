@@ -6,22 +6,23 @@ import {PokemonIngredientProduction} from '@/components/shared/pokemon/productio
 import {TeamMakerResultButtonFinalEstimate} from '@/ui/team/maker/result/button/finalEstimate';
 import {TeamMakerIngredientSatisfactionIndicator} from '@/ui/team/maker/result/button/satisfyIngredients';
 import {TeamMakerResultSummary} from '@/ui/team/maker/result/button/summary';
-import {TeamMakerBasis} from '@/ui/team/maker/type/input';
+import {TeamMakerInput} from '@/ui/team/maker/type/input';
 import {TeamMakerResultComp} from '@/ui/team/maker/type/result';
 
 
 type Props = {
   comp: TeamMakerResultComp,
-  basis: TeamMakerBasis,
+  inputUsed: TeamMakerInput,
 };
 
-export const TeamMakerResultButton = ({comp, basis}: Props) => {
+export const TeamMakerResultButton = ({comp, inputUsed}: Props) => {
   const {
     rates,
     ingredientStats,
     finalEstimates,
     basisValue,
   } = comp;
+  const {basis} = inputUsed;
 
   return (
     <Flex className="gap-1">
@@ -39,7 +40,10 @@ export const TeamMakerResultButton = ({comp, basis}: Props) => {
           ))}
         </Flex>
         <Flex noFullWidth direction="row" className="items-center gap-1.5 text-lg">
-          <TeamMakerIngredientSatisfactionIndicator shortage={ingredientStats.shortage}/>
+          {
+            inputUsed.mealType !== null &&
+            <TeamMakerIngredientSatisfactionIndicator shortage={ingredientStats.shortage}/>
+          }
           <TeamMakerResultSummary basis={basis} basisValue={basisValue}/>
         </Flex>
         <TeamMakerResultButtonFinalEstimate finalEstimates={finalEstimates}/>

@@ -39,13 +39,13 @@ export const TeamMakerResultCompUI = ({comp, ...props}: Props) => {
     ingredientStats,
     finalEstimates,
   } = comp;
-  const {snorlaxFavorite} = result;
+  const {inputUsed} = result;
 
   const collapsible = useCollapsibleControl();
   const t = useTranslations('UI.Producing');
 
   return (
-    <CollapsibleFull control={collapsible} button={<TeamMakerResultButton comp={comp} basis={result.basis}/>}>
+    <CollapsibleFull control={collapsible} button={<TeamMakerResultButton comp={comp} inputUsed={result.inputUsed}/>}>
       <Flex center className="gap-1.5 p-1">
         <Grid className="grid-cols-1 gap-1.5 sm:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-5">
           {rates.rates.map((rate) => (
@@ -75,12 +75,15 @@ export const TeamMakerResultCompUI = ({comp, ...props}: Props) => {
             <span>{formatFloat(basisValue.strength)}</span>
           </Flex>
         </Flex>
-        <MealCoverageDetails coverage={basisValue.mealCoverage}/>
+        {
+          inputUsed.mealType !== null &&
+          <MealCoverageDetails coverage={basisValue.mealCoverage}/>
+        }
         <Flex className="items-center gap-1.5 md:flex-row md:justify-between">
           <TeamMakerSnorlaxRankFinalEstimate finalEstimates={finalEstimates}/>
           <TeamMakerCompControl
             pokeInBoxList={rates.rates.map(({payload}) => payload.pokeInBox)}
-            snorlaxFavoriteForExport={snorlaxFavorite}
+            snorlaxFavoriteForExport={inputUsed.snorlaxFavorite}
           />
         </Flex>
       </Flex>
