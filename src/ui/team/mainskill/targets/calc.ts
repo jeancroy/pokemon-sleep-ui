@@ -1,24 +1,27 @@
 import React from 'react';
 
-import {getSkillTriggerValueOfTargets, GetSkillTriggerValueOfTargetsOpts} from '@/ui/team/mainskill/calc/targets';
-import {SkillTriggerAnalysisCalculatedUnit} from '@/ui/team/mainskill/targets/type';
+import {
+  getSkillTriggerAnalysisCalcUnitOfTargets,
+  GetSkillTriggerAnalysisCalcUnitOfTargetsOpts,
+} from '@/ui/team/mainskill/calc/targets';
+import {SkillTriggerAnalysisCalcUnit} from '@/ui/team/mainskill/targets/type';
 
 
 type UseSkillTriggerAnalysisCalculatedReturn = {
-  units: SkillTriggerAnalysisCalculatedUnit[],
+  units: SkillTriggerAnalysisCalcUnit[],
   sort: () => void,
 };
 
 export const useSkillTriggerAnalysisCalculated = (
-  opts: GetSkillTriggerValueOfTargetsOpts,
+  opts: GetSkillTriggerAnalysisCalcUnitOfTargetsOpts,
 ): UseSkillTriggerAnalysisCalculatedReturn => {
   const {state, calculatedConfigBundle} = opts;
 
-  const [units, setUnits] = React.useState(getSkillTriggerValueOfTargets(opts));
+  const [units, setUnits] = React.useState(getSkillTriggerAnalysisCalcUnitOfTargets(opts));
 
   // Recalculate when `state` changes
   React.useEffect(
-    () => setUnits(getSkillTriggerValueOfTargets(opts)),
+    () => setUnits(getSkillTriggerAnalysisCalcUnitOfTargets(opts)),
     [state, calculatedConfigBundle],
   );
 
@@ -26,7 +29,7 @@ export const useSkillTriggerAnalysisCalculated = (
     () => setUnits((original) => [
       // Recreating an array to trigger rerender
       ...original.sort((a, b) => (
-        b.skillTriggerValue.actual - a.skillTriggerValue.actual
+        b.skillTriggerCount.actual - a.skillTriggerCount.actual
       )),
     ]),
     [units, state, calculatedConfigBundle],

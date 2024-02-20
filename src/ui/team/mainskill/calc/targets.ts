@@ -1,26 +1,26 @@
 import {v4} from 'uuid';
 
-import {getSkillTriggerValueOfUnit} from '@/ui/team/mainskill/calc/single';
-import {GetSkillTriggerValueCommonOpts} from '@/ui/team/mainskill/calc/type';
-import {SkillTriggerAnalysisCalculatedUnit} from '@/ui/team/mainskill/targets/type';
+import {GetSkillTriggerAnalysisCalcUnitCommonOpts} from '@/ui/team/mainskill/calc/type';
+import {getSkillTriggerAnalysisCalcUnit} from '@/ui/team/mainskill/calc/unit';
+import {SkillTriggerAnalysisCalcUnit} from '@/ui/team/mainskill/targets/type';
 import {SkillTriggerAnalysisState} from '@/ui/team/mainskill/type';
 import {isNotNullish} from '@/utils/type';
 
 
-export type GetSkillTriggerValueOfTargetsOpts = GetSkillTriggerValueCommonOpts & {
+export type GetSkillTriggerAnalysisCalcUnitOfTargetsOpts = GetSkillTriggerAnalysisCalcUnitCommonOpts & {
   state: SkillTriggerAnalysisState,
 };
 
-export const getSkillTriggerValueOfTargets = ({
+export const getSkillTriggerAnalysisCalcUnitOfTargets = ({
   state,
   ...opts
-}: GetSkillTriggerValueOfTargetsOpts): SkillTriggerAnalysisCalculatedUnit[] => {
+}: GetSkillTriggerAnalysisCalcUnitOfTargetsOpts): SkillTriggerAnalysisCalcUnit[] => {
   const baseUnit = state.base;
   if (!baseUnit) {
     return [];
   }
 
-  const base = getSkillTriggerValueOfUnit({
+  const base = getSkillTriggerAnalysisCalcUnit({
     ...opts,
     id: v4(),
     unit: baseUnit,
@@ -33,12 +33,11 @@ export const getSkillTriggerValueOfTargets = ({
         return null;
       }
 
-      return getSkillTriggerValueOfUnit({
+      return getSkillTriggerAnalysisCalcUnit({
         id,
         unit,
         base: {
-          skillTriggerValue: base.skillTriggerValue.actual,
-          skillTriggerCount: base.skillTriggerCount?.actual ?? null,
+          skillTriggerCount: base.skillTriggerCount.actual,
         },
         ...opts,
       });

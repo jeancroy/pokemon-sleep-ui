@@ -1,13 +1,10 @@
 import {useFilterInput} from '@/components/input/filter/hook';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
-import {enforceFilterWithSkillValue} from '@/components/shared/pokemon/sorter/enforcer/skillValue';
-import {defaultPokemonSort} from '@/const/filter';
 import {PokemonId} from '@/types/game/pokemon';
 import {Pokebox} from '@/types/userData/pokebox/main';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxPokemonForView, PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 import {generatePokeboxViewerFilter, isPokeInBoxIncluded} from '@/ui/team/pokebox/viewer/utils';
-import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -48,18 +45,5 @@ export const usePokeboxViewerFilter = ({
     initialFilter: generatePokeboxViewerFilter(preloaded),
     isDataIncluded: isPokeInBoxIncluded(filterData),
     deps: [pokebox],
-    onSetFilter: (original, updated) => enforceFilterWithSkillValue<
-      PokeboxViewerFilter,
-      PokeboxViewerFilter['sort']
-    >({
-      original,
-      updated,
-      config: {
-        mainSkill: {key: 'mainSkill', defaultValue: {[toPokemonList(pokedexMap)[0].skill]: true}},
-        sort: [
-          {key: 'sort', defaultValue: defaultPokemonSort},
-        ],
-      },
-    }),
   });
 };

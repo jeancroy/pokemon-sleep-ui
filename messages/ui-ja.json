@@ -336,8 +336,6 @@
           "Primary": "所持上限に達するまでの時間 (寝 1)",
           "Secondary": "所持上限に達するまでの時間 (寝 2)"
         },
-        "MainSkillValue": "スキル指数",
-        "MainSkillTriggerValue": "スキル生産指数",
         "MainSkillTriggerRate": "スキル発動率",
         "EventOnly": "イベント限定"
       },

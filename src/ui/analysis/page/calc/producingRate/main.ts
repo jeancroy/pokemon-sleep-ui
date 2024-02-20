@@ -1,6 +1,6 @@
 import {toAnalysisBerryProducingRate} from '@/ui/analysis/page/calc/producingRate/berry';
 import {toAnalysisIngredientProducingStats} from '@/ui/analysis/page/calc/producingRate/ingredient';
-import {toAnalysisSkillTriggerProducingStats} from '@/ui/analysis/page/calc/producingRate/skill';
+import {toAnalysisSkillTriggerCountProducingStats} from '@/ui/analysis/page/calc/producingRate/skill';
 import {toAnalysisTotalProducingStats} from '@/ui/analysis/page/calc/producingRate/total';
 import {PokemonAnalysisRateInfo} from '@/ui/analysis/page/calc/producingRate/type';
 import {AnalysisStats, GetAnalysisStatsOpts} from '@/ui/analysis/page/calc/type';
@@ -92,8 +92,7 @@ export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): Ana
       current: currentRate,
       rateOfAllPokemon,
     }),
-    skillTrigger: toAnalysisSkillTriggerProducingStats({
-      pokemonProducingParamsMap,
+    skillTriggerCount: toAnalysisSkillTriggerCountProducingStats({
       pokemon,
       current: currentRate,
       rateOfAllPokemon,

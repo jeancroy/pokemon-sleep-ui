@@ -6,18 +6,16 @@ import {clsx} from 'clsx';
 import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQuick';
 import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
-import {ValueError} from '@/components/shared/error';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {PokemonIngredientRate} from '@/components/shared/pokemon/production/params/ingredient';
 import {PokemonMainSkillTriggerRate} from '@/components/shared/pokemon/production/params/skillRate';
-import {PokemonMainSkillValue} from '@/components/shared/pokemon/production/params/skillValue';
 import {trustedDataCount} from '@/const/game/producingParams';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {Dimension} from '@/types/style';
 import {ProducingParamsBar} from '@/ui/info/production/client/bar';
 import {ProducingParamsMaximum} from '@/ui/info/production/client/type';
-import {formatFloat, formatFloat3, formatInt} from '@/utils/number/format/regular';
+import {formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {
@@ -35,11 +33,7 @@ export const ProducingParamsSingle = ({
   show,
   onPokemonClicked,
 }: Props) => {
-  const {
-    dataCount,
-    skillPercent,
-    error,
-  } = params;
+  const {dataCount} = params;
 
   const dimension: Dimension = 'size-5';
 
@@ -50,28 +44,22 @@ export const ProducingParamsSingle = ({
           'items-center gap-1 p-1',
           dataCount < trustedDataCount && 'text-danger',
         )}>
-          <Flex noFullWidth className="relative size-10 shrink-0">
-            <PokemonImage pokemonId={pokemonInfo.id} image={{type: 'default', image: 'icon'}} isShiny={false}/>
-          </Flex>
+          <div className="relative size-10 shrink-0">
+            <PokemonImage
+              pokemonId={pokemonInfo.id}
+              image={{type: 'default', image: 'icon'}}
+              isShiny={false}
+              className="rounded-lg"
+            />
+          </div>
           <Flex center className="gap-1">
-            <Flex direction="row" className="justify-between gap-1">
-              <Flex noFullWidth direction="row" className="items-end gap-1 whitespace-nowrap">
-                <PokemonIngredientRate params={params} dimension={dimension}/>
-                <ValueError valueError={formatFloat(error.ingredient)} className="text-xs"/>
-              </Flex>
-              <Flex noFullWidth direction="row" className="items-center gap-0.5">
-                <DocumentTextIcon className="size-4"/>
-                <div>{formatInt(dataCount)}</div>
-              </Flex>
+            <Flex noFullWidth direction="row" className="items-center gap-0.5 self-end">
+              <DocumentTextIcon className="size-4"/>
+              <div>{formatInt(dataCount)}</div>
             </Flex>
             <Flex direction="row" className="justify-between gap-1">
-              <Flex noFullWidth className={clsx(!skillPercent && 'opacity-20')}>
-                <PokemonMainSkillTriggerRate params={params} dimension={dimension}/>
-              </Flex>
-              <Flex noFullWidth direction="row" className="items-end gap-1">
-                <PokemonMainSkillValue params={params} dimension={dimension}/>
-                <ValueError valueError={formatFloat3(error.skill)} className="text-xs"/>
-              </Flex>
+              <PokemonIngredientRate params={params} dimension={dimension}/>
+              <PokemonMainSkillTriggerRate params={params} dimension={dimension}/>
             </Flex>
           </Flex>
         </Flex>

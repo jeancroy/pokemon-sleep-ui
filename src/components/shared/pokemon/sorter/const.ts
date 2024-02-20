@@ -23,8 +23,6 @@ export const sortTypeToI18nId: {
   timeToFullPackPrimary: 'Stats.TimeToFullPack.Primary',
   timeToFullPackSecondary: 'Stats.TimeToFullPack.Secondary',
   mainSkillLevel: 'Sort.MainSkillLevel',
-  mainSkillValue: 'Stats.MainSkillValue',
-  mainSkillTriggerValue: 'Stats.MainSkillTriggerValue',
   mainSkillTriggerRate: 'Stats.MainSkillTriggerRate',
   mainSkillDailyCount: 'Sort.SkillCount',
   mainSkillDailyStrength: 'Sort.SkillStrength',

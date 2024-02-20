@@ -12,10 +12,8 @@ import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonTimeToFullPackSingle} from '@/components/shared/pokemon/inventory/fullPack/single';
 import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
-import {PokemonMainSkillTriggerValue} from '@/components/shared/pokemon/mainSkill/triggerValue';
 import {PokemonIngredientRate} from '@/components/shared/pokemon/production/params/ingredient';
 import {PokemonMainSkillTriggerRate} from '@/components/shared/pokemon/production/params/skillRate';
-import {PokemonMainSkillValue} from '@/components/shared/pokemon/production/params/skillValue';
 import {PokemonSleepType} from '@/components/shared/pokemon/sleepType/main';
 import {getPokemonSorter} from '@/components/shared/pokemon/sorter/calc/main';
 import {sortTypeToI18nId} from '@/components/shared/pokemon/sorter/const';
@@ -97,10 +95,6 @@ export const PokedexLinkDetail = React.memo(({
 
   if (display === 'frequencyBase') {
     return <PokemonFrequency frequency={stats.frequency}/>;
-  }
-
-  if (display === 'mainSkillValue') {
-    return <PokemonMainSkillValue params={pokemonProducingParams} dimension="size-4"/>;
   }
 
   if (display === 'mainSkillTriggerRate') {
@@ -266,10 +260,6 @@ export const PokedexLinkDetail = React.memo(({
         </div>
       </Flex>
     );
-  }
-
-  if (display === 'mainSkillTriggerValue') {
-    return <PokemonMainSkillTriggerValue value={sorter}/>;
   }
 
   if (display === 'mainSkillDailyCount' || display === 'mainSkillDailyStrength') {

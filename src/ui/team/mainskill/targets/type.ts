@@ -4,13 +4,12 @@ import {SkillTriggerAnalysisDataProps, SkillTriggerAnalysisUnit} from '@/ui/team
 export type SkillTriggerAnalysisCommonProps = SkillTriggerAnalysisDataProps;
 
 export type SkillTriggerAnalysisCalcResult<TData> = {
-  skillTriggerValue: TData,
-  skillTriggerCount: TData | null,
+  skillTriggerCount: TData,
 };
 
-export type SkillTriggerAnalysisCalculatedUnit = SkillTriggerAnalysisUnit & SkillTriggerAnalysisCalcResult<{
+export type SkillTriggerAnalysisCalcUnit = SkillTriggerAnalysisUnit & SkillTriggerAnalysisCalcResult<{
   actual: number,
-  ratioToBase: number,
+  diffPercentToBase: number,
 }> & {
   id: string,
 };

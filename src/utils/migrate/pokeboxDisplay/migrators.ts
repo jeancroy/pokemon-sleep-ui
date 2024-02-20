@@ -65,9 +65,17 @@ export const pokeboxDisplayMigrators: Migrator<PokeboxViewerDisplay, PokeboxView
     toVersion: 6,
     migrate: ({sort, ...old}) => ({
       ...old,
-      ...defaultPokemonIndividualParams,
       // @ts-ignore
       sort: sort === 'timeToFullPack' ? 'timeToFullPackPrimary' : sort,
+    }),
+  },
+  {
+    // Removed `mainSkillValue` and `mainSkillTriggerValue` display / sort type
+    toVersion: 7,
+    migrate: ({sort, ...old}) => ({
+      ...old,
+      // @ts-ignore
+      sort: sort === 'mainSkillValue' || sort === 'mainSkillTriggerValue' ? 'mainSkillDailyCount' : sort,
     }),
   },
 ];

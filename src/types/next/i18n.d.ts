@@ -225,8 +225,6 @@ declare global {
               Primary: string,
               Secondary: string,
             },
-            MainSkillValue: string,
-            MainSkillTriggerValue: string,
             MainSkillTriggerRate: string,
             EventOnly: string,
           },

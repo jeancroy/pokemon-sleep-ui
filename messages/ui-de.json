@@ -336,8 +336,6 @@
           "Primary": "Zeit bis Inventar voll ist (Sleep 1)",
           "Secondary": "Zeit bis Inventar voll ist (Sleep 2)"
         },
-        "MainSkillValue": "Talentwert",
-        "MainSkillTriggerValue": "Talent-Auslösefrequenzwert",
         "MainSkillTriggerRate": "Talent-Auslöserate",
         "EventOnly": "Nur Event"
       },

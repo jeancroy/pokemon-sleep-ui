@@ -1,19 +1,18 @@
-import {GetSkillTriggerValueCommonOpts} from '@/ui/team/mainskill/calc/type';
-import {SkillTriggerAnalysisCalcResult, SkillTriggerAnalysisCalculatedUnit} from '@/ui/team/mainskill/targets/type';
+import {GetSkillTriggerAnalysisCalcUnitCommonOpts} from '@/ui/team/mainskill/calc/type';
+import {SkillTriggerAnalysisCalcResult, SkillTriggerAnalysisCalcUnit} from '@/ui/team/mainskill/targets/type';
 import {SkillTriggerAnalysisUnit} from '@/ui/team/mainskill/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
-import {getSkillTriggerValue} from '@/utils/game/mainSkill/utils';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/game/producing/params';
 
 
-type GetSkillTriggerValueOfUnitOpts = GetSkillTriggerValueCommonOpts & {
+type GetSkillTriggerAnalysisCalcUnitOpts = GetSkillTriggerAnalysisCalcUnitCommonOpts & {
   id: string,
   unit: SkillTriggerAnalysisUnit,
   base: SkillTriggerAnalysisCalcResult<number> | null,
 };
 
-export const getSkillTriggerValueOfUnit = ({
+export const getSkillTriggerAnalysisCalcUnit = ({
   pokedexMap,
   pokemonProducingParamsMap,
   berryDataMap,
@@ -27,7 +26,7 @@ export const getSkillTriggerValueOfUnit = ({
   unit,
   base,
   ...opts
-}: GetSkillTriggerValueOfUnitOpts): SkillTriggerAnalysisCalculatedUnit | null => {
+}: GetSkillTriggerAnalysisCalcUnitOpts): SkillTriggerAnalysisCalcUnit | null => {
   const {
     level,
     pokemonId,
@@ -58,7 +57,6 @@ export const getSkillTriggerValueOfUnit = ({
     nature,
     subSkillMap,
   });
-  const {subSkillBonus} = singleParams;
 
   const rate = getPokemonProducingRateSingle({
     ...opts,
@@ -80,28 +78,14 @@ export const getSkillTriggerValueOfUnit = ({
     calcBehavior: {asSingle: false},
   }).atStage.final;
 
-  const skillTriggerValue = getSkillTriggerValue({
-    rate,
-    skillValue: pokemonProducingParams.skillValue,
-    natureId: nature,
-    subSkillBonus,
-  });
   const skillTriggerCount = rate.skill.qty.equivalent;
 
   return {
     ...unit,
     id,
-    skillTriggerValue: {
-      actual: skillTriggerValue,
-      ratioToBase: base ? skillTriggerValue / base.skillTriggerValue : 1,
+    skillTriggerCount: {
+      actual: skillTriggerCount,
+      diffPercentToBase: base?.skillTriggerCount ? skillTriggerCount / base.skillTriggerCount * 100 - 100 : 0,
     },
-    skillTriggerCount: (
-      skillTriggerCount ?
-        {
-          actual: skillTriggerCount,
-          ratioToBase: base?.skillTriggerCount ? skillTriggerCount / base.skillTriggerCount : 1,
-        } :
-        null
-    ),
   };
 };

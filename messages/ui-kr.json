@@ -336,8 +336,6 @@
           "Primary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 1)",
           "Secondary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 2)"
         },
-        "MainSkillValue": "스킬 확률",
-        "MainSkillTriggerValue": "스킬 발동지",
         "MainSkillTriggerRate": "스킬 발동률",
         "EventOnly": "이벤트 한정"
       },

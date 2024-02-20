@@ -7,7 +7,6 @@ import {
 import {PokemonSorterGetter, PokemonSortType} from '@/components/shared/pokemon/sorter/type';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
-import {getSkillTriggerValue} from '@/utils/game/mainSkill/utils';
 import {getFrequencyOfStateFromPokemonRate} from '@/utils/game/producing/frequency';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
 import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
@@ -50,16 +49,6 @@ export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonS
     seedsUsed: seeds.gold,
     ...opts,
   }),
-  mainSkillValue: ({pokemonProducingParams}) => pokemonProducingParams.skillValue,
-  mainSkillTriggerValue: (opts) => {
-    const {pokemonProducingParams} = opts;
-
-    return getSkillTriggerValue({
-      ...opts,
-      rate: getPokemonRateSorter(opts),
-      skillValue: pokemonProducingParams.skillValue,
-    });
-  },
   mainSkillTriggerRate: ({pokemonProducingParams}) => pokemonProducingParams.skillPercent ?? 0,
   mainSkillDailyCount: (opts) => getPokemonRateSorter(opts).skill.qty.equivalent,
   mainSkillDailyStrength: (opts) => getPokemonRateSorter(opts).skill.strength.equivalent,

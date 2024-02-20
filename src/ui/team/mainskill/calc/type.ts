@@ -9,7 +9,7 @@ import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
-export type GetSkillTriggerValueCommonOpts = ConfigRequiredData & {
+export type GetSkillTriggerAnalysisCalcUnitCommonOpts = ConfigRequiredData & {
   pokedexMap: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   berryDataMap: BerryDataMap,

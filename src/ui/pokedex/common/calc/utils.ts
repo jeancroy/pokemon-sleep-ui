@@ -15,11 +15,10 @@ const exhaustIngredientCombinationsIfSort: PokemonSortType[] = [
   'timeToFullPackPrimary',
   'timeToFullPackSecondary',
   'totalEnergy',
-  // Time to full pack indirectly affects how many skills could proc
-  'mainSkillTriggerValue',
+  'mealCoverage',
+  // Ingredient combination affects TTFP, TTFP affects expected skill count
   'mainSkillDailyCount',
   'mainSkillDailyStrength',
-  'mealCoverage',
 ];
 
 const exhaustIngredientCombinationsIfDisplay: PokedexDisplayType[] = [

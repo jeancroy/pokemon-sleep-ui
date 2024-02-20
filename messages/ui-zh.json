@@ -336,8 +336,6 @@
           "Primary": "滿包所需時長 (一睡)",
           "Secondary": "滿包所需時長 (二睡)"
         },
-        "MainSkillValue": "技能值",
-        "MainSkillTriggerValue": "技能觸發值",
         "MainSkillTriggerRate": "技能觸發率",
         "EventOnly": "活動限定"
       },

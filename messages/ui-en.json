@@ -336,8 +336,6 @@
           "Primary": "Time to Full Pack (Sleep 1)",
           "Secondary": "Time to Full Pack (Sleep 2)"
         },
-        "MainSkillValue": "Skill Value",
-        "MainSkillTriggerValue": "Skill Trigger Value",
         "MainSkillTriggerRate": "Skill Trigger Rate",
         "EventOnly": "Event Only"
       },

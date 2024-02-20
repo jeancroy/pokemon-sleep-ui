@@ -34,4 +34,15 @@ export const pokedexMigrators: Migrator<PokedexFilter, PokedexFilterMigrateParam
       display: display === 'timeToFullPack' ? 'timeToFullPackPrimary' : display,
     }),
   },
+  {
+    // Removed `mainSkillValue` and `mainSkillTriggerValue` display / sort type
+    toVersion: 4,
+    migrate: ({sort, display, ...old}): PokedexFilter => ({
+      ...old,
+      // @ts-ignore
+      sort: sort === 'mainSkillValue' || sort === 'mainSkillTriggerValue' ? 'mainSkillDailyCount' : sort,
+      // @ts-ignore
+      display: sort === 'mainSkillValue' || sort === 'mainSkillTriggerValue' ? 'mainSkillDailyCount' : display,
+    }),
+  },
 ];

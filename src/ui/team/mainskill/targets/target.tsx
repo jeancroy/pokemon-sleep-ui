@@ -19,14 +19,14 @@ import {PokemonConfig} from '@/components/shared/pokemon/predefined/config/main'
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {PokemonInfo} from '@/types/game/pokemon';
-import {SkillTriggerAnalysisTriggerValue} from '@/ui/team/mainskill/targets/triggerValue';
-import {SkillTriggerAnalysisCalculatedUnit, SkillTriggerAnalysisCommonProps} from '@/ui/team/mainskill/targets/type';
+import {SkillTriggerAnalysisCalcUnit, SkillTriggerAnalysisCommonProps} from '@/ui/team/mainskill/targets/type';
+import {SkillTriggerAnalysisResult} from '@/ui/team/mainskill/targets/value';
 import {SkillTriggerAnalysisUnit} from '@/ui/team/mainskill/type';
 
 
 type Props = SkillTriggerAnalysisCommonProps & {
   pokemon: PokemonInfo,
-  unit: SkillTriggerAnalysisCalculatedUnit,
+  unit: SkillTriggerAnalysisCalcUnit,
   updateUnit: (update: Partial<SkillTriggerAnalysisUnit>) => void,
   deleteUnit: () => void,
   copyUnit: () => void,
@@ -112,7 +112,7 @@ export const SkillTriggerAnalysisTarget = (props: Props) => {
           subSkillMap={subSkillMap}
           className="justify-center"
         />
-        <SkillTriggerAnalysisTriggerValue pokemon={pokemon} unit={unit}/>
+        <SkillTriggerAnalysisResult pokemon={pokemon} unit={unit}/>
       </Flex>
     </AnimatedCollapseQuick>
   );

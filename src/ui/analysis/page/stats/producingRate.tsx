@@ -9,7 +9,7 @@ import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
-import {MainSkillTriggerValueIcon} from '@/components/shared/pokemon/mainSkill/icon/trigger';
+import {GenericMainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/generic';
 import {sortTypeToI18nId} from '@/components/shared/pokemon/sorter/const';
 import {TextMarkThreshold} from '@/styles/text/mark/type';
 import {AnalysisStatsContinuousUI} from '@/ui/analysis/page/result/continuous';
@@ -30,7 +30,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
   const textBerryEnergy = t(sortTypeToI18nId.berryEnergy);
   const textIngredientCount = t(sortTypeToI18nId.ingredientCount);
   const textIngredientEnergy = t(sortTypeToI18nId.ingredientEnergy);
-  const textSkillTriggerValue = t(sortTypeToI18nId.mainSkillTriggerValue);
+  const textSkillDailyCount = t(sortTypeToI18nId.mainSkillDailyCount);
 
   return (
     <AnalysisStatsLayout>
@@ -39,14 +39,14 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         title={
           <Flex direction="row" center className="gap-1.5">
             <ColoredEnergyIcon alt={textTotalEnergy}/>
-            {textTotalEnergy}
+            <span>{textTotalEnergy}</span>
           </Flex>
         }
         threshold={percentileThreshold}
         renderData={({data}) => (
           <Flex direction="row" center className="gap-1 text-sm">
             <ColoredEnergyIcon alt={textTotalEnergy}/>
-            <div>{formatFloat(data)}</div>
+            <span>{formatFloat(data)}</span>
           </Flex>
         )}
       >
@@ -59,14 +59,14 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         title={
           <Flex direction="row" center className="gap-1.5">
             <PokemonBerryIcon dimension="size-6" id={berry.id}/>
-            <div>{textBerryCount}</div>
+            <span>{textBerryCount}</span>
           </Flex>
         }
         threshold={percentileThreshold}
         renderData={({data}) => (
           <Flex direction="row" center className="gap-1">
             <GenericBerryIcon alt={textBerryCount}/>
-            <div>{formatFloat(data)}</div>
+            <span>{formatFloat(data)}</span>
           </Flex>
         )}
       >
@@ -80,14 +80,14 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
           <Flex direction="row" center className="gap-1.5">
             <PokemonBerryIcon dimension="size-6" id={berry.id}/>
             <ColoredEnergyIcon alt={textBerryEnergy}/>
-            <div>{textBerryEnergy}</div>
+            <span>{textBerryEnergy}</span>
           </Flex>
         }
         threshold={percentileThreshold}
         renderData={({data}) => (
           <Flex direction="row" center className="gap-1 text-sm">
             <ColoredEnergyIcon dimension="size-4" alt={textBerryEnergy}/>
-            <div>{formatFloat(data)}</div>
+            <span>{formatFloat(data)}</span>
           </Flex>
         )}
       >
@@ -105,7 +105,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
             title={
               <Flex direction="row" center className="gap-1.5">
                 <PokemonIngredientIcon dimension="size-6" id={rate.itemId}/>
-                <div>{textIngredientCount}</div>
+                <span>{textIngredientCount}</span>
               </Flex>
             }
             threshold={percentileThreshold}
@@ -114,7 +114,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
                 <PokemonIngredientIcons ingredients={[data.productions]}/>
                 <Flex direction="row" center className="gap-1">
                   <GenericIngredientIcon alt={textIngredientCount}/>
-                  <div>{formatFloat(data.value)}</div>
+                  <span>{formatFloat(data.value)}</span>
                 </Flex>
               </Flex>
             )}
@@ -132,7 +132,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
               <Flex direction="row" center className="gap-1.5">
                 <PokemonIngredientIcon dimension="size-6" id={rate.itemId}/>
                 <ColoredEnergyIcon alt={textIngredientEnergy}/>
-                {textIngredientEnergy}
+                <span>{textIngredientEnergy}</span>
               </Flex>
             }
             threshold={percentileThreshold}
@@ -157,7 +157,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         title={
           <Flex direction="row" center className="gap-1.5">
             <ColoredEnergyIcon alt={textIngredientEnergy}/>
-            {textIngredientEnergy}
+            <span>{textIngredientEnergy}</span>
           </Flex>
         }
         threshold={percentileThreshold}
@@ -173,23 +173,23 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         </div>
       </AnalysisStatsContinuousUI>
       <AnalysisStatsContinuousUI
-        stats={producingRate.skillTrigger}
+        stats={producingRate.skillTriggerCount}
         title={
           <Flex direction="row" center className="gap-1.5">
-            <MainSkillTriggerValueIcon alt={textSkillTriggerValue}/>
-            {textSkillTriggerValue}
+            <GenericMainSkillIcon alt={textSkillDailyCount}/>
+            <span>{textSkillDailyCount}</span>
           </Flex>
         }
         threshold={percentileThreshold}
         renderData={({data}) => (
           <Flex direction="row" center className="gap-1 text-sm">
-            <MainSkillTriggerValueIcon alt={textSkillTriggerValue}/>
+            <GenericMainSkillIcon alt={textSkillDailyCount}/>
             <div>{formatFloat(data)}</div>
           </Flex>
         )}
       >
         <div className="text-2xl">
-          {formatFloat(producingRate.skillTrigger.current)}
+          {formatFloat(producingRate.skillTriggerCount.current)}
         </div>
       </AnalysisStatsContinuousUI>
     </AnalysisStatsLayout>

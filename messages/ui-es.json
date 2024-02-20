@@ -336,8 +336,6 @@
           "Primary": "Tiempo para Capacidad Completa (Sueño 1)",
           "Secondary": "Tiempo para Capacidad Completa (Sueño 2)"
         },
-        "MainSkillValue": "Valor de Habilidad",
-        "MainSkillTriggerValue": "Valor de Activación de Habilidad",
         "MainSkillTriggerRate": "Tasa de Activación de Habilidad",
         "EventOnly": "Solo Evento"
       },
