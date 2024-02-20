@@ -6,7 +6,8 @@ import {CookingTarget} from '@/types/userData/config/cooking/target';
 
 
 export type CookingConfig = {
-  mealType: MealTypeId,
+  // `null` for not targeting any meal type
+  mealType: MealTypeId | null,
   target: CookingTarget,
   potCapacity: number,
   ingredients: FilterInclusionMap<IngredientId>,

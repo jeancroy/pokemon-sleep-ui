@@ -42,8 +42,9 @@ export const UserConfigCooking = (props: UserConfigCookingCommonProps) => {
       />
       <MealTypeInput
         mealTypes={mealTypes}
-        isActive={(mealType) => mealType === cookingConfig.mealType}
-        onClick={(mealType) => setCookingConfig({mealType})}
+        filter={cookingConfig}
+        setFilter={(getUpdated) => setCookingConfig(getUpdated(cookingConfig))}
+        filterKey="mealType"
       />
       <FilterIconInput
         idToAlt={(id) => t2(`Food.${id}`)}

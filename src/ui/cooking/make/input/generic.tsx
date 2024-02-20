@@ -12,12 +12,9 @@ export const MealMakerInputGeneral = ({mealTypes, ingredientMap, filter, setFilt
     <>
       <MealTypeInput
         mealTypes={mealTypes}
-        {...getSingleSelectOnClickProps({
-          filter,
-          setFilter,
-          filterKey: 'type',
-          allowNull: false,
-        })}
+        filter={filter}
+        setFilter={setFilter}
+        filterKey="type"
       />
       <PotCapacityInput
         {...getSingleSelectOnClickProps({

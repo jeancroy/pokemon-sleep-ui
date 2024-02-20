@@ -7,6 +7,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {MealCoverageComboData} from '@/components/shared/meal/coverage/combo/type';
 import {MealImage} from '@/components/shared/meal/image';
 import {IngredientIconsFromMeal} from '@/components/shared/meal/ingredients/iconsFromMeal';
+import {mealTypeTextStyle} from '@/styles/game/mealType';
 
 
 type Props = {
@@ -30,7 +31,7 @@ export const MealCoverageComboMealInfo = ({data}: Props) => {
             </InfoIcon>
             <Flex center noFullWidth>
               <span className="text-sm">{t(meal.id.toString())}</span>
-              <IngredientIconsFromMeal meal={meal}/>
+              <IngredientIconsFromMeal meal={meal} className={mealTypeTextStyle[meal.type]}/>
             </Flex>
           </Flex>
         ))}

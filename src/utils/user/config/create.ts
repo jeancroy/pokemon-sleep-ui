@@ -14,7 +14,8 @@ export const createUserConfig = (userConfig: DeepPartial<UserConfig> | undefined
 };
 
 export const createCookingConfig = (cookingConfig: DeepPartial<CookingConfig> | undefined): CookingConfig => {
-  return cloneMerge(defaultCookingConfig, cookingConfig);
+  // Needs to explicitly type because the base `defaultCookingConfig` has all of its values non-nullable by default
+  return cloneMerge<CookingConfig>(defaultCookingConfig, cookingConfig);
 };
 
 export const createConfigBundle = (session: Session | null): ConfigBundle => ({

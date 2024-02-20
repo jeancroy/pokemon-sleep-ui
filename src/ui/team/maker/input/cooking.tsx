@@ -31,8 +31,9 @@ export const TeamMakerInputCooking = ({
     <>
       <MealTypeInput
         mealTypes={mealTypes}
-        isActive={(mealType) => mealType === input.mealType}
-        onClick={(mealType) => setInput((original) => ({...original, mealType}))}
+        filter={input}
+        setFilter={setInput}
+        filterKey="mealType"
       />
       <PotCapacityInput
         {...getSingleSelectOnClickProps({

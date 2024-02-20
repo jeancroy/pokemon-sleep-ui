@@ -14,7 +14,7 @@ export type PotInfoDataProps = ConfigRequiredData & {
 };
 
 export type PotInfoFilter = {
-  mealType: FilterInclusionMap<MealTypeId>,
+  mealType: MealTypeId | null,
   mealLevel: number,
   ingredients: FilterInclusionMap<IngredientId>,
   capacity: number | null,

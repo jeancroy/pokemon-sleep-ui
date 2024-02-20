@@ -5,26 +5,33 @@ import {isNotNullish} from '@/utils/type';
 
 
 type GenerateTargetMealsOpts = {
-  mealType: MealTypeId,
+  mealType: MealTypeId | null,
   mealMap: MealMap,
   maxIngredientCount?: number,
 };
 
-export const generateTargetMeals = ({
+export function* generateTargetMeals({
   mealType,
   mealMap,
   maxIngredientCount,
-}: GenerateTargetMealsOpts): Generator<Meal[]> => {
+}: GenerateTargetMealsOpts): Generator<Meal[]> {
   let possibleMeals = Object.values(mealMap)
     .filter(isNotNullish)
-    .filter(({type}) => type === mealType);
+    .filter(({type}) => mealType === null || mealType === type);
 
   if (!!maxIngredientCount) {
     possibleMeals = possibleMeals.filter(({ingredientCount}) => ingredientCount <= maxIngredientCount);
   }
 
-  return combineWithRepetitionIterator(possibleMeals, 3);
-};
+  for (const targetMeals of combineWithRepetitionIterator(possibleMeals, 3)) {
+    // Skip invalid combination that crosses different meal type
+    if (new Set(targetMeals.map(({type}) => type)).size > 1) {
+      continue;
+    }
+
+    yield targetMeals;
+  }
+}
 
 type GenerateCalculatedCookingConfigFromAllTargetMealsOpts = GenerateTargetMealsOpts & {
   predefined: Omit<CalculatedCookingConfig, 'targetMeals'>,

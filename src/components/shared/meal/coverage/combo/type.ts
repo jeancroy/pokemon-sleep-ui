@@ -20,7 +20,7 @@ export type MealCoverageComboCommonProps = {
 };
 
 export type MealCoverageComboInput = {
-  mealType: MealTypeId,
+  mealType: MealTypeId | null,
   ingredientExclusion: FilterInclusionMap<IngredientId>,
   sort: MealCoverageComboSort,
   resultCount: number,

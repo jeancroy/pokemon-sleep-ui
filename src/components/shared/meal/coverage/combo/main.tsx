@@ -63,12 +63,9 @@ export const MealCoverageCombo = (props: MealCoverageComboCommonProps) => {
     <Flex className="gap-1 pr-1">
       <MealTypeInput
         mealTypes={mealTypes}
-        {...getSingleSelectOnClickProps({
-          filter,
-          setFilter,
-          filterKey: 'mealType',
-          allowNull: false,
-        })}
+        filter={filter}
+        setFilter={setFilter}
+        filterKey="mealType"
       />
       <IngredientSelectionInput
         title={

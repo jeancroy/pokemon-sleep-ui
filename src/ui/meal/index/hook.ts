@@ -1,5 +1,5 @@
 import {useFilterInput} from '@/components/input/filter/hook';
-import {isFilterIncludingSome, isFilterMismatchOnSingle} from '@/components/input/filter/utils/match';
+import {isFilterIncludingSome} from '@/components/input/filter/utils/match';
 import {Meal, MealId} from '@/types/game/meal/main';
 import {UserPreloadedData} from '@/types/userData/main';
 import {MealFilter} from '@/ui/meal/index/type';
@@ -19,7 +19,7 @@ export const useMealFilter = ({data, preloaded}: UseMealFilterOpts) => {
     dataToId: ({id}) => id,
     initialFilter: migrate({
       original: {
-        mealType: {},
+        mealType: null,
         mealLevel: 1,
         ingredient: {},
         potCapacity: null,
@@ -27,7 +27,7 @@ export const useMealFilter = ({data, preloaded}: UseMealFilterOpts) => {
         version: mealFilterMigrators.length,
       },
       override: {
-        mealType: preloaded?.mealType ? {[preloaded.mealType]: true} : {},
+        mealType: preloaded?.mealType ?? null,
         ingredient: preloaded?.ingredients,
         potCapacity: preloaded?.potCapacity,
         showEnergy: preloaded?.showEnergy,
@@ -35,16 +35,16 @@ export const useMealFilter = ({data, preloaded}: UseMealFilterOpts) => {
       migrators: mealFilterMigrators,
       migrateParams: {},
     }),
-    isDataIncluded: (filter, data) => {
-      if (!isFilterIncludingSome({filter, filterKey: 'ingredient', ids: data.ingredients.map(({id}) => id)})) {
+    isDataIncluded: (filter, meal) => {
+      if (!isFilterIncludingSome({filter, filterKey: 'ingredient', ids: meal.ingredients.map(({id}) => id)})) {
         return false;
       }
 
-      if (filter.potCapacity !== null && getMealIngredientCount(data) > filter.potCapacity) {
+      if (filter.potCapacity !== null && getMealIngredientCount(meal) > filter.potCapacity) {
         return false;
       }
 
-      return !isFilterMismatchOnSingle({filter, filterKey: 'mealType', id: data.type});
+      return filter.mealType === null || filter.mealType === meal.type;
     },
   });
 };

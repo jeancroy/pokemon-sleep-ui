@@ -13,7 +13,7 @@ export type MealMakerRecipeData = {
 };
 
 export type MealMakerFilter = CookingCommonFilter & {
-  type: MealTypeId,
+  type: MealTypeId | null,
   capacity: number,
   ingredient: FilterInclusionMap<IngredientId>,
   showUnmakeableRecipe: boolean,

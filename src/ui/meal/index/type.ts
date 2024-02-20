@@ -8,7 +8,7 @@ import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
 export type MealFilter = Migratable & {
-  mealType: FilterInclusionMap<MealTypeId>,
+  mealType: MealTypeId | null,
   mealLevel: number,
   ingredient: FilterInclusionMap<IngredientId>,
   potCapacity: number | null,

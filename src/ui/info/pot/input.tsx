@@ -25,11 +25,9 @@ export const PotInfoInput = ({filter, setFilter, maxMealLevel, mealTypes, preloa
     <>
       <MealTypeInput
         mealTypes={mealTypes}
-        {...getMultiSelectOnClickProps({
-          filter,
-          setFilter,
-          filterKey: 'mealType',
-        })}
+        filter={filter}
+        setFilter={setFilter}
+        filterKey="mealType"
       />
       <InputRow className="px-2 py-1 text-sm">
         <MealLevelInput

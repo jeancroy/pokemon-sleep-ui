@@ -25,12 +25,12 @@ type Props = IngredientIconsCommonProps & {
   showXMarkOnEmpty?: boolean,
   formatQty?: (qty: number) => string,
   classOfText?: `text-${string}`,
-  className?: string,
 };
 
 export const IngredientIcons = ({
   useTextShadow = true,
   getMark,
+  className,
   ingredients,
   dimension,
   iconClickable,
@@ -38,7 +38,6 @@ export const IngredientIcons = ({
   showXMarkOnEmpty,
   formatQty,
   classOfText,
-  className,
 }: Props) => {
   const t = useTranslations('Game.Food');
 

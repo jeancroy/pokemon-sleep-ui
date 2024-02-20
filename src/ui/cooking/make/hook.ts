@@ -23,7 +23,7 @@ export const useMealMakerFilter = ({mealMap, preloaded}: CookingServerDataProps)
       showUnmakeableRecipe: preloadedCooking?.showUnmakeableRecipe ?? defaultCookingConfig.showUnmakeableRecipe,
     },
     isDataIncluded: (filter, meal) => {
-      if (filter.type !== meal.type) {
+      if (filter.type !== null && filter.type !== meal.type) {
         return false;
       }
 
