@@ -14,31 +14,23 @@ type UseCalculatedConfigBundleOpts = ConfigRequiredData & {
   snorlaxFavorite?: SnorlaxFavorite,
 };
 
-type UseCalculatedConfigBundleReturn = {
-  bundle: ConfigBundle,
-  calculatedConfigBundle: CalculatedConfigBundle,
-};
-
 export const useCalculatedConfigBundle = ({
   mealMap,
   cookingRecoveryData,
   eventStrengthMultiplierData,
   bundle,
   snorlaxFavorite,
-}: UseCalculatedConfigBundleOpts): UseCalculatedConfigBundleReturn => {
+}: UseCalculatedConfigBundleOpts): CalculatedConfigBundle => {
   const {userConfig, cookingConfig} = useConfigBundle({bundle});
 
   return useCustomCompareMemo(
-    () => ({
-      bundle: {userConfig, cookingConfig},
-      calculatedConfigBundle: toCalculatedConfigBundle({
-        mealMap,
-        cookingRecoveryData,
-        eventStrengthMultiplierData,
-        userConfig,
-        cookingConfig,
-        snorlaxFavorite,
-      }),
+    () => toCalculatedConfigBundle({
+      mealMap,
+      cookingRecoveryData,
+      eventStrengthMultiplierData,
+      userConfig,
+      cookingConfig,
+      snorlaxFavorite,
     }),
     [userConfig, cookingConfig, snorlaxFavorite],
     (prev, next) => isEqual(prev, next),

@@ -30,7 +30,7 @@ export const IngredientPokemonProduction = ({
   );
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
-  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: data?.user.preloaded,
@@ -51,7 +51,6 @@ export const IngredientPokemonProduction = ({
       <PokemonIngredientStats
         input={input}
         ingredient={ingredient}
-        bundle={bundle}
         calculatedConfigBundle={calculatedConfigBundle}
         subSkillMap={subSkillMap}
         {...props}

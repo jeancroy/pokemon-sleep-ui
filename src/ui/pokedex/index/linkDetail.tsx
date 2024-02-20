@@ -45,8 +45,7 @@ export const PokedexLinkDetail = React.memo(({
   cookingRecoveryData,
   ingredients,
   snorlaxFavorite,
-  bundle,
-  calculatedCookingConfig,
+  calculatedConfigBundle,
 }: PokedexLinkProps) => {
   const {
     berry,
@@ -108,6 +107,8 @@ export const PokedexLinkDetail = React.memo(({
     return <PokemonMainSkillTriggerRate params={pokemonProducingParams} dimension="size-4"/>;
   }
 
+  const {bundle, calculatedCookingConfig} = calculatedConfigBundle;
+
   const individualParams = getProducingRateIndividualParams({
     input: {level, subSkill, nature},
     pokemon,
@@ -124,11 +125,11 @@ export const PokedexLinkDetail = React.memo(({
       ingredients,
       skillData: mainSkillMap[pokemon.skill],
       snorlaxFavorite,
-      calculatedCookingConfig: calculatedCookingConfig,
+      bundle,
+      calculatedCookingConfig,
       recipeLevelData,
       eventStrengthMultiplierData,
       cookingRecoveryData,
-      bundle,
       ...individualParams,
     }).atStage.final;
 
@@ -182,11 +183,10 @@ export const PokedexLinkDetail = React.memo(({
     mealMap,
     mainSkillMap,
     snorlaxFavorite,
-    calculatedCookingConfig: calculatedCookingConfig,
     recipeLevelData,
     cookingRecoveryData,
     eventStrengthMultiplierData,
-    bundle,
+    calculatedConfigBundle,
     dateAdded: null,
     ...individualParams,
   });

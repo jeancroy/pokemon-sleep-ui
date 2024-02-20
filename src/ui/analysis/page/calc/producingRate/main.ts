@@ -22,8 +22,9 @@ export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): Ana
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
-    bundle,
+    calculatedConfigBundle,
   } = opts;
+  const {bundle, calculatedCookingConfig} = calculatedConfigBundle;
 
   const currentPokemonProducingParams = getPokemonProducingParams({
     pokemonId: pokemon.id,
@@ -32,6 +33,7 @@ export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): Ana
   const currentRate = getPokemonProducingRateSingle({
     ...opts,
     bundle,
+    calculatedCookingConfig,
     pokemonProducingParams: currentPokemonProducingParams,
     berryData: berryDataMap[pokemon.berry.id],
     skillData: mainSkillMap[pokemon.skill],
@@ -55,6 +57,8 @@ export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): Ana
     rate: getPokemonProducingRateSingle({
       // `opts` has to be the first because `pokemon`, `berryData`, `ingredients` have to be overridden
       ...opts,
+      bundle,
+      calculatedCookingConfig,
       pokemon: otherPokemon,
       pokemonProducingParams: getPokemonProducingParams({
         pokemonId: otherPokemon.id,

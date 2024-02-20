@@ -17,7 +17,7 @@ export const MealClient = (props: MealServerDataProps) => {
 
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
-  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: data?.user.preloaded,
@@ -27,7 +27,6 @@ export const MealClient = (props: MealServerDataProps) => {
 
   const commonProps: MealCommonProps = {
     isPremium,
-    bundle,
     calculatedConfigBundle,
     ...props,
   };

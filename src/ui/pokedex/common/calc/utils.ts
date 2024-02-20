@@ -1,5 +1,5 @@
 import {PokemonInfoWithSortingPayload, PokemonSortType} from '@/components/shared/pokemon/sorter/type';
-import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {PokedexDisplayType, PokedexFilterCommon} from '@/ui/pokedex/common/type';
 import {getPossibleIngredientsFromChain} from '@/utils/game/ingredient/chain';
@@ -17,6 +17,9 @@ const exhaustIngredientCombinationsIfSort: PokemonSortType[] = [
   'totalEnergy',
   // Time to full pack indirectly affects how many skills could proc
   'mainSkillTriggerValue',
+  'mainSkillDailyCount',
+  'mainSkillDailyStrength',
+  'mealCoverage',
 ];
 
 const exhaustIngredientCombinationsIfDisplay: PokedexDisplayType[] = [
@@ -38,7 +41,6 @@ type ToPokemonInfoWithSortingPayloadFromPokemonListOpts<
   TFilter extends PokedexFilterCommon,
 > = PokedexCalcDataProps & {
   filter: TFilter,
-  bundle: ConfigBundle,
   calculatedConfigBundle: CalculatedConfigBundle,
 };
 
@@ -47,7 +49,6 @@ export const toPokemonInfoWithSortingPayloadFromPokemonList = <TFilter extends P
   pokemonProducingParamsMap,
   subSkillMap,
   ingredientChainMap,
-  bundle,
   calculatedConfigBundle,
   filter,
   ...opts
@@ -63,8 +64,7 @@ export const toPokemonInfoWithSortingPayloadFromPokemonList = <TFilter extends P
     }),
     dateAdded: null,
     extra: null,
-    bundle,
-    ...calculatedConfigBundle,
+    calculatedConfigBundle,
     ...getProducingRateIndividualParams({
       input: filter,
       pokemon,

@@ -7,7 +7,7 @@ import {ConfigRequiredData} from '@/types/userData/config/data';
 
 export type BerryPageDataProps =
   ConfigRequiredData &
-  Omit<PokemonBerryStatsCommonProps, 'bundle' | 'calculatedConfigBundle'> & {
+  Omit<PokemonBerryStatsCommonProps, 'calculatedConfigBundle'> & {
     berryData: BerryData,
     favoriteInfo: BerryFavoriteInfo,
     preloaded: ConfigBundle,

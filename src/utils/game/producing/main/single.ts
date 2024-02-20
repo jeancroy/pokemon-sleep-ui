@@ -4,11 +4,9 @@ import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/multi';
 import {GetPokemonProducingRateOpts, GetProducingRateSharedOpts} from '@/utils/game/producing/main/type';
 
 
-export type GetPokemonProducingRateSingleOpts =
-  GetPokemonProducingRateOpts &
-  GetProducingRateSharedOpts & {
-    calculatedCookingConfig: CalculatedCookingConfig,
-  };
+export type GetPokemonProducingRateSingleOpts = GetPokemonProducingRateOpts & GetProducingRateSharedOpts & {
+  calculatedCookingConfig: CalculatedCookingConfig,
+};
 
 export const getPokemonProducingRateSingle = ({
   calcBehavior,

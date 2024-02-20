@@ -12,7 +12,7 @@ import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {SnorlaxRank} from '@/types/game/rank';
 import {SleepMapId} from '@/types/game/sleepStyle';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {AnalysisPageCommonProps} from '@/ui/analysis/page/type';
 
 
@@ -84,11 +84,8 @@ export type GetAnalysisStatsCommonOpts<TSample> = {
   getPokemonId: (sample: TSample) => PokemonId,
 };
 
-export type GetAnalysisStatsOpts =
-  Omit<AnalysisPageCommonProps, 'mapMeta' | 'preloaded'> &
-  CalculatedConfigBundle &
-  PokemonIndividualParams & {
-    ingredients: IngredientProduction[],
-    snorlaxFavorite: SnorlaxFavorite,
-    bundle: ConfigBundle,
-  };
+export type GetAnalysisStatsOpts = Omit<AnalysisPageCommonProps, 'mapMeta' | 'preloaded'> & PokemonIndividualParams & {
+  ingredients: IngredientProduction[],
+  snorlaxFavorite: SnorlaxFavorite,
+  calculatedConfigBundle: CalculatedConfigBundle,
+};

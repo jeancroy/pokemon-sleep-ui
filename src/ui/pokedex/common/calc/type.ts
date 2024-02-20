@@ -25,7 +25,6 @@ export type PokedexCalcDataProps = UsePokemonFilterCommonData & ConfigRequiredDa
 export type PokedexCalcResultEntry = SortedPokemonInfo<null, PokemonInfoWithSortingPayload<null>>;
 
 export type PokedexCalcResult = {
-  bundle: ConfigBundle,
   calculatedConfigBundle: CalculatedConfigBundle,
   result: PokedexCalcResultEntry[],
   count: {

@@ -5,7 +5,6 @@ import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/product
 import {getSkillTriggerValue} from '@/utils/game/mainSkill/utils';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/game/producing/params';
-import {toCalculatedCookingConfig} from '@/utils/user/config/cooking/main';
 
 
 type GetSkillTriggerValueOfUnitOpts = GetSkillTriggerValueCommonOpts & {
@@ -23,7 +22,7 @@ export const getSkillTriggerValueOfUnit = ({
   subSkillMap,
   mealMap,
   recipeLevelData,
-  bundle,
+  calculatedConfigBundle,
   id,
   unit,
   base,
@@ -43,6 +42,11 @@ export const getSkillTriggerValueOfUnit = ({
   }
 
   const {berry, skill} = pokemon;
+  const {
+    bundle,
+    snorlaxFavorite,
+    calculatedCookingConfig,
+  } = calculatedConfigBundle;
 
   const pokemonProducingParams = getPokemonProducingParams({
     pokemonId,
@@ -56,19 +60,15 @@ export const getSkillTriggerValueOfUnit = ({
   });
   const {subSkillBonus} = singleParams;
 
-  const snorlaxFavorite = bundle.userConfig.snorlaxFavorite;
   const rate = getPokemonProducingRateSingle({
     ...opts,
     // `unit` could have `pokemon` from Poke-in-box, therefore it should always be at the top
     ...unit,
     ...singleParams,
-    bundle,
-    calculatedCookingConfig: toCalculatedCookingConfig({
-      ...bundle,
-      mealMap,
-    }),
     pokemon,
     snorlaxFavorite,
+    bundle,
+    calculatedCookingConfig,
     berryData: berryDataMap[berry.id],
     ingredientMap,
     mealMap,

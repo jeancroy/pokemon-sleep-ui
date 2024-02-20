@@ -26,7 +26,7 @@ export const MealPreparerClient = (props: CookingServerDataProps) => {
   } = props;
 
   const {data: session} = useSession();
-  const {calculatedConfigBundle} = useCalculatedConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: session?.user.preloaded,

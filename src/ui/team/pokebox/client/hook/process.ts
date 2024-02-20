@@ -1,7 +1,7 @@
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {PokemonInfoWithSortingPayload} from '@/components/shared/pokemon/sorter/type';
 import {usePokemonSortingWorker} from '@/components/shared/pokemon/sorter/worker/hook';
-import {ConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {Pokebox, PokeInBox} from '@/types/userData/pokebox/main';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
@@ -12,12 +12,11 @@ import {
   getProducingRateSingleParams,
 } from '@/utils/game/producing/params';
 import {isNotNullish} from '@/utils/type';
-import {toCalculatedCookingConfig} from '@/utils/user/config/cooking/main';
 
 
 type UseProcessedPokeboxOpts = PokeboxCommonProps & {
   pokebox: Pokebox,
-  bundle: ConfigBundle,
+  calculatedConfigBundle: CalculatedConfigBundle,
   pokeInBoxToCalc: PokeInBox[],
   filter: PokeboxViewerFilter,
   isIncluded: FilterInclusionMap<PokeInBox['uuid']>,
@@ -36,7 +35,7 @@ export const useProcessedPokebox = ({
   cookingRecoveryData,
   recipeLevelData,
   pokebox,
-  bundle,
+  calculatedConfigBundle,
   pokeInBoxToCalc,
   filter,
   isIncluded,
@@ -59,7 +58,6 @@ export const useProcessedPokebox = ({
 
       return {
         // Do not directly use `opts` to spread to avoid passing down unwanted props
-        bundle,
         pokemon,
         pokemonProducingParams: getPokemonProducingParams({
           pokemonId: pokemon.id,
@@ -69,10 +67,7 @@ export const useProcessedPokebox = ({
         dateAdded,
         extra: pokeInBox,
         ingredients: getEffectiveIngredientProductions({level, ingredients: pokeInBox.ingredients}),
-        calculatedCookingConfig: toCalculatedCookingConfig({
-          ...bundle,
-          mealMap,
-        }),
+        calculatedConfigBundle,
         mealMap,
         eventStrengthMultiplierData,
         cookingRecoveryData,
@@ -88,6 +83,6 @@ export const useProcessedPokebox = ({
   mainSkillMap,
   recipeLevelData,
   // Cannot use `pokeInBoxToCalc` as re-calc dependency here, as it is always a new object after each calculation
-  triggerDeps: [pokebox, filter, bundle],
+  triggerDeps: [pokebox, filter, calculatedConfigBundle],
   setLoading,
 });

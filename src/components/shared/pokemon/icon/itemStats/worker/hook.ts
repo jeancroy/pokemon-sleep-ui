@@ -24,7 +24,6 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
     eventStrengthMultiplierData,
     cookingRecoveryData,
     input,
-    bundle,
     calculatedConfigBundle,
   } = opts;
 
@@ -66,7 +65,6 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
       eventStrengthMultiplierData,
       cookingRecoveryData,
       input,
-      bundle,
       calculatedConfigBundle,
     });
     if (setLoading) {

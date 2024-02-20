@@ -48,6 +48,11 @@ export const PokemonItemStatsFromPokeboxList = ({
     mainSkillMap,
     subSkillMap,
   } = props;
+  const {
+    bundle,
+    snorlaxFavorite,
+    calculatedCookingConfig,
+  } = calculatedConfigBundle;
 
   const t = useTranslations('Game');
 
@@ -85,9 +90,11 @@ export const PokemonItemStatsFromPokeboxList = ({
             pokemonId: pokemon.id,
             pokemonProducingParamsMap,
           }),
+          snorlaxFavorite,
+          bundle,
+          calculatedCookingConfig,
           ...singleParams,
           ...getProducingRateImplicitParamsFromPokeInbox({pokeInBox}),
-          ...calculatedConfigBundle,
           berryData: berryDataMap[pokemon.berry.id],
           ingredients,
           skillData: mainSkillMap[pokemon.skill],

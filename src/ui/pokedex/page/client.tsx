@@ -23,7 +23,7 @@ export const PokemonClient = (props: PokemonDataProps) => {
 
   const pokemonLinkPopup = usePokemonLinkPopup();
   const {data} = useSession();
-  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: data?.user.preloaded,
@@ -33,7 +33,6 @@ export const PokemonClient = (props: PokemonDataProps) => {
 
   const commonProps: PokemonDataCommonProps = {
     calculatedConfigBundle,
-    bundle,
     ...props,
   };
 

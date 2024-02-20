@@ -40,14 +40,14 @@ export const TeamAnalysisSetupView = (props: Props) => {
   } = props;
   const {setup} = setupControl;
 
-  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: bundleFromClient,
     },
     ...props,
   });
-  const {calculatedCookingConfig} = calculatedConfigBundle;
+  const {bundle, calculatedCookingConfig} = calculatedConfigBundle;
   const statsOfTeam = useTeamProducingStats({
     ...props,
     setup,
@@ -72,10 +72,10 @@ export const TeamAnalysisSetupView = (props: Props) => {
       <AdsUnit hideIfNotBlocked/>
       <TeamAnalysisTeamView
         showPokemon={showPokemon}
-        bundle={bundle}
         calculatedCookingConfig={calculatedCookingConfig}
         layoutControl={layoutControl}
         statsOfTeam={statsOfTeam}
+        bundle={bundle}
         {...props}
       />
       <TeamContributionSplitIndicator

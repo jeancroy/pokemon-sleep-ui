@@ -33,7 +33,7 @@ export const usePokedexCalc = ({
     preloaded,
   } = opts;
 
-  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded.bundle,
       client: session?.user.preloaded,
@@ -44,7 +44,6 @@ export const usePokedexCalc = ({
 
   const allInfoWithSortingPayload = toPokemonInfoWithSortingPayloadFromPokemonList({
     filter,
-    bundle,
     calculatedConfigBundle,
     ...opts,
   });
@@ -81,7 +80,6 @@ export const usePokedexCalc = ({
   });
 
   return {
-    bundle,
     calculatedConfigBundle,
     result,
     count: {

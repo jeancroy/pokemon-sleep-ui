@@ -10,7 +10,7 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {OcrTranslationsForPokemonInfo} from '@/types/ocr/extracted/pokemon';
-import {ConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
@@ -44,5 +44,5 @@ export type SkillTriggerAnalysisDataProps =
   SkillTriggerAnalysisServerDataProps &
   PokemonComplexFilterDataProps &
   PokemonOnDeskDataProps & {
-    bundle: ConfigBundle,
+    calculatedConfigBundle: CalculatedConfigBundle,
   };

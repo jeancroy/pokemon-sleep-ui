@@ -10,7 +10,9 @@ import {KeysOfType} from '@/utils/type';
 
 
 export const getPokemonRateSorter = (opts: PokemonSorterGetterOpts): PokemonProducingRate => {
-  return getPokemonProducingRateSingle(opts).atStage.final;
+  const {bundle, calculatedCookingConfig} = opts.calculatedConfigBundle;
+
+  return getPokemonProducingRateSingle({...opts, bundle, calculatedCookingConfig}).atStage.final;
 };
 
 type GetPokemonItemRateSorterOpts = {

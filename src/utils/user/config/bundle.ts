@@ -11,11 +11,12 @@ type ToCalculatedConfigBundleOpts =
   };
 
 export const toCalculatedConfigBundle = (opts: ToCalculatedConfigBundleOpts): CalculatedConfigBundle => {
-  const {userConfig} = opts;
+  const {userConfig, cookingConfig} = opts;
 
   const snorlaxFavorite = opts.snorlaxFavorite ?? userConfig.snorlaxFavorite;
 
   return {
+    bundle: {userConfig, cookingConfig},
     snorlaxFavorite,
     // `opts` might have explicit `undefined`, therefore `snorlaxFavorite` goes after `opts` to force override
     calculatedUserConfig: toCalculatedUserConfig({...opts, snorlaxFavorite}),

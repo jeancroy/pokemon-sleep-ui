@@ -4,7 +4,7 @@ import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
 export type IngredientProductionDataProps =
-  Omit<PokemonIngredientStatsCommonProps, 'bundle' | 'calculatedConfigBundle'> &
+  Omit<PokemonIngredientStatsCommonProps, 'calculatedConfigBundle'> &
   ConfigRequiredData & {
     preloaded: ConfigBundle,
   };

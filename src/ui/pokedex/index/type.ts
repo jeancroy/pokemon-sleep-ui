@@ -7,9 +7,7 @@ import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {SleepStyleNormal} from '@/types/game/sleepStyle';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {Migratable} from '@/types/migrate';
-import {ConfigBundle} from '@/types/userData/config/bundle';
-import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
-import {CalculatedUserConfig} from '@/types/userData/config/user/main';
+import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {PokedexFilterCommon} from '@/ui/pokedex/common/type';
 
@@ -49,7 +47,5 @@ export type PokedexLinkProps = Pick<PokedexFilter, 'display' | keyof PokemonIndi
   pokemonProducingParams: PokemonProducingParams,
   snorlaxFavorite: SnorlaxFavorite,
   ingredients: IngredientProduction[],
-  bundle: ConfigBundle,
-  calculatedCookingConfig: CalculatedCookingConfig,
-  calculatedUserConfig: CalculatedUserConfig,
+  calculatedConfigBundle: CalculatedConfigBundle,
 };

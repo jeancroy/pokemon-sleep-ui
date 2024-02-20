@@ -60,11 +60,11 @@ export const getPokemonProducingRateMulti = <TPayload>({
 
     const calculatedUserConfig = toCalculatedUserConfig({
       ...bundle,
-      recoveryRate: toRecoveryRate({natureId, subSkillBonuses}),
-      behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
       cookingRecoveryData,
       eventStrengthMultiplierData,
       snorlaxFavorite,
+      recoveryRate: toRecoveryRate({natureId, subSkillBonuses}),
+      behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
     });
 
     return {

@@ -30,7 +30,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
     isIncluded,
   } = useMealMakerFilter(props);
   const {actAsync, session, status} = useUserDataActor();
-  const {calculatedConfigBundle} = useCalculatedConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: session.data?.user.preloaded,

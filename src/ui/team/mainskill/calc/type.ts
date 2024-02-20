@@ -5,7 +5,7 @@ import {PokedexMap} from '@/types/game/pokemon';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {ConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
@@ -17,5 +17,5 @@ export type GetSkillTriggerValueCommonOpts = ConfigRequiredData & {
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
   recipeLevelData: RecipeLevelData[],
-  bundle: ConfigBundle,
+  calculatedConfigBundle: CalculatedConfigBundle,
 };

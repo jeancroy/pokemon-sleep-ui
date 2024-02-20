@@ -4,7 +4,7 @@ import {useSession} from 'next-auth/react';
 import {useTranslations} from 'next-intl';
 
 import {useAutoUpload} from '@/hooks/userData/autoUpload';
-import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {Pokebox} from '@/types/userData/pokebox/main';
 import {useProcessedPokebox} from '@/ui/team/pokebox/client/hook/process';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
@@ -20,9 +20,7 @@ type UseCalculatedDataOpts = PokeboxCommonProps & {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
 };
 
-export const useCalculatedData = (
-  opts: UseCalculatedDataOpts,
-) => {
+export const useCalculatedData = (opts: UseCalculatedDataOpts) => {
   const {
     pokedexMap,
     preloaded,
@@ -33,11 +31,12 @@ export const useCalculatedData = (
 
   const t = useTranslations('Game');
 
-  const bundle = useConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded.bundle,
       client: session.data?.user.preloaded,
     },
+    ...opts,
   });
 
   const {
@@ -84,7 +83,7 @@ export const useCalculatedData = (
       }));
     }),
     filter,
-    bundle,
+    calculatedConfigBundle,
     isIncluded,
     setLoading,
   });
@@ -109,7 +108,7 @@ export const useCalculatedData = (
   });
 
   return {
-    bundle,
+    calculatedConfigBundle,
     filter,
     setFilter,
     processedPokebox,

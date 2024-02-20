@@ -28,6 +28,5 @@ export type MealServerDataProps = ConfigRequiredData & {
 
 export type MealCommonProps = MealServerDataProps & {
   isPremium: boolean,
-  bundle: ConfigBundle,
   calculatedConfigBundle: CalculatedConfigBundle,
 };

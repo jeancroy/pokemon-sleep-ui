@@ -11,8 +11,8 @@ import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 
 export type GetTeamProducingStatsOpts = TeamAnalysisDataProps & {
   setup: TeamAnalysisSetup,
-  bundle: ConfigBundle,
   currentTeam: TeamAnalysisComp,
+  bundle: ConfigBundle,
   calculatedCookingConfig: CalculatedCookingConfig,
   overrideLevel?: number,
 };

@@ -9,6 +9,7 @@ export type ConfigBundle = {
 };
 
 export type CalculatedConfigBundle = {
+  bundle: ConfigBundle,
   snorlaxFavorite: SnorlaxFavorite,
   calculatedUserConfig: CalculatedUserConfig,
   calculatedCookingConfig: CalculatedCookingConfig,

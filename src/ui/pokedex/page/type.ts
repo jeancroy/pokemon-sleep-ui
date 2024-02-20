@@ -34,5 +34,4 @@ export type PokemonDataProps = ConfigRequiredData & {
 
 export type PokemonDataCommonProps = PokemonDataProps & {
   calculatedConfigBundle: CalculatedConfigBundle,
-  bundle: ConfigBundle,
 };

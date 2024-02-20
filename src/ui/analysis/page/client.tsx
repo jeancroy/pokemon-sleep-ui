@@ -36,7 +36,7 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
     .map((level) => filter.ingredients[level]), [filter]);
 
   const {data: session} = useSession();
-  const {calculatedConfigBundle, bundle} = useCalculatedConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: session?.user.preloaded,
@@ -50,10 +50,9 @@ export const AnalysisPageClient = (props: AnalysisPageCommonProps) => {
     setStats,
     setLoading,
     calculateDeps: [filter, calculatedConfigBundle],
-    ...calculatedConfigBundle,
     ...props,
     ...filter,
-    bundle,
+    calculatedConfigBundle,
     ingredients,
   });
 

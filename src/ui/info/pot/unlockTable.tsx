@@ -21,7 +21,7 @@ export const PotRecipeUnlockTable = ({filter, validMeals, ...props}: Props) => {
   const {capacity, showEmpty} = filter;
 
   const {data: session} = useSession();
-  const {calculatedConfigBundle} = useCalculatedConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: session?.user.preloaded,

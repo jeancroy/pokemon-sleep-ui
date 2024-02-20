@@ -49,7 +49,7 @@ export const getTeamMakerComps = ({
         period: teamMakerProductionPeriod,
       },
       groupingState: 'equivalent',
-      calculatedCookingConfig: calculatedCookingConfig,
+      calculatedCookingConfig,
     });
     const strengthByType = {
       berry: getTotalOfGroupedProducingRate({rate: rates.grouped.berry, key: 'strength'}),

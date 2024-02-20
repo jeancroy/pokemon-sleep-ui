@@ -21,7 +21,7 @@ export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...p
   const {cookingConfig} = preloaded;
 
   const {data: session} = useSession();
-  const {calculatedConfigBundle} = useCalculatedConfigBundle({
+  const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
       client: session?.user.preloaded,
