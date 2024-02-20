@@ -7,11 +7,12 @@ import {defaultPokemonSort} from '@/const/filter';
 import {PokemonId} from '@/types/game/pokemon';
 import {PokedexData, PokedexDisplay, PokedexFilter, PokemonInfoForPokedex} from '@/ui/pokedex/index/type';
 import {generateInitialFilter} from '@/ui/pokedex/index/utils';
+import {Nullable} from '@/utils/type';
 
 
 type UsePokedexFilterOpts = UsePokemonFilterCommonData & {
   data: PokedexData,
-  preloadedDisplay: Partial<PokedexDisplay> | undefined,
+  preloadedDisplay: Nullable<Partial<PokedexDisplay>>,
 };
 
 export const usePokedexFilter = ({data, preloadedDisplay, ...filterData}: UsePokedexFilterOpts) => {

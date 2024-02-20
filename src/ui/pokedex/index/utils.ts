@@ -4,9 +4,10 @@ import {PokedexDisplay, PokedexFilter} from '@/ui/pokedex/index/type';
 import {migrate} from '@/utils/migrate/main';
 import {pokedexMigrators} from '@/utils/migrate/pokedex/migrators';
 import {PokedexFilterMigrateParams} from '@/utils/migrate/pokedex/type';
+import {Nullable} from '@/utils/type';
 
 
-export const generateInitialFilter = (preloadedDisplay: Partial<PokedexDisplay> | undefined): PokedexFilter => {
+export const generateInitialFilter = (preloadedDisplay: Nullable<Partial<PokedexDisplay>>): PokedexFilter => {
   return migrate<PokedexFilter, PokedexFilterMigrateParams>({
     original: {
       name: '',

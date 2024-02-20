@@ -14,6 +14,7 @@ import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSubSkillMap} from '@/controller/subSkill';
+import {userDataPokeboxDisplay} from '@/controller/user/manager';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {LoginRequiredPageLayout} from '@/ui/base/layout/loginRequired';
 import {PokeboxClient} from '@/ui/team/pokebox/client/main';
@@ -62,7 +63,7 @@ const Pokebox = async () => {
     recipeLevelData,
     preloaded: {
       bundle: createConfigBundle(session),
-      display: session?.user.preloaded.pokeboxDisplay,
+      display: (await userDataPokeboxDisplay.getDataOptional(session?.user.id))?.data,
     },
     pokemonMaxLevel,
     ...configRequiredData,

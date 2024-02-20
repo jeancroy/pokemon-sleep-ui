@@ -15,6 +15,7 @@ import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSleepStyleNormalMap} from '@/controller/sleepStyle';
 import {getSubSkillMap} from '@/controller/subSkill';
+import {userDataPokedex} from '@/controller/user/manager';
 import {locales} from '@/types/next/locale';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
@@ -82,7 +83,7 @@ export const Pokedex = async ({params}: DefaultPageProps) => {
     mapMeta,
     recipeLevelData,
     preloaded: {
-      display: session?.user.preloaded.pokedex,
+      display: (await userDataPokedex.getDataOptional(session?.user.id))?.data,
       bundle: createConfigBundle(session),
     },
     ...configRequiredData,

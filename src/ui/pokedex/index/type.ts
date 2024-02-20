@@ -10,6 +10,7 @@ import {Migratable} from '@/types/migrate';
 import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {PokedexFilterCommon} from '@/ui/pokedex/common/type';
+import {Nullable} from '@/utils/type';
 
 
 export type PokemonInfoForPokedex = PokemonInfo & {
@@ -37,7 +38,7 @@ export type PokedexDataProps = Omit<PokedexCalcDataProps, 'pokemonList' | 'prelo
   maxLevel: number,
   mapMeta: FieldMetaMap,
   preloaded: {
-    display: Partial<PokedexDisplay> | undefined,
+    display: Nullable<Partial<PokedexDisplay>>,
     bundle: ConfigBundle,
   },
 };

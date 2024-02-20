@@ -44,6 +44,7 @@ export const createUserDataManager = <TData>(collectionName: string) => {
   return {
     getCollection,
     getData: (userId: string) => getUserData(getCollection(), userId),
+    getDataOptional: (userId?: string) => userId ? getUserData(getCollection(), userId) : null,
     setData: (userId: string, data: TData) => setUserData(getCollection(), userId, data),
   };
 };
