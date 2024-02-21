@@ -583,20 +583,20 @@
   "Rating": {
     "Basis": {
       "TotalStrength": {
-        "Name": "Total strength",
-        "Explainer": "Expected total daily strength production. **Cooking schedule in the user config affects the outcome.**"
+        "Name": "Gesamt-Stärke",
+        "Explainer": "Erwartete tägliche Stärke-Produktion. **Der Koch-Plan in den Benutzereinstellungen wirkt sich auf das Ergebnis aus.**"
       },
       "IngredientStrength": {
-        "Name": "Ingredient strength",
-        "Explainer": "Expected strength originated from ingredient production. **Cooking schedule in the user config affects the outcome.**"
+        "Name": "Zutaten-Stärke",
+        "Explainer": "Von der Zutaten-Produktion erwartete Stärke. **Der Koch-Plan in den Benutzereinstellungen wirkt sich auf das Ergebnis aus.**"
       },
       "MealCoverage": {
-        "Name": "Meal Coverage",
-        "Explainer": "Percentage of the ingredient requirements covered based on the current cooking schedule in the user config."
+        "Name": "Gericht-Abdeckung",
+        "Explainer": "Prozentueller Anteil der gedeckten benötigten Zutaten, basierend auf dem aktuellen Koch-Plan in den Benutzereinstellungen."
       },
       "MainSkillTriggerCount": {
-        "Name": "Expected skill count",
-        "Explainer": "Expected skill trigger count per day. This factors in the inventory limit."
+        "Name": "Erwartete Fähigkeiten-Auslösungen",
+        "Explainer": "Anzahl der erwarteten Fähigkeiten-Auslösungen am Tag. Das Inventar-Limit wird hierbei berücksichtigt."
       }
     },
     "WeightedStatsBasis": {
