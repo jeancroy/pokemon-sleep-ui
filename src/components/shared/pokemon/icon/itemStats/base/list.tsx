@@ -8,7 +8,8 @@ import {
   PokemonItemStatsCalcResultToDisplay,
 } from '@/components/shared/pokemon/icon/itemStats/type';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
-import {PokemonProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 
 
 type Props<TResult extends PokemonItemStatsCalcResult> = {

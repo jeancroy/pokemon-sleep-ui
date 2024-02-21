@@ -1,4 +1,4 @@
-import {ProducingRateSingleParams} from '@/types/game/producing/rate';
+import {ProducingRateSingleParams} from '@/types/game/producing/rate/params';
 import {toSum} from '@/utils/array';
 import {getNatureMultiplier} from '@/utils/game/nature';
 import {getSubSkillBonusValue} from '@/utils/game/subSkill/effect';

@@ -1,6 +1,6 @@
 import {Meal} from '@/types/game/meal/main';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
-import {PokemonProducingRate} from '@/types/game/producing/rate';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {toSum} from '@/utils/array';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';

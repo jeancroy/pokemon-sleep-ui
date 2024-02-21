@@ -6,7 +6,8 @@ import {IngredientChainMap, IngredientProduction} from '@/types/game/pokemon/ing
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {PokemonProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
 

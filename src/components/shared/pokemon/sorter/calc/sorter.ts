@@ -1,9 +1,9 @@
 import {PokemonSorterGetterOpts} from '@/components/shared/pokemon/sorter/type';
+import {ProducingRateByCalculatedStates, ProducingValueByCalculatedStates} from '@/types/game/producing/rate/base';
 import {
   PokemonProducingRate,
-  ProducingRateByCalculatedStates,
-  ProducingValueByCalculatedStates,
-} from '@/types/game/producing/rate';
+
+} from '@/types/game/producing/rate/main';
 import {toSum} from '@/utils/array';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
 import {KeysOfType} from '@/utils/type';

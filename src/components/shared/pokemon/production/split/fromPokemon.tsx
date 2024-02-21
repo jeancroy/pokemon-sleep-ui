@@ -2,7 +2,7 @@ import React from 'react';
 
 import {PokemonProductionSplit} from '@/components/shared/pokemon/production/split/main';
 import {PokemonProductionSplitCommonProps} from '@/components/shared/pokemon/production/split/type';
-import {PokemonProducingRate} from '@/types/game/producing/rate';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {toSum} from '@/utils/array';
 

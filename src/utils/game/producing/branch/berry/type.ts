@@ -1,6 +1,6 @@
 import {BerryData} from '@/types/game/berry';
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
-import {ProducingRateCommonParams} from '@/types/game/producing/rate';
+import {ProducingRateCommonParams} from '@/types/game/producing/rate/params';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 
 

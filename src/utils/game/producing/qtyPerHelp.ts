@@ -1,4 +1,4 @@
-import {ProducingRateOfDrop} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
 import {ProduceSplit} from '@/types/game/producing/split';
 import {toSum} from '@/utils/array';
 

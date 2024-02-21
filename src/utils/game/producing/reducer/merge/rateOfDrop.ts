@@ -1,4 +1,4 @@
-import {ProducingRateOfDrop} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
 import {toSum} from '@/utils/array';
 import {getAverage} from '@/utils/number/average';
 

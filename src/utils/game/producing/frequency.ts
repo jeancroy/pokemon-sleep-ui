@@ -4,7 +4,7 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {NatureId} from '@/types/game/pokemon/nature';
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
-import {PokemonProducingRate} from '@/types/game/producing/rate';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {UserCalculationBehavior} from '@/types/userData/config/user/behavior';
 import {toSum} from '@/utils/array';

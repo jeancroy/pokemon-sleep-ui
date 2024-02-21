@@ -1,7 +1,8 @@
 import React from 'react';
 
 import {PokemonInfo, PokemonSpecialtyId} from '@/types/game/pokemon';
-import {PokemonProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {Dimension} from '@/types/style';
 
 

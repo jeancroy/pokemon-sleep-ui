@@ -4,7 +4,8 @@ import sortBy from 'lodash/sortBy';
 import {IngredientId} from '@/types/game/ingredient';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
-import {PokemonProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {getAnalysisStatsOfContinuous} from '@/ui/analysis/page/calc/continuous';
 import {
   PokemonAnalysisRateInfo,

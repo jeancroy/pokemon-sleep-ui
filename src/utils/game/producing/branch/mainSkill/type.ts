@@ -1,4 +1,4 @@
-import {ProducingRateCommonParams} from '@/types/game/producing/rate';
+import {ProducingRateCommonParams} from '@/types/game/producing/rate/params';
 import {GetMainSkillStrengthEffectOpts} from '@/utils/game/mainSkill/bySkill/strength';
 
 

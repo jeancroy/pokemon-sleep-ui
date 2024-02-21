@@ -1,5 +1,5 @@
 import {durationOfDay} from '@/const/common';
-import {ProducingRateOfDrop} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
 
 
 type GetProducingRateBaseOpts = {

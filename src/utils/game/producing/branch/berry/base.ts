@@ -1,5 +1,5 @@
 import {defaultLevel} from '@/const/game/production/defaults';
-import {ProducingRateOfDrop} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
 import {toSum} from '@/utils/array';
 import {GetBerryProducingRateBaseOpts} from '@/utils/game/producing/branch/berry/type';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';

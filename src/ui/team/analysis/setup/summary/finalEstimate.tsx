@@ -7,7 +7,7 @@ import {InputBox} from '@/components/input/box';
 import {Flex} from '@/components/layout/flex/common';
 import {EnergyIcon} from '@/components/shared/icon/energy';
 import {durationOfDay} from '@/const/common';
-import {ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate/base';
 import {TeamAnalysisSnorlaxRank} from '@/ui/team/analysis/setup/summary/rank';
 import {TeamFinalEstimateInput} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';

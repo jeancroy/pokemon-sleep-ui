@@ -14,7 +14,7 @@ import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicat
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {PokemonDetailedProducingStats} from '@/components/shared/pokemon/production/stats/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
-import {PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
+import {PokemonProducingRateWithPayload} from '@/types/game/producing/rate/main';
 import {teamMakerUnitStrengthAtState} from '@/ui/team/maker/result/const';
 import {TeamMakerResultCommonProps} from '@/ui/team/maker/result/type';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';

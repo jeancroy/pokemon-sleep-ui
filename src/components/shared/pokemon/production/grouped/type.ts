@@ -1,4 +1,4 @@
-import {ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate/base';
 
 
 export type PokemonProductionRateOfCategory = {

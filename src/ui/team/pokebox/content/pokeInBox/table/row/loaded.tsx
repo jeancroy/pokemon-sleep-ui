@@ -3,7 +3,7 @@ import React from 'react';
 import {isFilterIncludingSome} from '@/components/input/filter/utils/match';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonInfo} from '@/types/game/pokemon';
-import {PokemonProducingRate} from '@/types/game/producing/rate';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {PokeInBoxTableFrequency} from '@/ui/team/pokebox/content/pokeInBox/table/details/frequency';
 import {PokeInBoxTableInfo} from '@/ui/team/pokebox/content/pokeInBox/table/details/info';
 import {PokeInBoxTableMaxCarry} from '@/ui/team/pokebox/content/pokeInBox/table/details/maxCarry';

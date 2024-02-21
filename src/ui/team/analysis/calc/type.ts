@@ -1,5 +1,5 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {PokemonProducingRateByType} from '@/types/game/producing/rate';
+import {PokemonProducingRateByType} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';

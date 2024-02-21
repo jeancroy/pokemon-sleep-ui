@@ -4,7 +4,7 @@ import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
 import {ProducingRateUI} from '@/components/shared/production/rate/main';
 import {ProducingRateContentCommonProps} from '@/components/shared/production/rate/type';
 import {MainSkillId} from '@/types/game/pokemon/mainSkill';
-import {ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate/base';
 
 
 type Props = ProducingRateContentCommonProps & {

@@ -1,6 +1,6 @@
 import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 
 

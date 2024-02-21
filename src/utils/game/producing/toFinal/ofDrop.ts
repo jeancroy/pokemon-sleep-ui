@@ -1,4 +1,4 @@
-import {ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate';
+import {ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate/base';
 import {toFinalProducingRateForAwake} from '@/utils/game/producing/toFinal/forAwake';
 import {toFinalProducingRateForSleep} from '@/utils/game/producing/toFinal/forSleep';
 import {

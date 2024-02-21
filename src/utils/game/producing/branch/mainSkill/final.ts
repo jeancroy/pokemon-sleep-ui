@@ -1,4 +1,4 @@
-import {ProducingRateOfDrop, ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop, ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate/base';
 import {toFinalProducingRateOfDrop} from '@/utils/game/producing/toFinal/ofDrop';
 import {ToFinalProducingRateOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 

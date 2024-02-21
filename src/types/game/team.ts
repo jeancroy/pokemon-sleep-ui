@@ -1,6 +1,7 @@
 import {PokemonConfigPokemonData} from '@/components/shared/pokemon/predefined/config/type';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {PokemonProducingRate, ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate/base';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 import {Nullable} from '@/utils/type';

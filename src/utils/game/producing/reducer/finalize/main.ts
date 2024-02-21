@@ -1,4 +1,4 @@
-import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
 import {getFinalizedProducingFrequency} from '@/utils/game/producing/reducer/finalize/frequency';
 import {getFinalizedProducingRateSingleStats} from '@/utils/game/producing/reducer/finalize/singleStats';
 import {GetFinalizedProducingRateCommonOpts} from '@/utils/game/producing/reducer/finalize/type';

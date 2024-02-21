@@ -1,4 +1,4 @@
-import {ProducingRateOfDrop} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
 import {getMainSkillStrengthEffect} from '@/utils/game/mainSkill/bySkill/strength';
 import {GetMainSkillProducingRateBaseOpts} from '@/utils/game/producing/branch/mainSkill/type';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';

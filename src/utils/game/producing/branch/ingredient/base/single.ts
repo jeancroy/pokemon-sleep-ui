@@ -1,5 +1,6 @@
 import {Ingredient} from '@/types/game/ingredient';
-import {ProducingRateCommonParams, ProducingRateOfDrop} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
+import {ProducingRateCommonParams} from '@/types/game/producing/rate/params';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {getProducingRateBase} from '@/utils/game/producing/toBase/main';
 import {Nullable} from '@/utils/type';

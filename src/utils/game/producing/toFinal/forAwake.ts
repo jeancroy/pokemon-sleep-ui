@@ -1,6 +1,6 @@
 import {durationOfDay} from '@/const/common';
 import {EffectiveBonus} from '@/types/game/bonus/main';
-import {ProducingRateOfDrop} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
 import {SleepSessionInfo} from '@/types/game/sleep';
 import {toFinalProducingRateFromBase} from '@/utils/game/producing/toFinal/utils';
 

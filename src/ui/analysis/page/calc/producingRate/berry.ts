@@ -1,5 +1,5 @@
 import {PokemonInfo} from '@/types/game/pokemon';
-import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
 import {getAnalysisStatsOfContinuous} from '@/ui/analysis/page/calc/continuous';
 import {PokemonAnalysisRateInfo, ProducingRateOfBerryOnPokemon} from '@/ui/analysis/page/calc/producingRate/type';
 import {AnalysisStatsProducingRate} from '@/ui/analysis/page/calc/type';

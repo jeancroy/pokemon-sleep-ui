@@ -1,4 +1,4 @@
-import {ProducingRateSingleParams} from '@/types/game/producing/rate';
+import {ProducingRateSingleParams} from '@/types/game/producing/rate/params';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {PokeInBox} from '@/types/userData/pokebox/main';

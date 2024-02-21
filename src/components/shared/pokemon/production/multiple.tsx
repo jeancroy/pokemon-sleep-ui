@@ -6,7 +6,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
 import {PokemonProducingRateProps} from '@/components/shared/pokemon/production/type';
 import {ProducingRateContent} from '@/components/shared/production/rate/content';
-import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
 import {Dimension} from '@/types/style';
 import {toSum} from '@/utils/array';
 

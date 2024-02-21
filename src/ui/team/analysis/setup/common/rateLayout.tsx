@@ -8,7 +8,7 @@ import {NextImageProps} from '@/components/shared/common/image/main';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {productionPeriodI18nId} from '@/const/game/production/i18n';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate/base';
 import {toProducingRateOfPeriod} from '@/utils/game/producing/convert';
 import {formatFloat} from '@/utils/number/format/regular';
 

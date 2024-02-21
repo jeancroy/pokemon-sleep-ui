@@ -1,6 +1,6 @@
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingRateSingleParams} from '@/types/game/producing/rate';
+import {ProducingRateSingleParams} from '@/types/game/producing/rate/params';
 
 
 export const defaultProductionPeriod: ProductionPeriod = 'daily';

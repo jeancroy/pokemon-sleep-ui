@@ -5,7 +5,7 @@ import XCircleIcon from '@heroicons/react/24/outline/XCircleIcon';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
 import {ProducingRateUI} from '@/components/shared/production/rate/main';
 import {IngredientId} from '@/types/game/ingredient';
-import {ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate/base';
 
 
 type Props = {

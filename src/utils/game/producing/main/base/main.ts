@@ -1,4 +1,4 @@
-import {PokemonProducingRate} from '@/types/game/producing/rate';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
 import {getBerryProducingRateBase} from '@/utils/game/producing/branch/berry/base';
 import {getBerryProducingRateFinal} from '@/utils/game/producing/branch/berry/final';

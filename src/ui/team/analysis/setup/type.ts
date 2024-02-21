@@ -1,6 +1,6 @@
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {MealCoverage} from '@/types/game/cooking';
-import {ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate/base';
 import {TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {ConfigBundle} from '@/types/userData/config/bundle';

@@ -5,7 +5,7 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {MainSkillData} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
-import {ProducingRateImplicitParams, ProducingRateSingleParams} from '@/types/game/producing/rate';
+import {ProducingRateImplicitParams, ProducingRateSingleParams} from '@/types/game/producing/rate/params';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';

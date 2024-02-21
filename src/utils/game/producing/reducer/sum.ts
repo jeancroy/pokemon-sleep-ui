@@ -1,9 +1,10 @@
+import {ProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
 import {
   GroupedProducingRate,
   PokemonProducingRate,
-  ProducingRate,
-  ProducingRateByCalculatedStates,
-} from '@/types/game/producing/rate';
+
+
+} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {toSum} from '@/utils/array';
 import {isNotNullish, KeysOfType} from '@/utils/type';

@@ -1,5 +1,5 @@
 import {PokemonInfo} from '@/types/game/pokemon';
-import {PokemonProducingRate} from '@/types/game/producing/rate';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {getAnalysisStatsOfContinuous} from '@/ui/analysis/page/calc/continuous';
 import {PokemonAnalysisRateInfo} from '@/ui/analysis/page/calc/producingRate/type';
 import {isRateOfPokemonSame} from '@/ui/analysis/page/calc/producingRate/utils';

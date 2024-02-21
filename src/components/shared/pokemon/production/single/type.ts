@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {PokemonProducingRateProps} from '@/components/shared/pokemon/production/type';
-import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {Dimension} from '@/types/style';
 

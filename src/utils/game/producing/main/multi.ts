@@ -2,7 +2,7 @@ import {defaultProductionPeriod} from '@/const/game/production/defaults';
 import {IngredientMap} from '@/types/game/ingredient';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
-import {PokemonProducingRateFinal, PokemonProducingRateWithPayload} from '@/types/game/producing/rate';
+import {PokemonProducingRateFinal, PokemonProducingRateWithPayload} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {toSum} from '@/utils/array';

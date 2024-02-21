@@ -1,6 +1,6 @@
 import groupBy from 'lodash/groupBy';
 
-import {ProducingRateOfDrop} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
 import {getIngredientProducingRateBase} from '@/utils/game/producing/branch/ingredient/base/single';
 import {GetIngredientProducingRateBaseListOpts} from '@/utils/game/producing/branch/ingredient/type';
 import {getMergedRateOfDrop} from '@/utils/game/producing/reducer/merge/rateOfDrop';

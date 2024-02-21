@@ -1,5 +1,5 @@
 import {IngredientCounter} from '@/types/game/ingredient';
-import {GroupedProducingRate, PokemonProducingRate} from '@/types/game/producing/rate';
+import {GroupedProducingRate, PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {toProducingRateOfState} from '@/utils/game/producing/convert';
 import {isNotNullish} from '@/utils/type';

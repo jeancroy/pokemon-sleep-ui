@@ -1,10 +1,11 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
 import {
   GroupedProducingRate,
   PokemonProducingRate,
   PokemonProducingRateByType,
-  ProducingRateByCalculatedStates,
-} from '@/types/game/producing/rate';
+
+} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 
 

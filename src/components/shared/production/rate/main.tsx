@@ -5,7 +5,7 @@ import {clsx} from 'clsx';
 import {Flex} from '@/components/layout/flex/common';
 import {ProducingRateContent} from '@/components/shared/production/rate/content';
 import {ProducingRateContentCommonProps} from '@/components/shared/production/rate/type';
-import {ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate/base';
 import {Dimension} from '@/types/style';
 
 

@@ -1,5 +1,5 @@
 import {MealCoverage} from '@/types/game/cooking';
-import {ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate/base';
 import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
 import {getTeamProducingStatsTotal} from '@/ui/team/analysis/calc/total';
 import {GetTeamProducingStatsOpts} from '@/ui/team/analysis/calc/type';

@@ -1,5 +1,5 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingRateOfDrop, ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop, ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate/base';
 import {ProducingStateSplit} from '@/types/game/producing/split';
 
 

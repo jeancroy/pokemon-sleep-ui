@@ -1,4 +1,4 @@
-import {ProducingRate} from '@/types/game/producing/rate';
+import {ProducingRate} from '@/types/game/producing/rate/base';
 import {TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisSlotName, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {getTeamProducingStatsSlot} from '@/ui/team/analysis/calc/slot';

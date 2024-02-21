@@ -1,5 +1,5 @@
 import {FullPackStatsOfSleep} from '@/types/game/producing/inventory';
-import {ProducingRateOfDrop, ProducingRateOfDropInSleep} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop, ProducingRateOfDropInSleep} from '@/types/game/producing/rate/base';
 import {ProduceType} from '@/types/game/producing/type';
 import {toFinalProducingRateFromBase} from '@/utils/game/producing/toFinal/utils';
 import {Nullable} from '@/utils/type';

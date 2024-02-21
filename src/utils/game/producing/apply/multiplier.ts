@@ -1,9 +1,9 @@
 import {ApplyMultiplierTarget} from '@/types/game/producing/apply';
+import {ProducingRateByCalculatedStates, ProducingValueByCalculatedStates} from '@/types/game/producing/rate/base';
 import {
   PokemonProducingRate,
-  ProducingRateByCalculatedStates,
-  ProducingValueByCalculatedStates,
-} from '@/types/game/producing/rate';
+
+} from '@/types/game/producing/rate/main';
 import {producingStateCalculated} from '@/types/game/producing/state';
 
 

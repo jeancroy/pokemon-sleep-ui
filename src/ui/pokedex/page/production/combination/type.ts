@@ -1,6 +1,6 @@
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
-import {PokemonProducingRate} from '@/types/game/producing/rate';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {PokemonDataCommonProps} from '@/ui/pokedex/page/type';
 
 

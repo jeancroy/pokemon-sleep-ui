@@ -1,5 +1,5 @@
 import {isProducingStateVacant} from '@/const/game/production/state';
-import {ProducingValueByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingValueByCalculatedStates} from '@/types/game/producing/rate/base';
 import {producingStateWithPack} from '@/types/game/producing/state';
 import {toSum} from '@/utils/array';
 import {GetFinalizedProducingRateCommonOpts} from '@/utils/game/producing/reducer/finalize/type';

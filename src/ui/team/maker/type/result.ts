@@ -1,4 +1,4 @@
-import {PokemonProducingRateFinal} from '@/types/game/producing/rate';
+import {PokemonProducingRateFinal} from '@/types/game/producing/rate/main';
 import {ProduceType} from '@/types/game/producing/type';
 import {SnorlaxRankFinalEstimate} from '@/types/game/rank';
 import {TeamMakerBasisValue, TeamMakerIngredientStats, TeamMakerReferenceUnit} from '@/ui/team/maker/type/common';

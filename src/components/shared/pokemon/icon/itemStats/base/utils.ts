@@ -2,7 +2,8 @@ import {
   PokemonItemStatsCalcResult,
   PokemonItemStatsCalcResultToDisplay,
 } from '@/components/shared/pokemon/icon/itemStats/type';
-import {PokemonProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {isNotNullish} from '@/utils/type';
 
 

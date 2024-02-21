@@ -1,5 +1,5 @@
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
-import {PokemonProducingRate} from '@/types/game/producing/rate';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {PokeInBoxCommonProps} from '@/ui/team/pokebox/content/type';
 import {PokeboxViewerDisplay} from '@/ui/team/pokebox/viewer/type';
 

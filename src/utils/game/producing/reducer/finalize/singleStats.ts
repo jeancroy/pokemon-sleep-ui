@@ -1,6 +1,6 @@
 import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
 import {isProducingStateVacant} from '@/const/game/production/state';
-import {ProducingRateOfDrop, ProducingValueByCalculatedStates} from '@/types/game/producing/rate';
+import {ProducingRateOfDrop, ProducingValueByCalculatedStates} from '@/types/game/producing/rate/base';
 import {producingStateWithPack} from '@/types/game/producing/state';
 import {toSum} from '@/utils/array';
 import {GetFinalizedProducingRateCommonOpts} from '@/utils/game/producing/reducer/finalize/type';

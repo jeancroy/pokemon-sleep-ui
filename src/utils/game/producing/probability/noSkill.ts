@@ -1,4 +1,4 @@
-import {PokemonProducingRate} from '@/types/game/producing/rate';
+import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {SleepSession} from '@/types/game/sleep';
 
 
