@@ -5,7 +5,7 @@ import {toAnalysisTotalProducingStats} from '@/ui/analysis/page/calc/producingRa
 import {PokemonAnalysisRateInfo} from '@/ui/analysis/page/calc/producingRate/type';
 import {AnalysisStats, GetAnalysisStatsOpts} from '@/ui/analysis/page/calc/type';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
+import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
 import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';
 
 

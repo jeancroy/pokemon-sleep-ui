@@ -1,7 +1,7 @@
 import {PokemonItemStatsCalcResult} from '@/components/shared/pokemon/icon/itemStats/type';
 import {PokemonItemStatsWorkerOpts} from '@/components/shared/pokemon/icon/itemStats/worker/type';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
+import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
 import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';
 import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
 import {isNotNullish} from '@/utils/type';

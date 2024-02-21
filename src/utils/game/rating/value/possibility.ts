@@ -1,5 +1,5 @@
 import {RatingCombination} from '@/types/game/pokemon/rating/result';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
+import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
 import {getRatingBasisValue} from '@/utils/game/rating/basis';
 import {GetRatingValueOfSimulationOpts} from '@/utils/game/rating/type';
 import {getRatingProducingRateCalcBehavior} from '@/utils/game/rating/utils';

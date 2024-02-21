@@ -7,15 +7,15 @@ import {getIngredientProducingRateFinalList} from '@/utils/game/producing/branch
 import {getMainSkillProducingRateBase} from '@/utils/game/producing/branch/mainSkill/base';
 import {getMainSkillProducingRateFinal} from '@/utils/game/producing/branch/mainSkill/final';
 import {getFullPackStats} from '@/utils/game/producing/inventory/fullPack/main';
-import {getPokemonProducingRateParams} from '@/utils/game/producing/main/base/params';
-import {GetPokemonProducingRateBaseOpts} from '@/utils/game/producing/main/base/type';
+import {getPokemonProducingRateParams} from '@/utils/game/producing/main/unit/params';
+import {GetPokemonProducingRateUnitOpts} from '@/utils/game/producing/main/unit/type';
 import {getExpectedQtyPerHelp} from '@/utils/game/producing/qtyPerHelp';
 import {getFinalizedProducingRate} from '@/utils/game/producing/reducer/finalize/main';
 import {getProducingStateSplit} from '@/utils/game/producing/split';
 import {ToFinalProducingRateOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
-export const getPokemonProducingRateBase = (opts: GetPokemonProducingRateBaseOpts): PokemonProducingRate => {
+export const getPokemonProducingRate = (opts: GetPokemonProducingRateUnitOpts): PokemonProducingRate => {
   const {
     calculatedUserConfig,
     seeds,

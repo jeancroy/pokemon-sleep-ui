@@ -1,6 +1,6 @@
 import {PokemonProducingRateWithPayload} from '@/types/game/producing/rate/main';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
-import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/multi';
+import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/entry/multi';
 import {GetPokemonProducingRateOpts, GetProducingRateSharedOpts} from '@/utils/game/producing/main/type';
 
 

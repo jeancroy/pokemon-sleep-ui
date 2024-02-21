@@ -9,7 +9,7 @@ import {toSum} from '@/utils/array';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {getMealIngredientInfoFromTargetMeals} from '@/utils/game/meal/ingredient';
 import {toIngredientProductionCounterFromGroupedRate} from '@/utils/game/producing/ingredient/utils';
-import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/multi';
+import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/entry/multi';
 import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/reducer/sum';
 import {getSnorlaxRankFinalEstimate} from '@/utils/game/rank';
 import {isNotNullish} from '@/utils/type';

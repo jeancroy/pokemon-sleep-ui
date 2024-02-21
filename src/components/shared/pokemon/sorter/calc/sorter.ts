@@ -5,7 +5,7 @@ import {
 
 } from '@/types/game/producing/rate/main';
 import {toSum} from '@/utils/array';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
+import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
 import {KeysOfType} from '@/utils/type';
 
 

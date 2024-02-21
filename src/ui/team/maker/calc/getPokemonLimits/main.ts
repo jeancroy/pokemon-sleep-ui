@@ -8,7 +8,7 @@ import {
 import {getTeamMakerPokeInBoxDataForLimits} from '@/ui/team/maker/calc/getPokemonLimits/utils';
 import {TeamMakerPokemonLimits} from '@/ui/team/maker/type/common';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
-import {getPokemonProducingRateSingle, GetPokemonProducingRateSingleOpts} from '@/utils/game/producing/main/single';
+import {getPokemonProducingRateSingle, GetPokemonProducingRateSingleOpts} from '@/utils/game/producing/main/entry/single';
 import {GetPokemonProducingRateOpts} from '@/utils/game/producing/main/type';
 import {
   getPokemonProducingParams,

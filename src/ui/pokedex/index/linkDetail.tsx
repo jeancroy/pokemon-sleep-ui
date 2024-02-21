@@ -21,7 +21,7 @@ import {isPokedexSortExclusion} from '@/components/shared/pokemon/sorter/utils';
 import {PokemonSpecialty} from '@/components/shared/pokemon/specialty/main';
 import {imageSmallIconSizes} from '@/styles/image';
 import {PokedexLinkProps} from '@/ui/pokedex/index/type';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
+import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
 import {getProducingRateIndividualParams} from '@/utils/game/producing/params';
 import {formatFloat, formatFloat3} from '@/utils/number/format/regular';
 

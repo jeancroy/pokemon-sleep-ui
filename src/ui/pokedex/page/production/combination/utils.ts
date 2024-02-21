@@ -5,7 +5,7 @@ import {
   PokemonProductionCombinationRateCollectionItem,
 } from '@/ui/pokedex/page/production/combination/type';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/single';
+import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
 import {getProducingRateIndividualParams} from '@/utils/game/producing/params';
 
 

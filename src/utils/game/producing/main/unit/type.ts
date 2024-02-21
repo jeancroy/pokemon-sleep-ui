@@ -22,7 +22,7 @@ export type PokemonProducingRateParams = {
   skillRatePercent: number,
 };
 
-export type GetPokemonProducingRateBaseOpts =
+export type GetPokemonProducingRateUnitOpts =
   Omit<
     GetBerryProducingRateBaseOpts & GetIngredientProducingRateBaseListOpts & GetMainSkillProducingRateBaseOpts,
     'baseFrequency' | 'skillRatePercent' | 'skillLevel' | 'timeToFullPack'

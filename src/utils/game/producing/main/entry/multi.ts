@@ -9,8 +9,11 @@ import {toSum} from '@/utils/array';
 import {applyIngredientMultiplier} from '@/utils/game/producing/apply/ingredient';
 import {groupPokemonProducingRate} from '@/utils/game/producing/group';
 import {getIngredientMultiplier} from '@/utils/game/producing/ingredient/multiplier';
-import {getPokemonProducingRateBase} from '@/utils/game/producing/main/base/main';
-import {GetPokemonProducingRateOptsWithPayload, GetProducingRateSharedOpts} from '@/utils/game/producing/main/type';
+import {
+  GetPokemonProducingRateUnitOptsWithPayload,
+  GetProducingRateSharedOpts,
+} from '@/utils/game/producing/main/type';
+import {getPokemonProducingRate} from '@/utils/game/producing/main/unit/main';
 import {getHelpingBonusStack} from '@/utils/game/producing/params';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {isNotNullish} from '@/utils/type';
@@ -20,7 +23,7 @@ import {toCalculatedUserConfig} from '@/utils/user/config/user/main';
 export type GetPokemonProducingRateMultiOpts<TPayload> = {
   ingredientMap: IngredientMap,
   recipeLevelData: RecipeLevelData[],
-  rateOpts: GetPokemonProducingRateOptsWithPayload<TPayload>[],
+  rateOpts: GetPokemonProducingRateUnitOptsWithPayload<TPayload>[],
   sharedOpts: GetProducingRateSharedOpts,
   groupingState: ProducingStateCalculated,
   calculatedCookingConfig: CalculatedCookingConfig,
@@ -68,7 +71,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
     });
 
     return {
-      rawRate: getPokemonProducingRateBase({
+      rawRate: getPokemonProducingRate({
         ...opts,
         ...sharedOpts,
         helpingBonusEffect,
