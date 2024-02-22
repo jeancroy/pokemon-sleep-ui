@@ -1,16 +1,22 @@
+import {MainSkillEffect} from '@/types/game/pokemon/mainSkill';
 import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
 import {getMainSkillStrengthEffect} from '@/utils/game/mainSkill/bySkill/strength';
-import {GetMainSkillProducingRateBaseOpts} from '@/utils/game/producing/branch/mainSkill/type';
+import {GetMainSkillProducingRateBaseCommonOpts} from '@/utils/game/producing/branch/mainSkill/direct/type';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
 import {getProducingRateBase} from '@/utils/game/producing/toBase/main';
 
+
+type GetMainSkillProducingRateBaseOpts = GetMainSkillProducingRateBaseCommonOpts & {
+  skillRatePercent: number,
+  activeSkillEffect: MainSkillEffect | null,
+};
 
 export const getMainSkillProducingRateBase = ({
   pokemon,
   baseFrequency,
   calculatedUserConfig,
   skillRatePercent,
-  ...opts
+  activeSkillEffect,
 }: GetMainSkillProducingRateBaseOpts): ProducingRateOfDrop => {
   const {bonus} = calculatedUserConfig;
   const {mapMultiplier} = bonus;
@@ -26,7 +32,7 @@ export const getMainSkillProducingRateBase = ({
     triggerRate: skillRatePercent / 100,
     qtyPerHelp: 1,
     strengthPerQtyPerHelp: Math.ceil(
-      getMainSkillStrengthEffect(opts) * mapMultiplier * strengthMultiplier,
+      getMainSkillStrengthEffect({activeSkillEffect}) * mapMultiplier * strengthMultiplier,
     ),
   });
 };

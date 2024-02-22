@@ -11,7 +11,8 @@ export const getNoSkillProbability = ({
   rate,
   sleepSession,
 }: GetNoSkillProbabilityOpts): number | null => {
-  const {skillRatePercent, fullPackStats} = rate;
+  const {fullPackStats, params} = rate;
+  const {skillRatePercent} = params;
 
   if (!skillRatePercent) {
     return null;

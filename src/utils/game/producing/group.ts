@@ -2,8 +2,7 @@ import {ProductionPeriod} from '@/types/game/producing/display';
 import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
 import {
   GroupedProducingRate,
-  PokemonProducingRate,
-  PokemonProducingRateByType,
+  GroupedProducingRateByType, PokemonProducingRateFirstPass,
 
 } from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
@@ -34,7 +33,7 @@ export const groupProducingRates = ({
 
 type GroupPokemonProducingRateOpts = {
   period: ProductionPeriod,
-  rates: PokemonProducingRate[],
+  rates: PokemonProducingRateFirstPass[],
   state: ProducingStateCalculated,
 };
 
@@ -42,7 +41,7 @@ export const groupPokemonProducingRate = ({
   period,
   rates,
   state,
-}: GroupPokemonProducingRateOpts): PokemonProducingRateByType => {
+}: GroupPokemonProducingRateOpts): GroupedProducingRateByType => {
   return {
     berry: groupProducingRates({
       period,

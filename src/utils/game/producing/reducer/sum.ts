@@ -1,10 +1,5 @@
 import {ProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
-import {
-  GroupedProducingRate,
-  PokemonProducingRate,
-
-
-} from '@/types/game/producing/rate/main';
+import {GroupedProducingRate, PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {toSum} from '@/utils/array';
 import {isNotNullish, KeysOfType} from '@/utils/type';
@@ -47,7 +42,12 @@ export const getTotalOfPokemonProducingRate = ({
   rate,
   state,
 }: Omit<GetPokemonProducingRateComponentOpts, 'target'>): ProducingRate => {
-  const {period, berry, skill} = rate;
+  const {
+    params,
+    berry,
+    skill,
+  } = rate;
+  const {period} = params;
 
   return {
     period,

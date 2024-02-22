@@ -10,7 +10,8 @@ import {PokeInBoxTableDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/ta
 
 export const PokeInBoxTableMaxCarry = (props: PokeInBoxTableDetailsProps) => {
   const {rateOfPokemon} = props;
-  const {fullPackStats, carryLimitInfo} = rateOfPokemon;
+  const {fullPackStats, params} = rateOfPokemon;
+  const {carryLimitInfo} = params;
 
   const t = useTranslations('UI.Common');
 

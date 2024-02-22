@@ -1,23 +1,22 @@
+import {maxTeamMemberCount} from '@/const/game/production/const';
 import {defaultProductionPeriod} from '@/const/game/production/defaults';
 import {IngredientMap} from '@/types/game/ingredient';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
-import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
-import {PokemonProducingRateFinal, PokemonProducingRateWithPayload} from '@/types/game/producing/rate/main';
+import {PokemonProducingRateFinal} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
-import {toSum} from '@/utils/array';
-import {applyIngredientMultiplier} from '@/utils/game/producing/apply/ingredient';
 import {groupPokemonProducingRate} from '@/utils/game/producing/group';
-import {getIngredientMultiplier} from '@/utils/game/producing/ingredient/multiplier';
+import {getPokemonProducingRateHelpingBonusEffect} from '@/utils/game/producing/main/entry/components/helpingBonus';
+import {getPokemonProducingRateFinal} from '@/utils/game/producing/main/entry/components/rates/final';
+import {getPokemonProductionFirstPassRates} from '@/utils/game/producing/main/entry/components/rates/firstPass';
+import {
+  getPokemonProductionPostIngredientMultiplier,
+} from '@/utils/game/producing/main/entry/components/rates/postIngredient';
 import {
   GetPokemonProducingRateUnitOptsWithPayload,
   GetProducingRateSharedOpts,
 } from '@/utils/game/producing/main/type';
-import {getPokemonProducingRate} from '@/utils/game/producing/main/unit/main';
-import {getHelpingBonusStack} from '@/utils/game/producing/params';
-import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {isNotNullish} from '@/utils/type';
-import {toCalculatedUserConfig} from '@/utils/user/config/user/main';
 
 
 export type GetPokemonProducingRateMultiOpts<TPayload> = {
@@ -38,11 +37,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
   calculatedCookingConfig,
 }: GetPokemonProducingRateMultiOpts<TPayload>): PokemonProducingRateFinal<TPayload> => {
   const {
-    eventStrengthMultiplierData,
-    cookingRecoveryData,
-    bundle,
     calcBehavior,
-    snorlaxFavorite,
     subSkillBonusOverride,
   } = sharedOpts;
 
@@ -51,75 +46,41 @@ export const getPokemonProducingRateMulti = <TPayload>({
     .map(({opts}) => opts.subSkillBonus)
     .filter(isNotNullish);
 
-  const helpingBonusStacks = toSum(subSkillBonuses.map((subSkillBonus) => getHelpingBonusStack({subSkillBonus})));
-  const helpingBonusEffect: HelpingBonusEffect = (
-    calcBehavior?.asSingle ?
-      {context: 'single', active: !!helpingBonusStacks} :
-      {context: 'team', stack: helpingBonusStacks}
-  );
-
-  const ratesWithPayload = rateOpts.map(({opts, payload}) => {
-    const {natureId, alwaysFullPack} = opts;
-
-    const calculatedUserConfig = toCalculatedUserConfig({
-      ...bundle,
-      cookingRecoveryData,
-      eventStrengthMultiplierData,
-      snorlaxFavorite,
-      recoveryRate: toRecoveryRate({natureId, subSkillBonuses}),
-      behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
-    });
-
-    return {
-      rawRate: getPokemonProducingRate({
-        ...opts,
-        ...sharedOpts,
-        helpingBonusEffect,
-        calculatedUserConfig,
-      }),
-      payload,
-      calculatedUserConfig,
-    };
-  });
-  const groupedOriginalRates = groupPokemonProducingRate({
-    period,
-    rates: ratesWithPayload.map(({rawRate}) => rawRate),
-    state: groupingState,
-  });
-  const ingredientMultiplier = getIngredientMultiplier({
-    ingredientMap,
-    recipeLevelData,
-    production: Object.fromEntries(Object.entries(groupedOriginalRates.ingredient)
-      .map(([id, rate]) => {
-        if (!rate) {
-          return null;
-        }
-
-        return [id, rate.qty];
-      })
-      .filter(isNotNullish)),
-    period,
-    calculatedCookingConfig,
+  const helpingBonusEffect = getPokemonProducingRateHelpingBonusEffect({
+    subSkillBonuses,
+    calcBehavior,
   });
 
-  const ratesAfterIngredient: PokemonProducingRateWithPayload<TPayload>[] = ratesWithPayload.map((rateWithPayload) => {
-    const {rawRate, calculatedUserConfig, payload} = rateWithPayload;
+  // First pass calculates base production without factoring in any skill by other Pokémon
+  const firstPassRates = getPokemonProductionFirstPassRates({
+    helpingBonusEffect,
+    subSkillBonuses,
+    rateOpts,
+    sharedOpts,
+  });
 
-    return {
-      payload,
-      calculatedUserConfig,
-      atStage: {
-        original: rawRate,
-        final: applyIngredientMultiplier({rate: rawRate, ingredientMultiplier}),
-      },
-    };
+  const firstPassRatesPostIngredient = getPokemonProductionPostIngredientMultiplier({
+    groupingState,
+    rates: firstPassRates,
+    ingredientMultiplierOpts: {
+      period,
+      ingredientMap,
+      recipeLevelData,
+      calculatedCookingConfig,
+    },
+  });
+
+  // Final calculation factors in any skill triggered by other Pokémon
+  const finalRates = getPokemonProducingRateFinal({
+    firstPassRatesPostIngredient,
+    targetCount: calcBehavior?.asSingle ? maxTeamMemberCount : rateOpts.length,
   });
 
   return {
-    rates: ratesAfterIngredient,
+    rates: finalRates,
     grouped: groupPokemonProducingRate({
       period,
-      rates: ratesAfterIngredient.map(({atStage}) => atStage.final),
+      rates: firstPassRatesPostIngredient.map(({atStage}) => atStage.final),
       state: groupingState,
     }),
   };

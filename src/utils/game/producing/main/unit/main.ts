@@ -1,13 +1,12 @@
-import {PokemonProducingRate} from '@/types/game/producing/rate/main';
-import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
+import {PokemonProducingRateFirstPass} from '@/types/game/producing/rate/main';
 import {getBerryProducingRateBase} from '@/utils/game/producing/branch/berry/base';
 import {getBerryProducingRateFinal} from '@/utils/game/producing/branch/berry/final';
 import {getIngredientProducingRateBaseList} from '@/utils/game/producing/branch/ingredient/base/main';
 import {getIngredientProducingRateFinalList} from '@/utils/game/producing/branch/ingredient/final/main';
-import {getMainSkillProducingRateBase} from '@/utils/game/producing/branch/mainSkill/base';
-import {getMainSkillProducingRateFinal} from '@/utils/game/producing/branch/mainSkill/final';
+import {getMainSkillProducingRateBase} from '@/utils/game/producing/branch/mainSkill/direct/base';
+import {getMainSkillProducingRateFinal} from '@/utils/game/producing/branch/mainSkill/direct/final';
 import {getFullPackStats} from '@/utils/game/producing/inventory/fullPack/main';
-import {getPokemonProducingRateParams} from '@/utils/game/producing/main/unit/params';
+import {getPokemonProducingRateIntermediateParams} from '@/utils/game/producing/main/unit/params';
 import {GetPokemonProducingRateUnitOpts} from '@/utils/game/producing/main/unit/type';
 import {getExpectedQtyPerHelp} from '@/utils/game/producing/qtyPerHelp';
 import {getFinalizedProducingRate} from '@/utils/game/producing/reducer/finalize/main';
@@ -15,24 +14,23 @@ import {getProducingStateSplit} from '@/utils/game/producing/split';
 import {ToFinalProducingRateOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
-export const getPokemonProducingRate = (opts: GetPokemonProducingRateUnitOpts): PokemonProducingRate => {
-  const {
-    calculatedUserConfig,
-    seeds,
-    evolutionCount,
-  } = opts;
+export const getPokemonProducingRateFirstPass = (
+  opts: GetPokemonProducingRateUnitOpts,
+): PokemonProducingRateFirstPass => {
+  const {calculatedUserConfig} = opts;
   const {bonus} = calculatedUserConfig;
   const {sleepSessionInfo, intervalsDuringSleep} = bonus.stamina;
 
+  const params = getPokemonProducingRateIntermediateParams(opts);
   const {
     isFullPack,
     period,
     frequency,
-    subSkillBonus,
     carryLimitInfo,
     produceSplit,
     skillRatePercent,
-  } = getPokemonProducingRateParams(opts);
+    activeSkillEffect,
+  } = params;
 
   // Calculate base rates of berry and ingredient
   // > Base rate assumes all helps are giving the same drop type in the given `period`
@@ -46,12 +44,8 @@ export const getPokemonProducingRate = (opts: GetPokemonProducingRateUnitOpts): 
   });
   const skillBase = getMainSkillProducingRateBase({
     baseFrequency: frequency,
-    skillLevel: getMainSkillLevel({
-      seedsUsed: seeds.gold,
-      evolutionCount,
-      subSkillBonus,
-    }),
     skillRatePercent,
+    activeSkillEffect,
     ...opts,
   });
 
@@ -97,12 +91,14 @@ export const getPokemonProducingRate = (opts: GetPokemonProducingRateUnitOpts): 
   });
 
   return {
-    period,
+    params,
     fullPackStats,
     producingStateSplit,
-    produceSplit,
-    carryLimitInfo,
-    skillRatePercent,
+    baseRates: {
+      berry: berryBase,
+      ingredient: ingredientBaseList,
+      skill: skillBase,
+    },
     berry: getFinalizedProducingRate({
       period,
       rate: {
@@ -135,4 +131,3 @@ export const getPokemonProducingRate = (opts: GetPokemonProducingRateUnitOpts): 
     }),
   };
 };
-

@@ -1,5 +1,5 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {PokemonProducingRateByType} from '@/types/game/producing/rate/main';
+import {GroupedProducingRateByType} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';
@@ -24,7 +24,7 @@ export type GetTeamProducingStatsCommonOpts = {
 
 export type TeamCompCalcResult = {
   bySlot: TeamProducingStatsBySlot,
-  grouped: PokemonProducingRateByType,
+  grouped: GroupedProducingRateByType,
 };
 
 export type TeamCompCalcOpts = GetTeamProducingStatsCommonOpts & GetTeamProducingStatsOpts & {

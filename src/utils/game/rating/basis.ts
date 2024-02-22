@@ -33,7 +33,7 @@ export const getRatingBasisValue = ({
         pokemonRate: rate,
         state: 'equivalent',
       }),
-      period: rate.period,
+      period: rate.params.period,
     }).total;
   }
 

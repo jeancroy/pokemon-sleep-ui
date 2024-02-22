@@ -1,18 +1,18 @@
-import {getMainSkillActiveEffect} from '@/utils/game/mainSkill/activeEffect/main';
-import {GetMainSkillActiveEffectOpts} from '@/utils/game/mainSkill/activeEffect/type';
+import {MainSkillEffect} from '@/types/game/pokemon/mainSkill';
 
 
-export type GetMainSkillStrengthEffectOpts = GetMainSkillActiveEffectOpts;
+type GetMainSkillStrengthEffectOpts = {
+  activeSkillEffect: MainSkillEffect | null,
+};
 
-export const getMainSkillStrengthEffect = (opts: GetMainSkillStrengthEffectOpts): number => {
-  const effect = getMainSkillActiveEffect(opts);
-  if (!effect || effect.type !== 'strength') {
+export const getMainSkillStrengthEffect = ({activeSkillEffect}: GetMainSkillStrengthEffectOpts): number => {
+  if (!activeSkillEffect || activeSkillEffect.type !== 'strength') {
     return 0;
   }
 
-  if (effect.value) {
-    return effect.value;
+  if (activeSkillEffect.value) {
+    return activeSkillEffect.value;
   }
 
-  return ((effect.range?.from ?? 0) + (effect.range?.to ?? 0)) / 2;
+  return ((activeSkillEffect.range?.from ?? 0) + (activeSkillEffect.range?.to ?? 0)) / 2;
 };

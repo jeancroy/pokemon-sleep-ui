@@ -1,4 +1,3 @@
-import {durationOfDay} from '@/const/common';
 import {goodCampTicketBonus} from '@/const/game/bonus';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {NatureId} from '@/types/game/pokemon/nature';
@@ -76,8 +75,4 @@ export const getFrequencyOfStateFromPokemonRate = ({rate, state}: GetFrequencyOf
     1 / berry.frequency[state] +
     toSum(Object.values(ingredient).map(({frequency}) => 1 / frequency[state]))
   );
-};
-
-export const getDailyHelpsOfStateFromPokemonRate = (opts: GetFrequencyOfStateFromPokemonRateOpts) => {
-  return durationOfDay / getFrequencyOfStateFromPokemonRate(opts);
 };

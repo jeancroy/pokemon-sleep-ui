@@ -34,12 +34,15 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
     skill,
   } = pokemon;
   const {
+    params,
     fullPackStats,
+    ingredient,
+  } = rate;
+  const {
+    carryLimitInfo,
     produceSplit,
     skillRatePercent,
-    ingredient,
-    carryLimitInfo,
-  } = rate;
+  } = params;
 
   const t = useTranslations('Game');
   const t2 = useTranslations('UI.InPage.Pokedex.Sort');

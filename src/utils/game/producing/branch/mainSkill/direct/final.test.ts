@@ -1,11 +1,10 @@
 import {describe, expect, it} from '@jest/globals';
 
 import {testBonus} from '@/tests/data/game/bonus';
-import {testMainSkillMap} from '@/tests/data/game/mainSkill';
 import {testPokemonData} from '@/tests/data/game/pokemon';
 import {getTestFinalProducingRateOfDropCommonOpts} from '@/tests/producing/rate';
-import {getMainSkillProducingRateBase} from '@/utils/game/producing/branch/mainSkill/base';
-import {getMainSkillProducingRateFinal} from '@/utils/game/producing/branch/mainSkill/final';
+import {getMainSkillProducingRateBase} from '@/utils/game/producing/branch/mainSkill/direct/base';
+import {getMainSkillProducingRateFinal} from '@/utils/game/producing/branch/mainSkill/direct/final';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
@@ -23,8 +22,11 @@ describe('Pokemon Production (Skill) / Final', () => {
         baseFrequency: 3168,
         calculatedUserConfig: calculatedUserConfig,
         skillRatePercent: 10,
-        skillLevel: 2,
-        skillData: testMainSkillMap['2'],
+        activeSkillEffect: {
+          type: 'strength',
+          level: 2,
+          value: 1251,
+        },
       }),
       ...commonOpts,
     });
@@ -68,8 +70,11 @@ describe('Pokemon Production (Skill) / Final', () => {
         baseFrequency: 6336,
         calculatedUserConfig: calculatedUserConfig,
         skillRatePercent: 10,
-        skillLevel: 2,
-        skillData: testMainSkillMap['2'],
+        activeSkillEffect: {
+          type: 'strength',
+          level: 2,
+          value: 1251,
+        },
       }),
       ...cloneMerge(
         commonOpts,

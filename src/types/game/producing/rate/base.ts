@@ -8,6 +8,10 @@ export type ProducingRate<T = number> = {
   strength: T,
 };
 
+export type ProducingRateWithId<TValue = number, TId = number> = ProducingRate<TValue> & {
+  id: TId,
+};
+
 export type ProducingRateOfDrop = ProducingRate & {
   id: number,
   // Rate of trigger (successful drop) in the format of 0.04 (for 4%).
