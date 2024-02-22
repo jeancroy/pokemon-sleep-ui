@@ -1,4 +1,5 @@
 import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
+import {PokemonProductionTotal} from '@/types/game/producing/rate/main';
 import {teamMakerProductionPeriod} from '@/ui/team/maker/calc/const';
 import {getTeamMakerIngredientStats} from '@/ui/team/maker/calc/ingredient';
 import {reduceTeamMakerResultComp} from '@/ui/team/maker/calc/utils/reducer';
@@ -10,7 +11,7 @@ import {getMealCoverage} from '@/utils/game/cooking';
 import {getMealIngredientInfoFromTargetMeals} from '@/utils/game/meal/ingredient';
 import {toIngredientProductionCounterFromGroupedRate} from '@/utils/game/producing/ingredient/utils';
 import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/entry/multi';
-import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/reducer/total/grouped';
 import {getSnorlaxRankFinalEstimate} from '@/utils/game/rank';
 import {isNotNullish} from '@/utils/type';
 
@@ -51,7 +52,7 @@ export const getTeamMakerComps = ({
       groupingState: 'equivalent',
       calculatedCookingConfig,
     });
-    const strengthByType = {
+    const strengthByType: PokemonProductionTotal = {
       berry: getTotalOfGroupedProducingRate({rate: rates.grouped.berry, key: 'strength'}),
       ingredient: getTotalOfGroupedProducingRate({rate: rates.grouped.ingredient, key: 'strength'}),
       skill: getTotalOfGroupedProducingRate({rate: rates.grouped.skill, key: 'strength'}),

@@ -7,9 +7,12 @@ import {PokemonProducingRateIntermediateParams} from '@/types/game/producing/rat
 import {PokemonIndirectSkillProduction} from '@/types/game/producing/rate/skill';
 import {PokemonProducingRateStage} from '@/types/game/producing/rate/stage';
 import {ProducingStateSplit} from '@/types/game/producing/split';
+import {ProduceType} from '@/types/game/producing/type';
 import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 import {Indexable} from '@/utils/type';
 
+
+export type PokemonProductionTotal = {[type in ProduceType]: number};
 
 export type PokemonProducingBaseRates = {
   berry: ProducingRateOfDrop,

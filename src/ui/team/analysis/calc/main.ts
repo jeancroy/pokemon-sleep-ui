@@ -7,7 +7,7 @@ import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
 import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {toIngredientProductionCounterFromGroupedRate} from '@/utils/game/producing/ingredient/utils';
-import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/reducer/total/grouped';
 
 
 export const getTeamProducingStats = (opts: GetTeamProducingStatsOpts): TeamProducingStats => {

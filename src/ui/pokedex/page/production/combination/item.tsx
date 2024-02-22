@@ -17,7 +17,7 @@ import {
   PokemonProductionCombinationRateCollectionItem,
 } from '@/ui/pokedex/page/production/combination/type';
 import {PokemonProductionIngredientLink} from '@/ui/pokedex/page/production/ingredient/link';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
 
 
 type Props = PokemonProductionCombinationCommonProps & {

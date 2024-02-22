@@ -3,7 +3,7 @@ import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {TeamMakerBasisValue} from '@/ui/team/maker/type/common';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
-import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/common';
 
 
 export type GetTeamMakerBasisValueOpts = {

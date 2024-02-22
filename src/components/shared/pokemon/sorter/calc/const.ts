@@ -9,7 +9,7 @@ import {getMealCoverage} from '@/utils/game/cooking';
 import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
 import {getFrequencyOfStateFromPokemonRate} from '@/utils/game/producing/frequency';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
 
 
 export const sortInAsc: PokemonSortType[] = [

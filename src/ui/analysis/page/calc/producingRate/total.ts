@@ -3,7 +3,7 @@ import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {getAnalysisStatsOfContinuous} from '@/ui/analysis/page/calc/continuous';
 import {PokemonAnalysisRateInfo} from '@/ui/analysis/page/calc/producingRate/type';
 import {isRateOfPokemonSame} from '@/ui/analysis/page/calc/producingRate/utils';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
 
 
 type ToAnalysisTotalProducingStatsOpts = {

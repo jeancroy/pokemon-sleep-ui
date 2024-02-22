@@ -19,7 +19,7 @@ import {teamMakerUnitStrengthAtState} from '@/ui/team/maker/result/const';
 import {TeamMakerResultCommonProps} from '@/ui/team/maker/result/type';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {TeamMakerReferenceUnit} from '@/ui/team/maker/type/common';
-import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/common';
 import {formatFloat} from '@/utils/number/format/regular';
 
 

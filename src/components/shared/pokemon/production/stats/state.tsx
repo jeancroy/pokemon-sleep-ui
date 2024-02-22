@@ -19,7 +19,7 @@ import {applyMultiplierTargets} from '@/types/game/producing/apply';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {applyMultiplierToPokemonRate} from '@/utils/game/producing/apply/multiplier';
 import {getFrequencyOfStateFromPokemonRate} from '@/utils/game/producing/frequency';
-import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/common';
 
 
 type Props = PokemonDetailedProducingStatsProps & {

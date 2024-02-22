@@ -18,10 +18,8 @@ import {
   teamMemberStrengthGrowthDataTypes,
 } from '@/components/shared/team/member/popup/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
-import {
-  getTotalStrengthOfPokemonProducingRate,
-  getTotalIngredientRateOfPokemon,
-} from '@/utils/game/producing/reducer/sum';
+import {getTotalIngredientRateOfPokemon} from '@/utils/game/producing/reducer/total/common';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
 import {formatFloat} from '@/utils/number/format/regular';
 import {generateNumberTicks} from '@/utils/number/generator';
 import {toTeamMember} from '@/utils/team/toMember';

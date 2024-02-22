@@ -13,7 +13,7 @@ import {specialtyIdMap} from '@/const/game/pokemon';
 import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxTableDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/table/details/type';
 import {PokeboxDisplayType} from '@/ui/team/pokebox/viewer/type';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
 import {formatFloat} from '@/utils/number/format/regular';
 
 

@@ -9,7 +9,7 @@ import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon
 import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
 import {useCalculatePokeInBoxProduction} from '@/ui/team/pokebox/content/pokeInBox/worker/production/hook';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
 import {formatFloat} from '@/utils/number/format/regular';
 
 

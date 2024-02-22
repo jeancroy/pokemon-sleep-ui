@@ -11,11 +11,11 @@ import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {PokemonProductionSplitCommonProps} from '@/components/shared/pokemon/production/split/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
-import {ProduceType} from '@/types/game/producing/type';
+import {PokemonProductionTotal} from '@/types/game/producing/rate/main';
 import {formatInt} from '@/utils/number/format/regular';
 
 
-type Props = PokemonProductionSplitCommonProps & {[type in ProduceType]: number};
+type Props = PokemonProductionSplitCommonProps & PokemonProductionTotal;
 
 export const PokemonProductionSplit = ({
   specialty,

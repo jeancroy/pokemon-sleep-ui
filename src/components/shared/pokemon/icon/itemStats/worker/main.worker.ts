@@ -3,7 +3,7 @@ import {PokemonItemStatsWorkerOpts} from '@/components/shared/pokemon/icon/itemS
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
 import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
 import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
 import {isNotNullish} from '@/utils/type';
 
 

@@ -4,7 +4,7 @@ import {PokemonProducingRate} from '@/types/game/producing/rate/main';
 import {toSum} from '@/utils/array';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/sum';
+import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
 
 
 type GetRatingBasisValueOpts = {
