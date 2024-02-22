@@ -8,7 +8,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {ProgressBarMulti} from '@/components/progressBar/multi/main';
 import {GenericBerryIcon} from '@/components/shared/icon/berry';
 import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
-import {GenericMainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/generic';
+import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {PokemonProductionSplitCommonProps} from '@/components/shared/pokemon/production/split/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {ProduceType} from '@/types/game/producing/type';

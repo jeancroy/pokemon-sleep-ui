@@ -17,7 +17,7 @@ export const mainSkillEffectTypeImageSrc: {[type in MainSkillEffectType]: string
   strength: '/images/generic/energyWhite.png',
   shards: '/images/generic/shardWhite.png',
   stamina: '/images/generic/mood.png',
-  help: '/images/generic/speed.png',
+  help: '/images/generic/search.png',
   cooking: '/images/generic/pot.png',
   random: '/images/generic/flash.png',
 };

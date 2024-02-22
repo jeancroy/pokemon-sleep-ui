@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
-import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
+import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {MainSkillData} from '@/types/game/pokemon/mainSkill';
 
 

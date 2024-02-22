@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
-import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
+import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonNoSkillProbability} from '@/components/shared/pokemon/production/noSkill/main';
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';

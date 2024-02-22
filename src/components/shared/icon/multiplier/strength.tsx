@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {GenericBerryIcon} from '@/components/shared/icon/berry';
+import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {PotIcon} from '@/components/shared/icon/pot';
 import {IconProps} from '@/components/shared/icon/type';
-import {GenericMainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/generic';
 import {StrengthMultiplierType} from '@/types/game/bonus/strength';
 
 

@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
+import {MainSkillTargetIcon} from '@/components/shared/icon/mainSkill/target';
+import {MainSkillEffectTypeIcon} from '@/components/shared/icon/mainSkill/type';
 import {MainSkillEffectValue} from '@/components/shared/pokemon/mainSkill/effect/value';
-import {MainSkillTargetIcon} from '@/components/shared/pokemon/mainSkill/icon/target';
-import {MainSkillEffectTypeIcon} from '@/components/shared/pokemon/mainSkill/icon/type';
 import {MainSkillEffectAtLevel} from '@/types/game/pokemon/mainSkill';
 
 

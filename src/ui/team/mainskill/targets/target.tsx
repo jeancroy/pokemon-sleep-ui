@@ -10,9 +10,9 @@ import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQui
 import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
 import {PopupCommon} from '@/components/popup/common/main';
+import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
-import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
 import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonConfig} from '@/components/shared/pokemon/predefined/config/main';

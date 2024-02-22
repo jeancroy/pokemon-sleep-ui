@@ -4,7 +4,7 @@ import ExclamationTriangleIcon from '@heroicons/react/24/outline/ExclamationTria
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {GenericMainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/generic';
+import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {PokemonProducingParamsCommonProps} from '@/components/shared/pokemon/production/params/type';
 import {
   getProducingParamsSectionStyle,

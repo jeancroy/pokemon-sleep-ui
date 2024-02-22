@@ -5,8 +5,8 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
-import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
-import {MainSkillEffectTypeIcon} from '@/components/shared/pokemon/mainSkill/icon/type';
+import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
+import {MainSkillEffectTypeIcon} from '@/components/shared/icon/mainSkill/type';
 import {MainSkillData} from '@/types/game/pokemon/mainSkill';
 import {toUnique} from '@/utils/array';
 

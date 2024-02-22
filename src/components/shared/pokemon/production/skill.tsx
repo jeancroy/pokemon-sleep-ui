@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
+import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {ProducingRateUI} from '@/components/shared/production/rate/main';
 import {ProducingRateContentCommonProps} from '@/components/shared/production/rate/type';
 import {MainSkillId} from '@/types/game/pokemon/mainSkill';

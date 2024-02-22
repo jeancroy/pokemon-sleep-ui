@@ -4,7 +4,7 @@ import {useTranslations} from 'next-intl';
 
 import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {Flex} from '@/components/layout/flex/common';
-import {GenericMainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/generic';
+import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {staminaConfigSectionStyling} from '@/components/shared/stamina/input/const';
 import {StaminaConfigSkillRecoveryInput} from '@/components/shared/stamina/input/skillRecovery/input';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';

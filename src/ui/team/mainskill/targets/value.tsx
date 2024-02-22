@@ -3,7 +3,7 @@ import React from 'react';
 import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
-import {MainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/main';
+import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {getNumberStyles} from '@/styles/text/number';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {SkillTriggerAnalysisCalcUnit} from '@/ui/team/mainskill/targets/type';

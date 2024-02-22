@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {EnergyIcon} from '@/components/shared/icon/energy';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
-import {GenericMainSkillIcon} from '@/components/shared/pokemon/mainSkill/icon/generic';
+import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {sortTypeToI18nId} from '@/components/shared/pokemon/sorter/const';
 import {PokedexTierListBasis} from '@/ui/pokedex/tier/input/type';
 import {formatFloat, formatFloat3} from '@/utils/number/format/regular';
