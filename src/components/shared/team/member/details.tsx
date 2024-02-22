@@ -11,6 +11,7 @@ import {PokemonFrequencyFromProducingRate} from '@/components/shared/pokemon/fre
 import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimit/main';
 import {PokemonTimeToFullPack} from '@/components/shared/pokemon/inventory/fullPack/main';
 import {PokemonBerryProduction} from '@/components/shared/pokemon/production/berry';
+import {PokemonIndirectSkillProductionUI} from '@/components/shared/pokemon/production/indirectSkill/main';
 import {PokemonIngredientProbability} from '@/components/shared/pokemon/production/ingredient/probability';
 import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient/production';
 import {PokemonNoSkillProbability} from '@/components/shared/pokemon/production/noSkill/main';
@@ -37,6 +38,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
     params,
     fullPackStats,
     ingredient,
+    skillIndirect,
   } = rate;
   const {
     carryLimitInfo,
@@ -93,6 +95,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
           id={skill}
           rate={toProducingRateOfState({rate: rate.skill, state: stateOfRate})}
         />
+        <PokemonIndirectSkillProductionUI rate={skillIndirect}/>
         <PokemonNoSkillProbability rate={rate} sleepSession="primary"/>
         <PokemonNoSkillProbability rate={rate} sleepSession="secondary"/>
       </Flex>

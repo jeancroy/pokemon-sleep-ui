@@ -81,6 +81,7 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
         'UI.InPage.Pokedex',
         'UI.InPage.Team',
         'UI.Metadata',
+        'UI.MainSkill.EffectType',
         'UI.Producing',
         'UI.Stamina',
         'UI.Rating',
