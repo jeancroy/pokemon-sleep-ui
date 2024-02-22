@@ -1,4 +1,5 @@
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
+import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {Migrator} from '@/types/migrate';
 import {PokeboxViewerDisplay} from '@/ui/team/pokebox/viewer/type';
 import {PokeboxViewerDisplayMigrateParams} from '@/utils/migrate/pokeboxDisplay/type';
@@ -77,5 +78,22 @@ export const pokeboxDisplayMigrators: Migrator<PokeboxViewerDisplay, PokeboxView
       // @ts-ignore
       sort: sort === 'mainSkillValue' || sort === 'mainSkillTriggerValue' ? 'mainSkillDailyCount' : sort,
     }),
+  },
+  {
+    // Updated the rating basis #790
+    toVersion: 8,
+    migrate: ({ratingBasis, ...old}) => {
+      const ratingBasisReplacement: {[basis in string]?: RatingBasis} = {
+        totalProduction: 'totalStrength',
+        ingredientProduction: 'ingredientProduction',
+        ingredientCount: 'ingredientProduction',
+        skillTriggerValue: 'mainSkillTriggerCount',
+      };
+
+      return {
+        ...old,
+        ratingBasis: ratingBasis ? ratingBasisReplacement[ratingBasis] ?? null : null,
+      };
+    },
   },
 ];
