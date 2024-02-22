@@ -12,6 +12,7 @@ import {getMealIngredientInfoFromTargetMeals} from '@/utils/game/meal/ingredient
 import {toIngredientProductionCounterFromGroupedRate} from '@/utils/game/producing/ingredient/utils';
 import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/entry/multi';
 import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/reducer/total/grouped';
+import {getTotalStrengthProductionFromIndirectSkill} from '@/utils/game/producing/reducer/total/indirectSkill';
 import {getSnorlaxRankFinalEstimate} from '@/utils/game/rank';
 import {isNotNullish} from '@/utils/type';
 
@@ -52,10 +53,16 @@ export const getTeamMakerComps = ({
       groupingState: 'equivalent',
       calculatedCookingConfig,
     });
+
     const strengthByType: PokemonProductionTotal = {
       berry: getTotalOfGroupedProducingRate({rate: rates.grouped.berry, key: 'strength'}),
       ingredient: getTotalOfGroupedProducingRate({rate: rates.grouped.ingredient, key: 'strength'}),
-      skill: getTotalOfGroupedProducingRate({rate: rates.grouped.skill, key: 'strength'}),
+      skill: (
+        getTotalOfGroupedProducingRate({rate: rates.grouped.skill, key: 'strength'}) +
+        toSum(rates.rates.map(({atStage}) => getTotalStrengthProductionFromIndirectSkill({
+          skillIndirect: atStage.final.skillIndirect,
+        })))
+      ),
     };
     const strengthTotal = toSum(Object.values(strengthByType));
     const ingredientStats = getTeamMakerIngredientStats({

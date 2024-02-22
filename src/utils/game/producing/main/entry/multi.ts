@@ -80,7 +80,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
     rates: finalRates,
     grouped: groupPokemonProducingRate({
       period,
-      rates: firstPassRatesPostIngredient.map(({atStage}) => atStage.final),
+      rates: finalRates.map(({atStage}) => atStage.final),
       state: groupingState,
     }),
   };

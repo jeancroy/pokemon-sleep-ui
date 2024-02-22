@@ -2,6 +2,7 @@ import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {GetTeamProducingStatsCommonOpts} from '@/ui/team/analysis/calc/type';
 import {TeamProducingStatsBySlot, TeamProducingStatsTotal} from '@/ui/team/analysis/setup/type';
 import {toSum} from '@/utils/array';
+import {getTotalStrengthProductionFromIndirectSkill} from '@/utils/game/producing/reducer/total/indirectSkill';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -43,7 +44,9 @@ export const getTeamProducingStatsTotal = ({
     },
     skill: {
       period,
-      strength: toSum(stats.map(({skill}) => skill.strength[state])),
+      strength: toSum(stats.map(({skill, skillIndirect}) => (
+        skill.strength[state] + getTotalStrengthProductionFromIndirectSkill({skillIndirect})
+      ))),
       qty: toSum(stats.map(({skill}) => skill.qty[state])),
     },
   };
