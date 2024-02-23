@@ -612,7 +612,7 @@
     }
   },
   "SleepStyle": {
-    "SPO": "SPO",
+    "SPO": "SPO (DPR / 38K)",
     "DrowsyPowerRequirement": "필요한 졸음 파워",
     "IncenseOnly": "향로 전용",
     "Unreleased": "미구현",

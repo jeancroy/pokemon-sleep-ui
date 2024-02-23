@@ -612,7 +612,7 @@
     }
   },
   "SleepStyle": {
-    "SPO": "SPO",
+    "SPO": "SPO (DPR / 38K)",
     "DrowsyPowerRequirement": "必要ねむけパワー",
     "IncenseOnly": "お香限定",
     "Unreleased": "未実装",

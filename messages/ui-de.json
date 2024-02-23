@@ -612,7 +612,7 @@
     }
   },
   "SleepStyle": {
-    "SPO": "SPO",
+    "SPO": "SPO (DPR / 38K)",
     "DrowsyPowerRequirement": "Schlafkraft Erfordert",
     "IncenseOnly": "Nur Rauch",
     "Unreleased": "Unveröffentlicht",
