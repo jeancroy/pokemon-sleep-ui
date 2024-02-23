@@ -30,7 +30,7 @@ describe('Pokemon Production (Skill) / Final', () => {
           value: 1251,
         },
       }),
-      ...commonOpts,
+      ...cloneMerge(commonOpts, {skillTrigger: {ratePercent: 10}}),
     });
 
     // Skill freq = 19800
@@ -49,8 +49,8 @@ describe('Pokemon Production (Skill) / Final', () => {
     expect(rate.awake.strength).toBeCloseTo(awakeDuration / (awakeFreq * 10) * skillStrength);
     expect(rate.sleep1Vacant.id).toBe(2);
     expect(rate.sleep1Vacant.frequency).toBeCloseTo(25200);
-    expect(rate.sleep1Vacant.qty).toBeCloseTo(1);
-    expect(rate.sleep1Vacant.strength).toBeCloseTo(skillStrength);
+    expect(rate.sleep1Vacant.qty).toBeCloseTo(1 - 0.9 ** 20);
+    expect(rate.sleep1Vacant.strength).toBeCloseTo((1 - 0.9 ** 20) * skillStrength);
     expect(rate.sleep1Filled.id).toBe(2);
     expect(rate.sleep1Filled.frequency).toBeCloseTo(Infinity);
     expect(rate.sleep1Filled.qty).toBeCloseTo(0);
@@ -91,6 +91,9 @@ describe('Pokemon Production (Skill) / Final', () => {
               },
             },
           },
+          skillTrigger: {
+            ratePercent: 10,
+          },
         },
       ),
     });
@@ -110,12 +113,10 @@ describe('Pokemon Production (Skill) / Final', () => {
     expect(rate.awake.qty).toBeCloseTo(awakeDuration / (awakeFreq * 10));
     expect(rate.awake.strength).toBeCloseTo(awakeDuration / (awakeFreq * 10) * skillStrength);
     expect(rate.sleep1Vacant.id).toBe(2);
-    // 40000 from the fact that each base help gives 0.1 skills, and the vacant duration is 5 helps in 20000s
-    // Therefore 1 skill in 40000s
-    expect(rate.sleep1Vacant.frequency).toBeCloseTo(40000);
-    // 0.5 based on the above calculation that 5 base helps "accumulates" 0.5 skills
-    expect(rate.sleep1Vacant.qty).toBeCloseTo(0.5);
-    expect(rate.sleep1Vacant.strength).toBeCloseTo(0.5 * skillStrength);
+    // 20000s originates from full pack stats
+    expect(rate.sleep1Vacant.frequency).toBeCloseTo(20000 / (1 - 0.9 ** 5));
+    expect(rate.sleep1Vacant.qty).toBeCloseTo(1 - 0.9 ** 5);
+    expect(rate.sleep1Vacant.strength).toBeCloseTo((1 - 0.9 ** 5) * skillStrength);
     expect(rate.sleep1Filled.id).toBe(2);
     expect(rate.sleep1Filled.frequency).toBeCloseTo(Infinity);
     expect(rate.sleep1Filled.qty).toBeCloseTo(0);

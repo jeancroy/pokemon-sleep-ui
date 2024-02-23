@@ -57,10 +57,18 @@ export const PokeInBoxTableSkills = ({
         />
       </Flex>
       <Flex center noFullWidth className="w-32">
-        <PokemonNoSkillProbability rate={rateOfPokemon} sleepSession="primary" normalSize/>
+        <PokemonNoSkillProbability
+          noSkillTriggerPercent={rateOfPokemon.noSkillTriggerPercent}
+          sleepSession="primary"
+          normalSize
+        />
       </Flex>
       <Flex center noFullWidth className="w-32">
-        <PokemonNoSkillProbability rate={rateOfPokemon} sleepSession="secondary" normalSize/>
+        <PokemonNoSkillProbability
+          noSkillTriggerPercent={rateOfPokemon.noSkillTriggerPercent}
+          sleepSession="secondary"
+          normalSize
+        />
       </Flex>
     </>
   );

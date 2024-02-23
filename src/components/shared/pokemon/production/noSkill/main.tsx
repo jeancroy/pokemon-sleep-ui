@@ -11,22 +11,23 @@ import {
 } from '@/components/shared/pokemon/production/noSkill/const';
 import {ProductionContentCommonProps} from '@/components/shared/production/rate/type';
 import {pokemonProducingStateI18nId} from '@/const/game/production/i18n';
+import {SleepSession, SleepSessionData} from '@/types/game/sleep';
 import {Dimension} from '@/types/style';
-import {getNoSkillProbability, GetNoSkillProbabilityOpts} from '@/utils/game/producing/probability/noSkill';
 import {formatFloat} from '@/utils/number/format/regular';
 
 
-type Props = ProductionContentCommonProps & GetNoSkillProbabilityOpts;
+type Props = ProductionContentCommonProps & {
+  noSkillTriggerPercent: SleepSessionData<number | null>,
+  sleepSession: SleepSession,
+};
 
-export const PokemonNoSkillProbability = ({normalSize, ...props}: Props) => {
-  const {sleepSession} = props;
-
+export const PokemonNoSkillProbability = ({normalSize, noSkillTriggerPercent, sleepSession}: Props) => {
   const t = useTranslations('UI.Producing');
   const t2 = useTranslations('UI.Producing.Probability');
 
   const state = sleepSessionToProducingStateForNoSkillProbability[sleepSession];
-  const probability = getNoSkillProbability(props);
   const dimension: Dimension = normalSize ? 'size-5' : 'size-4';
+  const probability = noSkillTriggerPercent[sleepSession];
 
   return (
     <Flex noFullWidth direction="row" className={clsx('items-center gap-0.5', !normalSize && 'text-sm')}>

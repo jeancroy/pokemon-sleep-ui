@@ -8,6 +8,7 @@ import {PokemonIndirectSkillProduction} from '@/types/game/producing/rate/skill'
 import {PokemonProductionStage} from '@/types/game/producing/rate/stage';
 import {ProducingStateSplit} from '@/types/game/producing/split';
 import {ProduceType} from '@/types/game/producing/type';
+import {SleepSessionData} from '@/types/game/sleep';
 import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 import {Indexable} from '@/utils/type';
 
@@ -22,6 +23,7 @@ export type PokemonProductionBase = {
 
 export type PokemonProductionFirstPass = {
   params: PokemonProductionIntermediateParams,
+  noSkillTriggerPercent: SleepSessionData<number | null>,
   fullPackStats: FullPackStats,
   producingStateSplit: ProducingStateSplit,
   baseRates: PokemonProductionBase,

@@ -44,4 +44,7 @@ export const getTestFinalProductionOfDropCommonOpts = (
       asleep: NaN, // ignore
     },
   },
+  skillTrigger: {
+    ratePercent: NaN, // ignore
+  },
 });

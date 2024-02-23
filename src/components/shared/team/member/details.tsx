@@ -96,8 +96,8 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
           rate={toProductionOfState({rate: rate.skill, state: stateOfRate})}
         />
         <PokemonIndirectSkillProductionUI rate={skillIndirect}/>
-        <PokemonNoSkillProbability rate={rate} sleepSession="primary"/>
-        <PokemonNoSkillProbability rate={rate} sleepSession="secondary"/>
+        <PokemonNoSkillProbability noSkillTriggerPercent={rate.noSkillTriggerPercent} sleepSession="primary"/>
+        <PokemonNoSkillProbability noSkillTriggerPercent={rate.noSkillTriggerPercent} sleepSession="secondary"/>
       </Flex>
     </Flex>
   );

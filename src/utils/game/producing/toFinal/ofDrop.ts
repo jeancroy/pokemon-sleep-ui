@@ -1,13 +1,14 @@
-import {ProductionOfDropByStateWithPack} from '@/types/game/producing/rate/base';
+import {ProductionOfDrop, ProductionOfDropByStateWithPack} from '@/types/game/producing/rate/base';
+import {ProduceType} from '@/types/game/producing/type';
 import {toFinalProductionForAwake} from '@/utils/game/producing/toFinal/forAwake';
-import {toFinalProductionForSleep} from '@/utils/game/producing/toFinal/forSleep';
-import {
-  ToFinalProductionForSleepCommonOpts,
-  ToFinalProductionOfDropCommonOpts,
-} from '@/utils/game/producing/toFinal/type';
+import {toFinalProductionForSleep} from '@/utils/game/producing/toFinal/forSleep/main';
+import {ToFinalProductionOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
-type ToFinalProductionOfDropOpts = ToFinalProductionOfDropCommonOpts & ToFinalProductionForSleepCommonOpts;
+type ToFinalProductionOfDropOpts = ToFinalProductionOfDropCommonOpts & {
+  base: ProductionOfDrop,
+  produceType: ProduceType,
+};
 
 export const toFinalProductionOfDrop = ({
   fullPackStats,

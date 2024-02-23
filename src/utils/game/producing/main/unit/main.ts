@@ -74,6 +74,7 @@ export const getPokemonProductionFirstPass = (opts: GetPokemonProductionUnitOpts
     fullPackStats,
     calculatedUserConfig,
     sleepSessionInfo,
+    skillTrigger,
   };
   const berryFinal = getBerryProductionFinal({
     base: berryBase,
@@ -90,6 +91,11 @@ export const getPokemonProductionFirstPass = (opts: GetPokemonProductionUnitOpts
 
   return {
     params,
+    noSkillTriggerPercent: {
+      // Expected skill count is exactly the probability of having 1 skill during sleep
+      primary: 1 - skillFinal.sleep1Vacant.qty,
+      secondary: sleepSessionInfo.session.secondary ? 1 - skillFinal.sleep2Vacant.qty : null,
+    },
     fullPackStats,
     producingStateSplit,
     baseRates: {

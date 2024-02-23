@@ -28,8 +28,8 @@ export const PokeInBoxGridSkills = (props: PokeInBoxGridDetailsProps) => {
         normalSize
       />
       <Flex className="text-sm">
-        <PokemonNoSkillProbability rate={rate} sleepSession="primary"/>
-        <PokemonNoSkillProbability rate={rate} sleepSession="secondary"/>
+        <PokemonNoSkillProbability noSkillTriggerPercent={rate.noSkillTriggerPercent} sleepSession="primary"/>
+        <PokemonNoSkillProbability noSkillTriggerPercent={rate.noSkillTriggerPercent} sleepSession="secondary"/>
       </Flex>
     </Flex>
   );
