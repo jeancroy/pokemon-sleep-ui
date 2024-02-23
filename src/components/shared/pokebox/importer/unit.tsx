@@ -7,13 +7,14 @@ import {useTranslations} from 'next-intl';
 import {InfoIcon} from '@/components/icons/info';
 import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
-import {IconWithInfo} from '@/components/shared/common/image/iconWithInfo';
 import {NextImage} from '@/components/shared/common/image/main';
 import {PokeboxImporterCommonProps} from '@/components/shared/pokebox/importer/type';
+import {PokemonIconWithIngredients} from '@/components/shared/pokemon/icon/withIngredients';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {pokeInBoxFavoriteStyle} from '@/styles/game/pokebox';
-import {imageIconSizes, imageSmallIconSizes} from '@/styles/image';
+import {imageSmallIconSizes} from '@/styles/image';
+import {ingredientLevels} from '@/types/game/pokemon/ingredient';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 
 
@@ -26,6 +27,7 @@ export const PokeboxImporterUnit = ({subSkillMap, onPokeboxPicked, pokeInBox}: P
     pokemon,
     level,
     name,
+    ingredients,
     subSkill,
     nature,
     isShiny,
@@ -46,17 +48,15 @@ export const PokeboxImporterUnit = ({subSkillMap, onPokeboxPicked, pokeInBox}: P
       onClick={() => onPokeboxPicked(pokeInBox)}
     >
       <div className="absolute bottom-1 right-1">
-        <IconWithInfo
-          imageSrc={`/images/pokemon/icons/${pokemon}.png`}
-          imageAlt={t2(`PokemonName.${pokemon}`)}
-          imageDimension="size-12"
-          imageSizes={imageIconSizes}
-          info={level}
-          className="shrink-0 opacity-70"
-          classNameImage="rounded-lg"
+        <PokemonIconWithIngredients
+          pokemon={pokemon}
+          ingredients={ingredientLevels.map((level) => ingredients[level])}
         />
       </div>
-      <Flex direction="row" className={clsx('gap-1', isFavorite && pokeInBoxFavoriteStyle)}>
+      <Flex direction="row" className={clsx('items-center gap-1', isFavorite && pokeInBoxFavoriteStyle)}>
+        <InfoIcon style="glow">
+          {level}
+        </InfoIcon>
         {
           isShiny &&
           <InfoIcon>
