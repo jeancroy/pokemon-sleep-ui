@@ -5,7 +5,7 @@ import {IngredientInventoryInput} from '@/components/shared/input/ingredient/inv
 import {MealTypeInput} from '@/components/shared/input/mealType';
 import {PotCapacityInput} from '@/components/shared/input/potCapacity';
 import {MealPlanner} from '@/components/shared/meal/planner/main';
-import {usePossibleMealTypes} from '@/hooks/meal';
+import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {TeamMakerInputCommonProps} from '@/ui/team/maker/input/type';
 import {TeamMakerInput} from '@/ui/team/maker/type/input';
 import {cloneMerge} from '@/utils/object/cloneMerge';

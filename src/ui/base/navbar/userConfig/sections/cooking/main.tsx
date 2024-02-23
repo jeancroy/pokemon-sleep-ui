@@ -9,7 +9,7 @@ import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {MealTypeInput} from '@/components/shared/input/mealType';
 import {PotCapacityInput} from '@/components/shared/input/potCapacity';
 import {MealPlanner} from '@/components/shared/meal/planner/main';
-import {usePossibleMealTypes} from '@/hooks/meal';
+import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {UserConfigSection} from '@/ui/base/navbar/userConfig/sections/base';
 import {UserConfigCookingCommonProps} from '@/ui/base/navbar/userConfig/sections/cooking/type';
 import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';

@@ -4,7 +4,7 @@ import React from 'react';
 import {useSession} from 'next-auth/react';
 
 import {defaultCookingConfig} from '@/const/user/config/cooking';
-import {usePossibleMealTypes} from '@/hooks/meal';
+import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {CookingServerDataProps} from '@/ui/cooking/common/type';
 import {generateCookingCommonFilter} from '@/ui/cooking/common/utils/main';

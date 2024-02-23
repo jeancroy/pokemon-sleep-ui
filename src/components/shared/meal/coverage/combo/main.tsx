@@ -21,7 +21,7 @@ import {
   mealCoverageComboSort,
 } from '@/components/shared/meal/coverage/combo/type';
 import {PremiumIcon} from '@/components/static/premium/icon';
-import {usePossibleMealTypes} from '@/hooks/meal';
+import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {toUnique} from '@/utils/array';
 import {isNotNullish} from '@/utils/type';
 

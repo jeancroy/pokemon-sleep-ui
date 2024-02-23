@@ -9,7 +9,7 @@ import {PotCapacityInput} from '@/components/shared/input/potCapacity';
 import {MealDisplayControl} from '@/components/shared/meal/control';
 import {MealLevelInput} from '@/components/shared/meal/level';
 import {defaultCookingConfig} from '@/const/user/config/cooking';
-import {usePossibleMealTypes} from '@/hooks/meal';
+import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {Meal} from '@/types/game/meal/main';
 import {UserPreloadedData} from '@/types/userData/main';
 import {MealIndexInputProps} from '@/ui/meal/index/input/type';
@@ -18,7 +18,7 @@ import {toUnique} from '@/utils/array';
 
 
 type Props = MealIndexInputProps & {
-  data: Meal[],
+  meals: Meal[],
   maxRecipeLevel: number,
   preloaded: UserPreloadedData['cookingConfig'],
 };

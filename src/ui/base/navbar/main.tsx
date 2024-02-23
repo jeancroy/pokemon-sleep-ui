@@ -13,7 +13,7 @@ import {getMaxMapBonusPercent} from '@/controller/progress';
 import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {NavBarClient} from '@/ui/base/navbar/client';
 import {NavBarCommonProps} from '@/ui/base/navbar/type';
-import {getPossibleMealTypes} from '@/utils/game/mealType';
+import {getPossibleMealTypes} from '@/utils/game/meal/mealType';
 import {isNotNullish} from '@/utils/type';
 
 

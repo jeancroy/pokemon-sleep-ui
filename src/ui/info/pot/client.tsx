@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import {usePossibleMealTypes} from '@/hooks/meal';
+import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {usePotInfoFilter} from '@/ui/info/pot/hook';
 import {PotInfoInput} from '@/ui/info/pot/input';
 import {PotInfoDataProps} from '@/ui/info/pot/type';

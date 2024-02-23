@@ -3,7 +3,7 @@ import React from 'react';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
-import {usePossibleMealTypes} from '@/hooks/meal';
+import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {CookingServerDataProps} from '@/ui/cooking/common/type';
