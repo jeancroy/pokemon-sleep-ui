@@ -23,8 +23,8 @@ type Props = MealIndexInputProps & {
   preloaded: UserPreloadedData['cookingConfig'],
 };
 
-export const MealInput = ({filter, setFilter, data, maxRecipeLevel, preloaded}: Props) => {
-  const mealTypes = usePossibleMealTypes(data);
+export const MealInput = ({filter, setFilter, meals, maxRecipeLevel, preloaded}: Props) => {
+  const mealTypes = usePossibleMealTypes(meals);
 
   return (
     <Flex className="gap-1">
@@ -49,7 +49,7 @@ export const MealInput = ({filter, setFilter, data, maxRecipeLevel, preloaded}: 
         })}
       />
       <IngredientSelectionInput
-        ingredientIds={toUnique(data.flatMap(({ingredients}) => ingredients.map(({id}) => id))).sort((a, b) => a - b)}
+        ingredientIds={toUnique(meals.flatMap(({ingredients}) => ingredients.map(({id}) => id))).sort((a, b) => a - b)}
         {...getMultiSelectOnClickProps({
           filter,
           setFilter,

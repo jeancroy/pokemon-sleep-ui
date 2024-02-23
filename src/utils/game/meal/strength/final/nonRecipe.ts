@@ -26,7 +26,7 @@ export const getMealFinalStrengthOfNonRecipe = ({
       total: 1,
     },
     strengthBase,
-    strengthAfterRarity: strengthBase,
+    strengthAfterBonus: strengthBase,
     strengthFinal: strengthBase * getMealFinalStrengthMultiplier(opts),
   };
 };

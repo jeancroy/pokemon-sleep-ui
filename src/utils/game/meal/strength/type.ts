@@ -14,3 +14,10 @@ export type GetMealStrengthOpts = {
   ingredientMap: IngredientMap,
   recipeLevelData: RecipeLevelData[],
 };
+
+export type MealStrengthBonusMultiplier = {
+  strengthBase: number,
+  strengthAfterBonus: number,
+  multiplier: number,
+  recipeBonusPercent: number,
+};

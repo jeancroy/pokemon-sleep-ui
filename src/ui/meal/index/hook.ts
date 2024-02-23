@@ -24,6 +24,7 @@ export const useMealFilter = ({data, preloaded}: UseMealFilterOpts) => {
         ingredient: {},
         potCapacity: null,
         showEnergy: true,
+        // FIXME: Might not need migration
         version: mealFilterMigrators.length,
       },
       override: {

@@ -8,7 +8,7 @@ export type MealInfo = {
     total: number,
   },
   strengthBase: number,
-  strengthAfterRarity: number,
+  strengthAfterBonus: number,
 };
 
 export type MealStrengthInfo = MealInfo & {
