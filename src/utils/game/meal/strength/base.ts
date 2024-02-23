@@ -15,7 +15,11 @@ export const getMealBaseStrength = ({
     strengthAfterBonus,
     multiplier,
   } = bonusMultiplier;
-  const levelBonus = 1 + (getRecipeLevelDataAtLevel({recipeLevelData, level})?.bonus ?? 0);
+  const levelBonus = (
+    1 +
+    // If the meal doesn't have any ingredient, then it should not have any level bonus
+    (meal.ingredients.length ? (getRecipeLevelDataAtLevel({recipeLevelData, level})?.bonus ?? 0) : 0)
+  );
 
   return {
     level,
