@@ -45,6 +45,11 @@
       "IngredientExclusion": "禁止食材",
       "CoveredStrength": "エナジーカバー量"
     },
+    "MealFilter": {
+      "IngredientInclusion": "Ingredient Inclusion",
+      "IngredientExclusion": "禁止食材",
+      "MinRecipeBonus": "Min. Recipe Bonus"
+    },
     "TimePeriodSchedule": {
       "Start": "開始",
       "End": "終了",

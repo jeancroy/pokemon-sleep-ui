@@ -67,6 +67,11 @@ declare global {
           IngredientExclusion: string,
           CoveredStrength: string,
         },
+        MealFilter: {
+          IngredientInclusion: string,
+          IngredientExclusion: string,
+          MinRecipeBonus: string,
+        },
         TimePeriodSchedule: {
           Start: string,
           End: string,

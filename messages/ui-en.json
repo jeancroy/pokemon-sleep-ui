@@ -45,6 +45,11 @@
       "IngredientExclusion": "Ingredient Exclusion",
       "CoveredStrength": "Covered Strength"
     },
+    "MealFilter": {
+      "IngredientInclusion": "Ingredient Inclusion",
+      "IngredientExclusion": "Ingredient Exclusion",
+      "MinRecipeBonus": "Min. Recipe Bonus"
+    },
     "TimePeriodSchedule": {
       "Start": "From",
       "End": "To",

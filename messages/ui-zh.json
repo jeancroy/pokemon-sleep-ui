@@ -45,6 +45,11 @@
       "IngredientExclusion": "不顯示含有下列食材的食譜",
       "CoveredStrength": "等效能量"
     },
+    "MealFilter": {
+      "IngredientInclusion": "只顯示含有下列食材的食譜",
+      "IngredientExclusion": "不顯示含有下列食材的食譜",
+      "MinRecipeBonus": "最低食譜加成"
+    },
     "TimePeriodSchedule": {
       "Start": "開始",
       "End": "終止",

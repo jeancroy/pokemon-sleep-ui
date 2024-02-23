@@ -45,6 +45,11 @@
       "IngredientExclusion": "특정 식재료 제외",
       "CoveredStrength": "보장되는 에너지"
     },
+    "MealFilter": {
+      "IngredientInclusion": "Ingredient Inclusion",
+      "IngredientExclusion": "특정 식재료 제외",
+      "MinRecipeBonus": "Min. Recipe Bonus"
+    },
     "TimePeriodSchedule": {
       "Start": "From",
       "End": "To",
