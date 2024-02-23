@@ -5,7 +5,7 @@ import {useSession} from 'next-auth/react';
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
-import {PokeboxImporterView} from '@/components/shared/pokebox/importer/pokebox';
+import {PokeboxImporterContent} from '@/components/shared/pokebox/importer/content';
 import {PokeboxImporterCommonProps} from '@/components/shared/pokebox/importer/type';
 import {PokeboxImporterViaUuid} from '@/components/shared/pokebox/importer/uuid';
 import {UserDataLazyLoadPokeboxSorted} from '@/components/shared/userData/lazyLoad/pokeboxSorted';
@@ -31,7 +31,7 @@ export const PokeboxImporter = ({show, setShow, isPokeInBoxIncluded, ...props}: 
           actDeps={[show]}
           toAct={() => show}
           render={(pokeInBoxList) => (
-            <PokeboxImporterView
+            <PokeboxImporterContent
               pokebox={pokeInBoxList
                 .filter((pokeInBox) => isPokeInBoxIncluded ? isPokeInBoxIncluded(pokeInBox) : true)}
               {...props}
