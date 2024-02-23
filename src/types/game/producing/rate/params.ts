@@ -30,12 +30,16 @@ export type ProductionCommonParams = {
   calculatedUserConfig: CalculatedUserConfig,
 };
 
+export type PokemonProductionSkillTriggerParams = {
+  ratePercent: number,
+};
+
 export type PokemonProductionIntermediateParams = {
   isFullPack: boolean,
   period: ProductionPeriod,
   frequency: number,
   carryLimitInfo: CarryLimitInfo,
   produceSplit: ProduceSplit,
-  skillRatePercent: number,
+  skillTrigger: PokemonProductionSkillTriggerParams,
   activeSkillEffect: MainSkillEffect | null,
 };

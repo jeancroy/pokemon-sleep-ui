@@ -50,11 +50,13 @@ export const getPokemonProductionIntermediateParams = ({
       isFullPack,
       ...opts,
     }),
-    skillRatePercent: getSkillTriggerRatePercent({
-      baseSkillRatePercent: behavior.includeMainSkill ? pokemonProducingParams.skillPercent : 0,
-      subSkillBonus,
-      natureId,
-    }),
+    skillTrigger: {
+      ratePercent: getSkillTriggerRatePercent({
+        baseSkillRatePercent: behavior.includeMainSkill ? pokemonProducingParams.skillPercent : 0,
+        subSkillBonus,
+        natureId,
+      }),
+    },
     activeSkillEffect: getMainSkillActiveEffect({
       skillLevel: getMainSkillLevel({
         seedsUsed: seeds.gold,

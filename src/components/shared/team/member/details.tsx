@@ -43,7 +43,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
   const {
     carryLimitInfo,
     produceSplit,
-    skillRatePercent,
+    skillTrigger,
   } = params;
 
   const t = useTranslations('Game');
@@ -62,7 +62,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
           <MainSkillIcon id={skill} dimension="size-4"/>
           <span className="truncate">{t(`MainSkill.Name.${skill}`)}</span>
         </Flex>
-        <span>{formatFloat(skillRatePercent)}%</span>
+        <span>{formatFloat(skillTrigger.ratePercent)}%</span>
       </FlexLink>
       <HorizontalSplitter/>
       <PokemonFrequencyFromProduction pokemonRate={rate}/>

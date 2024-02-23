@@ -26,7 +26,7 @@ export const getPokemonProductionFirstPass = (opts: GetPokemonProductionUnitOpts
     frequency,
     carryLimitInfo,
     produceSplit,
-    skillRatePercent,
+    skillTrigger,
     activeSkillEffect,
   } = params;
 
@@ -42,7 +42,7 @@ export const getPokemonProductionFirstPass = (opts: GetPokemonProductionUnitOpts
   });
   const skillBase = getMainSkillProduction({
     baseFrequency: frequency,
-    skillRatePercent,
+    skillTrigger,
     activeSkillEffect,
     ...opts,
   });

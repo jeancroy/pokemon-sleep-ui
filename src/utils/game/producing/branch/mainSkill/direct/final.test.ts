@@ -21,7 +21,9 @@ describe('Pokemon Production (Skill) / Final', () => {
         pokemon: testPokemonData.ampharos,
         baseFrequency: 3168,
         calculatedUserConfig: calculatedUserConfig,
-        skillRatePercent: 10,
+        skillTrigger: {
+          ratePercent: 10,
+        },
         activeSkillEffect: {
           type: 'strength',
           level: 2,
@@ -69,7 +71,9 @@ describe('Pokemon Production (Skill) / Final', () => {
         pokemon: testPokemonData.ampharos,
         baseFrequency: 6336,
         calculatedUserConfig: calculatedUserConfig,
-        skillRatePercent: 10,
+        skillTrigger: {
+          ratePercent: 10,
+        },
         activeSkillEffect: {
           type: 'strength',
           level: 2,

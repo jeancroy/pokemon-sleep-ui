@@ -12,9 +12,9 @@ export const getNoSkillProbability = ({
   sleepSession,
 }: GetNoSkillProbabilityOpts): number | null => {
   const {fullPackStats, params} = rate;
-  const {skillRatePercent} = params;
+  const {ratePercent} = params.skillTrigger;
 
-  if (!skillRatePercent) {
+  if (!ratePercent) {
     return null;
   }
 
@@ -25,5 +25,5 @@ export const getNoSkillProbability = ({
 
   const {helpCount} = statsOfSleep;
 
-  return (1 - skillRatePercent / 100) ** helpCount.vacant;
+  return (1 - ratePercent / 100) ** helpCount.vacant;
 };
