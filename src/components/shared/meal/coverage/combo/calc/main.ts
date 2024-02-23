@@ -3,7 +3,6 @@ import {mealCoverageComboSortBasisGetter} from '@/components/shared/meal/coverag
 import {MealCoverageComboData} from '@/components/shared/meal/coverage/combo/type';
 import {toSum} from '@/utils/array';
 import {getMealCoverage} from '@/utils/game/cooking';
-import {getMealIngredientCount} from '@/utils/game/meal/count';
 import {generateTargetMeals} from '@/utils/game/meal/generate';
 import {isNotNullish} from '@/utils/type';
 
@@ -35,7 +34,7 @@ export const getMealCoverageComboData = ({
 
       const byMeal = Object.fromEntries(meals.map((meal) => [
         meal.id,
-        getMealIngredientCount(meal),
+        meal.ingredientCount,
       ]));
       const coverage = getMealCoverage({
         meals,

@@ -12,7 +12,6 @@ import {IngredientId, IngredientMap} from '@/types/game/ingredient';
 import {MealMap} from '@/types/game/meal/main';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {getCookableMeals} from '@/utils/game/meal/cookable';
-import {getMealIngredientCount} from '@/utils/game/meal/count';
 import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {getMealBaseStrength} from '@/utils/game/meal/strength/base';
 import {isNotNullish} from '@/utils/type';
@@ -67,7 +66,7 @@ export const IngredientCookableMeals = ({mealMap, recipeLevelData, ingredientMap
               imageAlt={t(meal.id.toString())}
               imageDimension="size-12"
               imageSizes={imageGallerySizes}
-              info={getMealIngredientCount(meal)}
+              info={meal.ingredientCount}
             />
             <IngredientIconsFromMeal meal={meal} noLink/>
             <Flex direction="row" center className="gap-0.5">

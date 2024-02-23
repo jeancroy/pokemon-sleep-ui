@@ -5,7 +5,6 @@ import {Flex} from '@/components/layout/flex/common';
 import {IngredientIconsFromMeal} from '@/components/shared/ingredient/icons/fromMeal';
 import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {MealMakerRecipePartsProps} from '@/ui/cooking/make/recipe/parts/type';
-import {getMealIngredientCount} from '@/utils/game/meal/count';
 
 
 type Props = MealMakerRecipePartsProps;
@@ -19,7 +18,7 @@ export const MealMakerRecipeIngredients = ({
   return (
     <Flex direction="row" className="h-9 items-end gap-0.5">
       <InfoIcon>
-        {getMealIngredientCount(meal)}
+        {meal.ingredientCount}
       </InfoIcon>
       <Flex noFullWidth>
         <IngredientIcons

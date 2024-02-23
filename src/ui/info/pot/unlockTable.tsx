@@ -7,7 +7,6 @@ import potCapacity from '@/data/potCapacity.json';
 import {Meal, MealDetails, MealId} from '@/types/game/meal/main';
 import {PotInfoDataProps, PotInfoFilter} from '@/ui/info/pot/type';
 import {PotRecipeUnlockSection} from '@/ui/info/pot/unlockSection';
-import {getMealIngredientCount} from '@/utils/game/meal/count';
 
 
 type Props = Omit<PotInfoDataProps, 'meals'> & {
@@ -40,7 +39,7 @@ export const PotRecipeUnlockTable = ({filter, mealDetails, isMealIncluded}: Prop
           const unlockedMeals: Meal[] = [];
           let currentMeal: Meal | undefined = sortedMeals[mealCursorIdx].meal;
 
-          while (currentMeal && getMealIngredientCount(currentMeal) <= potInfo.capacity) {
+          while (currentMeal && currentMeal.ingredientCount <= potInfo.capacity) {
             unlockedMeals.push(currentMeal);
 
             mealCursorIdx++;

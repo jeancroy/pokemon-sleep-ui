@@ -7,7 +7,6 @@ import {PopupCommon} from '@/components/popup/common/main';
 import {MealSelectorOption} from '@/components/shared/meal/selector/option';
 import {MealSelectorLevelUpdatingProps} from '@/components/shared/meal/selector/type';
 import {Meal, MealId, MealMap} from '@/types/game/meal/main';
-import {getMealIngredientCount} from '@/utils/game/meal/count';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -39,7 +38,7 @@ export const MealSelector = ({
           {Object.values(mealMap)
             .filter(isNotNullish)
             .filter(isMealOption)
-            .sort((a, b) => getMealIngredientCount(b) - getMealIngredientCount(a))
+            .sort((a, b) => b.ingredientCount - a.ingredientCount)
             .map((meal) => (
               <MealSelectorOption
                 key={meal.id}

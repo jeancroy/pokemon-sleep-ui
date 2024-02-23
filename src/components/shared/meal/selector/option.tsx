@@ -13,7 +13,6 @@ import {RecipeLevelInput} from '@/components/shared/meal/recipeLevel/input/main'
 import {MealSelectorLevelUpdatingProps} from '@/components/shared/meal/selector/type';
 import {mealTypeBackgroundStyle} from '@/styles/game/mealType';
 import {Meal} from '@/types/game/meal/main';
-import {getMealIngredientCount} from '@/utils/game/meal/count';
 
 
 type Props = MealSelectorLevelUpdatingProps & {
@@ -30,7 +29,7 @@ export const MealSelectorOption = ({
   onClick,
 }: Props) => {
   const t = useTranslations('Game');
-  const ingredientCount = meal ? getMealIngredientCount(meal) : 0;
+  const ingredientCount = meal ? meal.ingredientCount : 0;
 
   return (
     <Flex stretch className="gap-1.5">

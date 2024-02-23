@@ -5,7 +5,6 @@ import {Meal, MealId} from '@/types/game/meal/main';
 import {CookingServerDataProps} from '@/ui/cooking/common/type';
 import {generateCookingCommonFilter} from '@/ui/cooking/common/utils/main';
 import {MealMakerFilter} from '@/ui/cooking/make/type';
-import {getMealIngredientCount} from '@/utils/game/meal/count';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -35,7 +34,7 @@ export const useMealMakerFilter = ({mealMap, preloaded}: CookingServerDataProps)
         return false;
       }
 
-      return getMealIngredientCount(meal) <= filter.capacity;
+      return meal.ingredientCount <= filter.capacity;
     },
   });
 };
