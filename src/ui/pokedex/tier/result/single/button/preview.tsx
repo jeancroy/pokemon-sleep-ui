@@ -2,8 +2,8 @@ import React from 'react';
 
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {Flex} from '@/components/layout/flex/common';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {pokedexTierListPokemonPreviewCount} from '@/ui/pokedex/tier/result/single/const';
 import {PokedexTierListSingleCommonProps} from '@/ui/pokedex/tier/result/single/type';
 
@@ -25,7 +25,7 @@ export const PokedexTierListPreview = ({bucket, show}: Props) => {
                 isShiny={false}
                 className="rounded-lg"
               />
-              <PokemonIngredientIcons
+              <IngredientIcons
                 ingredients={[source.ingredients]}
                 dimension="size-3.5"
                 className="absolute bottom-0 w-full justify-center rounded-lg bg-slate-300/50 dark:bg-slate-700/50"

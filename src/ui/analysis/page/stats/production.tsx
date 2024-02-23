@@ -7,9 +7,9 @@ import {GenericBerryIcon} from '@/components/shared/icon/berry';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {sortTypeToI18nId} from '@/components/shared/pokemon/sorter/const';
 import {TextMarkThreshold} from '@/styles/text/mark/type';
 import {AnalysisStatsContinuousUI} from '@/ui/analysis/page/result/continuous';
@@ -111,7 +111,7 @@ export const AnalysisStatsOfProduction = ({stats, pokemon}: AnalysisStatsUiProps
             threshold={percentileThreshold}
             renderData={({data}) => (
               <Flex center>
-                <PokemonIngredientIcons ingredients={[data.productions]}/>
+                <IngredientIcons ingredients={[data.productions]}/>
                 <Flex direction="row" center className="gap-1">
                   <GenericIngredientIcon alt={textIngredientCount}/>
                   <span>{formatFloat(data.value)}</span>
@@ -138,7 +138,7 @@ export const AnalysisStatsOfProduction = ({stats, pokemon}: AnalysisStatsUiProps
             threshold={percentileThreshold}
             renderData={({data}) => (
               <Flex center>
-                <PokemonIngredientIcons ingredients={[data.productions]}/>
+                <IngredientIcons ingredients={[data.productions]}/>
                 <Flex direction="row" center className="gap-1 text-sm">
                   <ColoredEnergyIcon alt={textIngredientEnergy}/>
                   <div>{formatFloat(data.value)}</div>

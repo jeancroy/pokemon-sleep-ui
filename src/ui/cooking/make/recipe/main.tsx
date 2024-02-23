@@ -40,6 +40,7 @@ export const MealMakerRecipe = ({meals, ...props}: MealMakerCommonProps) => {
           <MealMakerRecipeSingle
             key={data.meal.id}
             showUnmakeableRecipe={showUnmakeableRecipe}
+            isInventoryUnset={Object.keys(filter.inventory).length === 0}
             {...data}
             {...props}
           />

@@ -3,4 +3,5 @@ import {MealMakerRecipeInfo, MealMakerRecipeSingleProps} from '@/ui/cooking/make
 
 export type MealMakerRecipePartsProps = MealMakerRecipeInfo & MealMakerRecipeSingleProps & {
   mealName: string,
+  isInventoryUnset: boolean,
 };

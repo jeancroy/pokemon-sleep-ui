@@ -8,9 +8,9 @@ import {GenericIcon} from '@/components/shared/icon/common/main';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonTimeToFullPackSingle} from '@/components/shared/pokemon/inventory/fullPack/single';
 import {PokemonIngredientRate} from '@/components/shared/pokemon/production/params/ingredient';
 import {PokemonMainSkillTriggerRate} from '@/components/shared/pokemon/production/params/skillRate';
@@ -78,7 +78,7 @@ export const PokedexLinkDetail = React.memo(({
   }
 
   if (display === 'ingredient') {
-    return <PokemonIngredientIcons ingredients={[ingredients]}/>;
+    return <IngredientIcons ingredients={[ingredients]}/>;
   }
 
   if (display === 'ingredientRate') {
@@ -130,11 +130,8 @@ export const PokedexLinkDetail = React.memo(({
     if (display === 'ingredientCount') {
       return (
         <Flex>
-          <div className="text-xs">
-            <PokemonIngredientIcons ingredients={[ingredients]} dimension="size-4"/>
-          </div>
-          <PokemonIngredientIcons
-            numberFormat="float"
+          <IngredientIcons ingredients={[ingredients]} dimension="size-3.5" noLink/>
+          <IngredientIcons
             ingredients={[Object.values(ingredient)
               .sort((a, b) => b.qty.equivalent - a.qty.equivalent)
               .map(({id, qty}) => ({
@@ -142,6 +139,10 @@ export const PokedexLinkDetail = React.memo(({
                 qty: qty.equivalent,
               })),
             ]}
+            formatQty={formatFloat}
+            classOfText="text-sm"
+            dimension="size-4"
+            noLink
           />
         </Flex>
       );
@@ -223,13 +224,11 @@ export const PokedexLinkDetail = React.memo(({
     return (
       <Flex>
         <div className="text-xs">
-          <PokemonIngredientIcons ingredients={[ingredients]} dimension="size-4"/>
+          <IngredientIcons ingredients={[ingredients]} dimension="size-3.5" noLink/>
         </div>
-        <Flex direction="row" className="gap-0.5">
-          <ColoredEnergyIcon alt={t2('Stats.Energy.Name')}/>
-          <div>
-            {formatFloat(sorter)}
-          </div>
+        <Flex direction="row" className="items-center gap-0.5">
+          <ColoredEnergyIcon alt={t2('Stats.Energy.Name')} dimension="size-4"/>
+          <span>{formatFloat(sorter)}</span>
         </Flex>
       </Flex>
     );

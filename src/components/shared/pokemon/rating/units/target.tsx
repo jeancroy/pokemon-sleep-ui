@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {ingredientLevels} from '@/types/game/pokemon/ingredient';
@@ -24,9 +24,10 @@ export const RatingResultTarget = ({request, subSkillMap}: Props) => {
         <PokemonImage pokemonId={pokemon.id} image={{type: 'default', image: 'icon'}} isShiny={false}/>
       </div>
       <Flex center className="gap-1">
-        <PokemonIngredientIcons
+        <IngredientIcons
           ingredients={[[...ingredientLevels].map((level) => ingredients[level])]}
-          className="gap-1 text-lg"
+          className="gap-1"
+          classOfText="text-lg"
           dimension="size-6"
           noLink
         />

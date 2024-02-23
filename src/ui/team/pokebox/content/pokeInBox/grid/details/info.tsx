@@ -3,7 +3,7 @@ import React from 'react';
 import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {specialtyIdMap} from '@/const/game/pokemon';
@@ -30,7 +30,12 @@ export const PokeInBoxGridInfo = (props: PokeInBoxGridDetailsProps) => {
         'w-fit px-1.5',
         specialty === specialtyIdMap.ingredient && 'info-highlight',
       )}>
-        <PokemonIngredientIcons ingredients={[Object.values(ingredients)]} noLink/>
+        <IngredientIcons
+          ingredients={[Object.values(ingredients)]}
+          noLink
+          dimension="size-5"
+          classOfText="text-base"
+        />
       </Flex>
       <Flex direction="row" noFullWidth className="gap-2">
         <PokemonSubSkillIndicator level={level} subSkill={subSkill} subSkillMap={subSkillMap} dimension="size-5"/>

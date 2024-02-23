@@ -5,11 +5,11 @@ import {useTranslations} from 'next-intl';
 import {InfoIcon} from '@/components/icons/info';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {
   PokemonItemStatsFromPokeboxCommonProps,
 } from '@/components/shared/pokemon/icon/itemStats/base/fromPokebox/type';
 import {PokemonItemStatsList} from '@/components/shared/pokemon/icon/itemStats/base/list';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProductionSingleAtItem} from '@/components/shared/pokemon/production/single/item';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
@@ -151,7 +151,7 @@ export const PokemonItemStatsFromPokeboxList = ({
                   {name ?? pokemonDefaultName}
                 </div>
               </Flex>
-              <PokemonIngredientIcons ingredients={[ingredients]} noLink/>
+              <IngredientIcons ingredients={[ingredients]} noLink/>
               <PokemonProductionSingleAtItem
                 rate={itemRate}
                 getIcon={(dimension) => getIcon(pokemon, dimension)}

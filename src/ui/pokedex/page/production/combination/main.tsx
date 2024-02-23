@@ -6,8 +6,8 @@ import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {MealCoverageComboCollapsible} from '@/components/shared/meal/coverage/combo/collapsible';
-import {IngredientIcons} from '@/components/shared/meal/ingredients/icons';
 import {IngredientCounter} from '@/types/game/ingredient';
 import {IngredientChain} from '@/types/game/pokemon/ingredient';
 import {PokemonProductionCombinationItem} from '@/ui/pokedex/page/production/combination/item';
@@ -81,9 +81,8 @@ export const PokemonProductionCombination = ({chain, ...props}: Props) => {
           {
             rateKey &&
             <IngredientIcons
-              ingredients={rateCollection[rateKey]?.ingredients ?? []}
+              ingredients={[rateCollection[rateKey]?.ingredients ?? []]}
               dimension="size-5"
-              useTextShadow={false}
               classOfText="text-base"
             />
           }

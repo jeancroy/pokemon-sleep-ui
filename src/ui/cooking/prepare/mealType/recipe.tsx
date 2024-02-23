@@ -8,9 +8,9 @@ import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQui
 import {Flex} from '@/components/layout/flex/common';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PotIcon} from '@/components/shared/icon/pot';
+import {IngredientIconsFromMeal} from '@/components/shared/ingredient/icons/fromMeal';
 import {NumberInputOptional} from '@/components/shared/input/number/optional/main';
 import {MealImage} from '@/components/shared/meal/image';
-import {IngredientIconsFromMeal} from '@/components/shared/meal/ingredients/iconsFromMeal';
 import {Meal} from '@/types/game/meal/main';
 import {CookingInputRecipeLevel} from '@/ui/cooking/common/input/level';
 import {CookingExternalLink} from '@/ui/cooking/common/link';
@@ -71,7 +71,7 @@ export const MealPreparerRecipe = (props: Props) => {
             </div>
           </Flex>
           <Flex direction="row" noFullWidth className="shrink-0 items-center gap-1">
-            <IngredientIconsFromMeal meal={meal}/>
+            <IngredientIconsFromMeal meal={meal} noLink/>
             <CookingExternalLink mealId={id}/>
           </Flex>
         </Flex>

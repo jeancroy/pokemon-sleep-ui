@@ -10,6 +10,7 @@ export type MealMakerRecipeSingleProps =
   FilterWithUpdaterProps<MealMakerFilter> &
   MealMakerPopupCommonProps & {
     showUnmakeableRecipe: boolean,
+    isInventoryUnset: boolean,
   };
 
 export type MealMakerRecipeInfo = {

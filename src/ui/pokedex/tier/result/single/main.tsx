@@ -6,8 +6,8 @@ import {CollapsibleFull} from '@/components/layout/collapsible/full';
 import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {pokedexTierBorderStyling} from '@/ui/pokedex/tier/result/const';
 import {PokedexTierListButton} from '@/ui/pokedex/tier/result/single/button/main';
@@ -83,11 +83,12 @@ export const PokedexTierListSingle = ({onPokemonClicked, ...props}: Props) => {
                         className="rounded-lg"
                       />
                     </div>
-                    <PokemonIngredientIcons
+                    <IngredientIcons
                       ingredients={[ingredients]}
                       direction="col"
-                      className="gap-0 text-sm"
-                      classNameItem="gap-0.5"
+                      dimension="size-5"
+                      classOfGap="gap-0"
+                      classOfText="text-sm"
                       noLink
                     />
                   </Flex>

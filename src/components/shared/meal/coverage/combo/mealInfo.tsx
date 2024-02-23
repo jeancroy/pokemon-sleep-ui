@@ -4,9 +4,9 @@ import {useTranslations} from 'next-intl';
 
 import {InfoIcon} from '@/components/icons/info';
 import {Flex} from '@/components/layout/flex/common';
+import {IngredientIconsFromMeal} from '@/components/shared/ingredient/icons/fromMeal';
 import {MealCoverageComboData} from '@/components/shared/meal/coverage/combo/type';
 import {MealImage} from '@/components/shared/meal/image';
-import {IngredientIconsFromMeal} from '@/components/shared/meal/ingredients/iconsFromMeal';
 import {mealTypeTextStyle} from '@/styles/game/mealType';
 
 

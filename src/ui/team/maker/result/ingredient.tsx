@@ -4,7 +4,7 @@ import CheckCircleIcon from '@heroicons/react/24/outline/CheckCircleIcon';
 import ExclamationCircleIcon from '@heroicons/react/24/outline/ExclamationCircleIcon';
 
 import {InputRowWithTitle} from '@/components/input/filter/rowWithTitle';
-import {IngredientIcons} from '@/components/shared/meal/ingredients/icons';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {Dimension} from '@/types/style';
 import {TeamMakerIngredientStats} from '@/ui/team/maker/type/common';
 import {toProducingItemFromIngredientCounter} from '@/utils/game/cooking';
@@ -26,9 +26,8 @@ export const TeamMakerIngredientStatsUI = ({ingredientStats}: Props) => {
           getMark={() => 'red'}
           dimension={iconDimension}
           classOfText="text-lg"
-          ingredients={toProducingItemFromIngredientCounter(shortage)}
+          ingredients={[toProducingItemFromIngredientCounter(shortage)]}
           className="flex-wrap justify-center"
-          iconClickable
           showXMarkOnEmpty
           formatQty={(qty) => `-${formatInt(qty)}`}
         />
@@ -38,9 +37,8 @@ export const TeamMakerIngredientStatsUI = ({ingredientStats}: Props) => {
           getMark={() => 'green'}
           dimension={iconDimension}
           classOfText="text-lg"
-          ingredients={toProducingItemFromIngredientCounter(surplus)}
+          ingredients={[toProducingItemFromIngredientCounter(surplus)]}
           className="flex-wrap justify-center"
-          iconClickable
           showXMarkOnEmpty
           formatQty={(qty) => `+${formatInt(qty)}`}
         />

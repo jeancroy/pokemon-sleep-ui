@@ -6,8 +6,8 @@ import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {HorizontalSplitter, VerticalSplitter} from '@/components/shared/common/splitter';
 import {CompletionResultUI} from '@/components/shared/completion/main';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {RatingBasisIcon} from '@/components/shared/pokemon/rating/basis/icon';
 import {ratingExtremaDisplayMax} from '@/components/shared/pokemon/rating/const';
@@ -76,7 +76,7 @@ export const RatingDataPointUI = ({level, extrema, subSkillMap, icon, basis, cla
             </div>
             <Flex center noFullWidth className="gap-1">
               <div className="h-6">
-                <PokemonIngredientIcons ingredients={[ingredients]}/>
+                <IngredientIcons ingredients={[ingredients]} dimension="size-5" classOfText="text-base"/>
               </div>
               <div className="h-6">
                 <PokemonNatureIndicator nature={nature}/>

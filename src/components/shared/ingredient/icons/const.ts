@@ -1,4 +1,4 @@
-import {IngredientIconMark} from '@/components/shared/meal/ingredients/type';
+import {IngredientIconMark} from '@/components/shared/ingredient/icons/type';
 
 
 export const ingredientIconMarkToStyle: {[mark in IngredientIconMark]: string} = {

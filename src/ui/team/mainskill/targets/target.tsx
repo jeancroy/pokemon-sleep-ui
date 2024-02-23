@@ -11,8 +11,8 @@ import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
 import {PopupCommon} from '@/components/popup/common/main';
 import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonConfig} from '@/components/shared/pokemon/predefined/config/main';
@@ -97,9 +97,10 @@ export const SkillTriggerAnalysisTarget = (props: Props) => {
                 'px-2 py-1 text-sm',
                 pokemon.specialty === specialtyIdMap.ingredient && 'bg-blink',
               )}>
-                <PokemonIngredientIcons
+                <IngredientIcons
                   ingredients={[Object.values(ingredients).map((production) => production)]}
-                  className="gap-1"
+                  classOfText="text-base"
+                  dimension="size-5"
                 />
               </Flex>
             </Flex>

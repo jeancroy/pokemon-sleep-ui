@@ -6,11 +6,11 @@ import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
 import {IconWithInfo} from '@/components/shared/common/image/iconWithInfo';
 import {NextImage} from '@/components/shared/common/image/main';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonItemStatsList} from '@/components/shared/pokemon/icon/itemStats/base/list';
 import {PokemonItemStatsCommonProps} from '@/components/shared/pokemon/icon/itemStats/base/type';
 import {usePokemonProducingStats} from '@/components/shared/pokemon/icon/itemStats/worker/hook';
 import {PokemonItemStatsWorkerOpts} from '@/components/shared/pokemon/icon/itemStats/worker/type';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {usePokemonProductionSingleDisplay} from '@/components/shared/pokemon/production/single/hook';
@@ -71,7 +71,7 @@ export const PokemonItemStatsFromPokedex = (props: Props) => {
                   rate={itemRate}
                   display={control.display}
                   getIcon={(dimension) => getIcon(pokemon, dimension)}
-                  infoAtTotal={<PokemonIngredientIcons ingredients={[ingredients]} noLink/>}
+                  infoAtTotal={<IngredientIcons ingredients={[ingredients]} noLink/>}
                   dailyTotalEnergy={dailyTotalEnergy}
                 />
               </Flex>

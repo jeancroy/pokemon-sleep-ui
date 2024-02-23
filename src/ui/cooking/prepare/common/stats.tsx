@@ -4,7 +4,7 @@ import {useTranslations} from 'next-intl';
 
 import {AdsUnit} from '@/components/ads/main';
 import {InputRowWithTitle} from '@/components/input/filter/rowWithTitle';
-import {IngredientIcons} from '@/components/shared/meal/ingredients/icons';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {MealPreparerIngredientStats} from '@/ui/cooking/prepare/type';
 import {toProducingItemFromIngredientCounter} from '@/utils/game/cooking';
 
@@ -27,9 +27,8 @@ export const MealPreparerIngredientStatsUI = ({stats, showAds}: Props) => {
           getMark={() => 'red'}
           dimension="size-6"
           classOfText="text-lg"
-          ingredients={toProducingItemFromIngredientCounter(missing)}
+          ingredients={[toProducingItemFromIngredientCounter(missing)]}
           className="flex-wrap justify-center"
-          iconClickable
           showTotalCount
           showXMarkOnEmpty
         />
@@ -39,9 +38,8 @@ export const MealPreparerIngredientStatsUI = ({stats, showAds}: Props) => {
           getMark={() => 'green'}
           dimension="size-6"
           classOfText="text-lg"
-          ingredients={toProducingItemFromIngredientCounter(filler)}
+          ingredients={[toProducingItemFromIngredientCounter(filler)]}
           className="flex-wrap justify-center"
-          iconClickable
           showTotalCount
           showXMarkOnEmpty
         />
@@ -50,9 +48,8 @@ export const MealPreparerIngredientStatsUI = ({stats, showAds}: Props) => {
         <IngredientIcons
           dimension="size-6"
           classOfText="text-lg"
-          ingredients={toProducingItemFromIngredientCounter(required)}
+          ingredients={[toProducingItemFromIngredientCounter(required)]}
           className="flex-wrap justify-center"
-          iconClickable
           showTotalCount
           showXMarkOnEmpty
         />

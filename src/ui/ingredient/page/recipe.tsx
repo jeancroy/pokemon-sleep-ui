@@ -6,7 +6,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
 import {IconWithInfo} from '@/components/shared/common/image/iconWithInfo';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
-import {IngredientIconsFromMeal} from '@/components/shared/meal/ingredients/iconsFromMeal';
+import {IngredientIconsFromMeal} from '@/components/shared/ingredient/icons/fromMeal';
 import {imageGallerySizes} from '@/styles/image';
 import {IngredientId, IngredientMap} from '@/types/game/ingredient';
 import {MealMap} from '@/types/game/meal/main';
@@ -69,7 +69,7 @@ export const IngredientCookableMeals = ({mealMap, recipeLevelData, ingredientMap
               imageSizes={imageGallerySizes}
               info={getMealIngredientCount(meal)}
             />
-            <IngredientIconsFromMeal meal={meal} useTextShadow={false}/>
+            <IngredientIconsFromMeal meal={meal} noLink/>
             <Flex direction="row" center className="gap-0.5">
               <ColoredEnergyIcon dimension="size-4" alt={t2('Energy')}/>
               <div className="text-sm">

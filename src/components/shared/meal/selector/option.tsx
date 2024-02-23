@@ -7,8 +7,8 @@ import {useTranslations} from 'next-intl';
 import {InfoIcon} from '@/components/icons/info';
 import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
+import {IngredientIconsFromMeal} from '@/components/shared/ingredient/icons/fromMeal';
 import {MealImage} from '@/components/shared/meal/image';
-import {IngredientIconsFromMeal} from '@/components/shared/meal/ingredients/iconsFromMeal';
 import {RecipeLevelInput} from '@/components/shared/meal/recipeLevel/input/main';
 import {MealSelectorLevelUpdatingProps} from '@/components/shared/meal/selector/type';
 import {mealTypeBackgroundStyle} from '@/styles/game/mealType';
@@ -49,7 +49,7 @@ export const MealSelectorOption = ({
                 <InfoIcon dimension="size-5">
                   {ingredientCount}
                 </InfoIcon>
-                <IngredientIconsFromMeal meal={meal}/>
+                <IngredientIconsFromMeal meal={meal} noLink useTextShadow/>
               </Flex>
             </Flex>
           </> :

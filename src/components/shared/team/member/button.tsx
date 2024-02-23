@@ -5,8 +5,8 @@ import {clsx} from 'clsx';
 
 import {Flex} from '@/components/layout/flex/common';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
@@ -58,7 +58,7 @@ export const TeamMemberCollapsibleButton = ({
             'items-center px-1 py-0.5 text-sm',
             pokemon.specialty === specialtyIdMap.ingredient && 'info-highlight',
           )}>
-            <PokemonIngredientIcons
+            <IngredientIcons
               ingredients={[Object.values(member.ingredients).map((production) => production)]}
               dimension="size-5"
               className="gap-0.5"

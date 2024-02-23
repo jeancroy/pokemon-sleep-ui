@@ -7,8 +7,8 @@ import {InfoIcon} from '@/components/icons/info';
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonClickableIcons} from '@/components/shared/pokemon/icon/clickable/main';
-import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
@@ -79,10 +79,11 @@ export const TeamMakerResultUnit = ({
       <Flex direction="row" className="items-center gap-2">
         <PokemonClickableIcons pokemonList={[pokemonInfo]} dimension="size-16"/>
         <Flex className="gap-1">
-          <PokemonIngredientIcons
+          <IngredientIcons
             ingredients={[Object.values(ingredients).map((production) => production)]}
             dimension="size-5"
-            className="gap-1 self-center"
+            classOfText="text-base"
+            className="self-center"
           />
           <PokemonNatureIndicator nature={nature}/>
           <PokemonSubSkillIndicator
