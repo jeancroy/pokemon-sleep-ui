@@ -1,13 +1,13 @@
 import {PokemonInfo} from '@/types/game/pokemon';
-import {PokemonProducingRate} from '@/types/game/producing/rate/main';
+import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {getAnalysisStatsOfContinuous} from '@/ui/analysis/page/calc/continuous';
-import {PokemonAnalysisRateInfo} from '@/ui/analysis/page/calc/producingRate/type';
-import {isRateOfPokemonSame} from '@/ui/analysis/page/calc/producingRate/utils';
+import {PokemonAnalysisRateInfo} from '@/ui/analysis/page/calc/production/type';
+import {isRateOfPokemonSame} from '@/ui/analysis/page/calc/production/utils';
 
 
 export type ToAnalysisSkillTriggerProducingStatsOpts = {
   pokemon: PokemonInfo,
-  current: PokemonProducingRate,
+  current: PokemonProduction,
   rateOfAllPokemon: PokemonAnalysisRateInfo[],
 };
 

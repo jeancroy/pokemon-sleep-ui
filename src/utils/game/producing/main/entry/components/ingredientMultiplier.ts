@@ -1,27 +1,27 @@
 import {IngredientMap} from '@/types/game/ingredient';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {GroupedProducingRateByType} from '@/types/game/producing/rate/main';
+import {GroupedProductionByType} from '@/types/game/producing/rate/main';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {getIngredientMultiplier} from '@/utils/game/producing/ingredient/multiplier';
 import {isNotNullish} from '@/utils/type';
 
 
-export type GetPokemonProducingRateIngredientMultiplierOpts = {
+export type GetPokemonProductionIngredientMultiplierOpts = {
   period: ProductionPeriod,
   ingredientMap: IngredientMap,
   recipeLevelData: RecipeLevelData[],
-  groupedOriginalRates: GroupedProducingRateByType,
+  groupedOriginalRates: GroupedProductionByType,
   calculatedCookingConfig: CalculatedCookingConfig,
 };
 
-export const getPokemonProducingRateIngredientMultiplier = ({
+export const getPokemonProductionIngredientMultiplier = ({
   period,
   ingredientMap,
   recipeLevelData,
   groupedOriginalRates,
   calculatedCookingConfig,
-}: GetPokemonProducingRateIngredientMultiplierOpts) => {
+}: GetPokemonProductionIngredientMultiplierOpts) => {
   return getIngredientMultiplier({
     ingredientMap,
     recipeLevelData,

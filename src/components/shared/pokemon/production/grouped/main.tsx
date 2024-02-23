@@ -9,12 +9,12 @@ import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {PokemonBerryProduction} from '@/components/shared/pokemon/production/berry';
 import {PokemonGroupedProductionCategory} from '@/components/shared/pokemon/production/grouped/category';
 import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient/production';
-import {GroupedProducingRateByType} from '@/types/game/producing/rate/main';
+import {GroupedProductionByType} from '@/types/game/producing/rate/main';
 import {Dimension} from '@/types/style';
 
 
 type Props = {
-  grouped: GroupedProducingRateByType,
+  grouped: GroupedProductionByType,
 };
 
 export const PokemonGroupedProduction = ({grouped}: Props) => {

@@ -2,21 +2,21 @@ import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {MainSkillData} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
-import {ProducingRateImplicitParams, ProducingRateSingleParams} from '@/types/game/producing/rate/params';
-import {GetBerryProducingRateBaseOpts} from '@/utils/game/producing/branch/berry/type';
-import {GetIngredientProducingRateBaseListOpts} from '@/utils/game/producing/branch/ingredient/type';
-import {GetMainSkillProducingRateBaseCommonOpts} from '@/utils/game/producing/branch/mainSkill/direct/type';
-import {GetProducingRateSharedOpts} from '@/utils/game/producing/main/type';
+import {ProductionImplicitParams, ProductionSingleParams} from '@/types/game/producing/rate/params';
+import {GetBerryProductionBaseOpts} from '@/utils/game/producing/branch/berry/type';
+import {GetIngredientProductionBaseListOpts} from '@/utils/game/producing/branch/ingredient/type';
+import {GetMainSkillProductionBaseCommonOpts} from '@/utils/game/producing/branch/mainSkill/direct/type';
+import {GetPokemonProductionSharedOpts} from '@/utils/game/producing/main/type';
 
 
-export type GetPokemonProducingRateUnitOpts =
+export type GetPokemonProductionUnitOpts =
   Omit<
-    GetBerryProducingRateBaseOpts & GetIngredientProducingRateBaseListOpts & GetMainSkillProducingRateBaseCommonOpts,
+    GetBerryProductionBaseOpts & GetIngredientProductionBaseListOpts & GetMainSkillProductionBaseCommonOpts,
     'baseFrequency' | 'timeToFullPack'
   > &
-  ProducingRateSingleParams &
-  ProducingRateImplicitParams &
-  GetProducingRateSharedOpts & {
+  ProductionSingleParams &
+  ProductionImplicitParams &
+  GetPokemonProductionSharedOpts & {
     skillData: MainSkillData | undefined,
     recipeLevelData: RecipeLevelData[],
     pokemonProducingParams: PokemonProducingParams,

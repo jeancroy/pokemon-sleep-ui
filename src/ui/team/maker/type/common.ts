@@ -1,7 +1,7 @@
 import {MealCoverage} from '@/types/game/cooking';
 import {IngredientCounter} from '@/types/game/ingredient';
 import {PokeInBox} from '@/types/userData/pokebox/main';
-import {GetPokemonProducingRateOpts} from '@/utils/game/producing/main/type';
+import {GetPokemonProductionOpts} from '@/utils/game/producing/main/type';
 
 
 export const teamMakerMemberCount = [
@@ -27,7 +27,7 @@ export type TeamMakerReferenceUnit = {
 
 export type TeamMakerCalcPayload = {
   refData: TeamMakerReferenceUnit,
-  calcOpts: GetPokemonProducingRateOpts,
+  calcOpts: GetPokemonProductionOpts,
 };
 
 export type TeamMakerPokemonLimits = {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useWorker} from '@/hooks/worker/main';
 import {getTeamProducingStats} from '@/ui/team/analysis/calc/main';
-import {GetTeamProducingStatsOpts} from '@/ui/team/analysis/calc/type';
+import {GetTeamProductionStatsOpts} from '@/ui/team/analysis/calc/type';
 import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
 import {isProduction} from '@/utils/environment';
 
@@ -31,10 +31,10 @@ export const useTeamProducingStats = ({
   currentTeam,
   calculatedCookingConfig,
   overrideLevel,
-}: GetTeamProducingStatsOpts) => {
+}: GetTeamProductionStatsOpts) => {
   const [result, setResult] = React.useState<TeamProducingStats>();
 
-  const {work} = useWorker<GetTeamProducingStatsOpts, TeamProducingStats>({
+  const {work} = useWorker<GetTeamProductionStatsOpts, TeamProducingStats>({
     workerName: 'Team Analysis Worker',
     generateWorker: () => new Worker(new URL('main.worker', import.meta.url)),
     onCompleted: setResult,
@@ -43,7 +43,7 @@ export const useTeamProducingStats = ({
 
   React.useEffect(() => {
     // Explicit to avoid passing unwanted properties
-    const opts: GetTeamProducingStatsOpts = {
+    const opts: GetTeamProductionStatsOpts = {
       ingredientMap,
       ingredientChainMap,
       mealMap,

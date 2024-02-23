@@ -1,24 +1,24 @@
 import {Ingredient} from '@/types/game/ingredient';
-import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
-import {ProducingRateCommonParams} from '@/types/game/producing/rate/params';
+import {ProductionOfDrop} from '@/types/game/producing/rate/base';
+import {ProductionCommonParams} from '@/types/game/producing/rate/params';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
-import {getProducingRateBase} from '@/utils/game/producing/toBase/main';
+import {getProductionBase} from '@/utils/game/producing/toBase/main';
 import {Nullable} from '@/utils/type';
 
 
-type GetIngredientProducingRateBaseOpts = ProducingRateCommonParams & {
+type GetIngredientProductionBaseOpts = ProductionCommonParams & {
   ingredient: Nullable<Ingredient>,
   ingredientBranchCount: number,
   qtyPerHelp: number,
 };
 
-export const getIngredientProducingRateBase = ({
+export const getIngredientProductionBase = ({
   baseFrequency,
   calculatedUserConfig,
   ingredient,
   ingredientBranchCount,
   qtyPerHelp,
-}: GetIngredientProducingRateBaseOpts): ProducingRateOfDrop | null => {
+}: GetIngredientProductionBaseOpts): ProductionOfDrop | null => {
   const {bonus} = calculatedUserConfig;
 
   if (!ingredient) {
@@ -31,7 +31,7 @@ export const getIngredientProducingRateBase = ({
     strengthMultiplierType: 'cooking',
   });
 
-  return getProducingRateBase({
+  return getProductionBase({
     id: ingredient.id,
     baseFrequency,
     qtyPerHelp,

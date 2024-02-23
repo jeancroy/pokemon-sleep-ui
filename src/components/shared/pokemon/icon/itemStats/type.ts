@@ -6,8 +6,8 @@ import {IngredientChainMap, IngredientProduction} from '@/types/game/pokemon/ing
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
-import {PokemonProducingRate} from '@/types/game/producing/rate/main';
+import {ProductionByCalculatedStates} from '@/types/game/producing/rate/base';
+import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
 
@@ -33,12 +33,12 @@ export type PokemonBerryStatsCommonProps = PokemonProducingStatsCommonProps & {
 
 export type PokemonItemStatsCalcResult = {
   pokemon: PokemonInfo,
-  pokemonRate: PokemonProducingRate,
+  pokemonRate: PokemonProduction,
   uniqueKey: string,
   ingredients: IngredientProduction[],
   dailyTotalEnergy: number,
 };
 
 export type PokemonItemStatsCalcResultToDisplay<TResult extends PokemonItemStatsCalcResult> = TResult & {
-  itemRate: ProducingRateByCalculatedStates,
+  itemRate: ProductionByCalculatedStates,
 };

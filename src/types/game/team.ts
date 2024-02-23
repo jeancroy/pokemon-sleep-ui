@@ -1,7 +1,7 @@
 import {PokemonConfigPokemonData} from '@/components/shared/pokemon/predefined/config/type';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingRate} from '@/types/game/producing/rate/base';
-import {PokemonProducingRate} from '@/types/game/producing/rate/main';
+import {Production} from '@/types/game/producing/rate/base';
+import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 import {Nullable} from '@/utils/type';
@@ -21,8 +21,8 @@ export type TeamMemberData = PokemonConfigPokemonData & {
   linkedPokeInBoxUuid: string | null,
 };
 
-export type TeamMemberProduction = PokemonProducingRate & {
-  total: ProducingRate,
+export type TeamMemberProduction = PokemonProduction & {
+  total: Production,
   calculatedUserConfig: CalculatedUserConfig,
   level: Nullable<number>,
 };

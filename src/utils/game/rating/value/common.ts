@@ -1,6 +1,6 @@
 import {NatureId} from '@/types/game/pokemon/nature';
 import {PokemonSubSkill} from '@/types/game/pokemon/subSkill';
-import {getProducingRateSingleParams} from '@/utils/game/producing/params';
+import {getProductionSingleParams} from '@/utils/game/producing/params';
 import {GetRatingValueOfSimulationOpts} from '@/utils/game/rating/type';
 import {RatingValueCommonData} from '@/utils/game/rating/value/type';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
@@ -30,7 +30,7 @@ export const getRatingValueCommon = (opts: GetRatingValueCommonOpts): RatingValu
     bundle,
   } = baseOpts;
 
-  const singleParams = getProducingRateSingleParams({
+  const singleParams = getProductionSingleParams({
     level,
     subSkill,
     nature,

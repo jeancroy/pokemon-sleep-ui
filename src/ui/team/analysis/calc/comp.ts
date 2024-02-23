@@ -1,12 +1,12 @@
-import {ProducingRate} from '@/types/game/producing/rate/base';
+import {Production} from '@/types/game/producing/rate/base';
 import {TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisSlotName, teamAnalysisSlotName} from '@/types/teamAnalysis';
-import {getTeamProducingStatsSlot} from '@/ui/team/analysis/calc/slot';
+import {getTeamProductionOfSlot} from '@/ui/team/analysis/calc/slot';
 import {TeamCompCalcOpts} from '@/ui/team/analysis/calc/type';
 import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
 import {getCurrentTeam} from '@/ui/team/analysis/utils';
-import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/entry/multi';
-import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/common';
+import {getPokemonProductionMulti} from '@/utils/game/producing/main/entry/multi';
+import {getTotalPokemonProduction} from '@/utils/game/producing/reducer/total/common';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -19,7 +19,7 @@ export const getTeamCompCalcResult = ({
   const {setup} = opts;
   const currentTeam = getCurrentTeam({setup});
 
-  const {rates, grouped} = getPokemonProducingRateMulti({
+  const {rates, grouped} = getPokemonProductionMulti({
     ...opts,
     groupingState: state,
     sharedOpts: {
@@ -28,7 +28,7 @@ export const getTeamCompCalcResult = ({
       period,
     },
     rateOpts: teamAnalysisSlotName.map((slotName) => {
-      const producingStatsOpts = getTeamProducingStatsSlot({
+      const producingStatsOpts = getTeamProductionOfSlot({
         // `slotName` has to be after `opts` because `opts` got `slotName` in it as well
         ...opts,
         slotName,
@@ -54,7 +54,7 @@ export const getTeamCompCalcResult = ({
       atStage,
     }): [TeamAnalysisSlotName, TeamMemberProduction] => {
       const {slotName} = payload;
-      const total: ProducingRate = getTotalOfPokemonProducingRate({rate: atStage.final, state});
+      const total: Production = getTotalPokemonProduction({rate: atStage.final, state});
 
       return [
         slotName,

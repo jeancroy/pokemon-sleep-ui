@@ -4,12 +4,12 @@ import {clsx} from 'clsx';
 
 import {FadingLayout} from '@/components/layout/fading/main';
 import {Flex} from '@/components/layout/flex/common';
-import {PokemonProducingRateSingleAtItem} from '@/components/shared/pokemon/production/single/item';
-import {PokemonProducingRateSingleAtTotal} from '@/components/shared/pokemon/production/single/total';
-import {PokemonProducingRateSingleProps} from '@/components/shared/pokemon/production/single/type';
+import {PokemonProductionSingleAtItem} from '@/components/shared/pokemon/production/single/item';
+import {PokemonProductionSingleAtTotal} from '@/components/shared/pokemon/production/single/total';
+import {PokemonProductionSingleProps} from '@/components/shared/pokemon/production/single/type';
 
 
-export const PokemonProducingRateSingle = (props: PokemonProducingRateSingleProps) => {
+export const PokemonProductionSingle = (props: PokemonProductionSingleProps) => {
   const {
     horizontal,
     display,
@@ -23,8 +23,8 @@ export const PokemonProducingRateSingle = (props: PokemonProducingRateSingleProp
       <FadingLayout
         current={display}
         contents={{
-          item: <PokemonProducingRateSingleAtItem {...props}/>,
-          total: <PokemonProducingRateSingleAtTotal {...props}/>,
+          item: <PokemonProductionSingleAtItem {...props}/>,
+          total: <PokemonProductionSingleAtTotal {...props}/>,
         }}
         className="place-items-end"
       />

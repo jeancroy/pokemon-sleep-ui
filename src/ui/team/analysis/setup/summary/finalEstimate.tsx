@@ -7,16 +7,16 @@ import {InputBox} from '@/components/input/box';
 import {Flex} from '@/components/layout/flex/common';
 import {EnergyIcon} from '@/components/shared/icon/energy';
 import {durationOfDay} from '@/const/common';
-import {ProducingRate} from '@/types/game/producing/rate/base';
+import {Production} from '@/types/game/producing/rate/base';
 import {TeamAnalysisSnorlaxRank} from '@/ui/team/analysis/setup/summary/rank';
 import {TeamFinalEstimateInput} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {toIsoDateString} from '@/utils/date';
-import {toProducingRateOfPeriod} from '@/utils/game/producing/convert';
+import {toProductionOfPeriod} from '@/utils/game/producing/convert';
 
 
 type Props = Pick<TeamAnalysisDataProps, 'snorlaxData'> & {
-  energyRate: ProducingRate,
+  energyRate: Production,
 };
 
 export const TeamAnalysisFinalEstimate = ({energyRate, snorlaxData}: Props) => {
@@ -36,7 +36,7 @@ export const TeamAnalysisFinalEstimate = ({energyRate, snorlaxData}: Props) => {
   const finalEnergy = (
     currentEnergy +
     (
-      toProducingRateOfPeriod({rate: energyRate, period: 'daily'}).strength *
+      toProductionOfPeriod({rate: energyRate, period: 'daily'}).strength *
       (new Date(endsAt).getTime() - Date.now()) /
       (durationOfDay * 1000)
     )

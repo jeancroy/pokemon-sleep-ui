@@ -1,28 +1,28 @@
-import {ProducingRate} from '@/types/game/producing/rate/base';
-import {PokemonProducingRate} from '@/types/game/producing/rate/main';
+import {Production} from '@/types/game/producing/rate/base';
+import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {getTotalOfItemRates} from '@/utils/game/producing/reducer/total/itemRate';
 import {KeysOfType} from '@/utils/type';
 
 
-type GetPokemonProducingRateCommonOpts = {
-  rate: PokemonProducingRate,
-  target: KeysOfType<ProducingRate, number>,
+type GetPokemonProductionCommonOpts = {
+  rate: PokemonProduction,
+  target: KeysOfType<Production, number>,
   state: ProducingStateCalculated,
 };
 
-export const getTotalIngredientRateOfPokemon = ({
+export const getTotalPokemonIngredientProduction = ({
   rate,
   target,
   state,
-}: GetPokemonProducingRateCommonOpts): number => (
+}: GetPokemonProductionCommonOpts): number => (
   getTotalOfItemRates({rates: Object.values(rate.ingredient), target, state})
 );
 
-export const getTotalOfPokemonProducingRate = ({
+export const getTotalPokemonProduction = ({
   rate,
   state,
-}: Omit<GetPokemonProducingRateCommonOpts, 'target'>): ProducingRate => {
+}: Omit<GetPokemonProductionCommonOpts, 'target'>): Production => {
   const {
     params,
     berry,
@@ -36,11 +36,11 @@ export const getTotalOfPokemonProducingRate = ({
       // Not adding `skill.energy[state]` here because this quantity is used for calculating carry limit,
       // but skill trigger count doesn't occupy inventory space
       berry.qty[state] +
-      getTotalIngredientRateOfPokemon({rate, target: 'qty', state})
+      getTotalPokemonIngredientProduction({rate, target: 'qty', state})
     ),
     strength: (
       berry.strength[state] +
-      getTotalIngredientRateOfPokemon({rate, target: 'strength', state}) +
+      getTotalPokemonIngredientProduction({rate, target: 'strength', state}) +
       skill.strength[state]
     ),
   };

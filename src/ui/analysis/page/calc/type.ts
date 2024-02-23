@@ -37,7 +37,7 @@ export type AnalysisStatsContinuous<TData> = AnalysisStatsCommon<TData> & {
   current: number,
 };
 
-export type AnalysisStatsProducingRate<TItemId, TData> = {
+export type AnalysisStatsProduction<TItemId, TData> = {
   itemId: TItemId,
   count: AnalysisStatsContinuous<TData>,
   strength: AnalysisStatsContinuous<TData>,
@@ -68,10 +68,10 @@ export type AnalysisStats = {
     mainSkill: AnalysisStatsGrouped<PokemonSkillId>,
     sleepStyle: AnalysisStatsSleepStyle[],
   },
-  producingRate: {
-    berry: AnalysisStatsProducingRate<BerryId, number>,
+  production: {
+    berry: AnalysisStatsProduction<BerryId, number>,
     ingredient: {
-      individual: AnalysisStatsProducingRate<IngredientId, AnalysisIngredientStatsLinkedData>[],
+      individual: AnalysisStatsProduction<IngredientId, AnalysisIngredientStatsLinkedData>[],
       overall: AnalysisStatsContinuous<number>,
     },
     skillTriggerCount: AnalysisStatsContinuous<number>,

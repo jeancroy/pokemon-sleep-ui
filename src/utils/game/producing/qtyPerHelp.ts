@@ -1,12 +1,12 @@
-import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
+import {ProductionOfDrop} from '@/types/game/producing/rate/base';
 import {ProduceSplit} from '@/types/game/producing/split';
 import {toSum} from '@/utils/array';
 
 
 type GetExpectedQtyPerHelpOpts = {
   rate: {
-    berry: ProducingRateOfDrop,
-    ingredient: ProducingRateOfDrop[],
+    berry: ProductionOfDrop,
+    ingredient: ProductionOfDrop[],
   },
   produceSplit: ProduceSplit,
 };

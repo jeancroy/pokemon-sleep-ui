@@ -1,33 +1,33 @@
-import {PokemonProducingRateFirstPass, PokemonProducingRateWithPayload} from '@/types/game/producing/rate/main';
+import {PokemonProductionFirstPass, PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {applyIngredientMultiplier} from '@/utils/game/producing/apply/ingredient';
-import {groupPokemonProducingRate} from '@/utils/game/producing/group';
+import {groupPokemonProduction} from '@/utils/game/producing/group';
 import {
-  getPokemonProducingRateIngredientMultiplier,
-  GetPokemonProducingRateIngredientMultiplierOpts,
+  getPokemonProductionIngredientMultiplier,
+  GetPokemonProductionIngredientMultiplierOpts,
 } from '@/utils/game/producing/main/entry/components/ingredientMultiplier';
 import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/components/rates/type';
 
 
 type GetPokemonProductionPostIngredientMultiplierOpts<TPayload> = {
   groupingState: ProducingStateCalculated,
-  rates: PokemonProductionInCalcWithPayload<PokemonProducingRateFirstPass, TPayload>[],
-  ingredientMultiplierOpts: Omit<GetPokemonProducingRateIngredientMultiplierOpts, 'groupedOriginalRates'>,
+  rates: PokemonProductionInCalcWithPayload<PokemonProductionFirstPass, TPayload>[],
+  ingredientMultiplierOpts: Omit<GetPokemonProductionIngredientMultiplierOpts, 'groupedOriginalRates'>,
 };
 
 export const getPokemonProductionPostIngredientMultiplier = <TPayload>({
   groupingState,
   rates,
   ingredientMultiplierOpts,
-}: GetPokemonProductionPostIngredientMultiplierOpts<TPayload>): PokemonProducingRateWithPayload<
+}: GetPokemonProductionPostIngredientMultiplierOpts<TPayload>): PokemonProductionWithPayload<
   TPayload,
-  PokemonProducingRateFirstPass
+  PokemonProductionFirstPass
 >[] => {
   const {period} = ingredientMultiplierOpts;
 
-  const ingredientMultiplier = getPokemonProducingRateIngredientMultiplier({
+  const ingredientMultiplier = getPokemonProductionIngredientMultiplier({
     ...ingredientMultiplierOpts,
-    groupedOriginalRates: groupPokemonProducingRate({
+    groupedOriginalRates: groupPokemonProduction({
       period,
       rates: rates.map(({rate}) => rate),
       state: groupingState,

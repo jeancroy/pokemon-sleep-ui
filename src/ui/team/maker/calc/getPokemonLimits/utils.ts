@@ -4,7 +4,7 @@ import {
   TeamMakerPokeInBoxDataForLimits,
 } from '@/ui/team/maker/calc/getPokemonLimits/type';
 import {getPokemonFinalEvolutionIds} from '@/utils/game/pokemon/evolution/final';
-import {getProducingRateSingleParams} from '@/utils/game/producing/params';
+import {getProductionSingleParams} from '@/utils/game/producing/params';
 import {getLevelToCalcForPokeInBox} from '@/utils/team/previewLevel';
 
 
@@ -41,7 +41,7 @@ export const getTeamMakerPokeInBoxDataForLimits = ({
       return {
         pokeInBox,
         actualLevel,
-        singleParams: getProducingRateSingleParams({
+        singleParams: getProductionSingleParams({
           ...pokeInBox,
           level: actualLevel,
           subSkillMap,

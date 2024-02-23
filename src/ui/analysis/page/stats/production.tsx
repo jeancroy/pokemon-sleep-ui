@@ -18,9 +18,9 @@ import {AnalysisStatsUiProps} from '@/ui/analysis/page/stats/type';
 import {formatFloat} from '@/utils/number/format/regular';
 
 
-export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiProps) => {
+export const AnalysisStatsOfProduction = ({stats, pokemon}: AnalysisStatsUiProps) => {
   const {berry} = pokemon;
-  const {producingRate} = stats;
+  const {production} = stats;
 
   const t = useTranslations('UI.InPage.Pokedex');
   const percentileThreshold: TextMarkThreshold = {superRare: 93, rare: 85, ordinary: 10};
@@ -35,7 +35,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
   return (
     <AnalysisStatsLayout>
       <AnalysisStatsContinuousUI
-        stats={producingRate.total}
+        stats={production.total}
         title={
           <Flex direction="row" center className="gap-1.5">
             <ColoredEnergyIcon alt={textTotalEnergy}/>
@@ -51,11 +51,11 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         )}
       >
         <div className="text-2xl">
-          {formatFloat(producingRate.total.current)}
+          {formatFloat(production.total.current)}
         </div>
       </AnalysisStatsContinuousUI>
       <AnalysisStatsContinuousUI
-        stats={producingRate.berry.count}
+        stats={production.berry.count}
         title={
           <Flex direction="row" center className="gap-1.5">
             <PokemonBerryIcon dimension="size-6" id={berry.id}/>
@@ -71,11 +71,11 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         )}
       >
         <div className="text-2xl">
-          {formatFloat(producingRate.berry.count.current)}
+          {formatFloat(production.berry.count.current)}
         </div>
       </AnalysisStatsContinuousUI>
       <AnalysisStatsContinuousUI
-        stats={producingRate.berry.strength}
+        stats={production.berry.strength}
         title={
           <Flex direction="row" center className="gap-1.5">
             <PokemonBerryIcon dimension="size-6" id={berry.id}/>
@@ -92,10 +92,10 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         )}
       >
         <div className="text-2xl">
-          {formatFloat(producingRate.berry.strength.current)}
+          {formatFloat(production.berry.strength.current)}
         </div>
       </AnalysisStatsContinuousUI>
-      {producingRate.ingredient.individual.map((rate) => (
+      {production.ingredient.individual.map((rate) => (
         <React.Fragment key={rate.itemId}>
           <AnalysisStatsContinuousUI
             stats={rate.count}
@@ -153,7 +153,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         </React.Fragment>
       ))}
       <AnalysisStatsContinuousUI
-        stats={producingRate.ingredient.overall}
+        stats={production.ingredient.overall}
         title={
           <Flex direction="row" center className="gap-1.5">
             <ColoredEnergyIcon alt={textIngredientEnergy}/>
@@ -169,11 +169,11 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         )}
       >
         <div className="text-2xl">
-          {formatFloat(producingRate.ingredient.overall.current)}
+          {formatFloat(production.ingredient.overall.current)}
         </div>
       </AnalysisStatsContinuousUI>
       <AnalysisStatsContinuousUI
-        stats={producingRate.skillTriggerCount}
+        stats={production.skillTriggerCount}
         title={
           <Flex direction="row" center className="gap-1.5">
             <GenericMainSkillIcon alt={textSkillDailyCount}/>
@@ -189,7 +189,7 @@ export const AnalysisStatsOfProducingRate = ({stats, pokemon}: AnalysisStatsUiPr
         )}
       >
         <div className="text-2xl">
-          {formatFloat(producingRate.skillTriggerCount.current)}
+          {formatFloat(production.skillTriggerCount.current)}
         </div>
       </AnalysisStatsContinuousUI>
     </AnalysisStatsLayout>

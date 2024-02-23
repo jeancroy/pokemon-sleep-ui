@@ -1,19 +1,19 @@
-import {PokemonProducingRateFirstPass, PokemonProducingRateWithPayload} from '@/types/game/producing/rate/main';
+import {PokemonProductionFirstPass, PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
 import {getPokemonIndirectSkillEffects} from '@/utils/game/producing/main/entry/components/indirectSkill/effects';
 import {
   getPokemonIndirectSkillProductionFromFirstPass,
 } from '@/utils/game/producing/main/entry/components/indirectSkill/production';
 
 
-type GetPokemonProducingRateFinalOpts<TPayload> = {
-  firstPassRatesPostIngredient: PokemonProducingRateWithPayload<TPayload, PokemonProducingRateFirstPass>[],
+type GetPokemonProductionFinalOpts<TPayload> = {
+  firstPassRatesPostIngredient: PokemonProductionWithPayload<TPayload, PokemonProductionFirstPass>[],
   targetCount: number,
 };
 
-export const getPokemonProducingRateFinal = <TPayload>({
+export const getPokemonProductionFinal = <TPayload>({
   firstPassRatesPostIngredient,
   targetCount,
-}: GetPokemonProducingRateFinalOpts<TPayload>): PokemonProducingRateWithPayload<TPayload>[] => {
+}: GetPokemonProductionFinalOpts<TPayload>): PokemonProductionWithPayload<TPayload>[] => {
   const skillEffects = getPokemonIndirectSkillEffects({
     firstPassRates: firstPassRatesPostIngredient.map(({atStage}) => atStage.final),
   });

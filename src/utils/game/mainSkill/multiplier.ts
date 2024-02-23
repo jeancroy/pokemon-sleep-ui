@@ -1,10 +1,10 @@
-import {ProducingRateSingleParams} from '@/types/game/producing/rate/params';
+import {ProductionSingleParams} from '@/types/game/producing/rate/params';
 import {toSum} from '@/utils/array';
 import {getNatureMultiplier} from '@/utils/game/nature';
 import {getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
 
 
-export type GetSkillTriggerRateMultiplierOpts = Pick<ProducingRateSingleParams, 'natureId' | 'subSkillBonus'>;
+export type GetSkillTriggerRateMultiplierOpts = Pick<ProductionSingleParams, 'natureId' | 'subSkillBonus'>;
 
 export const getSkillTriggerRateMultiplier = ({natureId, subSkillBonus}: GetSkillTriggerRateMultiplierOpts) => {
   const natureMultiplier = getNatureMultiplier({id: natureId, effect: 'mainSkill'});

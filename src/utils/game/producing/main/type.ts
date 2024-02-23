@@ -4,18 +4,18 @@ import {ProductionPeriod} from '@/types/game/producing/display';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
-import {GetPokemonProducingRateUnitOpts} from '@/utils/game/producing/main/unit/type';
+import {GetPokemonProductionUnitOpts} from '@/utils/game/producing/main/unit/type';
 import {Nullable} from '@/utils/type';
 
 
-export type GetPokemonProducingRateOpts = Omit<
-  GetPokemonProducingRateUnitOpts,
-  keyof GetProducingRateSharedOpts | 'helpingBonusEffect' | 'calculatedUserConfig'
+export type GetPokemonProductionOpts = Omit<
+  GetPokemonProductionUnitOpts,
+  keyof GetPokemonProductionSharedOpts | 'helpingBonusEffect' | 'calculatedUserConfig'
 > & {
   alwaysFullPack?: Nullable<boolean>,
 };
 
-export type GetProducingRateSharedOpts = ConfigRequiredData & {
+export type GetPokemonProductionSharedOpts = ConfigRequiredData & {
   bundle: ConfigBundle,
   snorlaxFavorite: SnorlaxFavorite,
   period?: ProductionPeriod,
@@ -23,7 +23,7 @@ export type GetProducingRateSharedOpts = ConfigRequiredData & {
   subSkillBonusOverride?: GroupedSubSkillBonus[],
 };
 
-export type GetPokemonProducingRateUnitOptsWithPayload<TPayload> = {
-  opts: GetPokemonProducingRateOpts,
+export type GetPokemonProductionUnitOptsWithPayload<TPayload> = {
+  opts: GetPokemonProductionOpts,
   payload: TPayload,
 };

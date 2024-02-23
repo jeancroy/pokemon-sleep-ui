@@ -5,14 +5,14 @@ import {testIngredientMap} from '@/tests/data/game/ingredient/data';
 import {testIngredientProductions} from '@/tests/data/game/ingredient/production';
 import {testPokemonData} from '@/tests/data/game/pokemon';
 import {testDefaultCalculatedUserConfig} from '@/tests/data/user/config';
-import {getTestFinalProducingRateOfDropCommonOpts} from '@/tests/producing/rate';
-import {getIngredientProducingRateBaseList} from '@/utils/game/producing/branch/ingredient/base/main';
-import {getIngredientProducingRateFinalList} from '@/utils/game/producing/branch/ingredient/final/main';
+import {getTestFinalProductionOfDropCommonOpts} from '@/tests/production/rate';
+import {getIngredientProductionBaseList} from '@/utils/game/producing/branch/ingredient/base/main';
+import {getIngredientProductionFinalList} from '@/utils/game/producing/branch/ingredient/final/main';
 
 
 describe('Pokemon Production (Ingredient) / Final', () => {
   const bonus = testBonus['1'];
-  const commonOpts = getTestFinalProducingRateOfDropCommonOpts(bonus);
+  const commonOpts = getTestFinalProductionOfDropCommonOpts(bonus);
 
   const frequency = 2920.2;
 
@@ -20,8 +20,8 @@ describe('Pokemon Production (Ingredient) / Final', () => {
   const awakeDuration = commonOpts.sleepSessionInfo.duration.awake;
 
   it('is correct using Absol of ABX (Cocoa x 2; Apple x 8)', () => {
-    const rate = getIngredientProducingRateFinalList({
-      baseList: getIngredientProducingRateBaseList({
+    const rate = getIngredientProductionFinalList({
+      baseList: getIngredientProductionBaseList({
         level: 30,
         pokemon: testPokemonData.absol,
         ingredients: testIngredientProductions.abx,
@@ -84,8 +84,8 @@ describe('Pokemon Production (Ingredient) / Final', () => {
   });
 
   it('has correct frequency for Absol of AXX (Cocoa x 2)', () => {
-    const rate = getIngredientProducingRateFinalList({
-      baseList: getIngredientProducingRateBaseList({
+    const rate = getIngredientProductionFinalList({
+      baseList: getIngredientProductionBaseList({
         level: 1,
         pokemon: testPokemonData.absol,
         ingredients: testIngredientProductions.axx,
@@ -113,8 +113,8 @@ describe('Pokemon Production (Ingredient) / Final', () => {
   });
 
   it('has correct frequency for Absol of AAX (Cocoa x 2; Cocoa x 5)', () => {
-    const rate = getIngredientProducingRateFinalList({
-      baseList: getIngredientProducingRateBaseList({
+    const rate = getIngredientProductionFinalList({
+      baseList: getIngredientProductionBaseList({
         level: 1,
         pokemon: testPokemonData.absol,
         ingredients: testIngredientProductions.aax,
@@ -142,8 +142,8 @@ describe('Pokemon Production (Ingredient) / Final', () => {
   });
 
   it('has correct frequency for Absol of AAA (Cocoa x 2; Cocoa x 5; Cocoa x 7)', () => {
-    const rate = getIngredientProducingRateFinalList({
-      baseList: getIngredientProducingRateBaseList({
+    const rate = getIngredientProductionFinalList({
+      baseList: getIngredientProductionBaseList({
         level: 1,
         pokemon: testPokemonData.absol,
         ingredients: testIngredientProductions.aaa,
@@ -171,8 +171,8 @@ describe('Pokemon Production (Ingredient) / Final', () => {
   });
 
   it('has correct frequency for Absol of AAB (Cocoa x 2; Cocoa x 5; Apple x 12)', () => {
-    const rate = getIngredientProducingRateFinalList({
-      baseList: getIngredientProducingRateBaseList({
+    const rate = getIngredientProductionFinalList({
+      baseList: getIngredientProductionBaseList({
         level: 1,
         pokemon: testPokemonData.absol,
         ingredients: testIngredientProductions.aab,
@@ -210,8 +210,8 @@ describe('Pokemon Production (Ingredient) / Final', () => {
   });
 
   it('has correct frequency for Absol of ABC (Cocoa x 2; Apple x 8; Mushroom x 7)', () => {
-    const rate = getIngredientProducingRateFinalList({
-      baseList: getIngredientProducingRateBaseList({
+    const rate = getIngredientProductionFinalList({
+      baseList: getIngredientProductionBaseList({
         level: 30,
         pokemon: testPokemonData.absol,
         ingredients: testIngredientProductions.abc,

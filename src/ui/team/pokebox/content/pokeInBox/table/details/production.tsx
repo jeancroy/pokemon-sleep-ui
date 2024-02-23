@@ -13,7 +13,7 @@ import {specialtyIdMap} from '@/const/game/pokemon';
 import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxTableDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/table/details/type';
 import {PokeboxDisplayType} from '@/ui/team/pokebox/viewer/type';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
+import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 import {formatFloat} from '@/utils/number/format/regular';
 
 
@@ -82,7 +82,7 @@ export const PokeInBoxTableProduction = ({
         <Flex direction="row" center noFullWidth className="w-32 gap-0.5 text-lg">
           <ColoredEnergyIcon dimension="size-6" alt={t('Stats.Energy.Name')}/>
           <div>
-            {formatFloat(getTotalStrengthOfPokemonProducingRate(rateOfPokemon))}
+            {formatFloat(getTotalStrengthOfPokemonProduction(rateOfPokemon))}
           </div>
         </Flex>
       }

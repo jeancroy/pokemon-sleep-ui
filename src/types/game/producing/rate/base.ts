@@ -2,17 +2,17 @@ import {ProductionPeriod} from '@/types/game/producing/display';
 import {ProducingStateCalculated, ProducingStateWithPack} from '@/types/game/producing/state';
 
 
-export type ProducingRate<T = number> = {
+export type Production<T = number> = {
   period: ProductionPeriod,
   qty: T,
   strength: T,
 };
 
-export type ProducingRateWithId<TValue = number, TId = number> = ProducingRate<TValue> & {
+export type ProductionWithId<TValue = number, TId = number> = Production<TValue> & {
   id: TId,
 };
 
-export type ProducingRateOfDrop = ProducingRate & {
+export type ProductionOfDrop = Production & {
   id: number,
   // Rate of trigger (successful drop) in the format of 0.04 (for 4%).
   triggerRate: number,
@@ -24,18 +24,18 @@ export type ProducingRateOfDrop = ProducingRate & {
   strengthPerHelp: number,
 };
 
-export type ProducingRateOfDropInSleep = {
-  vacant: ProducingRateOfDrop,
-  filled: ProducingRateOfDrop,
+export type ProductionOfDropInSleep = {
+  vacant: ProductionOfDrop,
+  filled: ProductionOfDrop,
 };
 
-export type ProducingRateOfDropByStateWithPack = {[state in ProducingStateWithPack]: ProducingRateOfDrop} & {
+export type ProductionOfDropByStateWithPack = {[state in ProducingStateWithPack]: ProductionOfDrop} & {
   id: number,
 };
 
-export type ProducingValueByCalculatedStates = {[state in ProducingStateCalculated]: number};
+export type ProductionValueByCalculatedStates = {[state in ProducingStateCalculated]: number};
 
-export type ProducingRateByCalculatedStates = ProducingRate<ProducingValueByCalculatedStates> & {
+export type ProductionByCalculatedStates = Production<ProductionValueByCalculatedStates> & {
   id: number,
-  frequency: ProducingValueByCalculatedStates,
+  frequency: ProductionValueByCalculatedStates,
 };

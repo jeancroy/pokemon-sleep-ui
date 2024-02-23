@@ -4,18 +4,18 @@ import sortBy from 'lodash/sortBy';
 import {IngredientId} from '@/types/game/ingredient';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
-import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
-import {PokemonProducingRate} from '@/types/game/producing/rate/main';
+import {ProductionByCalculatedStates} from '@/types/game/producing/rate/base';
+import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {getAnalysisStatsOfContinuous} from '@/ui/analysis/page/calc/continuous';
 import {
   PokemonAnalysisRateInfo,
-  ProducingRateOfIngredientsOnPokemon,
-} from '@/ui/analysis/page/calc/producingRate/type';
-import {isRateOfPokemonSame} from '@/ui/analysis/page/calc/producingRate/utils';
+  ProductionOfIngredientsOnPokemon,
+} from '@/ui/analysis/page/calc/production/type';
+import {isRateOfPokemonSame} from '@/ui/analysis/page/calc/production/utils';
 import {
   AnalysisIngredientStatsLinkedData,
   AnalysisStats,
-  AnalysisStatsProducingRate,
+  AnalysisStatsProduction,
 } from '@/ui/analysis/page/calc/type';
 import {toSum} from '@/utils/array';
 import {groupIngredientProductions} from '@/utils/game/producing/ingredient/group';
@@ -23,11 +23,11 @@ import {getTotalOfItemRates} from '@/utils/game/producing/reducer/total/itemRate
 
 
 type GetContinuousIngredientStatsOpts = {
-  samples: ProducingRateOfIngredientsOnPokemon[],
-  currentRate: ProducingRateByCalculatedStates[],
+  samples: ProductionOfIngredientsOnPokemon[],
+  currentRate: ProductionByCalculatedStates[],
   currentIngredients: IngredientProduction[],
   pokemon: PokemonInfo,
-  getComparer: (rates: ProducingRateByCalculatedStates[]) => number,
+  getComparer: (rates: ProductionByCalculatedStates[]) => number,
 };
 
 const getContinuousIngredientStats = ({
@@ -60,17 +60,17 @@ const getContinuousIngredientStats = ({
   });
 };
 
-export type ToAnalysisIngredientProducingRateOpts<T> = Omit<
+export type ToAnalysisIngredientProductionOpts<T> = Omit<
   GetContinuousIngredientStatsOpts,
   'getComparer' | 'getLinkedData'
 > & {
   itemId: T,
 };
 
-export const toAnalysisIngredientProducingRate = <T>({
+export const toAnalysisIngredientProduction = <T>({
   itemId,
   ...props
-}: ToAnalysisIngredientProducingRateOpts<T>): AnalysisStatsProducingRate<T, AnalysisIngredientStatsLinkedData> => {
+}: ToAnalysisIngredientProductionOpts<T>): AnalysisStatsProduction<T, AnalysisIngredientStatsLinkedData> => {
   return {
     itemId,
     count: getContinuousIngredientStats({
@@ -91,7 +91,7 @@ export const toAnalysisIngredientProducingRate = <T>({
 type ToAnalysisIngredientProducingStatsOpts = {
   pokemon: PokemonInfo,
   ingredients: IngredientProduction[],
-  current: PokemonProducingRate,
+  current: PokemonProduction,
   rateOfAllPokemon: PokemonAnalysisRateInfo[],
 };
 
@@ -100,8 +100,8 @@ export const toAnalysisIngredientProducingStats = ({
   ingredients,
   current,
   rateOfAllPokemon,
-}: ToAnalysisIngredientProducingStatsOpts): AnalysisStats['producingRate']['ingredient'] => {
-  const ingredientRates: {[ingredientId in IngredientId]?: ProducingRateOfIngredientsOnPokemon[]} = {};
+}: ToAnalysisIngredientProducingStatsOpts): AnalysisStats['production']['ingredient'] => {
+  const ingredientRates: {[ingredientId in IngredientId]?: ProductionOfIngredientsOnPokemon[]} = {};
   for (const {pokemon, productions, rate} of rateOfAllPokemon) {
     const ratesOfIngredients = Object.values(rate.ingredient);
 
@@ -128,7 +128,7 @@ export const toAnalysisIngredientProducingStats = ({
 
   return {
     // Using `currentIngredientRates` for getting the ingredient IDs, so it won't be duplicated
-    individual: currentIngredientRates.map(({id}) => toAnalysisIngredientProducingRate({
+    individual: currentIngredientRates.map(({id}) => toAnalysisIngredientProduction({
       itemId: id,
       pokemon,
       samples: ingredientRates[id] ?? [],

@@ -1,10 +1,10 @@
-import {PokemonProducingRateFirstPass} from '@/types/game/producing/rate/main';
+import {PokemonProductionFirstPass} from '@/types/game/producing/rate/main';
 import {PokemonIndirectSkillEffects} from '@/types/game/producing/rate/skill';
 import {toSum} from '@/utils/array';
 
 
 type GetPokemonIndirectSkillEffectsOpts = {
-  firstPassRates: PokemonProducingRateFirstPass[],
+  firstPassRates: PokemonProductionFirstPass[],
 };
 
 export const getPokemonIndirectSkillEffects = ({

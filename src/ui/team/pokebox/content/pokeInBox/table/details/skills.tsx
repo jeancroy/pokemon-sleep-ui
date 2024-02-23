@@ -12,7 +12,7 @@ import {PokemonSkillProduction} from '@/components/shared/pokemon/production/ski
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {PokeInBoxTableDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/table/details/type';
-import {toProducingRateOfState} from '@/utils/game/producing/convert';
+import {toProductionOfState} from '@/utils/game/producing/convert';
 
 
 export const PokeInBoxTableSkills = ({
@@ -51,7 +51,7 @@ export const PokeInBoxTableSkills = ({
       <Flex center noFullWidth className="w-14">
         <PokemonSkillProduction
           id={skill}
-          rate={toProducingRateOfState({rate: rateOfPokemon.skill, state: 'equivalent'})}
+          rate={toProductionOfState({rate: rateOfPokemon.skill, state: 'equivalent'})}
           hideStrength
           normalSize
         />

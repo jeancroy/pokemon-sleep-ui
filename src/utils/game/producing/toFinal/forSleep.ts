@@ -1,30 +1,30 @@
 import {FullPackStatsOfSleep} from '@/types/game/producing/inventory';
-import {ProducingRateOfDrop, ProducingRateOfDropInSleep} from '@/types/game/producing/rate/base';
+import {ProductionOfDrop, ProductionOfDropInSleep} from '@/types/game/producing/rate/base';
 import {ProduceType} from '@/types/game/producing/type';
-import {toFinalProducingRateFromBase} from '@/utils/game/producing/toFinal/utils';
+import {toFinalProductionFromBase} from '@/utils/game/producing/toFinal/utils';
 import {Nullable} from '@/utils/type';
 
 
-type ToFinalProducingRateForSleepOpts = {
-  base: ProducingRateOfDrop,
+type ToFinalProductionForSleepOpts = {
+  base: ProductionOfDrop,
   produceType: ProduceType,
   fullPackStatsOfSleep: FullPackStatsOfSleep | null,
   sleepDuration: Nullable<number>,
 };
 
-export const toFinalProducingRateForSleep = ({
+export const toFinalProductionForSleep = ({
   base,
   produceType,
   fullPackStatsOfSleep,
   sleepDuration,
-}: ToFinalProducingRateForSleepOpts): ProducingRateOfDropInSleep => {
+}: ToFinalProductionForSleepOpts): ProductionOfDropInSleep => {
   if (!fullPackStatsOfSleep || !sleepDuration) {
     return {
-      vacant: toFinalProducingRateFromBase({
+      vacant: toFinalProductionFromBase({
         base,
         isFullPack: true,
       }),
-      filled: toFinalProducingRateFromBase({
+      filled: toFinalProductionFromBase({
         base,
         isFullPack: true,
       }),
@@ -40,7 +40,7 @@ export const toFinalProducingRateForSleep = ({
   const maxQty = produceType === 'skill' ? 1 : Infinity;
 
   return {
-    vacant: toFinalProducingRateFromBase({
+    vacant: toFinalProductionFromBase({
       base,
       override: {
         qty: Math.min(qtyPerBaseHelp * helpCount.vacant, maxQty),
@@ -54,8 +54,8 @@ export const toFinalProducingRateForSleep = ({
       },
     }),
     filled: produceType !== 'berry' ?
-      toFinalProducingRateFromBase({base, isFullPack: true}) :
-      toFinalProducingRateFromBase({
+      toFinalProductionFromBase({base, isFullPack: true}) :
+      toFinalProductionFromBase({
         base,
         override: {
           qty: qtyPerBaseHelp * helpCount.filled,

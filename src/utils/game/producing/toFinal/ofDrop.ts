@@ -1,29 +1,29 @@
-import {ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate/base';
-import {toFinalProducingRateForAwake} from '@/utils/game/producing/toFinal/forAwake';
-import {toFinalProducingRateForSleep} from '@/utils/game/producing/toFinal/forSleep';
+import {ProductionOfDropByStateWithPack} from '@/types/game/producing/rate/base';
+import {toFinalProductionForAwake} from '@/utils/game/producing/toFinal/forAwake';
+import {toFinalProductionForSleep} from '@/utils/game/producing/toFinal/forSleep';
 import {
-  ToFinalProducingRateForSleepCommonOpts,
-  ToFinalProducingRateOfDropCommonOpts,
+  ToFinalProductionForSleepCommonOpts,
+  ToFinalProductionOfDropCommonOpts,
 } from '@/utils/game/producing/toFinal/type';
 
 
-type ToFinalProducingRateOfDropOpts = ToFinalProducingRateOfDropCommonOpts & ToFinalProducingRateForSleepCommonOpts;
+type ToFinalProductionOfDropOpts = ToFinalProductionOfDropCommonOpts & ToFinalProductionForSleepCommonOpts;
 
-export const toFinalProducingRateOfDrop = ({
+export const toFinalProductionOfDrop = ({
   fullPackStats,
   calculatedUserConfig,
   sleepSessionInfo,
   ...opts
-}: ToFinalProducingRateOfDropOpts): ProducingRateOfDropByStateWithPack => {
+}: ToFinalProductionOfDropOpts): ProductionOfDropByStateWithPack => {
   const {base} = opts;
   const {bonus} = calculatedUserConfig;
 
-  const primary = toFinalProducingRateForSleep({
+  const primary = toFinalProductionForSleep({
     fullPackStatsOfSleep: fullPackStats.bySleep.primary,
     sleepDuration: sleepSessionInfo.session.primary.duration.actual,
     ...opts,
   });
-  const secondary = toFinalProducingRateForSleep({
+  const secondary = toFinalProductionForSleep({
     fullPackStatsOfSleep: fullPackStats.bySleep.secondary,
     sleepDuration: sleepSessionInfo.session.secondary?.duration.actual,
     ...opts,
@@ -35,7 +35,7 @@ export const toFinalProducingRateOfDrop = ({
     sleep1Filled: primary.filled,
     sleep2Vacant: secondary.vacant,
     sleep2Filled: secondary.filled,
-    awake: toFinalProducingRateForAwake({
+    awake: toFinalProductionForAwake({
       base,
       bonus,
       sleepSessionInfo,

@@ -10,8 +10,8 @@ import {toSum} from '@/utils/array';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {getMealIngredientInfoFromTargetMeals} from '@/utils/game/meal/ingredient';
 import {toIngredientProductionCounterFromGroupedRate} from '@/utils/game/producing/ingredient/utils';
-import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/entry/multi';
-import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/reducer/total/grouped';
+import {getPokemonProductionMulti} from '@/utils/game/producing/main/entry/multi';
+import {getTotalOfGroupedProduction} from '@/utils/game/producing/reducer/total/grouped';
 import {getTotalStrengthProductionFromIndirectSkill} from '@/utils/game/producing/reducer/total/indirectSkill';
 import {getSnorlaxRankFinalEstimate} from '@/utils/game/rank';
 import {isNotNullish} from '@/utils/type';
@@ -38,7 +38,7 @@ export const getTeamMakerComps = ({
 
   const comps: TeamMakerResultComp[] = [];
   for (const teamComp of teamComps) {
-    const rates = getPokemonProducingRateMulti({
+    const rates = getPokemonProductionMulti({
       ingredientMap,
       recipeLevelData,
       rateOpts: teamComp.map(({payload}) => ({
@@ -55,10 +55,10 @@ export const getTeamMakerComps = ({
     });
 
     const strengthByType: PokemonProductionTotal = {
-      berry: getTotalOfGroupedProducingRate({rate: rates.grouped.berry, key: 'strength'}),
-      ingredient: getTotalOfGroupedProducingRate({rate: rates.grouped.ingredient, key: 'strength'}),
+      berry: getTotalOfGroupedProduction({rate: rates.grouped.berry, key: 'strength'}),
+      ingredient: getTotalOfGroupedProduction({rate: rates.grouped.ingredient, key: 'strength'}),
       skill: (
-        getTotalOfGroupedProducingRate({rate: rates.grouped.skill, key: 'strength'}) +
+        getTotalOfGroupedProduction({rate: rates.grouped.skill, key: 'strength'}) +
         toSum(rates.rates.map(({atStage}) => getTotalStrengthProductionFromIndirectSkill({
           skillIndirect: atStage.final.skillIndirect,
         })))

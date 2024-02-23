@@ -3,7 +3,7 @@ import React from 'react';
 import {isFilterIncludingSome} from '@/components/input/filter/utils/match';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonInfo} from '@/types/game/pokemon';
-import {PokemonProducingRate} from '@/types/game/producing/rate/main';
+import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {PokeInBoxTableFrequency} from '@/ui/team/pokebox/content/pokeInBox/table/details/frequency';
 import {PokeInBoxTableInfo} from '@/ui/team/pokebox/content/pokeInBox/table/details/info';
 import {PokeInBoxTableMaxCarry} from '@/ui/team/pokebox/content/pokeInBox/table/details/maxCarry';
@@ -19,7 +19,7 @@ import {getPokemonProducingParams} from '@/utils/game/producing/params';
 
 type Props = PokeInBoxViewUnitProps & {
   pokemon: PokemonInfo,
-  rateOfPokemon: PokemonProducingRate,
+  rateOfPokemon: PokemonProduction,
 };
 
 export const PokeInBoxTableLoadedRow = (props: Props) => {

@@ -7,7 +7,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {AnalysisStats} from '@/ui/analysis/page/calc/type';
 import {AnalysisStatsOfPokemonMeta} from '@/ui/analysis/page/stats/pokemon';
-import {AnalysisStatsOfProducingRate} from '@/ui/analysis/page/stats/producingRate';
+import {AnalysisStatsOfProduction} from '@/ui/analysis/page/stats/production';
 import {AnalysisStatsOfSleepStyle} from '@/ui/analysis/page/stats/sleepStyle';
 import {AnalysisStatsUiProps} from '@/ui/analysis/page/stats/type';
 
@@ -38,7 +38,7 @@ export const AnalysisStatsUI = ({stats, loading, ...rest}: Props) => {
           <Loading/>
         </Flex>
       }
-      <AnalysisStatsOfProducingRate {...props}/>
+      <AnalysisStatsOfProduction {...props}/>
       <HorizontalSplitter/>
       <AnalysisStatsOfSleepStyle {...props}/>
       <HorizontalSplitter/>

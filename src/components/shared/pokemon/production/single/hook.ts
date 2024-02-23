@@ -2,16 +2,16 @@ import React from 'react';
 
 
 import {
-  PokemonProducingRateSingleDisplay,
-  UsePokemonProducingRateSingleDisplayReturn,
+  PokemonProductionSingleDisplay,
+  UsePokemonProductionSingleDisplayReturn,
 } from '@/components/shared/pokemon/production/single/type';
 
 
-export const usePokemonProducingRateSingleDisplay = (): UsePokemonProducingRateSingleDisplayReturn => {
+export const usePokemonProductionSingleDisplay = (): UsePokemonProductionSingleDisplayReturn => {
   const [
     display,
     setDisplay,
-  ] = React.useState<PokemonProducingRateSingleDisplay>('item');
+  ] = React.useState<PokemonProductionSingleDisplay>('item');
 
   return {
     display,

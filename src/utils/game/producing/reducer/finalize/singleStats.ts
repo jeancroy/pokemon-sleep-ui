@@ -1,23 +1,23 @@
 import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
 import {isProducingStateVacant} from '@/const/game/production/state';
-import {ProducingRateOfDrop, ProducingValueByCalculatedStates} from '@/types/game/producing/rate/base';
+import {ProductionOfDrop, ProductionValueByCalculatedStates} from '@/types/game/producing/rate/base';
 import {producingStateWithPack} from '@/types/game/producing/state';
 import {toSum} from '@/utils/array';
-import {GetFinalizedProducingRateCommonOpts} from '@/utils/game/producing/reducer/finalize/type';
+import {GetFinalizedProductionCommonOpts} from '@/utils/game/producing/reducer/finalize/type';
 import {extractProducingValueForFinalization} from '@/utils/game/producing/reducer/finalize/utils';
 import {KeysOfType} from '@/utils/type';
 
 
-type GetFinalizedProducingRateSingleStatsOpts = GetFinalizedProducingRateCommonOpts & {
-  key: KeysOfType<ProducingRateOfDrop, number>,
+type GetFinalizedProductionSingleStatsOpts = GetFinalizedProductionCommonOpts & {
+  key: KeysOfType<ProductionOfDrop, number>,
 };
 
-export const getFinalizedProducingRateSingleStats = ({
+export const getFinalizedProductionSingleStats = ({
   period,
   rate,
   produceSplitRate,
   key,
-}: GetFinalizedProducingRateSingleStatsOpts): ProducingValueByCalculatedStates => {
+}: GetFinalizedProductionSingleStatsOpts): ProductionValueByCalculatedStates => {
   const {base, final} = rate;
 
   const periodMultiplier = productionMultiplierByPeriod[period];

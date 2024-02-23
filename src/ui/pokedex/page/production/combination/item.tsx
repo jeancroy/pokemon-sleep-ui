@@ -8,16 +8,16 @@ import {Flex} from '@/components/layout/flex/common';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
-import {PokemonProducingRateMultiple} from '@/components/shared/pokemon/production/multiple';
-import {PokemonProducingRateSingle} from '@/components/shared/pokemon/production/single/main';
+import {PokemonProductionMultiple} from '@/components/shared/pokemon/production/multiple';
+import {PokemonProductionSingle} from '@/components/shared/pokemon/production/single/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
-import {ProducingRateContent} from '@/components/shared/production/rate/content';
+import {ProductionContent} from '@/components/shared/production/rate/content';
 import {
   PokemonProductionCombinationCommonProps,
   PokemonProductionCombinationRateCollectionItem,
 } from '@/ui/pokedex/page/production/combination/type';
 import {PokemonProductionIngredientLink} from '@/ui/pokedex/page/production/ingredient/link';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
+import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 
 
 type Props = PokemonProductionCombinationCommonProps & {
@@ -47,7 +47,7 @@ export const PokemonProductionCombinationItem = ({rateCollectionItem, onClick, .
           </Flex>
           <Flex className="gap-0.5">
             <Flex noFullWidth>
-              <PokemonProducingRateMultiple
+              <PokemonProductionMultiple
                 horizontal
                 hideFrequency
                 rates={Object.values(ingredient)}
@@ -55,7 +55,7 @@ export const PokemonProductionCombinationItem = ({rateCollectionItem, onClick, .
                   <PokemonIngredientIcon id={rate.id} dimension={dimension} noLink/>
                 )}
               />
-              <PokemonProducingRateSingle
+              <PokemonProductionSingle
                 horizontal
                 hideFrequency
                 rate={berry}
@@ -66,8 +66,8 @@ export const PokemonProductionCombinationItem = ({rateCollectionItem, onClick, .
               />
             </Flex>
             <HorizontalSplitter/>
-            <ProducingRateContent
-              dailyRate={getTotalStrengthOfPokemonProducingRate(rate)}
+            <ProductionContent
+              dailyRate={getTotalStrengthOfPokemonProduction(rate)}
               isEnergy
               normalSize
               className="self-end"

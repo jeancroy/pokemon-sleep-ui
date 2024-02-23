@@ -1,7 +1,7 @@
 import {RatingWorkerOpts} from '@/types/game/pokemon/rating/request';
 import {PokeInBoxCommonProps} from '@/ui/team/pokebox/content/type';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
-import {getPokemonProducingParams, getProducingRateImplicitParamsFromPokeInbox} from '@/utils/game/producing/params';
+import {getPokemonProducingParams, getProductionImplicitParamsFromPokeInbox} from '@/utils/game/producing/params';
 import {getDefaultRatingBasis} from '@/utils/game/rating/utils';
 
 
@@ -56,6 +56,6 @@ export const toRatingWorkerOpts = ({
     basis: ratingBasis ?? getDefaultRatingBasis(pokemon.specialty),
     friendshipLevel: 0,
     useNestedWorker: false,
-    ...getProducingRateImplicitParamsFromPokeInbox({pokeInBox}),
+    ...getProductionImplicitParamsFromPokeInbox({pokeInBox}),
   };
 };

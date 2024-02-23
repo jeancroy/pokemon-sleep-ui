@@ -5,7 +5,7 @@ import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {BerryFavoriteInfoUI} from '@/ui/berry/page/favoriteInfo';
 import {BerryMeta} from '@/ui/berry/page/meta';
-import {BerryProducingRatesOfPokemon} from '@/ui/berry/page/pokemon';
+import {BerryProductionsOfPokemon} from '@/ui/berry/page/pokemon';
 import {BerryStrengthInfo} from '@/ui/berry/page/strengthInfo';
 import {BerryPageDataProps} from '@/ui/berry/page/type';
 
@@ -23,7 +23,7 @@ export const BerryPageClient = (props: Props) => {
       <AdsUnit/>
       <BerryStrengthInfo {...props}/>
       <AdsUnit hideIfNotBlocked/>
-      <BerryProducingRatesOfPokemon {...props}/>
+      <BerryProductionsOfPokemon {...props}/>
     </Flex>
   );
 };

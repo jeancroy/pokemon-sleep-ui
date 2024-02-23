@@ -1,24 +1,24 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
+import {ProductionByCalculatedStates} from '@/types/game/producing/rate/base';
 import {
-  GroupedProducingRate,
-  GroupedProducingRateByType, PokemonProducingRateFirstPass,
+  GroupedProduction,
+  GroupedProductionByType, PokemonProductionFirstPass,
 
 } from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 
 
-type GroupProducingRatesOpts = {
+type GroupProductionsOpts = {
   period: ProductionPeriod,
-  rates: ProducingRateByCalculatedStates[],
+  rates: ProductionByCalculatedStates[],
   state: ProducingStateCalculated,
 };
 
-export const groupProducingRates = ({
+const groupProductions = ({
   period,
   rates,
   state,
-}: GroupProducingRatesOpts): GroupedProducingRate<number> => {
+}: GroupProductionsOpts): GroupedProduction<number> => {
   return rates.reduce((group, single) => {
     const {id, qty, strength} = single;
 
@@ -28,32 +28,32 @@ export const groupProducingRates = ({
       strength: (group[id]?.strength ?? 0) + strength[state],
     };
     return group;
-  }, {} as GroupedProducingRate<number>);
+  }, {} as GroupedProduction<number>);
 };
 
-type GroupPokemonProducingRateOpts = {
+type GroupPokemonProductionOpts = {
   period: ProductionPeriod,
-  rates: PokemonProducingRateFirstPass[],
+  rates: PokemonProductionFirstPass[],
   state: ProducingStateCalculated,
 };
 
-export const groupPokemonProducingRate = ({
+export const groupPokemonProduction = ({
   period,
   rates,
   state,
-}: GroupPokemonProducingRateOpts): GroupedProducingRateByType => {
+}: GroupPokemonProductionOpts): GroupedProductionByType => {
   return {
-    berry: groupProducingRates({
+    berry: groupProductions({
       period,
       rates: rates.map(({berry}) => berry),
       state,
     }),
-    ingredient: groupProducingRates({
+    ingredient: groupProductions({
       period,
       rates: rates.flatMap(({ingredient}) => Object.values(ingredient)),
       state,
     }),
-    skill: groupProducingRates({
+    skill: groupProductions({
       period,
       rates: rates.map(({skill}) => skill),
       state,

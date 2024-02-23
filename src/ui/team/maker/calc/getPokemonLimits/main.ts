@@ -9,13 +9,13 @@ import {getTeamMakerPokeInBoxDataForLimits} from '@/ui/team/maker/calc/getPokemo
 import {TeamMakerPokemonLimits} from '@/ui/team/maker/type/common';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {
-  getPokemonProducingRateSingle,
-  GetPokemonProducingRateSingleOpts,
+  getPokemonProductionSingle,
+  GetPokemonProductionSingleOpts,
 } from '@/utils/game/producing/main/entry/single';
-import {GetPokemonProducingRateOpts} from '@/utils/game/producing/main/type';
+import {GetPokemonProductionOpts} from '@/utils/game/producing/main/type';
 import {
   getPokemonProducingParams,
-  getProducingRateImplicitParamsFromPokeInbox,
+  getProductionImplicitParamsFromPokeInbox,
 } from '@/utils/game/producing/params';
 import {isNotNullish} from '@/utils/type';
 
@@ -59,7 +59,7 @@ export const getTeamMakerPokemonLimits = (opts: TeamMakerGetTeamMakerPokemonLimi
       return null;
     }
 
-    const calcOpts: GetPokemonProducingRateOpts = {
+    const calcOpts: GetPokemonProductionOpts = {
       berryData: berryDataMap[pokemon.berry.id],
       skillData: mainSkillMap[pokemon.skill],
       pokemonProducingParams: getPokemonProducingParams({
@@ -70,7 +70,7 @@ export const getTeamMakerPokemonLimits = (opts: TeamMakerGetTeamMakerPokemonLimi
       recipeLevelData,
       ...pokeInBox,
       ...singleParams,
-      ...getProducingRateImplicitParamsFromPokeInbox({pokeInBox}),
+      ...getProductionImplicitParamsFromPokeInbox({pokeInBox}),
       // Override `level` in `pokeInBox` because preview level might be active
       level: actualLevel,
       // Override `pokemon` in `pokeInBox`
@@ -78,7 +78,7 @@ export const getTeamMakerPokemonLimits = (opts: TeamMakerGetTeamMakerPokemonLimi
       // Override `ingredients` in `pokeInBox`
       ingredients: getEffectiveIngredientProductions(pokeInBox),
     };
-    const producingRateOpts: GetPokemonProducingRateSingleOpts = {
+    const productionOpts: GetPokemonProductionSingleOpts = {
       ...opts,
       bundle,
       snorlaxFavorite,
@@ -94,14 +94,14 @@ export const getTeamMakerPokemonLimits = (opts: TeamMakerGetTeamMakerPokemonLimi
 
     return {
       best: getTeamMakerBasisValue({
-        pokemonRate: getPokemonProducingRateSingle({
-          ...producingRateOpts,
+        pokemonRate: getPokemonProductionSingle({
+          ...productionOpts,
           subSkillBonusOverride: subSkillBonuses,
         }).atStage.final,
         targetMeals,
       }),
       worst: getTeamMakerBasisValue({
-        pokemonRate: getPokemonProducingRateSingle(producingRateOpts).atStage.original,
+        pokemonRate: getPokemonProductionSingle(productionOpts).atStage.original,
         targetMeals,
       }),
       payload: {

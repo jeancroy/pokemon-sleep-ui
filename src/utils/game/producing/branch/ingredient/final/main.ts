@@ -1,17 +1,17 @@
-import {ProducingRateOfDrop, ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate/base';
-import {toFinalProducingRateOfDrop} from '@/utils/game/producing/toFinal/ofDrop';
-import {ToFinalProducingRateOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
+import {ProductionOfDrop, ProductionOfDropByStateWithPack} from '@/types/game/producing/rate/base';
+import {toFinalProductionOfDrop} from '@/utils/game/producing/toFinal/ofDrop';
+import {ToFinalProductionOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
-type GetIngredientProducingRateFinalListOpts = ToFinalProducingRateOfDropCommonOpts & {
-  baseList: ProducingRateOfDrop[],
+type GetIngredientProductionFinalListOpts = ToFinalProductionOfDropCommonOpts & {
+  baseList: ProductionOfDrop[],
 };
 
-export const getIngredientProducingRateFinalList = ({
+export const getIngredientProductionFinalList = ({
   baseList,
   ...opts
-}: GetIngredientProducingRateFinalListOpts): ProducingRateOfDropByStateWithPack[] => {
-  return baseList.map((base) => toFinalProducingRateOfDrop({
+}: GetIngredientProductionFinalListOpts): ProductionOfDropByStateWithPack[] => {
+  return baseList.map((base) => toFinalProductionOfDrop({
     base,
     produceType: 'ingredient',
     ...opts,

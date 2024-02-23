@@ -9,6 +9,6 @@ export const getDefaultRatingBasis = (specialtyId: PokemonSpecialtyId): RatingBa
   defaultRatingBasisOfSpecialty[specialtyIdToType[specialtyId]]
 );
 
-export const getRatingProducingRateCalcBehavior = (basis: RatingBasis): ProductionCalcBehavior => ({
+export const getRatingProductionCalcBehavior = (basis: RatingBasis): ProductionCalcBehavior => ({
   asSingle: basis !== 'mainSkillTriggerCount',
 });

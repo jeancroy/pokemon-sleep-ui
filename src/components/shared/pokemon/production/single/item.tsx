@@ -2,21 +2,21 @@ import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
-import {PokemonProducingRateSingleProps} from '@/components/shared/pokemon/production/single/type';
-import {ProducingRateUI} from '@/components/shared/production/rate/main';
-import {toProducingRateOfState} from '@/utils/game/producing/convert';
+import {PokemonProductionSingleProps} from '@/components/shared/pokemon/production/single/type';
+import {ProductionUI} from '@/components/shared/production/rate/main';
+import {toProductionOfState} from '@/utils/game/producing/convert';
 
 
-export const PokemonProducingRateSingleAtItem = ({
+export const PokemonProductionSingleAtItem = ({
   hideFrequency,
   rate,
   getIcon,
   state = 'equivalent',
-}: Pick<PokemonProducingRateSingleProps, 'hideFrequency' | 'rate' | 'getIcon' | 'state'>) => (
+}: Pick<PokemonProductionSingleProps, 'hideFrequency' | 'rate' | 'getIcon' | 'state'>) => (
   <Flex noFullWidth className="items-end gap-0.5">
     {!hideFrequency && <PokemonFrequency frequency={rate?.frequency[state] ?? NaN}/>}
-    <ProducingRateUI
-      rate={rate && toProducingRateOfState({rate, state})}
+    <ProductionUI
+      rate={rate && toProductionOfState({rate, state})}
       getIcon={getIcon}
     />
   </Flex>

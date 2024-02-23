@@ -5,15 +5,15 @@ import {toSum} from '@/utils/array';
 import {getHelpingBonusStack} from '@/utils/game/producing/params';
 
 
-type GetPokemonProducingRateHelpingBonusEffectOpts = {
+type GetPokemonProductionHelpingBonusEffectOpts = {
   subSkillBonuses: GroupedSubSkillBonus[],
   calcBehavior?: ProductionCalcBehavior,
 };
 
-export const getPokemonProducingRateHelpingBonusEffect = ({
+export const getPokemonProductionHelpingBonusEffect = ({
   subSkillBonuses,
   calcBehavior,
-}: GetPokemonProducingRateHelpingBonusEffectOpts): HelpingBonusEffect => {
+}: GetPokemonProductionHelpingBonusEffectOpts): HelpingBonusEffect => {
   const helpingBonusStacks = toSum(subSkillBonuses.map((subSkillBonus) => getHelpingBonusStack({subSkillBonus})));
 
   return (

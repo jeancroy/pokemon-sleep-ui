@@ -7,7 +7,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
-import {PokemonFrequencyFromProducingRate} from '@/components/shared/pokemon/frequency/fromRate';
+import {PokemonFrequencyFromProduction} from '@/components/shared/pokemon/frequency/fromRate';
 import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimit/main';
 import {PokemonTimeToFullPack} from '@/components/shared/pokemon/inventory/fullPack/main';
 import {PokemonBerryProduction} from '@/components/shared/pokemon/production/berry';
@@ -18,7 +18,7 @@ import {PokemonNoSkillProbability} from '@/components/shared/pokemon/production/
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
-import {toProducingRateOfState} from '@/utils/game/producing/convert';
+import {toProductionOfState} from '@/utils/game/producing/convert';
 import {formatFloat} from '@/utils/number/format/regular';
 
 
@@ -65,7 +65,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
         <span>{formatFloat(skillRatePercent)}%</span>
       </FlexLink>
       <HorizontalSplitter/>
-      <PokemonFrequencyFromProducingRate pokemonRate={rate}/>
+      <PokemonFrequencyFromProduction pokemonRate={rate}/>
       <HorizontalSplitter/>
       <Flex direction="row" center className="gap-1.5">
         <PokemonTimeToFullPack direction="col" fullPackStats={fullPackStats}/>
@@ -75,7 +75,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
       <Flex center className={clsx(specialty === specialtyIdMap.berry && 'text-energy')}>
         <PokemonBerryProduction
           id={berryData.id}
-          rate={toProducingRateOfState({rate: rate.berry, state: stateOfRate})}
+          rate={toProductionOfState({rate: rate.berry, state: stateOfRate})}
         />
       </Flex>
       <HorizontalSplitter/>
@@ -85,7 +85,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
           <PokemonIngredientProduction
             key={rate.id}
             id={rate.id}
-            rate={toProducingRateOfState({rate, state: stateOfRate})}
+            rate={toProductionOfState({rate, state: stateOfRate})}
           />
         ))}
       </Flex>
@@ -93,7 +93,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
       <Flex center className={clsx(specialty === specialtyIdMap.skill && 'text-energy')}>
         <PokemonSkillProduction
           id={skill}
-          rate={toProducingRateOfState({rate: rate.skill, state: stateOfRate})}
+          rate={toProductionOfState({rate: rate.skill, state: stateOfRate})}
         />
         <PokemonIndirectSkillProductionUI rate={skillIndirect}/>
         <PokemonNoSkillProbability rate={rate} sleepSession="primary"/>

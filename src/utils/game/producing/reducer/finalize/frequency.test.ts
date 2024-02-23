@@ -1,6 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {testBaseProducingRateOfDrop} from '@/tests/producing/rate';
+import {testBaseProductionOfDrop} from '@/tests/production/rate';
 import {getFinalizedProducingFrequency} from '@/utils/game/producing/reducer/finalize/frequency';
 
 
@@ -18,29 +18,29 @@ describe('Pokemon Production (Finalization) / Frequency', () => {
     } = getFinalizedProducingFrequency({
       rate: {
         base: {
-          ...testBaseProducingRateOfDrop,
+          ...testBaseProductionOfDrop,
           frequency: 1000,
         },
         final: {
           id: NaN, // ignore
           awake: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             frequency: 1600,
           },
           sleep1Vacant: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             frequency: 2400,
           },
           sleep1Filled: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             frequency: 3200,
           },
           sleep2Vacant: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             frequency: 3600,
           },
           sleep2Filled: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             frequency: 4000,
           },
         },
@@ -78,29 +78,29 @@ describe('Pokemon Production (Finalization) / Frequency', () => {
     } = getFinalizedProducingFrequency({
       rate: {
         base: {
-          ...testBaseProducingRateOfDrop,
+          ...testBaseProductionOfDrop,
           frequency: 2000,
         },
         final: {
           id: NaN, // ignore
           awake: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             frequency: 1600,
           },
           sleep1Vacant: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             frequency: 2400,
           },
           sleep1Filled: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             frequency: Infinity,
           },
           sleep2Vacant: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             frequency: 3600,
           },
           sleep2Filled: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             frequency: Infinity,
           },
         },

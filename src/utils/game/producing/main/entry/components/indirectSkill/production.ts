@@ -1,10 +1,10 @@
-import {PokemonProducingRateFirstPass} from '@/types/game/producing/rate/main';
+import {PokemonProductionFirstPass} from '@/types/game/producing/rate/main';
 import {PokemonIndirectSkillEffects, PokemonIndirectSkillProduction} from '@/types/game/producing/rate/skill';
 import {getPokemonIndirectSkillProduction} from '@/utils/game/producing/branch/mainSkill/indirect/main';
 
 
 type GetPokemonIndirectSkillProductionFromFirstPassOpts = {
-  firstPassRate: PokemonProducingRateFirstPass,
+  firstPassRate: PokemonProductionFirstPass,
   skillEffects: PokemonIndirectSkillEffects,
   targetCount: number,
 };

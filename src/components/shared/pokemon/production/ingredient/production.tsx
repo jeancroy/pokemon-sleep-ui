@@ -3,14 +3,14 @@ import React from 'react';
 import XCircleIcon from '@heroicons/react/24/outline/XCircleIcon';
 
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
-import {ProducingRateUI} from '@/components/shared/production/rate/main';
+import {ProductionUI} from '@/components/shared/production/rate/main';
 import {IngredientId} from '@/types/game/ingredient';
-import {ProducingRate} from '@/types/game/producing/rate/base';
+import {Production} from '@/types/game/producing/rate/base';
 
 
 type Props = {
   id: IngredientId | undefined,
-  rate: ProducingRate | null,
+  rate: Production | null,
   hideStrength?: boolean,
   noLink?: boolean,
 };
@@ -18,7 +18,7 @@ type Props = {
 export const PokemonIngredientProduction = ({id, rate, hideStrength, noLink}: Props) => {
   if (!id || !rate) {
     return (
-      <ProducingRateUI
+      <ProductionUI
         rate={null}
         getIcon={(dimension) => <XCircleIcon className={dimension}/>}
       />
@@ -26,7 +26,7 @@ export const PokemonIngredientProduction = ({id, rate, hideStrength, noLink}: Pr
   }
 
   return (
-    <ProducingRateUI
+    <ProductionUI
       rate={rate}
       getIcon={(dimension) => (
         <PokemonIngredientIcon id={id} dimension={dimension} noLink={noLink}/>

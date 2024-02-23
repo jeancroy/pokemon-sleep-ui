@@ -1,11 +1,11 @@
-import {ProducingRateOfDrop, ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate/base';
+import {ProductionOfDrop, ProductionOfDropByStateWithPack} from '@/types/game/producing/rate/base';
 import {ProducingStateWithPack, producingStateWithPack} from '@/types/game/producing/state';
 import {KeysOfType} from '@/utils/type';
 
 
 type ExtractProducingValueForFinalizationOpts = {
-  rateFinal: ProducingRateOfDropByStateWithPack,
-  key: KeysOfType<ProducingRateOfDrop, number>,
+  rateFinal: ProductionOfDropByStateWithPack,
+  key: KeysOfType<ProductionOfDrop, number>,
   multiplier: number,
 };
 

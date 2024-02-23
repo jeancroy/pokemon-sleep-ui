@@ -1,14 +1,14 @@
 import {ApplyMultiplierTarget} from '@/types/game/producing/apply';
-import {ProducingRateByCalculatedStates, ProducingValueByCalculatedStates} from '@/types/game/producing/rate/base';
+import {ProductionByCalculatedStates, ProductionValueByCalculatedStates} from '@/types/game/producing/rate/base';
 import {
-  PokemonProducingRate,
+  PokemonProduction,
 
 } from '@/types/game/producing/rate/main';
 import {producingStateCalculated} from '@/types/game/producing/state';
 
 
 type ApplyMultiplierToProducingValueByCalculatedStatesOpts = {
-  value: ProducingValueByCalculatedStates,
+  value: ProductionValueByCalculatedStates,
   isEffective: boolean,
   multiplier: number,
 };
@@ -17,7 +17,7 @@ const applyMultiplierToProducingValueByCalculatedStates = ({
   value,
   isEffective,
   multiplier,
-}: ApplyMultiplierToProducingValueByCalculatedStatesOpts): ProducingValueByCalculatedStates => {
+}: ApplyMultiplierToProducingValueByCalculatedStatesOpts): ProductionValueByCalculatedStates => {
   if (!isEffective) {
     return value;
   }
@@ -25,7 +25,7 @@ const applyMultiplierToProducingValueByCalculatedStates = ({
   return (
     Object.fromEntries(
       producingStateCalculated.map((state) => [state, value[state] * multiplier]),
-    ) as ProducingValueByCalculatedStates
+    ) as ProductionValueByCalculatedStates
   );
 };
 
@@ -38,14 +38,14 @@ type ApplyMultiplierCommonOpts = {
 };
 
 type ApplyMultiplierToRateOfStatesOpts = ApplyMultiplierCommonOpts & {
-  rate: ProducingRateByCalculatedStates,
+  rate: ProductionByCalculatedStates,
 };
 
 export const applyMultiplierToRateOfStates = ({
   target,
   multiplier,
   rate,
-}: ApplyMultiplierToRateOfStatesOpts): ProducingRateByCalculatedStates => {
+}: ApplyMultiplierToRateOfStatesOpts): ProductionByCalculatedStates => {
   const multiplierToApply = multiplier.target / multiplier.original;
 
   return {
@@ -69,13 +69,13 @@ export const applyMultiplierToRateOfStates = ({
 };
 
 type ApplyMultiplierToPokemonRateOpts = ApplyMultiplierCommonOpts & {
-  rate: PokemonProducingRate,
+  rate: PokemonProduction,
 };
 
 export const applyMultiplierToPokemonRate = ({
   rate,
   ...opts
-}: ApplyMultiplierToPokemonRateOpts): PokemonProducingRate => {
+}: ApplyMultiplierToPokemonRateOpts): PokemonProduction => {
   const berry = applyMultiplierToRateOfStates({rate: rate.berry, ...opts});
   const ingredient = Object.values(rate.ingredient)
     .map((rate) => applyMultiplierToRateOfStates({rate, ...opts}));

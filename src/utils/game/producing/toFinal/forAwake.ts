@@ -1,28 +1,28 @@
 import {durationOfDay} from '@/const/common';
 import {EffectiveBonus} from '@/types/game/bonus/main';
-import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
+import {ProductionOfDrop} from '@/types/game/producing/rate/base';
 import {SleepSessionInfo} from '@/types/game/sleep';
-import {toFinalProducingRateFromBase} from '@/utils/game/producing/toFinal/utils';
+import {toFinalProductionFromBase} from '@/utils/game/producing/toFinal/utils';
 
 
-export type ToFinalProducingRateForAwakeOpts = {
-  base: ProducingRateOfDrop,
+export type ToFinalProductionForAwakeOpts = {
+  base: ProductionOfDrop,
   bonus: EffectiveBonus,
   sleepSessionInfo: SleepSessionInfo,
 };
 
-export const toFinalProducingRateForAwake = ({
+export const toFinalProductionForAwake = ({
   base,
   bonus,
   sleepSessionInfo,
-}: ToFinalProducingRateForAwakeOpts): ProducingRateOfDrop => {
+}: ToFinalProductionForAwakeOpts): ProductionOfDrop => {
   const {stamina} = bonus;
   const staminaBonus = stamina.multiplier.awake ?? 0;
 
   const awakeRatio = sleepSessionInfo.duration.awake / durationOfDay;
   const efficiency = staminaBonus * awakeRatio;
 
-  return toFinalProducingRateFromBase({
+  return toFinalProductionFromBase({
     base,
     override: {
       qty: base.qty * efficiency,

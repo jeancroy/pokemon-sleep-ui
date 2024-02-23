@@ -1,15 +1,15 @@
 import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingRate, ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
+import {Production, ProductionByCalculatedStates} from '@/types/game/producing/rate/base';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 
 
-type GetProducingRateOfStateOpts = {
-  rate: ProducingRateByCalculatedStates,
+type GetProductionOfStateOpts = {
+  rate: ProductionByCalculatedStates,
   state: ProducingStateCalculated,
 };
 
-export const toProducingRateOfState = ({rate, state}: GetProducingRateOfStateOpts): ProducingRate => {
+export const toProductionOfState = ({rate, state}: GetProductionOfStateOpts): Production => {
   const {period, strength, qty} = rate;
 
   return {
@@ -19,12 +19,12 @@ export const toProducingRateOfState = ({rate, state}: GetProducingRateOfStateOpt
   };
 };
 
-type ToProducingRateOfPeriodOpts = {
-  rate: ProducingRate,
+type ToProductionOfPeriodOpts = {
+  rate: Production,
   period: ProductionPeriod,
 };
 
-export const toProducingRateOfPeriod = ({rate, period}: ToProducingRateOfPeriodOpts): ProducingRate => {
+export const toProductionOfPeriod = ({rate, period}: ToProductionOfPeriodOpts): Production => {
   if (rate.period === period) {
     return rate;
   }

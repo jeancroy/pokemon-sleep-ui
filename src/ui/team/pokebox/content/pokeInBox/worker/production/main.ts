@@ -1,11 +1,11 @@
-import {PokemonProducingRate} from '@/types/game/producing/rate/main';
+import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {PokeInBoxCommonProps} from '@/ui/team/pokebox/content/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
+import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
 import {
   getPokemonProducingParams,
-  getProducingRateImplicitParamsFromPokeInbox,
-  getProducingRateSingleParams,
+  getProductionImplicitParamsFromPokeInbox,
+  getProductionSingleParams,
 } from '@/utils/game/producing/params';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {toCalculatedConfigBundle} from '@/utils/user/config/bundle';
@@ -17,7 +17,7 @@ export const getRateOfPokemon = ({
   mainSkillMap,
   subSkillMap,
   ...props
-}: PokeInBoxCommonProps): PokemonProducingRate => {
+}: PokeInBoxCommonProps): PokemonProduction => {
   const {
     pokemon,
     pokemonProducingParamsMap,
@@ -30,16 +30,16 @@ export const getRateOfPokemon = ({
   const {level, ingredients} = pokeInBox;
   const {id, berry, skill} = pokemon;
 
-  const singleParams = getProducingRateSingleParams({
+  const singleParams = getProductionSingleParams({
     subSkillMap,
     ...pokeInBox,
   });
   const {natureId, subSkillBonus} = singleParams;
 
-  return getPokemonProducingRateSingle({
+  return getPokemonProductionSingle({
     ...props,
     ...singleParams,
-    ...getProducingRateImplicitParamsFromPokeInbox({pokeInBox}),
+    ...getProductionImplicitParamsFromPokeInbox({pokeInBox}),
     ...toCalculatedConfigBundle({
       ...bundle,
       mealMap,

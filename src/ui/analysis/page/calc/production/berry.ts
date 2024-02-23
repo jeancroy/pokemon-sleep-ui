@@ -1,15 +1,15 @@
 import {PokemonInfo} from '@/types/game/pokemon';
-import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
+import {ProductionByCalculatedStates} from '@/types/game/producing/rate/base';
 import {getAnalysisStatsOfContinuous} from '@/ui/analysis/page/calc/continuous';
-import {PokemonAnalysisRateInfo, ProducingRateOfBerryOnPokemon} from '@/ui/analysis/page/calc/producingRate/type';
-import {AnalysisStatsProducingRate} from '@/ui/analysis/page/calc/type';
+import {PokemonAnalysisRateInfo, ProductionOfBerryOnPokemon} from '@/ui/analysis/page/calc/production/type';
+import {AnalysisStatsProduction} from '@/ui/analysis/page/calc/type';
 
 
 type GetContinuousBerryStatsOpts = {
-  samples: ProducingRateOfBerryOnPokemon[],
+  samples: ProductionOfBerryOnPokemon[],
   pokemon: PokemonInfo,
-  currentRate: ProducingRateByCalculatedStates,
-  getComparer: (rate: ProducingRateByCalculatedStates) => number,
+  currentRate: ProductionByCalculatedStates,
+  getComparer: (rate: ProductionByCalculatedStates) => number,
 };
 
 const getContinuousBerryStats = ({
@@ -29,16 +29,16 @@ const getContinuousBerryStats = ({
   });
 };
 
-export type ToAnalysisBerryProducingRateOpts<T> = Omit<GetContinuousBerryStatsOpts, 'getComparer' | 'samples'> & {
+type ToAnalysisBerryProductionOpts<T> = Omit<GetContinuousBerryStatsOpts, 'getComparer' | 'samples'> & {
   itemId: T,
   rateOfAllPokemon: PokemonAnalysisRateInfo[],
 };
 
-export const toAnalysisBerryProducingRate = <T>({
+export const toAnalysisBerryProduction = <T>({
   itemId,
   rateOfAllPokemon,
   ...props
-}: ToAnalysisBerryProducingRateOpts<T>): AnalysisStatsProducingRate<T, number> => {
+}: ToAnalysisBerryProductionOpts<T>): AnalysisStatsProduction<T, number> => {
   const pokemonIdsInRates = rateOfAllPokemon.map(({pokemon}) => pokemon.id);
   // `.filter().map()` to make sure `berryRates` only have Pokémon in Pokédex
   // because `rateOfAllPokemon` contains all ingredient possibilities

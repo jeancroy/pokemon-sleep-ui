@@ -2,16 +2,16 @@ import {describe, expect, it} from '@jest/globals';
 
 import {testBonus} from '@/tests/data/game/bonus';
 import {testPokemonData} from '@/tests/data/game/pokemon';
-import {getTestFinalProducingRateOfDropCommonOpts} from '@/tests/producing/rate';
-import {getBerryProducingRateFinal} from '@/utils/game/producing/branch/berry/final';
+import {getTestFinalProductionOfDropCommonOpts} from '@/tests/production/rate';
+import {getBerryProductionFinal} from '@/utils/game/producing/branch/berry/final';
 
 
 describe('Pokemon Production (Berry) / Final', () => {
   it('is correct for clean Absol', () => {
     const bonus = testBonus['1'];
     const berryStrength = 67;
-    const commonOpts = getTestFinalProducingRateOfDropCommonOpts(bonus);
-    const rate = getBerryProducingRateFinal({
+    const commonOpts = getTestFinalProductionOfDropCommonOpts(bonus);
+    const rate = getBerryProductionFinal({
       base: {
         id: testPokemonData.absol.berry.id,
         frequency: 1000,

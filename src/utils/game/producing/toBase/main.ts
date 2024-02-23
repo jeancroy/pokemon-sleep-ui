@@ -1,8 +1,8 @@
 import {durationOfDay} from '@/const/common';
-import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
+import {ProductionOfDrop} from '@/types/game/producing/rate/base';
 
 
-type GetProducingRateBaseOpts = {
+type GetProductionBaseOpts = {
   id: number,
   baseFrequency: number,
   qtyPerHelp: number,
@@ -10,13 +10,13 @@ type GetProducingRateBaseOpts = {
   triggerRate?: number,
 };
 
-export const getProducingRateBase = ({
+export const getProductionBase = ({
   id,
   baseFrequency,
   qtyPerHelp,
   strengthPerQtyPerHelp,
   triggerRate,
-}: GetProducingRateBaseOpts): ProducingRateOfDrop => {
+}: GetProductionBaseOpts): ProductionOfDrop => {
   triggerRate ??= 1;
 
   const frequency = baseFrequency / triggerRate;

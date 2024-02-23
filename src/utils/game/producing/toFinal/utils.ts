@@ -1,22 +1,22 @@
-import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
+import {ProductionOfDrop} from '@/types/game/producing/rate/base';
 
 
-type ToFinalProducingRateFromBaseOpts = {
-  base: ProducingRateOfDrop,
+type ToFinalProductionFromBaseOpts = {
+  base: ProductionOfDrop,
 } & ({
   isFullPack?: never,
-  override: Pick<ProducingRateOfDrop, 'qty' | 'strength' | 'frequency'>,
+  override: Pick<ProductionOfDrop, 'qty' | 'strength' | 'frequency'>,
 } | {
   isFullPack: true,
   override?: never,
 });
 
-export const toFinalProducingRateFromBase = ({
+export const toFinalProductionFromBase = ({
   base,
   isFullPack,
   override,
-}: ToFinalProducingRateFromBaseOpts): ProducingRateOfDrop => {
-  // Destruct then return so it errors when a new property is introduced in `ProducingRateOfDrop`
+}: ToFinalProductionFromBaseOpts): ProductionOfDrop => {
+  // Destruct then return so it errors when a new property is introduced in `ProductionOfDrop`
   const {
     id,
     triggerRate,

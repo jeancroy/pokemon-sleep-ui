@@ -11,7 +11,7 @@ import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {BerryPageDataProps} from '@/ui/berry/page/type';
 
 
-export const BerryProducingRatesOfPokemon = ({
+export const BerryProductionsOfPokemon = ({
   preloaded,
   ...props
 }: BerryPageDataProps) => {

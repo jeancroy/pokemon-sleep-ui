@@ -1,16 +1,16 @@
 import {MealCoverage} from '@/types/game/cooking';
-import {ProducingRate} from '@/types/game/producing/rate/base';
+import {Production} from '@/types/game/producing/rate/base';
 import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
 import {getTeamProducingStatsTotal} from '@/ui/team/analysis/calc/total';
-import {GetTeamProducingStatsOpts} from '@/ui/team/analysis/calc/type';
+import {GetTeamProductionStatsOpts} from '@/ui/team/analysis/calc/type';
 import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
 import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {toIngredientProductionCounterFromGroupedRate} from '@/utils/game/producing/ingredient/utils';
-import {getTotalOfGroupedProducingRate} from '@/utils/game/producing/reducer/total/grouped';
+import {getTotalOfGroupedProduction} from '@/utils/game/producing/reducer/total/grouped';
 
 
-export const getTeamProducingStats = (opts: GetTeamProducingStatsOpts): TeamProducingStats => {
+export const getTeamProducingStats = (opts: GetTeamProductionStatsOpts): TeamProducingStats => {
   const {
     currentTeam,
     calculatedCookingConfig,
@@ -37,10 +37,10 @@ export const getTeamProducingStats = (opts: GetTeamProducingStatsOpts): TeamProd
     state: stateOfRateToShow,
   });
 
-  const overall: ProducingRate = {
+  const overall: Production = {
     period: analysisPeriod,
-    strength: getTotalOfGroupedProducingRate({rate: total, key: 'strength'}),
-    qty: getTotalOfGroupedProducingRate({rate: total, key: 'qty'}),
+    strength: getTotalOfGroupedProduction({rate: total, key: 'strength'}),
+    qty: getTotalOfGroupedProduction({rate: total, key: 'qty'}),
   };
 
   const mealCoverage: MealCoverage = getMealCoverage({

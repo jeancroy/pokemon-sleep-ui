@@ -1,6 +1,6 @@
-export const pokemonProducingRateStage = [
+export const pokemonProductionStage = [
   'original',
   'final',
 ] as const;
 
-export type PokemonProducingRateStage = typeof pokemonProducingRateStage[number];
+export type PokemonProductionStage = typeof pokemonProductionStage[number];

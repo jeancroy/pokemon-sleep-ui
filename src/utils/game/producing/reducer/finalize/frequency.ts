@@ -1,18 +1,18 @@
 import {isProducingStateVacant} from '@/const/game/production/state';
-import {ProducingValueByCalculatedStates} from '@/types/game/producing/rate/base';
+import {ProductionValueByCalculatedStates} from '@/types/game/producing/rate/base';
 import {producingStateWithPack} from '@/types/game/producing/state';
 import {toSum} from '@/utils/array';
-import {GetFinalizedProducingRateCommonOpts} from '@/utils/game/producing/reducer/finalize/type';
+import {GetFinalizedProductionCommonOpts} from '@/utils/game/producing/reducer/finalize/type';
 import {extractProducingValueForFinalization} from '@/utils/game/producing/reducer/finalize/utils';
 
 
-type GetFinalizedProducingFrequencyOpts = Omit<GetFinalizedProducingRateCommonOpts, 'period'>;
+type GetFinalizedProducingFrequencyOpts = Omit<GetFinalizedProductionCommonOpts, 'period'>;
 
 export const getFinalizedProducingFrequency = ({
   rate,
   producingStateSplit,
   produceSplitRate,
-}: GetFinalizedProducingFrequencyOpts): ProducingValueByCalculatedStates => {
+}: GetFinalizedProducingFrequencyOpts): ProductionValueByCalculatedStates => {
   const {base, final} = rate;
 
   const unfilledOnlyDivisor = toSum(

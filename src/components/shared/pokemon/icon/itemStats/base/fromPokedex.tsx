@@ -13,9 +13,9 @@ import {PokemonItemStatsWorkerOpts} from '@/components/shared/pokemon/icon/itemS
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
-import {usePokemonProducingRateSingleDisplay} from '@/components/shared/pokemon/production/single/hook';
-import {PokemonProducingRateSingleDisplaySwitch} from '@/components/shared/pokemon/production/single/input';
-import {PokemonProducingRateSingle} from '@/components/shared/pokemon/production/single/main';
+import {usePokemonProductionSingleDisplay} from '@/components/shared/pokemon/production/single/hook';
+import {PokemonProductionSingleDisplaySwitch} from '@/components/shared/pokemon/production/single/input';
+import {PokemonProductionSingle} from '@/components/shared/pokemon/production/single/main';
 import {imageIconSizes, imageSmallIconSizes} from '@/styles/image';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 
@@ -38,7 +38,7 @@ export const PokemonItemStatsFromPokedex = (props: Props) => {
 
   const {state, setState, showPokemon} = usePokemonLinkPopup();
   const producingStats = usePokemonProducingStats(props);
-  const control = usePokemonProducingRateSingleDisplay();
+  const control = usePokemonProductionSingleDisplay();
 
   const t = useTranslations('Game');
   const t2 = useTranslations('UI.InPage.Pokedex.Info');
@@ -46,7 +46,7 @@ export const PokemonItemStatsFromPokedex = (props: Props) => {
   return (
     <Flex className="info-section gap-2">
       <PokemonLinkPopup state={state} setState={setState}/>
-      <PokemonProducingRateSingleDisplaySwitch
+      <PokemonProductionSingleDisplaySwitch
         control={control}
         itemAlt={itemAlt}
         itemImageSrc={itemImageSrc}
@@ -67,7 +67,7 @@ export const PokemonItemStatsFromPokedex = (props: Props) => {
           return (
             <FlexButton noFullWidth={false} onClick={() => showPokemon(pokemon)} className="group relative">
               <Flex noFullWidth className="absolute bottom-1 right-1 z-10">
-                <PokemonProducingRateSingle
+                <PokemonProductionSingle
                   rate={itemRate}
                   display={control.display}
                   getIcon={(dimension) => getIcon(pokemon, dimension)}

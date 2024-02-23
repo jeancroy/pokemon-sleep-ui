@@ -1,7 +1,7 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {testBaseProducingRateOfDrop} from '@/tests/producing/rate';
-import {getFinalizedProducingRateSingleStats} from '@/utils/game/producing/reducer/finalize/singleStats';
+import {testBaseProductionOfDrop} from '@/tests/production/rate';
+import {getFinalizedProductionSingleStats} from '@/utils/game/producing/reducer/finalize/singleStats';
 
 
 describe('Pokemon Production (Finalization) / Single Stats', () => {
@@ -15,33 +15,33 @@ describe('Pokemon Production (Finalization) / Single Stats', () => {
       base,
       equivalent,
       unfilledOnly,
-    } = getFinalizedProducingRateSingleStats({
+    } = getFinalizedProductionSingleStats({
       period: 'daily',
       rate: {
         base: {
-          ...testBaseProducingRateOfDrop,
+          ...testBaseProductionOfDrop,
           strength: 888,
         },
         final: {
           id: NaN, // ignore
           awake: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             strength: 300,
           },
           sleep1Vacant: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             strength: 500,
           },
           sleep1Filled: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             strength: 200,
           },
           sleep2Vacant: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             strength: 0,
           },
           sleep2Filled: {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             strength: 0,
           },
         },

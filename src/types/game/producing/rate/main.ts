@@ -2,10 +2,10 @@ import {BerryId} from '@/types/game/berry';
 import {IngredientId} from '@/types/game/ingredient';
 import {MainSkillId} from '@/types/game/pokemon/mainSkill';
 import {FullPackStats} from '@/types/game/producing/inventory';
-import {ProducingRate, ProducingRateByCalculatedStates, ProducingRateOfDrop} from '@/types/game/producing/rate/base';
-import {PokemonProducingRateIntermediateParams} from '@/types/game/producing/rate/params';
+import {Production, ProductionByCalculatedStates, ProductionOfDrop} from '@/types/game/producing/rate/base';
+import {PokemonProductionIntermediateParams} from '@/types/game/producing/rate/params';
 import {PokemonIndirectSkillProduction} from '@/types/game/producing/rate/skill';
-import {PokemonProducingRateStage} from '@/types/game/producing/rate/stage';
+import {PokemonProductionStage} from '@/types/game/producing/rate/stage';
 import {ProducingStateSplit} from '@/types/game/producing/split';
 import {ProduceType} from '@/types/game/producing/type';
 import {CalculatedUserConfig} from '@/types/userData/config/user/main';
@@ -14,48 +14,48 @@ import {Indexable} from '@/utils/type';
 
 export type PokemonProductionTotal = {[type in ProduceType]: number};
 
-export type PokemonProducingBaseRates = {
-  berry: ProducingRateOfDrop,
-  ingredient: ProducingRateOfDrop[],
-  skill: ProducingRateOfDrop,
+export type PokemonProductionBase = {
+  berry: ProductionOfDrop,
+  ingredient: ProductionOfDrop[],
+  skill: ProductionOfDrop,
 };
 
-export type PokemonProducingRateFirstPass = {
-  params: PokemonProducingRateIntermediateParams,
+export type PokemonProductionFirstPass = {
+  params: PokemonProductionIntermediateParams,
   fullPackStats: FullPackStats,
   producingStateSplit: ProducingStateSplit,
-  baseRates: PokemonProducingBaseRates,
-  berry: ProducingRateByCalculatedStates,
-  ingredient: {[ingredientId in IngredientId]: ProducingRateByCalculatedStates},
-  skill: ProducingRateByCalculatedStates,
+  baseRates: PokemonProductionBase,
+  berry: ProductionByCalculatedStates,
+  ingredient: {[ingredientId in IngredientId]: ProductionByCalculatedStates},
+  skill: ProductionByCalculatedStates,
 };
 
-export type PokemonProducingRate = PokemonProducingRateFirstPass & {
+export type PokemonProduction = PokemonProductionFirstPass & {
   skillIndirect: PokemonIndirectSkillProduction,
 };
 
-export type PokemonProducingRateAtStage<TProduction extends PokemonProducingRateFirstPass> = {
-  [stage in PokemonProducingRateStage]: TProduction
+export type PokemonProductionAtStage<TProduction extends PokemonProductionFirstPass> = {
+  [stage in PokemonProductionStage]: TProduction
 };
 
-export type PokemonProducingRateWithPayload<
+export type PokemonProductionWithPayload<
   TPayload,
-  TProduction extends PokemonProducingRateFirstPass = PokemonProducingRate
+  TProduction extends PokemonProductionFirstPass = PokemonProduction
 > = {
   payload: TPayload,
   calculatedUserConfig: CalculatedUserConfig,
-  atStage: PokemonProducingRateAtStage<TProduction>,
+  atStage: PokemonProductionAtStage<TProduction>,
 };
 
-export type GroupedProducingRate<TId extends Indexable> = {[id in TId]?: ProducingRate};
+export type GroupedProduction<TId extends Indexable> = {[id in TId]?: Production};
 
-export type GroupedProducingRateByType = {
-  berry: GroupedProducingRate<BerryId>,
-  ingredient: GroupedProducingRate<IngredientId>,
-  skill: GroupedProducingRate<MainSkillId>,
+export type GroupedProductionByType = {
+  berry: GroupedProduction<BerryId>,
+  ingredient: GroupedProduction<IngredientId>,
+  skill: GroupedProduction<MainSkillId>,
 };
 
-export type PokemonProducingRateFinal<TPayload> = {
-  rates: PokemonProducingRateWithPayload<TPayload>[],
-  grouped: GroupedProducingRateByType,
+export type PokemonProductionFinal<TPayload> = {
+  rates: PokemonProductionWithPayload<TPayload>[],
+  grouped: GroupedProductionByType,
 };

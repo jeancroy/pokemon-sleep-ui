@@ -1,15 +1,15 @@
-import {toAnalysisBerryProducingRate} from '@/ui/analysis/page/calc/producingRate/berry';
-import {toAnalysisIngredientProducingStats} from '@/ui/analysis/page/calc/producingRate/ingredient';
-import {toAnalysisSkillTriggerCountProducingStats} from '@/ui/analysis/page/calc/producingRate/skill';
-import {toAnalysisTotalProducingStats} from '@/ui/analysis/page/calc/producingRate/total';
-import {PokemonAnalysisRateInfo} from '@/ui/analysis/page/calc/producingRate/type';
+import {toAnalysisBerryProduction} from '@/ui/analysis/page/calc/production/berry';
+import {toAnalysisIngredientProducingStats} from '@/ui/analysis/page/calc/production/ingredient';
+import {toAnalysisSkillTriggerCountProducingStats} from '@/ui/analysis/page/calc/production/skill';
+import {toAnalysisTotalProducingStats} from '@/ui/analysis/page/calc/production/total';
+import {PokemonAnalysisRateInfo} from '@/ui/analysis/page/calc/production/type';
 import {AnalysisStats, GetAnalysisStatsOpts} from '@/ui/analysis/page/calc/type';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
-import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';
+import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
+import {getPokemonProducingParams, getProductionIndividualParams} from '@/utils/game/producing/params';
 
 
-export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): AnalysisStats['producingRate'] => {
+export const getAnalysisStatsOfProduction = (opts: GetAnalysisStatsOpts): AnalysisStats['production'] => {
   const {
     pokemonList,
     pokemon,
@@ -30,14 +30,14 @@ export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): Ana
     pokemonId: pokemon.id,
     pokemonProducingParamsMap,
   });
-  const currentRate = getPokemonProducingRateSingle({
+  const currentRate = getPokemonProductionSingle({
     ...opts,
     bundle,
     calculatedCookingConfig,
     pokemonProducingParams: currentPokemonProducingParams,
     berryData: berryDataMap[pokemon.berry.id],
     skillData: mainSkillMap[pokemon.skill],
-    ...getProducingRateIndividualParams({
+    ...getProductionIndividualParams({
       input: {
         level,
         subSkill,
@@ -54,7 +54,7 @@ export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): Ana
   })].map((otherIngredients): PokemonAnalysisRateInfo => ({
     pokemon: otherPokemon,
     productions: otherIngredients,
-    rate: getPokemonProducingRateSingle({
+    rate: getPokemonProductionSingle({
       // `opts` has to be the first because `pokemon`, `berryData`, `ingredients` have to be overridden
       ...opts,
       bundle,
@@ -67,7 +67,7 @@ export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): Ana
       berryData: berryDataMap[otherPokemon.berry.id],
       skillData: mainSkillMap[otherPokemon.skill],
       ingredients: otherIngredients,
-      ...getProducingRateIndividualParams({
+      ...getProductionIndividualParams({
         input: {
           level,
           subSkill,
@@ -80,7 +80,7 @@ export const getAnalysisStatsOfProducingRate = (opts: GetAnalysisStatsOpts): Ana
   })));
 
   return {
-    berry: toAnalysisBerryProducingRate({
+    berry: toAnalysisBerryProduction({
       pokemon,
       currentRate: currentRate.berry,
       itemId: pokemon.berry.id,

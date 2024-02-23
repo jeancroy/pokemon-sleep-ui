@@ -1,16 +1,16 @@
-import {ProducingRateOfDrop, ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate/base';
-import {toFinalProducingRateOfDrop} from '@/utils/game/producing/toFinal/ofDrop';
-import {ToFinalProducingRateOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
+import {ProductionOfDrop, ProductionOfDropByStateWithPack} from '@/types/game/producing/rate/base';
+import {toFinalProductionOfDrop} from '@/utils/game/producing/toFinal/ofDrop';
+import {ToFinalProductionOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
-type GetMainSkillProducingRateFinalOpts = ToFinalProducingRateOfDropCommonOpts & {
-  base: ProducingRateOfDrop,
+type GetMainSkillProductionFinalOpts = ToFinalProductionOfDropCommonOpts & {
+  base: ProductionOfDrop,
 };
 
-export const getMainSkillProducingRateFinal = (
-  opts: GetMainSkillProducingRateFinalOpts,
-): ProducingRateOfDropByStateWithPack => {
-  return toFinalProducingRateOfDrop({
+export const getMainSkillProductionFinal = (
+  opts: GetMainSkillProductionFinalOpts,
+): ProductionOfDropByStateWithPack => {
+  return toFinalProductionOfDrop({
     produceType: 'skill',
     ...opts,
   });

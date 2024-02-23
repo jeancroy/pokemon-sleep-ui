@@ -5,8 +5,8 @@ import {
   PokemonProductionCombinationRateCollectionItem,
 } from '@/ui/pokedex/page/production/combination/type';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
-import {getProducingRateIndividualParams} from '@/utils/game/producing/params';
+import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
+import {getProductionIndividualParams} from '@/utils/game/producing/params';
 
 
 type GetPokemonProductionCombinationRateCollectionOpts = PokemonProductionCombinationCommonProps & {
@@ -36,10 +36,10 @@ export const getPokemonProductionCombinationRateCollection = ({
       {
         key,
         ingredients,
-        rate: getPokemonProducingRateSingle({
+        rate: getPokemonProductionSingle({
           ingredients,
           skillData,
-          ...getProducingRateIndividualParams({
+          ...getProductionIndividualParams({
             input,
             pokemon,
             subSkillMap,

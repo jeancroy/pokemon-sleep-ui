@@ -1,3 +1,3 @@
-export type ProducingRateContentCommonProps = {
+export type ProductionContentCommonProps = {
   normalSize?: boolean,
 };

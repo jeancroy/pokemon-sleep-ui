@@ -1,12 +1,12 @@
-import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
+import {ProductionByCalculatedStates} from '@/types/game/producing/rate/base';
 import {getFinalizedProducingFrequency} from '@/utils/game/producing/reducer/finalize/frequency';
-import {getFinalizedProducingRateSingleStats} from '@/utils/game/producing/reducer/finalize/singleStats';
-import {GetFinalizedProducingRateCommonOpts} from '@/utils/game/producing/reducer/finalize/type';
+import {getFinalizedProductionSingleStats} from '@/utils/game/producing/reducer/finalize/singleStats';
+import {GetFinalizedProductionCommonOpts} from '@/utils/game/producing/reducer/finalize/type';
 
 
-export const getFinalizedProducingRate = (
-  opts: GetFinalizedProducingRateCommonOpts,
-): ProducingRateByCalculatedStates => {
+export const getFinalizedProduction = (
+  opts: GetFinalizedProductionCommonOpts,
+): ProductionByCalculatedStates => {
   const {period, rate} = opts;
   const {id} = rate.base;
 
@@ -14,7 +14,7 @@ export const getFinalizedProducingRate = (
     id,
     period,
     frequency: getFinalizedProducingFrequency(opts),
-    qty: getFinalizedProducingRateSingleStats({key: 'qty', ...opts}),
-    strength: getFinalizedProducingRateSingleStats({key: 'strength', ...opts}),
+    qty: getFinalizedProductionSingleStats({key: 'qty', ...opts}),
+    strength: getFinalizedProductionSingleStats({key: 'strength', ...opts}),
   };
 };

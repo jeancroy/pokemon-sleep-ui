@@ -6,18 +6,18 @@ import {useTranslations} from 'next-intl';
 import {FilterIconInput} from '@/components/input/filter/preset/icon';
 import {Flex} from '@/components/layout/flex/common';
 import {
-  pokemonProducingRateSingleDisplay,
-  UsePokemonProducingRateSingleDisplayReturn,
+  pokemonProductionSingleDisplay,
+  UsePokemonProductionSingleDisplayReturn,
 } from '@/components/shared/pokemon/production/single/type';
 
 
 type Props = {
-  control: UsePokemonProducingRateSingleDisplayReturn,
+  control: UsePokemonProductionSingleDisplayReturn,
   itemAlt: string,
   itemImageSrc: string,
 };
 
-export const PokemonProducingRateSingleDisplaySwitch = ({control, itemAlt, itemImageSrc}: Props) => {
+export const PokemonProductionSingleDisplaySwitch = ({control, itemAlt, itemImageSrc}: Props) => {
   const {display, setDisplay} = control;
 
   const t = useTranslations('UI.InPage.Pokedex.Sort');
@@ -31,7 +31,7 @@ export const PokemonProducingRateSingleDisplaySwitch = ({control, itemAlt, itemI
           <EyeIcon className="size-6"/>
         </Flex>
       }
-      ids={[...pokemonProducingRateSingleDisplay]}
+      ids={[...pokemonProductionSingleDisplay]}
       idToAlt={(id) => id === 'total' ? t('TotalEnergy') : itemAlt}
       idToImageSrc={(id) => id === 'total' ? '/images/generic/energy.png' : itemImageSrc}
     />

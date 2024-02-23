@@ -2,40 +2,40 @@ import {maxTeamMemberCount} from '@/const/game/production/const';
 import {defaultProductionPeriod} from '@/const/game/production/defaults';
 import {IngredientMap} from '@/types/game/ingredient';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
-import {PokemonProducingRateFinal} from '@/types/game/producing/rate/main';
+import {PokemonProductionFinal} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
-import {groupPokemonProducingRate} from '@/utils/game/producing/group';
-import {getPokemonProducingRateHelpingBonusEffect} from '@/utils/game/producing/main/entry/components/helpingBonus';
-import {getPokemonProducingRateFinal} from '@/utils/game/producing/main/entry/components/rates/final';
+import {groupPokemonProduction} from '@/utils/game/producing/group';
+import {getPokemonProductionHelpingBonusEffect} from '@/utils/game/producing/main/entry/components/helpingBonus';
+import {getPokemonProductionFinal} from '@/utils/game/producing/main/entry/components/rates/final';
 import {getPokemonProductionFirstPassRates} from '@/utils/game/producing/main/entry/components/rates/firstPass';
 import {
   getPokemonProductionPostIngredientMultiplier,
 } from '@/utils/game/producing/main/entry/components/rates/postIngredient';
 import {
-  GetPokemonProducingRateUnitOptsWithPayload,
-  GetProducingRateSharedOpts,
+  GetPokemonProductionUnitOptsWithPayload,
+  GetPokemonProductionSharedOpts,
 } from '@/utils/game/producing/main/type';
 import {isNotNullish} from '@/utils/type';
 
 
-export type GetPokemonProducingRateMultiOpts<TPayload> = {
+export type GetPokemonProductionMultiOpts<TPayload> = {
   ingredientMap: IngredientMap,
   recipeLevelData: RecipeLevelData[],
-  rateOpts: GetPokemonProducingRateUnitOptsWithPayload<TPayload>[],
-  sharedOpts: GetProducingRateSharedOpts,
+  rateOpts: GetPokemonProductionUnitOptsWithPayload<TPayload>[],
+  sharedOpts: GetPokemonProductionSharedOpts,
   groupingState: ProducingStateCalculated,
   calculatedCookingConfig: CalculatedCookingConfig,
 };
 
-export const getPokemonProducingRateMulti = <TPayload>({
+export const getPokemonProductionMulti = <TPayload>({
   ingredientMap,
   recipeLevelData,
   rateOpts,
   sharedOpts,
   groupingState,
   calculatedCookingConfig,
-}: GetPokemonProducingRateMultiOpts<TPayload>): PokemonProducingRateFinal<TPayload> => {
+}: GetPokemonProductionMultiOpts<TPayload>): PokemonProductionFinal<TPayload> => {
   const {
     calcBehavior,
     subSkillBonusOverride,
@@ -46,7 +46,7 @@ export const getPokemonProducingRateMulti = <TPayload>({
     .map(({opts}) => opts.subSkillBonus)
     .filter(isNotNullish);
 
-  const helpingBonusEffect = getPokemonProducingRateHelpingBonusEffect({
+  const helpingBonusEffect = getPokemonProductionHelpingBonusEffect({
     subSkillBonuses,
     calcBehavior,
   });
@@ -71,14 +71,14 @@ export const getPokemonProducingRateMulti = <TPayload>({
   });
 
   // Final calculation factors in any skill triggered by other Pokémon
-  const finalRates = getPokemonProducingRateFinal({
+  const finalRates = getPokemonProductionFinal({
     firstPassRatesPostIngredient,
     targetCount: calcBehavior?.asSingle ? maxTeamMemberCount : rateOpts.length,
   });
 
   return {
     rates: finalRates,
-    grouped: groupPokemonProducingRate({
+    grouped: groupPokemonProduction({
       period,
       rates: finalRates.map(({atStage}) => atStage.final),
       state: groupingState,

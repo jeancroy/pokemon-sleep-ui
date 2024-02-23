@@ -1,27 +1,25 @@
-import {PokemonProducingRateFirstPass} from '@/types/game/producing/rate/main';
-import {getBerryProducingRateBase} from '@/utils/game/producing/branch/berry/base';
-import {getBerryProducingRateFinal} from '@/utils/game/producing/branch/berry/final';
-import {getIngredientProducingRateBaseList} from '@/utils/game/producing/branch/ingredient/base/main';
-import {getIngredientProducingRateFinalList} from '@/utils/game/producing/branch/ingredient/final/main';
-import {getMainSkillProducingRateBase} from '@/utils/game/producing/branch/mainSkill/direct/base';
-import {getMainSkillProducingRateFinal} from '@/utils/game/producing/branch/mainSkill/direct/final';
+import {PokemonProductionFirstPass} from '@/types/game/producing/rate/main';
+import {getBerryProductionBase} from '@/utils/game/producing/branch/berry/base';
+import {getBerryProductionFinal} from '@/utils/game/producing/branch/berry/final';
+import {getIngredientProductionBaseList} from '@/utils/game/producing/branch/ingredient/base/main';
+import {getIngredientProductionFinalList} from '@/utils/game/producing/branch/ingredient/final/main';
+import {getMainSkillProduction} from '@/utils/game/producing/branch/mainSkill/direct/base';
+import {getMainSkillProductionFinal} from '@/utils/game/producing/branch/mainSkill/direct/final';
 import {getFullPackStats} from '@/utils/game/producing/inventory/fullPack/main';
-import {getPokemonProducingRateIntermediateParams} from '@/utils/game/producing/main/unit/params';
-import {GetPokemonProducingRateUnitOpts} from '@/utils/game/producing/main/unit/type';
+import {getPokemonProductionIntermediateParams} from '@/utils/game/producing/main/unit/params';
+import {GetPokemonProductionUnitOpts} from '@/utils/game/producing/main/unit/type';
 import {getExpectedQtyPerHelp} from '@/utils/game/producing/qtyPerHelp';
-import {getFinalizedProducingRate} from '@/utils/game/producing/reducer/finalize/main';
+import {getFinalizedProduction} from '@/utils/game/producing/reducer/finalize/main';
 import {getProducingStateSplit} from '@/utils/game/producing/split';
-import {ToFinalProducingRateOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
+import {ToFinalProductionOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
-export const getPokemonProducingRateFirstPass = (
-  opts: GetPokemonProducingRateUnitOpts,
-): PokemonProducingRateFirstPass => {
+export const getPokemonProductionFirstPass = (opts: GetPokemonProductionUnitOpts): PokemonProductionFirstPass => {
   const {calculatedUserConfig} = opts;
   const {bonus} = calculatedUserConfig;
   const {sleepSessionInfo, intervalsDuringSleep} = bonus.stamina;
 
-  const params = getPokemonProducingRateIntermediateParams(opts);
+  const params = getPokemonProductionIntermediateParams(opts);
   const {
     isFullPack,
     period,
@@ -34,15 +32,15 @@ export const getPokemonProducingRateFirstPass = (
 
   // Calculate base rates of berry and ingredient
   // > Base rate assumes all helps are giving the same drop type in the given `period`
-  const berryBase = getBerryProducingRateBase({
+  const berryBase = getBerryProductionBase({
     baseFrequency: frequency,
     ...opts,
   });
-  const ingredientBaseList = getIngredientProducingRateBaseList({
+  const ingredientBaseList = getIngredientProductionBaseList({
     baseFrequency: frequency,
     ...opts,
   });
-  const skillBase = getMainSkillProducingRateBase({
+  const skillBase = getMainSkillProduction({
     baseFrequency: frequency,
     skillRatePercent,
     activeSkillEffect,
@@ -72,20 +70,20 @@ export const getPokemonProducingRateFirstPass = (
   // > For ingredients, `qty` returned for each ingredient is already divides by possible ingredient drop.
   //    In other words, if the ingredient production from A of ABX is 80 assuming all ingredient spawns are A,
   //    the result will be 40 instead of 80.
-  const finalCommonOpts: ToFinalProducingRateOfDropCommonOpts = {
+  const finalCommonOpts: ToFinalProductionOfDropCommonOpts = {
     fullPackStats,
     calculatedUserConfig,
     sleepSessionInfo,
   };
-  const berryFinal = getBerryProducingRateFinal({
+  const berryFinal = getBerryProductionFinal({
     base: berryBase,
     ...finalCommonOpts,
   });
-  const ingredientFinalList = getIngredientProducingRateFinalList({
+  const ingredientFinalList = getIngredientProductionFinalList({
     baseList: ingredientBaseList,
     ...finalCommonOpts,
   });
-  const skillFinal = getMainSkillProducingRateFinal({
+  const skillFinal = getMainSkillProductionFinal({
     base: skillBase,
     ...finalCommonOpts,
   });
@@ -99,7 +97,7 @@ export const getPokemonProducingRateFirstPass = (
       ingredient: ingredientBaseList,
       skill: skillBase,
     },
-    berry: getFinalizedProducingRate({
+    berry: getFinalizedProduction({
       period,
       rate: {
         base: berryBase,
@@ -110,7 +108,7 @@ export const getPokemonProducingRateFirstPass = (
     }),
     ingredient: Object.fromEntries(ingredientFinalList.map((final, idx) => [
       final.id,
-      getFinalizedProducingRate({
+      getFinalizedProduction({
         period,
         rate: {
           base: ingredientBaseList[idx],
@@ -120,7 +118,7 @@ export const getPokemonProducingRateFirstPass = (
         producingStateSplit,
       }),
     ])),
-    skill: getFinalizedProducingRate({
+    skill: getFinalizedProduction({
       period,
       rate: {
         base: skillBase,

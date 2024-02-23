@@ -1,7 +1,7 @@
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
+import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
 import {getRatingBasisValue} from '@/utils/game/rating/basis';
 import {GetRatingValueOfSimulationOpts} from '@/utils/game/rating/type';
-import {getRatingProducingRateCalcBehavior} from '@/utils/game/rating/utils';
+import {getRatingProductionCalcBehavior} from '@/utils/game/rating/utils';
 import {getRatingValueCommon} from '@/utils/game/rating/value/common';
 
 
@@ -26,11 +26,11 @@ export const getRatingValueOfCurrent = (opts: GetRatingValueOfSimulationOpts) =>
 
   return getRatingBasisValue({
     ...opts,
-    rate: getPokemonProducingRateSingle({
+    rate: getPokemonProductionSingle({
       ...opts,
       ...singleParams,
       calculatedCookingConfig,
-      calcBehavior: getRatingProducingRateCalcBehavior(basis),
+      calcBehavior: getRatingProductionCalcBehavior(basis),
     }).atStage.final,
     targetMeals,
   });

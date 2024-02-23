@@ -4,7 +4,7 @@ import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {PokedexDisplayType, PokedexFilterCommon} from '@/ui/pokedex/common/type';
 import {getPossibleIngredientsFromChain} from '@/utils/game/ingredient/chain';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
-import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';
+import {getPokemonProducingParams, getProductionIndividualParams} from '@/utils/game/producing/params';
 
 
 const exhaustIngredientCombinationsIfSort: PokemonSortType[] = [
@@ -64,7 +64,7 @@ export const toPokemonInfoWithSortingPayloadFromPokemonList = <TFilter extends P
     dateAdded: null,
     extra: null,
     calculatedConfigBundle,
-    ...getProducingRateIndividualParams({
+    ...getProductionIndividualParams({
       input: filter,
       pokemon,
       subSkillMap,

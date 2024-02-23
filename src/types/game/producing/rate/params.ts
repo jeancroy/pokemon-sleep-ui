@@ -9,28 +9,28 @@ import {ProduceSplit} from '@/types/game/producing/split';
 import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 
 
-export type ProducingRateSingleParams = {
+export type ProductionSingleParams = {
   subSkillBonus: GroupedSubSkillBonus | null,
   natureId: NatureId | null,
 };
 
-export type ProducingRateImplicitParams = {
+export type ProductionImplicitParams = {
   evolutionCount: number,
   seeds: SeedUsage,
 };
 
-export type ProducingRateIndividualParams = ProducingRateSingleParams & ProducingRateImplicitParams & {
+export type ProductionIndividualParams = ProductionSingleParams & ProductionImplicitParams & {
   level: number,
 };
 
-export type ProducingRateCommonParams = {
+export type ProductionCommonParams = {
   level: number,
   pokemon: PokemonInfo,
   baseFrequency: number,
   calculatedUserConfig: CalculatedUserConfig,
 };
 
-export type PokemonProducingRateIntermediateParams = {
+export type PokemonProductionIntermediateParams = {
   isFullPack: boolean,
   period: ProductionPeriod,
   frequency: number,

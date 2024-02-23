@@ -5,9 +5,9 @@ import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {PokemonProducingParams, PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {GroupedSubSkillBonus, SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {
-  ProducingRateImplicitParams,
-  ProducingRateIndividualParams,
-  ProducingRateSingleParams,
+  ProductionImplicitParams,
+  ProductionIndividualParams,
+  ProductionSingleParams,
 } from '@/types/game/producing/rate/params';
 import {PokeInBox} from '@/types/userData/pokebox/main';
 import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution/count';
@@ -30,16 +30,16 @@ export const getHelpingBonusStack = ({
   return helpingBonusCount;
 };
 
-export type GetProducingRateSingleParamsOpts = PokemonIndividualParams & {
+export type GetProductionSingleParamsOpts = PokemonIndividualParams & {
   subSkillMap: SubSkillMap,
 };
 
-export const getProducingRateSingleParams = ({
+export const getProductionSingleParams = ({
   level,
   subSkill,
   nature,
   subSkillMap,
-}: GetProducingRateSingleParamsOpts): ProducingRateSingleParams => {
+}: GetProductionSingleParamsOpts): ProductionSingleParams => {
   const subSkillBonus = getSubSkillBonus({level, pokemonSubSkill: subSkill, subSkillMap});
 
   return {
@@ -48,13 +48,13 @@ export const getProducingRateSingleParams = ({
   };
 };
 
-type GetProducingRateNeutralParamsOpts = {
+type GetProductionNeutralParamsOpts = {
   pokemon: PokemonInfo,
 };
 
-export const getProducingRateNeutralParams = ({
+export const getProductionNeutralParams = ({
   pokemon,
-}: GetProducingRateNeutralParamsOpts): ProducingRateSingleParams & ProducingRateImplicitParams => {
+}: GetProductionNeutralParamsOpts): ProductionSingleParams & ProductionImplicitParams => {
   return {
     ...defaultNeutralOpts,
     seeds: defaultSeedUsage,
@@ -62,35 +62,35 @@ export const getProducingRateNeutralParams = ({
   };
 };
 
-type GetProducingRateIndividualParamsOpts = {
+type GetProductionIndividualParamsOpts = {
   input: PokemonIndividualParams,
   pokemon: PokemonInfo,
   subSkillMap: SubSkillMap,
 };
 
-export const getProducingRateIndividualParams = ({
+export const getProductionIndividualParams = ({
   input,
   pokemon,
   subSkillMap,
-}: GetProducingRateIndividualParamsOpts): ProducingRateIndividualParams => {
+}: GetProductionIndividualParamsOpts): ProductionIndividualParams => {
   return {
     level: input.level,
     seeds: defaultSeedUsage,
     evolutionCount: getEvolutionCountFromPokemonInfo({pokemon}),
-    ...getProducingRateSingleParams({
+    ...getProductionSingleParams({
       ...input,
       subSkillMap,
     }),
   };
 };
 
-type GetProducingRateImplicitParamsFromPokeboxOpts = {
+type GetProductionImplicitParamsFromPokeboxOpts = {
   pokeInBox: PokeInBox,
 };
 
-export const getProducingRateImplicitParamsFromPokeInbox = ({
+export const getProductionImplicitParamsFromPokeInbox = ({
   pokeInBox,
-}: GetProducingRateImplicitParamsFromPokeboxOpts): ProducingRateImplicitParams => {
+}: GetProductionImplicitParamsFromPokeboxOpts): ProductionImplicitParams => {
   const {seeds, evolutionCount} = pokeInBox;
 
   return {

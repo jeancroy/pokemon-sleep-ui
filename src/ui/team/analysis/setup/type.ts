@@ -1,6 +1,6 @@
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {MealCoverage} from '@/types/game/cooking';
-import {ProducingRate} from '@/types/game/producing/rate/base';
+import {Production} from '@/types/game/producing/rate/base';
 import {TeamMemberProduction} from '@/types/game/team';
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {ConfigBundle} from '@/types/userData/config/bundle';
@@ -14,16 +14,16 @@ export type TeamAnalysisSetupViewCommonProps = {
 };
 
 export type TeamProducingStatsTotal = {
-  berry: ProducingRate,
-  ingredient: ProducingRate | null,
-  skill: ProducingRate,
+  berry: Production,
+  ingredient: Production | null,
+  skill: Production,
 };
 
 export type TeamProducingStatsBySlot = {[slot in TeamAnalysisSlotName]: TeamMemberProduction | null};
 
 export type TeamProducingStats = TeamCompCalcResult & {
   total: TeamProducingStatsTotal,
-  overall: ProducingRate,
+  overall: Production,
   mealCoverage: MealCoverage,
 };
 

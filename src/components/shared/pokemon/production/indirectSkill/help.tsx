@@ -4,12 +4,12 @@ import {Flex} from '@/components/layout/flex/common';
 import {MainSkillEffectTypeIcon} from '@/components/shared/icon/mainSkill/type';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
-import {ProducingRateUI} from '@/components/shared/production/rate/main';
-import {ProducingRateContentCommonProps} from '@/components/shared/production/rate/type';
+import {ProductionUI} from '@/components/shared/production/rate/main';
+import {ProductionContentCommonProps} from '@/components/shared/production/rate/type';
 import {MainSkillInstantHelpEffect} from '@/utils/game/mainSkill/bySkill/help/type';
 
 
-type Props = ProducingRateContentCommonProps & {
+type Props = ProductionContentCommonProps & {
   effect: MainSkillInstantHelpEffect | null,
 };
 
@@ -23,7 +23,7 @@ export const PokemonIndirectSkillProductionInstantHelp = ({effect, ...props}: Pr
 
   return (
     <>
-      <ProducingRateUI
+      <ProductionUI
         rate={berry}
         getIcon={(dimension) => (
           <Flex direction="row" noFullWidth center>
@@ -34,7 +34,8 @@ export const PokemonIndirectSkillProductionInstantHelp = ({effect, ...props}: Pr
         {...props}
       />
       {ingredient.map((ingredient) => (
-        <ProducingRateUI
+        <ProductionUI
+          key={ingredient.id}
           rate={ingredient}
           getIcon={(dimension) => (
             <Flex direction="row" noFullWidth center>

@@ -1,7 +1,7 @@
-import {ProducingRate} from '@/types/game/producing/rate/base';
+import {Production} from '@/types/game/producing/rate/base';
 
 
 export type PokemonProductionRateOfCategory = {
   id: number,
-  rate: ProducingRate | undefined,
+  rate: Production | undefined,
 };

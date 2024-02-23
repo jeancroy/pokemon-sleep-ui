@@ -10,16 +10,16 @@ import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
-import {PokemonProducingRateSingle} from '@/components/shared/pokemon/production/single/main';
+import {PokemonProductionSingle} from '@/components/shared/pokemon/production/single/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {PokemonDetailedProducingStatsLayout} from '@/components/shared/pokemon/production/stats/item';
 import {PokemonDetailedProducingStatsProps} from '@/components/shared/pokemon/production/stats/type';
-import {ProducingRateUI} from '@/components/shared/production/rate/main';
+import {ProductionUI} from '@/components/shared/production/rate/main';
 import {applyMultiplierTargets} from '@/types/game/producing/apply';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {applyMultiplierToPokemonRate} from '@/utils/game/producing/apply/multiplier';
 import {getFrequencyOfStateFromPokemonRate} from '@/utils/game/producing/frequency';
-import {getTotalOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/common';
+import {getTotalPokemonProduction} from '@/utils/game/producing/reducer/total/common';
 
 
 type Props = PokemonDetailedProducingStatsProps & {
@@ -64,7 +64,7 @@ export const PokemonDetailedProducingStatsOfState = ({
       </Flex>
       <Flex className="gap-1 md:flex-row">
         <PokemonDetailedProducingStatsLayout icon={<GenericBerryIcon alt={t('Berry')} noWrap/>}>
-          <PokemonProducingRateSingle
+          <PokemonProductionSingle
             key={berry.id}
             rate={berry}
             state={state}
@@ -77,7 +77,7 @@ export const PokemonDetailedProducingStatsOfState = ({
         >
           <Flex className="gap-1.5">
             {Object.values(ingredient).map((rate) => (
-              <PokemonProducingRateSingle
+              <PokemonProductionSingle
                 key={rate.id}
                 rate={rate}
                 state={state}
@@ -88,7 +88,7 @@ export const PokemonDetailedProducingStatsOfState = ({
           </Flex>
         </PokemonDetailedProducingStatsLayout>
         <PokemonDetailedProducingStatsLayout icon={<GenericMainSkillIcon alt={t('MainSkill')} noWrap/>}>
-          <PokemonProducingRateSingle
+          <PokemonProductionSingle
             key={skill.id}
             rate={skill}
             state={state}
@@ -99,9 +99,9 @@ export const PokemonDetailedProducingStatsOfState = ({
       </Flex>
       <Flex className="items-end gap-1 sm:flex-row">
         <PokemonProductionSplitFromPokemonRate rate={rate} state={state} specialty={specialty}/>
-        <ProducingRateUI
+        <ProductionUI
           className="button-bg rounded-lg px-2"
-          rate={getTotalOfPokemonProducingRate({rate, state})}
+          rate={getTotalPokemonProduction({rate, state})}
           hideQuantity
           normalSize
         />

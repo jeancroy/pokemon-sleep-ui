@@ -1,13 +1,13 @@
 import {defaultLevel} from '@/const/game/production/defaults';
-import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
+import {ProductionOfDrop} from '@/types/game/producing/rate/base';
 import {toSum} from '@/utils/array';
-import {GetBerryProducingRateBaseOpts} from '@/utils/game/producing/branch/berry/type';
+import {GetBerryProductionBaseOpts} from '@/utils/game/producing/branch/berry/type';
 import {getStrengthMultiplier} from '@/utils/game/producing/multiplier';
-import {getProducingRateBase} from '@/utils/game/producing/toBase/main';
+import {getProductionBase} from '@/utils/game/producing/toBase/main';
 import {getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
 
 
-export const getBerryProducingRateBase = ({
+export const getBerryProductionBase = ({
   level,
   pokemon,
   baseFrequency,
@@ -15,7 +15,7 @@ export const getBerryProducingRateBase = ({
   subSkillBonus,
   snorlaxFavorite,
   berryData,
-}: GetBerryProducingRateBaseOpts): ProducingRateOfDrop => {
+}: GetBerryProductionBaseOpts): ProductionOfDrop => {
   const {bonus} = calculatedUserConfig;
   const {mapMultiplier} = bonus;
 
@@ -25,7 +25,7 @@ export const getBerryProducingRateBase = ({
     strengthMultiplierType: 'berry',
   });
 
-  return getProducingRateBase({
+  return getProductionBase({
     id: pokemon.berry.id,
     baseFrequency,
     // Specialty handling is already included in `pokemon.berry.quantity`

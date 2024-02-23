@@ -1,14 +1,14 @@
 import {Meal} from '@/types/game/meal/main';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
-import {PokemonProducingRate} from '@/types/game/producing/rate/main';
+import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {toSum} from '@/utils/array';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
+import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 
 
 type GetRatingBasisValueOpts = {
-  rate: PokemonProducingRate,
+  rate: PokemonProduction,
   basis: RatingBasis,
   targetMeals: Meal[],
 };
@@ -19,7 +19,7 @@ export const getRatingBasisValue = ({
   targetMeals,
 }: GetRatingBasisValueOpts): number => {
   if (basis === 'totalStrength') {
-    return getTotalStrengthOfPokemonProducingRate(rate);
+    return getTotalStrengthOfPokemonProduction(rate);
   }
 
   if (basis === 'ingredientProduction') {

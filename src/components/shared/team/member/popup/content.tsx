@@ -18,8 +18,8 @@ import {
   teamMemberStrengthGrowthDataTypes,
 } from '@/components/shared/team/member/popup/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
-import {getTotalIngredientRateOfPokemon} from '@/utils/game/producing/reducer/total/common';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
+import {getTotalPokemonIngredientProduction} from '@/utils/game/producing/reducer/total/common';
+import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 import {formatFloat} from '@/utils/number/format/regular';
 import {generateNumberTicks} from '@/utils/number/generator';
 import {toTeamMember} from '@/utils/team/toMember';
@@ -102,13 +102,13 @@ export const TeamMemberPopupContent = ({
               level,
               strength: {
                 berry: rate.berry.strength.equivalent,
-                ingredient: getTotalIngredientRateOfPokemon({
+                ingredient: getTotalPokemonIngredientProduction({
                   rate,
                   target: 'strength',
                   state: stateOfRate,
                 }),
                 skill: rate.skill.strength.equivalent,
-                total: getTotalStrengthOfPokemonProducingRate(rate),
+                total: getTotalStrengthOfPokemonProduction(rate),
               },
             };
           }).filter(isNotNullish)}

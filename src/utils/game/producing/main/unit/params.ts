@@ -1,23 +1,23 @@
 import {defaultProductionPeriod} from '@/const/game/production/defaults';
-import {PokemonProducingRateIntermediateParams} from '@/types/game/producing/rate/params';
+import {PokemonProductionIntermediateParams} from '@/types/game/producing/rate/params';
 import {getMainSkillActiveEffect} from '@/utils/game/mainSkill/activeEffect/main';
 import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
 import {getSkillTriggerRatePercent} from '@/utils/game/mainSkill/rate';
 import {getBaseFrequencyFromPokemon} from '@/utils/game/producing/frequency';
 import {getCarryLimitInfo} from '@/utils/game/producing/inventory/carryLimit';
-import {GetPokemonProducingRateUnitOpts} from '@/utils/game/producing/main/unit/type';
+import {GetPokemonProductionUnitOpts} from '@/utils/game/producing/main/unit/type';
 import {getProduceSplit} from '@/utils/game/producing/split';
 import {isFullPackEffective} from '@/utils/user/config/user/fullPack';
 
 
-export const getPokemonProducingRateIntermediateParams = ({
+export const getPokemonProductionIntermediateParams = ({
   seeds,
   evolutionCount,
   calculatedUserConfig,
   period,
   skillData,
   ...opts
-}: GetPokemonProducingRateUnitOpts): PokemonProducingRateIntermediateParams => {
+}: GetPokemonProductionUnitOpts): PokemonProductionIntermediateParams => {
   const {
     pokemon,
     pokemonProducingParams,

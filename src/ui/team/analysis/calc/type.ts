@@ -1,5 +1,5 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {GroupedProducingRateByType} from '@/types/game/producing/rate/main';
+import {GroupedProductionByType} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';
@@ -9,7 +9,7 @@ import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 
 
-export type GetTeamProducingStatsOpts = TeamAnalysisDataProps & {
+export type GetTeamProductionStatsOpts = TeamAnalysisDataProps & {
   setup: TeamAnalysisSetup,
   currentTeam: TeamAnalysisComp,
   bundle: ConfigBundle,
@@ -24,9 +24,9 @@ export type GetTeamProducingStatsCommonOpts = {
 
 export type TeamCompCalcResult = {
   bySlot: TeamProducingStatsBySlot,
-  grouped: GroupedProducingRateByType,
+  grouped: GroupedProductionByType,
 };
 
-export type TeamCompCalcOpts = GetTeamProducingStatsCommonOpts & GetTeamProducingStatsOpts & {
+export type TeamCompCalcOpts = GetTeamProducingStatsCommonOpts & GetTeamProductionStatsOpts & {
   snorlaxFavorite: SnorlaxFavorite,
 };

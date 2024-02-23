@@ -1,18 +1,18 @@
-import {PokemonProducingRateWithPayload} from '@/types/game/producing/rate/main';
+import {PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
-import {getPokemonProducingRateMulti} from '@/utils/game/producing/main/entry/multi';
-import {GetPokemonProducingRateOpts, GetProducingRateSharedOpts} from '@/utils/game/producing/main/type';
+import {getPokemonProductionMulti} from '@/utils/game/producing/main/entry/multi';
+import {GetPokemonProductionOpts, GetPokemonProductionSharedOpts} from '@/utils/game/producing/main/type';
 
 
-export type GetPokemonProducingRateSingleOpts = GetPokemonProducingRateOpts & GetProducingRateSharedOpts & {
+export type GetPokemonProductionSingleOpts = GetPokemonProductionOpts & GetPokemonProductionSharedOpts & {
   calculatedCookingConfig: CalculatedCookingConfig,
 };
 
-export const getPokemonProducingRateSingle = ({
+export const getPokemonProductionSingle = ({
   calcBehavior,
   ...opts
-}: GetPokemonProducingRateSingleOpts): PokemonProducingRateWithPayload<null> => {
-  const rates = getPokemonProducingRateMulti({
+}: GetPokemonProductionSingleOpts): PokemonProductionWithPayload<null> => {
+  const rates = getPokemonProductionMulti({
     rateOpts: [{opts, payload: null}],
     sharedOpts: {
       ...opts,

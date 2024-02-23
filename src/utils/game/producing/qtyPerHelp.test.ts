@@ -1,6 +1,6 @@
 import {describe, expect, it} from '@jest/globals';
 
-import {testBaseProducingRateOfDrop} from '@/tests/producing/rate';
+import {testBaseProductionOfDrop} from '@/tests/production/rate';
 import {getExpectedQtyPerHelp} from '@/utils/game/producing/qtyPerHelp';
 
 
@@ -9,16 +9,16 @@ describe('Pokemon Production (Daily Quantity)', () => {
     const qtyPerHelp = getExpectedQtyPerHelp({
       rate: {
         berry: {
-          ...testBaseProducingRateOfDrop,
+          ...testBaseProductionOfDrop,
           qtyPerHelp: 5,
         },
         ingredient: [
           {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             qtyPerHelp: 10,
           },
           {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             qtyPerHelp: 20,
           },
         ],
@@ -37,18 +37,18 @@ describe('Pokemon Production (Daily Quantity)', () => {
     const qtyPerHelp = getExpectedQtyPerHelp({
       rate: {
         berry: {
-          ...testBaseProducingRateOfDrop,
+          ...testBaseProductionOfDrop,
           period: 'weekly',
           qtyPerHelp: 5,
         },
         ingredient: [
           {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             period: 'weekly',
             qtyPerHelp: 10,
           },
           {
-            ...testBaseProducingRateOfDrop,
+            ...testBaseProductionOfDrop,
             period: 'weekly',
             qtyPerHelp: 20,
           },

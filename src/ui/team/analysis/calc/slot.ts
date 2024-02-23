@@ -1,19 +1,19 @@
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {GetTeamProducingStatsOpts} from '@/ui/team/analysis/calc/type';
+import {GetTeamProductionStatsOpts} from '@/ui/team/analysis/calc/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
-import {GetPokemonProducingRateOpts} from '@/utils/game/producing/main/type';
-import {getPokemonProducingParams, getProducingRateSingleParams} from '@/utils/game/producing/params';
+import {GetPokemonProductionOpts} from '@/utils/game/producing/main/type';
+import {getPokemonProducingParams, getProductionSingleParams} from '@/utils/game/producing/params';
 
 
-type GetTeamProducingStatsSlotOpts = GetTeamProducingStatsOpts & {
+type GetTeamProductionOfSlotOpts = GetTeamProductionStatsOpts & {
   slotName: TeamAnalysisSlotName,
 };
 
-type GetProducingStatsOptsSlotReturn = {
-  rateOpts: GetPokemonProducingRateOpts,
+type GetTeamProductionOfSlotReturn = {
+  rateOpts: GetPokemonProductionOpts,
 };
 
-export const getTeamProducingStatsSlot = ({
+export const getTeamProductionOfSlot = ({
   overrideLevel,
   pokedexMap,
   pokemonProducingParamsMap,
@@ -24,7 +24,7 @@ export const getTeamProducingStatsSlot = ({
   recipeLevelData,
   currentTeam,
   slotName,
-}: GetTeamProducingStatsSlotOpts): GetProducingStatsOptsSlotReturn | null => {
+}: GetTeamProductionOfSlotOpts): GetTeamProductionOfSlotReturn | null => {
   const {members} = currentTeam;
 
   const member = members[slotName];
@@ -48,7 +48,7 @@ export const getTeamProducingStatsSlot = ({
   }
 
   const level = overrideLevel ?? member.level;
-  const singleParams = getProducingRateSingleParams({
+  const singleParams = getProductionSingleParams({
     level,
     subSkill,
     nature,

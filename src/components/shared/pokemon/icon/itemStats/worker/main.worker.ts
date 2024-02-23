@@ -1,9 +1,9 @@
 import {PokemonItemStatsCalcResult} from '@/components/shared/pokemon/icon/itemStats/type';
 import {PokemonItemStatsWorkerOpts} from '@/components/shared/pokemon/icon/itemStats/worker/type';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
-import {getPokemonProducingParams, getProducingRateIndividualParams} from '@/utils/game/producing/params';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
+import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
+import {getPokemonProducingParams, getProductionIndividualParams} from '@/utils/game/producing/params';
+import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -37,7 +37,7 @@ const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
 
       return [...generatePossibleIngredientProductions({level, chain})]
         .map((ingredients): PokemonItemStatsCalcResult => {
-          const pokemonRate = getPokemonProducingRateSingle({
+          const pokemonRate = getPokemonProductionSingle({
             pokemon,
             pokemonProducingParams: getPokemonProducingParams({
               pokemonId: pokemon.id,
@@ -46,7 +46,7 @@ const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
             berryData: berryDataMap[pokemon.berry.id],
             ingredients,
             skillData: mainSkillMap[pokemon.skill],
-            ...getProducingRateIndividualParams({
+            ...getProductionIndividualParams({
               input,
               pokemon,
               subSkillMap,
@@ -60,7 +60,7 @@ const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
             pokemonRate,
             uniqueKey: `${pokemon.id}|${ingredients.map(({id}) => id).join('-')}`,
             ingredients,
-            dailyTotalEnergy: getTotalStrengthOfPokemonProducingRate(pokemonRate),
+            dailyTotalEnergy: getTotalStrengthOfPokemonProduction(pokemonRate),
           };
         });
     })

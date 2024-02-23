@@ -1,8 +1,8 @@
 import {getTeamProducingStats} from '@/ui/team/analysis/calc/main';
-import {GetTeamProducingStatsOpts} from '@/ui/team/analysis/calc/type';
+import {GetTeamProductionStatsOpts} from '@/ui/team/analysis/calc/type';
 
 
-const onMessage = ({data}: MessageEvent<GetTeamProducingStatsOpts>) => {
+const onMessage = ({data}: MessageEvent<GetTeamProductionStatsOpts>) => {
   postMessage(getTeamProducingStats(data));
 };
 

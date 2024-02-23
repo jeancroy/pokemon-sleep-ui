@@ -1,12 +1,12 @@
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
 import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
-import {PokemonProducingRateFirstPass} from '@/types/game/producing/rate/main';
+import {PokemonProductionFirstPass} from '@/types/game/producing/rate/main';
 import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/components/rates/type';
 import {
-  GetPokemonProducingRateUnitOptsWithPayload,
-  GetProducingRateSharedOpts,
+  GetPokemonProductionUnitOptsWithPayload,
+  GetPokemonProductionSharedOpts,
 } from '@/utils/game/producing/main/type';
-import {getPokemonProducingRateFirstPass} from '@/utils/game/producing/main/unit/main';
+import {getPokemonProductionFirstPass} from '@/utils/game/producing/main/unit/main';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {toCalculatedUserConfig} from '@/utils/user/config/user/main';
 
@@ -14,8 +14,8 @@ import {toCalculatedUserConfig} from '@/utils/user/config/user/main';
 type GetPokemonProductionFirstPassRatesOpts<TPayload> = {
   helpingBonusEffect: HelpingBonusEffect,
   subSkillBonuses: GroupedSubSkillBonus[],
-  rateOpts: GetPokemonProducingRateUnitOptsWithPayload<TPayload>[],
-  sharedOpts: GetProducingRateSharedOpts,
+  rateOpts: GetPokemonProductionUnitOptsWithPayload<TPayload>[],
+  sharedOpts: GetPokemonProductionSharedOpts,
 };
 
 export const getPokemonProductionFirstPassRates = <TPayload>({
@@ -24,7 +24,7 @@ export const getPokemonProductionFirstPassRates = <TPayload>({
   rateOpts,
   sharedOpts,
 }: GetPokemonProductionFirstPassRatesOpts<TPayload>): PokemonProductionInCalcWithPayload<
-  PokemonProducingRateFirstPass,
+  PokemonProductionFirstPass,
   TPayload
 >[] => {
   const {
@@ -47,7 +47,7 @@ export const getPokemonProductionFirstPassRates = <TPayload>({
     });
 
     return {
-      rate: getPokemonProducingRateFirstPass({
+      rate: getPokemonProductionFirstPass({
         ...opts,
         ...sharedOpts,
         helpingBonusEffect,

@@ -6,7 +6,7 @@ import {GenericIconLarger} from '@/components/shared/icon/common/larger';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {RatingSetupData} from '@/types/game/pokemon/rating/request';
 import {PokeInBoxViewUnitProps} from '@/ui/team/pokebox/content/pokeInBox/type';
-import {getProducingRateImplicitParamsFromPokeInbox} from '@/utils/game/producing/params';
+import {getProductionImplicitParamsFromPokeInbox} from '@/utils/game/producing/params';
 import {getDefaultRatingBasis} from '@/utils/game/rating/utils';
 
 
@@ -32,7 +32,7 @@ export const PokeInBoxOpenRatingButton = ({
       basis: getDefaultRatingBasis(pokemon.specialty),
       friendshipLevel: 0,
       bundle,
-      ...getProducingRateImplicitParamsFromPokeInbox({pokeInBox}),
+      ...getProductionImplicitParamsFromPokeInbox({pokeInBox}),
     })}>
       <GenericIconLarger src="/images/generic/search.png" alt={t('Rating.Title')}/>
     </button>

@@ -8,8 +8,8 @@ import {PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {
   getPokemonProducingParams,
-  getProducingRateImplicitParamsFromPokeInbox,
-  getProducingRateSingleParams,
+  getProductionImplicitParamsFromPokeInbox,
+  getProductionSingleParams,
 } from '@/utils/game/producing/params';
 import {isNotNullish} from '@/utils/type';
 
@@ -51,7 +51,7 @@ export const useProcessedPokebox = ({
       }
 
       const {level, dateAdded} = pokeInBox;
-      const singleParams = getProducingRateSingleParams({
+      const singleParams = getProductionSingleParams({
         ...pokeInBox,
         subSkillMap,
       });
@@ -72,7 +72,7 @@ export const useProcessedPokebox = ({
         eventStrengthMultiplierData,
         cookingRecoveryData,
         ...singleParams,
-        ...getProducingRateImplicitParamsFromPokeInbox({pokeInBox}),
+        ...getProductionImplicitParamsFromPokeInbox({pokeInBox}),
       } satisfies PokemonInfoWithSortingPayload<PokeInBox>;
     })
     .filter(isNotNullish),

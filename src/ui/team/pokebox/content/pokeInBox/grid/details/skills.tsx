@@ -6,7 +6,7 @@ import {PokemonNoSkillProbability} from '@/components/shared/pokemon/production/
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
 import {useCalculatePokeInBoxProduction} from '@/ui/team/pokebox/content/pokeInBox/worker/production/hook';
-import {toProducingRateOfState} from '@/utils/game/producing/convert';
+import {toProductionOfState} from '@/utils/game/producing/convert';
 
 
 export const PokeInBoxGridSkills = (props: PokeInBoxGridDetailsProps) => {
@@ -23,7 +23,7 @@ export const PokeInBoxGridSkills = (props: PokeInBoxGridDetailsProps) => {
     <Flex direction="row" noFullWidth className="gap-3">
       <PokemonSkillProduction
         id={skill}
-        rate={toProducingRateOfState({rate: rate.skill, state: 'equivalent'})}
+        rate={toProductionOfState({rate: rate.skill, state: 'equivalent'})}
         hideStrength
         normalSize
       />

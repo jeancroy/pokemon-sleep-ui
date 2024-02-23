@@ -1,27 +1,27 @@
 import React from 'react';
 
-import {PokemonProducingRateProps} from '@/components/shared/pokemon/production/type';
-import {ProducingRateByCalculatedStates} from '@/types/game/producing/rate/base';
+import {PokemonProductionProps} from '@/components/shared/pokemon/production/type';
+import {ProductionByCalculatedStates} from '@/types/game/producing/rate/base';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {Dimension} from '@/types/style';
 
 
-export const pokemonProducingRateSingleDisplay = [
+export const pokemonProductionSingleDisplay = [
   'item',
   'total',
 ] as const;
 
-export type PokemonProducingRateSingleDisplay = typeof pokemonProducingRateSingleDisplay[number];
+export type PokemonProductionSingleDisplay = typeof pokemonProductionSingleDisplay[number];
 
-export type UsePokemonProducingRateSingleDisplayReturn = {
-  display: PokemonProducingRateSingleDisplay,
-  setDisplay: (updated: PokemonProducingRateSingleDisplay) => void,
+export type UsePokemonProductionSingleDisplayReturn = {
+  display: PokemonProductionSingleDisplay,
+  setDisplay: (updated: PokemonProductionSingleDisplay) => void,
 };
 
-export type PokemonProducingRateSingleProps = PokemonProducingRateProps & {
-  rate: ProducingRateByCalculatedStates | null,
+export type PokemonProductionSingleProps = PokemonProductionProps & {
+  rate: ProductionByCalculatedStates | null,
   getIcon: (dimension: Dimension) => React.ReactNode,
-  display: PokemonProducingRateSingleDisplay,
+  display: PokemonProductionSingleDisplay,
   infoAtTotal?: React.ReactNode,
   dailyTotalEnergy?: number,
   state?: ProducingStateCalculated,

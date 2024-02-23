@@ -2,22 +2,22 @@ import {describe, expect, it} from '@jest/globals';
 
 import {testBonus} from '@/tests/data/game/bonus';
 import {testPokemonData} from '@/tests/data/game/pokemon';
-import {getTestFinalProducingRateOfDropCommonOpts} from '@/tests/producing/rate';
-import {getMainSkillProducingRateBase} from '@/utils/game/producing/branch/mainSkill/direct/base';
-import {getMainSkillProducingRateFinal} from '@/utils/game/producing/branch/mainSkill/direct/final';
+import {getTestFinalProductionOfDropCommonOpts} from '@/tests/production/rate';
+import {getMainSkillProduction} from '@/utils/game/producing/branch/mainSkill/direct/base';
+import {getMainSkillProductionFinal} from '@/utils/game/producing/branch/mainSkill/direct/final';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
 describe('Pokemon Production (Skill) / Final', () => {
   const bonus = testBonus['1'];
-  const commonOpts = getTestFinalProducingRateOfDropCommonOpts(bonus);
+  const commonOpts = getTestFinalProductionOfDropCommonOpts(bonus);
   const {calculatedUserConfig} = commonOpts;
 
   const awakeDuration = commonOpts.sleepSessionInfo.duration.awake;
 
   it('is correct if expected skill count during sleep is > 1', () => {
-    const rate = getMainSkillProducingRateFinal({
-      base: getMainSkillProducingRateBase({
+    const rate = getMainSkillProductionFinal({
+      base: getMainSkillProduction({
         pokemon: testPokemonData.ampharos,
         baseFrequency: 3168,
         calculatedUserConfig: calculatedUserConfig,
@@ -64,8 +64,8 @@ describe('Pokemon Production (Skill) / Final', () => {
   });
 
   it('is correct if expected skill count during sleep is < 1', () => {
-    const rate = getMainSkillProducingRateFinal({
-      base: getMainSkillProducingRateBase({
+    const rate = getMainSkillProductionFinal({
+      base: getMainSkillProduction({
         pokemon: testPokemonData.ampharos,
         baseFrequency: 6336,
         calculatedUserConfig: calculatedUserConfig,

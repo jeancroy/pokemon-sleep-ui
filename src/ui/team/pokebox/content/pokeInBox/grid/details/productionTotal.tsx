@@ -9,7 +9,7 @@ import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon
 import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
 import {useCalculatePokeInBoxProduction} from '@/ui/team/pokebox/content/pokeInBox/worker/production/hook';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
+import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 import {formatFloat} from '@/utils/number/format/regular';
 
 
@@ -28,7 +28,7 @@ export const PokeInBoxGridProductionTotal = (props: PokeInBoxGridDetailsProps) =
       <Flex direction="row" className="items-center gap-0.5 p-0.5">
         <ColoredEnergyIcon dimension="size-5" alt={t('Stats.Energy.Name')}/>
         <div>
-          {formatFloat(getTotalStrengthOfPokemonProducingRate(rate))}
+          {formatFloat(getTotalStrengthOfPokemonProduction(rate))}
         </div>
       </Flex>
       <Flex noFullWidth className="w-3/4">

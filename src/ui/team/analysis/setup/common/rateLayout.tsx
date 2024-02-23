@@ -8,13 +8,13 @@ import {NextImageProps} from '@/components/shared/common/image/main';
 import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {productionPeriodI18nId} from '@/const/game/production/i18n';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingRate} from '@/types/game/producing/rate/base';
-import {toProducingRateOfPeriod} from '@/utils/game/producing/convert';
+import {Production} from '@/types/game/producing/rate/base';
+import {toProductionOfPeriod} from '@/utils/game/producing/convert';
 import {formatFloat} from '@/utils/number/format/regular';
 
 
 export type TeamAnalysisRateLayoutProps = {
-  rate: ProducingRate | null,
+  rate: Production | null,
   period: ProductionPeriod,
   showQuantity: boolean,
   larger?: boolean,
@@ -34,7 +34,7 @@ export const TeamAnalysisRateLayout = ({
   const textClass = clsx(larger && 'text-xl');
   const dimension = larger ? 'size-6' : 'size-5';
 
-  const calculatedRate = rate && toProducingRateOfPeriod({rate, period});
+  const calculatedRate = rate && toProductionOfPeriod({rate, period});
 
   return (
     <Flex direction="row" noFullWidth center className="gap-0.5">

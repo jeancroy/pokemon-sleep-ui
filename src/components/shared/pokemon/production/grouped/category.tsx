@@ -5,7 +5,7 @@ import {clsx} from 'clsx';
 import {Flex} from '@/components/layout/flex/common';
 import {UnavailableIcon} from '@/components/shared/common/unavailable';
 import {PokemonProductionRateOfCategory} from '@/components/shared/pokemon/production/grouped/type';
-import {ProducingRate} from '@/types/game/producing/rate/base';
+import {Production} from '@/types/game/producing/rate/base';
 import {Dimension} from '@/types/style';
 import {toSum} from '@/utils/array';
 import {formatFloat} from '@/utils/number/format/regular';
@@ -15,7 +15,7 @@ import {isNotNullish} from '@/utils/type';
 type Props = {
   icon: React.ReactNode,
   data: PokemonProductionRateOfCategory[],
-  getReactNode: (id: number, rate: ProducingRate) => React.ReactNode,
+  getReactNode: (id: number, rate: Production) => React.ReactNode,
   showQuantity: boolean,
   dimension?: Dimension,
 };

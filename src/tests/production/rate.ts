@@ -1,10 +1,10 @@
 import {testDefaultCalculatedUserConfig} from '@/tests/data/user/config';
 import {EffectiveBonus} from '@/types/game/bonus/main';
-import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
-import {ToFinalProducingRateOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
+import {ProductionOfDrop} from '@/types/game/producing/rate/base';
+import {ToFinalProductionOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
-export const testBaseProducingRateOfDrop: ProducingRateOfDrop = {
+export const testBaseProductionOfDrop: ProductionOfDrop = {
   id: NaN,
   period: 'daily',
   frequency: NaN, // ignore
@@ -15,9 +15,9 @@ export const testBaseProducingRateOfDrop: ProducingRateOfDrop = {
   strengthPerHelp: NaN, // ignore
 };
 
-export const getTestFinalProducingRateOfDropCommonOpts = (
+export const getTestFinalProductionOfDropCommonOpts = (
   bonus: EffectiveBonus,
-): ToFinalProducingRateOfDropCommonOpts => ({
+): ToFinalProductionOfDropCommonOpts => ({
   fullPackStats: {
     bySleep: {
       primary: {

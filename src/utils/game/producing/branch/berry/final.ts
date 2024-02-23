@@ -1,16 +1,16 @@
-import {ProducingRateOfDrop, ProducingRateOfDropByStateWithPack} from '@/types/game/producing/rate/base';
-import {toFinalProducingRateOfDrop} from '@/utils/game/producing/toFinal/ofDrop';
-import {ToFinalProducingRateOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
+import {ProductionOfDrop, ProductionOfDropByStateWithPack} from '@/types/game/producing/rate/base';
+import {toFinalProductionOfDrop} from '@/utils/game/producing/toFinal/ofDrop';
+import {ToFinalProductionOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
-type GetBerryProducingRateFinalOpts = ToFinalProducingRateOfDropCommonOpts & {
-  base: ProducingRateOfDrop,
+type GetBerryProductionFinalOpts = ToFinalProductionOfDropCommonOpts & {
+  base: ProductionOfDrop,
 };
 
-export const getBerryProducingRateFinal = (
-  opts: GetBerryProducingRateFinalOpts,
-): ProducingRateOfDropByStateWithPack => {
-  return toFinalProducingRateOfDrop({
+export const getBerryProductionFinal = (
+  opts: GetBerryProductionFinalOpts,
+): ProductionOfDropByStateWithPack => {
+  return toFinalProductionOfDrop({
     produceType: 'berry',
     ...opts,
   });

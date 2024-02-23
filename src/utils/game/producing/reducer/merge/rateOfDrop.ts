@@ -1,24 +1,24 @@
-import {ProducingRateOfDrop} from '@/types/game/producing/rate/base';
+import {ProductionOfDrop} from '@/types/game/producing/rate/base';
 import {toSum} from '@/utils/array';
 import {getAverage} from '@/utils/number/average';
 
 
 type GetMergedRateOfDropOpts = {
-  rates: ProducingRateOfDrop[],
+  rates: ProductionOfDrop[],
   baseFrequency: number,
 };
 
 export const getMergedRateOfDrop = ({
   rates,
   baseFrequency,
-}: GetMergedRateOfDropOpts): ProducingRateOfDrop => {
+}: GetMergedRateOfDropOpts): ProductionOfDrop => {
   const firstRate = rates.at(0);
 
   if (!firstRate) {
     throw new Error('Empty rate data for merging');
   }
 
-  // Destruct then return so it errors when a new property is introduced in `ProducingRateOfDrop`
+  // Destruct then return so it errors when a new property is introduced in `ProductionOfDrop`
   const {id, period} = firstRate;
   const triggerRate = toSum(rates.map(({triggerRate}) => triggerRate));
 

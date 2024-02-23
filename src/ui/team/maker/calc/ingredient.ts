@@ -1,5 +1,5 @@
 import {IngredientCounter} from '@/types/game/ingredient';
-import {GroupedProducingRate} from '@/types/game/producing/rate/main';
+import {GroupedProduction} from '@/types/game/producing/rate/main';
 import {TeamMakerIngredientStats} from '@/ui/team/maker/type/common';
 import {addIngredientCount, subtractIngredientCount} from '@/utils/game/ingredient/counter';
 import {isNotNullish} from '@/utils/type';
@@ -8,7 +8,7 @@ import {isNotNullish} from '@/utils/type';
 type GetTeamMakerIngredientStatsOpts = {
   required: IngredientCounter,
   inventory: IngredientCounter,
-  production: GroupedProducingRate<number>,
+  production: GroupedProduction<number>,
 };
 
 export const getTeamMakerIngredientStats = ({

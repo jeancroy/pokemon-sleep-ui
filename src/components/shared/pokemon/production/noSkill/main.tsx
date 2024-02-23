@@ -9,14 +9,14 @@ import {ProducingStateIcon} from '@/components/shared/icon/producingState';
 import {
   sleepSessionToProducingStateForNoSkillProbability,
 } from '@/components/shared/pokemon/production/noSkill/const';
-import {ProducingRateContentCommonProps} from '@/components/shared/production/rate/type';
+import {ProductionContentCommonProps} from '@/components/shared/production/rate/type';
 import {pokemonProducingStateI18nId} from '@/const/game/production/i18n';
 import {Dimension} from '@/types/style';
 import {getNoSkillProbability, GetNoSkillProbabilityOpts} from '@/utils/game/producing/probability/noSkill';
 import {formatFloat} from '@/utils/number/format/regular';
 
 
-type Props = ProducingRateContentCommonProps & GetNoSkillProbabilityOpts;
+type Props = ProductionContentCommonProps & GetNoSkillProbabilityOpts;
 
 export const PokemonNoSkillProbability = ({normalSize, ...props}: Props) => {
   const {sleepSession} = props;

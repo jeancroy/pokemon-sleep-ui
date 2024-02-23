@@ -11,7 +11,7 @@ import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
-import {ProducingRateUI} from '@/components/shared/production/rate/main';
+import {ProductionUI} from '@/components/shared/production/rate/main';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
 
@@ -80,7 +80,7 @@ export const TeamMemberCollapsibleButton = ({
           />
         </Flex>
       </Flex>
-      <ProducingRateUI rate={total} hideQuantity normalSize className="self-center"/>
+      <ProductionUI rate={total} hideQuantity normalSize className="self-center"/>
       <PokemonProductionSplitFromPokemonRate
         rate={rate}
         state={stateOfRate}

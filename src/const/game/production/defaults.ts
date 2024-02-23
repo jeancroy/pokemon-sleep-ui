@@ -1,6 +1,6 @@
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {ProducingRateSingleParams} from '@/types/game/producing/rate/params';
+import {ProductionSingleParams} from '@/types/game/producing/rate/params';
 
 
 export const defaultProductionPeriod: ProductionPeriod = 'daily';
@@ -20,7 +20,7 @@ export const defaultProducingParams: Omit<PokemonProducingParams, 'pokemonId'> =
   },
 };
 
-export const defaultNeutralOpts: ProducingRateSingleParams = {
+export const defaultNeutralOpts: ProductionSingleParams = {
   subSkillBonus: defaultSubSkillBonus,
   natureId: null,
 };

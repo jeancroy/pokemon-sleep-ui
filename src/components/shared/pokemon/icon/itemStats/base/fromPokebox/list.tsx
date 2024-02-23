@@ -11,17 +11,17 @@ import {
 import {PokemonItemStatsList} from '@/components/shared/pokemon/icon/itemStats/base/list';
 import {PokemonIngredientIcons} from '@/components/shared/pokemon/ingredients/icons';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
-import {PokemonProducingRateSingleAtItem} from '@/components/shared/pokemon/production/single/item';
+import {PokemonProductionSingleAtItem} from '@/components/shared/pokemon/production/single/item';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {imageIconSizes} from '@/styles/image';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
-import {getPokemonProducingRateSingle} from '@/utils/game/producing/main/entry/single';
+import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
 import {
   getPokemonProducingParams,
-  getProducingRateImplicitParamsFromPokeInbox,
-  getProducingRateSingleParams,
+  getProductionImplicitParamsFromPokeInbox,
+  getProductionSingleParams,
 } from '@/utils/game/producing/params';
-import {getTotalStrengthOfPokemonProducingRate} from '@/utils/game/producing/reducer/total/strength';
+import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 import {isNotNullish} from '@/utils/type';
@@ -78,11 +78,11 @@ export const PokemonItemStatsFromPokeboxList = ({
       .filter(isNotNullish)
       .map(({pokeInBox, pokemonInfo: pokemon}) => {
         const ingredients = getEffectiveIngredientProductions(pokeInBox);
-        const singleParams = getProducingRateSingleParams({
+        const singleParams = getProductionSingleParams({
           ...props,
           ...pokeInBox,
         });
-        const pokemonRate = getPokemonProducingRateSingle({
+        const pokemonRate = getPokemonProductionSingle({
           ...props,
           level: pokeInBox.level,
           pokemon,
@@ -94,7 +94,7 @@ export const PokemonItemStatsFromPokeboxList = ({
           bundle,
           calculatedCookingConfig,
           ...singleParams,
-          ...getProducingRateImplicitParamsFromPokeInbox({pokeInBox}),
+          ...getProductionImplicitParamsFromPokeInbox({pokeInBox}),
           berryData: berryDataMap[pokemon.berry.id],
           ingredients,
           skillData: mainSkillMap[pokemon.skill],
@@ -106,7 +106,7 @@ export const PokemonItemStatsFromPokeboxList = ({
           pokemonRate,
           uniqueKey: pokeInBox.uuid,
           ingredients,
-          dailyTotalEnergy: getTotalStrengthOfPokemonProducingRate(pokemonRate),
+          dailyTotalEnergy: getTotalStrengthOfPokemonProduction(pokemonRate),
         };
       })
   ), [pokeInBoxList, ...reCalcDeps]);
@@ -152,7 +152,7 @@ export const PokemonItemStatsFromPokeboxList = ({
                 </div>
               </Flex>
               <PokemonIngredientIcons ingredients={[ingredients]} noLink/>
-              <PokemonProducingRateSingleAtItem
+              <PokemonProductionSingleAtItem
                 rate={itemRate}
                 getIcon={(dimension) => getIcon(pokemon, dimension)}
                 hideFrequency

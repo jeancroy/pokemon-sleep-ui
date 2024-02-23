@@ -1,9 +1,9 @@
-import {PokemonProducingRate} from '@/types/game/producing/rate/main';
+import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {SleepSession} from '@/types/game/sleep';
 
 
 export type GetNoSkillProbabilityOpts = {
-  rate: PokemonProducingRate,
+  rate: PokemonProduction,
   sleepSession: SleepSession,
 };
 

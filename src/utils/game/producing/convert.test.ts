@@ -1,12 +1,12 @@
 import {describe, expect, it} from '@jest/globals';
 
 
-import {toProducingRateOfPeriod} from '@/utils/game/producing/convert';
+import {toProductionOfPeriod} from '@/utils/game/producing/convert';
 
 
 describe('Pokemon Production (Convert) / By Period', () => {
   it('is correct when rate period = desired period', () => {
-    const {period, qty, strength} = toProducingRateOfPeriod({
+    const {period, qty, strength} = toProductionOfPeriod({
       period: 'daily',
       rate: {
         period: 'daily',
@@ -21,7 +21,7 @@ describe('Pokemon Production (Convert) / By Period', () => {
   });
 
   it('is correct when rate period is daily and desired period is weekly', () => {
-    const {period, qty, strength} = toProducingRateOfPeriod({
+    const {period, qty, strength} = toProductionOfPeriod({
       period: 'weekly',
       rate: {
         period: 'daily',
@@ -36,7 +36,7 @@ describe('Pokemon Production (Convert) / By Period', () => {
   });
 
   it('is correct when rate period is weekly and desired period is daily', () => {
-    const {period, qty, strength} = toProducingRateOfPeriod({
+    const {period, qty, strength} = toProductionOfPeriod({
       period: 'daily',
       rate: {
         period: 'weekly',
