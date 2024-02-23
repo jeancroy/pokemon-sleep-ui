@@ -10,7 +10,7 @@ import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {GenericIngredientSlashIcon} from '@/components/shared/icon/ingredientSlash';
 import {IngredientSelectionInput} from '@/components/shared/input/ingredient/selection';
 import {MealTypeInput} from '@/components/shared/input/mealType';
-import {MealDisplayControl} from '@/components/shared/meal/control';
+import {MealDisplayControl} from '@/components/shared/meal/filter/control';
 import {MealInputFilter} from '@/components/shared/meal/filter/type';
 import {MealLevelInput} from '@/components/shared/meal/level';
 import {useUniqueMealStrengthBonusPercent} from '@/hooks/meal/bonusPercent';
@@ -89,8 +89,8 @@ export const MealFilter = <TFilter extends MealInputFilter>({
         />
       </InputRow>
       <MealDisplayControl
-        showStrength={filter.showStats}
-        setShowStrength={(showInfo) => setFilter((original) => ({
+        showStats={filter.showStats}
+        setShowStats={(showInfo) => setFilter((original) => ({
           ...original,
           showStats: showInfo,
         }))}
