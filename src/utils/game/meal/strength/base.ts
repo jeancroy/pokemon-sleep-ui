@@ -10,21 +10,21 @@ export const getMealBaseStrength = ({
   ingredientMap,
   recipeLevelData,
 }: GetMealStrengthOpts): MealStrengthInfo => {
+  const bonusMultiplier = getMealStrengthBonusMultiplier({meal, ingredientMap});
   const {
-    strengthBase,
     strengthAfterBonus,
     multiplier,
-  } = getMealStrengthBonusMultiplier({meal, ingredientMap});
+  } = bonusMultiplier;
   const levelBonus = 1 + (getRecipeLevelDataAtLevel({recipeLevelData, level})?.bonus ?? 0);
 
   return {
+    level,
     bonus: {
       level: levelBonus,
       rarity: multiplier,
       total: levelBonus * multiplier,
     },
-    strengthBase,
-    strengthAfterBonus,
     strengthFinal: Math.round(strengthAfterBonus * levelBonus),
+    ...bonusMultiplier,
   };
 };
