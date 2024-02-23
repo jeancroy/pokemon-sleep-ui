@@ -37,7 +37,12 @@ export const MealIndex = async ({params}: DefaultPageProps) => {
 
   return (
     <PublicPageLayout locale={locale}>
-      <I18nProvider locale={locale} namespaces={['Game', 'UI.InPage.Cooking']}>
+      <I18nProvider locale={locale} namespaces={[
+        'Game',
+        'UI.Common',
+        'UI.Component.MealFilter',
+        'UI.InPage.Cooking',
+      ]}>
         <MealIndexClient {...props}/>
       </I18nProvider>
     </PublicPageLayout>

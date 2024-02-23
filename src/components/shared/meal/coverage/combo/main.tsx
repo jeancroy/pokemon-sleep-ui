@@ -68,9 +68,7 @@ export const MealCoverageCombo = (props: MealCoverageComboCommonProps) => {
         filterKey="mealType"
       />
       <IngredientSelectionInput
-        title={
-          <GenericIngredientSlashIcon alt={t('IngredientExclusion')}/>
-        }
+        title={<GenericIngredientSlashIcon alt={t('IngredientExclusion')}/>}
         ingredientIds={ingredientIds}
         {...getMultiSelectOnClickProps({
           filter,

@@ -37,7 +37,13 @@ export const PotInfo = async ({params}: DefaultPageProps) => {
 
   return (
     <PublicPageLayout locale={locale}>
-      <I18nProvider locale={locale} namespaces={['Game', 'UI.InPage.Cooking', 'UI.InPage.Info.Pot']}>
+      <I18nProvider locale={locale} namespaces={[
+        'Game',
+        'UI.Common',
+        'UI.Component.MealFilter',
+        'UI.InPage.Cooking',
+        'UI.InPage.Info.Pot',
+      ]}>
         <PotInfoClient {...props}/>
       </I18nProvider>
     </PublicPageLayout>

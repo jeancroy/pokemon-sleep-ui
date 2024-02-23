@@ -1,35 +1,57 @@
 'use client';
 import React from 'react';
 
-import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
-import {usePotInfoFilter} from '@/ui/info/pot/hook';
-import {PotInfoInput} from '@/ui/info/pot/input';
-import {PotInfoDataProps} from '@/ui/info/pot/type';
+import {useSession} from 'next-auth/react';
+
+import {useMealInputFilter} from '@/components/shared/meal/filter/hook';
+import {MealFilter} from '@/components/shared/meal/filter/main';
+import {generateEmptyMealFilter} from '@/components/shared/meal/filter/utils';
+import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
+import {PotInfoDataProps, PotInfoFilter} from '@/ui/info/pot/type';
 import {PotRecipeUnlockTable} from '@/ui/info/pot/unlockTable';
 import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {isNotNullish} from '@/utils/type';
 
 
 export const PotInfoClient = (props: PotInfoDataProps) => {
-  const {mealMap, recipeLevelData, preloaded} = props;
-
-  const {filter, setFilter, isIncluded} = usePotInfoFilter(props);
-
+  const {mealMap, ingredientMap, recipeLevelData, preloaded} = props;
   const meals = Object.values(mealMap).filter(isNotNullish);
-  const validMeals = React.useMemo(() => meals.filter(({id}) => isIncluded[id]), [filter]);
-  const mealTypes = usePossibleMealTypes(meals);
+
+  const {data: session} = useSession();
+  const calculatedConfigBundle = useCalculatedConfigBundle({
+    bundle: {
+      server: preloaded,
+      client: session?.user.preloaded,
+    },
+    ...props,
+  });
+
+  const {
+    filter,
+    setFilter,
+    isIncluded,
+    data,
+  } = useMealInputFilter<PotInfoFilter>({
+    ingredientMap,
+    recipeLevelData,
+    meals,
+    calculatedConfigBundle,
+    initialFilter: ({
+      ...generateEmptyMealFilter(),
+      capacity: 0,
+    }),
+  });
 
   return (
     <>
-      <PotInfoInput
-        {...props}
+      <MealFilter
         filter={filter}
         setFilter={setFilter}
-        maxMealLevel={getMaxRecipeLevel({recipeLevelData})}
-        mealTypes={mealTypes}
-        preloaded={preloaded.cookingConfig}
+        meals={meals}
+        ingredientMap={ingredientMap}
+        maxRecipeLevel={getMaxRecipeLevel({recipeLevelData})}
       />
-      <PotRecipeUnlockTable filter={filter} validMeals={validMeals} {...props}/>
+      <PotRecipeUnlockTable filter={filter} mealDetails={data} isMealIncluded={isIncluded} {...props}/>
     </>
   );
 };

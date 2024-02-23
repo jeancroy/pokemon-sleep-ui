@@ -3,39 +3,37 @@ import React from 'react';
 import XCircleIcon from '@heroicons/react/24/outline/XCircleIcon';
 import {useTranslations} from 'next-intl';
 
+import {FilterInclusionMap} from '@/components/input/filter/type';
+import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {GenericIcon} from '@/components/shared/icon/common/main';
 import {PotIcon} from '@/components/shared/icon/pot';
-import {MealLink} from '@/components/shared/meal/link';
-import {Meal} from '@/types/game/meal/main';
-import {CalculatedUserConfig} from '@/types/userData/config/user/main';
-import {PotInfoDataProps, PotInfoFilter, PotLevelInfo} from '@/ui/info/pot/type';
+import {MealLink} from '@/components/shared/meal/link/main';
+import {MealDetails, MealId} from '@/types/game/meal/main';
+import {PotInfoFilter, PotLevelInfo} from '@/ui/info/pot/type';
 import {formatInt} from '@/utils/number/format/regular';
 
 
-type Props = Omit<PotInfoDataProps, 'mealMap'> & {
+type Props = {
   filter: PotInfoFilter,
   cumulativeCost: number,
   potInfo: PotLevelInfo,
-  unlockedMeals: Meal[],
   unlockedRecipes: number,
-  calculatedUserConfig: CalculatedUserConfig,
+  mealDetails: MealDetails[],
+  isMealIncluded: FilterInclusionMap<MealId>,
 };
 
 export const PotRecipeUnlockSection = ({
-  ingredientMap,
-  recipeLevelData,
   filter,
   cumulativeCost,
   potInfo,
-  unlockedMeals,
   unlockedRecipes,
-  calculatedUserConfig,
+  mealDetails,
+  isMealIncluded,
 }: Props) => {
-  const {mealLevel, capacity, showEnergy} = filter;
-  const {mapMultiplier, strengthMultiplier} = calculatedUserConfig.bonus;
+  const {showStats, capacity} = filter;
 
   const t = useTranslations('UI.InPage.Info.Pot');
 
@@ -59,24 +57,20 @@ export const PotRecipeUnlockSection = ({
           <GenericIcon src="/images/generic/meal.png" alt={t('UnlockedRecipes')} dimension="size-7"/>
           <Flex noFullWidth className="gap-0.5">
             <div>{unlockedRecipes}</div>
-            <div className="text-xs">(+{unlockedMeals.length})</div>
+            <div className="text-xs">(+{mealDetails.length})</div>
           </Flex>
         </Flex>
       </Flex>
       <HorizontalSplitter className="block md:hidden"/>
-      {unlockedMeals.length ?
+      {mealDetails.length ?
         <Grid className="grid-cols-1 gap-1.5 xs:grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          {unlockedMeals.map((meal) => (
-            <MealLink
-              key={meal.id}
-              meal={meal}
-              level={mealLevel}
-              showEnergy={showEnergy}
-              ingredientMap={ingredientMap}
-              recipeLevelData={recipeLevelData}
-              mapMultiplier={mapMultiplier}
-              strengthMultiplier={strengthMultiplier.cooking}
-            />
+          {mealDetails.map((mealDetails) => (
+            <AnimatedCollapse key={mealDetails.meal.id} appear show={!!isMealIncluded[mealDetails.meal.id]}>
+              <MealLink
+                mealDetails={mealDetails}
+                showStats={showStats}
+              />
+            </AnimatedCollapse>
           ))}
         </Grid> :
         <XCircleIcon className="m-auto size-10"/>}

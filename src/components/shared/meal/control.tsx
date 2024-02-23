@@ -9,35 +9,31 @@ import {InputRow} from '@/components/input/filter/row';
 import {ToggleButton} from '@/components/input/toggleButton';
 import {Flex} from '@/components/layout/flex/common';
 import {EnergyIcon} from '@/components/shared/icon/energy';
-import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {textFilterButtonStyle} from '@/styles/input';
-import {CookingConfig} from '@/types/userData/config/cooking/main';
 
 
 type Props = {
-  showEnergy: boolean,
-  setShowEnergy: (updated: boolean) => void,
-  uploadData: CookingConfig,
+  showStrength: boolean,
+  setShowStrength: (updated: boolean) => void,
 };
 
-export const MealDisplayControl = ({showEnergy, setShowEnergy, uploadData}: Props) => {
+export const MealDisplayControl = ({showStrength, setShowStrength}: Props) => {
   const t = useTranslations('UI.InPage.Cooking');
 
   return (
     <InputRow className="justify-end gap-2">
       <ToggleButton
-        active={showEnergy}
-        onClick={() => setShowEnergy(!showEnergy)}
+        active={showStrength}
+        onClick={() => setShowStrength(!showStrength)}
         className={clsx('group', textFilterButtonStyle)}
       >
         <Flex direction="row" center noFullWidth className="gap-1">
           <div className="size-5">
-            {showEnergy ? <EyeIcon/> : <EyeSlashIcon/>}
+            {showStrength ? <EyeIcon/> : <EyeSlashIcon/>}
           </div>
-          <EnergyIcon alt={t('Energy')} noInvert isActive={showEnergy}/>
+          <EnergyIcon alt={t('Energy')} noInvert isActive={showStrength}/>
         </Flex>
       </ToggleButton>
-      <UserDataUploadButton opts={{type: 'config.cooking', data: uploadData}}/>
     </InputRow>
   );
 };

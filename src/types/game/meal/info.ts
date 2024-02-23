@@ -11,7 +11,7 @@ export type MealInfo = MealStrengthBonusMultiplier & {
 };
 
 export type MealStrengthInfo = MealInfo & {
-  level: number,
+  level: number | null,
   strengthFinal: number,
 };
 
