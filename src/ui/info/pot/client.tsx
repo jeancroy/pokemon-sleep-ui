@@ -4,12 +4,11 @@ import React from 'react';
 import {useSession} from 'next-auth/react';
 
 import {useMealInputFilter} from '@/components/shared/meal/filter/hook';
-import {MealFilter} from '@/components/shared/meal/filter/main';
 import {generateEmptyMealFilter} from '@/components/shared/meal/filter/utils';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
+import {PotInfoInput} from '@/ui/info/pot/input';
 import {PotInfoDataProps, PotInfoFilter} from '@/ui/info/pot/type';
-import {PotRecipeUnlockTable} from '@/ui/info/pot/unlockTable';
-import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
+import {PotRecipeUnlockTable} from '@/ui/info/pot/unlock/main';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -38,20 +37,20 @@ export const PotInfoClient = (props: PotInfoDataProps) => {
     calculatedConfigBundle,
     initialFilter: ({
       ...generateEmptyMealFilter(),
-      capacity: 0,
+      capacity: calculatedConfigBundle.bundle.cookingConfig.potCapacity,
     }),
   });
 
   return (
     <>
-      <MealFilter
+      <PotInfoInput
         filter={filter}
         setFilter={setFilter}
-        meals={meals}
         ingredientMap={ingredientMap}
-        maxRecipeLevel={getMaxRecipeLevel({recipeLevelData})}
+        recipeLevelData={recipeLevelData}
+        meals={meals}
       />
-      <PotRecipeUnlockTable filter={filter} mealDetails={data} isMealIncluded={isIncluded} {...props}/>
+      <PotRecipeUnlockTable filter={filter} mealDetails={data} isMealIncluded={isIncluded}/>
     </>
   );
 };
