@@ -46,7 +46,7 @@
       "CoveredStrength": "Abgedeckte Stärke"
     },
     "MealFilter": {
-      "IngredientInclusion": "Ingredient Inclusion",
+      "IngredientInclusion": "Zutaten-Inklusion",
       "IngredientExclusion": "Zutaten Ausschluss",
       "MinRecipeBonus": "Min. Rezept-Bonus"
     },
