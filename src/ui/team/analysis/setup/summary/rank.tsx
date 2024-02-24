@@ -12,15 +12,15 @@ import {SnorlaxDataOfMap} from '@/types/game/snorlax';
 
 
 type Props = {
-  energy: number,
+  strength: number,
   snorlaxData: SnorlaxDataOfMap[],
 };
 
-export const TeamAnalysisSnorlaxRank = ({energy, snorlaxData}: Props) => {
+export const TeamAnalysisSnorlaxRank = ({strength, snorlaxData}: Props) => {
   const t = useTranslations('Game.Field');
 
   const snorlaxRank = useSnorlaxRankFinalEstimate({
-    energy,
+    strength,
     snorlaxData,
   });
 

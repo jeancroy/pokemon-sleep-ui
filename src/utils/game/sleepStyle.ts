@@ -10,7 +10,7 @@ import {
 } from '@/types/game/sleepStyle';
 import {SnorlaxDataOfMap} from '@/types/game/snorlax';
 import {toSleepdexStyleId} from '@/utils/game/sleepdex';
-import {getSnorlaxRankAtEnergy, sortBySnorlaxRankAsc} from '@/utils/game/snorlax';
+import {getSnorlaxRankAtStrength, sortBySnorlaxRankAsc} from '@/utils/game/snorlax';
 import {isNotNullish, Nullable} from '@/utils/type';
 
 
@@ -28,11 +28,11 @@ export const getSpoRequirement = ({
   snorlaxData,
 }: GetSpoRequirementOpts): SleepStyleSpoRequirement => {
   const drowsyScore = spo * spoToDrowsyScoreMultiplier;
-  const snorlaxStrength = drowsyScore / drowsyPowerMultiplier;
+  const strength = drowsyScore / drowsyPowerMultiplier;
 
   const rankRequirement = [
     snorlaxData ?
-      getSnorlaxRankAtEnergy({energy: snorlaxStrength, data: snorlaxData.data})?.rank :
+      getSnorlaxRankAtStrength({strength, data: snorlaxData.data})?.rank :
       null,
   ];
   if (sleepStyleUnlockRank) {
@@ -47,7 +47,7 @@ export const getSpoRequirement = ({
   return {
     spo,
     drowsyScore,
-    snorlaxStrength,
+    snorlaxStrength: strength,
     snorlaxRankMinimum,
   };
 };

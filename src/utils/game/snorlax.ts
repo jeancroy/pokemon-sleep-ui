@@ -3,18 +3,18 @@ import {SnorlaxRank} from '@/types/game/rank';
 import {SnorlaxDataAtRank, SnorlaxDataOfMap} from '@/types/game/snorlax';
 
 
-type GetSnorlaxRankAtEnergyProps = {
-  energy: number,
+type GetSnorlaxRankAtStrengthProps = {
+  strength: number,
   data: SnorlaxDataAtRank[],
 };
 
-export const getSnorlaxRankAtEnergy = ({
-  energy,
+export const getSnorlaxRankAtStrength = ({
+  strength,
   data,
-}: GetSnorlaxRankAtEnergyProps): SnorlaxDataAtRank | undefined => {
+}: GetSnorlaxRankAtStrengthProps): SnorlaxDataAtRank | undefined => {
   const sorted = data.sort((a, b) => b.energy - a.energy);
 
-  return sorted.find((rankData) => rankData.energy < energy) ?? sorted.at(-1);
+  return sorted.find((rankData) => rankData.energy < strength) ?? sorted.at(-1);
 };
 
 export const isSameRank = (a: SnorlaxRank, b: SnorlaxRank): boolean => a.title === b.title && a.number === b.number;

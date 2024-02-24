@@ -1,17 +1,17 @@
 import {SnorlaxRankFinalEstimate} from '@/types/game/rank';
 import {SnorlaxDataOfMap} from '@/types/game/snorlax';
-import {getSnorlaxRankAtEnergy} from '@/utils/game/snorlax';
+import {getSnorlaxRankAtStrength} from '@/utils/game/snorlax';
 
 
 export type GetSnorlaxRankFinalEstimateOpts = {
-  energy: number,
+  strength: number,
   snorlaxData: SnorlaxDataOfMap[],
 };
 
 export const getSnorlaxRankFinalEstimate = ({
-  energy,
+  strength,
   snorlaxData,
 }: GetSnorlaxRankFinalEstimateOpts) => snorlaxData.map(({mapId, data}): SnorlaxRankFinalEstimate => ({
   mapId,
-  rank: getSnorlaxRankAtEnergy({energy, data}),
+  rank: getSnorlaxRankAtStrength({strength, data}),
 }));

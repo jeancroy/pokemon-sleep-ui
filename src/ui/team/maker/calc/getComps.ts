@@ -98,7 +98,7 @@ export const getTeamMakerComps = ({
       },
       ingredientStats,
       finalEstimates: getSnorlaxRankFinalEstimate({
-        energy: strengthTotal,
+        strength: strengthTotal,
         snorlaxData,
       }),
     });

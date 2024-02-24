@@ -29,5 +29,5 @@ export type TeamProducingStats = TeamCompCalcResult & {
 
 export type TeamFinalEstimateInput = {
   endsAt: string,
-  currentEnergy: number,
+  currentStrength: number,
 };

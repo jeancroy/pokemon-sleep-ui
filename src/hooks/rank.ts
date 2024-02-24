@@ -5,7 +5,7 @@ import {getSnorlaxRankFinalEstimate, GetSnorlaxRankFinalEstimateOpts} from '@/ut
 
 
 export const useSnorlaxRankFinalEstimate = (opts: GetSnorlaxRankFinalEstimateOpts): SnorlaxRankFinalEstimate[] => {
-  const {energy} = opts;
+  const {strength} = opts;
 
-  return React.useMemo(() => getSnorlaxRankFinalEstimate(opts), [energy]);
+  return React.useMemo(() => getSnorlaxRankFinalEstimate(opts), [strength]);
 };

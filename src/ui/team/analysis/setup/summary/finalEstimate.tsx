@@ -16,10 +16,10 @@ import {toProductionOfPeriod} from '@/utils/game/producing/convert';
 
 
 type Props = Pick<TeamAnalysisDataProps, 'snorlaxData'> & {
-  energyRate: Production,
+  strengthProduction: Production,
 };
 
-export const TeamAnalysisFinalEstimate = ({energyRate, snorlaxData}: Props) => {
+export const TeamAnalysisFinalEstimate = ({strengthProduction, snorlaxData}: Props) => {
   const t = useTranslations('UI.InPage.Team');
 
   const [estimateInput, setEstimateInput] = React.useState<TeamFinalEstimateInput>(() => {
@@ -28,15 +28,15 @@ export const TeamAnalysisFinalEstimate = ({energyRate, snorlaxData}: Props) => {
     endsAt.setDate(endsAt.getDate() + 7);
 
     return {
-      currentEnergy: 0,
+      currentStrength: 0,
       endsAt: `${toIsoDateString(endsAt)}T04:00`,
     };
   });
-  const {currentEnergy, endsAt} = estimateInput;
-  const finalEnergy = (
-    currentEnergy +
+  const {currentStrength, endsAt} = estimateInput;
+  const finalStrength = (
+    currentStrength +
     (
-      toProductionOfPeriod({rate: energyRate, period: 'daily'}).strength *
+      toProductionOfPeriod({rate: strengthProduction, period: 'daily'}).strength *
       (new Date(endsAt).getTime() - Date.now()) /
       (durationOfDay * 1000)
     )
@@ -64,15 +64,15 @@ export const TeamAnalysisFinalEstimate = ({energyRate, snorlaxData}: Props) => {
             type="number"
             min={0}
             className="w-20 text-center"
-            value={currentEnergy.toString()}
+            value={currentStrength.toString()}
             onChange={({target}) => setEstimateInput((original) => ({
               ...original,
-              currentEnergy: Number(target.value),
+              currentStrength: Number(target.value),
             }))}
           />
         </Flex>
       </Flex>
-      <TeamAnalysisSnorlaxRank energy={finalEnergy} snorlaxData={snorlaxData}/>
+      <TeamAnalysisSnorlaxRank strength={finalStrength} snorlaxData={snorlaxData}/>
     </Flex>
   );
 };

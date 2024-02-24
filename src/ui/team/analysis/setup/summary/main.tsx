@@ -29,7 +29,7 @@ export const TeamAnalysisSummary = ({snorlaxData, stats, period}: Props) => {
 
   return (
     <Flex className="info-section-bg items-end justify-end gap-3 rounded-lg p-2 md:flex-row">
-      <TeamAnalysisFinalEstimate energyRate={stats.overall} snorlaxData={snorlaxData}/>
+      <TeamAnalysisFinalEstimate strengthProduction={stats.overall} snorlaxData={snorlaxData}/>
       <Flex className="justify-end gap-1.5 md:w-fit">
         <Flex direction="row" noFullWidth wrap className="justify-end gap-x-4 gap-y-1.5">
           <TeamAnalysisRateLayout
