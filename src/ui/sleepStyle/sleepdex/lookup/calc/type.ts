@@ -1,5 +1,5 @@
 import {FilterInclusionMap} from '@/components/input/filter/type';
-import {SleepdexStyleId} from '@/types/game/sleepdex';
+import {SleepStyleInternalId} from '@/types/game/sleepStyle';
 import {
   SleepdexLookupDataEntry,
   SleepdexLookupSortType,
@@ -8,6 +8,6 @@ import {
 
 export type SleepdexLookupDataCalcWorkerOpts = {
   entries: SleepdexLookupDataEntry[],
-  isIncluded: FilterInclusionMap<SleepdexStyleId>,
+  isIncluded: FilterInclusionMap<SleepStyleInternalId>,
   sort: SleepdexLookupSortType,
 };

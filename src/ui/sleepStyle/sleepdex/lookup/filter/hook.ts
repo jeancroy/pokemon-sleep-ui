@@ -1,7 +1,7 @@
 import {useFilterInput} from '@/components/input/filter/hook';
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
-import {SleepdexStyleId} from '@/types/game/sleepdex';
+import {SleepStyleInternalId} from '@/types/game/sleepStyle';
 import {enforceFilterSelectedMapToShowSnorlaxRank} from '@/ui/sleepStyle/sleepdex/lookup/filter/enforcer';
 import {
   SleepdexLookupDataEntry,
@@ -24,7 +24,7 @@ export const useSleepdexLookupFilter = ({
   eventDrowsyPowerMultiplierData,
   ...opts
 }: UseSleepdexLookupFilterOpts) => {
-  return useFilterInput<SleepdexLookupFilter, SleepdexLookupDataEntry, SleepdexStyleId>({
+  return useFilterInput<SleepdexLookupFilter, SleepdexLookupDataEntry, SleepStyleInternalId>({
     data: ({mapId, drowsyPowerMultiplier}) => getSleepStyleMerged(sleepStyles)
       .map((sleepStyle): SleepdexLookupDataEntry | null => {
         const {pokemonId, spo, style} = sleepStyle;
@@ -50,10 +50,7 @@ export const useSleepdexLookupFilter = ({
         };
       })
       .filter(isNotNullish),
-    dataToId: ({sleepStyle}) => toSleepdexStyleId({
-      pokemonId: sleepStyle.pokemonId,
-      styleId: sleepStyle.style,
-    }),
+    dataToId: ({sleepStyle}) => sleepStyle.internalId,
     initialFilter: {
       ...generatePokemonInputFilter({isLevelAgnostic: true}),
       mapId: null,

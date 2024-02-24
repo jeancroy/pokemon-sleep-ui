@@ -7,7 +7,7 @@ const onMessage = async ({data}: MessageEvent<SleepdexLookupDataCalcWorkerOpts>)
   const {entries, sort, isIncluded} = data;
 
   const result: SleepdexLookupDataEntry[] = entries
-    .filter(({sleepdexStyleId}) => isIncluded[sleepdexStyleId])
+    .filter(({sleepStyle}) => isIncluded[sleepStyle.internalId])
     .map((data) => ({
       data,
       sortBasis: sleepdexLookupEntriesSortBasisGetter[sort](data),
