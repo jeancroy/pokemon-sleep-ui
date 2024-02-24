@@ -40,13 +40,13 @@ export const useSleepdexLookupFilter = ({
             styleId: style,
           }),
           sleepStyle,
+          pokemon,
           spoRequirement: getSpoRequirement({
             spo,
             drowsyPowerMultiplier,
-            sleepStyleUnlockRank: sleepStyle.rank,
+            sleepStyleUnlockRank: mapId ? sleepStyle.rank[mapId] : null,
             snorlaxData: mapId ? snorlaxDataMap[mapId] : null,
           }),
-          pokemon,
         };
       })
       .filter(isNotNullish),
@@ -61,7 +61,7 @@ export const useSleepdexLookupFilter = ({
       sort: 'drowsyPowerRequirement',
     },
     isDataIncluded: (filter, data) => {
-      if (filter.mapId !== null && !data.sleepStyle.mapIds.includes(filter.mapId)) {
+      if (filter.mapId !== null && !Object.keys(data.sleepStyle.rank).includes(filter.mapId.toString())) {
         return false;
       }
 

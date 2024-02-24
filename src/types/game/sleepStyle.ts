@@ -63,7 +63,6 @@ export type SleepStyleSpecialMap = {[id in PokemonId]?: SleepStyleSpecial[]};
 
 export type SleepStyleMerged = SleepStyleCommon & {
   pokemonId: PokemonId,
-  mapIds: SleepMapId[],
-  rank: SnorlaxRank | null,
+  rank: {[map in SleepMapId]?: SnorlaxRank},
   incenseOnly: boolean,
 };

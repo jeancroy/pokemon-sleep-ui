@@ -9,7 +9,6 @@ import {
   SleepStyleSpoRequirement,
 } from '@/types/game/sleepStyle';
 import {SnorlaxDataOfMap} from '@/types/game/snorlax';
-import {toSleepdexStyleId} from '@/utils/game/sleepdex';
 import {getSnorlaxRankAtStrength, sortBySnorlaxRankAsc} from '@/utils/game/snorlax';
 import {isNotNullish, Nullable} from '@/utils/type';
 
@@ -60,33 +59,27 @@ type GetSleepStyleMergedOpts = {
 export const getSleepStyleMerged = ({normal, special}: GetSleepStyleMergedOpts): SleepStyleMerged[] => {
   const groupedNormal = groupBy(
     normal,
-    ({pokemonId, style}) => toSleepdexStyleId({
-      pokemonId,
-      styleId: style.style,
-    }),
+    ({style}) => style.internalId,
   );
 
   return [
-    ...Object.values(groupedNormal)
-      .map((normalStyles): SleepStyleMerged | null => {
-        const first = normalStyles.at(0);
+    ...Object.values(groupedNormal).map((normalStyles): SleepStyleMerged | null => {
+      const first = normalStyles.at(0);
 
-        if (!first) {
-          return null;
-        }
+      if (!first) {
+        return null;
+      }
 
-        return {
-          ...first.style,
-          pokemonId: first.pokemonId,
-          mapIds: normalStyles.map(({mapId}) => mapId),
-          incenseOnly: false,
-        };
-      })
-      .filter(isNotNullish),
+      return {
+        ...first.style,
+        pokemonId: first.pokemonId,
+        rank: Object.fromEntries(normalStyles.map(({mapId, style}) => [mapId, style.rank])),
+        incenseOnly: false,
+      };
+    }).filter(isNotNullish),
     ...special.map(({pokemonId, ...style}): SleepStyleMerged => ({
       pokemonId,
-      mapIds: [],
-      rank: null,
+      rank: {},
       incenseOnly: !style.unreleased,
       ...style,
     })),
