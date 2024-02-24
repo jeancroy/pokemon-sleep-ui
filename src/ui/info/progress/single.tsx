@@ -13,8 +13,8 @@ import {PotIcon} from '@/components/shared/icon/pot';
 import {ItemPackUI} from '@/components/shared/item/pack';
 import {MapLink} from '@/components/shared/map/link';
 import {gameFeatureI18nId} from '@/const/game/progress';
-import {potCapacityData} from '@/data/potCapacity';
 import {PokedexMap} from '@/types/game/pokemon';
+import {PotInfo} from '@/types/game/potInfo';
 import {GameProgressData} from '@/types/game/progress';
 import {GameProgressInfoSection} from '@/ui/info/progress/section';
 import {getItemPackKey} from '@/utils/game/item';
@@ -23,10 +23,11 @@ import {formatInt} from '@/utils/number/format/regular';
 
 type Props = {
   pokedexMap: PokedexMap,
+  potInfoList: PotInfo[],
   data: GameProgressData,
 };
 
-export const GameProgressSingle = ({pokedexMap, data}: Props) => {
+export const GameProgressSingle = ({pokedexMap, potInfoList, data}: Props) => {
   const {
     sleepStyleUnlocksRequired,
     mapUnlock,
@@ -89,7 +90,7 @@ export const GameProgressSingle = ({pokedexMap, data}: Props) => {
         </>
       }>
         <span className="text-xl">
-          {potCapacityData.find(({level}) => level === maxPotLevel)?.capacity ?? '-'}
+          {potInfoList.find(({level}) => level === maxPotLevel)?.capacity ?? '-'}
         </span>
       </GameProgressInfoSection>
       <GameProgressInfoSection title={

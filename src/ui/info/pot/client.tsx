@@ -13,7 +13,13 @@ import {isNotNullish} from '@/utils/type';
 
 
 export const PotInfoClient = (props: PotInfoDataProps) => {
-  const {mealMap, ingredientMap, recipeLevelData, preloaded} = props;
+  const {
+    mealMap,
+    ingredientMap,
+    potInfoList,
+    recipeLevelData,
+    preloaded,
+  } = props;
   const meals = Object.values(mealMap).filter(isNotNullish);
 
   const {data: session} = useSession();
@@ -47,10 +53,16 @@ export const PotInfoClient = (props: PotInfoDataProps) => {
         filter={filter}
         setFilter={setFilter}
         ingredientMap={ingredientMap}
+        potInfoList={potInfoList}
         recipeLevelData={recipeLevelData}
         meals={meals}
       />
-      <PotRecipeUnlockTable filter={filter} mealDetails={data} isMealIncluded={isIncluded}/>
+      <PotRecipeUnlockTable
+        filter={filter}
+        mealDetails={data}
+        potInfoList={potInfoList}
+        isMealIncluded={isIncluded}
+      />
     </>
   );
 };

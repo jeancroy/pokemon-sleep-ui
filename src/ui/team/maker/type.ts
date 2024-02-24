@@ -6,6 +6,7 @@ import {PokedexMap} from '@/types/game/pokemon';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
+import {PotInfo} from '@/types/game/potInfo';
 import {SnorlaxDataOfMap} from '@/types/game/snorlax';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
@@ -21,6 +22,7 @@ export type TeamMakerServerDataProps = UsePokemonFilterCommonData & ConfigRequir
   mapMeta: FieldMetaMap,
   snorlaxData: SnorlaxDataOfMap[],
   recipeLevelData: RecipeLevelData[],
+  potInfoList: PotInfo[],
   pokemonMaxLevel: number,
   preloaded: ConfigBundle,
 };

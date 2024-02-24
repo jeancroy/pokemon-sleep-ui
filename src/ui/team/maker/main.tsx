@@ -12,6 +12,7 @@ import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap} from '@/controller/mapMeta';
 import {getPokedexMap} from '@/controller/pokemon/info';
 import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
+import {getPotInfoList} from '@/controller/potInfo';
 import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSnorlaxData} from '@/controller/snorlax';
 import {getSubSkillMap} from '@/controller/subSkill';
@@ -41,6 +42,7 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     mapMeta,
     snorlaxData,
     pokemonMaxLevel,
+    potInfoList,
     recipeLevelData,
     configRequiredData,
   ] = await Promise.all([
@@ -54,6 +56,7 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     getFieldMetaMap(),
     getSnorlaxData(),
     getPokemonMaxLevelByBerry(),
+    getPotInfoList(),
     getRecipeLevelData(),
     getConfigRequiredData(),
   ]);
@@ -69,6 +72,7 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     mapMeta,
     snorlaxData,
     pokemonMaxLevel,
+    potInfoList,
     recipeLevelData,
     preloaded: createConfigBundle(session),
     ...configRequiredData,

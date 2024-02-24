@@ -19,6 +19,7 @@ import {isNotNullish} from '@/utils/type';
 export const UserConfigCooking = (props: UserConfigCookingCommonProps) => {
   const {
     mealMap,
+    potInfoList,
     recipeLevelData,
     ingredientIds,
     cookingConfig,
@@ -37,6 +38,7 @@ export const UserConfigCooking = (props: UserConfigCookingCommonProps) => {
       title={t('Section.Cooking')}
     >
       <PotCapacityInput
+        potInfoList={potInfoList}
         isActive={(potCapacity) => potCapacity === cookingConfig.potCapacity}
         onClick={(potCapacity) => setCookingConfig({potCapacity})}
       />

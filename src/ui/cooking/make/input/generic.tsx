@@ -7,7 +7,13 @@ import {PotCapacityInput} from '@/components/shared/input/potCapacity';
 import {MealMakerCommonProps} from '@/ui/cooking/make/type';
 
 
-export const MealMakerInputGeneral = ({mealTypes, ingredientMap, filter, setFilter}: MealMakerCommonProps) => {
+export const MealMakerInputGeneral = ({
+  mealTypes,
+  ingredientMap,
+  potInfoList,
+  filter,
+  setFilter,
+}: MealMakerCommonProps) => {
   return (
     <>
       <MealTypeInput
@@ -17,6 +23,7 @@ export const MealMakerInputGeneral = ({mealTypes, ingredientMap, filter, setFilt
         filterKey="type"
       />
       <PotCapacityInput
+        potInfoList={potInfoList}
         {...getSingleSelectOnClickProps({
           filter,
           setFilter,

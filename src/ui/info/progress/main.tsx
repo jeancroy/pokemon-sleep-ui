@@ -2,6 +2,7 @@ import React from 'react';
 
 import {Grid} from '@/components/layout/grid';
 import {getPokedexMap} from '@/controller/pokemon/info';
+import {getPotInfoList} from '@/controller/potInfo';
 import {getAllGameProgressData} from '@/controller/progress';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
@@ -12,9 +13,11 @@ export const GameProgressUI = async ({params}: DefaultPageProps) => {
   const {locale} = params;
   const [
     pokedexMap,
+    potInfoList,
     gameProgresses,
   ] = await Promise.all([
     getPokedexMap(),
+    getPotInfoList(),
     getAllGameProgressData(),
   ]);
 
@@ -25,6 +28,7 @@ export const GameProgressUI = async ({params}: DefaultPageProps) => {
           <GameProgressSingle
             key={data.sleepStyleUnlocksRequired}
             pokedexMap={pokedexMap}
+            potInfoList={potInfoList}
             data={data}
           />
         ))}

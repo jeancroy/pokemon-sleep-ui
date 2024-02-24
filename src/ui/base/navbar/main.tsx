@@ -9,6 +9,7 @@ import {getConfigRequiredData} from '@/controller/dataBundle/config';
 import {getIngredientIds} from '@/controller/ingredient';
 import {getFieldMetaMap, getMapIds} from '@/controller/mapMeta';
 import {getPokemonList} from '@/controller/pokemon/info';
+import {getPotInfoList} from '@/controller/potInfo';
 import {getMaxMapBonusPercent} from '@/controller/progress';
 import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {NavBarClient} from '@/ui/base/navbar/client';
@@ -29,6 +30,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
     ingredientIds,
     pokemonList,
     mapMeta,
+    potInfoList,
     recipeLevelData,
     configRequiredData,
   ] = React.use(Promise.all([
@@ -38,6 +40,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
     getIngredientIds(),
     getPokemonList(),
     getFieldMetaMap(),
+    getPotInfoList(),
     getRecipeLevelData(),
     getConfigRequiredData(),
   ]));
@@ -66,6 +69,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
         ingredientIds={ingredientIds}
         pokemonList={pokemonList}
         mapMeta={mapMeta}
+        potInfoList={potInfoList}
         recipeLevelData={recipeLevelData}
         {...configRequiredData}
       >

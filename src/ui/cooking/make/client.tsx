@@ -20,6 +20,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
   const {
     ingredientMap,
     mealMap,
+    potInfoList,
     recipeLevelData,
     preloaded,
   } = props;
@@ -48,6 +49,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
     meals: validMeals,
     mealTypes,
     ingredientMap,
+    potInfoList,
     recipeLevelData,
     calculatedUserConfig,
     status,

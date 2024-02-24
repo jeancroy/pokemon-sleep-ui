@@ -15,6 +15,7 @@ import {isNotNullish} from '@/utils/type';
 export const TeamMakerInputCooking = ({
   ingredientMap,
   mealMap,
+  potInfoList,
   maxRecipeLevel,
   input,
   setInput,
@@ -36,6 +37,7 @@ export const TeamMakerInputCooking = ({
         filterKey="mealType"
       />
       <PotCapacityInput
+        potInfoList={potInfoList}
         {...getSingleSelectOnClickProps({
           filter: input,
           setFilter: setInput,

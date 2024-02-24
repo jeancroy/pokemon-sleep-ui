@@ -4,18 +4,21 @@ import {useTranslations} from 'next-intl';
 
 import {FilterInputOnClickProps} from '@/components/input/filter/common/type';
 import {FilterTextInput} from '@/components/input/filter/preset/text';
-import {potPossibleCapacity} from '@/data/potCapacity';
+import {PotInfo} from '@/types/game/potInfo';
+import {toUnique} from '@/utils/array';
 
 
-type Props = FilterInputOnClickProps<number>;
+type Props = FilterInputOnClickProps<number> & {
+  potInfoList: PotInfo[],
+};
 
-export const PotCapacityInput = (props: Props) => {
+export const PotCapacityInput = ({potInfoList, ...props}: Props) => {
   const t = useTranslations('UI.InPage.Cooking');
 
   return (
     <FilterTextInput
       title={t('PotCapacity')}
-      ids={potPossibleCapacity}
+      ids={toUnique(potInfoList.map(({capacity}) => capacity)).sort((a, b) => a - b)}
       idToText={(id) => id.toString()}
       {...props}
     />

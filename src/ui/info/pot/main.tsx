@@ -6,6 +6,7 @@ import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getConfigRequiredData} from '@/controller/dataBundle/config';
 import {getIngredientMap} from '@/controller/ingredient';
+import {getPotInfoList} from '@/controller/potInfo';
 import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
@@ -19,17 +20,20 @@ export const PotInfo = async ({params}: DefaultPageProps) => {
   const [
     session,
     recipeLevelData,
+    potInfoList,
     ingredientMap,
     configRequiredData,
   ] = await Promise.all([
     getServerSession(authOptions),
     getRecipeLevelData(),
+    getPotInfoList(),
     getIngredientMap(),
     getConfigRequiredData(),
   ]);
 
   const props: PotInfoDataProps = {
     recipeLevelData,
+    potInfoList,
     ingredientMap,
     preloaded: createConfigBundle(session),
     ...configRequiredData,

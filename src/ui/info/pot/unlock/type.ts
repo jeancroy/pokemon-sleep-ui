@@ -1,8 +1,9 @@
-import {PotInfoFilter, PotLevelInfo} from '@/ui/info/pot/type';
+import {PotInfo} from '@/types/game/potInfo';
+import {PotInfoFilter} from '@/ui/info/pot/type';
 
 
 export type PotRecipeUnlockCommonProps = {
   filter: PotInfoFilter,
-  potInfo: PotLevelInfo,
+  potInfo: PotInfo,
   cumulativeShardsRequirement: number,
 };

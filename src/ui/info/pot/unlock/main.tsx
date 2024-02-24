@@ -2,19 +2,20 @@ import React from 'react';
 
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {Flex} from '@/components/layout/flex/common';
-import potCapacity from '@/data/potCapacity.json';
 import {MealDetails, MealId} from '@/types/game/meal/main';
+import {PotInfo} from '@/types/game/potInfo';
 import {PotInfoFilter} from '@/ui/info/pot/type';
 import {PotRecipeUnlockSection} from '@/ui/info/pot/unlock/section';
 
 
 type Props = {
   filter: PotInfoFilter,
+  potInfoList: PotInfo[],
   mealDetails: MealDetails[],
   isMealIncluded: FilterInclusionMap<MealId>,
 };
 
-export const PotRecipeUnlockTable = ({filter, mealDetails, isMealIncluded}: Props) => {
+export const PotRecipeUnlockTable = ({filter, potInfoList, mealDetails, isMealIncluded}: Props) => {
   const {capacity} = filter;
 
   const sortedMeals = mealDetails.sort((a, b) => {
@@ -32,7 +33,7 @@ export const PotRecipeUnlockTable = ({filter, mealDetails, isMealIncluded}: Prop
 
   return (
     <Flex center className="gap-1.5">
-      {potCapacity.map((potInfo) => {
+      {potInfoList.map((potInfo) => {
         const unlocked: MealDetails[] = [];
         let current: MealDetails | undefined = sortedMeals[mealCursorIdx];
 
