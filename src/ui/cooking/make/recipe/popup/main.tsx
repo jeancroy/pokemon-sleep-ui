@@ -7,7 +7,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
 import {PopupProps} from '@/components/popup/type';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {IngredientInventoryInput} from '@/components/shared/input/ingredient/inventory';
 import {MealMeta} from '@/components/shared/meal/meta';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
@@ -68,7 +68,7 @@ export const MealMakerPopup = ({filter, calculatedUserConfig, status, onCook, ..
             <HorizontalSplitter className="w-full"/>
             <Flex direction="row" className="justify-between text-xl">
               <Flex direction="row" noFullWidth className="items-center gap-1">
-                <ColoredEnergyIcon dimension="size-6" alt={t('Energy')}/>
+                <ColoredStrengthIcon dimension="size-6" alt={t('Energy')}/>
                 <div>
                   {isRequirementSatisfied ? formatInt(strengthFinal) : '-'}
                 </div>

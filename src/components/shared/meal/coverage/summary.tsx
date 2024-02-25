@@ -4,8 +4,8 @@ import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {MealCoverageSummaryCommonProps} from '@/components/shared/meal/coverage/type';
 import {Dimension} from '@/types/style';
 import {formatFloat, formatInt} from '@/utils/number/format/regular';
@@ -24,7 +24,7 @@ export const MealCoverageSummary = ({coverage, coveredStrength, dimension, class
       {
         !!coveredStrength &&
         <Flex direction="row" noFullWidth className="items-center gap-0.5">
-          <ColoredEnergyIcon dimension={dimension ?? 'size-6'} alt={t2('CoveredStrength')}/>
+          <ColoredStrengthIcon dimension={dimension ?? 'size-6'} alt={t2('CoveredStrength')}/>
           <span>{formatInt(coveredStrength)}</span>
         </Flex>
       }

@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {MealPreparerMealTypeSummary} from '@/ui/cooking/prepare/hook/type';
 import {formatInt} from '@/utils/number/format/regular';
 
@@ -17,7 +17,7 @@ export const MealPreparerMealTypeSummaryUI = ({stats}: Props) => {
 
   return (
     <Flex direction="row" noFullWidth className="items-end justify-end gap-1.5 text-sm">
-      <ColoredEnergyIcon dimension="size-8" alt={t('Energy')}/>
+      <ColoredStrengthIcon dimension="size-8" alt={t('Energy')}/>
       <div>{t('Total')}</div>
       <div className="text-2xl">{formatInt(stats.recipeOnly)}</div>
       <div>{t('Preparer.IncludeFiller')}</div>

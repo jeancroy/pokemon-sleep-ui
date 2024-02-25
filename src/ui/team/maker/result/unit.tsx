@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl';
 import {InfoIcon} from '@/components/icons/info';
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonClickableIcons} from '@/components/shared/pokemon/icon/clickable/main';
 import {PokemonName} from '@/components/shared/pokemon/name/main';
@@ -100,7 +100,7 @@ export const TeamMakerResultUnit = ({
         state={teamMakerUnitStrengthAtState}
       />
       <Flex noFullWidth direction="row" className="items-center self-end">
-        <ColoredEnergyIcon dimension="size-5" alt={t('Total')}/>
+        <ColoredStrengthIcon dimension="size-5" alt={t('Total')}/>
         <div>{formatFloat(unitStrength)} ({formatFloat(unitStrength / compStrength * 100)}%)</div>
       </Flex>
     </Flex>

@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
 import {IconWithInfo} from '@/components/shared/common/image/iconWithInfo';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {IngredientIconsFromMeal} from '@/components/shared/ingredient/icons/fromMeal';
 import {imageGallerySizes} from '@/styles/image';
 import {IngredientId, IngredientMap} from '@/types/game/ingredient';
@@ -70,7 +70,7 @@ export const IngredientCookableMeals = ({mealMap, recipeLevelData, ingredientMap
             />
             <IngredientIconsFromMeal meal={meal} noLink/>
             <Flex direction="row" center className="gap-0.5">
-              <ColoredEnergyIcon dimension="size-4" alt={t2('Energy')}/>
+              <ColoredStrengthIcon dimension="size-4" alt={t2('Energy')}/>
               <div className="text-sm">
                 {getMealBaseStrength({
                   recipeLevelData,

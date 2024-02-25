@@ -3,10 +3,10 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {ratingBasisNameI18nId} from '@/const/game/rating';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 
@@ -21,14 +21,14 @@ export const RatingBasisIcon = ({basis}: Props) => {
   const basisName = t(ratingBasisNameI18nId[basis]);
 
   if (basis === 'totalStrength') {
-    return <ColoredEnergyIcon alt={basisName} dimension="size-7"/>;
+    return <ColoredStrengthIcon alt={basisName} dimension="size-7"/>;
   }
 
   if (basis === 'ingredientProduction') {
     return (
       <Flex direction="row" noFullWidth>
         <GenericIngredientIcon alt={basisName} dimension="size-7"/>
-        <ColoredEnergyIcon alt={basisName} dimension="size-7"/>
+        <ColoredStrengthIcon alt={basisName} dimension="size-7"/>
       </Flex>
     );
   }

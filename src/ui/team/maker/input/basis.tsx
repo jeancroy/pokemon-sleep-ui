@@ -3,8 +3,8 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {Dimension} from '@/types/style';
 import {TeamMakerBasis} from '@/ui/team/maker/type/input';
 
@@ -22,7 +22,7 @@ export const TeamMakerBasisOption = ({basis, isActive}: Props) => {
   if (basis === 'strength') {
     return (
       <Flex direction="row" className="items-center gap-1">
-        <ColoredEnergyIcon alt={t('Strength')} dimension={dimension}/>
+        <ColoredStrengthIcon alt={t('Strength')} dimension={dimension}/>
         <div>{t('Strength')}</div>
       </Flex>
     );

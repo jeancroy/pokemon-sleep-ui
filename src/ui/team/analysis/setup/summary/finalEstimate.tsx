@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 
 import {InputBox} from '@/components/input/box';
 import {Flex} from '@/components/layout/flex/common';
-import {EnergyIcon} from '@/components/shared/icon/energy';
+import {StrengthIcon} from '@/components/shared/icon/strength';
 import {durationOfDay} from '@/const/common';
 import {Production} from '@/types/game/producing/rate/base';
 import {TeamAnalysisSnorlaxRank} from '@/ui/team/analysis/setup/summary/rank';
@@ -59,7 +59,7 @@ export const TeamAnalysisFinalEstimate = ({strengthProduction, snorlaxData}: Pro
           />
         </Flex>
         <Flex direction="row" center noFullWidth className="gap-1">
-          <EnergyIcon alt={t('CurrentEnergy')} dimension="size-6"/>
+          <StrengthIcon alt={t('CurrentEnergy')} dimension="size-6"/>
           <InputBox
             type="number"
             min={0}

@@ -5,9 +5,9 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {GenericIcon} from '@/components/shared/icon/common/main';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
@@ -227,7 +227,7 @@ export const PokedexLinkDetail = React.memo(({
           <IngredientIcons ingredients={[ingredients]} dimension="size-3.5" noLink/>
         </div>
         <Flex direction="row" className="items-center gap-0.5">
-          <ColoredEnergyIcon alt={t2('Stats.Energy.Name')} dimension="size-4"/>
+          <ColoredStrengthIcon alt={t2('Stats.Energy.Name')} dimension="size-4"/>
           <span>{formatFloat(sorter)}</span>
         </Flex>
       </Flex>
@@ -242,7 +242,7 @@ export const PokedexLinkDetail = React.memo(({
     return (
       <Flex direction="row" className="gap-0.5">
         <PokemonBerryIcon id={berry.id}/>
-        {display === 'berryEnergy' && <ColoredEnergyIcon alt={t2('Stats.Energy.Name')}/>}
+        {display === 'berryEnergy' && <ColoredStrengthIcon alt={t2('Stats.Energy.Name')}/>}
         <div>
           {formatFloat(sorter)}
         </div>
@@ -253,7 +253,7 @@ export const PokedexLinkDetail = React.memo(({
   if (display === 'totalEnergy') {
     return (
       <Flex direction="row" className="gap-0.5">
-        <ColoredEnergyIcon alt={t2('Stats.Energy.Name')}/>
+        <ColoredStrengthIcon alt={t2('Stats.Energy.Name')}/>
         <div>
           {formatFloat(sorter)}
         </div>
@@ -265,7 +265,7 @@ export const PokedexLinkDetail = React.memo(({
     return (
       <Flex direction="row" className="gap-0.5">
         <MainSkillIcon id={skill}/>
-        {display === 'mainSkillDailyStrength' && <ColoredEnergyIcon alt={t2('Stats.Energy.Name')}/>}
+        {display === 'mainSkillDailyStrength' && <ColoredStrengthIcon alt={t2('Stats.Energy.Name')}/>}
         <div>
           {display === 'mainSkillDailyStrength' ? formatFloat(sorter) : formatFloat3(sorter)}
         </div>

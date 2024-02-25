@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {MealCoverageSummary} from '@/components/shared/meal/coverage/summary';
 import {TeamMakerBasisValue} from '@/ui/team/maker/type/common';
 import {TeamMakerBasis} from '@/ui/team/maker/type/input';
@@ -21,7 +21,7 @@ export const TeamMakerResultSummary = ({basis, basisValue}: Props) => {
   if (basis === 'strength') {
     return (
       <Flex noFullWidth direction="row" className="items-center">
-        <ColoredEnergyIcon dimension="size-6" alt={t('Strength')}/>
+        <ColoredStrengthIcon dimension="size-6" alt={t('Strength')}/>
         <span>{formatFloat(basisValue.strength)}</span>
       </Flex>
     );

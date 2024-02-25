@@ -4,7 +4,7 @@ import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {ProductionContentCommonProps} from '@/components/shared/production/rate/type';
 import {Dimension} from '@/types/style';
 import {formatFloat} from '@/utils/number/format/regular';
@@ -33,7 +33,7 @@ export const ProductionContent = ({dailyRate, className, isEnergy, getIcon, norm
     )}>
       {getIcon ?
         getIcon(dimension) :
-        <ColoredEnergyIcon dimension={dimension} alt={t('Stats.Energy.Name')}/>}
+        <ColoredStrengthIcon dimension={dimension} alt={t('Stats.Energy.Name')}/>}
       <div className={clsx(isEnergy && 'text-energy')}>
         {dailyRate ? formatFloat(dailyRate) : '-'}
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useTranslations} from 'next-intl';
 
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {InfoSlider} from '@/components/shared/input/infoSlider';
 import {MealCommonProps} from '@/ui/meal/page/type';
 import {formatMealStrengthInfo} from '@/utils/game/meal/format';
@@ -34,7 +34,7 @@ export const MealExp = ({recipeLevelData, meal, ingredientMap, calculatedConfigB
       setValue={setLevel}
       maxValue={maxRecipeLevel}
     >
-      <ColoredEnergyIcon dimension="size-4" alt={t('Energy')}/>
+      <ColoredStrengthIcon dimension="size-4" alt={t('Energy')}/>
       <div className="text-sm">
         {formatMealStrengthInfo({info, includeBonusRate: true})}
       </div>

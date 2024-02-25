@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {MealMakerRecipePartsProps} from '@/ui/cooking/make/recipe/parts/type';
 import {formatInt} from '@/utils/number/format/regular';
 
@@ -14,7 +14,7 @@ export const MealMakerRecipeStats = ({info}: MealMakerRecipePartsProps) => {
   return (
     <Flex direction="row" className="items-end justify-between">
       <Flex direction="row" noFullWidth className="items-center gap-1">
-        <ColoredEnergyIcon dimension="size-4" alt={t('Energy')}/>
+        <ColoredStrengthIcon dimension="size-4" alt={t('Energy')}/>
         <div>
           {formatInt(info.strengthFinal)}
         </div>

@@ -33,7 +33,7 @@ export const PokemonProductionSingleDisplaySwitch = ({control, itemAlt, itemImag
       }
       ids={[...pokemonProductionSingleDisplay]}
       idToAlt={(id) => id === 'total' ? t('TotalEnergy') : itemAlt}
-      idToImageSrc={(id) => id === 'total' ? '/images/generic/energy.png' : itemImageSrc}
+      idToImageSrc={(id) => id === 'total' ? '/images/generic/strength.png' : itemImageSrc}
     />
   );
 };

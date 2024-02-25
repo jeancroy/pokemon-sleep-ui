@@ -6,7 +6,7 @@ import {CollapsibleFull} from '@/components/layout/collapsible/full';
 import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {MealCoverageDetails} from '@/components/shared/meal/coverage/details/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
 import {PokemonProductionSplit} from '@/components/shared/pokemon/production/split/main';
@@ -71,7 +71,7 @@ export const TeamMakerResultCompUI = ({comp, ...props}: Props) => {
         <Flex className="items-center gap-1 md:flex-row">
           <PokemonProductionSplit specialty={null} {...strengthByType}/>
           <Flex noFullWidth direction="row" className="items-center self-end text-2xl">
-            <ColoredEnergyIcon dimension="size-8" alt={t('Total')}/>
+            <ColoredStrengthIcon dimension="size-8" alt={t('Total')}/>
             <span>{formatFloat(basisValue.strength)}</span>
           </Flex>
         </Flex>

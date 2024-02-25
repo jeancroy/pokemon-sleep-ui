@@ -10,8 +10,8 @@ import {
   StrengthGrowthChartState,
   StrengthGrowthDataEntry,
 } from '@/components/shared/chart/strength/type';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {LevelIcon} from '@/components/shared/icon/lv';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {Dimension} from '@/types/style';
 
 
@@ -54,7 +54,7 @@ export const StrengthGrowthChartTooltip = <TKey extends string>({
             <Flex key={key} direction="row" className={clsx('items-center justify-between', isMultiData && 'gap-3')}>
               <div className="self-start">{dataNames(state)[key]}</div>
               <Flex key={key} direction="row" noFullWidth className="items-center gap-1">
-                <ColoredEnergyIcon alt={t('Strength')} dimension={dimension}/>
+                <ColoredStrengthIcon alt={t('Strength')} dimension={dimension}/>
                 <div>{formatStrength ? formatStrength(strength[key]) : strength[key]}</div>
               </Flex>
             </Flex>

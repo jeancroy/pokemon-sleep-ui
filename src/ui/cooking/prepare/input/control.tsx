@@ -8,7 +8,7 @@ import {useTranslations} from 'next-intl';
 import {InputRow} from '@/components/input/filter/row';
 import {ToggleButton} from '@/components/input/toggleButton';
 import {Flex} from '@/components/layout/flex/common';
-import {EnergyIcon} from '@/components/shared/icon/energy';
+import {StrengthIcon} from '@/components/shared/icon/strength';
 import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {textFilterButtonStyle} from '@/styles/input';
 import {toCookingConfigFromMealPreparerFilter} from '@/ui/cooking/prepare/input/utils';
@@ -34,7 +34,7 @@ export const MealPreparerControl = ({filter, setFilter, preloaded}: MealPreparer
           <div className="size-5">
             {showRecipeStrength ? <EyeIcon/> : <EyeSlashIcon/>}
           </div>
-          <EnergyIcon alt={t('Energy')} noInvert isActive={showRecipeStrength}/>
+          <StrengthIcon alt={t('Energy')} noInvert isActive={showRecipeStrength}/>
         </Flex>
       </ToggleButton>
       <UserDataUploadButton opts={{

@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {NextImageProps} from '@/components/shared/common/image/main';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {productionPeriodI18nId} from '@/const/game/production/i18n';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {Production} from '@/types/game/producing/rate/base';
@@ -53,7 +53,7 @@ export const TeamAnalysisRateLayout = ({
           x{formatFloat(calculatedRate.qty)}
         </div>
       }
-      <ColoredEnergyIcon dimension={dimension} alt={t('Name')}/>
+      <ColoredStrengthIcon dimension={dimension} alt={t('Name')}/>
       <div className={clsx('text-energy', textClass)}>
         {calculatedRate ? formatFloat(calculatedRate.strength) : '-'}
       </div>

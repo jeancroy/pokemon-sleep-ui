@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {DreamShardIcon} from '@/components/shared/icon/dreamShard';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {imagePortraitSizes} from '@/styles/image';
 import {Ingredient} from '@/types/game/ingredient';
 
@@ -30,7 +30,7 @@ export const IngredientMeta = (ingredient: Ingredient) => {
         <tbody>
           <tr>
             <td>
-              <ColoredEnergyIcon dimension="size-7" alt={t2('Strength')}/>
+              <ColoredStrengthIcon dimension="size-7" alt={t2('Strength')}/>
             </td>
             <td>
               {energy}

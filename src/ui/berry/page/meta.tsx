@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {PokemonBerryIconContent} from '@/components/shared/pokemon/berry/iconContent';
 import {imagePortraitSizes} from '@/styles/image';
 import {BerryPageDataProps} from '@/ui/berry/page/type';
@@ -31,7 +31,7 @@ export const BerryMeta = ({berryData}: BerryPageDataProps) => {
         className="rounded-lg border border-slate-300 dark:border-slate-700"
       />
       <Flex direction="row" center className="gap-1 text-xl">
-        <ColoredEnergyIcon alt={t2('Strength')}/>
+        <ColoredStrengthIcon alt={t2('Strength')}/>
         <div>
           {formatInt(Math.min(...berryEnergyArray))} ~ {formatInt(Math.max(...berryEnergyArray))}
         </div>

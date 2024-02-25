@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {FlexLink} from '@/components/layout/flex/link';
 import {NextImage} from '@/components/shared/common/image/main';
 import {DreamShardIcon} from '@/components/shared/icon/dreamShard';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {imageSmallIconSizes} from '@/styles/image';
 import {Ingredient} from '@/types/game/ingredient';
 
@@ -38,7 +38,7 @@ export const IngredientLink = ({ingredient}: Props) => {
         <tbody>
           <tr>
             <td>
-              <ColoredEnergyIcon dimension="size-4" alt={t('Strength')}/>
+              <ColoredStrengthIcon dimension="size-4" alt={t('Strength')}/>
             </td>
             <td>
               {energy}

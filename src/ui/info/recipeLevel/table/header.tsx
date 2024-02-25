@@ -3,7 +3,7 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {EnergyIcon} from '@/components/shared/icon/energy';
+import {StrengthIcon} from '@/components/shared/icon/strength';
 
 
 export const RecipeLevelDataHeader = () => {
@@ -19,19 +19,19 @@ export const RecipeLevelDataHeader = () => {
       </td>
       <td>
         <Flex direction="row" center>
-          <EnergyIcon alt={t('Strength')} noInvert/>
+          <StrengthIcon alt={t('Strength')} noInvert/>
           {t('ToNext')}
         </Flex>
       </td>
       <td>
         <Flex direction="row" center>
-          <EnergyIcon alt={t('Strength')} noInvert/>
+          <StrengthIcon alt={t('Strength')} noInvert/>
           {t('TotalRequired')}
         </Flex>
       </td>
       <td>
         <Flex direction="row" center>
-          <EnergyIcon alt={t('Strength')} noInvert/>
+          <StrengthIcon alt={t('Strength')} noInvert/>
           {t('Accumulated')}
         </Flex>
       </td>

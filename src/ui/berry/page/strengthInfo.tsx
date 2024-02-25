@@ -6,8 +6,8 @@ import {CollapsibleFull} from '@/components/layout/collapsible/full';
 import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {StrengthGrowthChart} from '@/components/shared/chart/strength/main';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {LevelIcon} from '@/components/shared/icon/lv';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {BerryData} from '@/types/game/berry';
 import {Dimension} from '@/types/style';
 import {formatInt} from '@/utils/number/format/regular';
@@ -30,7 +30,7 @@ export const BerryStrengthInfo = ({berryData}: Props) => {
       <Flex direction="row" center className="gap-1">
         <LevelIcon dimension={dimension}/>
         <div>/</div>
-        <ColoredEnergyIcon alt={t('Strength')} dimension={dimension}/>
+        <ColoredStrengthIcon alt={t('Strength')} dimension={dimension}/>
       </Flex>
     }>
       <Flex className="info-section h-[50vh]">

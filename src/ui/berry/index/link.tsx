@@ -4,8 +4,8 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PokemonTypeIcon} from '@/components/shared/icon/pokeType';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {PokemonBerryIconContent} from '@/components/shared/pokemon/berry/iconContent';
 import {BerryData} from '@/types/game/berry';
 import {formatInt} from '@/utils/number/format/regular';
@@ -41,7 +41,7 @@ export const BerryLink = ({berryData}: Props) => {
         {berryName}
       </div>
       <Flex direction="row" center className="gap-1">
-        <ColoredEnergyIcon alt={t2('Strength')}/>
+        <ColoredStrengthIcon alt={t2('Strength')}/>
         <div>
           {formatInt(Math.min(...berryEnergyArray))} ~ {formatInt(Math.max(...berryEnergyArray))}
         </div>

@@ -3,9 +3,9 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {EnergyIcon} from '@/components/shared/icon/energy';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
+import {StrengthIcon} from '@/components/shared/icon/strength';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {sortTypeToI18nId} from '@/components/shared/pokemon/sorter/const';
 import {PokedexTierListBasis} from '@/ui/pokedex/tier/input/type';
 import {formatFloat, formatFloat3} from '@/utils/number/format/regular';
@@ -24,7 +24,7 @@ export const PokedexTierListSorterValue = ({basis, value}: Props) => {
   if (basis === 'totalEnergy') {
     return (
       <Flex direction="row" center noFullWidth className="gap-0.5">
-        <ColoredEnergyIcon alt={text}/>
+        <ColoredStrengthIcon alt={text}/>
         <span>{formatFloat(value)}</span>
       </Flex>
     );
@@ -33,7 +33,7 @@ export const PokedexTierListSorterValue = ({basis, value}: Props) => {
   if (basis === 'ingredientEnergy') {
     return (
       <Flex direction="row" center noFullWidth className="gap-0.5">
-        <EnergyIcon alt={text}/>
+        <StrengthIcon alt={text}/>
         <span>{formatFloat(value)}</span>
       </Flex>
     );

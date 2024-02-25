@@ -5,8 +5,8 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {GenericIcon} from '@/components/shared/icon/common/main';
 import {DreamShardIcon} from '@/components/shared/icon/dreamShard';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {MapUnlockTableRowProps} from '@/components/shared/sleepStyle/page/unlockTable/type';
 import {SnorlaxRankUI} from '@/components/shared/snorlax/rank';
 import {toSum} from '@/utils/array';
@@ -31,7 +31,7 @@ export const MapUnlockTableRankMeta = (props: MapUnlockTableRowProps) => {
       <Flex direction="row" center noFullWidth className="gap-1 xl:w-52 xl:flex-col">
         <SnorlaxRankUI rank={rank} hideTextBelowMd/>
         <Flex direction="row" center noFullWidth className="gap-0.5">
-          <ColoredEnergyIcon alt={t('Strength')}/>
+          <ColoredStrengthIcon alt={t('Strength')}/>
           <div>
             {formatInt(energy.current?.value)}
           </div>

@@ -4,7 +4,7 @@ import ChevronUpIcon from '@heroicons/react/24/solid/ChevronUpIcon';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {MealStrengthInfo} from '@/types/game/meal/info';
 import {formatMealStrengthInfo} from '@/utils/game/meal/format';
 import {formatInt} from '@/utils/number/format/regular';
@@ -25,7 +25,7 @@ export const MealLinkStats = ({strengthInfo}: Props) => {
         <span>(+{formatInt(strengthInfo.bonus.total * 100 - 100)}%)</span>
       </Flex>
       <Flex direction="row" noFullWidth className="items-center gap-0.5 whitespace-nowrap">
-        <ColoredEnergyIcon dimension="size-3.5" alt={t('Strength')}/>
+        <ColoredStrengthIcon dimension="size-3.5" alt={t('Strength')}/>
         <span>
           {formatMealStrengthInfo({info: strengthInfo})}
         </span>

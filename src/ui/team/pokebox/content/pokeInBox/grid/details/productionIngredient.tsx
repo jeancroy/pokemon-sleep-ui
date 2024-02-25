@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 
 import {LoadingText} from '@/components/icons/loading';
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {pokeInBoxStateOfRate} from '@/ui/team/pokebox/content/pokeInBox/const';
@@ -37,7 +37,7 @@ export const PokeInBoxGridProductionIngredient = (props: PokeInBoxGridDetailsPro
           <div>
             x{formatFloat(qty[pokeInBoxStateOfRate])}
           </div>
-          <ColoredEnergyIcon alt={t('Stats.Energy.Name')}/>
+          <ColoredStrengthIcon alt={t('Stats.Energy.Name')}/>
           <div>
             {formatFloat(strength[pokeInBoxStateOfRate])}
           </div>

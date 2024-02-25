@@ -4,9 +4,9 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {GenericBerryIcon} from '@/components/shared/icon/berry';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
@@ -38,14 +38,14 @@ export const AnalysisStatsOfProduction = ({stats, pokemon}: AnalysisStatsUiProps
         stats={production.total}
         title={
           <Flex direction="row" center className="gap-1.5">
-            <ColoredEnergyIcon alt={textTotalEnergy}/>
+            <ColoredStrengthIcon alt={textTotalEnergy}/>
             <span>{textTotalEnergy}</span>
           </Flex>
         }
         threshold={percentileThreshold}
         renderData={({data}) => (
           <Flex direction="row" center className="gap-1 text-sm">
-            <ColoredEnergyIcon alt={textTotalEnergy}/>
+            <ColoredStrengthIcon alt={textTotalEnergy}/>
             <span>{formatFloat(data)}</span>
           </Flex>
         )}
@@ -79,14 +79,14 @@ export const AnalysisStatsOfProduction = ({stats, pokemon}: AnalysisStatsUiProps
         title={
           <Flex direction="row" center className="gap-1.5">
             <PokemonBerryIcon dimension="size-6" id={berry.id}/>
-            <ColoredEnergyIcon alt={textBerryEnergy}/>
+            <ColoredStrengthIcon alt={textBerryEnergy}/>
             <span>{textBerryEnergy}</span>
           </Flex>
         }
         threshold={percentileThreshold}
         renderData={({data}) => (
           <Flex direction="row" center className="gap-1 text-sm">
-            <ColoredEnergyIcon dimension="size-4" alt={textBerryEnergy}/>
+            <ColoredStrengthIcon dimension="size-4" alt={textBerryEnergy}/>
             <span>{formatFloat(data)}</span>
           </Flex>
         )}
@@ -131,7 +131,7 @@ export const AnalysisStatsOfProduction = ({stats, pokemon}: AnalysisStatsUiProps
             title={
               <Flex direction="row" center className="gap-1.5">
                 <PokemonIngredientIcon dimension="size-6" id={rate.itemId}/>
-                <ColoredEnergyIcon alt={textIngredientEnergy}/>
+                <ColoredStrengthIcon alt={textIngredientEnergy}/>
                 <span>{textIngredientEnergy}</span>
               </Flex>
             }
@@ -140,7 +140,7 @@ export const AnalysisStatsOfProduction = ({stats, pokemon}: AnalysisStatsUiProps
               <Flex center>
                 <IngredientIcons ingredients={[data.productions]}/>
                 <Flex direction="row" center className="gap-1 text-sm">
-                  <ColoredEnergyIcon alt={textIngredientEnergy}/>
+                  <ColoredStrengthIcon alt={textIngredientEnergy}/>
                   <div>{formatFloat(data.value)}</div>
                 </Flex>
               </Flex>
@@ -156,14 +156,14 @@ export const AnalysisStatsOfProduction = ({stats, pokemon}: AnalysisStatsUiProps
         stats={production.ingredient.overall}
         title={
           <Flex direction="row" center className="gap-1.5">
-            <ColoredEnergyIcon alt={textIngredientEnergy}/>
+            <ColoredStrengthIcon alt={textIngredientEnergy}/>
             <span>{textIngredientEnergy}</span>
           </Flex>
         }
         threshold={percentileThreshold}
         renderData={({data}) => (
           <Flex direction="row" center className="gap-1 text-sm">
-            <ColoredEnergyIcon alt={textIngredientEnergy}/>
+            <ColoredStrengthIcon alt={textIngredientEnergy}/>
             <div>{formatFloat(data)}</div>
           </Flex>
         )}

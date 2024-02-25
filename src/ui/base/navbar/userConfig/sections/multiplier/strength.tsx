@@ -6,7 +6,7 @@ import {FilterToggleButtons} from '@/components/input/filter/common/button';
 import {InputRowWithTitle} from '@/components/input/filter/rowWithTitle';
 import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQuick';
 import {Flex} from '@/components/layout/flex/common';
-import {EnergyIcon} from '@/components/shared/icon/energy';
+import {StrengthIcon} from '@/components/shared/icon/strength';
 import {NumberInputRequired} from '@/components/shared/input/number/required/main';
 import {strengthMultiplierTypeI18nId} from '@/const/game/multiplier';
 import {strengthMultiplierBehaviorI18nId} from '@/const/user/multiplier';
@@ -45,7 +45,7 @@ export const UserConfigStrengthMultiplierUI = ({
       title={
         <Flex direction="row" center>
           <span>{t(strengthMultiplierTypeI18nId[type])}</span>
-          <EnergyIcon alt={t('Strength.Name')}/>
+          <StrengthIcon alt={t('Strength.Name')}/>
         </Flex>
       }
     >

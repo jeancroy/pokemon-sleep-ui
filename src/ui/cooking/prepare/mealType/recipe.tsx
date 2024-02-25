@@ -6,8 +6,8 @@ import {useTranslations} from 'next-intl';
 import {InfoIcon} from '@/components/icons/info';
 import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQuick';
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
 import {PotIcon} from '@/components/shared/icon/pot';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {IngredientIconsFromMeal} from '@/components/shared/ingredient/icons/fromMeal';
 import {NumberInputOptional} from '@/components/shared/input/number/optional/main';
 import {MealImage} from '@/components/shared/meal/image';
@@ -97,7 +97,7 @@ export const MealPreparerRecipe = (props: Props) => {
       </Flex>
       <AnimatedCollapseQuick show={showRecipeStrength}>
         <Flex direction="row" noFullWidth className="mt-1 items-center gap-1">
-          <ColoredEnergyIcon alt={t('Energy')}/>
+          <ColoredStrengthIcon alt={t('Energy')}/>
           <span>{formatInt(info.finalStrength[id])}</span>
         </Flex>
       </AnimatedCollapseQuick>

@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 
 import {isFilterIncludingSome} from '@/components/input/filter/utils/match';
 import {Flex} from '@/components/layout/flex/common';
-import {ColoredEnergyIcon} from '@/components/shared/icon/energyColored';
+import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {PokemonBerryIcon} from '@/components/shared/pokemon/berry/icon';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
@@ -43,7 +43,7 @@ export const PokeInBoxTableProduction = ({
           <div>
             x{formatFloat(berry.qty[pokeInBoxStateOfRate])}
           </div>
-          <ColoredEnergyIcon alt={t('Stats.Energy.Name')}/>
+          <ColoredStrengthIcon alt={t('Stats.Energy.Name')}/>
           <div>
             {formatFloat(berry.strength[pokeInBoxStateOfRate])}
           </div>
@@ -65,7 +65,7 @@ export const PokeInBoxTableProduction = ({
               <div>
                 x{formatFloat(qty[pokeInBoxStateOfRate])}
               </div>
-              <ColoredEnergyIcon alt={t('Stats.Energy.Name')} dimension="size-3"/>
+              <ColoredStrengthIcon alt={t('Stats.Energy.Name')} dimension="size-3"/>
               <div>
                 {formatFloat(strength[pokeInBoxStateOfRate])}
               </div>
@@ -80,7 +80,7 @@ export const PokeInBoxTableProduction = ({
           ids: ['productionTotal'] satisfies PokeboxDisplayType[],
         }) &&
         <Flex direction="row" center noFullWidth className="w-32 gap-0.5 text-lg">
-          <ColoredEnergyIcon dimension="size-6" alt={t('Stats.Energy.Name')}/>
+          <ColoredStrengthIcon dimension="size-6" alt={t('Stats.Energy.Name')}/>
           <div>
             {formatFloat(getTotalStrengthOfPokemonProduction(rateOfPokemon))}
           </div>
