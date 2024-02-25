@@ -1,9 +1,14 @@
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
+import {ProductionCalcBehavior} from '@/types/game/producing/behavior/type';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {ProductionSingleParams} from '@/types/game/producing/rate/params';
 
 
 export const defaultProductionPeriod: ProductionPeriod = 'daily';
+
+export const defaultProductionCalcBehavior: ProductionCalcBehavior = {
+  asSingle: false,
+};
 
 export const defaultLevel = 30;
 

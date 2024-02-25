@@ -7,7 +7,7 @@ import {getHelpingBonusStack} from '@/utils/game/producing/params';
 
 type GetPokemonProductionHelpingBonusEffectOpts = {
   subSkillBonuses: GroupedSubSkillBonus[],
-  calcBehavior?: ProductionCalcBehavior,
+  calcBehavior: ProductionCalcBehavior,
 };
 
 export const getPokemonProductionHelpingBonusEffect = ({
@@ -17,7 +17,7 @@ export const getPokemonProductionHelpingBonusEffect = ({
   const helpingBonusStacks = toSum(subSkillBonuses.map((subSkillBonus) => getHelpingBonusStack({subSkillBonus})));
 
   return (
-    calcBehavior?.asSingle ?
+    calcBehavior.asSingle ?
       {context: 'single', active: !!helpingBonusStacks} :
       {context: 'team', stack: helpingBonusStacks}
   );

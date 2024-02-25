@@ -1,28 +1,24 @@
-import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
-import {HelpingBonusEffect} from '@/types/game/producing/helpingBonus';
 import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
-import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/components/rates/type';
+import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {
-  GetPokemonProductionUnitOptsWithPayload,
-  GetPokemonProductionSharedOpts,
-} from '@/utils/game/producing/main/type';
+  GetPokemonProductionInitialRateCommonOpts,
+} from '@/utils/game/producing/main/entry/components/rates/initial/type';
+import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/components/rates/type';
 import {getPokemonProductionInitial} from '@/utils/game/producing/main/unit/main';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {toCalculatedUserConfig} from '@/utils/user/config/user/main';
 
 
-type GetPokemonProductionInitialRatesOpts<TPayload> = {
-  helpingBonusEffect: HelpingBonusEffect,
-  subSkillBonuses: GroupedSubSkillBonus[],
-  rateOpts: GetPokemonProductionUnitOptsWithPayload<TPayload>[],
-  sharedOpts: GetPokemonProductionSharedOpts,
+type GetPokemonProductionInitialRatesOpts<TPayload> = GetPokemonProductionInitialRateCommonOpts<TPayload> & {
+  skillRecoveryOverrides?: StaminaSkillTriggerData[][],
 };
 
-export const getPokemonProductionInitialRates = <TPayload>({
+export const getPokemonProductionInitialCalculated = <TPayload>({
   helpingBonusEffect,
   subSkillBonuses,
   rateOpts,
   sharedOpts,
+  skillRecoveryOverrides,
 }: GetPokemonProductionInitialRatesOpts<TPayload>): PokemonProductionInCalcWithPayload<
   PokemonProductionInitial,
   TPayload
@@ -34,7 +30,7 @@ export const getPokemonProductionInitialRates = <TPayload>({
     snorlaxFavorite,
   } = sharedOpts;
 
-  return rateOpts.map(({opts, payload}) => {
+  return rateOpts.map(({opts, payload}, rateIdx) => {
     const {natureId, alwaysFullPack} = opts;
 
     const calculatedUserConfig = toCalculatedUserConfig({
@@ -43,6 +39,7 @@ export const getPokemonProductionInitialRates = <TPayload>({
       eventStrengthMultiplierData,
       snorlaxFavorite,
       recoveryRate: toRecoveryRate({natureId, subSkillBonuses}),
+      skillRecoveryOverride: skillRecoveryOverrides?.at(rateIdx),
       behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
     });
 
