@@ -6,6 +6,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {FlexLink} from '@/components/layout/flex/link';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
+import {EnergyIcon} from '@/components/shared/icon/energy';
 import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {PokemonFrequencyFromProduction} from '@/components/shared/pokemon/frequency/fromRate';
 import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimit/main';
@@ -16,6 +17,7 @@ import {PokemonIngredientProbability} from '@/components/shared/pokemon/producti
 import {PokemonIngredientProduction} from '@/components/shared/pokemon/production/ingredient/production';
 import {PokemonNoSkillProbability} from '@/components/shared/pokemon/production/noSkill/main';
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';
+import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {toProductionOfState} from '@/utils/game/producing/convert';
@@ -39,6 +41,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
     fullPackStats,
     ingredient,
     skillIndirect,
+    calculatedUserConfig,
   } = rate;
   const {
     carryLimitInfo,
@@ -48,6 +51,7 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
 
   const t = useTranslations('Game');
   const t2 = useTranslations('UI.InPage.Pokedex.Sort');
+  const t3 = useTranslations('UI.Common');
 
   const berryData = berryDataMap[berry.id];
   const ingredientRates = Object.values(ingredient);
@@ -66,6 +70,11 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
       </FlexLink>
       <HorizontalSplitter/>
       <PokemonFrequencyFromProduction pokemonRate={rate}/>
+      <HorizontalSplitter/>
+      <Flex direction="row" center className="gap-1.5">
+        <EnergyIcon alt={t3('Stamina')} dimension="size-7"/>
+        <StaminaEfficiencyUI efficiency={calculatedUserConfig.bonus.stamina} mini/>
+      </Flex>
       <HorizontalSplitter/>
       <Flex direction="row" center className="gap-1.5">
         <PokemonTimeToFullPack direction="col" fullPackStats={fullPackStats}/>
