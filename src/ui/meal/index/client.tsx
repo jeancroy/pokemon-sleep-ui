@@ -8,12 +8,12 @@ import {AdsUnit} from '@/components/ads/main';
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {Grid} from '@/components/layout/grid';
 import {useMealInputFilter} from '@/components/shared/meal/filter/hook';
-import {MealFilter} from '@/components/shared/meal/filter/main';
 import {generateEmptyMealFilter} from '@/components/shared/meal/filter/utils';
 import {MealLink} from '@/components/shared/meal/link/main';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
-import {MealDataProps} from '@/ui/meal/index/type';
-import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
+import {MealIndexInput} from '@/ui/meal/index/input';
+import {MealDataProps, MealIndexFilter} from '@/ui/meal/index/type';
+import {sortMealIndexRecipe} from '@/ui/meal/index/utils';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -34,52 +34,35 @@ export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...p
     filter,
     setFilter,
     data,
-  } = useMealInputFilter({
+  } = useMealInputFilter<MealIndexFilter>({
     ingredientMap,
     recipeLevelData,
     meals,
     calculatedConfigBundle,
-    initialFilter: generateEmptyMealFilter(),
+    initialFilter: {
+      ...generateEmptyMealFilter(),
+      sort: 'recipeBaseStrength',
+    },
   });
-
-  const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
 
   return (
     <>
-      <MealFilter
+      <MealIndexInput
         filter={filter}
         setFilter={setFilter}
         ingredientMap={ingredientMap}
         meals={meals}
-        maxRecipeLevel={maxRecipeLevel}
+        recipeLevelData={recipeLevelData}
       />
       <AdsUnit hideIfNotBlocked/>
       <Grid className={clsx(
-        'grid-cols-1 gap-1.5 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5',
+        'grid-cols-1 gap-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 xl:grid-cols-5',
       )}>
-        {data
-          .sort((a, b) => {
-            if (a.meal.type > b.meal.type) {
-              return 1;
-            }
-            if (a.meal.type < b.meal.type) {
-              return -1;
-            }
-
-            if (a.meal.ingredientCount > b.meal.ingredientCount) {
-              return -1;
-            }
-            if (a.meal.ingredientCount < b.meal.ingredientCount) {
-              return 1;
-            }
-
-            return 0;
-          })
-          .map((mealDetails) => (
-            <AnimatedCollapse key={mealDetails.meal.id} appear show={!!isIncluded[mealDetails.meal.id]}>
-              <MealLink mealDetails={mealDetails} showStats={filter.showStats}/>
-            </AnimatedCollapse>
-          ))}
+        {data.sort(sortMealIndexRecipe(filter.sort)).map((mealDetails) => (
+          <AnimatedCollapse key={mealDetails.meal.id} appear show={!!isIncluded[mealDetails.meal.id]}>
+            <MealLink mealDetails={mealDetails} showStats={filter.showStats}/>
+          </AnimatedCollapse>
+        ))}
       </Grid>
     </>
   );

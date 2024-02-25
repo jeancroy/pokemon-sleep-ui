@@ -394,7 +394,11 @@
       "RecipeLevel": "食譜等級",
       "ToggleUnmakeable": "顯示/隱藏無法製作的料理",
       "Total": "總計",
-      "TargetMealCount": "目標數量"
+      "TargetMealCount": "目標數量",
+      "Sort": {
+        "RecipeBaseStrength": "食譜基礎能量",
+        "IngredientCount": "食材數量"
+      }
     },
     "Map": {
       "Unique": "地圖限定",

@@ -394,7 +394,11 @@
       "RecipeLevel": "레시피 레벨",
       "ToggleUnmakeable": "만들 수 없는 요리 표시/숨기기",
       "Total": "총합",
-      "TargetMealCount": "목표 요리 수"
+      "TargetMealCount": "목표 요리 수",
+      "Sort": {
+        "RecipeBaseStrength": "Recipe Base Strength",
+        "IngredientCount": "Ingredient Count"
+      }
     },
     "Map": {
       "Unique": "특정 맵 한정",

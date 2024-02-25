@@ -394,7 +394,11 @@
       "RecipeLevel": "Recipe Level",
       "ToggleUnmakeable": "Show/Hide Unmakeable Dishes",
       "Total": "Total",
-      "TargetMealCount": "Target Meal Count"
+      "TargetMealCount": "Target Meal Count",
+      "Sort": {
+        "RecipeBaseStrength": "Recipe Base Strength",
+        "IngredientCount": "Ingredient Count"
+      }
     },
     "Map": {
       "Unique": "Single Map",

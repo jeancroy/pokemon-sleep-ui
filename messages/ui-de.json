@@ -394,7 +394,11 @@
       "RecipeLevel": "Rezeptlevel",
       "ToggleUnmakeable": "Unzubereitbare Gerichte ein-/ausblenden",
       "Total": "Gesamt",
-      "TargetMealCount": "Zielzahl der Mahlzeiten"
+      "TargetMealCount": "Zielzahl der Mahlzeiten",
+      "Sort": {
+        "RecipeBaseStrength": "Recipe Base Strength",
+        "IngredientCount": "Ingredient Count"
+      }
     },
     "Map": {
       "Unique": "einzelnes Gebiet",

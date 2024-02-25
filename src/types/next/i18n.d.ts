@@ -284,6 +284,10 @@ declare global {
           ToggleUnmakeable: string,
           Total: string,
           TargetMealCount: string,
+          Sort: {
+            RecipeBaseStrength: string,
+            IngredientCount: string,
+          },
         },
         Map: {
           Unique: string,

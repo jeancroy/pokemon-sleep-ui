@@ -394,7 +394,11 @@
       "RecipeLevel": "Nivel de Receta",
       "ToggleUnmakeable": "Mostrar/Ocultar Platos imposibles de cocinar",
       "Total": "Total",
-      "TargetMealCount": "Recuento de comidas"
+      "TargetMealCount": "Recuento de comidas",
+      "Sort": {
+        "RecipeBaseStrength": "Recipe Base Strength",
+        "IngredientCount": "Ingredient Count"
+      }
     },
     "Map": {
       "Unique": "Mapa",

@@ -394,7 +394,11 @@
       "RecipeLevel": "レシピレベル",
       "ToggleUnmakeable": "作れない料理を表示/非表示",
       "Total": "計",
-      "TargetMealCount": "目標料理数"
+      "TargetMealCount": "目標料理数",
+      "Sort": {
+        "RecipeBaseStrength": "Recipe Base Strength",
+        "IngredientCount": "Ingredient Count"
+      }
     },
     "Map": {
       "Unique": "マップ限定",
