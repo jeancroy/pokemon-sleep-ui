@@ -1,10 +1,10 @@
 import {StaminaEventLog} from '@/types/game/stamina/event';
-import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getLogsWithCookingRecovery} from '@/utils/game/stamina/events/cooking';
 import {getLogsWithEndOfPeriodMark} from '@/utils/game/stamina/events/endOfPeriod';
 import {getLogsWithPrimarySleep} from '@/utils/game/stamina/events/primary';
 import {getLogsWithSecondarySleep} from '@/utils/game/stamina/events/secondary';
 import {getLogsWithSkillRecovery} from '@/utils/game/stamina/events/skill';
+import {getStaminaEventLogsEffectiveSkillTriggers} from '@/utils/game/stamina/log/skillTriggers';
 import {GetStaminaEventLogOpts} from '@/utils/game/stamina/log/type';
 
 
@@ -13,15 +13,17 @@ type GetStaminaEventLogCommonOpts = GetStaminaEventLogOpts & {
 };
 
 export const getStaminaEventLogsCommon = ({
-  config,
-  cookingRecoveryData,
-  sleepSessionInfo,
-  skillRecoveryOverride,
   dailyNetChange,
+  ...opts
 }: GetStaminaEventLogCommonOpts): StaminaEventLog[] => {
-  const {cookingRecovery, skillRecovery} = config;
+  const {
+    config,
+    cookingRecoveryData,
+    sleepSessionInfo,
+  } = opts;
+  const {cookingRecovery} = config;
 
-  const skillTriggers: StaminaSkillTriggerData[] = skillRecoveryOverride ?? [skillRecovery.recovery];
+  const skillTriggers = getStaminaEventLogsEffectiveSkillTriggers(opts);
 
   let logs = getLogsWithPrimarySleep({
     sleepSessionInfo,

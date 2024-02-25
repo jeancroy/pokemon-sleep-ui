@@ -1,5 +1,5 @@
 import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
-import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
+import {StaminaSkillTriggerOverride} from '@/types/game/stamina/skill';
 import {
   GetPokemonProductionInitialRateCommonOpts,
 } from '@/utils/game/producing/main/entry/components/rates/initial/type';
@@ -11,7 +11,7 @@ import {toCalculatedUserConfig} from '@/utils/user/config/user/main';
 
 
 type GetPokemonProductionInitialRatesOpts<TPayload> = GetPokemonProductionInitialRateCommonOpts<TPayload> & {
-  skillRecoveryOverrides?: Nullable<StaminaSkillTriggerData[][]>,
+  skillTriggerOverrides: Nullable<StaminaSkillTriggerOverride[]>,
 };
 
 export const getPokemonProductionInitialCalculated = <TPayload>({
@@ -19,7 +19,7 @@ export const getPokemonProductionInitialCalculated = <TPayload>({
   subSkillBonuses,
   rateOpts,
   sharedOpts,
-  skillRecoveryOverrides,
+  skillTriggerOverrides,
 }: GetPokemonProductionInitialRatesOpts<TPayload>): PokemonProductionInCalcWithPayload<
   PokemonProductionInitial,
   TPayload
@@ -40,7 +40,8 @@ export const getPokemonProductionInitialCalculated = <TPayload>({
       eventStrengthMultiplierData,
       snorlaxFavorite,
       recoveryRate: toRecoveryRate({natureId, subSkillBonuses}),
-      skillRecoveryOverride: skillRecoveryOverrides?.at(rateIdx),
+      // Explicit `null` indicates no skill triggers
+      skillTriggerOverride: skillTriggerOverrides?.at(rateIdx) ?? null,
       behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},
     });
 

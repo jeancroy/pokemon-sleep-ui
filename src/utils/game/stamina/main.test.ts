@@ -3,7 +3,6 @@ import {describe, expect, it} from '@jest/globals';
 import {defaultCookingRecovery} from '@/const/user/config/user';
 import {testCookingRecoveryData} from '@/tests/data/game/cookingRecovery';
 import {StaminaCalcConfig} from '@/types/game/stamina/config';
-import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
 
@@ -68,14 +67,16 @@ describe('Stamina / From Config', () => {
         sleep: 1,
       },
     };
-    const skillRecoveryOverride: StaminaSkillTriggerData[] = [
-      {dailyCount: 2, amount: 9},
-      {dailyCount: 3, amount: 9},
-    ];
 
     const {multiplier} = getStaminaEfficiency({
       config,
-      skillRecoveryOverride,
+      skillTriggerOverride: {
+        type: 'override',
+        triggers: [
+          {dailyCount: 2, amount: 9},
+          {dailyCount: 3, amount: 9},
+        ],
+      },
       cookingRecoveryData: testCookingRecoveryData,
     });
 

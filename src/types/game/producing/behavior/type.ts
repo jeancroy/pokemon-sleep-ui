@@ -1,3 +1,3 @@
 export type ProductionCalcBehavior = {
-  asSingle?: boolean,
+  asSingle: boolean,
 };
