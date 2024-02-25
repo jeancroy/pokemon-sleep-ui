@@ -29,6 +29,7 @@ export const getPokemonProductionInitialRates = <TPayload>({
     subSkillBonuses,
     rateOpts,
     sharedOpts,
+    skillRecoveryOverrides: calcBehavior.asSingle ? null : rateOpts.map(() => []),
   });
 
   // If evaluated as single, skill recovery from the team should be ignored as each "team" only have 1 member (self)

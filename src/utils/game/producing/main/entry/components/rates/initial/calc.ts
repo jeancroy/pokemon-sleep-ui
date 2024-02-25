@@ -6,11 +6,12 @@ import {
 import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/components/rates/type';
 import {getPokemonProductionInitial} from '@/utils/game/producing/main/unit/main';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
+import {Nullable} from '@/utils/type';
 import {toCalculatedUserConfig} from '@/utils/user/config/user/main';
 
 
 type GetPokemonProductionInitialRatesOpts<TPayload> = GetPokemonProductionInitialRateCommonOpts<TPayload> & {
-  skillRecoveryOverrides?: StaminaSkillTriggerData[][],
+  skillRecoveryOverrides?: Nullable<StaminaSkillTriggerData[][]>,
 };
 
 export const getPokemonProductionInitialCalculated = <TPayload>({
