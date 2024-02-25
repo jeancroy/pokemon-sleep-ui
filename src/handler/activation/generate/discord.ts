@@ -52,9 +52,7 @@ export const generateDiscordActivationLink = async (request: NextRequest) => {
     throw new Error(`Duplicated Discord activation for ${discordId}`);
   }
 
-  /* eslint-disable no-console */
   console.info(`Generated activation link for Discord user ${discordId} - ${activationLink}`);
-  /* eslint-enable no-console */
 
   return new Response(activationLink);
 };

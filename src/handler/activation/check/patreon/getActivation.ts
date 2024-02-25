@@ -26,14 +26,10 @@ export const getActivationFromPatreonMember = async ({
       return activationGettingResult;
     }
 
-    /* eslint-disable no-console */
     console.info(`User of ${email} on Patreon has an unentitled tier [${activeTier.id}]`);
-    /* eslint-enable no-console */
   }
 
-  /* eslint-disable no-console */
   console.info(`User of ${email} on Patreon does not seem to have entitled tiers`);
-  /* eslint-enable no-console */
   return {
     activation: null,
     isSuspended: false,

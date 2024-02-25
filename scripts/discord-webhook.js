@@ -41,21 +41,20 @@ const discordData = {
   content: `**${env.status}** / ${env.title} <@503484431437398016>`,
   embeds: [
     {
-      'title': env.title,
-      'color': jobStatusToColor[env.status] ?? parseInt('64748b', 16),
-      'fields': [
+      title: env.title,
+      color: jobStatusToColor[env.status] ?? parseInt('64748b', 16),
+      fields: [
         {
-          'name': 'Status',
-          'value': env.status,
-          'inline': true,
+          name: 'Status',
+          value: env.status,
+          inline: true,
         },
       ],
-      'url': env.url,
+      url: env.url,
     },
   ],
 };
 
-/* eslint-disable no-console */
 console.info(`Azure DevOps triggered at ${discordData.timestamp}`);
 console.info(`- Requester: ${env.requester}`);
 console.info(`- Requester ID: ${env.requesterId}`);
@@ -64,7 +63,6 @@ console.info(`- Queued by ID: ${env.queuedById}`);
 console.info(`- Status: ${env.status}`);
 console.info(`- Title: ${env.title}`);
 console.info(`- Content: ${discordData.content}`);
-/* eslint-enable no-console */
 
 
 fetch(

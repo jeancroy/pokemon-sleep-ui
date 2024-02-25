@@ -29,7 +29,6 @@ export const scanActivations = async <TMember>({
 
   const sourceText = activationSourceToText[source];
 
-  /* eslint-disable no-console */
   console.info(`>>> Activation poll requested for source: ${sourceText}`);
   console.info(`- Pending activations: ${toSendActivation.length}`);
   console.info(`- Pending expiry updates: ${toUpdateExpiry.length}`);
@@ -37,7 +36,6 @@ export const scanActivations = async <TMember>({
   console.info('Pending activations:', JSON.stringify(toSendActivation));
   console.info('Pending expiry updates', JSON.stringify(toUpdateExpiry));
   console.info('Pending deactivations', JSON.stringify(toDeactivate));
-  /* eslint-enable no-console */
 
   await Promise.all([
     ...toSendActivationActions(
@@ -57,9 +55,7 @@ export const scanActivations = async <TMember>({
     }),
   ]);
 
-  /* eslint-disable no-console */
   console.info(`>>> Activation poll completed for source: ${sourceText}`);
-  /* eslint-enable no-console */
 
   return Response.json({}, {status: 200});
 };

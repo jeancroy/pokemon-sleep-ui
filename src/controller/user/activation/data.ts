@@ -84,9 +84,7 @@ export const addActivationDataByAdsClick = async ({
     note: '',
   });
 
-  /* eslint-disable no-console */
   console.info(`Ad-click activation generated for user ${userId} with key ${key}`);
-  /* eslint-enable no-console */
 };
 
 type GetActivationDataByFilterOpts = ControllerRequireUserIdOpts & {

@@ -24,7 +24,6 @@ export const getActivationFromPlatform = async ({
 
   const existedActivationProperties = (await getActivationPropertiesByContact(opts));
 
-  /* eslint-disable no-console */
   console.info(`>>> Converting ${source} member [${userInfo}] to activation payload`);
   if (existedActivationProperties) {
     console.info(
@@ -32,7 +31,6 @@ export const getActivationFromPlatform = async ({
       JSON.stringify(existedActivationProperties),
     );
   }
-  /* eslint-enable no-console */
 
   if (existedActivationProperties?.isActivationLocked) {
     return {
