@@ -22,7 +22,6 @@ export const defaultCookingConfig: NonNullableRecord<CookingConfig> = {
     },
   },
   potCapacity: 15,
-  ingredients: {},
   unlockedIngredients: {
     3: true,
     5: true,

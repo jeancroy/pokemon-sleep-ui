@@ -10,7 +10,6 @@ export type CookingConfig = {
   mealType: MealTypeId | null,
   target: CookingTarget,
   potCapacity: number,
-  ingredients: FilterInclusionMap<IngredientId>,
   unlockedIngredients: FilterInclusionMap<IngredientId>,
   showEnergy: boolean,
   showUnmakeableRecipe: boolean,
