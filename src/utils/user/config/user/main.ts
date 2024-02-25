@@ -3,20 +3,21 @@ import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {UserCalculationBehavior} from '@/types/userData/config/user/behavior';
 import {CalculatedUserConfig} from '@/types/userData/config/user/main';
 import {cloneMerge} from '@/utils/object/cloneMerge';
+import {Nullable} from '@/utils/type';
 import {toEffectiveBonus, ToEffectiveBonusOpts} from '@/utils/user/config/user/bonus';
 import {userConfigOverrideRecoveryRate} from '@/utils/user/config/user/override/recoveryRate';
 
 
 export type ToCalculatedUserConfigOpts = ToEffectiveBonusOpts & {
   recoveryRate?: StaminaRecoveryRateConfig,
-  additionalSkillTriggers?: StaminaSkillTriggerData[],
   behaviorOverride?: Partial<UserCalculationBehavior>,
+  skillRecoveryOverride?: Nullable<StaminaSkillTriggerData[]>,
 };
 
 export const toCalculatedUserConfig = ({
   recoveryRate,
-  additionalSkillTriggers,
   behaviorOverride,
+  skillRecoveryOverride,
   ...opts
 }: ToCalculatedUserConfigOpts): CalculatedUserConfig => {
   let {userConfig} = opts;
@@ -30,7 +31,7 @@ export const toCalculatedUserConfig = ({
     bonus: toEffectiveBonus({
       ...opts,
       userConfig,
-      additionalSkillTriggers,
+      skillRecoveryOverride,
     }),
   };
 };

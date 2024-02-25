@@ -16,15 +16,12 @@ export const getStaminaEventLogsCommon = ({
   config,
   cookingRecoveryData,
   sleepSessionInfo,
-  additionalSkillTriggers,
+  skillRecoveryOverride,
   dailyNetChange,
 }: GetStaminaEventLogCommonOpts): StaminaEventLog[] => {
   const {cookingRecovery, skillRecovery} = config;
 
-  const skillTriggers: StaminaSkillTriggerData[] = [
-    skillRecovery.recovery,
-    ...(additionalSkillTriggers ?? []),
-  ];
+  const skillTriggers: StaminaSkillTriggerData[] = skillRecoveryOverride ?? [skillRecovery.recovery];
 
   let logs = getLogsWithPrimarySleep({
     sleepSessionInfo,

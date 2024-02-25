@@ -10,12 +10,13 @@ import {
   getEffectiveStrengthMultiplier,
 } from '@/utils/game/event/strengthMultiplier';
 import {getStaminaEfficiency} from '@/utils/game/stamina/main';
+import {Nullable} from '@/utils/type';
 
 
 export type ToEffectiveBonusOpts = Omit<ConfigRequiredData, 'mealMap'> & {
   userConfig: UserConfig,
   snorlaxFavorite: SnorlaxFavorite,
-  additionalSkillTriggers?: StaminaSkillTriggerData[],
+  skillRecoveryOverride?: Nullable<StaminaSkillTriggerData[]>,
 };
 
 export const toEffectiveBonus = ({
@@ -23,14 +24,14 @@ export const toEffectiveBonus = ({
   snorlaxFavorite,
   cookingRecoveryData,
   eventStrengthMultiplierData,
-  additionalSkillTriggers,
+  skillRecoveryOverride,
 }: ToEffectiveBonusOpts): EffectiveBonus => {
   const {bonus, stamina, multiplier} = userConfig;
 
   const staminaEfficiency = getStaminaEfficiency({
     config: stamina,
     cookingRecoveryData,
-    additionalSkillTriggers,
+    skillRecoveryOverride,
   });
 
   const mapBonus = snorlaxFavorite.mapId ?

@@ -68,13 +68,14 @@ describe('Stamina / From Config', () => {
         sleep: 1,
       },
     };
-    const additionalSkillTriggers: StaminaSkillTriggerData[] = [
+    const skillRecoveryOverride: StaminaSkillTriggerData[] = [
       {dailyCount: 2, amount: 9},
+      {dailyCount: 3, amount: 9},
     ];
 
     const {multiplier} = getStaminaEfficiency({
       config,
-      additionalSkillTriggers,
+      skillRecoveryOverride,
       cookingRecoveryData: testCookingRecoveryData,
     });
 
