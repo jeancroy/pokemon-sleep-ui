@@ -25,7 +25,6 @@ export const MealTypeInput = <TFilter, >({mealTypes, ...props}: Props<TFilter>) 
 
   return (
     <FilterExpandedInput
-      style="highlight"
       title={t('MealType')}
       ids={[null, ...mealTypes]}
       idToButton={(id) => {
