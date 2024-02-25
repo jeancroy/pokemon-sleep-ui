@@ -32,7 +32,7 @@ export const DrowsyPowerMultiplierInput = ({
   return (
     <FilterTextInput
       title={
-        <Flex direction="row" center className="items-center gap-1 px-2">
+        <Flex direction="row" center className="min-w-[8rem] items-center gap-1 px-2">
           {isInputRestricted && <PremiumIcon/>}
           <div>{t('DrowsyPower')}</div>
         </Flex>

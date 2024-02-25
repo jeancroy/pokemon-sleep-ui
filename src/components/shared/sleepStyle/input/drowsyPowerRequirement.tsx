@@ -28,7 +28,7 @@ export const DrowsyPowerRequirementInput = ({
 
   return (
     <InputRow defaultAsCol className="md:flex-row">
-      <Flex direction="row" noFullWidth className="items-center gap-1 px-2 text-sm">
+      <Flex direction="row" noFullWidth center className="min-w-[8rem] items-center gap-1 px-2 text-sm">
         {isInputRestricted && <PremiumIcon/>}
         {t('DrowsyPowerRequirement')}
       </Flex>
