@@ -69,7 +69,7 @@ export const PageLayout = ({
           </I18nProvider>
         </Flex>
         <div className="size-full overflow-y-auto">
-          <Flex className="gap-1.5 p-2">
+          <Flex className="gap-1 p-2">
             {announcement && <Announcements showOn="portrait" height="h-10"/>}
             {!noPageEndAds && <AdsUnit/>}
             <DocsAutoLink locale={locale}/>
