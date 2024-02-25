@@ -1,6 +1,10 @@
 import {testDefaultCalculatedUserConfig} from '@/tests/data/user/config';
 import {EffectiveBonus} from '@/types/game/bonus/main';
-import {ProductionOfDrop} from '@/types/game/producing/rate/base';
+import {
+  ProductionByCalculatedStates,
+  ProductionOfDrop,
+  ProductionValueByCalculatedStates,
+} from '@/types/game/producing/rate/base';
 import {ToFinalProductionOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
@@ -13,6 +17,25 @@ export const testBaseProductionOfDrop: ProductionOfDrop = {
   qtyPerHelp: NaN, // ignore
   strength: NaN, // ignore
   strengthPerHelp: NaN, // ignore
+};
+
+export const testProductionValueByState: ProductionValueByCalculatedStates = {
+  awake: NaN, // ignore
+  sleep1Vacant: NaN, // ignore
+  sleep1Filled: NaN, // ignore
+  sleep2Vacant: NaN, // ignore
+  sleep2Filled: NaN, // ignore
+  base: NaN, // ignore
+  equivalent: NaN, // ignore
+  unfilledOnly: NaN, // ignore
+};
+
+export const testBaseProductionByState: ProductionByCalculatedStates = {
+  id: NaN, // ignore
+  frequency: testProductionValueByState, // ignore
+  period: 'daily', // ignore
+  qty: testProductionValueByState, // ignore
+  strength: testProductionValueByState, // ignore
 };
 
 export const getTestFinalProductionOfDropCommonOpts = (
