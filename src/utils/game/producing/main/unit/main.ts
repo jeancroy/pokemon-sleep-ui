@@ -1,4 +1,5 @@
 import {PokemonProductionFirstPass} from '@/types/game/producing/rate/main';
+import {PokemonProductionIntermediateParams} from '@/types/game/producing/rate/params';
 import {getBerryProductionBase} from '@/utils/game/producing/branch/berry/base';
 import {getBerryProductionFinal} from '@/utils/game/producing/branch/berry/final';
 import {getIngredientProductionBaseList} from '@/utils/game/producing/branch/ingredient/base/main';
@@ -14,12 +15,21 @@ import {getProducingStateSplit} from '@/utils/game/producing/split';
 import {ToFinalProductionOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
-export const getPokemonProductionFirstPass = (opts: GetPokemonProductionUnitOpts): PokemonProductionFirstPass => {
+type GetPokemonProductionFirstOpts = GetPokemonProductionUnitOpts & {
+  params?: PokemonProductionIntermediateParams,
+};
+
+export const getPokemonProductionFirstPass = ({
+  params,
+  ...opts
+}: GetPokemonProductionFirstOpts): PokemonProductionFirstPass => {
   const {calculatedUserConfig} = opts;
   const {bonus} = calculatedUserConfig;
   const {sleepSessionInfo, intervalsDuringSleep} = bonus.stamina;
 
-  const params = getPokemonProductionIntermediateParams(opts);
+  if (!params) {
+    params = getPokemonProductionIntermediateParams(opts);
+  }
   const {
     isFullPack,
     period,
