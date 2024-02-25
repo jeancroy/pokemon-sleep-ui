@@ -588,20 +588,20 @@
   "Rating": {
     "Basis": {
       "TotalStrength": {
-        "Name": "Total strength",
-        "Explainer": "Expected total daily strength production. **Cooking schedule in the user config affects the outcome.**"
+        "Name": "総エナジー",
+        "Explainer": "エナジー総量の日産の期待値で評価します。**ユーザ設定の料理スケジュールも結果を左右します。**"
       },
       "IngredientStrength": {
-        "Name": "Ingredient strength",
-        "Explainer": "Expected strength originated from ingredient production. **Cooking schedule in the user config affects the outcome.**"
+        "Name": "食材エナジー",
+        "Explainer": "食材から得られるエナジーの日産の期待値で評価します。**ユーザ設定の料理スケジュールも結果を左右します。**"
       },
       "MealCoverage": {
-        "Name": "Meal Coverage",
-        "Explainer": "Percentage of the ingredient requirements covered based on the current cooking schedule in the user config."
+        "Name": "レシピカバー率",
+        "Explainer": "ユーザ設定の料理スケジュールにもとづいた食材の要求量を満たす割合で評価します。"
       },
       "MainSkillTriggerCount": {
-        "Name": "Expected skill count",
-        "Explainer": "Expected skill trigger count per day. This factors in the inventory limit."
+        "Name": "スキル発動回数",
+        "Explainer": "1日のメインスキル発動回数の期待値で評価します。最大所持数も加味されます。"
       }
     },
     "WeightedStatsBasis": {
