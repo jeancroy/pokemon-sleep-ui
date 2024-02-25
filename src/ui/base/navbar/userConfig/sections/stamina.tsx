@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useTranslations} from 'next-intl';
 
-import {GenericIcon} from '@/components/shared/icon/common/main';
+import {EnergyIcon} from '@/components/shared/icon/energy';
 import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
 import {StaminaConfig} from '@/components/shared/stamina/input/main';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
@@ -18,7 +18,7 @@ export const UserConfigStamina = (props: StaminaConfigProps) => {
 
   return (
     <UserConfigSection
-      titleIcon={<GenericIcon src="/images/generic/mood.png" noWrap alt={t('Title')}/>}
+      titleIcon={<EnergyIcon noWrap alt={t('Title')}/>}
       title={t2('Section.Stamina')}
     >
       <StaminaConfig {...props}/>
