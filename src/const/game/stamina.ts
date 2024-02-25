@@ -1,4 +1,5 @@
 import {EfficiencyBreakPoint} from '@/types/game/producing/efficiency';
+import {StaminaEfficiencyState} from '@/types/game/stamina/efficiency';
 import {StaminaEventType} from '@/types/game/stamina/event';
 import {StaminaRecoveryStrategy} from '@/types/game/stamina/strategy';
 import {I18nMessageKeysOfNamespace} from '@/types/i18n';
@@ -38,4 +39,13 @@ export const staminaEventTypeI18nId: {
   sleep: 'Sleep',
   wakeup: 'Wakeup',
   endOfPeriod: 'EndOfPeriod',
+};
+
+export const staminaEfficiencyStateI18nId: {
+  [state in StaminaEfficiencyState]: I18nMessageKeysOfNamespace<'UI.Stamina.State'>
+} = {
+  average: 'Average',
+  awake: 'Awake',
+  sleep1: 'Asleep.Primary',
+  sleep2: 'Asleep.Secondary',
 };

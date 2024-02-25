@@ -12,6 +12,8 @@ export type StaminaEfficiencyCounter<TValue = number> = {[state in ProducingStat
   average: TValue,
 };
 
+export type StaminaEfficiencyState = keyof StaminaEfficiencyCounter<never>;
+
 export type StaminaEfficiency = {
   logs: StaminaEventLog[],
   // This multiplier is the average coming from the integral of the stamina log.

@@ -1,22 +1,31 @@
 import React from 'react';
 
+import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
-import {I18nMessageKeysOfNamespace} from '@/types/i18n';
+import {StaminaEfficiencyStateIcon} from '@/components/shared/stamina/efficiency/icon';
+import {staminaEfficiencyStateI18nId} from '@/const/game/stamina';
+import {StaminaEfficiencyState} from '@/types/game/stamina/efficiency';
 
 
 type Props = {
-  titleI18nId: I18nMessageKeysOfNamespace<'UI.Stamina.State'>,
+  state: StaminaEfficiencyState,
   value: number | null,
+  mini?: boolean,
 };
 
-export const StaminaEfficiencyAtState = ({titleI18nId, value}: Props) => {
+export const StaminaEfficiencyAtState = ({state, value, mini}: Props) => {
   const t = useTranslations('UI.Stamina.State');
 
   return (
-    <Flex direction="row" noFullWidth className="items-end gap-1">
-      <div className="text-xs">{t(titleI18nId)}</div>
+    <Flex direction="row" noFullWidth className={clsx(
+      'gap-1',
+      mini ? 'items-center' : 'items-end',
+    )}>
+      {mini ?
+        <StaminaEfficiencyStateIcon state={state} dimension="size-4"/> :
+        <span className="text-xs">{t(staminaEfficiencyStateI18nId[state])}</span>}
       <div>{value ? value.toFixed(4) : NaN}x</div>
     </Flex>
   );
