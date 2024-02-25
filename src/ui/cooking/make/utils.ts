@@ -15,9 +15,7 @@ export const toCookingConfigFromMealMakerFilter = ({
   return {
     ...defaultCookingConfig,
     ...preloaded,
-    potCapacity: filter.capacity,
-    mealType: filter.type,
-    ingredients: filter.ingredient,
+    mealType: filter.mealType,
     ingredientCount: filter.inventory,
     recipeLevel: filter.recipeLevel,
     showUnmakeableRecipe: filter.showUnmakeableRecipe,

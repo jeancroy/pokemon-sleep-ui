@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {isFilterConditionActive} from '@/components/input/filter/utils/match';
 import {IngredientInventoryInput} from '@/components/shared/input/ingredient/inventory';
 import {MealMakerCommonProps, MealMakerFilter} from '@/ui/cooking/make/type';
 
@@ -10,10 +9,7 @@ export const MealMakerInputInventory = ({filter, setFilter, ingredientMap}: Meal
     <IngredientInventoryInput
       ingredientMap={ingredientMap}
       counter={filter.inventory}
-      showIngredient={(ingredient) => !(
-        isFilterConditionActive({filter, filterKey: 'ingredient'}) &&
-        !filter.ingredient[ingredient.id]
-      )}
+      showIngredient={() => true}
       onValueChanged={({id}, count) => setFilter((original) => ({
         ...original,
         inventory: {

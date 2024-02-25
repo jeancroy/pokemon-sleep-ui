@@ -1,5 +1,5 @@
-import {FilterInclusionMap, FilterWithUpdaterProps} from '@/components/input/filter/type';
-import {IngredientId} from '@/types/game/ingredient';
+import {FilterWithUpdaterProps} from '@/components/input/filter/type';
+import {MealInputFilterLevelAgnostic} from '@/components/shared/meal/filter/levelAgnostic/type';
 import {MealStrengthInfo} from '@/types/game/meal/info';
 import {Meal, MealTypeId} from '@/types/game/meal/main';
 import {PotInfo} from '@/types/game/potInfo';
@@ -13,10 +13,7 @@ export type MealMakerRecipeData = {
   info: MealStrengthInfo,
 };
 
-export type MealMakerFilter = CookingCommonFilter & {
-  type: MealTypeId | null,
-  capacity: number,
-  ingredient: FilterInclusionMap<IngredientId>,
+export type MealMakerFilter = CookingCommonFilter & MealInputFilterLevelAgnostic & {
   showUnmakeableRecipe: boolean,
 };
 

@@ -13,7 +13,12 @@ export const MealMaker = async ({params}: DefaultPageProps) => {
 
   return (
     <PublicPageLayout locale={locale}>
-      <I18nProvider locale={locale} namespaces={['Game.MealType', 'Game.Food', 'UI.InPage.Cooking']}>
+      <I18nProvider locale={locale} namespaces={[
+        'Game.MealType',
+        'Game.Food',
+        'UI.Component.MealFilter',
+        'UI.InPage.Cooking',
+      ]}>
         <MealMakerClient {...props}/>
       </I18nProvider>
     </PublicPageLayout>

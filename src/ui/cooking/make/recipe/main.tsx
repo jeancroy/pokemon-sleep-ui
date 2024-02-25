@@ -1,12 +1,19 @@
 import React from 'react';
 
+import {FilterInclusionMap} from '@/components/input/filter/type';
+import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {Grid} from '@/components/layout/grid';
+import {MealId} from '@/types/game/meal/main';
 import {MealMakerRecipeSingle} from '@/ui/cooking/make/recipe/single';
 import {MealMakerCommonProps, MealMakerRecipeData} from '@/ui/cooking/make/type';
 import {getMealFinalStrength} from '@/utils/game/meal/strength/final/recipe';
 
 
-export const MealMakerRecipe = ({meals, ...props}: MealMakerCommonProps) => {
+type Props = MealMakerCommonProps & {
+  isIncluded: FilterInclusionMap<MealId>,
+};
+
+export const MealMakerRecipe = ({meals, isIncluded, ...props}: Props) => {
   const {
     filter,
     ingredientMap,
@@ -37,13 +44,14 @@ export const MealMakerRecipe = ({meals, ...props}: MealMakerCommonProps) => {
       {data
         .sort((a, b) => (b.info.strengthFinal ?? 0) - (a.info.strengthFinal ?? 0))
         .map((data) => (
-          <MealMakerRecipeSingle
-            key={data.meal.id}
-            showUnmakeableRecipe={showUnmakeableRecipe}
-            isInventoryUnset={Object.keys(filter.inventory).length === 0}
-            {...data}
-            {...props}
-          />
+          <AnimatedCollapse key={data.meal.id} appear show={!!isIncluded[data.meal.id]}>
+            <MealMakerRecipeSingle
+              showUnmakeableRecipe={showUnmakeableRecipe}
+              isInventoryUnset={Object.keys(filter.inventory).length === 0}
+              {...data}
+              {...props}
+            />
+          </AnimatedCollapse>
         ))}
     </Grid>
   );
