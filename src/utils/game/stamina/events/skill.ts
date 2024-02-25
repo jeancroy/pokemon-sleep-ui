@@ -79,7 +79,7 @@ export const getLogsWithSkillRecovery = ({
   } = opts;
   const {strategy} = general;
 
-  if (strategy !== 'conservative') {
+  if (strategy !== 'conservative' || !skillTriggers.length) {
     return [...logs];
   }
 
