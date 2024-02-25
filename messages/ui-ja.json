@@ -396,8 +396,8 @@
       "Total": "計",
       "TargetMealCount": "目標料理数",
       "Sort": {
-        "RecipeBaseStrength": "Recipe Base Strength",
-        "IngredientCount": "Ingredient Count"
+        "RecipeBaseStrength": "レシピ基礎エナジー",
+        "IngredientCount": "食材の数"
       }
     },
     "Map": {
