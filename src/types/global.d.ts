@@ -30,7 +30,8 @@ declare global {
       // External services - Patreon
       EXTERNAL_PATREON_CAMPAIGN_ID: string,
       EXTERNAL_PATREON_WEBHOOK_SECRET: string,
-      EXTERNAL_PATREON_OAUTH_ACCESS_TOKEN: string,
+      EXTERNAL_PATREON_OAUTH_CLIENT_ID: string,
+      EXTERNAL_PATREON_OAUTH_CLIENT_SECRET: string,
 
       // External services - GitHub
       EXTERNAL_GITHUB_WEBHOOK_SECRET: string,

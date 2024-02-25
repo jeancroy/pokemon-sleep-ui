@@ -2,7 +2,7 @@ import {zip} from 'lodash';
 
 import {PatreonCampaignMemberResponse} from '@/handler/activation/check/patreon/api/campaign/type';
 import {patreonSearchParams} from '@/handler/activation/check/patreon/api/const';
-import {sendPatreonApiRequest} from '@/handler/activation/check/patreon/api/utils';
+import {sendPatreonApiRequest} from '@/handler/activation/check/patreon/api/utils/request';
 import {PatreonMember} from '@/types/subscription/patreon/common/member';
 import {PatreonUser} from '@/types/subscription/patreon/common/user';
 import {PatreonMemberData} from '@/types/subscription/patreon/memberData';
@@ -19,8 +19,11 @@ export const getCurrentCampaignMembers = async (): Promise<PatreonMemberData[]> 
     `https://www.patreon.com/api/oauth2/v2/campaigns/${campaign}/members?${patreonSearchParams.toString()}`
   );
   do {
-    const response = await sendPatreonApiRequest(url);
-    const {data, included, links} = await response.json() as PatreonCampaignMemberResponse;
+    const {
+      data,
+      included,
+      links,
+    } = await sendPatreonApiRequest(url) as PatreonCampaignMemberResponse;
 
     members.push(...data);
     users.push(...included);
