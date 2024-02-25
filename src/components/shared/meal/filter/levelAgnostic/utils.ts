@@ -1,23 +1,22 @@
 import {isFilterIncludingSome} from '@/components/input/filter/utils/match';
-import {MealInputFilter} from '@/components/shared/meal/filter/type';
+import {MealInputFilterLevelAgnostic} from '@/components/shared/meal/filter/levelAgnostic/type';
 import {MealDetails} from '@/types/game/meal/main';
 
 
-export const generateEmptyMealFilter = (): MealInputFilter => ({
+export const generateEmptyMealFilterLevelAgnostic = (): MealInputFilterLevelAgnostic => ({
   mealType: null,
   ingredientExclusion: {},
   ingredientInclusion: {},
   minBonusPercent: null,
-  recipeLevel: 1,
   showStats: true,
 });
 
 type IsMealIncludedFromFilterOpts = {
-  filter: MealInputFilter,
+  filter: MealInputFilterLevelAgnostic,
   mealDetails: MealDetails,
 };
 
-export const isMealIncludedFromFilter = ({
+export const isMealIncludedFromMealInputFilterLevelAgnostic = ({
   filter,
   mealDetails,
 }: IsMealIncludedFromFilterOpts) => {

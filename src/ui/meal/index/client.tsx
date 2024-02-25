@@ -7,8 +7,8 @@ import {useSession} from 'next-auth/react';
 import {AdsUnit} from '@/components/ads/main';
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {Grid} from '@/components/layout/grid';
-import {useMealInputFilter} from '@/components/shared/meal/filter/hook';
-import {generateEmptyMealFilter} from '@/components/shared/meal/filter/utils';
+import {useMealInputFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/hook';
+import {generateEmptyMealFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/utils';
 import {MealLink} from '@/components/shared/meal/link/main';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {MealIndexInput} from '@/ui/meal/index/input';
@@ -35,13 +35,13 @@ export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...p
     filter,
     setFilter,
     data,
-  } = useMealInputFilter<MealIndexFilter>({
+  } = useMealInputFilterLevelGnostic<MealIndexFilter>({
     ingredientMap,
     recipeLevelData,
     meals,
     calculatedConfigBundle,
     initialFilter: {
-      ...generateEmptyMealFilter(),
+      ...generateEmptyMealFilterLevelGnostic(),
       sort: 'recipeBaseStrength',
     },
   });

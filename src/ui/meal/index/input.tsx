@@ -8,21 +8,21 @@ import {FilterWithUpdaterProps} from '@/components/input/filter/type';
 import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {Flex} from '@/components/layout/flex/common';
 import {GenericIcon} from '@/components/shared/icon/common/main';
-import {MealFilter} from '@/components/shared/meal/filter/main';
-import {MealFilterRequiredData} from '@/components/shared/meal/filter/type';
+import {MealFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/main';
+import {MealFilterGnosticRequiredData} from '@/components/shared/meal/filter/levelGnostic/type';
 import {textFilterButtonStyle} from '@/styles/input';
 import {mealIndexSortingBasisI18nId, mealIndexSortingBasisIconSrc} from '@/ui/meal/index/const';
 import {MealIndexFilter, mealIndexSortingBasis} from '@/ui/meal/index/type';
 
 
-type Props = FilterWithUpdaterProps<MealIndexFilter> & MealFilterRequiredData;
+type Props = FilterWithUpdaterProps<MealIndexFilter> & MealFilterGnosticRequiredData;
 
 export const MealIndexInput = ({filter, setFilter, ...props}: Props) => {
   const t = useTranslations('UI.InPage.Cooking.Sort');
 
   return (
     <>
-      <MealFilter
+      <MealFilterLevelGnostic
         filter={filter}
         setFilter={setFilter}
         {...props}

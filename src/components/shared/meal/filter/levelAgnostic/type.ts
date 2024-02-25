@@ -1,19 +1,22 @@
-import {FilterInclusionMap} from '@/components/input/filter/type';
+import {FilterInclusionMap, FilterWithUpdaterProps} from '@/components/input/filter/type';
 import {IngredientId, IngredientMap} from '@/types/game/ingredient';
 import {Meal, MealTypeId} from '@/types/game/meal/main';
 
 
-export type MealInputFilter = {
+export type MealInputFilterLevelAgnostic = {
   mealType: MealTypeId | null,
   ingredientExclusion: FilterInclusionMap<IngredientId>,
   ingredientInclusion: FilterInclusionMap<IngredientId>,
   minBonusPercent: number | null,
-  recipeLevel: number,
   showStats: boolean,
 };
 
-export type MealFilterRequiredData = {
+export type MealFilterAgnosticRequiredData = {
   meals: Meal[],
   ingredientMap: IngredientMap,
-  maxRecipeLevel: number,
+};
+
+export type MealFilterAgnosticCommonProps<TFilter> = FilterWithUpdaterProps<TFilter> & {
+  meals: Meal[],
+  ingredientMap: IngredientMap,
 };

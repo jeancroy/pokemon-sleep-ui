@@ -3,8 +3,8 @@ import React from 'react';
 
 import {useSession} from 'next-auth/react';
 
-import {useMealInputFilter} from '@/components/shared/meal/filter/hook';
-import {generateEmptyMealFilter} from '@/components/shared/meal/filter/utils';
+import {useMealInputFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/hook';
+import {generateEmptyMealFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/utils';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {PotInfoInput} from '@/ui/info/pot/input';
 import {PotInfoDataProps, PotInfoFilter} from '@/ui/info/pot/type';
@@ -37,13 +37,13 @@ export const PotInfoClient = (props: PotInfoDataProps) => {
     setFilter,
     isIncluded,
     data,
-  } = useMealInputFilter<PotInfoFilter>({
+  } = useMealInputFilterLevelGnostic<PotInfoFilter>({
     ingredientMap,
     recipeLevelData,
     meals,
     calculatedConfigBundle,
     initialFilter: ({
-      ...generateEmptyMealFilter(),
+      ...generateEmptyMealFilterLevelGnostic(),
       capacity: calculatedConfigBundle.bundle.cookingConfig.potCapacity,
     }),
   });

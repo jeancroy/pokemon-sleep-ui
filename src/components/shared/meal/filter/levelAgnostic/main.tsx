@@ -3,37 +3,29 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {FilterTextInput} from '@/components/input/filter/preset/text';
-import {InputRow} from '@/components/input/filter/row';
-import {FilterWithUpdaterProps} from '@/components/input/filter/type';
 import {getMultiSelectOnClickProps, getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {GenericIngredientSlashIcon} from '@/components/shared/icon/ingredientSlash';
 import {IngredientSelectionInput} from '@/components/shared/input/ingredient/selection';
 import {MealTypeInput} from '@/components/shared/input/mealType';
-import {MealDisplayControl} from '@/components/shared/meal/filter/control';
-import {MealInputFilter} from '@/components/shared/meal/filter/type';
-import {MealLevelInput} from '@/components/shared/meal/level';
+import {MealDisplayControl} from '@/components/shared/meal/filter/levelAgnostic/control';
+import {
+  MealFilterAgnosticCommonProps,
+  MealInputFilterLevelAgnostic,
+} from '@/components/shared/meal/filter/levelAgnostic/type';
 import {useUniqueMealStrengthBonusPercent} from '@/hooks/meal/bonusPercent';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
-import {IngredientMap} from '@/types/game/ingredient';
-import {Meal} from '@/types/game/meal/main';
 import {toUnique} from '@/utils/array';
 import {KeysOfType} from '@/utils/type';
 
 
-type Props<TFilter extends MealInputFilter> = FilterWithUpdaterProps<TFilter> & {
-  meals: Meal[],
-  ingredientMap: IngredientMap,
-  maxRecipeLevel: number,
-};
-
-export const MealFilter = <TFilter extends MealInputFilter>({
+export const MealFilterLevelAgnostic = <TFilter extends MealInputFilterLevelAgnostic>({
   filter,
   setFilter,
   meals,
   ingredientMap,
-  maxRecipeLevel,
-}: Props<TFilter>) => {
+  children,
+}: React.PropsWithChildren<MealFilterAgnosticCommonProps<TFilter>>) => {
   const t = useTranslations('UI.Component.MealFilter');
 
   const mealTypes = usePossibleMealTypes(meals);
@@ -48,7 +40,7 @@ export const MealFilter = <TFilter extends MealInputFilter>({
         mealTypes={mealTypes}
         filter={filter}
         setFilter={setFilter}
-        filterKey={'mealType' as KeysOfType<TFilter, MealInputFilter['mealType']>}
+        filterKey={'mealType' as KeysOfType<TFilter, MealInputFilterLevelAgnostic['mealType']>}
       />
       <IngredientSelectionInput
         title={<GenericIngredientIcon alt={t('IngredientInclusion')}/>}
@@ -56,7 +48,7 @@ export const MealFilter = <TFilter extends MealInputFilter>({
         {...getMultiSelectOnClickProps({
           filter,
           setFilter,
-          filterKey: 'ingredientInclusion' as KeysOfType<TFilter, MealInputFilter['ingredientInclusion']>,
+          filterKey: 'ingredientInclusion' as KeysOfType<TFilter, MealInputFilterLevelAgnostic['ingredientInclusion']>,
         })}
       />
       <IngredientSelectionInput
@@ -65,7 +57,7 @@ export const MealFilter = <TFilter extends MealInputFilter>({
         {...getMultiSelectOnClickProps({
           filter,
           setFilter,
-          filterKey: 'ingredientExclusion' as KeysOfType<TFilter, MealInputFilter['ingredientExclusion']>,
+          filterKey: 'ingredientExclusion' as KeysOfType<TFilter, MealInputFilterLevelAgnostic['ingredientExclusion']>,
         })}
       />
       <FilterTextInput
@@ -78,16 +70,7 @@ export const MealFilter = <TFilter extends MealInputFilter>({
           filterKey: 'minBonusPercent',
         })}
       />
-      <InputRow className="px-2 py-1">
-        <MealLevelInput
-          max={maxRecipeLevel}
-          value={filter.recipeLevel}
-          setValue={(recipeLevel) => setFilter((original) => ({
-            ...original,
-            recipeLevel,
-          }))}
-        />
-      </InputRow>
+      {children}
       <MealDisplayControl
         showStats={filter.showStats}
         setShowStats={(showInfo) => setFilter((original) => ({

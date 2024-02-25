@@ -1,4 +1,4 @@
-import {MealInputFilter} from '@/components/shared/meal/filter/type';
+import {MealInputFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/type';
 import {IngredientMap} from '@/types/game/ingredient';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {ConfigBundle} from '@/types/userData/config/bundle';
@@ -18,6 +18,6 @@ export const mealIndexSortingBasis = [
 
 export type MealIndexSortingBasis = typeof mealIndexSortingBasis[number];
 
-export type MealIndexFilter = MealInputFilter & {
+export type MealIndexFilter = MealInputFilterLevelGnostic & {
   sort: MealIndexSortingBasis,
 };

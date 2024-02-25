@@ -1,4 +1,4 @@
-import {MealInputFilter} from '@/components/shared/meal/filter/type';
+import {MealInputFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/type';
 import {IngredientMap} from '@/types/game/ingredient';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PotInfo} from '@/types/game/potInfo';
@@ -13,6 +13,6 @@ export type PotInfoDataProps = ConfigRequiredData & {
   preloaded: ConfigBundle,
 };
 
-export type PotInfoFilter = MealInputFilter & {
+export type PotInfoFilter = MealInputFilterLevelGnostic & {
   capacity: number,
 };
