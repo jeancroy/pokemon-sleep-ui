@@ -9,22 +9,15 @@ import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props
 import {Flex} from '@/components/layout/flex/common';
 import {GenericIcon} from '@/components/shared/icon/common/main';
 import {MealFilter} from '@/components/shared/meal/filter/main';
+import {MealFilterRequiredData} from '@/components/shared/meal/filter/type';
 import {textFilterButtonStyle} from '@/styles/input';
-import {IngredientMap} from '@/types/game/ingredient';
-import {Meal} from '@/types/game/meal/main';
-import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {mealIndexSortingBasisI18nId, mealIndexSortingBasisIconSrc} from '@/ui/meal/index/const';
 import {MealIndexFilter, mealIndexSortingBasis} from '@/ui/meal/index/type';
-import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 
 
-type Props = FilterWithUpdaterProps<MealIndexFilter> & {
-  ingredientMap: IngredientMap,
-  meals: Meal[],
-  recipeLevelData: RecipeLevelData[],
-};
+type Props = FilterWithUpdaterProps<MealIndexFilter> & MealFilterRequiredData;
 
-export const MealIndexInput = ({filter, setFilter, ingredientMap, meals, recipeLevelData}: Props) => {
+export const MealIndexInput = ({filter, setFilter, ...props}: Props) => {
   const t = useTranslations('UI.InPage.Cooking.Sort');
 
   return (
@@ -32,9 +25,7 @@ export const MealIndexInput = ({filter, setFilter, ingredientMap, meals, recipeL
       <MealFilter
         filter={filter}
         setFilter={setFilter}
-        ingredientMap={ingredientMap}
-        meals={meals}
-        maxRecipeLevel={getMaxRecipeLevel({recipeLevelData})}
+        {...props}
       />
       <FilterExpandedInput
         title={

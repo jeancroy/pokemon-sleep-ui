@@ -1,6 +1,6 @@
 import {FilterInclusionMap} from '@/components/input/filter/type';
-import {IngredientId} from '@/types/game/ingredient';
-import {MealTypeId} from '@/types/game/meal/main';
+import {IngredientId, IngredientMap} from '@/types/game/ingredient';
+import {Meal, MealTypeId} from '@/types/game/meal/main';
 
 
 export type MealInputFilter = {
@@ -10,4 +10,10 @@ export type MealInputFilter = {
   minBonusPercent: number | null,
   recipeLevel: number,
   showStats: boolean,
+};
+
+export type MealFilterRequiredData = {
+  meals: Meal[],
+  ingredientMap: IngredientMap,
+  maxRecipeLevel: number,
 };

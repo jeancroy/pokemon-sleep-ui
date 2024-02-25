@@ -9,6 +9,7 @@ import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculat
 import {PotInfoInput} from '@/ui/info/pot/input';
 import {PotInfoDataProps, PotInfoFilter} from '@/ui/info/pot/type';
 import {PotRecipeUnlockTable} from '@/ui/info/pot/unlock/main';
+import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -54,7 +55,7 @@ export const PotInfoClient = (props: PotInfoDataProps) => {
         setFilter={setFilter}
         ingredientMap={ingredientMap}
         potInfoList={potInfoList}
-        recipeLevelData={recipeLevelData}
+        maxRecipeLevel={getMaxRecipeLevel({recipeLevelData})}
         meals={meals}
       />
       <PotRecipeUnlockTable

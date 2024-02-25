@@ -14,6 +14,7 @@ import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculat
 import {MealIndexInput} from '@/ui/meal/index/input';
 import {MealDataProps, MealIndexFilter} from '@/ui/meal/index/type';
 import {sortMealIndexRecipe} from '@/ui/meal/index/utils';
+import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -52,7 +53,7 @@ export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...p
         setFilter={setFilter}
         ingredientMap={ingredientMap}
         meals={meals}
-        recipeLevelData={recipeLevelData}
+        maxRecipeLevel={getMaxRecipeLevel({recipeLevelData})}
       />
       <AdsUnit hideIfNotBlocked/>
       <Grid className={clsx(
