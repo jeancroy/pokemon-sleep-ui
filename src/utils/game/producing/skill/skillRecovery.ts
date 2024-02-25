@@ -1,9 +1,9 @@
-import {PokemonProductionFirstPass} from '@/types/game/producing/rate/main';
+import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
 import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 
 
 type GetPokemonSkillRecoveryFromProductionOpts = {
-  rates: PokemonProductionFirstPass[],
+  rates: PokemonProductionInitial[],
 };
 
 export const getPokemonSkillRecoveryFromProduction = ({

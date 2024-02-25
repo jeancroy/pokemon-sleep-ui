@@ -2,7 +2,7 @@ import {ProductionPeriod} from '@/types/game/producing/display';
 import {ProductionByCalculatedStates} from '@/types/game/producing/rate/base';
 import {
   GroupedProduction,
-  GroupedProductionByType, PokemonProductionFirstPass,
+  GroupedProductionByType, PokemonProductionInitial,
 
 } from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
@@ -33,7 +33,7 @@ const groupProductions = ({
 
 type GroupPokemonProductionOpts = {
   period: ProductionPeriod,
-  rates: PokemonProductionFirstPass[],
+  rates: PokemonProductionInitial[],
   state: ProducingStateCalculated,
 };
 

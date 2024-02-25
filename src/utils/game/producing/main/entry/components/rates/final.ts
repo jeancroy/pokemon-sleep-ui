@@ -1,24 +1,24 @@
-import {PokemonProductionFirstPass, PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
+import {PokemonProductionInitial, PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
 import {getPokemonIndirectSkillEffects} from '@/utils/game/producing/main/entry/components/indirectSkill/effects';
 import {
-  getPokemonIndirectSkillProductionFromFirstPass,
+  getPokemonIndirectSkillProductionFromInitial,
 } from '@/utils/game/producing/main/entry/components/indirectSkill/production';
 
 
 type GetPokemonProductionFinalOpts<TPayload> = {
-  firstPassRatesPostIngredient: PokemonProductionWithPayload<TPayload, PokemonProductionFirstPass>[],
+  initialRatesPostIngredient: PokemonProductionWithPayload<TPayload, PokemonProductionInitial>[],
   targetCount: number,
 };
 
 export const getPokemonProductionFinal = <TPayload>({
-  firstPassRatesPostIngredient,
+  initialRatesPostIngredient,
   targetCount,
 }: GetPokemonProductionFinalOpts<TPayload>): PokemonProductionWithPayload<TPayload>[] => {
   const skillEffects = getPokemonIndirectSkillEffects({
-    firstPassRates: firstPassRatesPostIngredient.map(({atStage}) => atStage.final),
+    initialRates: initialRatesPostIngredient.map(({atStage}) => atStage.final),
   });
 
-  return firstPassRatesPostIngredient.map(({atStage, ...rest}) => {
+  return initialRatesPostIngredient.map(({atStage, ...rest}) => {
     const {original, final} = atStage;
 
     return {
@@ -26,16 +26,16 @@ export const getPokemonProductionFinal = <TPayload>({
       atStage: {
         original: {
           ...original,
-          skillIndirect: getPokemonIndirectSkillProductionFromFirstPass({
-            firstPassRate: original,
+          skillIndirect: getPokemonIndirectSkillProductionFromInitial({
+            initialRate: original,
             skillEffects,
             targetCount,
           }),
         },
         final: {
           ...final,
-          skillIndirect: getPokemonIndirectSkillProductionFromFirstPass({
-            firstPassRate: final,
+          skillIndirect: getPokemonIndirectSkillProductionFromInitial({
+            initialRate: final,
             skillEffects,
             targetCount,
           }),

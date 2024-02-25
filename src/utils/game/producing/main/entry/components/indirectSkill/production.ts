@@ -1,23 +1,23 @@
-import {PokemonProductionFirstPass} from '@/types/game/producing/rate/main';
+import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
 import {PokemonIndirectSkillEffects, PokemonIndirectSkillProduction} from '@/types/game/producing/rate/skill';
 import {getPokemonIndirectSkillProduction} from '@/utils/game/producing/branch/mainSkill/indirect/main';
 
 
-type GetPokemonIndirectSkillProductionFromFirstPassOpts = {
-  firstPassRate: PokemonProductionFirstPass,
+type GetPokemonIndirectSkillProductionFromInitialOpts = {
+  initialRate: PokemonProductionInitial,
   skillEffects: PokemonIndirectSkillEffects,
   targetCount: number,
 };
 
-export const getPokemonIndirectSkillProductionFromFirstPass = ({
-  firstPassRate,
+export const getPokemonIndirectSkillProductionFromInitial = ({
+  initialRate,
   skillEffects,
   targetCount,
-}: GetPokemonIndirectSkillProductionFromFirstPassOpts): PokemonIndirectSkillProduction => {
+}: GetPokemonIndirectSkillProductionFromInitialOpts): PokemonIndirectSkillProduction => {
   const {
     params,
     baseRates,
-  } = firstPassRate;
+  } = initialRate;
   const {produceSplit} = params;
   const {berry, ingredient} = baseRates;
 

@@ -8,7 +8,7 @@ import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {groupPokemonProduction} from '@/utils/game/producing/group';
 import {getPokemonProductionHelpingBonusEffect} from '@/utils/game/producing/main/entry/components/helpingBonus';
 import {getPokemonProductionFinal} from '@/utils/game/producing/main/entry/components/rates/final';
-import {getPokemonProductionFirstPassRates} from '@/utils/game/producing/main/entry/components/rates/firstPass';
+import {getPokemonProductionInitialRates} from '@/utils/game/producing/main/entry/components/rates/initial';
 import {
   getPokemonProductionPostIngredientMultiplier,
 } from '@/utils/game/producing/main/entry/components/rates/postIngredient';
@@ -52,16 +52,16 @@ export const getPokemonProductionMulti = <TPayload>({
   });
 
   // First pass calculates base production without factoring in any skill by other Pokémon
-  const firstPassRates = getPokemonProductionFirstPassRates({
+  const initialRates = getPokemonProductionInitialRates({
     helpingBonusEffect,
     subSkillBonuses,
     rateOpts,
     sharedOpts,
   });
 
-  const firstPassRatesPostIngredient = getPokemonProductionPostIngredientMultiplier({
+  const initialRatesPostIngredient = getPokemonProductionPostIngredientMultiplier({
     groupingState,
-    rates: firstPassRates,
+    rates: initialRates,
     ingredientMultiplierOpts: {
       period,
       ingredientMap,
@@ -72,7 +72,7 @@ export const getPokemonProductionMulti = <TPayload>({
 
   // Final calculation factors in any skill triggered by other Pokémon
   const finalRates = getPokemonProductionFinal({
-    firstPassRatesPostIngredient,
+    initialRatesPostIngredient,
     targetCount: calcBehavior?.asSingle ? maxTeamMemberCount : rateOpts.length,
   });
 

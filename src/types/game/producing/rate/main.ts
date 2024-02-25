@@ -21,7 +21,7 @@ export type PokemonProductionBase = {
   skill: ProductionOfDrop,
 };
 
-export type PokemonProductionFirstPass = {
+export type PokemonProductionInitial = {
   params: PokemonProductionIntermediateParams,
   noSkillTriggerPercent: SleepSessionData<number | null>,
   fullPackStats: FullPackStats,
@@ -32,17 +32,17 @@ export type PokemonProductionFirstPass = {
   skill: ProductionByCalculatedStates,
 };
 
-export type PokemonProduction = PokemonProductionFirstPass & {
+export type PokemonProduction = PokemonProductionInitial & {
   skillIndirect: PokemonIndirectSkillProduction,
 };
 
-export type PokemonProductionAtStage<TProduction extends PokemonProductionFirstPass> = {
+export type PokemonProductionAtStage<TProduction extends PokemonProductionInitial> = {
   [stage in PokemonProductionStage]: TProduction
 };
 
 export type PokemonProductionWithPayload<
   TPayload,
-  TProduction extends PokemonProductionFirstPass = PokemonProduction
+  TProduction extends PokemonProductionInitial = PokemonProduction
 > = {
   payload: TPayload,
   calculatedUserConfig: CalculatedUserConfig,

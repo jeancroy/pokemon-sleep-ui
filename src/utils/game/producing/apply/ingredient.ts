@@ -1,15 +1,15 @@
 import {IngredientMultiplier} from '@/types/game/producing/multiplier';
-import {PokemonProductionFirstPass} from '@/types/game/producing/rate/main';
+import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
 import {applyMultiplierToRateOfStates} from '@/utils/game/producing/apply/multiplier';
 import {getIngredientMultiplierValue} from '@/utils/game/producing/ingredient/multiplier';
 
 
-type ApplyIngredientMultiplierOpts<TProduction extends PokemonProductionFirstPass> = {
+type ApplyIngredientMultiplierOpts<TProduction extends PokemonProductionInitial> = {
   rate: TProduction,
   ingredientMultiplier: IngredientMultiplier,
 };
 
-export const applyIngredientMultiplier = <TProduction extends PokemonProductionFirstPass>({
+export const applyIngredientMultiplier = <TProduction extends PokemonProductionInitial>({
   rate,
   ingredientMultiplier,
 }: ApplyIngredientMultiplierOpts<TProduction>): TProduction => {

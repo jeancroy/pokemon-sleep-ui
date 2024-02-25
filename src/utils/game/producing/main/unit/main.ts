@@ -1,4 +1,4 @@
-import {PokemonProductionFirstPass} from '@/types/game/producing/rate/main';
+import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
 import {PokemonProductionIntermediateParams} from '@/types/game/producing/rate/params';
 import {getBerryProductionBase} from '@/utils/game/producing/branch/berry/base';
 import {getBerryProductionFinal} from '@/utils/game/producing/branch/berry/final';
@@ -15,14 +15,14 @@ import {getProducingStateSplit} from '@/utils/game/producing/split';
 import {ToFinalProductionOfDropCommonOpts} from '@/utils/game/producing/toFinal/type';
 
 
-type GetPokemonProductionFirstOpts = GetPokemonProductionUnitOpts & {
+type GetPokemonProductionInitialOpts = GetPokemonProductionUnitOpts & {
   params?: PokemonProductionIntermediateParams,
 };
 
-export const getPokemonProductionFirstPass = ({
+export const getPokemonProductionInitial = ({
   params,
   ...opts
-}: GetPokemonProductionFirstOpts): PokemonProductionFirstPass => {
+}: GetPokemonProductionInitialOpts): PokemonProductionInitial => {
   const {calculatedUserConfig} = opts;
   const {bonus} = calculatedUserConfig;
   const {sleepSessionInfo, intervalsDuringSleep} = bonus.stamina;

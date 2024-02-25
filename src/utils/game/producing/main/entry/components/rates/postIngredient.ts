@@ -1,4 +1,4 @@
-import {PokemonProductionFirstPass, PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
+import {PokemonProductionInitial, PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {applyIngredientMultiplier} from '@/utils/game/producing/apply/ingredient';
 import {groupPokemonProduction} from '@/utils/game/producing/group';
@@ -11,7 +11,7 @@ import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/en
 
 type GetPokemonProductionPostIngredientMultiplierOpts<TPayload> = {
   groupingState: ProducingStateCalculated,
-  rates: PokemonProductionInCalcWithPayload<PokemonProductionFirstPass, TPayload>[],
+  rates: PokemonProductionInCalcWithPayload<PokemonProductionInitial, TPayload>[],
   ingredientMultiplierOpts: Omit<GetPokemonProductionIngredientMultiplierOpts, 'groupedOriginalRates'>,
 };
 
@@ -21,7 +21,7 @@ export const getPokemonProductionPostIngredientMultiplier = <TPayload>({
   ingredientMultiplierOpts,
 }: GetPokemonProductionPostIngredientMultiplierOpts<TPayload>): PokemonProductionWithPayload<
   TPayload,
-  PokemonProductionFirstPass
+  PokemonProductionInitial
 >[] => {
   const {period} = ingredientMultiplierOpts;
 

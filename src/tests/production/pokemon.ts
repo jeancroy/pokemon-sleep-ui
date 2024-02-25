@@ -1,8 +1,8 @@
 import {testBaseProductionByState, testBaseProductionOfDrop} from '@/tests/production/rate';
-import {PokemonProductionFirstPass} from '@/types/game/producing/rate/main';
+import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
 
 
-export const testPokemonProductionFirstPass: PokemonProductionFirstPass = {
+export const testPokemonProductionInitial: PokemonProductionInitial = {
   params: {
     isFullPack: false,
     period: 'daily',
