@@ -22,4 +22,3 @@ export const toCookingConfigFromMealMakerFilter = ({
     mealsMarked: filter.mealsMarked,
   };
 };
-

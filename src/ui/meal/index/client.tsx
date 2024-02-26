@@ -30,6 +30,7 @@ export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...p
     },
     ...props,
   });
+  const {bundle} = calculatedConfigBundle;
   const {
     isIncluded,
     filter,
@@ -41,7 +42,7 @@ export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...p
     meals,
     calculatedConfigBundle,
     initialFilter: {
-      ...generateEmptyMealFilterLevelGnostic(),
+      ...generateEmptyMealFilterLevelGnostic(bundle.cookingConfig),
       sort: 'recipeBaseStrength',
     },
   });

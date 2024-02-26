@@ -1,10 +1,13 @@
 import {isFilterIncludingSome} from '@/components/input/filter/utils/match';
 import {MealInputFilterLevelAgnostic} from '@/components/shared/meal/filter/levelAgnostic/type';
 import {MealDetails} from '@/types/game/meal/main';
+import {CookingConfig} from '@/types/userData/config/cooking/main';
 
 
-export const generateEmptyMealFilterLevelAgnostic = (): MealInputFilterLevelAgnostic => ({
-  mealType: null,
+export const generateEmptyMealFilterLevelAgnostic = (
+  cookingConfig: CookingConfig,
+): MealInputFilterLevelAgnostic => ({
+  mealType: cookingConfig.mealType ?? null,
   ingredientExclusion: {},
   ingredientInclusion: {},
   minBonusPercent: null,

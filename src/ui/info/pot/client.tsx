@@ -31,6 +31,7 @@ export const PotInfoClient = (props: PotInfoDataProps) => {
     },
     ...props,
   });
+  const {bundle} = calculatedConfigBundle;
 
   const {
     filter,
@@ -43,8 +44,8 @@ export const PotInfoClient = (props: PotInfoDataProps) => {
     meals,
     calculatedConfigBundle,
     initialFilter: ({
-      ...generateEmptyMealFilterLevelGnostic(),
-      capacity: calculatedConfigBundle.bundle.cookingConfig.potCapacity,
+      ...generateEmptyMealFilterLevelGnostic(bundle.cookingConfig),
+      capacity: bundle.cookingConfig.potCapacity,
     }),
   });
 

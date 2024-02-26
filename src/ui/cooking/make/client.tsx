@@ -48,7 +48,7 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
     meals,
     calculatedConfigBundle,
     initialFilter: ({
-      ...generateEmptyMealFilterLevelGnostic(),
+      ...generateEmptyMealFilterLevelGnostic(bundle.cookingConfig),
       ...generateCookingCommonFilter(bundle.cookingConfig),
       showUnmakeableRecipe: bundle.cookingConfig?.showUnmakeableRecipe ?? defaultCookingConfig.showUnmakeableRecipe,
     }),
