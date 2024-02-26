@@ -144,6 +144,7 @@ declare global {
         },
         Analysis: I18nMetadata,
         Rating: I18nMetadata,
+        Production: I18nMetadata,
         Cooking: {
           Index: I18nMetadata,
           Make: I18nMetadata,

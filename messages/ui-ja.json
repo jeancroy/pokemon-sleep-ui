@@ -163,6 +163,9 @@
     "Rating": {
       "Title": "個体値チェッカー / 個体評価"
     },
+    "Production": {
+      "Title": "生産性比較"
+    },
     "Cooking": {
       "Index": {
         "Title": "料理"

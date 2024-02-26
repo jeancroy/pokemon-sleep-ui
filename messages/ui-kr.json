@@ -163,6 +163,9 @@
     "Rating": {
       "Title": "단독 평가"
     },
+    "Production": {
+      "Title": "Production Comparison"
+    },
     "Cooking": {
       "Index": {
         "Title": "요리"

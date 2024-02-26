@@ -163,6 +163,9 @@
     "Rating": {
       "Title": "個體分析"
     },
+    "Production": {
+      "Title": "產量比較"
+    },
     "Cooking": {
       "Index": {
         "Title": "料理"

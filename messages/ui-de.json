@@ -163,6 +163,9 @@
     "Rating": {
       "Title": "Bewertung"
     },
+    "Production": {
+      "Title": "Produktions-Vergleich"
+    },
     "Cooking": {
       "Index": {
         "Title": "Kochen"

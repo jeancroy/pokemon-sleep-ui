@@ -32,6 +32,12 @@ export const navEntries: NavEntry[] = [
     i18nTextId: 'Rating.Title',
   },
   {
+    type: 'link',
+    href: '/production',
+    imageSrc: '/images/generic/analysis.png',
+    i18nTextId: 'Production.Title',
+  },
+  {
     type: 'group',
     href: '/sleepstyle',
     imageSrc: '/images/generic/sleep.png',
