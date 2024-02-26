@@ -5,16 +5,16 @@ import {v4} from 'uuid';
 
 import {InputBox} from '@/components/input/box';
 import {Flex} from '@/components/layout/flex/common';
-import {TeamAnalysisComp} from '@/types/teamAnalysis';
-import {generateEmptyTeam, getTeamName} from '@/ui/team/analysis/utils';
+import {TeamSelectorContentCommonProps} from '@/components/shared/team/selector/content/type';
+import {TeamConfig} from '@/types/game/team';
+import {getTeamName} from '@/utils/game/team/name';
 
 
-type Props = {
-  onAdded: (team: TeamAnalysisComp) => void,
-};
-
-export const TeamAnalysisCompAddition = ({onAdded}: React.PropsWithChildren<Props>) => {
-  const [newTeam, setNewTeam] = React.useState(generateEmptyTeam(v4()));
+export const TeamCreateButton = <TTeam extends TeamConfig>({
+  onAdded,
+  generateNewTeam,
+}: React.PropsWithChildren<TeamSelectorContentCommonProps<TTeam>>) => {
+  const [newTeam, setNewTeam] = React.useState(generateNewTeam(v4()));
 
   return (
     <Flex center className="border-common rounded-lg border">
@@ -32,7 +32,7 @@ export const TeamAnalysisCompAddition = ({onAdded}: React.PropsWithChildren<Prop
       </Flex>
       <button className="button-clickable w-full p-2" onClick={() => {
         onAdded(newTeam);
-        setNewTeam(generateEmptyTeam(v4()));
+        setNewTeam(generateNewTeam(v4()));
       }}>
         <PlusCircleIcon className="m-auto size-12"/>
       </button>

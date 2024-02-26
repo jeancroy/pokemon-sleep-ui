@@ -36,14 +36,14 @@ export const TeamAnalysisSetupView = (props: Props) => {
     snorlaxData,
     mealMap,
     preloaded,
-    bundleFromClient,
+    session,
   } = props;
   const {setup} = setupControl;
 
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
       server: preloaded,
-      client: bundleFromClient,
+      client: session?.data?.user.preloaded,
     },
     ...props,
   });
@@ -92,7 +92,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
           };
         }).filter(isNotNullish)}
       />
-      <TeamAnalysisCompControl {...props}/>
+      <TeamAnalysisCompControl sessionStatus={session.status} {...props}/>
       <AdsUnit/>
       <PokemonGroupedProduction grouped={statsOfTeam.grouped}/>
       <AdsUnit hideIfNotBlocked/>

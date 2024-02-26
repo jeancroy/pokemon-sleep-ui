@@ -23,7 +23,7 @@ export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
           data={data?.teamAnalysis}
           pokemonList={pokemonList}
           maxEvolutionCount={maxEvolutionCount}
-          bundleFromClient={session.data?.user.preloaded}
+          session={session}
           actorReturn={actorReturn}
           {...props}
         />

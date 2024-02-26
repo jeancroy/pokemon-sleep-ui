@@ -38,3 +38,8 @@ export const teamMemberStatsType = [
 ] as const;
 
 export type TeamMemberStatsType = typeof teamMemberStatsType[number];
+
+export type TeamSetup<TTeam extends TeamConfig> = {
+  current: string,
+  teams: {[uuid in string]: TTeam},
+};

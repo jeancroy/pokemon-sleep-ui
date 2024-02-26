@@ -11,30 +11,29 @@ import {Flex} from '@/components/layout/flex/common';
 import {DeleteButton} from '@/components/shared/common/button/delete';
 import {IconWithInfo} from '@/components/shared/common/image/iconWithInfo';
 import {UnavailableIcon} from '@/components/shared/common/unavailable';
+import {TeamSelectorContentCommonProps} from '@/components/shared/team/selector/content/type';
 import {imageIconSizes} from '@/styles/image';
-import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';
-import {TeamAnalysisCompSelectorProps} from '@/ui/team/analysis/comp/type';
-import {getTeamName} from '@/ui/team/analysis/utils';
+import {TeamConfig} from '@/types/game/team';
+import {getTeamName} from '@/utils/game/team/name';
 
 
-type Props = TeamAnalysisCompSelectorProps & {
-  team: TeamAnalysisComp,
-  onClick: () => void,
+type Props<TTeam extends TeamConfig> = TeamSelectorContentCommonProps<TTeam> & {
+  team: TTeam,
 };
 
-export const TeamAnalysisCompSelection = ({
+export const TeamSelectButton = <TTeam extends TeamConfig>({
   setup,
   onUpdated,
   onDeleted,
   onCopied,
+  onPicked,
+  getMembers,
   team,
-  onClick,
-}: Props) => {
-  const {config, comps} = setup;
-
+}: Props<TTeam>) => {
+  const {current} = setup;
   const t = useTranslations('Game');
 
-  const isCurrent = config.current === team.uuid;
+  const isCurrent = current === team.uuid;
 
   return (
     <AnimatedCollapseQuick key={team.uuid} show appear className="border-common rounded-lg border">
@@ -48,39 +47,34 @@ export const TeamAnalysisCompSelection = ({
             value={team.name}
             placeholder={getTeamName(team)}
             className="w-full"
-            onChange={({target}) => onUpdated({
-              ...setup,
-              comps: {
-                ...comps,
-                [team.uuid]: {
-                  ...team,
-                  name: target.value,
-                },
-              },
-            } satisfies TeamAnalysisSetup)}
+            onChange={({target}) => onUpdated({...team, name: target.value})}
           />
           <button className="button-clickable-bg size-7 shrink-0 rounded-lg p-1" onClick={() => onCopied(team.uuid)}>
             <DocumentDuplicateIcon/>
           </button>
           {
-            config.current !== team.uuid &&
+            current !== team.uuid &&
             <DeleteButton dimension="size-7" onClick={() => onDeleted(team.uuid)}/>
           }
         </Flex>
-        <FlexButton noFullWidth={false} disabled={isCurrent} onClick={onClick} center className={clsx(
-          'enabled:button-clickable gap-1.5 p-2',
-        )}>
-          {Object.entries(team.members).map(([slot, member]) => (
+        <FlexButton
+          noFullWidth={false}
+          disabled={isCurrent}
+          center
+          onClick={() => onPicked(team.uuid)}
+          className="enabled:button-clickable gap-1.5 p-2"
+        >
+          {getMembers(team).map((member, idx) => (
             member ?
               <IconWithInfo
-                key={slot}
+                key={idx}
                 imageSrc={`/images/pokemon/icons/${member.pokemonId}.png`}
                 imageAlt={member.name || t(`PokemonName.${member.pokemonId}`)}
                 imageDimension="size-12"
                 imageSizes={imageIconSizes}
                 info={member.level}
               /> :
-              <UnavailableIcon key={slot}/>
+              <UnavailableIcon key={idx}/>
           ))}
         </FlexButton>
       </Flex>
