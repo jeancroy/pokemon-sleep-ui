@@ -1,7 +1,7 @@
 import {useFilterInput} from '@/components/input/filter/hook';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {PokemonId} from '@/types/game/pokemon';
-import {Pokebox} from '@/types/userData/pokebox/main';
+import {Pokebox} from '@/types/userData/pokebox';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxPokemonForView, PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 import {generatePokeboxViewerFilter, isPokeInBoxIncluded} from '@/ui/team/pokebox/viewer/utils';

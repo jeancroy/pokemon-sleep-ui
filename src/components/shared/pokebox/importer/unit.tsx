@@ -15,7 +15,7 @@ import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/ind
 import {pokeInBoxFavoriteStyle} from '@/styles/game/pokebox';
 import {imageSmallIconSizes} from '@/styles/image';
 import {ingredientLevels} from '@/types/game/pokemon/ingredient';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 type Props = PokeboxImporterCommonProps & {

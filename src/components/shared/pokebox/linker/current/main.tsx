@@ -5,7 +5,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {PokeboxLinkerCurrentAvailable} from '@/components/shared/pokebox/linker/current/available';
 import {PokemonLinkerCurrentEmpty} from '@/components/shared/pokebox/linker/current/empty';
 import {PokeboxLinkerCurrentPokemonCommonProps} from '@/components/shared/pokebox/linker/current/type';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {Nullable} from '@/utils/type';
 
 

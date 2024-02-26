@@ -1,7 +1,7 @@
 import {PokedexMap} from '@/types/game/pokemon';
 import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 export type ToTeamAnalysisCompFromPokeboxCommonOpts = {

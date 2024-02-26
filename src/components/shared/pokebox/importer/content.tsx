@@ -15,7 +15,7 @@ import {usePokeboxImporterFilter} from '@/components/shared/pokebox/importer/fil
 import {PokeboxImporterCommonProps, PokeInBoxForFilter} from '@/components/shared/pokebox/importer/type';
 import {PokeboxImporterUnit} from '@/components/shared/pokebox/importer/unit';
 import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {isNotNullish} from '@/utils/type';
 

@@ -1,4 +1,4 @@
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {TeamMakerCalcInitOpts} from '@/ui/team/maker/type/calc';
 import {getEffectivePokemonIndividualParamsFromVanillaPreset} from '@/utils/game/pokemon/individual';
 import {toPokemonList} from '@/utils/game/pokemon/utils';

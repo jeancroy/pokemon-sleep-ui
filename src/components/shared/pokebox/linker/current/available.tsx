@@ -6,7 +6,7 @@ import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 type Props = PokeboxLinkerCurrentPokemonCommonProps & {

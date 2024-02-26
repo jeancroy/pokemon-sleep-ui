@@ -3,7 +3,7 @@ import {Collection, Filter, WithId} from 'mongodb';
 import {runPokeBoxMigrations} from '@/controller/migrate/pokebox';
 import mongoPromise from '@/lib/mongodb';
 import {PokeInBoxData} from '@/types/mongo/pokebox/main';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 const getCollection = async (): Promise<Collection<PokeInBoxData>> => {

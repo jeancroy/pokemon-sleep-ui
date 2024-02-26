@@ -4,7 +4,7 @@ import {SleepdexMap} from '@/types/game/sleepdex';
 import {TeamMemberData} from '@/types/game/team';
 import {ActivationInfo} from '@/types/mongo/activation';
 import {UserDataLoadingOpts} from '@/types/userData/load';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
 
 

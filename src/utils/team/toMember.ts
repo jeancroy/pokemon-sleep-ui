@@ -1,5 +1,5 @@
 import {TeamMemberData} from '@/types/game/team';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {generateNewPokeInBox} from '@/ui/team/pokebox/utils';
 import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';

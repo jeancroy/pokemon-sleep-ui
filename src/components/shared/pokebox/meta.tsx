@@ -5,7 +5,7 @@ import {clsx} from 'clsx';
 import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {pokeInBoxFavoriteStyle} from '@/styles/game/pokebox';
 import {PokemonInfo} from '@/types/game/pokemon';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 type Props = {

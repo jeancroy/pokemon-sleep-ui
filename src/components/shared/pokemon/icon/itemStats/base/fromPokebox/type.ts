@@ -4,7 +4,7 @@ import {PokemonItemStatsCommonProps} from '@/components/shared/pokemon/icon/item
 import {PokemonProducingStatsCommonProps} from '@/components/shared/pokemon/icon/itemStats/type';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokeInBoxData} from '@/types/mongo/pokebox/main';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 export type PokemonItemStatsFromPokeboxFilterOpts = {

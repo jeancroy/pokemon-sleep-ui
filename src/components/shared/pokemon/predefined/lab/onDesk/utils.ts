@@ -3,7 +3,7 @@ import {v4} from 'uuid';
 import {PokemonOnDeskState} from '@/components/shared/pokemon/predefined/lab/onDesk/type';
 import {defaultCommonConstPokeInBox} from '@/const/user/pokebox';
 import {PokemonInfo} from '@/types/game/pokemon';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 type ToPokeInBoxOpts = {

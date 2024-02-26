@@ -1,6 +1,6 @@
 import {defaultSeedUsage} from '@/const/game/seed';
 import {Migratable} from '@/types/migrate';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 
 

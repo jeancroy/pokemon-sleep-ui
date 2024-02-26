@@ -7,7 +7,7 @@ import {DocsData, DocsDataEditable, DocsDataEditableFetched} from '@/types/mongo
 import {PacketRecordingConfig} from '@/types/packet/config';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CookingConfig} from '@/types/userData/config/cooking/main';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
 import {PokedexDisplay} from '@/ui/pokedex/index/type';
 import {PokeboxViewerDisplay} from '@/ui/team/pokebox/viewer/type';

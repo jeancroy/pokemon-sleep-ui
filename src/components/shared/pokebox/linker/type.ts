@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {PokeboxImporterDataProps} from '@/components/shared/pokebox/importer/type';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 export type PokeboxLinkerDataProps = PokeboxImporterDataProps;

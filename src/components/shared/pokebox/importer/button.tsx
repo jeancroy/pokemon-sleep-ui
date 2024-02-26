@@ -6,7 +6,7 @@ import {clsx} from 'clsx';
 import {PokeboxImporter} from '@/components/shared/pokebox/importer/main';
 import {PokeboxImporterCommonProps} from '@/components/shared/pokebox/importer/type';
 import {Dimension} from '@/types/style';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 type Props = Omit<PokeboxImporterCommonProps, 'onPokeboxPicked'> & {

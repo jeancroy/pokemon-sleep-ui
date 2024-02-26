@@ -1,7 +1,7 @@
 import {PokemonInputFilter, UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {PokedexMap, PokemonInfo} from '@/types/game/pokemon';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 export type PokeboxImporterDataProps = UsePokemonFilterCommonData & {

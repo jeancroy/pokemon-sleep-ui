@@ -11,7 +11,7 @@ import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {SubSkillData, SubSkillId, SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {Migratable} from '@/types/migrate';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 export const pokeboxViewType = [

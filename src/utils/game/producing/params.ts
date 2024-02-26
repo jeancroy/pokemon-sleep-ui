@@ -9,7 +9,7 @@ import {
   ProductionIndividualParams,
   ProductionSingleParams,
 } from '@/types/game/producing/rate/params';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution/count';
 import {getSubSkillBonus, getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
 

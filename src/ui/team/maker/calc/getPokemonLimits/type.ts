@@ -1,7 +1,7 @@
 import {ProductionSingleParams} from '@/types/game/producing/rate/params';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {TeamMakerCalcInitOpts} from '@/ui/team/maker/type/calc';
 
 

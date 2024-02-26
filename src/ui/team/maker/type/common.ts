@@ -1,6 +1,6 @@
 import {MealCoverage} from '@/types/game/cooking';
 import {IngredientCounter} from '@/types/game/ingredient';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {GetPokemonProductionOpts} from '@/utils/game/producing/main/type';
 
 

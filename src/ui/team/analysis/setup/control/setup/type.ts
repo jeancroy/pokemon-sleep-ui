@@ -2,7 +2,7 @@ import React from 'react';
 
 import {TeamMemberData} from '@/types/game/team';
 import {TeamAnalysisSetup, TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {Pokebox} from '@/types/userData/pokebox/main';
+import {Pokebox} from '@/types/userData/pokebox';
 
 
 export type TeamAnalysisSetMemberOpts = {

@@ -1,4 +1,4 @@
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 export const getPokeInBoxEntryKey = ({uuid, pokemon}: PokeInBox) => {

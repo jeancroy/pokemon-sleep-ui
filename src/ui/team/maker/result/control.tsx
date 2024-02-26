@@ -12,7 +12,7 @@ import {ClickableIconButton} from '@/components/shared/common/button/clickable';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 
 
 type Props = {

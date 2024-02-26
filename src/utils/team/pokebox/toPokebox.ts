@@ -1,4 +1,4 @@
-import {Pokebox, PokeInBox} from '@/types/userData/pokebox/main';
+import {Pokebox, PokeInBox} from '@/types/userData/pokebox';
 
 
 export const toPokebox = (pokeInBoxList: PokeInBox[]): Pokebox => (

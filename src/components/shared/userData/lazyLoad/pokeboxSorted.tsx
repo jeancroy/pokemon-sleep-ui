@@ -2,7 +2,7 @@ import React from 'react';
 
 import {UserDataLazyLoad} from '@/components/shared/userData/lazyLoad/main';
 import {UserDataLazyLoadCommonProps} from '@/components/shared/userData/lazyLoad/types';
-import {PokeInBox} from '@/types/userData/pokebox/main';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 
