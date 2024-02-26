@@ -213,10 +213,10 @@ describe('Stamina / Event Log (+End of Period)', () => {
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.after).toBe(137);
+    expect(logs[0].stamina.after).toBe(122);
     expect(logs[1].type).toBe('sleep');
     expect(logs[1].timing).toBe(57600);
-    expect(logs[1].stamina.before).toBe(41);
+    expect(logs[1].stamina.before).toBe(26);
     expect(logs[2].type).toBe('endOfPeriod');
     expect(logs[2].timing).toBe(86400);
     expect(logs[2].stamina.before).toBe(0);

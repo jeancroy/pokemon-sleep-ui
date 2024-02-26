@@ -1,8 +1,6 @@
 import {staminaMaxRecovery} from '@/const/game/stamina';
-import {defaultRecoveryRate} from '@/const/user/config/user';
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
-import {cookingMeals} from '@/types/userData/config/cooking/meal';
 import {toSum} from '@/utils/array';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 import {GetLogsCommonOpts} from '@/utils/game/stamina/events/type';
@@ -14,7 +12,7 @@ type GetLogsWithPrimarySleepOpts = Omit<GetLogsCommonOpts, 'logs'> & {
   dailyNetChange?: number,
 };
 
-const getInitialSkillRecoveryAmount = ({
+const getInitialRecovery = ({
   general,
   recoveryRate,
   skillTriggers,
@@ -30,36 +28,12 @@ const getInitialSkillRecoveryAmount = ({
   )));
 };
 
-const getInitialCookingRecoveryAmount = ({
-  general,
-  cookingRecoveryData,
-}: GetLogsWithPrimarySleepOpts): number => {
-  const {strategy} = general;
-
-  if (strategy === 'conservative') {
-    return 0;
-  }
-
-  const maxSingleRecovery = Math.max(...cookingRecoveryData.map(({recovery}) => recovery));
-
-  return (
-    getActualRecoveryAmount({
-      amount: maxSingleRecovery,
-      recoveryRate: defaultRecoveryRate,
-      isSleep: false,
-    }) *
-    cookingMeals.length
-  );
-};
-
 export const getWakeupStamina = (opts: GetLogsWithPrimarySleepOpts) => {
   const {sleepSessionInfo, dailyNetChange} = opts;
 
   const sleepRecovery = sleepSessionInfo.session.primary.recovery;
-  const skillRecovery = getInitialSkillRecoveryAmount(opts);
-  const cookingRecovery = getInitialCookingRecoveryAmount(opts);
 
-  const initialRecovery = skillRecovery + cookingRecovery;
+  const initialRecovery = getInitialRecovery(opts);
 
   // If daily net change is positive, after infinite iterations,
   // the energy will stay at 100 after primary wakeup

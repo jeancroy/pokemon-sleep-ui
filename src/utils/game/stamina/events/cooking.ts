@@ -35,38 +35,26 @@ const getEffectiveStaminaCookingRecovery = ({
 };
 
 type GetLogsWithCookingRecoveryOpts =
-  Pick<GetLogsCommonOpts, 'logs' | 'sleepSessionInfo' | 'general' | 'recoveryRate'> &
+  Pick<GetLogsCommonOpts, 'logs' | 'sleepSessionInfo' | 'recoveryRate'> &
   GetLogsWithCookingRecoveryCommonOpts & {
     cookingRecoveryConfig: StaminaCookingRecoveryConfig,
   };
 
 export const getCookingRecoveryEntries = ({
-  general,
   sleepSessionInfo,
   cookingRecoveryData,
   cookingRecoveryConfig,
 }: GetLogsWithCookingRecoveryOpts): StaminaRecovery[] => {
-  const {strategy} = general;
   const {offset} = sleepSessionInfo;
 
-  if (strategy === 'optimistic') {
-    return [];
-  }
-
-  if (strategy === 'conservative') {
-    return cookingMeals.map((cookingMeal): StaminaRecovery => ({
-      timing: rotateTime(cookingRecoveryConfig[cookingMeal] + offset),
-      getBaseAmount: (staminaBeforeCook) => getEffectiveStaminaCookingRecovery({
-        cookingRecoveryData,
-        staminaBeforeCook,
-      }),
-      ignoreRecoveryRate: true,
-    }));
-  }
-
-  throw new Error(
-    `Unhandled stamina recovery strategy [${strategy satisfies never}] for generating cooking recovery`,
-  );
+  return cookingMeals.map((cookingMeal): StaminaRecovery => ({
+    timing: rotateTime(cookingRecoveryConfig[cookingMeal] + offset),
+    getBaseAmount: (staminaBeforeCook) => getEffectiveStaminaCookingRecovery({
+      cookingRecoveryData,
+      staminaBeforeCook,
+    }),
+    ignoreRecoveryRate: true,
+  }));
 };
 
 export const getLogsWithCookingRecovery = (opts: GetLogsWithCookingRecoveryOpts) => {
