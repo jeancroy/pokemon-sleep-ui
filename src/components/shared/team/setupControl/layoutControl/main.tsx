@@ -6,26 +6,26 @@ import {useTranslations} from 'next-intl';
 
 import {FlexButton} from '@/components/layout/flex/button';
 import {Flex} from '@/components/layout/flex/common';
-import {teamAnalysisSetupActionButtonStyle} from '@/ui/team/analysis/setup/control/setup/const';
-import {TeamAnalysisLayoutControl} from '@/ui/team/analysis/setup/control/setup/layoutControl/type';
+import {teamSetupControlButtonStyle} from '@/components/shared/team/setupControl/const';
+import {TeamCollapsibleIndexKey, TeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/type';
 
 
-type Props = {
-  layoutControl: TeamAnalysisLayoutControl,
+type Props<TKey extends TeamCollapsibleIndexKey> = {
+  layoutControl: TeamLayoutControl<TKey>,
 };
 
-export const TeamAnalysisLayoutControlUI = ({layoutControl}: Props) => {
+export const TeamLayoutControlUI = <TKey extends TeamCollapsibleIndexKey>({layoutControl}: Props<TKey>) => {
   const {setAllCollapsible} = layoutControl;
 
   const t = useTranslations('UI.Component.Collapsible');
 
   return (
     <Flex direction="row" noFullWidth wrap className="gap-1">
-      <FlexButton className={teamAnalysisSetupActionButtonStyle} onClick={() => setAllCollapsible(true)}>
+      <FlexButton className={teamSetupControlButtonStyle} onClick={() => setAllCollapsible(true)}>
         <ArrowsPointingOutIcon className="size-5"/>
         <span>{t('ExpandAll')}</span>
       </FlexButton>
-      <FlexButton className={teamAnalysisSetupActionButtonStyle} onClick={() => setAllCollapsible(false)}>
+      <FlexButton className={teamSetupControlButtonStyle} onClick={() => setAllCollapsible(false)}>
         <ArrowsPointingInIcon className="size-5"/>
         <span>{t('CollapseAll')}</span>
       </FlexButton>

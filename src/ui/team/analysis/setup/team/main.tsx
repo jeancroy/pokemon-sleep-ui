@@ -1,8 +1,10 @@
 import React from 'react';
 
 import {Grid} from '@/components/layout/grid';
-import {teamAnalysisSlotName} from '@/types/teamAnalysis';
-import {TeamAnalysisLayoutControl} from '@/ui/team/analysis/setup/control/setup/layoutControl/type';
+import {
+  TeamLayoutControl,
+} from '@/components/shared/team/setupControl/layoutControl/type';
+import {TeamAnalysisSlotName, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {TeamAnalysisEmptySlot} from '@/ui/team/analysis/setup/team/empty';
 import {TeamAnalysisFilledSlot} from '@/ui/team/analysis/setup/team/filled';
 import {TeamAnalysisFilledProps} from '@/ui/team/analysis/setup/team/type';
@@ -14,7 +16,7 @@ import {toTeamMember} from '@/utils/team/toMember';
 
 
 type Props = TeamAnalysisDataProps & TeamAnalysisFilledProps & {
-  layoutControl: TeamAnalysisLayoutControl,
+  layoutControl: TeamLayoutControl<TeamAnalysisSlotName>,
   statsOfTeam: TeamProducingStats,
 };
 
@@ -28,7 +30,7 @@ export const TeamAnalysisTeamView = ({layoutControl, ...props}: Props) => {
     statsOfTeam,
   } = props;
   const {members} = currentTeam;
-  const {generateSlotCollapsibleControl} = layoutControl;
+  const {generateCollapsibleControl} = layoutControl;
   const {setCurrentMember} = setupControl;
 
   return (
@@ -51,7 +53,7 @@ export const TeamAnalysisTeamView = ({layoutControl, ...props}: Props) => {
                 pokemonProducingParamsMap,
               })}
               onMemberClear={(slotName) => setCurrentMember({slotName, member: null})}
-              collapsible={generateSlotCollapsibleControl(currentTeam.uuid, slotName)}
+              collapsible={generateCollapsibleControl(currentTeam.uuid, slotName)}
               {...props}
             />
           );

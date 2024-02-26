@@ -21,12 +21,12 @@ export const TeamAnalysisCompControl = ({setupControl, sessionStatus}: Props) =>
         current: config.current,
         teams: setup.comps,
       }}
-      setSetup={(updated) => setSetup(({config}) => ({
+      setSetup={({current, teams}) => setSetup(({config}) => ({
         config: {
           ...config,
-          current: updated.current,
+          current,
         },
-        comps: updated.teams,
+        comps: teams,
       }))}
       status={sessionStatus}
       getMembers={({members}) => Object.values(members)}

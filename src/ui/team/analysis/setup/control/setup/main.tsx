@@ -2,18 +2,19 @@ import React from 'react';
 
 import {InputRow} from '@/components/input/filter/row';
 import {Flex} from '@/components/layout/flex/common';
-import {TeamQuickActionGlobalLevel} from '@/components/shared/team/quickAction/globalLevel';
-import {TeamQuickActionSyncPokemon} from '@/components/shared/team/quickAction/syncPokemon';
+import {TeamLayoutControlUI} from '@/components/shared/team/setupControl/layoutControl/main';
+import {TeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/type';
 import {TeamQuickActionGlobalLevel} from '@/components/shared/team/setupControl/quickAction/globalLevel';
 import {TeamQuickActionSyncPokemon} from '@/components/shared/team/setupControl/quickAction/syncPokemon';
 import {UserDataUploadButton} from '@/components/shared/userData/upload';
+import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {TeamAnalysisSetupInput} from '@/ui/team/analysis/setup/control/setup/input/main';
 import {TeamAnalysisSetupInputCommonProps} from '@/ui/team/analysis/setup/control/setup/input/type';
 import {isNotNullish} from '@/utils/type';
 
 
 type Props = TeamAnalysisSetupInputCommonProps & {
-  layoutControl: TeamAnalysisLayoutControl,
+  layoutControl: TeamLayoutControl<TeamAnalysisSlotName>,
 };
 
 export const TeamAnalysisSetupControlUI = ({layoutControl, ...props}: Props) => {
@@ -39,7 +40,7 @@ export const TeamAnalysisSetupControlUI = ({layoutControl, ...props}: Props) => 
             .filter(isNotNullish)}
           {...props}
         />
-        <TeamAnalysisLayoutControlUI layoutControl={layoutControl}/>
+        <TeamLayoutControlUI layoutControl={layoutControl}/>
         <UserDataUploadButton
           opts={{
             type: 'teamAnalysis',

@@ -13,12 +13,12 @@ import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
 import {TeamContributionSplitIndicator} from '@/components/shared/team/contributionSplit/main';
+import {useTeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/hook';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook';
 import {TeamAnalysisCompControl} from '@/ui/team/analysis/setup/control/comp/main';
 import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/setup/common/type';
-import {useTeamAnalysisLayoutControl} from '@/ui/team/analysis/setup/control/setup/layoutControl/hook';
 import {TeamAnalysisSetupControlUI} from '@/ui/team/analysis/setup/control/setup/main';
 import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';
 import {TeamAnalysisTeamView} from '@/ui/team/analysis/setup/team/main';
@@ -54,7 +54,13 @@ export const TeamAnalysisSetupView = (props: Props) => {
     bundle,
     calculatedCookingConfig,
   });
-  const layoutControl = useTeamAnalysisLayoutControl({setup});
+  const layoutControl = useTeamLayoutControl({
+    setup: {
+      current: setup.config.current,
+      teams: setup.comps,
+    },
+    getCollapsibleIndexKeys: () => [...teamAnalysisSlotName],
+  });
   const {state, setState, showPokemon} = usePokemonLinkPopup();
   const collapsible = useCollapsibleControl();
 
