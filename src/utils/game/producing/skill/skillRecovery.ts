@@ -1,6 +1,7 @@
 import {ProductionCalcBehavior} from '@/types/game/producing/behavior/type';
 import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
 import {StaminaSkillTriggerData, StaminaSkillTriggerOverride} from '@/types/game/stamina/skill';
+import {toProductionOfPeriod, toProductionOfState} from '@/utils/game/producing/convert';
 
 
 type GetPokemonSkillRecoveryFromProductionOpts = {
@@ -26,7 +27,10 @@ export const getPokemonSkillRecoveryFromProduction = ({
       continue;
     }
 
-    const dailyCount = rate.skill.qty.equivalent;
+    const dailyCount = toProductionOfPeriod({
+      rate: toProductionOfState({rate: rate.skill, state: 'equivalent'}),
+      period: 'daily',
+    }).qty;
     const {target, value} = activeSkillEffect;
 
     if (target === 'team') {
