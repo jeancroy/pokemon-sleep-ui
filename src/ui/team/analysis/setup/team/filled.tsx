@@ -26,6 +26,7 @@ export const TeamAnalysisFilledSlot = ({collapsible, onMemberClear, ...props}: P
     <TeamMember
       config={currentTeam}
       memberIdForShare={getTeamMemberId({uuid: currentTeam.uuid, slotName})}
+      pinnedStats={['total']}
       rate={stats}
       stateOfRate={stateOfRateToShow}
       collapsible={collapsible}

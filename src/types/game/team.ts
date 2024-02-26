@@ -26,3 +26,15 @@ export type TeamMemberProduction = PokemonProduction & {
   calculatedUserConfig: CalculatedUserConfig,
   level: Nullable<number>,
 };
+
+export const teamMemberStatsType = [
+  'frequency',
+  'inventory',
+  'energy',
+  'berry',
+  'ingredient',
+  'skill',
+  'total',
+] as const;
+
+export type TeamMemberStatsType = typeof teamMemberStatsType[number];
