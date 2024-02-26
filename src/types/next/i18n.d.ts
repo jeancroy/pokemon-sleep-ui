@@ -77,6 +77,14 @@ declare global {
           End: string,
           Close: string,
         },
+        Team: {
+          QuickAction: {
+            Sync: {
+              Name: string,
+              Syncing: string,
+            },
+          },
+        },
         EventList: {
           Section: {
             Upcoming: string,
@@ -307,10 +315,6 @@ declare global {
         Team: {
           Analysis: {
             Period: string,
-            Sync: {
-              Name: string,
-              Syncing: string,
-            },
             Control: {
               ExportToPokebox: string,
               PokeboxLinking: string,

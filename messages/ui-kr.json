@@ -55,6 +55,14 @@
       "End": "To",
       "Close": "Close"
     },
+    "Team": {
+      "QuickAction": {
+        "Sync": {
+          "Name": "모든 포켓몬 동기화",
+          "Syncing": "Syncing..."
+        }
+      }
+    },
     "EventList": {
       "Section": {
         "Upcoming": "Upcoming",
@@ -422,10 +430,6 @@
     "Team": {
       "Analysis": {
         "Period": "분석 주기",
-        "Sync": {
-          "Name": "모든 포켓몬 동기화",
-          "Syncing": "Syncing..."
-        },
         "Control": {
           "ExportToPokebox": "Export to Pokebox",
           "PokeboxLinking": "포켓몬 박스 연동",

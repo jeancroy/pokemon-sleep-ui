@@ -55,6 +55,14 @@
       "End": "Hasta",
       "Close": "Cierre"
     },
+    "Team": {
+      "QuickAction": {
+        "Sync": {
+          "Name": "Sincronizar Pokémon",
+          "Syncing": "Sincronizando..."
+        }
+      }
+    },
     "EventList": {
       "Section": {
         "Upcoming": "Próximo",
@@ -422,10 +430,6 @@
     "Team": {
       "Analysis": {
         "Period": "Período de Análisis",
-        "Sync": {
-          "Name": "Sincronizar Pokémon",
-          "Syncing": "Sincronizando..."
-        },
         "Control": {
           "ExportToPokebox": "Exportar a Pokebox",
           "PokeboxLinking": "Enlace Pokebox",

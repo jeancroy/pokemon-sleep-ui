@@ -4,25 +4,29 @@ import ArrowPathIcon from '@heroicons/react/24/outline/ArrowPathIcon';
 import {useTranslations} from 'next-intl';
 
 import {FlexButton} from '@/components/layout/flex/button';
+import {teamSetupControlButtonStyle} from '@/components/shared/team/setupControl/const';
 import {PremiumIcon} from '@/components/static/premium/icon';
 import {usePremiumRequiredToast} from '@/hooks/toast/main';
 import {useUserActivation} from '@/hooks/userData/activation';
-import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/setup/common/type';
-import {teamAnalysisSetupActionButtonStyle} from '@/ui/team/analysis/setup/control/setup/const';
+import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
+import {Pokebox} from '@/types/userData/pokebox';
 import {toPokebox} from '@/utils/team/pokebox/toPokebox';
-import {isNotNullish} from '@/utils/type';
 
 
-export const TeamAnalysisQuickActionSyncAllPokemon = ({
+type Props = {
+  actorReturn: UseUserDataActorReturn,
+  linkedPokeInBoxUuidList: string[],
+  onPokeboxReceived: (pokebox: Pokebox) => void,
+};
+
+export const TeamQuickActionSyncPokemon = ({
   actorReturn,
-  setupControl,
-  currentTeam,
-}: TeamAnalysisSetupUpdateCommonProps) => {
+  linkedPokeInBoxUuidList,
+  onPokeboxReceived,
+}: Props) => {
   const {actAsync, session, status} = actorReturn;
-  const {updatePokemonFromPokebox} = setupControl;
-  const {members} = currentTeam;
 
-  const t = useTranslations('UI.InPage.Team.Analysis');
+  const t = useTranslations('UI.Component.Team.QuickAction.Sync');
   const {isPremium} = useUserActivation(session.data);
   const {showPremiumRequiredToast} = usePremiumRequiredToast();
 
@@ -43,10 +47,7 @@ export const TeamAnalysisQuickActionSyncAllPokemon = ({
       options: {
         type: 'pokeboxWithFilter',
         opts: {
-          uuid: {$in: Object.values(members)
-            .filter(isNotNullish)
-            .map(({linkedPokeInBoxUuid}) => linkedPokeInBoxUuid)
-            .filter(isNotNullish)},
+          uuid: {$in: linkedPokeInBoxUuidList},
         },
       },
     });
@@ -56,7 +57,7 @@ export const TeamAnalysisQuickActionSyncAllPokemon = ({
       return;
     }
 
-    updatePokemonFromPokebox(toPokebox(pokeInBoxList));
+    onPokeboxReceived(toPokebox(pokeInBoxList));
   };
 
   return (
@@ -64,11 +65,11 @@ export const TeamAnalysisQuickActionSyncAllPokemon = ({
       disabled={!actAsync || isSyncing}
       center
       onClick={onSyncClicked}
-      className={teamAnalysisSetupActionButtonStyle}
+      className={teamSetupControlButtonStyle}
     >
       <ArrowPathIcon className="size-5"/>
       <PremiumIcon isPremium={isPremium}/>
-      <span>{isSyncing ? t('Sync.Syncing') : t('Sync.Name')}</span>
+      <span>{isSyncing ? t('Syncing') : t('Name')}</span>
     </FlexButton>
   );
 };
