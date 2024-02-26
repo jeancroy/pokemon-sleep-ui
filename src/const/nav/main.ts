@@ -16,7 +16,7 @@ export const navEntries: NavEntry[] = [
   {
     type: 'link',
     href: '/pokedex/tier',
-    imageSrc: '/images/generic/analysis.png',
+    imageSrc: '/images/generic/rank.png',
     i18nTextId: 'Pokedex.Tier.Title',
   },
   {
