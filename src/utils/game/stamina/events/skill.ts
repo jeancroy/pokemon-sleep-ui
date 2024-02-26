@@ -51,7 +51,7 @@ export const getLogsWithSkillRecoveryOfTrigger = ({
   logs,
   ...opts
 }: GetLogsWithSkillRecoveryOfTriggerOpts): StaminaEventLog[] => {
-  const {recoveryRate} = opts;
+  const {recoveryRate, general} = opts;
   const {session, duration} = sleepSessionInfo;
   const {secondary} = session;
 
@@ -64,6 +64,7 @@ export const getLogsWithSkillRecoveryOfTrigger = ({
     }),
     recoveryRate,
     recoveryEventType: 'skillRecovery',
+    general,
   });
 };
 

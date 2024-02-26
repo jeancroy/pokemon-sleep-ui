@@ -1,10 +1,10 @@
-import {staminaAbsoluteMax} from '@/const/game/stamina';
 import {defaultRecoveryRate} from '@/const/user/config/user';
 import {StaminaEventLog, StaminaEventType} from '@/types/game/stamina/event';
+import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaRecovery, StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 import {
-  getActualRecoveryAmount,
+  getActualRecoveryAmount, getEffectiveAbsoluteMaxStamina,
   offsetEventLogStamina,
   updateLogStaminaFromLast,
 } from '@/utils/game/stamina/events/utils';
@@ -15,6 +15,7 @@ type GetLogsWithStaminaRecoveryOpts = {
   recoveries: StaminaRecovery[],
   recoveryRate: StaminaRecoveryRateConfig,
   recoveryEventType: StaminaEventType,
+  general: StaminaGeneralRecoveryConfig,
 };
 
 export const getLogsWithStaminaRecovery = ({
@@ -22,9 +23,11 @@ export const getLogsWithStaminaRecovery = ({
   recoveries,
   recoveryRate,
   recoveryEventType,
+  general,
 }: GetLogsWithStaminaRecoveryOpts): StaminaEventLog[] => {
   const newLogs: StaminaEventLog[] = [logs[0]];
 
+  const maxStamina = getEffectiveAbsoluteMaxStamina(general);
   let recoveryCount = 0;
   let recoveredAmount = 0;
 
@@ -53,11 +56,11 @@ export const getLogsWithStaminaRecovery = ({
         timing: recoveryData.timing,
         stamina: {
           before: staminaBefore.inGame,
-          after: Math.min(staminaBefore.inGame + currentRecoveryAmount, staminaAbsoluteMax),
+          after: Math.min(staminaBefore.inGame + currentRecoveryAmount, maxStamina),
         },
         staminaUnderlying: {
           before: staminaBeforeUnderlying.actual,
-          after: Math.min(staminaBeforeUnderlying.actual + currentRecoveryAmount, staminaAbsoluteMax),
+          after: Math.min(staminaBeforeUnderlying.actual + currentRecoveryAmount, maxStamina),
         },
       });
       recoveryCount += 1;

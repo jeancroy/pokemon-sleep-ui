@@ -1,4 +1,6 @@
+import {staminaAbsoluteMax} from '@/const/game/stamina';
 import {StaminaEventLog} from '@/types/game/stamina/event';
+import {StaminaGeneralRecoveryConfig} from '@/types/game/stamina/general';
 import {StaminaRecoveryRateConfig} from '@/types/game/stamina/recovery';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
 
@@ -83,4 +85,18 @@ type GetActualRecoveryAmountOpts = GetFinalRecoveryRateOpts & {
 
 export const getActualRecoveryAmount = ({amount, ...opts}: GetActualRecoveryAmountOpts) => {
   return Math.ceil(amount * getFinalRecoveryRate(opts));
+};
+
+export const getEffectiveAbsoluteMaxStamina = ({strategy}: StaminaGeneralRecoveryConfig): number => {
+  if (strategy === 'optimistic') {
+    return Infinity;
+  }
+
+  if (strategy === 'conservative') {
+    return staminaAbsoluteMax;
+  }
+
+  throw new Error(
+    `Unhandled energy recovery strategy [${strategy satisfies never}] for getting effective max stamina`,
+  );
 };

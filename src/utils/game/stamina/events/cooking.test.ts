@@ -53,6 +53,7 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,
       cookingRecoveryConfig: defaultCookingRecovery,
+      general,
     });
 
     expect(logs[0].type).toBe('wakeup');
@@ -123,6 +124,7 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,
       cookingRecoveryConfig: defaultCookingRecovery,
+      general,
     });
 
     expect(logs[0].type).toBe('wakeup');
@@ -185,6 +187,7 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
       recoveryRate,
       cookingRecoveryData: testCookingRecoveryData,
       cookingRecoveryConfig: defaultCookingRecovery,
+      general,
     });
 
     expect(logs[0].type).toBe('wakeup');
@@ -212,5 +215,72 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
     expect(logs[5].stamina.before).toBe(28);
     expect(logs[5].stamina.after).toBe(28);
     expect(logs.length).toBe(6);
+  });
+
+  it('ignores stamina limit under optimistic', () => {
+    const recoveryRate: StaminaRecoveryRateConfig = {
+      general: 1,
+      sleep: 1,
+    };
+    const sleepSessionInfo = getSleepSessionInfo({
+      recoveryRate,
+      sleepSession: {
+        primary: {
+          start: 0, // 00:00
+          end: 28800, // 08:00
+        },
+        secondary: null,
+      },
+    });
+    const general: StaminaGeneralRecoveryConfig = {
+      strategy: 'optimistic',
+    };
+    const skillTriggers: StaminaSkillTriggerData[] = [
+      {dailyCount: 10, amount: 20},
+    ];
+
+    let logs = getLogsWithPrimarySleep({
+      sleepSessionInfo,
+      general,
+      skillTriggers,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+    });
+    logs = getLogsWithSecondarySleep({logs, sleepSessionInfo, general});
+    logs = getLogsWithSkillRecovery({sleepSessionInfo, general, skillTriggers, logs, recoveryRate});
+    logs = getLogsWithCookingRecovery({
+      logs,
+      sleepSessionInfo,
+      recoveryRate,
+      cookingRecoveryData: testCookingRecoveryData,
+      cookingRecoveryConfig: {
+        breakfast: 30600, // 08:30
+        lunch: 45000, // 12:30
+        dinner: 68400, // 19:00
+      },
+      general,
+    });
+
+    expect(logs[0].type).toBe('wakeup');
+    expect(logs[0].timing).toBe(0);
+    expect(logs[0].stamina.before).toBe(295);
+    expect(logs[0].stamina.after).toBe(295);
+    expect(logs[1].type).toBe('cookingRecovery');
+    expect(logs[1].timing).toBe(1800);
+    expect(logs[1].stamina.before).toBe(292);
+    expect(logs[1].stamina.after).toBe(292);
+    expect(logs[2].type).toBe('cookingRecovery');
+    expect(logs[2].timing).toBe(16200);
+    expect(logs[2].stamina.before).toBe(268);
+    expect(logs[2].stamina.after).toBe(268);
+    expect(logs[3].type).toBe('cookingRecovery');
+    expect(logs[3].timing).toBe(39600);
+    expect(logs[3].stamina.before).toBe(229);
+    expect(logs[3].stamina.after).toBe(229);
+    expect(logs[4].type).toBe('sleep');
+    expect(logs[4].timing).toBe(57600);
+    expect(logs[4].stamina.before).toBe(199);
+    expect(logs[4].stamina.after).toBe(199);
+    expect(logs.length).toBe(5);
   });
 });
