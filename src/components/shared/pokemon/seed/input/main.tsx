@@ -9,6 +9,7 @@ import {LevelIcon} from '@/components/shared/icon/lv';
 import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {GoldSeedIcon} from '@/components/shared/icon/seed/gold';
 import {SilverSeedIcon} from '@/components/shared/icon/seed/silver';
+import {MainSkillData} from '@/types/game/pokemon/mainSkill';
 import {SeedUsage} from '@/types/game/pokemon/seed';
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
@@ -16,10 +17,11 @@ import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
 
 
 type Props = {
-  usage: SeedUsage,
-  setUsage: ReactStateUpdaterFromOriginal<SeedUsage>,
+  mainSkillData: MainSkillData,
   evolutionCount?: number,
   subSkillBonus?: GroupedSubSkillBonus,
+  usage: SeedUsage,
+  setUsage: ReactStateUpdaterFromOriginal<SeedUsage>,
 };
 
 export const SeedUsageInput = ({

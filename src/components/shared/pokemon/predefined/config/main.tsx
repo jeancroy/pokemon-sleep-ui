@@ -20,12 +20,15 @@ export const PokemonConfig = (props: PokemonConfigProps) => {
     pokedexMap,
     ingredientChainMap,
     pokemonMaxLevel,
+    mainSkillMap,
     subSkillMap,
     maxEvolutionCount,
     showSeeds,
   } = props;
 
-  const {ingredientChain} = pokemon;
+  const {ingredientChain, skill} = pokemon;
+
+  const mainSkillData = mainSkillMap[skill];
 
   return (
     <Flex className="gap-1.5">
@@ -78,6 +81,7 @@ export const PokemonConfig = (props: PokemonConfigProps) => {
             pokemonSubSkill: data.subSkill,
             subSkillMap,
           })}
+          mainSkillData={mainSkillData}
         />
       }
     </Flex>

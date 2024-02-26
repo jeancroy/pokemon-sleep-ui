@@ -17,7 +17,7 @@ export type GetPokemonProductionUnitOpts =
   ProductionSingleParams &
   ProductionImplicitParams &
   GetPokemonProductionSharedOpts & {
-    skillData: MainSkillData | undefined,
+    skillData: MainSkillData,
     recipeLevelData: RecipeLevelData[],
     pokemonProducingParams: PokemonProducingParams,
     helpingBonusEffect: HelpingBonusEffect,

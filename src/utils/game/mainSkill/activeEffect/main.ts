@@ -6,9 +6,5 @@ export const getMainSkillActiveEffect = ({
   skillLevel,
   skillData,
 }: GetMainSkillActiveEffectOpts): MainSkillEffect | null => {
-  if (!skillData) {
-    return null;
-  }
-
   return skillData.effects[skillLevel - 1];
 };

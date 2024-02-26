@@ -41,6 +41,7 @@ type Props = PokeInBoxEditCommonProps & PokeInBoxEditStateProps & {
 export const PokeInBoxEditLayout = ({
   pokedexMap,
   ingredientChainMap,
+  mainSkillMap,
   subSkillMap,
   onRemovePokeInBox,
   pokeInBox,
@@ -170,6 +171,7 @@ export const PokeInBoxEditLayout = ({
         })}
         evolutionCount={evolutionCount}
         subSkillBonus={getSubSkillBonus({level, pokemonSubSkill: subSkill, subSkillMap})}
+        mainSkillData={mainSkillMap[pokemon.skill]}
       />
       <Flex className="gap-1.5 md:flex-row">
         <PokemonSubSkillSelector

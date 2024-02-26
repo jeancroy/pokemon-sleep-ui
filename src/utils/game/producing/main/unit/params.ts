@@ -62,6 +62,7 @@ export const getPokemonProductionIntermediateParams = ({
         seedsUsed: seeds.gold,
         evolutionCount,
         subSkillBonus,
+        mainSkillData: skillData,
       }),
       skillData,
     }),

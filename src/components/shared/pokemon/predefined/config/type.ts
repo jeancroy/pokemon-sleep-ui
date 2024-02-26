@@ -1,5 +1,6 @@
 import {PokedexMap, PokemonId, PokemonInfo} from '@/types/game/pokemon';
 import {IngredientChainMap, IngredientProductionAtLevels} from '@/types/game/pokemon/ingredient';
+import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {NatureId} from '@/types/game/pokemon/nature';
 import {PokemonSubSkill, SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {ProductionImplicitParams} from '@/types/game/producing/rate/params';
@@ -19,6 +20,7 @@ export type PokemonConfigProps = {
   pokemon: PokemonInfo,
   pokedexMap: PokedexMap,
   ingredientChainMap: IngredientChainMap,
+  mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
   pokemonMaxLevel: number,
   maxEvolutionCount: number,
