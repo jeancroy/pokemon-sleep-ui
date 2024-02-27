@@ -1,6 +1,11 @@
+import {defaultSeedUsage} from '@/const/game/seed';
+import {PokemonInfo} from '@/types/game/pokemon';
+import {IngredientChain} from '@/types/game/pokemon/ingredient';
 import {TeamMemberData} from '@/types/game/team/member';
 import {PokeInBox} from '@/types/userData/pokebox';
 import {generateNewPokeInBox} from '@/ui/team/pokebox/utils';
+import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution/count';
+import {generateDefaultIngredientProductionAtLevels} from '@/utils/game/producing/ingredient/chain';
 import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 import {ToTeamMemberNullableData} from '@/utils/team/type';
@@ -58,4 +63,25 @@ export const toTeamMemberFromPokeInBoxNullable = ({
   });
 
   return toTeamMemberFromPokeInBox(migratedPokeInBox);
+};
+
+type ToTeamMemberDataFromVanillaOpts = {
+  pokemon: PokemonInfo,
+  chain: IngredientChain,
+};
+
+export const toTeamMemberDataFromVanilla = ({
+  pokemon,
+  chain,
+}: ToTeamMemberDataFromVanillaOpts): TeamMemberData => {
+  return {
+    pokemonId: pokemon.id,
+    level: 1,
+    nature: null,
+    subSkill: {},
+    ingredients: generateDefaultIngredientProductionAtLevels(chain),
+    evolutionCount: getEvolutionCountFromPokemonInfo({pokemon}),
+    seeds: defaultSeedUsage,
+    linkedPokeInBoxUuid: null,
+  };
 };
