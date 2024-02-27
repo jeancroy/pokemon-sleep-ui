@@ -15,41 +15,36 @@ import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/g
 import {TeamContributionSplitIndicator} from '@/components/shared/team/contributionSplit/main';
 import {TeamSetupControlUI} from '@/components/shared/team/setupControl/main';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
-import {
-  teamAnalysisSlotName,
-} from '@/types/teamAnalysis';
-import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook';
-import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/type';
+import {teamAnalysisSlotName} from '@/types/teamAnalysis';
+import {useTeamProduction} from '@/ui/team/analysis/calc/hook';
+import {TeamAnalysisMemberView} from '@/ui/team/analysis/setup/members';
 import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';
-import {TeamAnalysisTeamView} from '@/ui/team/analysis/setup/team/main';
 import {TeamAnalysisSetupViewCommonProps} from '@/ui/team/analysis/setup/type';
-import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {generateEmptyTeam} from '@/ui/team/analysis/utils';
 import {isNotNullish} from '@/utils/type';
 
 
-type Props = TeamAnalysisDataProps & TeamAnalysisSetupUpdateCommonProps & TeamAnalysisSetupViewCommonProps;
-
-export const TeamAnalysisSetupView = (props: Props) => {
+export const TeamAnalysisSetupView = (props: TeamAnalysisSetupViewCommonProps) => {
   const {
-    currentTeam,
     setupControl,
+    currentTeam,
     snorlaxData,
     mealMap,
     preloaded,
-    session,
+    actorReturn,
   } = props;
-  const {setup, layoutControl} = setupControl;
+  const {session} = actorReturn;
+  const {setup} = setupControl;
 
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
-      server: preloaded,
+      server: preloaded.bundle,
       client: session?.data?.user.preloaded,
     },
     ...props,
   });
   const {bundle, calculatedCookingConfig} = calculatedConfigBundle;
-  const statsOfTeam = useTeamProducingStats({
+  const statsOfTeam = useTeamProduction({
     ...props,
     setup,
     bundle,
@@ -66,7 +61,6 @@ export const TeamAnalysisSetupView = (props: Props) => {
     <>
       <PokemonLinkPopup state={state} setState={setState}/>
       <TeamSetupControlUI
-        layoutControl={layoutControl}
         generateNewTeam={generateEmptyTeam}
         uploadOpts={{
           type: 'teamAnalysis',
@@ -78,10 +72,9 @@ export const TeamAnalysisSetupView = (props: Props) => {
         {...props}
       />
       <AdsUnit hideIfNotBlocked/>
-      <TeamAnalysisTeamView
+      <TeamAnalysisMemberView
         showPokemon={showPokemon}
         calculatedCookingConfig={calculatedCookingConfig}
-        layoutControl={layoutControl}
         statsOfTeam={statsOfTeam}
         bundle={bundle}
         {...props}

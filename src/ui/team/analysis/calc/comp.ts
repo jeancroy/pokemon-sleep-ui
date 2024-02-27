@@ -1,9 +1,8 @@
 import {Production} from '@/types/game/producing/rate/base';
 import {TeamMemberProduction} from '@/types/game/team/production';
-import {TeamAnalysisSlotName, teamAnalysisSlotName} from '@/types/teamAnalysis';
+import {TeamAnalysisSlotName, teamAnalysisSlotName, TeamProductionBySlot} from '@/types/teamAnalysis';
 import {getTeamProductionOfSlot} from '@/ui/team/analysis/calc/slot';
 import {TeamCompCalcOpts, TeamCompCalcResult} from '@/ui/team/analysis/calc/type';
-import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
 import {getPokemonProductionMulti} from '@/utils/game/producing/main/entry/multi';
 import {getTotalPokemonProduction} from '@/utils/game/producing/reducer/total/common';
 import {getCurrentTeam} from '@/utils/team/setup/getCurrentTeam';
@@ -65,7 +64,7 @@ export const getTeamCompCalcResult = ({
           level: currentTeam.members[slotName]?.level ?? null,
         },
       ];
-    })) as TeamProducingStatsBySlot,
+    })) as TeamProductionBySlot,
     grouped,
   };
 };

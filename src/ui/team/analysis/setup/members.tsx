@@ -9,25 +9,24 @@ import {
   TeamAnalysisMember,
   TeamAnalysisSetup,
   TeamAnalysisSlotName,
-  teamAnalysisSlotName,
+  teamAnalysisSlotName, TeamProduction,
 } from '@/types/teamAnalysis';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
 import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
-import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/type';
-import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
+import {TeamAnalysisMemberViewCommonProps} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {toTeamMemberDataFromVanilla, toTeamMemberFromPokeInBox} from '@/utils/team/toMember';
 import {getTeamMemberId} from '@/utils/user/teamAnalysis';
 
 
-type Props = TeamAnalysisDataProps & TeamAnalysisSetupUpdateCommonProps & TeamMemberFilledCommonProps & {
+type Props = TeamAnalysisDataProps & TeamAnalysisMemberViewCommonProps & TeamMemberFilledCommonProps & {
   layoutControl: TeamLayoutControl<TeamAnalysisSlotName>,
-  statsOfTeam: TeamProducingStats,
+  statsOfTeam: TeamProduction,
   calculatedCookingConfig: CalculatedCookingConfig,
 };
 
-export const TeamAnalysisTeamView = ({
+export const TeamAnalysisMemberView = ({
   layoutControl,
   statsOfTeam,
   ...props
@@ -84,16 +83,8 @@ export const TeamAnalysisTeamView = ({
             !!updated?.user.lazyLoaded.teamAnalysisMember ? 'completed' : 'failed'
           ),
         });
-        if (!updated) {
-          return null;
-        }
 
-        const member = updated.user.lazyLoaded.teamAnalysisMember;
-        if (!member) {
-          return null;
-        }
-
-        return member;
+        return updated?.user.lazyLoaded.teamAnalysisMember ?? null;
       }}
       {...props}
     />

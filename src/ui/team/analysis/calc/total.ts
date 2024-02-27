@@ -1,20 +1,21 @@
-import {teamAnalysisSlotName} from '@/types/teamAnalysis';
-import {GetTeamProducingStatsCommonOpts} from '@/ui/team/analysis/calc/type';
-import {TeamProducingStatsBySlot, TeamProducingStatsTotal} from '@/ui/team/analysis/setup/type';
+import {teamAnalysisSlotName, TeamProductionBySlot, TeamProductionTotal} from '@/types/teamAnalysis';
+import {
+  GetTeamProductionCommonOpts,
+} from '@/ui/team/analysis/calc/type';
 import {toSum} from '@/utils/array';
 import {getTotalStrengthProductionFromIndirectSkill} from '@/utils/game/producing/reducer/total/indirectSkill';
 import {isNotNullish} from '@/utils/type';
 
 
-type GetTeamProducingStatsTotalOpts = GetTeamProducingStatsCommonOpts & {
-  bySlot: TeamProducingStatsBySlot,
+type GetTeamProductionTotalOpts = GetTeamProductionCommonOpts & {
+  bySlot: TeamProductionBySlot,
 };
 
-export const getTeamProducingStatsTotal = ({
+export const getTeamProductionTotal = ({
   period,
   state,
   bySlot,
-}: GetTeamProducingStatsTotalOpts): TeamProducingStatsTotal => {
+}: GetTeamProductionTotalOpts): TeamProductionTotal => {
   const stats = teamAnalysisSlotName
     .map((slotName) => bySlot[slotName])
     .filter(isNotNullish);

@@ -1,13 +1,13 @@
 import React from 'react';
 
 import {useWorker} from '@/hooks/worker/main';
-import {getTeamProducingStats} from '@/ui/team/analysis/calc/main';
-import {GetTeamProductionStatsOpts} from '@/ui/team/analysis/calc/type';
-import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
+import {TeamProduction} from '@/types/teamAnalysis';
+import {getTeamProduction} from '@/ui/team/analysis/calc/main';
+import {GetTeamProductionOpts} from '@/ui/team/analysis/calc/type';
 import {isProduction} from '@/utils/environment';
 
 
-export const useTeamProducingStats = ({
+export const useTeamProduction = ({
   ingredientMap,
   ingredientChainMap,
   mealMap,
@@ -31,10 +31,10 @@ export const useTeamProducingStats = ({
   currentTeam,
   calculatedCookingConfig,
   overrideLevel,
-}: GetTeamProductionStatsOpts) => {
-  const [result, setResult] = React.useState<TeamProducingStats>();
+}: GetTeamProductionOpts) => {
+  const [result, setResult] = React.useState<TeamProduction>();
 
-  const {work} = useWorker<GetTeamProductionStatsOpts, TeamProducingStats>({
+  const {work} = useWorker<GetTeamProductionOpts, TeamProduction>({
     workerName: 'Team Analysis Worker',
     generateWorker: () => new Worker(new URL('main.worker', import.meta.url)),
     onCompleted: setResult,
@@ -43,7 +43,7 @@ export const useTeamProducingStats = ({
 
   React.useEffect(() => {
     // Explicit to avoid passing unwanted properties
-    const opts: GetTeamProductionStatsOpts = {
+    const opts: GetTeamProductionOpts = {
       ingredientMap,
       ingredientChainMap,
       mealMap,
@@ -71,7 +71,7 @@ export const useTeamProducingStats = ({
 
     // Calculate using UI thread under dev environment for easier debug
     if (!isProduction()) {
-      setResult(getTeamProducingStats(opts));
+      setResult(getTeamProduction(opts));
       return;
     }
 

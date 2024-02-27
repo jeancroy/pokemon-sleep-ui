@@ -21,7 +21,7 @@ export type TeamAnalysisRateLayoutProps = {
   icon?: React.ReactElement<NextImageProps>,
 };
 
-export const TeamAnalysisRateLayout = ({
+export const TeamAnalysisSummaryProductionLayout = ({
   rate,
   period,
   showQuantity,

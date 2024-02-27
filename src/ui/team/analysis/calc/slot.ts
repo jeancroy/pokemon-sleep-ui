@@ -1,11 +1,11 @@
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
-import {GetTeamProductionStatsOpts} from '@/ui/team/analysis/calc/type';
+import {GetTeamProductionOpts} from '@/ui/team/analysis/calc/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {GetPokemonProductionOpts} from '@/utils/game/producing/main/type';
 import {getPokemonProducingParams, getProductionSingleParams} from '@/utils/game/producing/params';
 
 
-type GetTeamProductionOfSlotOpts = GetTeamProductionStatsOpts & {
+type GetTeamProductionOfSlotOpts = GetTeamProductionOpts & {
   slotName: TeamAnalysisSlotName,
 };
 
