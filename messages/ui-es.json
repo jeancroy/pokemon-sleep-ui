@@ -48,7 +48,7 @@
     "MealFilter": {
       "IngredientInclusion": "Ingredient Inclusion",
       "IngredientExclusion": "Excluir Ingredientes",
-      "MinRecipeBonus": "Min. Recipe Bonus"
+      "MinRecipeBonus": "Min. Bono de receta"
     },
     "TimePeriodSchedule": {
       "Start": "Desde",
@@ -399,8 +399,8 @@
       "Total": "Total",
       "TargetMealCount": "Recuento de comidas",
       "Sort": {
-        "RecipeBaseStrength": "Recipe Base Strength",
-        "IngredientCount": "Ingredient Count"
+        "RecipeBaseStrength": "Vigor Base de Receta",
+        "IngredientCount": "Cant. Ingredientes"
       }
     },
     "Map": {
