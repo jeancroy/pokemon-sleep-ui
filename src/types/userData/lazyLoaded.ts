@@ -5,12 +5,10 @@ import {TeamMemberData} from '@/types/game/team/member';
 import {ActivationInfo} from '@/types/mongo/activation';
 import {UserDataLoadingOpts} from '@/types/userData/load';
 import {PokeInBox} from '@/types/userData/pokebox';
-import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
 
 
 export type UserLazyLoadedContent = {
   // Keys has to match `UserDataLoadingOpts['type']`
-  teamAnalysis: UserTeamAnalysisContent,
   teamAnalysisMember: TeamMemberData,
   pokeboxSingle: PokeInBox | null,
   pokeboxSorted: PokeInBox[],

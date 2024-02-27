@@ -4,7 +4,8 @@ import {FieldMetaMap} from '@/types/game/mapMeta';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {SnorlaxDataOfMap} from '@/types/game/snorlax';
 import {ConfigBundle} from '@/types/userData/config/bundle';
-import {UserLazyLoadedData} from '@/types/userData/main';
+import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
+import {Nullable} from '@/utils/type';
 
 
 export type TeamAnalysisServerDataProps =
@@ -12,11 +13,13 @@ export type TeamAnalysisServerDataProps =
   TeamMemberViewRequiredData & {
     snorlaxData: SnorlaxDataOfMap[],
     mapMeta: FieldMetaMap,
-    preloaded: ConfigBundle,
+    preloaded: {
+      bundle: ConfigBundle,
+      setup: Nullable<UserTeamAnalysisContent>,
+    },
   };
 
 export type TeamAnalysisDataProps = TeamAnalysisServerDataProps & {
-  data: UserLazyLoadedData['teamAnalysis'],
   pokemonList: PokemonInfo[],
   maxEvolutionCount: number,
 };

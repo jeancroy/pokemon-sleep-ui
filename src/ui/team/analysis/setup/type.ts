@@ -1,4 +1,3 @@
-import {useSession} from 'next-auth/react';
 
 import {TeamSetupControl} from '@/components/shared/team/setupControl/type';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
@@ -9,6 +8,7 @@ import {
   TeamAnalysisSetup,
   TeamAnalysisSlotName,
 } from '@/types/teamAnalysis';
+import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 
 
 export type TeamAnalysisSetupControl = TeamSetupControl<
@@ -19,12 +19,7 @@ export type TeamAnalysisSetupControl = TeamSetupControl<
   TeamAnalysisSetup
 >;
 
-export type TeamAnalysisSetupViewCommonProps = {
-  session: ReturnType<typeof useSession>,
-  actorReturn: UseUserDataActorReturn,
-};
-
-export type TeamAnalysisMemberViewCommonProps = {
+export type TeamAnalysisSetupViewCommonProps = TeamAnalysisDataProps & {
   actorReturn: UseUserDataActorReturn,
   setupControl: TeamAnalysisSetupControl,
   currentTeam: TeamAnalysisComp,

@@ -7,8 +7,7 @@ import {getSleepdexMap, getSleepdexMapOfPokemon} from '@/controller/sleepdex';
 import {getActivationDataByFilter} from '@/controller/user/activation/data';
 import {generateActivationKey, getActivationKeyByFilter} from '@/controller/user/activation/key';
 import {userRatingConfig} from '@/controller/user/manager';
-import {getTeamAnalysisCompsOfUser, getTeamMemberById} from '@/controller/user/teamAnalysis/comp';
-import {getTeamAnalysisConfigOfUser} from '@/controller/user/teamAnalysis/config';
+import {getTeamMemberById} from '@/controller/user/teamAnalysis/comp';
 import {ActivationData} from '@/types/mongo/activation';
 import {UserDataLoadingOpts} from '@/types/userData/load';
 import {UserLazyLoadedData} from '@/types/userData/main';
@@ -27,19 +26,6 @@ type GetUserLazyDataOpts = {
 
 const loadData = async ({userId, options}: GetUserLazyDataOpts) => {
   const {type, opts} = options;
-
-  if (type === 'teamAnalysis') {
-    const [config, comps] = await Promise.all([
-      getTeamAnalysisConfigOfUser(userId),
-      getTeamAnalysisCompsOfUser(userId),
-    ]);
-
-    if (!config) {
-      return undefined;
-    }
-
-    return {config, comps} satisfies UserLazyLoadedData['teamAnalysis'];
-  }
 
   if (type === 'teamAnalysisMember') {
     const teamMemberId = extractTeamMemberId(opts.teamMemberId);

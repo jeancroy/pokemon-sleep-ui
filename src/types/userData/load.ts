@@ -7,9 +7,6 @@ import {PokeInBoxData} from '@/types/mongo/pokebox/main';
 
 
 export type UserDataLoadingOpts = {
-  type: 'teamAnalysis',
-  opts?: never,
-} | {
   type: 'teamAnalysisMember',
   opts: {
     teamMemberId: string,

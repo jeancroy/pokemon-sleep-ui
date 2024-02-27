@@ -7,31 +7,37 @@ import {authOptions} from '@/const/auth';
 import {getTeamMemberViewRequiredData} from '@/controller/dataBundle/teamMemberView';
 import {getFieldMetaMap} from '@/controller/mapMeta';
 import {getSnorlaxData} from '@/controller/snorlax';
+import {getUserTeamAnalysisContent} from '@/controller/user/teamAnalysis/merged';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
-import {TeamAnalysisClient} from '@/ui/team/analysis/client/main';
+import {TeamAnalysisClient} from '@/ui/team/analysis/client';
 import {TeamAnalysisServerDataProps} from '@/ui/team/analysis/type';
 import {createConfigBundle} from '@/utils/user/config/create';
 
 
 export const TeamAnalysis = async ({params}: DefaultPageProps) => {
   const {locale} = params;
+  const session = await getServerSession(authOptions);
+
   const [
-    session,
     snorlaxData,
     mapMeta,
+    userTeamAnalysisContent,
     teamMemberViewRequiredData,
   ] = await Promise.all([
-    getServerSession(authOptions),
     getSnorlaxData(),
     getFieldMetaMap(),
+    getUserTeamAnalysisContent(session?.user.id),
     getTeamMemberViewRequiredData(),
   ]);
 
   const props: TeamAnalysisServerDataProps = {
     snorlaxData,
     mapMeta,
-    preloaded: createConfigBundle(session),
+    preloaded: {
+      bundle: createConfigBundle(session),
+      setup: userTeamAnalysisContent,
+    },
     ...teamMemberViewRequiredData,
   };
 

@@ -9,18 +9,18 @@ import {
   TeamAnalysisMember,
   TeamAnalysisSetup,
   TeamAnalysisSlotName,
-  teamAnalysisSlotName, TeamProduction,
+  teamAnalysisSlotName,
+  TeamProduction,
 } from '@/types/teamAnalysis';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
 import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
-import {TeamAnalysisMemberViewCommonProps} from '@/ui/team/analysis/setup/type';
-import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
+import {TeamAnalysisSetupViewCommonProps} from '@/ui/team/analysis/setup/type';
 import {toTeamMemberDataFromVanilla, toTeamMemberFromPokeInBox} from '@/utils/team/toMember';
 import {getTeamMemberId} from '@/utils/user/teamAnalysis';
 
 
-type Props = TeamAnalysisDataProps & TeamAnalysisMemberViewCommonProps & TeamMemberFilledCommonProps & {
+type Props = TeamAnalysisSetupViewCommonProps & TeamMemberFilledCommonProps & {
   layoutControl: TeamLayoutControl<TeamAnalysisSlotName>,
   statsOfTeam: TeamProduction,
   calculatedCookingConfig: CalculatedCookingConfig,

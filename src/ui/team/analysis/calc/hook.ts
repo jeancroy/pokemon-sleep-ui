@@ -24,7 +24,6 @@ export const useTeamProduction = ({
   subSkillMap,
   pokemonMaxLevel,
   preloaded,
-  data,
   maxEvolutionCount,
   setup,
   bundle,
@@ -60,7 +59,6 @@ export const useTeamProduction = ({
       subSkillMap,
       pokemonMaxLevel,
       preloaded,
-      data,
       maxEvolutionCount,
       setup,
       bundle,
@@ -76,7 +74,7 @@ export const useTeamProduction = ({
     }
 
     work(opts);
-  }, [data, maxEvolutionCount, setup, bundle, currentTeam, calculatedCookingConfig, overrideLevel]);
+  }, [maxEvolutionCount, setup, bundle, currentTeam, calculatedCookingConfig, overrideLevel]);
 
   return result;
 };

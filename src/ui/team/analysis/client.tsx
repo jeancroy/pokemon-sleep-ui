@@ -1,22 +1,23 @@
+'use client';
 import React from 'react';
 
 import {useTeamSetupControl} from '@/components/shared/team/setupControl/hook';
+import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {TeamAnalysisComp, teamAnalysisSlotName} from '@/types/teamAnalysis';
-import {getInitialTeamAnalysisSetup} from '@/ui/team/analysis/client/utils';
 import {TeamAnalysisSetupView} from '@/ui/team/analysis/setup/main';
-import {TeamAnalysisSetupViewCommonProps} from '@/ui/team/analysis/setup/type';
-import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
+import {getInitialTeamAnalysisSetup} from '@/ui/team/analysis/setup/utils';
+import {TeamAnalysisServerDataProps} from '@/ui/team/analysis/type';
+import {getPokemonMaxEvolutionCount} from '@/utils/game/pokemon/evolution/count';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getCurrentTeam} from '@/utils/team/setup/getCurrentTeam';
 
 
-type Props = TeamAnalysisDataProps & TeamAnalysisSetupViewCommonProps;
+export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
+  const {preloaded, pokedexMap} = props;
 
-export const TeamAnalysisLoadedClient = (props: Props) => {
-  const {data} = props;
-
-  const initialMigratedSetup = getInitialTeamAnalysisSetup({data});
+  const actorReturn = useUserDataActor();
   const setupControl = useTeamSetupControl({
-    initialMigratedSetup,
+    initialMigratedSetup: getInitialTeamAnalysisSetup({data: preloaded.setup}),
     getNextKeyForDuplicate: ({members}) => {
       for (const slotName of teamAnalysisSlotName) {
         if (!!members[slotName]) {
@@ -31,12 +32,17 @@ export const TeamAnalysisLoadedClient = (props: Props) => {
     getLayoutCollapsibleIndexKeys: () => [...teamAnalysisSlotName],
   });
   const {setup} = setupControl;
+
   const currentTeam: TeamAnalysisComp = getCurrentTeam({setup});
+  const pokemonList = toPokemonList(pokedexMap);
 
   return (
     <TeamAnalysisSetupView
+      actorReturn={actorReturn}
       setupControl={setupControl}
       currentTeam={currentTeam}
+      pokemonList={pokemonList}
+      maxEvolutionCount={getPokemonMaxEvolutionCount(pokemonList)}
       {...props}
     />
   );
