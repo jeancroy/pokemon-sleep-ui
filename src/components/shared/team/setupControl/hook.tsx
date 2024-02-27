@@ -17,7 +17,7 @@ import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 import {getCurrentTeam} from '@/utils/team/setup/getCurrentTeam';
 import {updateCurrentTeamMember} from '@/utils/team/setup/updateCurrentMember';
-import {toTeamMember} from '@/utils/team/toMember';
+import {toTeamMemberFromPokeInBox} from '@/utils/team/toMember';
 import {showToast} from '@/utils/toast';
 import {Nullable} from '@/utils/type';
 
@@ -155,7 +155,7 @@ export const useTeamSetupControl = <
           return member;
         }
 
-        return toTeamMember(migrate({
+        return toTeamMemberFromPokeInBox(migrate({
           original: pokeInBox,
           override: null,
           migrators: pokeInBoxMigrators,

@@ -11,7 +11,7 @@ import {PokeInBox} from '@/types/userData/pokebox';
 import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
 import {PokedexDisplay} from '@/ui/pokedex/index/type';
 import {PokeboxViewerDisplay} from '@/ui/team/pokebox/viewer/type';
-import {ToTeamAnalysisCompFromPokeboxCommonOpts} from '@/utils/team/type';
+import {ToTeamCompFromPokeboxCommonOpts} from '@/utils/team/type';
 
 
 export type UserDataUploadOpts = {
@@ -34,7 +34,7 @@ export type UserDataUploadOpts = {
   data: UserTeamAnalysisContent,
 } | {
   type: 'team.maker.export',
-  data: ToTeamAnalysisCompFromPokeboxCommonOpts,
+  data: ToTeamCompFromPokeboxCommonOpts,
 } | {
   type: 'config.cooking',
   data: CookingConfig,

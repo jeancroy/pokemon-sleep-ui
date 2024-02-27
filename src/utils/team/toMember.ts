@@ -3,11 +3,11 @@ import {PokeInBox} from '@/types/userData/pokebox';
 import {generateNewPokeInBox} from '@/ui/team/pokebox/utils';
 import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
-import {ToTeamAnalysisMemberNullableData} from '@/utils/team/type';
+import {ToTeamMemberNullableData} from '@/utils/team/type';
 import {Nullable} from '@/utils/type';
 
 
-export const toTeamMember = ({
+export const toTeamMemberFromPokeInBox = ({
   uuid,
   name,
   level,
@@ -31,15 +31,15 @@ export const toTeamMember = ({
   };
 };
 
-type ToTeamAnalysisMemberNullableOpts = ToTeamAnalysisMemberNullableData & {
+type ToTeamMemberFromPokeInBoxNullableOpts = ToTeamMemberNullableData & {
   pokeInBox: Nullable<PokeInBox>,
 };
 
-export const toTeamMemberNullable = ({
+export const toTeamMemberFromPokeInBoxNullable = ({
   pokedexMap,
   ingredientChainMap,
   pokeInBox,
-}: ToTeamAnalysisMemberNullableOpts): TeamMemberData | null => {
+}: ToTeamMemberFromPokeInBoxNullableOpts): TeamMemberData | null => {
   if (!pokeInBox) {
     return null;
   }
@@ -57,5 +57,5 @@ export const toTeamMemberNullable = ({
     migrateParams: {},
   });
 
-  return toTeamMember(migratedPokeInBox);
+  return toTeamMemberFromPokeInBox(migratedPokeInBox);
 };

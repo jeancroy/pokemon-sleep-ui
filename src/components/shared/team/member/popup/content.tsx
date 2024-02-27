@@ -22,7 +22,7 @@ import {getTotalPokemonIngredientProduction} from '@/utils/game/producing/reduce
 import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 import {formatFloat} from '@/utils/number/format/regular';
 import {generateNumberTicks} from '@/utils/number/generator';
-import {toTeamMember} from '@/utils/team/toMember';
+import {toTeamMemberFromPokeInBox} from '@/utils/team/toMember';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -148,7 +148,7 @@ export const TeamMemberPopupContent = ({
           initialPokeInBoxUuid={linkedPokeInBoxUuid}
           onLinked={(pokeInBox) => {
             if (pokeInBox) {
-              setMember(toTeamMember(pokeInBox));
+              setMember(toTeamMemberFromPokeInBox(pokeInBox));
             }
 
             hide();

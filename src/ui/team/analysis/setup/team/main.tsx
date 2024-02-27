@@ -12,7 +12,7 @@ import {toTeamAnalysisMemberFromVanilla} from '@/ui/team/analysis/setup/team/uti
 import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {getPokemonProducingParams} from '@/utils/game/producing/params';
-import {toTeamMember} from '@/utils/team/toMember';
+import {toTeamMemberFromPokeInBox} from '@/utils/team/toMember';
 
 
 type Props = TeamAnalysisDataProps & TeamAnalysisFilledProps & {
@@ -64,7 +64,7 @@ export const TeamAnalysisTeamView = ({layoutControl, ...props}: Props) => {
             key={slotName}
             onPokeboxPicked={(pokeInBox) => setCurrentMember({
               key: slotName,
-              member: toTeamMember(pokeInBox),
+              member: toTeamMemberFromPokeInBox(pokeInBox),
             })}
             onCloudPulled={(member) => setCurrentMember({key: slotName, member})}
             onPokemonSelected={(pokemon) => setCurrentMember({
