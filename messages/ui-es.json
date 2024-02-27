@@ -344,11 +344,6 @@
         "Stats": "Estadísticas"
       },
       "Stats": {
-        "Energy": {
-          "Daily": "Diario",
-          "Name": "Vigor",
-          "Weekly": "Semanal"
-        },
         "FrequencyBase": "Frecuencia (Base)",
         "FrequencyEquivalent": "Frecuencia (Equivalente)",
         "Friendship": "Puntos de Amistad",
@@ -598,6 +593,10 @@
       "UnfilledOnly": "Capacidad no completa"
     },
     "Total": "Total",
+    "Period": {
+      "Daily": "Diario",
+      "Weekly": "Semanal"
+    },
     "Probability": {
       "NoSkillAfterWakeup": "Probabilidad de no activar la habilidad después de despertar"
     },

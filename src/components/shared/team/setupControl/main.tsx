@@ -63,8 +63,7 @@ export const TeamSetupControlUI = <
   const {session} = actorReturn;
 
   const t = useTranslations('UI.Component.Team.SetupControl');
-  // FIXME: Move this translation if possible
-  const t2 = useTranslations('UI.InPage.Pokedex.Stats.Energy');
+  const t2 = useTranslations('UI.Producing.Period');
 
   const memberList = Object.values<TMember>(currentTeam.members);
 

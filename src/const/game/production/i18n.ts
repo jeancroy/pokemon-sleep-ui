@@ -4,7 +4,7 @@ import {I18nMessageKeysOfNamespace} from '@/types/i18n';
 
 
 export const productionPeriodI18nId: {
-  [period in ProductionPeriod]: I18nMessageKeysOfNamespace<'UI.InPage.Pokedex.Stats.Energy'>
+  [period in ProductionPeriod]: I18nMessageKeysOfNamespace<'UI.Producing.Period'>
 } = {
   daily: 'Daily',
   weekly: 'Weekly',

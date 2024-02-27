@@ -227,7 +227,7 @@ export const PokedexLinkDetail = React.memo(({
           <IngredientIcons ingredients={[ingredients]} dimension="size-3.5" noLink/>
         </div>
         <Flex direction="row" className="items-center gap-0.5">
-          <ColoredStrengthIcon alt={t2('Stats.Energy.Name')} dimension="size-4"/>
+          <ColoredStrengthIcon alt={t3('Strength')} dimension="size-4"/>
           <span>{formatFloat(sorter)}</span>
         </Flex>
       </Flex>
@@ -242,7 +242,7 @@ export const PokedexLinkDetail = React.memo(({
     return (
       <Flex direction="row" className="gap-0.5">
         <PokemonBerryIcon id={berry.id}/>
-        {display === 'berryEnergy' && <ColoredStrengthIcon alt={t2('Stats.Energy.Name')}/>}
+        {display === 'berryEnergy' && <ColoredStrengthIcon alt={t3('Strength')}/>}
         <div>
           {formatFloat(sorter)}
         </div>
@@ -253,7 +253,7 @@ export const PokedexLinkDetail = React.memo(({
   if (display === 'totalEnergy') {
     return (
       <Flex direction="row" className="gap-0.5">
-        <ColoredStrengthIcon alt={t2('Stats.Energy.Name')}/>
+        <ColoredStrengthIcon alt={t3('Strength')}/>
         <div>
           {formatFloat(sorter)}
         </div>
@@ -265,7 +265,7 @@ export const PokedexLinkDetail = React.memo(({
     return (
       <Flex direction="row" className="gap-0.5">
         <MainSkillIcon id={skill}/>
-        {display === 'mainSkillDailyStrength' && <ColoredStrengthIcon alt={t2('Stats.Energy.Name')}/>}
+        {display === 'mainSkillDailyStrength' && <ColoredStrengthIcon alt={t3('Strength')}/>}
         <div>
           {display === 'mainSkillDailyStrength' ? formatFloat(sorter) : formatFloat3(sorter)}
         </div>

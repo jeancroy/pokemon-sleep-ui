@@ -17,7 +17,7 @@ import {formatFloat} from '@/utils/number/format/regular';
 export const PokeInBoxGridProductionIngredient = (props: PokeInBoxGridDetailsProps) => {
   const {pokemon} = props;
 
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Common');
   const {loading, rate} = useCalculatePokeInBoxProduction(props);
 
   if (loading || !rate) {
@@ -37,7 +37,7 @@ export const PokeInBoxGridProductionIngredient = (props: PokeInBoxGridDetailsPro
           <div>
             x{formatFloat(qty[pokeInBoxStateOfRate])}
           </div>
-          <ColoredStrengthIcon alt={t('Stats.Energy.Name')}/>
+          <ColoredStrengthIcon alt={t('Strength')}/>
           <div>
             {formatFloat(strength[pokeInBoxStateOfRate])}
           </div>

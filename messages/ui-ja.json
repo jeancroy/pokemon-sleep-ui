@@ -344,11 +344,6 @@
         "Stats": "能力"
       },
       "Stats": {
-        "Energy": {
-          "Daily": "毎日",
-          "Name": "エナジー",
-          "Weekly": "毎週"
-        },
         "FrequencyBase": "おてつだい時間 (ベース)",
         "FrequencyEquivalent": "おてつだい時間 (同等)",
         "Friendship": "フレンドポイント",
@@ -598,6 +593,10 @@
       "UnfilledOnly": "空き有"
     },
     "Total": "計",
+    "Period": {
+      "Daily": "毎日",
+      "Weekly": "毎週"
+    },
     "Probability": {
       "NoSkillAfterWakeup": "起床時スキル不発率"
     },

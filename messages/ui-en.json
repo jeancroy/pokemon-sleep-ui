@@ -344,11 +344,6 @@
         "Stats": "Stats"
       },
       "Stats": {
-        "Energy": {
-          "Daily": "Daily",
-          "Name": "Strength",
-          "Weekly": "Weekly"
-        },
         "FrequencyBase": "Frequency (Base)",
         "FrequencyEquivalent": "Frequency (Equivalent)",
         "Friendship": "Friendship Points",
@@ -598,6 +593,10 @@
       "UnfilledOnly": "Pack Unfilled"
     },
     "Total": "Total",
+    "Period": {
+      "Daily": "Daily",
+      "Weekly": "Weekly"
+    },
     "Probability": {
       "NoSkillAfterWakeup": "Probability of no skill after wakeup"
     },

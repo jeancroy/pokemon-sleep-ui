@@ -344,11 +344,6 @@
         "Stats": "能力"
       },
       "Stats": {
-        "Energy": {
-          "Daily": "每日",
-          "Name": "能量",
-          "Weekly": "每周"
-        },
         "FrequencyBase": "幫忙間隔 (基礎)",
         "FrequencyEquivalent": "幫忙間隔 (等效)",
         "Friendship": "友情點數",
@@ -598,6 +593,10 @@
       "UnfilledOnly": "未滿包"
     },
     "Total": "總計",
+    "Period": {
+      "Daily": "每日",
+      "Weekly": "每周"
+    },
     "Probability": {
       "NoSkillAfterWakeup": "睡醒無技能機率"
     },

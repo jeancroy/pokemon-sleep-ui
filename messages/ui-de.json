@@ -344,11 +344,6 @@
         "Stats": "Status"
       },
       "Stats": {
-        "Energy": {
-          "Daily": "Täglich",
-          "Name": "Stärke",
-          "Weekly": "Wöchentlich"
-        },
         "FrequencyBase": "Basisfrequenz",
         "FrequencyEquivalent": "verhältnismäßige Frequenz",
         "Friendship": "Max. Freundespunkte",
@@ -598,6 +593,10 @@
       "UnfilledOnly": "Inventar nicht gefüllt"
     },
     "Total": "Gesamt",
+    "Period": {
+      "Daily": "Täglich",
+      "Weekly": "Wöchentlich"
+    },
     "Probability": {
       "NoSkillAfterWakeup": "Wahrscheinlichkeit keiner Talentauslösung nach dem Aufwachen"
     },

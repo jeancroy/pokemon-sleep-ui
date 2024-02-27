@@ -28,7 +28,8 @@ export const TeamAnalysisSummaryProductionLayout = ({
   larger,
   icon,
 }: TeamAnalysisRateLayoutProps) => {
-  const t = useTranslations('UI.InPage.Pokedex.Stats.Energy');
+  const t = useTranslations('UI.Producing.Period');
+  const t2 = useTranslations('UI.Common');
 
   const titleClass = clsx('whitespace-nowrap', !larger && 'text-xs');
   const textClass = clsx(larger && 'text-xl');
@@ -53,7 +54,7 @@ export const TeamAnalysisSummaryProductionLayout = ({
           x{formatFloat(calculatedRate.qty)}
         </div>
       }
-      <ColoredStrengthIcon dimension={dimension} alt={t('Name')}/>
+      <ColoredStrengthIcon dimension={dimension} alt={t2('Strength')}/>
       <div className={clsx('text-energy', textClass)}>
         {calculatedRate ? formatFloat(calculatedRate.strength) : '-'}
       </div>

@@ -344,11 +344,6 @@
         "Stats": "능력치"
       },
       "Stats": {
-        "Energy": {
-          "Daily": "매일",
-          "Name": "에너지",
-          "Weekly": "매주"
-        },
         "FrequencyBase": "기본 도우미 시간",
         "FrequencyEquivalent": "도우미 시간",
         "Friendship": "프렌드 포인트",
@@ -598,6 +593,10 @@
       "UnfilledOnly": "주머니가 비었을 때"
     },
     "Total": "총합",
+    "Period": {
+      "Daily": "매일",
+      "Weekly": "매주"
+    },
     "Probability": {
       "NoSkillAfterWakeup": "기상 후에도 스킬을 사용하지 않을 확률"
     },

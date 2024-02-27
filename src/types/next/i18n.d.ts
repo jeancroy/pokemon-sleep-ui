@@ -229,11 +229,6 @@ declare global {
             Stats: string,
           },
           Stats: {
-            Energy: {
-              Daily: string,
-              Name: string,
-              Weekly: string,
-            },
             FrequencyBase: string,
             FrequencyEquivalent: string,
             Friendship: string,
@@ -483,6 +478,10 @@ declare global {
           UnfilledOnly: string,
         },
         Total: string,
+        Period: {
+          Daily: string,
+          Weekly: string,
+        },
         Probability: {
           NoSkillAfterWakeup: string,
         },
