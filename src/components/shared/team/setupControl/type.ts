@@ -16,9 +16,9 @@ export type TeamSetupReplaceAllMemberOpts = {
   update: Partial<TeamMemberData>,
 };
 
-export type TeamSetupUpdateMemberOpts<TKey extends TeamMemberKey, TMember extends Nullable<TeamMemberData>> = {
+export type TeamSetupUpdateMemberOpts<TKey extends TeamMemberKey> = {
   key: TKey,
-  update: Partial<TMember> | null,
+  update: Partial<TeamMemberData> | null,
 };
 
 export type TeamSetupControl<
@@ -33,7 +33,7 @@ export type TeamSetupControl<
   layoutControl: TeamLayoutControl<TKey>,
   setCurrentMember: (opts: TeamSetupSetMemberOpts<TKey, TMember>) => void,
   setCurrentMemberReplaceAll: (opts: TeamSetupReplaceAllMemberOpts) => void,
-  setCurrentMemberPartial: (opts: TeamSetupUpdateMemberOpts<TKey, TMember>) => void,
+  setCurrentMemberPartial: (opts: TeamSetupUpdateMemberOpts<TKey>) => void,
   duplicateMemberToCurrentComp: (sourceKey: TKey) => void,
   updatePokemonFromPokebox: (pokebox: Pokebox) => void,
 };

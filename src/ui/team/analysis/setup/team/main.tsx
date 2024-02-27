@@ -1,82 +1,101 @@
 import React from 'react';
 
-import {Grid} from '@/components/layout/grid';
+import {TeamMemberView} from '@/components/shared/team/memberView/main';
+import {TeamMemberFilledCommonProps} from '@/components/shared/team/memberView/type';
+import {TeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/type';
 import {
-  TeamLayoutControl,
-} from '@/components/shared/team/setupControl/layoutControl/type';
-import {TeamAnalysisSlotName, teamAnalysisSlotName} from '@/types/teamAnalysis';
-import {TeamAnalysisEmptySlot} from '@/ui/team/analysis/setup/team/empty';
-import {TeamAnalysisFilledSlot} from '@/ui/team/analysis/setup/team/filled';
-import {TeamAnalysisFilledProps} from '@/ui/team/analysis/setup/team/type';
+  TeamAnalysisComp,
+  TeamAnalysisConfig,
+  TeamAnalysisMember,
+  TeamAnalysisSetup,
+  TeamAnalysisSlotName,
+  teamAnalysisSlotName,
+} from '@/types/teamAnalysis';
+import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
+import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
+import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
+import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/type';
 import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
-import {getPokemonProducingParams} from '@/utils/game/producing/params';
 import {toTeamMemberDataFromVanilla, toTeamMemberFromPokeInBox} from '@/utils/team/toMember';
+import {getTeamMemberId} from '@/utils/user/teamAnalysis';
 
 
-type Props = TeamAnalysisDataProps & TeamAnalysisFilledProps & {
+type Props = TeamAnalysisDataProps & TeamAnalysisSetupUpdateCommonProps & TeamMemberFilledCommonProps & {
   layoutControl: TeamLayoutControl<TeamAnalysisSlotName>,
   statsOfTeam: TeamProducingStats,
+  calculatedCookingConfig: CalculatedCookingConfig,
 };
 
-export const TeamAnalysisTeamView = ({layoutControl, ...props}: Props) => {
+export const TeamAnalysisTeamView = ({
+  layoutControl,
+  statsOfTeam,
+  ...props
+}: Props) => {
   const {
     currentTeam,
     setupControl,
-    pokedexMap,
-    pokemonProducingParamsMap,
     ingredientChainMap,
-    statsOfTeam,
+    actorReturn,
   } = props;
-  const {members} = currentTeam;
-  const {generateCollapsibleControl} = layoutControl;
-  const {setCurrentMember} = setupControl;
+  const {actAsync} = actorReturn;
+  const {setup} = setupControl;
 
   return (
-    <Grid className="grid-cols-1 gap-1.5 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
-      {teamAnalysisSlotName.map((slotName) => {
-        const member = members[slotName];
-        const pokemon = member ? pokedexMap[member.pokemonId] : undefined;
-        const stats = statsOfTeam.bySlot[slotName];
-
-        if (member && pokemon && stats) {
-          return (
-            <TeamAnalysisFilledSlot
-              key={slotName}
-              slotName={slotName}
-              member={member}
-              stats={stats}
-              pokemon={pokemon}
-              pokemonProducingParams={getPokemonProducingParams({
-                pokemonId: pokemon.id,
-                pokemonProducingParamsMap,
-              })}
-              onMemberClear={(slotName) => setCurrentMember({key: slotName, member: null})}
-              collapsible={generateCollapsibleControl(currentTeam.uuid, slotName)}
-              {...props}
-            />
-          );
+    // Need to explicitly type or there will be some typing error
+    <TeamMemberView<
+        TeamAnalysisSlotName,
+        TeamAnalysisMember,
+        TeamAnalysisConfig,
+        TeamAnalysisComp,
+        TeamAnalysisSetup
+      >
+      getRateByLevel={(level, memberKey) => getTeamCompCalcResult({
+        period: currentTeam.analysisPeriod,
+        state: stateOfRateToShow,
+        overrideLevel: level,
+        snorlaxFavorite: currentTeam.snorlaxFavorite,
+        setup,
+        ...props,
+      }).bySlot[memberKey]}
+      memberKeys={[...teamAnalysisSlotName]}
+      getMemberProduction={(memberKey) => statsOfTeam.bySlot[memberKey]}
+      getMemberFromVanilla={(pokemon) => toTeamMemberDataFromVanilla({
+        pokemon,
+        chain: ingredientChainMap[pokemon.ingredientChain],
+      })}
+      getMemberFromPokeInBox={toTeamMemberFromPokeInBox}
+      getMemberIdForShare={(currentTeam, slotName) => getTeamMemberId({
+        uuid: currentTeam.uuid,
+        slotName,
+      })}
+      getTeamMemberFromCloud={async (teamMemberId) => {
+        if (!actAsync) {
+          return null;
         }
 
-        return (
-          <TeamAnalysisEmptySlot
-            key={slotName}
-            onPokeboxPicked={(pokeInBox) => setCurrentMember({
-              key: slotName,
-              member: toTeamMemberFromPokeInBox(pokeInBox),
-            })}
-            onCloudPulled={(member) => setCurrentMember({key: slotName, member})}
-            onPokemonSelected={(pokemon) => setCurrentMember({
-              key: slotName,
-              member: toTeamMemberDataFromVanilla({
-                pokemon,
-                chain: ingredientChainMap[pokemon.ingredientChain],
-              }),
-            })}
-            {...props}
-          />
-        );
-      })}
-    </Grid>
+        const {updated} = await actAsync({
+          action: 'load',
+          options: {
+            type: 'teamAnalysisMember',
+            opts: {teamMemberId},
+          },
+          getStatusOnCompleted: (updated) => (
+            !!updated?.user.lazyLoaded.teamAnalysisMember ? 'completed' : 'failed'
+          ),
+        });
+        if (!updated) {
+          return null;
+        }
+
+        const member = updated.user.lazyLoaded.teamAnalysisMember;
+        if (!member) {
+          return null;
+        }
+
+        return member;
+      }}
+      {...props}
+    />
   );
 };

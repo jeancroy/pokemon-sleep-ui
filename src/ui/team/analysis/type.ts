@@ -1,4 +1,5 @@
 import {TeamMemberDataProps} from '@/components/shared/team/member/type';
+import {TeamMemberViewDataProps} from '@/components/shared/team/memberView/type';
 import {FieldMetaMap} from '@/types/game/mapMeta';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
@@ -7,7 +8,10 @@ import {ConfigBundle} from '@/types/userData/config/bundle';
 import {UserLazyLoadedData} from '@/types/userData/main';
 
 
-export type TeamAnalysisServerDataProps = Omit<TeamMemberDataProps, 'maxEvolutionCount'> & {
+export type TeamAnalysisServerDataProps = Omit<
+  TeamMemberDataProps & TeamMemberViewDataProps,
+  'maxEvolutionCount'
+> & {
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   snorlaxData: SnorlaxDataOfMap[],
   mapMeta: FieldMetaMap,

@@ -14,7 +14,7 @@ type UpdateCurrentTeamMemberOpts<
 > = {
   original: TSetup,
   key: TKey,
-  update: Partial<TMember> | null,
+  update: Partial<TeamMemberData> | null,
 };
 
 export const updateCurrentTeamMember = <

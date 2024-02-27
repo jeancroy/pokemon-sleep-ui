@@ -2,7 +2,7 @@ import {Production} from '@/types/game/producing/rate/base';
 import {TeamMemberProduction} from '@/types/game/team/production';
 import {TeamAnalysisSlotName, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {getTeamProductionOfSlot} from '@/ui/team/analysis/calc/slot';
-import {TeamCompCalcOpts} from '@/ui/team/analysis/calc/type';
+import {TeamCompCalcOpts, TeamCompCalcResult} from '@/ui/team/analysis/calc/type';
 import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
 import {getPokemonProductionMulti} from '@/utils/game/producing/main/entry/multi';
 import {getTotalPokemonProduction} from '@/utils/game/producing/reducer/total/common';
@@ -15,7 +15,7 @@ export const getTeamCompCalcResult = ({
   state,
   snorlaxFavorite,
   ...opts
-}: TeamCompCalcOpts) => {
+}: TeamCompCalcOpts): TeamCompCalcResult => {
   const {setup} = opts;
   const currentTeam = getCurrentTeam({setup});
 

@@ -5,17 +5,18 @@ import CloudArrowDownIcon from '@heroicons/react/24/outline/CloudArrowDownIcon';
 import {InputBox} from '@/components/input/box';
 import {Flex} from '@/components/layout/flex/common';
 import {FlexForm} from '@/components/layout/flex/form';
+import {TeamMemberCloudPullProps} from '@/components/shared/team/memberView/type';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {TeamMemberData} from '@/types/game/team/member';
+import {Nullable} from '@/utils/type';
 
 
-type Props = {
-  onCloudPulled: (member: TeamMemberData) => void,
-};
-
-export const TeamAnalysisCloudPull = ({onCloudPulled}: Props) => {
-  const [memberId, setMemberId] = React.useState('');
+export const TeamMemberCloudPull = <TMember extends Nullable<TeamMemberData>>({
+  getTeamMemberFromCloud,
+  onCloudPulled,
+}: TeamMemberCloudPullProps<TMember>) => {
+  const [identifier, setIdentifier] = React.useState('');
   const {actAsync, status} = useUserDataActor();
 
   if (!actAsync) {
@@ -27,29 +28,13 @@ export const TeamAnalysisCloudPull = ({onCloudPulled}: Props) => {
       <Flex>
         <InputBox
           type="text"
-          value={memberId}
-          onChange={({target}) => setMemberId(target.value)}
+          value={identifier}
+          onChange={({target}) => setIdentifier(target.value)}
         />
       </Flex>
       <Flex className="items-end">
         <button type="submit" className="button-clickable-bg size-9 p-1" onClick={async () => {
-          const {updated} = await actAsync({
-            action: 'load',
-            options: {
-              type: 'teamAnalysisMember',
-              opts: {
-                teamMemberId: memberId,
-              },
-            },
-            getStatusOnCompleted: (updated) => (
-              !!updated?.user.lazyLoaded.teamAnalysisMember ? 'completed' : 'failed'
-            ),
-          });
-          if (!updated) {
-            return;
-          }
-
-          const member = updated.user.lazyLoaded.teamAnalysisMember;
+          const member = await getTeamMemberFromCloud(identifier);
           if (!member) {
             return;
           }
