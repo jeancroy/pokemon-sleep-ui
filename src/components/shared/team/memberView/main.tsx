@@ -3,7 +3,7 @@ import React from 'react';
 import {Grid} from '@/components/layout/grid';
 import {TeamMemberEmptySlot} from '@/components/shared/team/memberView/empty';
 import {TeamMemberFilledSlot} from '@/components/shared/team/memberView/filled';
-import {TeamMemberFilledProps, TeamMemberViewDataProps} from '@/components/shared/team/memberView/type';
+import {TeamMemberFilledProps, TeamMemberViewRequiredData} from '@/components/shared/team/memberView/type';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {TeamSetupConfig} from '@/types/game/team/config';
@@ -23,7 +23,7 @@ type Props<
   TConfig extends TeamSetupConfig,
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
-> =TeamMemberViewDataProps & TeamMemberFilledProps<TKey, TMember, TConfig, TTeam, TSetup> & {
+> = TeamMemberViewRequiredData & TeamMemberFilledProps<TKey, TMember, TConfig, TTeam, TSetup> & {
   memberKeys: TKey[],
   actorReturn: UseUserDataActorReturn,
   getMemberProduction: (memberKey: TKey) => Nullable<TeamMemberProduction>,

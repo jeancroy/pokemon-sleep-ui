@@ -1,6 +1,5 @@
 import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {PokeboxImporterDataProps} from '@/components/shared/pokebox/importer/type';
-import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {TeamSetupControl} from '@/components/shared/team/setupControl/type';
 import {BerryDataMap} from '@/types/game/berry';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
@@ -18,13 +17,12 @@ import {ConfigRequiredData} from '@/types/userData/config/data';
 import {Nullable} from '@/utils/type';
 
 
-export type TeamMemberViewDataProps = UsePokemonFilterCommonData & ConfigRequiredData & PokeboxImporterDataProps & {
+export type TeamMemberViewRequiredData = ConfigRequiredData & PokeboxImporterDataProps & {
   berryDataMap: BerryDataMap,
   mainSkillMap: MainSkillMap,
   recipeLevelData: RecipeLevelData[],
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   pokemonMaxLevel: number,
-  maxEvolutionCount: number,
 };
 
 export type TeamMemberFilledCommonProps = {
@@ -41,6 +39,7 @@ export type TeamMemberFilledProps<
 > = TeamMemberFilledCommonProps & {
   currentTeam: TTeam,
   calculatedCookingConfig: CalculatedCookingConfig,
+  maxEvolutionCount: number,
   setupControl: TeamSetupControl<TKey, TMember, TConfig, TTeam, TSetup>,
   getRateByLevel: (level: number, memberKey: TKey) => TeamMemberProduction | null,
 };
