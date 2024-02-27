@@ -27,7 +27,7 @@ export const RatingClient = (props: RatingServerDataProps) => {
   const {
     pokedexMap,
     pokemonProducingParamsMap,
-    mapMeta,
+    fieldMetaMap,
     preloaded,
   } = props;
 
@@ -93,7 +93,7 @@ export const RatingClient = (props: RatingServerDataProps) => {
             <Flex className="gap-1.5">
               <SnorlaxFavoriteInput
                 pokemonList={pokemonList}
-                mapMeta={mapMeta}
+                fieldMetaMap={fieldMetaMap}
                 filter={onDesk}
                 setFilter={setOnDesk}
                 filterKey="snorlaxFavorite"

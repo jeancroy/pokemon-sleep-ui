@@ -69,7 +69,7 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
     ingredientMap,
     mainSkillMap,
     subSkillMap,
-    mapMeta,
+    fieldMetaMap: mapMeta,
     snorlaxData,
     pokemonMaxLevel,
     potInfoList,

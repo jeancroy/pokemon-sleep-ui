@@ -26,5 +26,5 @@ export type PokeboxDataProps = UsePokemonFilterCommonData & ConfigRequiredData &
 
 export type PokeboxCommonProps = PokeboxDataProps & {
   berryDataMap: BerryDataMap,
-  mapMeta: FieldMetaMap,
+  fieldMetaMap: FieldMetaMap,
 };

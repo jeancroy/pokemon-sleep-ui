@@ -61,7 +61,7 @@ export const PokedexTierList = async ({params}: DefaultPageProps) => {
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
-    mapMeta,
+    fieldMetaMap: mapMeta,
     recipeLevelData,
     preloaded: {
       bundle: createConfigBundle(session),

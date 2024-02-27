@@ -19,7 +19,7 @@ export type TeamMakerServerDataProps = UsePokemonFilterCommonData & ConfigRequir
   berryDataMap: BerryDataMap,
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
-  mapMeta: FieldMetaMap,
+  fieldMetaMap: FieldMetaMap,
   snorlaxData: SnorlaxDataOfMap[],
   recipeLevelData: RecipeLevelData[],
   potInfoList: PotInfo[],

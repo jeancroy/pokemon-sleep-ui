@@ -39,7 +39,7 @@ export type TeamSetupControl<
 };
 
 export type TeamSetupControlDataProps = {
-  mapMeta: FieldMetaMap,
+  fieldMetaMap: FieldMetaMap,
   pokemonList: PokemonInfo[],
 };
 

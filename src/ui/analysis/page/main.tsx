@@ -75,7 +75,7 @@ export const AnalysisPage = async ({params}: Props) => {
     ingredientChainMap,
     berryDataMap,
     sleepStyleMap,
-    mapMeta,
+    fieldMetaMap: mapMeta,
     recipeLevelData,
     pokemonMaxLevel,
     preloaded: createConfigBundle(session),

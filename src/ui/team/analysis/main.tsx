@@ -33,7 +33,7 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
 
   const props: TeamAnalysisServerDataProps = {
     snorlaxData,
-    mapMeta,
+    fieldMetaMap: mapMeta,
     preloaded: {
       bundle: createConfigBundle(session),
       setup: userTeamAnalysisContent,

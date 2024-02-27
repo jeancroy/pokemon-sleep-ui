@@ -80,7 +80,7 @@ export const Pokedex = async ({params}: DefaultPageProps) => {
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
-    mapMeta,
+    fieldMetaMap: mapMeta,
     recipeLevelData,
     preloaded: {
       display: (await userDataPokedex.getDataOptional(session?.user.id))?.data,

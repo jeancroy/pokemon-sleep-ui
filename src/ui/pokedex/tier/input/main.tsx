@@ -37,7 +37,7 @@ export const PokedexTierListInputUI = ({
   pokemonMaxLevel,
   ingredientMap,
   subSkillMap,
-  mapMeta,
+  fieldMetaMap,
   input,
   setInput,
   isPremium,
@@ -58,7 +58,7 @@ export const PokedexTierListInputUI = ({
       <SnorlaxFavoriteInput
         filterKey="snorlaxFavorite"
         pokemonList={pokemonList}
-        mapMeta={mapMeta}
+        fieldMetaMap={fieldMetaMap}
         filter={filter}
         setFilter={setFilter}
       />

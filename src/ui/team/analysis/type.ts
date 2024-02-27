@@ -12,7 +12,7 @@ export type TeamAnalysisServerDataProps =
   Omit<TeamMemberDataProps, 'maxEvolutionCount'> &
   TeamMemberViewRequiredData & {
     snorlaxData: SnorlaxDataOfMap[],
-    mapMeta: FieldMetaMap,
+    fieldMetaMap: FieldMetaMap,
     preloaded: {
       bundle: ConfigBundle,
       setup: Nullable<UserTeamAnalysisContent>,

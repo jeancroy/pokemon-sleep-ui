@@ -12,7 +12,7 @@ import {MapIndexServerDataProps} from '@/components/shared/sleepStyle/index/type
 
 
 export const MapIndexContent = (props: MapIndexServerDataProps) => {
-  const {data, mapMeta, isLoggedIn, isUnique} = props;
+  const {data, fieldMetaMap, isLoggedIn, isUnique} = props;
   const t = useTranslations('Game.Field');
 
   const sleepdexCompletion = getSleepdexCompletion(props);
@@ -33,7 +33,7 @@ export const MapIndexContent = (props: MapIndexServerDataProps) => {
                 <MapStats
                   sleepStyles={sleepStyles}
                   sleepdexCompletionOfMap={sleepdexCompletion[mapId]}
-                  meta={mapMeta[mapId]}
+                  meta={fieldMetaMap[mapId]}
                   isLoggedIn={isLoggedIn}
                 />
               </Flex>

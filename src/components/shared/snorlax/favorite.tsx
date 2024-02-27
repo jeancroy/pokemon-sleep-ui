@@ -24,7 +24,7 @@ type Props<
 > = FilterWithUpdaterProps<TFilter> & {
   filterKey: TKey,
   pokemonList: PokemonInfo[],
-  mapMeta: FieldMetaMap,
+  fieldMetaMap: FieldMetaMap,
 };
 
 export const SnorlaxFavoriteInput = <
@@ -34,7 +34,7 @@ export const SnorlaxFavoriteInput = <
   filter,
   setFilter,
   pokemonList,
-  mapMeta,
+  fieldMetaMap,
   ...props
 }: Props<TKey, TFilter>) => {
   const {filterKey} = props;
@@ -63,7 +63,7 @@ export const SnorlaxFavoriteInput = <
             </div>
           </Flex>
         }
-        mapIds={Object.keys(mapMeta).map(Number)}
+        mapIds={Object.keys(fieldMetaMap).map(Number)}
         {...getSingleSelectOnClickProps({
           filter: snorlaxFavorite,
           filterKey: 'mapId',
@@ -81,7 +81,7 @@ export const SnorlaxFavoriteInput = <
             ...original,
             [filterKey]: {
               mapId,
-              berry: mapId ? toSnorlaxFavoriteBerryFromMapMeta(mapMeta[mapId]) : {},
+              berry: mapId ? toSnorlaxFavoriteBerryFromMapMeta(fieldMetaMap[mapId]) : {},
             } satisfies SnorlaxFavorite,
           };
         })}
@@ -109,7 +109,7 @@ export const SnorlaxFavoriteInput = <
             [filterKey]: getUpdated(original[filterKey]),
           } satisfies TFilter)),
         })}
-        disabled={!!snorlaxFavorite.mapId && !!mapMeta[snorlaxFavorite.mapId]?.berry?.length}
+        disabled={!!snorlaxFavorite.mapId && !!fieldMetaMap[snorlaxFavorite.mapId]?.berry?.length}
       />
     </>
   );

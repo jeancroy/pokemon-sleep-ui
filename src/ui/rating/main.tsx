@@ -62,7 +62,7 @@ export const Rating = async ({params}: DefaultPageProps) => {
     berryDataMap,
     mainSkillMap,
     subSkillMap,
-    mapMeta,
+    fieldMetaMap: mapMeta,
     recipeLevelData,
     pokemonMaxLevel,
     ocrTranslations,

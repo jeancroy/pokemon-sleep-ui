@@ -46,7 +46,7 @@ export const TeamSetupControlUI = <
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 >({
-  mapMeta,
+  fieldMetaMap,
   pokemonList,
   currentTeam,
   actorReturn,
@@ -83,7 +83,7 @@ export const TeamSetupControlUI = <
           };
         })}
         filterKey="snorlaxFavorite"
-        mapMeta={mapMeta}
+        fieldMetaMap={fieldMetaMap}
         pokemonList={pokemonList}
       />
       <FilterTextInput
