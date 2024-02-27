@@ -17,7 +17,6 @@ export const UserCalculationBehaviorUI = ({behavior, setBehavior}: Props) => {
   const {
     alwaysFullPack,
     goodCampTicket,
-    includeMainSkill,
   } = behavior;
 
   const t = useTranslations('UI.UserConfig');
@@ -45,16 +44,6 @@ export const UserCalculationBehaviorUI = ({behavior, setBehavior}: Props) => {
         className={textFilterButtonStyle}
       >
         {t('GoodCampTicket')}
-      </ToggleButton>
-      <ToggleButton
-        active={includeMainSkill}
-        onClick={() => setBehavior({
-          ...behavior,
-          includeMainSkill: !includeMainSkill,
-        })}
-        className={textFilterButtonStyle}
-      >
-        {t('IncludeMainSkill')}
       </ToggleButton>
     </InputRow>
   );

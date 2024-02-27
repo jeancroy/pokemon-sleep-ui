@@ -52,7 +52,7 @@ export const getPokemonProductionIntermediateParams = ({
     }),
     skillTrigger: {
       ratePercent: getSkillTriggerRatePercent({
-        baseSkillRatePercent: behavior.includeMainSkill ? pokemonProducingParams.skillPercent : 0,
+        baseSkillRatePercent: pokemonProducingParams.skillPercent,
         subSkillBonus,
         natureId,
       }),

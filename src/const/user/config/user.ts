@@ -59,7 +59,6 @@ export const defaultStaminaCalcConfig: StaminaCalcConfig = {
 export const defaultUserCalculationBehavior: UserCalculationBehavior = {
   alwaysFullPack: 'disable',
   goodCampTicket: false,
-  includeMainSkill: true,
 };
 
 export const defaultUserMultiplierConfigEntry: UserStrengthMultiplierConfigEntry = {

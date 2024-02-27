@@ -548,7 +548,6 @@ declare global {
         AlwaysFullPack: string,
         BerryPokemonFullPack: string,
         GoodCampTicket: string,
-        IncludeMainSkill: string,
         Cooking: {
           Title: string,
         },
