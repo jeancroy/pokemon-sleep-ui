@@ -169,6 +169,7 @@ declare global {
           ProducingParams: I18nMetadata,
           Progress: I18nMetadata,
           RecipeLevel: I18nMetadata,
+          ResearchRank: I18nMetadata,
         },
         Item: {
           Index: I18nMetadata,
@@ -405,6 +406,17 @@ declare global {
               TotalRequired: string,
               Accumulated: string,
               Strength: string,
+            },
+          },
+          ResearchRank: {
+            Table: {
+              Rank: string,
+              ToNext: string,
+              Accumulated: string,
+              PokemonMaxLevel: {
+                Short: string,
+                Long: string,
+              },
             },
           },
         },

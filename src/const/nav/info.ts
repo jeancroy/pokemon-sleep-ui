@@ -41,7 +41,7 @@ export const navEntriesForInfo: NavEntryLink[] = [
   {
     type: 'link',
     href: '/info/nature',
-    imageSrc: '/images/generic/memo.png',
+    imageSrc: '/images/generic/flash.png',
     i18nTextId: 'Info.Nature.Title',
   },
   {
@@ -49,5 +49,11 @@ export const navEntriesForInfo: NavEntryLink[] = [
     href: '/info/progress',
     imageSrc: '/images/generic/sleep.png',
     i18nTextId: 'Info.Progress.Title',
+  },
+  {
+    type: 'link',
+    href: '/info/research-rank',
+    imageSrc: '/images/generic/memo.png',
+    i18nTextId: 'Info.ResearchRank.Title',
   },
 ];

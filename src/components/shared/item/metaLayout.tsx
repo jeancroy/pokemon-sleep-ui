@@ -5,13 +5,14 @@ import {Flex} from '@/components/layout/flex/common';
 
 type Props = {
   name: string,
+  hideName: boolean,
 };
 
-export const ItemMetaLayout = ({name, children}: React.PropsWithChildren<Props>) => {
+export const ItemMetaLayout = ({name, hideName, children}: React.PropsWithChildren<Props>) => {
   return (
     <Flex direction="row" noFullWidth className="items-center gap-1">
       {children}
-      <span>{name}</span>
+      {!hideName && <span>{name}</span>}
     </Flex>
   );
 };

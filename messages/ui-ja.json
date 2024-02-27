@@ -252,6 +252,9 @@
       },
       "RecipeLevel": {
         "Title": "レシピレベル"
+      },
+      "ResearchRank": {
+        "Title": "リサーチランク"
       }
     },
     "Item": {
@@ -516,6 +519,17 @@
           "TotalRequired": "総必要量",
           "Accumulated": "累計",
           "Strength": "料理の最終エナジー"
+        }
+      },
+      "ResearchRank": {
+        "Table": {
+          "Rank": "リサーチランク",
+          "ToNext": "次まで",
+          "Accumulated": "累計",
+          "PokemonMaxLevel": {
+            "Short": "Max Lv.",
+            "Long": "Pokemon Max Level"
+          }
         }
       }
     },

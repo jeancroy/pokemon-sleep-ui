@@ -7,4 +7,5 @@ export type ItemMetaCommonProps = {
   pokedexMap: PokedexMap,
   itemPack: ItemPack,
   dimension?: Dimension,
+  hideName?: boolean,
 };

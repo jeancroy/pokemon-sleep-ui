@@ -252,6 +252,9 @@
       },
       "RecipeLevel": {
         "Title": "Recipe Level"
+      },
+      "ResearchRank": {
+        "Title": "Rango de estudio"
       }
     },
     "Item": {
@@ -516,6 +519,17 @@
           "TotalRequired": "Total Requerido",
           "Accumulated": "Acumulado",
           "Strength": "Vigor Final del plato"
+        }
+      },
+      "ResearchRank": {
+        "Table": {
+          "Rank": "Rango de estudio",
+          "ToNext": "Al próximo",
+          "Accumulated": "Acumulado",
+          "PokemonMaxLevel": {
+            "Short": "Max Lv.",
+            "Long": "Pokemon Max Level"
+          }
         }
       }
     },

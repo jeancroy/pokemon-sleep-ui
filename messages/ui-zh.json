@@ -252,6 +252,9 @@
       },
       "RecipeLevel": {
         "Title": "食譜等級"
+      },
+      "ResearchRank": {
+        "Title": "研究階級"
       }
     },
     "Item": {
@@ -516,6 +519,17 @@
           "TotalRequired": "總需求",
           "Accumulated": "累計",
           "Strength": "食譜最終能量"
+        }
+      },
+      "ResearchRank": {
+        "Table": {
+          "Rank": "研究階級",
+          "ToNext": "升等需求",
+          "Accumulated": "累計",
+          "PokemonMaxLevel": {
+            "Short": "等級上限",
+            "Long": "寶可夢等級上限"
+          }
         }
       }
     },

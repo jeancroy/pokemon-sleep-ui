@@ -12,7 +12,12 @@ import {ItemMetaCommonProps} from '@/components/shared/item/type';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 
 
-export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMetaCommonProps) => {
+export const ItemMetaUI = ({
+  pokedexMap,
+  itemPack,
+  dimension = 'size-6',
+  hideName = false,
+}: ItemMetaCommonProps) => {
   const {meta} = itemPack;
   const {type} = meta;
 
@@ -24,7 +29,7 @@ export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMet
     const name = t(`Item.${id}`);
 
     return (
-      <ItemMetaLayout name={name}>
+      <ItemMetaLayout name={name} hideName={hideName}>
         <ItemIcon itemId={id} alt={name} dimension={dimension} noInvert className="scale-125"/>
       </ItemMetaLayout>
     );
@@ -34,7 +39,7 @@ export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMet
     const name = t2('Diamond');
 
     return (
-      <ItemMetaLayout name={name}>
+      <ItemMetaLayout name={name} hideName={hideName}>
         <DiamondIcon dimension={dimension} alt={name} className="scale-125"/>
       </ItemMetaLayout>
     );
@@ -44,7 +49,7 @@ export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMet
     const name = t2('DreamShards');
 
     return (
-      <ItemMetaLayout name={name}>
+      <ItemMetaLayout name={name} hideName={hideName}>
         <DreamShardIcon dimension={dimension} alt={t2('DreamShards')} className="scale-125"/>
       </ItemMetaLayout>
     );
@@ -60,7 +65,7 @@ export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMet
     const name = t(`PokemonIncense.${pokemon.id}`);
 
     return (
-      <ItemMetaLayout name={name}>
+      <ItemMetaLayout name={name} hideName={hideName}>
         <div className="relative size-5">
           <PokemonImage
             pokemonId={pokemon.id}
@@ -84,7 +89,7 @@ export const ItemMetaUI = ({pokedexMap, itemPack, dimension = 'size-6'}: ItemMet
     const name = t(`PokemonCandy.${pokemon.candy.i18nId}`);
 
     return (
-      <ItemMetaLayout name={name}>
+      <ItemMetaLayout name={name} hideName={hideName}>
         <PokemonCandyIcon pokemon={pokemon} dimension={dimension} alt={name} className="scale-150"/>
       </ItemMetaLayout>
     );

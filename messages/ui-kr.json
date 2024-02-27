@@ -252,6 +252,9 @@
       },
       "RecipeLevel": {
         "Title": "요리 레벨"
+      },
+      "ResearchRank": {
+        "Title": "리서치 랭크"
       }
     },
     "Item": {
@@ -516,6 +519,17 @@
           "TotalRequired": "총 요구 사항",
           "Accumulated": "누적 수량",
           "Strength": "음식의 최종 에너지"
+        }
+      },
+      "ResearchRank": {
+        "Table": {
+          "Rank": "리서치 랭크",
+          "ToNext": "각 레벨업 필요량",
+          "Accumulated": "누적 수량",
+          "PokemonMaxLevel": {
+            "Short": "Max Lv.",
+            "Long": "Pokemon Max Level"
+          }
         }
       }
     },

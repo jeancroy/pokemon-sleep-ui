@@ -252,6 +252,9 @@
       },
       "RecipeLevel": {
         "Title": "Recipe Level"
+      },
+      "ResearchRank": {
+        "Title": "Research Rank"
       }
     },
     "Item": {
@@ -516,6 +519,17 @@
           "TotalRequired": "Total Required",
           "Accumulated": "Accumulated",
           "Strength": "Final strength from cooked meal"
+        }
+      },
+      "ResearchRank": {
+        "Table": {
+          "Rank": "Research Rank",
+          "ToNext": "To Next",
+          "Accumulated": "Accumulated",
+          "PokemonMaxLevel": {
+            "Short": "Max Lv.",
+            "Long": "Pokemon Max Level"
+          }
         }
       }
     },
