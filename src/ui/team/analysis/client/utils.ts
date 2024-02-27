@@ -29,7 +29,7 @@ export const getInitialTeamAnalysisSetup = ({data}: GetInitialTeamAnalysisSetupO
   });
 
   const compsToMigrate = data?.comps ?? [generateEmptyTeam(initialCompUuid)];
-  const comps: TeamAnalysisComp[] = compsToMigrate.map((team) => migrate({
+  const teams: TeamAnalysisComp[] = compsToMigrate.map((team) => migrate({
     original: generateEmptyTeam(team.uuid),
     override: team,
     migrators: teamAnalysisCompMigrators,
@@ -37,6 +37,6 @@ export const getInitialTeamAnalysisSetup = ({data}: GetInitialTeamAnalysisSetupO
   }));
   return {
     config,
-    comps: Object.fromEntries(comps.map((team) => [team.uuid, team])),
+    teams: Object.fromEntries(teams.map((team) => [team.uuid, team])),
   };
 };

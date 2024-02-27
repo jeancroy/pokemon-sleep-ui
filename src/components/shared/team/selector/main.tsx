@@ -1,39 +1,58 @@
 import React from 'react';
 
 import RectangleStackIcon from '@heroicons/react/24/outline/RectangleStackIcon';
+import {clsx} from 'clsx';
 import cloneDeep from 'lodash/cloneDeep';
 import {v4} from 'uuid';
 
-import {InputRow} from '@/components/input/filter/row';
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
 import {TeamSelectorContent} from '@/components/shared/team/selector/content/main';
 import {TeamSelectorCommonProps} from '@/components/shared/team/selector/type';
 import {getUpdatedTeamSetup} from '@/components/shared/team/selector/utils';
-import {TeamConfig} from '@/types/game/team';
+import {TeamSetupConfig} from '@/types/game/team/config';
+import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
+import {TeamSetup} from '@/types/game/team/setup';
+import {TeamData} from '@/types/game/team/team';
 import {SessionStatus} from '@/types/session';
 import {getDefaultTeamName, getTeamName} from '@/utils/game/team/name';
+import {getCurrentTeam} from '@/utils/team/setup/getCurrentTeam';
+import {Nullable} from '@/utils/type';
 
 
-type Props<TTeam extends TeamConfig> = TeamSelectorCommonProps<TTeam> & {
+type Props<
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>,
+  TConfig extends TeamSetupConfig,
+  TTeam extends TeamData<TKey, TMember>,
+  TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
+> = TeamSelectorCommonProps<TKey, TMember, TConfig, TTeam, TSetup> & {
   status: SessionStatus,
+  className?: string,
 };
 
-export const TeamSelector = <TTeam extends TeamConfig>({status, ...props}: Props<TTeam>) => {
-  const {setup, setSetup} = props;
+export const TeamSelector = <
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>,
+  TConfig extends TeamSetupConfig,
+  TTeam extends TeamData<TKey, TMember>,
+  TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
+>({status, className, ...props}: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
+  const {setupControl} = props;
+  const {setup, setSetup} = setupControl;
+
   const [show, setShow] = React.useState(false);
 
-  const {current, teams} = setup;
-  const currentTeam = teams[current];
+  const currentTeam = getCurrentTeam({setup});
 
   return (
-    <InputRow className="justify-end gap-1.5">
+    <>
       <PopupCommon show={show} setShow={setShow}>
         <TeamSelectorContent
-          onPicked={(selected: string) => {
+          onPicked={(current: string) => {
             setSetup({
               ...setup,
-              current: selected,
+              config: {...setup.config, current},
             });
             setShow(false);
           }}
@@ -58,18 +77,15 @@ export const TeamSelector = <TTeam extends TeamConfig>({status, ...props}: Props
           {...props}
         />
       </PopupCommon>
-      <button
-        className="enabled:button-clickable-bg disabled:button-disabled relative h-8 px-2"
-        disabled={status !== 'authenticated'}
-        onClick={() => setShow(true)}
-      >
+      <button disabled={status !== 'authenticated'} onClick={() => setShow(true)} className={clsx(
+        'enabled:button-clickable-bg disabled:button-disabled h-8 px-2',
+        className,
+      )}>
         <Flex direction="row" center className="gap-1.5">
           <RectangleStackIcon className="size-7"/>
-          <div>
-            {getTeamName(currentTeam)}
-          </div>
+          <span>{getTeamName(currentTeam)}</span>
         </Flex>
       </button>
-    </InputRow>
+    </>
   );
 };

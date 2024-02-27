@@ -1,11 +1,12 @@
 import React from 'react';
 
+import {useTeamSetupControl} from '@/components/shared/team/setupControl/hook';
+import {TeamAnalysisComp, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {getInitialTeamAnalysisSetup} from '@/ui/team/analysis/client/utils';
-import {useTeamAnalysisSetupControl} from '@/ui/team/analysis/setup/control/setup/hook';
 import {TeamAnalysisSetupView} from '@/ui/team/analysis/setup/main';
 import {TeamAnalysisSetupViewCommonProps} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
-import {getCurrentTeam} from '@/ui/team/analysis/utils';
+import {getCurrentTeam} from '@/utils/team/setup/getCurrentTeam';
 
 
 type Props = TeamAnalysisDataProps & TeamAnalysisSetupViewCommonProps;
@@ -13,10 +14,23 @@ type Props = TeamAnalysisDataProps & TeamAnalysisSetupViewCommonProps;
 export const TeamAnalysisLoadedClient = (props: Props) => {
   const {data} = props;
 
-  const initialSetup = getInitialTeamAnalysisSetup({data});
-  const setupControl = useTeamAnalysisSetupControl({initialSetup});
+  const initialMigratedSetup = getInitialTeamAnalysisSetup({data});
+  const setupControl = useTeamSetupControl({
+    initialMigratedSetup,
+    getNextKeyForDuplicate: ({members}) => {
+      for (const slotName of teamAnalysisSlotName) {
+        if (!!members[slotName]) {
+          continue;
+        }
+
+        return slotName;
+      }
+
+      return null;
+    },
+  });
   const {setup} = setupControl;
-  const currentTeam = getCurrentTeam({setup});
+  const currentTeam: TeamAnalysisComp = getCurrentTeam({setup});
 
   return (
     <TeamAnalysisSetupView

@@ -1,7 +1,7 @@
 import {defaultSeedUsage} from '@/const/game/seed';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientChain} from '@/types/game/pokemon/ingredient';
-import {TeamMemberData} from '@/types/game/team';
+import {TeamMemberData} from '@/types/game/team/member';
 import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution/count';
 import {generateDefaultIngredientProductionAtLevels} from '@/utils/game/producing/ingredient/chain';
 

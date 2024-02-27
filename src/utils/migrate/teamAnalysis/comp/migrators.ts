@@ -1,5 +1,5 @@
 import {defaultSeedUsage} from '@/const/game/seed';
-import {TeamMemberData} from '@/types/game/team';
+import {TeamMemberData} from '@/types/game/team/member';
 import {Migrator} from '@/types/migrate';
 import {TeamAnalysisComp, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {TeamAnalysisCompMigrateParams} from '@/utils/migrate/teamAnalysis/comp/type';

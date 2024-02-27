@@ -78,10 +78,13 @@ declare global {
           Close: string,
         },
         Team: {
-          QuickAction: {
-            Sync: {
-              Name: string,
-              Syncing: string,
+          SetupControl: {
+            Period: string,
+            QuickAction: {
+              Sync: {
+                Name: string,
+                Syncing: string,
+              },
             },
           },
         },
@@ -314,7 +317,6 @@ declare global {
         },
         Team: {
           Analysis: {
-            Period: string,
             Control: {
               ExportToPokebox: string,
               PokeboxLinking: string,

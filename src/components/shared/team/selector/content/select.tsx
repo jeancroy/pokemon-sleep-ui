@@ -13,24 +13,41 @@ import {IconWithInfo} from '@/components/shared/common/image/iconWithInfo';
 import {UnavailableIcon} from '@/components/shared/common/unavailable';
 import {TeamSelectorContentCommonProps} from '@/components/shared/team/selector/content/type';
 import {imageIconSizes} from '@/styles/image';
-import {TeamConfig} from '@/types/game/team';
+import {TeamSetupConfig} from '@/types/game/team/config';
+import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
+import {TeamSetup} from '@/types/game/team/setup';
+import {TeamData} from '@/types/game/team/team';
 import {getTeamName} from '@/utils/game/team/name';
+import {Nullable} from '@/utils/type';
 
 
-type Props<TTeam extends TeamConfig> = TeamSelectorContentCommonProps<TTeam> & {
+type Props<
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>,
+  TConfig extends TeamSetupConfig,
+  TTeam extends TeamData<TKey, TMember>,
+  TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
+> = TeamSelectorContentCommonProps<TKey, TMember, TConfig, TTeam, TSetup> & {
   team: TTeam,
 };
 
-export const TeamSelectButton = <TTeam extends TeamConfig>({
-  setup,
+export const TeamSelectButton = <
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>,
+  TConfig extends TeamSetupConfig,
+  TTeam extends TeamData<TKey, TMember>,
+  TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
+>({
+  setupControl,
+  memberList,
   onUpdated,
   onDeleted,
   onCopied,
   onPicked,
-  getMembers,
   team,
-}: Props<TTeam>) => {
-  const {current} = setup;
+}: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
+  const {current} = setupControl.setup.config;
+
   const t = useTranslations('Game');
 
   const isCurrent = current === team.uuid;
@@ -64,7 +81,7 @@ export const TeamSelectButton = <TTeam extends TeamConfig>({
           onClick={() => onPicked(team.uuid)}
           className="enabled:button-clickable gap-1.5 p-2"
         >
-          {getMembers(team).map((member, idx) => (
+          {memberList.map((member, idx) => (
             member ?
               <IconWithInfo
                 key={idx}

@@ -1,11 +1,12 @@
 import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
-import {TeamMemberData, TeamMemberProduction} from '@/types/game/team';
+import {TeamMemberData} from '@/types/game/team/member';
+import {TeamMemberProduction} from '@/types/game/team/production';
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
-import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/setup/common/type';
+import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/type';
 
 
 export type TeamAnalysisFilledProps = TeamAnalysisSetupUpdateCommonProps & {

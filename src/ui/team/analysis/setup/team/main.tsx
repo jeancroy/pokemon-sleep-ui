@@ -52,7 +52,7 @@ export const TeamAnalysisTeamView = ({layoutControl, ...props}: Props) => {
                 pokemonId: pokemon.id,
                 pokemonProducingParamsMap,
               })}
-              onMemberClear={(slotName) => setCurrentMember({slotName, member: null})}
+              onMemberClear={(slotName) => setCurrentMember({key: slotName, member: null})}
               collapsible={generateCollapsibleControl(currentTeam.uuid, slotName)}
               {...props}
             />
@@ -63,12 +63,12 @@ export const TeamAnalysisTeamView = ({layoutControl, ...props}: Props) => {
           <TeamAnalysisEmptySlot
             key={slotName}
             onPokeboxPicked={(pokeInBox) => setCurrentMember({
-              slotName,
+              key: slotName,
               member: toTeamMember(pokeInBox),
             })}
-            onCloudPulled={(member) => setCurrentMember({slotName, member})}
+            onCloudPulled={(member) => setCurrentMember({key: slotName, member})}
             onPokemonSelected={(pokemon) => setCurrentMember({
-              slotName,
+              key: slotName,
               member: toTeamAnalysisMemberFromVanilla({
                 pokemon,
                 chain: ingredientChainMap[pokemon.ingredientChain],

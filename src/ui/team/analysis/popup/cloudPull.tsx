@@ -7,7 +7,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {FlexForm} from '@/components/layout/flex/form';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
-import {TeamMemberData} from '@/types/game/team';
+import {TeamMemberData} from '@/types/game/team/member';
 
 
 type Props = {

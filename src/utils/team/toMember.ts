@@ -1,4 +1,4 @@
-import {TeamMemberData} from '@/types/game/team';
+import {TeamMemberData} from '@/types/game/team/member';
 import {PokeInBox} from '@/types/userData/pokebox';
 import {generateNewPokeInBox} from '@/ui/team/pokebox/utils';
 import {migrate} from '@/utils/migrate/main';

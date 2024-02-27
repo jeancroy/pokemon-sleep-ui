@@ -5,20 +5,33 @@ import {
   TeamLayoutControl,
   TeamLayoutControlState,
 } from '@/components/shared/team/setupControl/layoutControl/type';
-import {TeamConfig, TeamSetup} from '@/types/game/team';
+import {TeamSetupConfig} from '@/types/game/team/config';
+import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
+import {TeamSetup} from '@/types/game/team/setup';
+import {TeamData} from '@/types/game/team/team';
 import {cloneMerge} from '@/utils/object/cloneMerge';
-import {DeepPartial, Indexable} from '@/utils/type';
+import {DeepPartial, Nullable} from '@/utils/type';
 
 
-type UseTeamLayoutControlOpts<TTeam extends TeamConfig, TKey extends Indexable> = {
-  setup: TeamSetup<TTeam>,
+type UseTeamLayoutControlOpts<
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>,
+  TConfig extends TeamSetupConfig,
+  TTeam extends TeamData<TKey, TMember>,
+> = {
+  setup: TeamSetup<TKey, TMember, TConfig, TTeam>,
   getCollapsibleIndexKeys: (team: TTeam) => TKey[],
 };
 
-export const useTeamLayoutControl = <TTeam extends TeamConfig, TKey extends Indexable>({
+export const useTeamLayoutControl = <
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>,
+  TConfig extends TeamSetupConfig,
+  TTeam extends TeamData<TKey, TMember>,
+>({
   setup,
   getCollapsibleIndexKeys,
-}: UseTeamLayoutControlOpts<TTeam, TKey>): TeamLayoutControl<TKey> => {
+}: UseTeamLayoutControlOpts<TKey, TMember, TConfig, TTeam>): TeamLayoutControl<TKey> => {
   const [input, setInput] = React.useState<TeamLayoutControlState<TKey>>({
     collapsible: {},
   });

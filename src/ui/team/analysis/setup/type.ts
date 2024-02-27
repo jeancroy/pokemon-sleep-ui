@@ -3,7 +3,7 @@ import {useSession} from 'next-auth/react';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {MealCoverage} from '@/types/game/cooking';
 import {Production} from '@/types/game/producing/rate/base';
-import {TeamMemberProduction} from '@/types/game/team';
+import {TeamMemberProduction} from '@/types/game/team/production';
 import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {TeamCompCalcResult} from '@/ui/team/analysis/calc/type';
 

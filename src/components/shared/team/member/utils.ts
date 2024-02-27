@@ -1,7 +1,7 @@
 import {PokemonInfo, PokemonSpecialtyId} from '@/types/game/pokemon';
 import {RatingSetupData} from '@/types/game/pokemon/rating/request';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {TeamMemberData} from '@/types/game/team';
+import {TeamMemberData} from '@/types/game/team/member';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {getDefaultRatingBasis} from '@/utils/game/rating/utils';
 

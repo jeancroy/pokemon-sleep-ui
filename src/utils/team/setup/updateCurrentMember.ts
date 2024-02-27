@@ -5,7 +5,7 @@ import {TeamData} from '@/types/game/team/team';
 import {Nullable} from '@/utils/type';
 
 
-type GetUpdatedTeamSetup<
+type UpdateCurrentTeamMemberOpts<
   TKey extends TeamMemberKey,
   TMember extends Nullable<TeamMemberData>,
   TConfig extends TeamSetupConfig,
@@ -13,10 +13,11 @@ type GetUpdatedTeamSetup<
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 > = {
   original: TSetup,
-  team: TTeam,
+  key: TKey,
+  update: Partial<TMember> | null,
 };
 
-export const getUpdatedTeamSetup = <
+export const updateCurrentTeamMember = <
   TKey extends TeamMemberKey,
   TMember extends Nullable<TeamMemberData>,
   TConfig extends TeamSetupConfig,
@@ -24,13 +25,26 @@ export const getUpdatedTeamSetup = <
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 >({
   original,
-  team,
-}: GetUpdatedTeamSetup<TKey, TMember, TConfig, TTeam, TSetup>): TSetup => {
+  key,
+  update,
+}: UpdateCurrentTeamMemberOpts<TKey, TMember, TConfig, TTeam, TSetup>) => {
+  const {teams, config} = original;
+
+  // `merge()` keeps the original value if the `update` is undefined, but `update` should overwrite it
   return {
     ...original,
     teams: {
-      ...original.teams,
-      [team.uuid]: team,
+      ...teams,
+      [config.current]: {
+        ...teams[config.current],
+        members: {
+          ...teams[config.current].members,
+          [key]: {
+            ...teams[config.current].members[key],
+            ...update,
+          },
+        },
+      },
     },
   };
 };

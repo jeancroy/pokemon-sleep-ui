@@ -6,14 +6,24 @@ import {v4} from 'uuid';
 import {InputBox} from '@/components/input/box';
 import {Flex} from '@/components/layout/flex/common';
 import {TeamSelectorContentCommonProps} from '@/components/shared/team/selector/content/type';
-import {TeamConfig} from '@/types/game/team';
+import {TeamSetupConfig} from '@/types/game/team/config';
+import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
+import {TeamSetup} from '@/types/game/team/setup';
+import {TeamData} from '@/types/game/team/team';
 import {getTeamName} from '@/utils/game/team/name';
+import {Nullable} from '@/utils/type';
 
 
-export const TeamCreateButton = <TTeam extends TeamConfig>({
+export const TeamCreateButton = <
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>,
+  TConfig extends TeamSetupConfig,
+  TTeam extends TeamData<TKey, TMember>,
+  TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
+>({
   onAdded,
   generateNewTeam,
-}: React.PropsWithChildren<TeamSelectorContentCommonProps<TTeam>>) => {
+}: React.PropsWithChildren<TeamSelectorContentCommonProps<TKey, TMember, TConfig, TTeam, TSetup>>) => {
   const [newTeam, setNewTeam] = React.useState(generateNewTeam(v4()));
 
   return (

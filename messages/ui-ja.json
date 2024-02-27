@@ -56,10 +56,13 @@
       "Close": "受取期限"
     },
     "Team": {
-      "QuickAction": {
-        "Sync": {
-          "Name": "ポケモンをすべて同期",
-          "Syncing": "同期中…"
+      "SetupControl": {
+        "Period": "分析周期",
+        "QuickAction": {
+          "Sync": {
+            "Name": "ポケモンをすべて同期",
+            "Syncing": "同期中…"
+          }
         }
       }
     },
@@ -429,7 +432,6 @@
     },
     "Team": {
       "Analysis": {
-        "Period": "分析周期",
         "Control": {
           "ExportToPokebox": "ボックスにエクスポート",
           "PokeboxLinking": "ポケモンボックス連携",

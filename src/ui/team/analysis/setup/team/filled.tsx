@@ -24,13 +24,13 @@ export const TeamAnalysisFilledSlot = ({collapsible, onMemberClear, ...props}: P
 
   return (
     <TeamMember
-      config={currentTeam}
+      teamMetadata={currentTeam}
       memberIdForShare={getTeamMemberId({uuid: currentTeam.uuid, slotName})}
       pinnedStats={['total']}
       rate={stats}
       stateOfRate={stateOfRateToShow}
       collapsible={collapsible}
-      setMember={(update) => setCurrentMemberPartial({slotName, update})}
+      setMember={(update) => setCurrentMemberPartial({key: slotName, update})}
       getRateByLevel={(level) => getTeamCompCalcResult({
         period: currentTeam.analysisPeriod,
         state: stateOfRateToShow,

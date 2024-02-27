@@ -1,0 +1,46 @@
+import React from 'react';
+
+import {FieldMetaMap} from '@/types/game/mapMeta';
+import {PokemonInfo} from '@/types/game/pokemon';
+import {TeamSetupConfig} from '@/types/game/team/config';
+import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
+import {TeamSetup} from '@/types/game/team/setup';
+import {TeamData} from '@/types/game/team/team';
+import {TeamSetupSetMemberOpts} from '@/types/game/team/update';
+import {Pokebox} from '@/types/userData/pokebox';
+import {Nullable} from '@/utils/type';
+
+
+export type TeamSetupReplaceAllMemberOpts = {
+  update: Partial<TeamMemberData>,
+};
+
+export type TeamSetupUpdateMemberOpts<TKey extends TeamMemberKey, TMember extends Nullable<TeamMemberData>> = {
+  key: TKey,
+  update: Partial<TMember> | null,
+};
+
+export type TeamSetupControl<
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>,
+  TConfig extends TeamSetupConfig,
+  TTeam extends TeamData<TKey, TMember>,
+  TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
+> = {
+  setup: TSetup,
+  setSetup: React.Dispatch<React.SetStateAction<TSetup>>,
+  setCurrentMember: (opts: TeamSetupSetMemberOpts<TKey, TMember>) => void,
+  setCurrentMemberReplaceAll: (opts: TeamSetupReplaceAllMemberOpts) => void,
+  setCurrentMemberPartial: (opts: TeamSetupUpdateMemberOpts<TKey, TMember>) => void,
+  duplicateMemberToCurrentComp: (sourceKey: TKey) => void,
+  updatePokemonFromPokebox: (pokebox: Pokebox) => void,
+};
+
+export type TeamSetupControlDataProps = {
+  mapMeta: FieldMetaMap,
+  pokemonList: PokemonInfo[],
+};
+
+export type TeamSetupBatchUpdateMemberOpts = {
+  getUpdatedMember: (member: TeamMemberData) => TeamMemberData,
+};

@@ -26,7 +26,7 @@ export const TeamQuickActionSyncPokemon = ({
 }: Props) => {
   const {actAsync, session, status} = actorReturn;
 
-  const t = useTranslations('UI.Component.Team.QuickAction.Sync');
+  const t = useTranslations('UI.Component.Team.SetupControl.QuickAction.Sync');
   const {isPremium} = useUserActivation(session.data);
   const {showPremiumRequiredToast} = usePremiumRequiredToast();
 

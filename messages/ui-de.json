@@ -56,10 +56,13 @@
       "Close": "Schließen"
     },
     "Team": {
-      "QuickAction": {
-        "Sync": {
-          "Name": "Synchronisiere alle Pokemon",
-          "Syncing": "Synchronisiere..."
+      "SetupControl": {
+        "Period": "Analysezeitraum",
+        "QuickAction": {
+          "Sync": {
+            "Name": "Synchronisiere alle Pokemon",
+            "Syncing": "Synchronisiere..."
+          }
         }
       }
     },
@@ -429,7 +432,6 @@
     },
     "Team": {
       "Analysis": {
-        "Period": "Analysezeitraum",
         "Control": {
           "ExportToPokebox": "Export zur Pokebox",
           "PokeboxLinking": "Pokebox Verlinkung",

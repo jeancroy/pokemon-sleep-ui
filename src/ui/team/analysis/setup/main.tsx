@@ -14,16 +14,18 @@ import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
 import {TeamContributionSplitIndicator} from '@/components/shared/team/contributionSplit/main';
 import {useTeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/hook';
+import {TeamSetupControlUI} from '@/components/shared/team/setupControl/main';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
-import {teamAnalysisSlotName} from '@/types/teamAnalysis';
+import {
+  teamAnalysisSlotName,
+} from '@/types/teamAnalysis';
 import {useTeamProducingStats} from '@/ui/team/analysis/calc/hook';
-import {TeamAnalysisCompControl} from '@/ui/team/analysis/setup/control/comp/main';
-import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/setup/common/type';
-import {TeamAnalysisSetupControlUI} from '@/ui/team/analysis/setup/control/setup/main';
+import {TeamAnalysisSetupUpdateCommonProps} from '@/ui/team/analysis/setup/control/type';
 import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';
 import {TeamAnalysisTeamView} from '@/ui/team/analysis/setup/team/main';
 import {TeamAnalysisSetupViewCommonProps} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
+import {generateEmptyTeam} from '@/ui/team/analysis/utils';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -55,10 +57,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
     calculatedCookingConfig,
   });
   const layoutControl = useTeamLayoutControl({
-    setup: {
-      current: setup.config.current,
-      teams: setup.comps,
-    },
+    setup,
     getCollapsibleIndexKeys: () => [...teamAnalysisSlotName],
   });
   const {state, setState, showPokemon} = usePokemonLinkPopup();
@@ -71,8 +70,16 @@ export const TeamAnalysisSetupView = (props: Props) => {
   return (
     <>
       <PokemonLinkPopup state={state} setState={setState}/>
-      <TeamAnalysisSetupControlUI
+      <TeamSetupControlUI
         layoutControl={layoutControl}
+        generateNewTeam={generateEmptyTeam}
+        uploadOpts={{
+          type: 'teamAnalysis',
+          data: {
+            config: setup.config,
+            comps: Object.values(setup.teams),
+          },
+        }}
         {...props}
       />
       <AdsUnit hideIfNotBlocked/>
@@ -98,10 +105,8 @@ export const TeamAnalysisSetupView = (props: Props) => {
           };
         }).filter(isNotNullish)}
       />
-      <TeamAnalysisCompControl sessionStatus={session.status} {...props}/>
-      <AdsUnit/>
       <PokemonGroupedProduction grouped={statsOfTeam.grouped}/>
-      <AdsUnit hideIfNotBlocked/>
+      <AdsUnit/>
       <MealCoverageComboCollapsible
         collapsible={collapsible}
         mealMap={mealMap}

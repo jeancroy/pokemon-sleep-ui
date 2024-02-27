@@ -18,7 +18,7 @@ import {ProductionUI} from '@/components/shared/production/rate/main';
 import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
-import {TeamMemberStatsType} from '@/types/game/team';
+import {TeamMemberStatsType} from '@/types/game/team/statsType';
 import {toProductionOfState} from '@/utils/game/producing/convert';
 
 
