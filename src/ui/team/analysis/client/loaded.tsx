@@ -28,6 +28,7 @@ export const TeamAnalysisLoadedClient = (props: Props) => {
 
       return null;
     },
+    getLayoutCollapsibleIndexKeys: () => [...teamAnalysisSlotName],
   });
   const {setup} = setupControl;
   const currentTeam: TeamAnalysisComp = getCurrentTeam({setup});

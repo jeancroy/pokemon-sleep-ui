@@ -13,7 +13,6 @@ import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
 import {TeamContributionSplitIndicator} from '@/components/shared/team/contributionSplit/main';
-import {useTeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/hook';
 import {TeamSetupControlUI} from '@/components/shared/team/setupControl/main';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {
@@ -40,7 +39,7 @@ export const TeamAnalysisSetupView = (props: Props) => {
     preloaded,
     session,
   } = props;
-  const {setup} = setupControl;
+  const {setup, layoutControl} = setupControl;
 
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
@@ -55,10 +54,6 @@ export const TeamAnalysisSetupView = (props: Props) => {
     setup,
     bundle,
     calculatedCookingConfig,
-  });
-  const layoutControl = useTeamLayoutControl({
-    setup,
-    getCollapsibleIndexKeys: () => [...teamAnalysisSlotName],
   });
   const {state, setState, showPokemon} = usePokemonLinkPopup();
   const collapsible = useCollapsibleControl();

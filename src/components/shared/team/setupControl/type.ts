@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {TeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/type';
 import {FieldMetaMap} from '@/types/game/mapMeta';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {TeamSetupConfig} from '@/types/game/team/config';
@@ -29,6 +30,7 @@ export type TeamSetupControl<
 > = {
   setup: TSetup,
   setSetup: React.Dispatch<React.SetStateAction<TSetup>>,
+  layoutControl: TeamLayoutControl<TKey>,
   setCurrentMember: (opts: TeamSetupSetMemberOpts<TKey, TMember>) => void,
   setCurrentMemberReplaceAll: (opts: TeamSetupReplaceAllMemberOpts) => void,
   setCurrentMemberPartial: (opts: TeamSetupUpdateMemberOpts<TKey, TMember>) => void,

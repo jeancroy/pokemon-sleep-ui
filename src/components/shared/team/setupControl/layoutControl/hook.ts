@@ -20,7 +20,7 @@ type UseTeamLayoutControlOpts<
   TTeam extends TeamData<TKey, TMember>,
 > = {
   setup: TeamSetup<TKey, TMember, TConfig, TTeam>,
-  getCollapsibleIndexKeys: (team: TTeam) => TKey[],
+  getLayoutCollapsibleIndexKeys: (team: TTeam) => TKey[],
 };
 
 export const useTeamLayoutControl = <
@@ -30,7 +30,7 @@ export const useTeamLayoutControl = <
   TTeam extends TeamData<TKey, TMember>,
 >({
   setup,
-  getCollapsibleIndexKeys,
+  getLayoutCollapsibleIndexKeys,
 }: UseTeamLayoutControlOpts<TKey, TMember, TConfig, TTeam>): TeamLayoutControl<TKey> => {
   const [input, setInput] = React.useState<TeamLayoutControlState<TKey>>({
     collapsible: {},
@@ -57,7 +57,7 @@ export const useTeamLayoutControl = <
         // CANNOT source from `collapsible[teamUuid]` for comp collapsible
         // because it is an empty object on init even if the team already has some members
         Object.fromEntries(
-          getCollapsibleIndexKeys(setup.teams[teamUuid]).map((indexKey) => [indexKey, show]),
+          getLayoutCollapsibleIndexKeys(setup.teams[teamUuid]).map((indexKey) => [indexKey, show]),
         ) as TeamCollapsibleOfComp<TKey>,
       ])),
     })),

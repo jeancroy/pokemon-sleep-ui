@@ -5,6 +5,7 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
+import {useTeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/hook';
 import {TeamSetupBatchUpdateMemberOpts, TeamSetupControl} from '@/components/shared/team/setupControl/type';
 import {imageIconSizes} from '@/styles/image';
 import {TeamSetupConfig} from '@/types/game/team/config';
@@ -30,6 +31,7 @@ type UseTeamAnalysisSetupControlOpts<
 > = {
   initialMigratedSetup: TSetup,
   getNextKeyForDuplicate: (currentTeam: TTeam) => TKey | null,
+  getLayoutCollapsibleIndexKeys: (team: TTeam) => TKey[],
 };
 
 export const useTeamSetupControl = <
@@ -41,6 +43,7 @@ export const useTeamSetupControl = <
 >({
   initialMigratedSetup,
   getNextKeyForDuplicate,
+  getLayoutCollapsibleIndexKeys,
 }: UseTeamAnalysisSetupControlOpts<
   TKey,
   TMember,
@@ -49,6 +52,11 @@ export const useTeamSetupControl = <
   TSetup
 >): TeamSetupControl<TKey, TMember, TConfig, TTeam, TSetup> => {
   const [setup, setSetup] = React.useState(initialMigratedSetup);
+
+  const layoutControl = useTeamLayoutControl({
+    setup,
+    getLayoutCollapsibleIndexKeys,
+  });
 
   const t = useTranslations('Game');
 
@@ -106,6 +114,7 @@ export const useTeamSetupControl = <
   return {
     setup,
     setSetup,
+    layoutControl,
     setCurrentMember,
     setCurrentMemberReplaceAll: ({update}) => updateTeamMemberBatched({
       getUpdatedMember: (member) => ({...member, ...update}),
