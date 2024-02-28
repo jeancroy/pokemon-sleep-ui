@@ -24,7 +24,7 @@ export const ProductionComparison = async ({params}: DefaultPageProps) => {
     teamMemberViewRequiredData,
   ] = await Promise.all([
     getFieldMetaMap(),
-    getUserProductionComparisonContent(),
+    getUserProductionComparisonContent(session?.user.id),
     getTeamMemberViewRequiredData(),
   ]);
 
