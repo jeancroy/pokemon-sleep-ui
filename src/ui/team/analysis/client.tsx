@@ -5,6 +5,7 @@ import {useTeamSetupControl} from '@/components/shared/team/setupControl/hook';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {TeamAnalysisComp, teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {TeamAnalysisSetupView} from '@/ui/team/analysis/setup/main';
+import {TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/type';
 import {getInitialTeamAnalysisSetup} from '@/ui/team/analysis/setup/utils';
 import {TeamAnalysisServerDataProps} from '@/ui/team/analysis/type';
 import {getPokemonMaxEvolutionCount} from '@/utils/game/pokemon/evolution/count';
@@ -16,7 +17,7 @@ export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
   const {preloaded, pokedexMap} = props;
 
   const actorReturn = useUserDataActor();
-  const setupControl = useTeamSetupControl({
+  const setupControl: TeamAnalysisSetupControl = useTeamSetupControl({
     initialMigratedSetup: getInitialTeamAnalysisSetup({data: preloaded.setup}),
     getDuplicatedMember: ({members}, source) => {
       for (const slotName of teamAnalysisSlotName) {

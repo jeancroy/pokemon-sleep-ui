@@ -30,7 +30,7 @@ describe('Pokemon Production (Daily Quantity)', () => {
       },
     });
 
-    expect(qtyPerHelp).toBeCloseTo(5 * 0.85 + (10 + 20) * 0.15);
+    expect(qtyPerHelp).toBeCloseTo(5 * 0.85 + (10 + 20) / 2 * 0.15);
   });
 
   it('does not change even if the rate period is weekly', () => {
@@ -61,6 +61,6 @@ describe('Pokemon Production (Daily Quantity)', () => {
       },
     });
 
-    expect(qtyPerHelp).toBeCloseTo(5 * 0.85 + (10 + 20) * 0.15);
+    expect(qtyPerHelp).toBeCloseTo(5 * 0.85 + (10 + 20) / 2 * 0.15);
   });
 });

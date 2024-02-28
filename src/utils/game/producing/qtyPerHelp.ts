@@ -19,7 +19,7 @@ export const getExpectedQtyPerHelp = ({
 
   const berryQtyPerHelp = berry.qtyPerHelp * produceSplit.berry;
   const ingredientQtyPerHelp = (
-    toSum(ingredient.map(({qtyPerHelp}) => qtyPerHelp)) * produceSplit.ingredient
+    toSum(ingredient.map(({qtyPerHelp}) => qtyPerHelp / ingredient.length)) * produceSplit.ingredient
   );
 
   return berryQtyPerHelp + ingredientQtyPerHelp;
