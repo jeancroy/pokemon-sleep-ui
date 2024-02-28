@@ -77,6 +77,34 @@ declare global {
           End: string,
           Close: string,
         },
+        Team: {
+          SetupControl: {
+            Period: string,
+            QuickAction: {
+              Sync: {
+                Name: string,
+                Syncing: string,
+              },
+            },
+          },
+          Member: {
+            Control: {
+              ExportToPokebox: string,
+              PokeboxLinking: string,
+              ShareableLink: string,
+              Rating: string,
+              DetailedStats: string,
+              StrengthGrowth: string,
+              MealCoverage: string,
+              Edit: string,
+              Duplicate: string,
+            },
+            Message: {
+              ShareableLink: string,
+              StrengthGrowth: string,
+            },
+          },
+        },
         EventList: {
           Section: {
             Upcoming: string,
@@ -144,6 +172,7 @@ declare global {
         },
         Analysis: I18nMetadata,
         Rating: I18nMetadata,
+        Production: I18nMetadata,
         Cooking: {
           Index: I18nMetadata,
           Make: I18nMetadata,
@@ -217,11 +246,6 @@ declare global {
             Stats: string,
           },
           Stats: {
-            Energy: {
-              Daily: string,
-              Name: string,
-              Weekly: string,
-            },
             FrequencyBase: string,
             FrequencyEquivalent: string,
             Friendship: string,
@@ -304,28 +328,6 @@ declare global {
           },
         },
         Team: {
-          Analysis: {
-            Period: string,
-            Sync: {
-              Name: string,
-              Syncing: string,
-            },
-            Control: {
-              ExportToPokebox: string,
-              PokeboxLinking: string,
-              ShareableLink: string,
-              Rating: string,
-              DetailedStats: string,
-              StrengthGrowth: string,
-              MealCoverage: string,
-              Edit: string,
-              Duplicate: string,
-            },
-            Message: {
-              ShareableLink: string,
-              StrengthGrowth: string,
-            },
-          },
           CurrentEnergy: string,
           SubSkill: string,
           NatureEffect: string,
@@ -476,6 +478,10 @@ declare global {
           UnfilledOnly: string,
         },
         Total: string,
+        Period: {
+          Daily: string,
+          Weekly: string,
+        },
         Probability: {
           NoSkillAfterWakeup: string,
         },

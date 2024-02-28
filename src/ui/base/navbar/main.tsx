@@ -68,7 +68,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
         mealTypes={mealTypes}
         ingredientIds={ingredientIds}
         pokemonList={pokemonList}
-        mapMeta={mapMeta}
+        fieldMetaMap={mapMeta}
         potInfoList={potInfoList}
         recipeLevelData={recipeLevelData}
         {...configRequiredData}

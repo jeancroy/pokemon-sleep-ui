@@ -11,7 +11,7 @@ import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
-import {ProductionUI} from '@/components/shared/production/rate/main';
+import {TeamMemberStats} from '@/components/shared/team/member/content/stats';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
 
@@ -21,16 +21,19 @@ type Props = TeamMemberProps & {
 };
 
 export const TeamMemberCollapsibleButton = ({
-  subSkillMap,
-  classOfButton,
-  pokemon,
-  member,
-  rate,
-  stateOfRate,
   isExpanded,
+  ...props
 }: Props) => {
+  const {
+    subSkillMap,
+    classOfButton,
+    pokemon,
+    member,
+    pinnedStats,
+    rate,
+    stateOfRate,
+  } = props;
   const {specialty} = pokemon;
-  const {total} = rate;
   const {level, subSkill, nature, linkedPokeInBoxUuid} = member;
 
   return (
@@ -80,7 +83,7 @@ export const TeamMemberCollapsibleButton = ({
           />
         </Flex>
       </Flex>
-      <ProductionUI rate={total} hideQuantity normalSize className="self-center"/>
+      {pinnedStats.map((type) => <TeamMemberStats key={type} type={type} {...props}/>)}
       <PokemonProductionSplitFromPokemonRate
         rate={rate}
         state={stateOfRate}

@@ -21,7 +21,7 @@ export type RatingServerDataProps = UsePokemonFilterCommonData & ConfigRequiredD
   ingredientMap: IngredientMap,
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
-  mapMeta: FieldMetaMap,
+  fieldMetaMap: FieldMetaMap,
   recipeLevelData: RecipeLevelData[],
   pokemonMaxLevel: number,
   ocrTranslations: OcrTranslationsForPokemonInfo,

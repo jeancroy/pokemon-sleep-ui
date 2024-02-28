@@ -3,6 +3,6 @@ import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 
 
 export type PokedexTierListDataProps = PokedexCalcDataProps & {
-  mapMeta: FieldMetaMap,
+  fieldMetaMap: FieldMetaMap,
   pokemonMaxLevel: number,
 };

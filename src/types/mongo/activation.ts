@@ -2,10 +2,10 @@ import {ObjectId} from 'bson';
 
 import {FilterInclusionMap} from '@/components/input/filter/type';
 import {IsoDateString, IsoTimestampString} from '@/types/date';
+import {MongoDataOfUser} from '@/types/mongo/user';
 
 
-export type UserDataInDatabase<T> = {
-  userId: string,
+export type UserDataInDatabase<T> = MongoDataOfUser & {
   data: T,
 };
 
@@ -75,10 +75,9 @@ export type ActivationData = ActivationKey & {
 };
 
 export type ActivationDataAtClient =
+  MongoDataOfUser &
   ActivationKeyAtClient &
-  Omit<ActivationData, keyof ActivationKey | 'userId'> & {
-    userId: string,
-  };
+  Omit<ActivationData, keyof ActivationKey | 'userId'>;
 
 export type ActivationInfo = {
   type: 'key',

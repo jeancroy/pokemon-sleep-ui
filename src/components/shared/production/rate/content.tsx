@@ -22,7 +22,7 @@ type Props = ProductionContentCommonProps & {
 });
 
 export const ProductionContent = ({dailyRate, className, isEnergy, getIcon, normalSize}: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Common');
   const dimension: Dimension = normalSize ? 'size-5' : 'size-4';
 
   return (
@@ -33,7 +33,7 @@ export const ProductionContent = ({dailyRate, className, isEnergy, getIcon, norm
     )}>
       {getIcon ?
         getIcon(dimension) :
-        <ColoredStrengthIcon dimension={dimension} alt={t('Stats.Energy.Name')}/>}
+        <ColoredStrengthIcon dimension={dimension} alt={t('Strength')}/>}
       <div className={clsx(isEnergy && 'text-energy')}>
         {dailyRate ? formatFloat(dailyRate) : '-'}
       </div>

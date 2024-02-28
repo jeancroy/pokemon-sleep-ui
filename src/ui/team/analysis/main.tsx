@@ -4,70 +4,41 @@ import {getServerSession} from 'next-auth';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
-import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getConfigRequiredData} from '@/controller/dataBundle/config';
-import {getIngredientMap} from '@/controller/ingredient';
-import {getIngredientChainMap} from '@/controller/ingredientChain';
-import {getMainSkillMap} from '@/controller/mainSkill';
+import {getTeamMemberViewRequiredData} from '@/controller/dataBundle/teamMemberView';
 import {getFieldMetaMap} from '@/controller/mapMeta';
-import {getPokedexMap} from '@/controller/pokemon/info';
-import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
-import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSnorlaxData} from '@/controller/snorlax';
-import {getSubSkillMap} from '@/controller/subSkill';
+import {getUserTeamAnalysisContent} from '@/controller/user/teamAnalysis/merged';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
-import {TeamAnalysisClient} from '@/ui/team/analysis/client/main';
+import {TeamAnalysisClient} from '@/ui/team/analysis/client';
 import {TeamAnalysisServerDataProps} from '@/ui/team/analysis/type';
 import {createConfigBundle} from '@/utils/user/config/create';
 
 
 export const TeamAnalysis = async ({params}: DefaultPageProps) => {
   const {locale} = params;
+  const session = await getServerSession(authOptions);
+
   const [
-    session,
-    pokedexMap,
-    pokemonProducingParamsMap,
-    ingredientChainMap,
-    berryDataMap,
-    ingredientMap,
     snorlaxData,
     mapMeta,
-    mainSkillMap,
-    subSkillMap,
-    pokemonMaxLevel,
-    recipeLevelData,
-    configRequiredData,
+    userTeamAnalysisContent,
+    teamMemberViewRequiredData,
   ] = await Promise.all([
-    getServerSession(authOptions),
-    getPokedexMap(),
-    getPokemonProducingParamsMap(),
-    getIngredientChainMap(),
-    getBerryDataMap(),
-    getIngredientMap(),
     getSnorlaxData(),
     getFieldMetaMap(),
-    getMainSkillMap(),
-    getSubSkillMap(),
-    getPokemonMaxLevelByBerry(),
-    getRecipeLevelData(),
-    getConfigRequiredData(),
+    getUserTeamAnalysisContent(session?.user.id),
+    getTeamMemberViewRequiredData(),
   ]);
 
   const props: TeamAnalysisServerDataProps = {
-    pokedexMap,
-    pokemonProducingParamsMap,
-    ingredientChainMap,
-    berryDataMap,
-    ingredientMap,
     snorlaxData,
-    mapMeta,
-    mainSkillMap,
-    subSkillMap,
-    pokemonMaxLevel,
-    recipeLevelData,
-    preloaded: createConfigBundle(session),
-    ...configRequiredData,
+    fieldMetaMap: mapMeta,
+    preloaded: {
+      bundle: createConfigBundle(session),
+      setup: userTeamAnalysisContent,
+    },
+    ...teamMemberViewRequiredData,
   };
 
   return (
@@ -77,6 +48,7 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
         'UI.Common',
         'UI.Component.Collapsible',
         'UI.Component.MealCoverageCombo',
+        'UI.Component.Team',
         'UI.InPage.Cooking',
         'UI.InPage.Pokedex',
         'UI.InPage.Team',

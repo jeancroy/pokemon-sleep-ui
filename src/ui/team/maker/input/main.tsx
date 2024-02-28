@@ -17,7 +17,7 @@ export const TeamMakerInputUI = (props: TeamMakerInputCommonProps) => {
     input,
     setInput,
     pokedexMap,
-    mapMeta,
+    fieldMetaMap,
   } = props;
   const {pokemon} = input;
 
@@ -34,7 +34,7 @@ export const TeamMakerInputUI = (props: TeamMakerInputCommonProps) => {
         setFilter={setInput}
         filterKey="snorlaxFavorite"
         pokemonList={pokemonList}
-        mapMeta={mapMeta}
+        fieldMetaMap={fieldMetaMap}
       />
       <TeamMakerInputCooking {...props}/>
       <PokemonCollapsibleFilter

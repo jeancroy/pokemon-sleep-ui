@@ -28,7 +28,7 @@ export type AnalysisPageCommonProps = UsePokemonFilterCommonData & ConfigRequire
   subSkillMap: SubSkillMap,
   sleepStyleMap: SleepStyleNormalMap,
   mealMap: MealMap,
-  mapMeta: FieldMetaMap,
+  fieldMetaMap: FieldMetaMap,
   recipeLevelData: RecipeLevelData[],
   pokemonMaxLevel: number,
   preloaded: ConfigBundle,

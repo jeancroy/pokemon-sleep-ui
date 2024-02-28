@@ -84,8 +84,10 @@ export type GetAnalysisStatsCommonOpts<TSample> = {
   getPokemonId: (sample: TSample) => PokemonId,
 };
 
-export type GetAnalysisStatsOpts = Omit<AnalysisPageCommonProps, 'mapMeta' | 'preloaded'> & PokemonIndividualParams & {
-  ingredients: IngredientProduction[],
-  snorlaxFavorite: SnorlaxFavorite,
-  calculatedConfigBundle: CalculatedConfigBundle,
-};
+export type GetAnalysisStatsOpts =
+  Omit<AnalysisPageCommonProps, 'fieldMetaMap' | 'preloaded'> &
+  PokemonIndividualParams & {
+    ingredients: IngredientProduction[],
+    snorlaxFavorite: SnorlaxFavorite,
+    calculatedConfigBundle: CalculatedConfigBundle,
+  };

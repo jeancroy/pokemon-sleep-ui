@@ -31,7 +31,7 @@ export const AnalysisPageInput = ({
   sleepStyleMap,
   ingredientChainMap,
   pokemonMaxLevel,
-  mapMeta,
+  fieldMetaMap,
   subSkillMap,
   session,
   ...props
@@ -71,7 +71,7 @@ export const AnalysisPageInput = ({
             setFilter={setFilter}
             filterKey="snorlaxFavorite"
             pokemonList={pokemonList}
-            mapMeta={mapMeta}
+            fieldMetaMap={fieldMetaMap}
           />
         </Flex>
       </Collapsible>

@@ -1,21 +1,25 @@
 import {Production} from '@/types/game/producing/rate/base';
-import {TeamMemberProduction} from '@/types/game/team';
-import {TeamAnalysisSlotName, teamAnalysisSlotName} from '@/types/teamAnalysis';
+import {SnorlaxFavorite} from '@/types/game/snorlax';
+import {TeamMemberProduction} from '@/types/game/team/production';
+import {TeamAnalysisSlotName, teamAnalysisSlotName, TeamProductionBySlot} from '@/types/teamAnalysis';
 import {getTeamProductionOfSlot} from '@/ui/team/analysis/calc/slot';
-import {TeamCompCalcOpts} from '@/ui/team/analysis/calc/type';
-import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
-import {getCurrentTeam} from '@/ui/team/analysis/utils';
+import {GetTeamProductionCommonOpts, GetTeamProductionOpts, TeamCompCalcResult} from '@/ui/team/analysis/calc/type';
 import {getPokemonProductionMulti} from '@/utils/game/producing/main/entry/multi';
 import {getTotalPokemonProduction} from '@/utils/game/producing/reducer/total/common';
+import {getCurrentTeam} from '@/utils/team/setup/getCurrentTeam';
 import {isNotNullish} from '@/utils/type';
 
+
+type TeamCompCalcOpts = GetTeamProductionCommonOpts & GetTeamProductionOpts & {
+  snorlaxFavorite: SnorlaxFavorite,
+};
 
 export const getTeamCompCalcResult = ({
   period,
   state,
   snorlaxFavorite,
   ...opts
-}: TeamCompCalcOpts) => {
+}: TeamCompCalcOpts): TeamCompCalcResult => {
   const {setup} = opts;
   const currentTeam = getCurrentTeam({setup});
 
@@ -60,12 +64,12 @@ export const getTeamCompCalcResult = ({
         slotName,
         {
           ...atStage.final,
-          calculatedUserConfig: calculatedUserConfig,
+          calculatedUserConfig,
           total,
           level: currentTeam.members[slotName]?.level ?? null,
         },
       ];
-    })) as TeamProducingStatsBySlot,
+    })) as TeamProductionBySlot,
     grouped,
   };
 };

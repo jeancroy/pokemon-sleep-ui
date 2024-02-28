@@ -1,15 +1,13 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {GroupedProductionByType} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
-import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {TeamAnalysisComp, TeamAnalysisSetup} from '@/types/teamAnalysis';
+import {TeamAnalysisComp, TeamAnalysisSetup, TeamProductionBySlot} from '@/types/teamAnalysis';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
-import {TeamProducingStatsBySlot} from '@/ui/team/analysis/setup/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 
 
-export type GetTeamProductionStatsOpts = TeamAnalysisDataProps & {
+export type GetTeamProductionOpts = TeamAnalysisDataProps & {
   setup: TeamAnalysisSetup,
   currentTeam: TeamAnalysisComp,
   bundle: ConfigBundle,
@@ -17,16 +15,12 @@ export type GetTeamProductionStatsOpts = TeamAnalysisDataProps & {
   overrideLevel?: number,
 };
 
-export type GetTeamProducingStatsCommonOpts = {
+export type GetTeamProductionCommonOpts = {
   period: ProductionPeriod,
   state: ProducingStateCalculated,
 };
 
 export type TeamCompCalcResult = {
-  bySlot: TeamProducingStatsBySlot,
+  bySlot: TeamProductionBySlot,
   grouped: GroupedProductionByType,
-};
-
-export type TeamCompCalcOpts = GetTeamProducingStatsCommonOpts & GetTeamProductionStatsOpts & {
-  snorlaxFavorite: SnorlaxFavorite,
 };

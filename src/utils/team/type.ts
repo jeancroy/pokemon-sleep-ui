@@ -4,13 +4,13 @@ import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {PokeInBox} from '@/types/userData/pokebox';
 
 
-export type ToTeamAnalysisCompFromPokeboxCommonOpts = {
+export type ToTeamCompFromPokeboxCommonOpts = {
   members: PokeInBox[],
   snorlaxFavorite: SnorlaxFavorite,
   name: string,
 };
 
-export type ToTeamAnalysisMemberNullableData = {
+export type ToTeamMemberNullableData = {
   pokedexMap: PokedexMap,
   ingredientChainMap: IngredientChainMap,
 };

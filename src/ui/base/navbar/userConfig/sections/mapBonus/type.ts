@@ -7,5 +7,5 @@ export type UserConfigMapBonusDataProps = {
   mapIds: SleepMapId[],
   maxMapBonusPercent: number,
   pokemonList: PokemonInfo[],
-  mapMeta: FieldMetaMap,
+  fieldMetaMap: FieldMetaMap,
 };

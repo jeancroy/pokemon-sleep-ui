@@ -8,7 +8,7 @@ export type TeamMemberSendRatingRequestOpts = TeamMemberProps & {
 };
 
 export const teamMemberSendRatingRequest = ({
-  config,
+  teamMetadata,
   bundle,
   member,
   pokemon,
@@ -17,7 +17,7 @@ export const teamMemberSendRatingRequest = ({
   ratingControl.sendRequest(toRatingSetup({
     member,
     pokemon,
-    snorlaxFavorite: config.snorlaxFavorite,
+    snorlaxFavorite: teamMetadata.snorlaxFavorite,
     specialtyId: pokemon.specialty,
     bundle,
   }));

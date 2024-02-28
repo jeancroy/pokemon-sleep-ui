@@ -36,7 +36,7 @@ export type PokedexFilter = PokemonInputFilterExtended & PokedexDisplay & {
 export type PokedexDataProps = Omit<PokedexCalcDataProps, 'pokemonList' | 'preloaded'> & {
   pokedex: PokedexData,
   maxLevel: number,
-  mapMeta: FieldMetaMap,
+  fieldMetaMap: FieldMetaMap,
   preloaded: {
     display: Nullable<Partial<PokedexDisplay>>,
     bundle: ConfigBundle,

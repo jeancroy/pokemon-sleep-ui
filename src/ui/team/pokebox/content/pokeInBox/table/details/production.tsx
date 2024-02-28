@@ -25,7 +25,9 @@ export const PokeInBoxTableProduction = ({
   const {berry, ingredient} = rateOfPokemon;
   const rateOfIngredients = Object.values(ingredient);
 
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Common');
+
+  const strengthText = t('Strength');
 
   return (
     <>
@@ -43,7 +45,7 @@ export const PokeInBoxTableProduction = ({
           <div>
             x{formatFloat(berry.qty[pokeInBoxStateOfRate])}
           </div>
-          <ColoredStrengthIcon alt={t('Stats.Energy.Name')}/>
+          <ColoredStrengthIcon alt={strengthText}/>
           <div>
             {formatFloat(berry.strength[pokeInBoxStateOfRate])}
           </div>
@@ -65,7 +67,7 @@ export const PokeInBoxTableProduction = ({
               <div>
                 x{formatFloat(qty[pokeInBoxStateOfRate])}
               </div>
-              <ColoredStrengthIcon alt={t('Stats.Energy.Name')} dimension="size-3"/>
+              <ColoredStrengthIcon alt={strengthText} dimension="size-3"/>
               <div>
                 {formatFloat(strength[pokeInBoxStateOfRate])}
               </div>
@@ -80,7 +82,7 @@ export const PokeInBoxTableProduction = ({
           ids: ['productionTotal'] satisfies PokeboxDisplayType[],
         }) &&
         <Flex direction="row" center noFullWidth className="w-32 gap-0.5 text-lg">
-          <ColoredStrengthIcon dimension="size-6" alt={t('Stats.Energy.Name')}/>
+          <ColoredStrengthIcon dimension="size-6" alt={strengthText}/>
           <div>
             {formatFloat(getTotalStrengthOfPokemonProduction(rateOfPokemon))}
           </div>

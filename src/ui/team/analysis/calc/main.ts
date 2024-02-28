@@ -1,16 +1,16 @@
 import {MealCoverage} from '@/types/game/cooking';
 import {Production} from '@/types/game/producing/rate/base';
+import {TeamProduction} from '@/types/teamAnalysis';
 import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
-import {getTeamProducingStatsTotal} from '@/ui/team/analysis/calc/total';
-import {GetTeamProductionStatsOpts} from '@/ui/team/analysis/calc/type';
+import {getTeamProductionTotal} from '@/ui/team/analysis/calc/total';
+import {GetTeamProductionOpts} from '@/ui/team/analysis/calc/type';
 import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
-import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
 import {getMealCoverage} from '@/utils/game/cooking';
 import {toIngredientProductionCounterFromGroupedRate} from '@/utils/game/producing/ingredient/utils';
 import {getTotalOfGroupedProduction} from '@/utils/game/producing/reducer/total/grouped';
 
 
-export const getTeamProducingStats = (opts: GetTeamProductionStatsOpts): TeamProducingStats => {
+export const getTeamProduction = (opts: GetTeamProductionOpts): TeamProduction => {
   const {
     currentTeam,
     calculatedCookingConfig,
@@ -31,7 +31,7 @@ export const getTeamProducingStats = (opts: GetTeamProductionStatsOpts): TeamPro
     grouped,
   } = compsStats;
 
-  const total = getTeamProducingStatsTotal({
+  const total = getTeamProductionTotal({
     period: analysisPeriod,
     bySlot,
     state: stateOfRateToShow,

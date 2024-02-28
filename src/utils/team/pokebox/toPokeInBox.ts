@@ -1,7 +1,7 @@
 import {v4} from 'uuid';
 
 import {defaultCommonConstPokeInBox} from '@/const/user/pokebox';
-import {TeamMemberData} from '@/types/game/team';
+import {TeamMemberData} from '@/types/game/team/member';
 import {PokeInBox} from '@/types/userData/pokebox';
 
 

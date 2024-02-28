@@ -55,6 +55,34 @@
       "End": "終了",
       "Close": "受取期限"
     },
+    "Team": {
+      "SetupControl": {
+        "Period": "分析周期",
+        "QuickAction": {
+          "Sync": {
+            "Name": "ポケモンをすべて同期",
+            "Syncing": "同期中…"
+          }
+        }
+      },
+      "Member": {
+        "Control": {
+          "ExportToPokebox": "ボックスにエクスポート",
+          "PokeboxLinking": "ポケモンボックス連携",
+          "ShareableLink": "シェアURL",
+          "Rating": "個体評価",
+          "DetailedStats": "詳細分析",
+          "StrengthGrowth": "エナジー成長グラフ",
+          "MealCoverage": "レシピカバー率",
+          "Edit": "編集",
+          "Duplicate": "複製"
+        },
+        "Message": {
+          "ShareableLink": "このチーム編成のこの枠に紐づいています。ポケモンには紐づいていません。",
+          "StrengthGrowth": "このチーム編成で他のポケモンがそのままである場合のグラフを示しています。他のポケモンの成長や変更は考慮されません。"
+        }
+      }
+    },
     "EventList": {
       "Section": {
         "Upcoming": "近日開催",
@@ -162,6 +190,9 @@
     },
     "Rating": {
       "Title": "個体値チェッカー / 個体評価"
+    },
+    "Production": {
+      "Title": "生産性比較"
     },
     "Cooking": {
       "Index": {
@@ -330,11 +361,6 @@
         "Stats": "能力"
       },
       "Stats": {
-        "Energy": {
-          "Daily": "毎日",
-          "Name": "エナジー",
-          "Weekly": "毎週"
-        },
         "FrequencyBase": "おてつだい時間 (ベース)",
         "FrequencyEquivalent": "おてつだい時間 (同等)",
         "Friendship": "フレンドポイント",
@@ -417,28 +443,6 @@
       }
     },
     "Team": {
-      "Analysis": {
-        "Period": "分析周期",
-        "Sync": {
-          "Name": "ポケモンをすべて同期",
-          "Syncing": "同期中…"
-        },
-        "Control": {
-          "ExportToPokebox": "ボックスにエクスポート",
-          "PokeboxLinking": "ポケモンボックス連携",
-          "ShareableLink": "シェアURL",
-          "Rating": "個体評価",
-          "DetailedStats": "詳細分析",
-          "StrengthGrowth": "エナジー成長グラフ",
-          "MealCoverage": "レシピカバー率",
-          "Edit": "編集",
-          "Duplicate": "複製"
-        },
-        "Message": {
-          "ShareableLink": "このチーム編成のこの枠に紐づいています。ポケモンには紐づいていません。",
-          "StrengthGrowth": "このチーム編成で他のポケモンがそのままである場合のグラフを示しています。他のポケモンの成長や変更は考慮されません。"
-        }
-      },
       "CurrentEnergy": "エナジー",
       "SubSkill": "サブスキル",
       "NatureEffect": "せいかく効果",
@@ -589,6 +593,10 @@
       "UnfilledOnly": "空き有"
     },
     "Total": "計",
+    "Period": {
+      "Daily": "毎日",
+      "Weekly": "毎週"
+    },
     "Probability": {
       "NoSkillAfterWakeup": "起床時スキル不発率"
     },

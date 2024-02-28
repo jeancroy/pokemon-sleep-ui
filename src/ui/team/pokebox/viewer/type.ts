@@ -65,6 +65,6 @@ export type PokeboxViewerInputCommonProps =
     pokemonList: PokemonInfo[],
     subSkillMap: SubSkillMap,
     subSkillList: SubSkillData[],
-    mapMeta: FieldMetaMap,
+    fieldMetaMap: FieldMetaMap,
     session: Session | null,
   };

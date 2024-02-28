@@ -1,10 +1,7 @@
-import {TeamAnalysisConfig, TeamAnalysisComp} from '@/types/teamAnalysis';
+import {MongoDataOfUser} from '@/types/mongo/user';
+import {TeamAnalysisComp, TeamAnalysisConfig} from '@/types/teamAnalysis';
 
 
-export type TeamAnalysisDataCommonOpts = {
-  userId: string,
-};
+export type TeamAnalysisConfigData = MongoDataOfUser & TeamAnalysisConfig;
 
-export type TeamAnalysisConfigData = TeamAnalysisDataCommonOpts & TeamAnalysisConfig;
-
-export type TeamAnalysisCompData = TeamAnalysisDataCommonOpts & TeamAnalysisComp;
+export type TeamAnalysisCompData = MongoDataOfUser & TeamAnalysisComp;

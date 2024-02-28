@@ -7,10 +7,14 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
-import {TeamConfig, TeamMemberData, TeamMemberProduction} from '@/types/game/team';
+import {TeamMemberData} from '@/types/game/team/member';
+import {TeamMemberProduction} from '@/types/game/team/production';
+import {TeamMemberStatsType} from '@/types/game/team/statsType';
+import {TeamMetadata} from '@/types/game/team/team';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {ConfigRequiredData} from '@/types/userData/config/data';
+import {Nullable} from '@/utils/type';
 
 
 export type TeamMemberDataProps = UsePokemonFilterCommonData & ConfigRequiredData & {
@@ -24,11 +28,12 @@ export type TeamMemberDataProps = UsePokemonFilterCommonData & ConfigRequiredDat
 };
 
 export type TeamMemberProps = TeamMemberDataProps & {
-  config: TeamConfig,
+  teamMetadata: TeamMetadata,
   bundle: ConfigBundle,
   calculatedCookingConfig: CalculatedCookingConfig,
   member: TeamMemberData,
   memberIdForShare: string,
+  pinnedStats: TeamMemberStatsType[],
   pokemon: PokemonInfo,
   pokemonProducingParams: PokemonProducingParams,
   rate: TeamMemberProduction,
@@ -36,8 +41,7 @@ export type TeamMemberProps = TeamMemberDataProps & {
   collapsible: CollapsibleControl,
   showPokemon: (pokemon: PokemonInfo) => void,
   setMember: (update: Partial<TeamMemberData> | null) => void,
-  getRateByLevel: (level: number) => TeamMemberProduction | null,
+  getRateByLevel: (level: number) => Nullable<TeamMemberProduction>,
   onDuplicateClick: () => void,
   classOfButton?: string,
 };
-

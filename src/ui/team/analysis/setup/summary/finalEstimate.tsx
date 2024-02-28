@@ -9,7 +9,7 @@ import {StrengthIcon} from '@/components/shared/icon/strength';
 import {durationOfDay} from '@/const/common';
 import {Production} from '@/types/game/producing/rate/base';
 import {TeamAnalysisSnorlaxRank} from '@/ui/team/analysis/setup/summary/rank';
-import {TeamFinalEstimateInput} from '@/ui/team/analysis/setup/type';
+import {TeamFinalEstimateInput} from '@/ui/team/analysis/setup/summary/type';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 import {toIsoDateString} from '@/utils/date';
 import {toProductionOfPeriod} from '@/utils/game/producing/convert';

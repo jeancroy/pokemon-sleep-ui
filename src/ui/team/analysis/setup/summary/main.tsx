@@ -7,14 +7,14 @@ import {GenericBerryIcon} from '@/components/shared/icon/berry';
 import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {PokemonProductionSplit} from '@/components/shared/pokemon/production/split/main';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {TeamAnalysisRateLayout} from '@/ui/team/analysis/setup/common/rateLayout';
+import {TeamProduction} from '@/types/teamAnalysis';
 import {TeamAnalysisFinalEstimate} from '@/ui/team/analysis/setup/summary/finalEstimate';
-import {TeamProducingStats} from '@/ui/team/analysis/setup/type';
+import {TeamAnalysisSummaryProductionLayout} from '@/ui/team/analysis/setup/summary/layout';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 
 
 type Props = Pick<TeamAnalysisDataProps, 'snorlaxData'> & {
-  stats: TeamProducingStats,
+  stats: TeamProduction,
   period: ProductionPeriod,
 };
 
@@ -30,19 +30,19 @@ export const TeamAnalysisSummary = ({snorlaxData, stats, period}: Props) => {
   return (
     <Flex className="info-section-bg items-end justify-end gap-3 rounded-lg p-2 md:flex-row">
       <TeamAnalysisFinalEstimate strengthProduction={stats.overall} snorlaxData={snorlaxData}/>
-      <Flex className="justify-end gap-1.5 md:w-fit">
-        <Flex direction="row" noFullWidth wrap className="justify-end gap-x-4 gap-y-1.5">
-          <TeamAnalysisRateLayout
-            period={period} showQuantity={false} rate={berry}
-            icon={<GenericBerryIcon alt={t('Berry')} noWrap/>}
-          />
-          <TeamAnalysisRateLayout
-            period={period}
-            showQuantity={false}
-            rate={ingredient}
-            icon={<GenericIngredientIcon alt={t('Ingredient')} noWrap/>}
-          />
-        </Flex>
+      <Flex className="items-end gap-1 md:w-fit">
+        <TeamAnalysisSummaryProductionLayout
+          period={period}
+          showQuantity={false}
+          rate={berry}
+          icon={<GenericBerryIcon alt={t('Berry')} noWrap/>}
+        />
+        <TeamAnalysisSummaryProductionLayout
+          period={period}
+          showQuantity={false}
+          rate={ingredient}
+          icon={<GenericIngredientIcon alt={t('Ingredient')} noWrap/>}
+        />
         <PokemonProductionSplit
           specialty={null}
           berry={berry.strength}
@@ -50,7 +50,7 @@ export const TeamAnalysisSummary = ({snorlaxData, stats, period}: Props) => {
           skill={skill.strength}
         />
         <Flex direction="row" noFullWidth className="justify-end">
-          <TeamAnalysisRateLayout period={period} larger showQuantity={false} rate={stats.overall}/>
+          <TeamAnalysisSummaryProductionLayout period={period} larger showQuantity={false} rate={stats.overall}/>
         </Flex>
       </Flex>
     </Flex>

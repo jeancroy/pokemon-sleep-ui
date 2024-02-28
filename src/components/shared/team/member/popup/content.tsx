@@ -22,7 +22,7 @@ import {getTotalPokemonIngredientProduction} from '@/utils/game/producing/reduce
 import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 import {formatFloat} from '@/utils/number/format/regular';
 import {generateNumberTicks} from '@/utils/number/generator';
-import {toTeamMember} from '@/utils/team/toMember';
+import {toTeamMemberFromPokeInBox} from '@/utils/team/toMember';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -34,7 +34,7 @@ export const TeamMemberPopupContent = ({
     member,
     setMember,
     mealMap,
-    config,
+    teamMetadata,
     calculatedCookingConfig,
     memberIdForShare,
     pokemonMaxLevel,
@@ -48,7 +48,7 @@ export const TeamMemberPopupContent = ({
   const {type} = control;
 
   const t = useTranslations('UI.Producing');
-  const t2 = useTranslations('UI.InPage.Team.Analysis');
+  const t2 = useTranslations('UI.Component.Team.Member');
 
   if (type === 'memberConfig') {
     return <TeamMemberConfig {...props}/>;
@@ -132,11 +132,10 @@ export const TeamMemberPopupContent = ({
         <MealCoverageCombo
           mealMap={mealMap}
           ingredientProduction={Object.fromEntries(
-            Object.entries(rate.ingredient)
-              .map(([id, rate]) => [id, rate?.qty[stateOfRate] ?? 0]),
+            Object.entries(rate.ingredient).map(([id, rate]) => [id, rate?.qty[stateOfRate] ?? 0]),
           )}
           actualPotCapacity={calculatedCookingConfig.actualPotCapacity}
-          period={config.analysisPeriod}
+          period={teamMetadata.analysisPeriod}
         />
       </Flex>
     );
@@ -149,7 +148,7 @@ export const TeamMemberPopupContent = ({
           initialPokeInBoxUuid={linkedPokeInBoxUuid}
           onLinked={(pokeInBox) => {
             if (pokeInBox) {
-              setMember(toTeamMember(pokeInBox));
+              setMember(toTeamMemberFromPokeInBox(pokeInBox));
             }
 
             hide();

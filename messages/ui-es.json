@@ -55,6 +55,34 @@
       "End": "Hasta",
       "Close": "Cierre"
     },
+    "Team": {
+      "SetupControl": {
+        "Period": "Período de Análisis",
+        "QuickAction": {
+          "Sync": {
+            "Name": "Sincronizar Pokémon",
+            "Syncing": "Sincronizando..."
+          }
+        }
+      },
+      "Member": {
+        "Control": {
+          "ExportToPokebox": "Exportar a Pokebox",
+          "PokeboxLinking": "Enlace Pokebox",
+          "ShareableLink": "Compartir",
+          "Rating": "Clasificación",
+          "DetailedStats": "Estadísticas detalladas",
+          "StrengthGrowth": "Curva de vigor",
+          "MealCoverage": "Cobertura de comidas",
+          "Edit": "Editar",
+          "Duplicate": "Duplicar"
+        },
+        "Message": {
+          "ShareableLink": "Este enlace está vinculado al equipo y espacio, no al Pokémon en sí mismo.",
+          "StrengthGrowth": "Estos resultados suponen que todos los demás Pokémon del equipo no cambian."
+        }
+      }
+    },
     "EventList": {
       "Section": {
         "Upcoming": "Próximo",
@@ -162,6 +190,9 @@
     },
     "Rating": {
       "Title": "Valora mi Pokémon"
+    },
+    "Production": {
+      "Title": "Production Comparison"
     },
     "Cooking": {
       "Index": {
@@ -330,11 +361,6 @@
         "Stats": "Estadísticas"
       },
       "Stats": {
-        "Energy": {
-          "Daily": "Diario",
-          "Name": "Vigor",
-          "Weekly": "Semanal"
-        },
         "FrequencyBase": "Frecuencia (Base)",
         "FrequencyEquivalent": "Frecuencia (Equivalente)",
         "Friendship": "Puntos de Amistad",
@@ -417,28 +443,6 @@
       }
     },
     "Team": {
-      "Analysis": {
-        "Period": "Período de Análisis",
-        "Sync": {
-          "Name": "Sincronizar Pokémon",
-          "Syncing": "Sincronizando..."
-        },
-        "Control": {
-          "ExportToPokebox": "Exportar a Pokebox",
-          "PokeboxLinking": "Enlace Pokebox",
-          "ShareableLink": "Compartir",
-          "Rating": "Clasificación",
-          "DetailedStats": "Estadísticas detalladas",
-          "StrengthGrowth": "Curva de vigor",
-          "MealCoverage": "Cobertura de comidas",
-          "Edit": "Editar",
-          "Duplicate": "Duplicar"
-        },
-        "Message": {
-          "ShareableLink": "Este enlace está vinculado al equipo y espacio, no al Pokémon en sí mismo.",
-          "StrengthGrowth": "Estos resultados suponen que todos los demás Pokémon del equipo no cambian."
-        }
-      },
       "CurrentEnergy": "Vigor",
       "SubSkill": "Habilidad secundaria",
       "NatureEffect": "Efecto de Naturaleza",
@@ -589,6 +593,10 @@
       "UnfilledOnly": "Capacidad no completa"
     },
     "Total": "Total",
+    "Period": {
+      "Daily": "Diario",
+      "Weekly": "Semanal"
+    },
     "Probability": {
       "NoSkillAfterWakeup": "Probabilidad de no activar la habilidad después de despertar"
     },

@@ -59,7 +59,7 @@ const Pokebox = async () => {
     ingredientMap,
     mainSkillMap,
     subSkillMap,
-    mapMeta,
+    fieldMetaMap: mapMeta,
     recipeLevelData,
     preloaded: {
       bundle: createConfigBundle(session),

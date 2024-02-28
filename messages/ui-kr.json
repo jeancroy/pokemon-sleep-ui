@@ -55,6 +55,34 @@
       "End": "To",
       "Close": "Close"
     },
+    "Team": {
+      "SetupControl": {
+        "Period": "분석 주기",
+        "QuickAction": {
+          "Sync": {
+            "Name": "모든 포켓몬 동기화",
+            "Syncing": "Syncing..."
+          }
+        }
+      },
+      "Member": {
+        "Control": {
+          "ExportToPokebox": "Export to Pokebox",
+          "PokeboxLinking": "포켓몬 박스 연동",
+          "ShareableLink": "Sharable Link",
+          "Rating": "Rating",
+          "DetailedStats": "Detailed Stats",
+          "StrengthGrowth": "Strength Growth Curve",
+          "MealCoverage": "Meal Coverage",
+          "Edit": "Edit",
+          "Duplicate": "사본 만들기"
+        },
+        "Message": {
+          "ShareableLink": "This link is bound to the team and the slot, not the Pokemon itself.",
+          "StrengthGrowth": "Results here assume every other Pokemon on the team does not change."
+        }
+      }
+    },
     "EventList": {
       "Section": {
         "Upcoming": "Upcoming",
@@ -162,6 +190,9 @@
     },
     "Rating": {
       "Title": "단독 평가"
+    },
+    "Production": {
+      "Title": "Production Comparison"
     },
     "Cooking": {
       "Index": {
@@ -330,11 +361,6 @@
         "Stats": "능력치"
       },
       "Stats": {
-        "Energy": {
-          "Daily": "매일",
-          "Name": "에너지",
-          "Weekly": "매주"
-        },
         "FrequencyBase": "기본 도우미 시간",
         "FrequencyEquivalent": "도우미 시간",
         "Friendship": "프렌드 포인트",
@@ -417,28 +443,6 @@
       }
     },
     "Team": {
-      "Analysis": {
-        "Period": "분석 주기",
-        "Sync": {
-          "Name": "모든 포켓몬 동기화",
-          "Syncing": "Syncing..."
-        },
-        "Control": {
-          "ExportToPokebox": "Export to Pokebox",
-          "PokeboxLinking": "포켓몬 박스 연동",
-          "ShareableLink": "Sharable Link",
-          "Rating": "Rating",
-          "DetailedStats": "Detailed Stats",
-          "StrengthGrowth": "Strength Growth Curve",
-          "MealCoverage": "Meal Coverage",
-          "Edit": "Edit",
-          "Duplicate": "사본 만들기"
-        },
-        "Message": {
-          "ShareableLink": "This link is bound to the team and the slot, not the Pokemon itself.",
-          "StrengthGrowth": "Results here assume every other Pokemon on the team does not change."
-        }
-      },
       "CurrentEnergy": "에너지",
       "SubSkill": "서브 스킬",
       "NatureEffect": "성격 효과",
@@ -589,6 +593,10 @@
       "UnfilledOnly": "주머니가 비었을 때"
     },
     "Total": "총합",
+    "Period": {
+      "Daily": "매일",
+      "Weekly": "매주"
+    },
     "Probability": {
       "NoSkillAfterWakeup": "기상 후에도 스킬을 사용하지 않을 확률"
     },

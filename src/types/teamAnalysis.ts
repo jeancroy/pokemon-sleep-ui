@@ -1,27 +1,45 @@
-import {TeamConfig, TeamMemberData} from '@/types/game/team';
-import {Migratable} from '@/types/migrate';
+import {MealCoverage} from '@/types/game/cooking';
+import {Production} from '@/types/game/producing/rate/base';
+import {TeamSetupConfig} from '@/types/game/team/config';
+import {TeamMemberData} from '@/types/game/team/member';
+import {TeamMemberProduction} from '@/types/game/team/production';
+import {TeamSetup} from '@/types/game/team/setup';
+import {TeamData} from '@/types/game/team/team';
+import {TeamCompCalcResult} from '@/ui/team/analysis/calc/type';
 
 
 export const teamAnalysisSlotName = ['A', 'B', 'C', 'D', 'E'] as const;
 
 export type TeamAnalysisSlotName = typeof teamAnalysisSlotName[number];
 
-export type TeamAnalysisConfig = Migratable & {
-  current: string,
-};
+export type TeamAnalysisConfig = TeamSetupConfig;
 
-export type TeamAnalysisCompMembers = {[slot in TeamAnalysisSlotName]: TeamMemberData | null};
+export type TeamAnalysisMember = TeamMemberData | null;
 
-export type TeamAnalysisComp = Migratable & TeamConfig & {
-  members: TeamAnalysisCompMembers,
-};
+export type TeamAnalysisComp = TeamData<TeamAnalysisSlotName, TeamAnalysisMember>;
 
-export type TeamAnalysisSetup = {
-  config: TeamAnalysisConfig,
-  comps: {[uuid in string]: TeamAnalysisComp},
-};
+export type TeamAnalysisSetup = TeamSetup<
+  TeamAnalysisSlotName,
+  TeamAnalysisMember,
+  TeamAnalysisConfig,
+  TeamAnalysisComp
+>;
 
 export type TeamMemberIdData = {
   uuid: string,
   slotName: TeamAnalysisSlotName,
+};
+
+export type TeamProductionTotal = {
+  berry: Production,
+  ingredient: Production | null,
+  skill: Production,
+};
+
+export type TeamProductionBySlot = {[slot in TeamAnalysisSlotName]: TeamMemberProduction | null};
+
+export type TeamProduction = TeamCompCalcResult & {
+  total: TeamProductionTotal,
+  overall: Production,
+  mealCoverage: MealCoverage,
 };

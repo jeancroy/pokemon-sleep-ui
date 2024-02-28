@@ -24,7 +24,7 @@ export const UserConfigMapBonusUI = ({
   mapIds,
   maxMapBonusPercent,
   pokemonList,
-  mapMeta,
+  fieldMetaMap,
   config,
   setConfig,
   bonus,
@@ -39,7 +39,7 @@ export const UserConfigMapBonusUI = ({
         setFilter={setConfig}
         filterKey="snorlaxFavorite"
         pokemonList={pokemonList}
-        mapMeta={mapMeta}
+        fieldMetaMap={fieldMetaMap}
       />
       <Grid className="grid-cols-1 gap-1.5 lg:grid-cols-2">
         {mapIds.map((mapId) => (

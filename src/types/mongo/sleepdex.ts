@@ -1,6 +1,5 @@
 import {SleepdexData} from '@/types/game/sleepdex';
+import {MongoDataOfUser} from '@/types/mongo/user';
 
 
-export type SleepdexRecord = SleepdexData & {
-  userId: string,
-};
+export type SleepdexRecord = MongoDataOfUser & SleepdexData;

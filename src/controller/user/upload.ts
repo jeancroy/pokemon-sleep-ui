@@ -17,8 +17,10 @@ import {
   userDataPokeboxDisplay,
   userDataPokedex,
   userDataUserConfig,
+  userProductionComparisonConfig,
   userRatingConfig,
 } from '@/controller/user/manager';
+import {updateProductionComparisonPresets} from '@/controller/user/productionComparison/preset';
 import {addTeamAnalysisComp, updateTeamAnalysisComps} from '@/controller/user/teamAnalysis/comp';
 import {updateTeamAnalysisConfig} from '@/controller/user/teamAnalysis/config';
 import {UserDataUploadOpts} from '@/types/userData/upload';
@@ -76,6 +78,16 @@ export const uploadUserData = async ({userId, opts}: UploadUserDataOpts) => {
     await Promise.all([
       updateTeamAnalysisConfig({userId, config}),
       updateTeamAnalysisComps({userId, comps}),
+    ]);
+    return;
+  }
+
+  if (type === 'productionComparison') {
+    const {config, presets} = data;
+
+    await Promise.all([
+      userProductionComparisonConfig.setData(userId, config),
+      updateProductionComparisonPresets({userId, presets}),
     ]);
     return;
   }

@@ -55,6 +55,34 @@
       "End": "To",
       "Close": "Close"
     },
+    "Team": {
+      "SetupControl": {
+        "Period": "Analysis Period",
+        "QuickAction": {
+          "Sync": {
+            "Name": "Sync All Pokemon",
+            "Syncing": "Syncing..."
+          }
+        }
+      },
+      "Member": {
+        "Control": {
+          "ExportToPokebox": "Export to Pokebox",
+          "PokeboxLinking": "Pokebox Linking",
+          "ShareableLink": "Sharable Link",
+          "Rating": "Rating",
+          "DetailedStats": "Detailed Stats",
+          "StrengthGrowth": "Strength Growth Curve",
+          "MealCoverage": "Meal Coverage",
+          "Edit": "Edit",
+          "Duplicate": "Duplicate"
+        },
+        "Message": {
+          "ShareableLink": "This link is bound to the team and the slot, not the Pokemon itself.",
+          "StrengthGrowth": "Results here assume every other Pokemon on the team does not change."
+        }
+      }
+    },
     "EventList": {
       "Section": {
         "Upcoming": "Upcoming",
@@ -162,6 +190,9 @@
     },
     "Rating": {
       "Title": "Rate my Pokémon"
+    },
+    "Production": {
+      "Title": "Production Comparison"
     },
     "Cooking": {
       "Index": {
@@ -330,11 +361,6 @@
         "Stats": "Stats"
       },
       "Stats": {
-        "Energy": {
-          "Daily": "Daily",
-          "Name": "Strength",
-          "Weekly": "Weekly"
-        },
         "FrequencyBase": "Frequency (Base)",
         "FrequencyEquivalent": "Frequency (Equivalent)",
         "Friendship": "Friendship Points",
@@ -417,28 +443,6 @@
       }
     },
     "Team": {
-      "Analysis": {
-        "Period": "Analysis Period",
-        "Sync": {
-          "Name": "Sync All Pokemon",
-          "Syncing": "Syncing..."
-        },
-        "Control": {
-          "ExportToPokebox": "Export to Pokebox",
-          "PokeboxLinking": "Pokebox Linking",
-          "ShareableLink": "Sharable Link",
-          "Rating": "Rating",
-          "DetailedStats": "Detailed Stats",
-          "StrengthGrowth": "Strength Growth Curve",
-          "MealCoverage": "Meal Coverage",
-          "Edit": "Edit",
-          "Duplicate": "Duplicate"
-        },
-        "Message": {
-          "ShareableLink": "This link is bound to the team and the slot, not the Pokemon itself.",
-          "StrengthGrowth": "Results here assume every other Pokemon on the team does not change."
-        }
-      },
       "CurrentEnergy": "Strength",
       "SubSkill": "Sub Skill",
       "NatureEffect": "Nature Effect",
@@ -589,6 +593,10 @@
       "UnfilledOnly": "Pack Unfilled"
     },
     "Total": "Total",
+    "Period": {
+      "Daily": "Daily",
+      "Weekly": "Weekly"
+    },
     "Probability": {
       "NoSkillAfterWakeup": "Probability of no skill after wakeup"
     },
