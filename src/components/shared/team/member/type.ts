@@ -14,6 +14,7 @@ import {TeamMetadata} from '@/types/game/team/team';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {ConfigRequiredData} from '@/types/userData/config/data';
+import {Nullable} from '@/utils/type';
 
 
 export type TeamMemberDataProps = UsePokemonFilterCommonData & ConfigRequiredData & {
@@ -40,7 +41,7 @@ export type TeamMemberProps = TeamMemberDataProps & {
   collapsible: CollapsibleControl,
   showPokemon: (pokemon: PokemonInfo) => void,
   setMember: (update: Partial<TeamMemberData> | null) => void,
-  getRateByLevel: (level: number) => TeamMemberProduction | null,
+  getRateByLevel: (level: number) => Nullable<TeamMemberProduction>,
   onDuplicateClick: () => void,
   classOfButton?: string,
 };

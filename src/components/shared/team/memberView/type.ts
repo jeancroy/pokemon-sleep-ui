@@ -41,7 +41,7 @@ export type TeamMemberFilledProps<
   calculatedCookingConfig: CalculatedCookingConfig,
   maxEvolutionCount: number,
   setupControl: TeamSetupControl<TKey, TMember, TConfig, TTeam, TSetup>,
-  getRateByLevel: (level: number, memberKey: TKey) => TeamMemberProduction | null,
+  getRateByLevel: (level: number, memberKey: TKey) => Nullable<TeamMemberProduction>,
 };
 
 export type TeamMemberFilledSlotProps<
