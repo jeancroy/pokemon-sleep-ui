@@ -74,7 +74,7 @@ export const TeamSetupControlUI = <
 
           return {
             ...setup,
-            comps: {
+            teams: {
               ...setup.teams,
               [updated.uuid]: updated,
             },
@@ -91,7 +91,7 @@ export const TeamSetupControlUI = <
         isActive={(period) => period === currentTeam.analysisPeriod}
         onClick={(analysisPeriod) => setSetup((setup) => ({
           ...setup,
-          comps: {
+          teams: {
             ...setup.teams,
             [currentTeam.uuid]: {
               ...currentTeam,
