@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {XMarkIcon} from '@heroicons/react/24/outline';
 import DocumentDuplicateIcon from '@heroicons/react/24/outline/DocumentDuplicateIcon';
 import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
@@ -11,6 +12,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {DeleteButton} from '@/components/shared/common/button/delete';
 import {IconWithInfo} from '@/components/shared/common/image/iconWithInfo';
 import {UnavailableIcon} from '@/components/shared/common/unavailable';
+import {maxTeamSelectorPreviewMemberCount} from '@/components/shared/team/selector/const';
 import {TeamSelectorContentCommonProps} from '@/components/shared/team/selector/content/type';
 import {imageIconSizes} from '@/styles/image';
 import {TeamSetupConfig} from '@/types/game/team/config';
@@ -51,6 +53,7 @@ export const TeamSelectButton = <
   const t = useTranslations('Game');
 
   const isCurrent = current === team.uuid;
+  const memberList = getMemberList(team);
 
   return (
     <AnimatedCollapseQuick key={team.uuid} show appear className="border-common rounded-lg border">
@@ -81,18 +84,21 @@ export const TeamSelectButton = <
           onClick={() => onPicked(team.uuid)}
           className="enabled:button-clickable gap-1.5 p-2"
         >
-          {getMemberList(team).map((member, idx) => (
-            member ?
-              <IconWithInfo
-                key={idx}
-                imageSrc={`/images/pokemon/icons/${member.pokemonId}.png`}
-                imageAlt={member.name || t(`PokemonName.${member.pokemonId}`)}
-                imageDimension="size-12"
-                imageSizes={imageIconSizes}
-                info={member.level}
-              /> :
-              <UnavailableIcon key={idx}/>
-          ))}
+          {memberList.length ?
+            // Limit member count to show on preview to avoid too many members cramming the preview
+            memberList.slice(0, maxTeamSelectorPreviewMemberCount).map((member, idx) => (
+              member ?
+                <IconWithInfo
+                  key={idx}
+                  imageSrc={`/images/pokemon/icons/${member.pokemonId}.png`}
+                  imageAlt={member.name || t(`PokemonName.${member.pokemonId}`)}
+                  imageDimension="size-12"
+                  imageSizes={imageIconSizes}
+                  info={member.level}
+                /> :
+                <UnavailableIcon key={idx}/>
+            )) :
+            <XMarkIcon className="size-12"/>}
         </FlexButton>
       </Flex>
     </AnimatedCollapseQuick>
