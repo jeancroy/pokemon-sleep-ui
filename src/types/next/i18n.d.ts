@@ -87,6 +87,23 @@ declare global {
               },
             },
           },
+          Member: {
+            Control: {
+              ExportToPokebox: string,
+              PokeboxLinking: string,
+              ShareableLink: string,
+              Rating: string,
+              DetailedStats: string,
+              StrengthGrowth: string,
+              MealCoverage: string,
+              Edit: string,
+              Duplicate: string,
+            },
+            Message: {
+              ShareableLink: string,
+              StrengthGrowth: string,
+            },
+          },
         },
         EventList: {
           Section: {
@@ -311,23 +328,6 @@ declare global {
           },
         },
         Team: {
-          Analysis: {
-            Control: {
-              ExportToPokebox: string,
-              PokeboxLinking: string,
-              ShareableLink: string,
-              Rating: string,
-              DetailedStats: string,
-              StrengthGrowth: string,
-              MealCoverage: string,
-              Edit: string,
-              Duplicate: string,
-            },
-            Message: {
-              ShareableLink: string,
-              StrengthGrowth: string,
-            },
-          },
           CurrentEnergy: string,
           SubSkill: string,
           NatureEffect: string,

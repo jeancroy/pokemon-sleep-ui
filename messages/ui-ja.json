@@ -64,6 +64,23 @@
             "Syncing": "同期中…"
           }
         }
+      },
+      "Member": {
+        "Control": {
+          "ExportToPokebox": "ボックスにエクスポート",
+          "PokeboxLinking": "ポケモンボックス連携",
+          "ShareableLink": "シェアURL",
+          "Rating": "個体評価",
+          "DetailedStats": "詳細分析",
+          "StrengthGrowth": "エナジー成長グラフ",
+          "MealCoverage": "レシピカバー率",
+          "Edit": "編集",
+          "Duplicate": "複製"
+        },
+        "Message": {
+          "ShareableLink": "このチーム編成のこの枠に紐づいています。ポケモンには紐づいていません。",
+          "StrengthGrowth": "このチーム編成で他のポケモンがそのままである場合のグラフを示しています。他のポケモンの成長や変更は考慮されません。"
+        }
       }
     },
     "EventList": {
@@ -426,23 +443,6 @@
       }
     },
     "Team": {
-      "Analysis": {
-        "Control": {
-          "ExportToPokebox": "ボックスにエクスポート",
-          "PokeboxLinking": "ポケモンボックス連携",
-          "ShareableLink": "シェアURL",
-          "Rating": "個体評価",
-          "DetailedStats": "詳細分析",
-          "StrengthGrowth": "エナジー成長グラフ",
-          "MealCoverage": "レシピカバー率",
-          "Edit": "編集",
-          "Duplicate": "複製"
-        },
-        "Message": {
-          "ShareableLink": "このチーム編成のこの枠に紐づいています。ポケモンには紐づいていません。",
-          "StrengthGrowth": "このチーム編成で他のポケモンがそのままである場合のグラフを示しています。他のポケモンの成長や変更は考慮されません。"
-        }
-      },
       "CurrentEnergy": "エナジー",
       "SubSkill": "サブスキル",
       "NatureEffect": "せいかく効果",

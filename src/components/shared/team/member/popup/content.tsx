@@ -48,7 +48,7 @@ export const TeamMemberPopupContent = ({
   const {type} = control;
 
   const t = useTranslations('UI.Producing');
-  const t2 = useTranslations('UI.InPage.Team.Analysis');
+  const t2 = useTranslations('UI.Component.Team.Member');
 
   if (type === 'memberConfig') {
     return <TeamMemberConfig {...props}/>;

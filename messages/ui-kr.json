@@ -64,6 +64,23 @@
             "Syncing": "Syncing..."
           }
         }
+      },
+      "Member": {
+        "Control": {
+          "ExportToPokebox": "Export to Pokebox",
+          "PokeboxLinking": "포켓몬 박스 연동",
+          "ShareableLink": "Sharable Link",
+          "Rating": "Rating",
+          "DetailedStats": "Detailed Stats",
+          "StrengthGrowth": "Strength Growth Curve",
+          "MealCoverage": "Meal Coverage",
+          "Edit": "Edit",
+          "Duplicate": "사본 만들기"
+        },
+        "Message": {
+          "ShareableLink": "This link is bound to the team and the slot, not the Pokemon itself.",
+          "StrengthGrowth": "Results here assume every other Pokemon on the team does not change."
+        }
       }
     },
     "EventList": {
@@ -426,23 +443,6 @@
       }
     },
     "Team": {
-      "Analysis": {
-        "Control": {
-          "ExportToPokebox": "Export to Pokebox",
-          "PokeboxLinking": "포켓몬 박스 연동",
-          "ShareableLink": "Sharable Link",
-          "Rating": "Rating",
-          "DetailedStats": "Detailed Stats",
-          "StrengthGrowth": "Strength Growth Curve",
-          "MealCoverage": "Meal Coverage",
-          "Edit": "Edit",
-          "Duplicate": "사본 만들기"
-        },
-        "Message": {
-          "ShareableLink": "This link is bound to the team and the slot, not the Pokemon itself.",
-          "StrengthGrowth": "Results here assume every other Pokemon on the team does not change."
-        }
-      },
       "CurrentEnergy": "에너지",
       "SubSkill": "서브 스킬",
       "NatureEffect": "성격 효과",

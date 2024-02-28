@@ -64,6 +64,23 @@
             "Syncing": "Synchronisiere..."
           }
         }
+      },
+      "Member": {
+        "Control": {
+          "ExportToPokebox": "Export zur Pokebox",
+          "PokeboxLinking": "Pokebox Verlinkung",
+          "ShareableLink": "Teilbarer Link",
+          "Rating": "Bewertung",
+          "DetailedStats": "Detaillierte Werte",
+          "StrengthGrowth": "Stärkewachstums-Graph",
+          "MealCoverage": "Gericht-Abdeckung",
+          "Edit": "Bearbeiten",
+          "Duplicate": "Duplizieren"
+        },
+        "Message": {
+          "ShareableLink": "Dieser Link ist is an das Team und den Teamplatz gebunden, nicht an das Pokemon selbst.",
+          "StrengthGrowth": "Die Ergebnisse hier setzen voraus, dass die anderen Pokemon im Team ungeändert bleiben."
+        }
       }
     },
     "EventList": {
@@ -426,23 +443,6 @@
       }
     },
     "Team": {
-      "Analysis": {
-        "Control": {
-          "ExportToPokebox": "Export zur Pokebox",
-          "PokeboxLinking": "Pokebox Verlinkung",
-          "ShareableLink": "Teilbarer Link",
-          "Rating": "Bewertung",
-          "DetailedStats": "Detaillierte Werte",
-          "StrengthGrowth": "Stärkewachstums-Graph",
-          "MealCoverage": "Gericht-Abdeckung",
-          "Edit": "Bearbeiten",
-          "Duplicate": "Duplizieren"
-        },
-        "Message": {
-          "ShareableLink": "Dieser Link ist is an das Team und den Teamplatz gebunden, nicht an das Pokemon selbst.",
-          "StrengthGrowth": "Die Ergebnisse hier setzen voraus, dass die anderen Pokemon im Team ungeändert bleiben."
-        }
-      },
       "CurrentEnergy": "Stärke",
       "SubSkill": "Nebentalent",
       "NatureEffect": "Effekt des Wesens",

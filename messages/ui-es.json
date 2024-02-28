@@ -64,6 +64,23 @@
             "Syncing": "Sincronizando..."
           }
         }
+      },
+      "Member": {
+        "Control": {
+          "ExportToPokebox": "Exportar a Pokebox",
+          "PokeboxLinking": "Enlace Pokebox",
+          "ShareableLink": "Compartir",
+          "Rating": "Clasificación",
+          "DetailedStats": "Estadísticas detalladas",
+          "StrengthGrowth": "Curva de vigor",
+          "MealCoverage": "Cobertura de comidas",
+          "Edit": "Editar",
+          "Duplicate": "Duplicar"
+        },
+        "Message": {
+          "ShareableLink": "Este enlace está vinculado al equipo y espacio, no al Pokémon en sí mismo.",
+          "StrengthGrowth": "Estos resultados suponen que todos los demás Pokémon del equipo no cambian."
+        }
       }
     },
     "EventList": {
@@ -426,23 +443,6 @@
       }
     },
     "Team": {
-      "Analysis": {
-        "Control": {
-          "ExportToPokebox": "Exportar a Pokebox",
-          "PokeboxLinking": "Enlace Pokebox",
-          "ShareableLink": "Compartir",
-          "Rating": "Clasificación",
-          "DetailedStats": "Estadísticas detalladas",
-          "StrengthGrowth": "Curva de vigor",
-          "MealCoverage": "Cobertura de comidas",
-          "Edit": "Editar",
-          "Duplicate": "Duplicar"
-        },
-        "Message": {
-          "ShareableLink": "Este enlace está vinculado al equipo y espacio, no al Pokémon en sí mismo.",
-          "StrengthGrowth": "Estos resultados suponen que todos los demás Pokémon del equipo no cambian."
-        }
-      },
       "CurrentEnergy": "Vigor",
       "SubSkill": "Habilidad secundaria",
       "NatureEffect": "Efecto de Naturaleza",

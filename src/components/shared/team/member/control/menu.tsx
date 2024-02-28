@@ -45,7 +45,7 @@ export const TeamMemberControlMenu = ({
   const {member, onDuplicateClick} = props;
 
   const {act, status} = useUserDataActor({statusToast: true});
-  const t = useTranslations('UI.InPage.Team.Analysis');
+  const t = useTranslations('UI.Component.Team.Member');
 
   return (
     <DropDown
