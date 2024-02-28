@@ -18,7 +18,7 @@ export const getRatingValueOfPossibility = ({combination, ...opts}: GetRatingVal
   const {nature, subSkill, ingredients} = combination;
 
   const {
-    singleParams,
+    individual,
     calculatedCookingConfig,
     targetMeals,
   } = getRatingValueCommon({
@@ -32,7 +32,7 @@ export const getRatingValueOfPossibility = ({combination, ...opts}: GetRatingVal
     ...opts,
     rate: getPokemonProductionSingle({
       ...opts,
-      ...singleParams,
+      individual,
       ingredients,
       calculatedCookingConfig,
       calcBehavior: getRatingProductionCalcBehavior(basis),

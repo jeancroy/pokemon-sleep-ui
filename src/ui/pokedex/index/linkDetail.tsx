@@ -103,7 +103,7 @@ export const PokedexLinkDetail = React.memo(({
 
   const {bundle, calculatedCookingConfig} = calculatedConfigBundle;
 
-  const individualParams = getProductionIndividualParams({
+  const individual = getProductionIndividualParams({
     input: {level, subSkill, nature},
     pokemon,
     subSkillMap,
@@ -124,7 +124,7 @@ export const PokedexLinkDetail = React.memo(({
       recipeLevelData,
       eventStrengthMultiplierData,
       cookingRecoveryData,
-      ...individualParams,
+      individual,
     }).atStage.final;
 
     if (display === 'ingredientCount') {
@@ -183,7 +183,7 @@ export const PokedexLinkDetail = React.memo(({
     eventStrengthMultiplierData,
     calculatedConfigBundle,
     dateAdded: null,
-    ...individualParams,
+    ...individual,
   });
 
   if (display === 'friendshipPoint') {

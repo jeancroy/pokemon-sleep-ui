@@ -39,7 +39,7 @@ export const getPokemonProductionCombinationRateCollection = ({
         rate: getPokemonProductionSingle({
           ingredients,
           skillData,
-          ...getProductionIndividualParams({
+          individual: getProductionIndividualParams({
             input,
             pokemon,
             subSkillMap,

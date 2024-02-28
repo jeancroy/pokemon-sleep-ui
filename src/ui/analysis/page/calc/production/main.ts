@@ -37,7 +37,7 @@ export const getAnalysisStatsOfProduction = (opts: GetAnalysisStatsOpts): Analys
     pokemonProducingParams: currentPokemonProducingParams,
     berryData: berryDataMap[pokemon.berry.id],
     skillData: mainSkillMap[pokemon.skill],
-    ...getProductionIndividualParams({
+    individual: getProductionIndividualParams({
       input: {
         level,
         subSkill,
@@ -67,7 +67,7 @@ export const getAnalysisStatsOfProduction = (opts: GetAnalysisStatsOpts): Analys
       berryData: berryDataMap[otherPokemon.berry.id],
       skillData: mainSkillMap[otherPokemon.skill],
       ingredients: otherIngredients,
-      ...getProductionIndividualParams({
+      individual: getProductionIndividualParams({
         input: {
           level,
           subSkill,

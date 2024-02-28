@@ -46,7 +46,7 @@ const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
             berryData: berryDataMap[pokemon.berry.id],
             ingredients,
             skillData: mainSkillMap[pokemon.skill],
-            ...getProductionIndividualParams({
+            individual: getProductionIndividualParams({
               input,
               pokemon,
               subSkillMap,

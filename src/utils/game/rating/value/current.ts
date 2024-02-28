@@ -14,7 +14,7 @@ export const getRatingValueOfCurrent = (opts: GetRatingValueOfSimulationOpts) =>
   } = opts;
 
   const {
-    singleParams,
+    individual,
     calculatedCookingConfig,
     targetMeals,
   } = getRatingValueCommon({
@@ -28,7 +28,7 @@ export const getRatingValueOfCurrent = (opts: GetRatingValueOfSimulationOpts) =>
     ...opts,
     rate: getPokemonProductionSingle({
       ...opts,
-      ...singleParams,
+      individual,
       calculatedCookingConfig,
       calcBehavior: getRatingProductionCalcBehavior(basis),
     }).atStage.final,

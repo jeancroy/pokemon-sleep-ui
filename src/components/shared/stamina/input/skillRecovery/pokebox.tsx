@@ -47,7 +47,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
           berryData: berryDataMap[pokemon.berry.id],
           ingredients: getEffectiveIngredientProductions(pokeInBox),
           skillData: mainSkillMap[pokemon.skill],
-          ...getProductionIndividualParams({
+          individual: getProductionIndividualParams({
             input: pokeInBox,
             pokemon,
             subSkillMap,

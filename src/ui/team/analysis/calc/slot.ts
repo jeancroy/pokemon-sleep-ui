@@ -2,7 +2,10 @@ import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
 import {GetTeamProductionOpts} from '@/ui/team/analysis/calc/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {GetPokemonProductionOpts} from '@/utils/game/producing/main/type';
-import {getPokemonProducingParams, getProductionSingleParams} from '@/utils/game/producing/params';
+import {
+  getPokemonProducingParams,
+  getProductionIndividualParams,
+} from '@/utils/game/producing/params';
 
 
 type GetTeamProductionOfSlotOpts = GetTeamProductionOpts & {
@@ -35,10 +38,6 @@ export const getTeamProductionOfSlot = ({
   const {
     pokemonId,
     ingredients,
-    evolutionCount,
-    subSkill,
-    nature,
-    seeds,
     alwaysFullPack,
   } = member;
 
@@ -48,17 +47,15 @@ export const getTeamProductionOfSlot = ({
   }
 
   const level = overrideLevel ?? member.level;
-  const singleParams = getProductionSingleParams({
-    level,
-    subSkill,
-    nature,
+  const individual = getProductionIndividualParams({
+    input: member,
+    pokemon,
     subSkillMap,
+    overrideLevel,
   });
 
   return {
     rateOpts: {
-      ...singleParams,
-      level,
       pokemon,
       pokemonProducingParams: getPokemonProducingParams({
         pokemonId: pokemon.id,
@@ -69,8 +66,7 @@ export const getTeamProductionOfSlot = ({
       ingredientMap,
       recipeLevelData,
       skillData: mainSkillMap[pokemon.skill],
-      evolutionCount,
-      seeds,
+      individual,
       alwaysFullPack,
     },
   };

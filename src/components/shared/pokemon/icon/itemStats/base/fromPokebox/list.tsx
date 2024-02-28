@@ -17,9 +17,7 @@ import {imageIconSizes} from '@/styles/image';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
 import {
-  getPokemonProducingParams,
-  getProductionImplicitParamsFromPokeInbox,
-  getProductionSingleParams,
+  getPokemonProducingParams, getProductionIndividualParams,
 } from '@/utils/game/producing/params';
 import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 import {migrate} from '@/utils/migrate/main';
@@ -78,13 +76,13 @@ export const PokemonItemStatsFromPokeboxList = ({
       .filter(isNotNullish)
       .map(({pokeInBox, pokemonInfo: pokemon}) => {
         const ingredients = getEffectiveIngredientProductions(pokeInBox);
-        const singleParams = getProductionSingleParams({
+        const individual = getProductionIndividualParams({
+          input: pokeInBox,
+          pokemon,
           ...props,
-          ...pokeInBox,
         });
         const pokemonRate = getPokemonProductionSingle({
           ...props,
-          level: pokeInBox.level,
           pokemon,
           pokemonProducingParams: getPokemonProducingParams({
             pokemonId: pokemon.id,
@@ -93,8 +91,7 @@ export const PokemonItemStatsFromPokeboxList = ({
           snorlaxFavorite,
           bundle,
           calculatedCookingConfig,
-          ...singleParams,
-          ...getProductionImplicitParamsFromPokeInbox({pokeInBox}),
+          individual,
           berryData: berryDataMap[pokemon.berry.id],
           ingredients,
           skillData: mainSkillMap[pokemon.skill],

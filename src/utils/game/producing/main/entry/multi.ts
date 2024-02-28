@@ -47,7 +47,7 @@ export const getPokemonProductionMulti = <TPayload>({
   calcBehavior ??= defaultProductionCalcBehavior;
 
   const subSkillBonuses = subSkillBonusOverride ?? rateOpts
-    .map(({opts}) => opts.subSkillBonus)
+    .map(({opts}) => opts.individual.subSkillBonus)
     .filter(isNotNullish);
 
   const helpingBonusEffect = getPokemonProductionHelpingBonusEffect({

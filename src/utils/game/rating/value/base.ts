@@ -14,7 +14,7 @@ export const getRatingValueOfBase = (opts: GetRatingValueOfSimulationOpts) => {
   } = opts;
 
   const {
-    singleParams,
+    individual,
     calculatedCookingConfig,
     targetMeals,
   } = getRatingValueCommon({
@@ -28,9 +28,11 @@ export const getRatingValueOfBase = (opts: GetRatingValueOfSimulationOpts) => {
     ...opts,
     rate: getPokemonProductionSingle({
       ...opts,
-      ...singleParams,
-      // Override `evolutionCount` in `opts` to apply default evolution count of the Pokémon
-      evolutionCount: getEvolutionCountFromPokemonInfo({pokemon}),
+      individual: {
+        ...individual,
+        // Override `evolutionCount` to apply default evolution count of the Pokémon
+        evolutionCount: getEvolutionCountFromPokemonInfo({pokemon}),
+      },
       calculatedCookingConfig,
       calcBehavior: getRatingProductionCalcBehavior(basis),
     }).atStage.final,

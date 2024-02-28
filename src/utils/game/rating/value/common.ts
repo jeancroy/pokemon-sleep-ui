@@ -1,6 +1,6 @@
 import {NatureId} from '@/types/game/pokemon/nature';
 import {PokemonSubSkill} from '@/types/game/pokemon/subSkill';
-import {getProductionSingleParams} from '@/utils/game/producing/params';
+import {getProductionIndividualParams} from '@/utils/game/producing/params';
 import {GetRatingValueOfSimulationOpts} from '@/utils/game/rating/type';
 import {RatingValueCommonData} from '@/utils/game/rating/value/type';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
@@ -28,15 +28,15 @@ export const getRatingValueCommon = (opts: GetRatingValueCommonOpts): RatingValu
   const {
     subSkillMap,
     bundle,
+    pokemon,
   } = baseOpts;
 
-  const singleParams = getProductionSingleParams({
-    level,
-    subSkill,
-    nature,
+  const individual = getProductionIndividualParams({
+    input: {level, subSkill, nature},
+    pokemon,
     subSkillMap,
   });
-  const {natureId, subSkillBonus} = singleParams;
+  const {natureId, subSkillBonus} = individual;
 
   const calculatedConfigBundle = toCalculatedConfigBundle({
     ...baseOpts,
@@ -50,7 +50,7 @@ export const getRatingValueCommon = (opts: GetRatingValueCommonOpts): RatingValu
   const {targetMeals} = calculatedCookingConfig;
 
   return {
-    singleParams,
+    individual,
     calculatedCookingConfig,
     targetMeals,
   };

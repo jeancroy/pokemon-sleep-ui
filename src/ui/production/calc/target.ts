@@ -45,7 +45,7 @@ export const getProductionComparisonTargetStats = ({
       level,
       ingredients: target.ingredients,
     }),
-    ...getProductionIndividualParams({
+    individual: getProductionIndividualParams({
       input: {...target, level},
       pokemon,
       subSkillMap,
