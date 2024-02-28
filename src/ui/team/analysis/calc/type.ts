@@ -1,7 +1,6 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {GroupedProductionByType} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
-import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamAnalysisComp, TeamAnalysisSetup, TeamProductionBySlot} from '@/types/teamAnalysis';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
@@ -25,8 +24,3 @@ export type TeamCompCalcResult = {
   bySlot: TeamProductionBySlot,
   grouped: GroupedProductionByType,
 };
-
-export type TeamCompCalcOpts = GetTeamProductionCommonOpts & GetTeamProductionOpts & {
-  snorlaxFavorite: SnorlaxFavorite,
-};
-

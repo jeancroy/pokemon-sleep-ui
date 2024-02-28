@@ -5,6 +5,7 @@ import {TeamProduction} from '@/types/teamAnalysis';
 import {getTeamProduction} from '@/ui/team/analysis/calc/main';
 import {GetTeamProductionOpts} from '@/ui/team/analysis/calc/type';
 import {isProduction} from '@/utils/environment';
+import {Nullable} from '@/utils/type';
 
 
 export const useTeamProduction = ({
@@ -30,7 +31,7 @@ export const useTeamProduction = ({
   currentTeam,
   calculatedCookingConfig,
   overrideLevel,
-}: GetTeamProductionOpts) => {
+}: GetTeamProductionOpts): Nullable<TeamProduction> => {
   const [result, setResult] = React.useState<TeamProduction>();
 
   const {work} = useWorker<GetTeamProductionOpts, TeamProduction>({
@@ -53,7 +54,7 @@ export const useTeamProduction = ({
       berryDataMap,
       mainSkillMap,
       snorlaxData,
-      fieldMetaMap: fieldMetaMap,
+      fieldMetaMap,
       recipeLevelData,
       eventStrengthMultiplierData,
       subSkillMap,
