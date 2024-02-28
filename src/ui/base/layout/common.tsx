@@ -68,7 +68,7 @@ export const PageLayout = ({
             <NavListContent/>
           </I18nProvider>
         </Flex>
-        <div className="size-full overflow-y-auto">
+        <div className="size-full overflow-y-visible">
           <Flex className="gap-1 p-2">
             {announcement && <Announcements showOn="portrait" height="h-10"/>}
             {!noPageEndAds && <AdsUnit/>}
