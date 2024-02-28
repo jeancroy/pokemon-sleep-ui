@@ -54,6 +54,9 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
           }),
           snorlaxFavorite,
           calculatedCookingConfig: toCalculatedCookingConfig({...bundle, mealMap}),
+          // Do not calculate as single, otherwise the recovery settings before this calc gets applied
+          // This causes each calc to gradually increase the daily count until it reaches the optima
+          calcBehavior: {asSingle: false},
           ...props,
         }).atStage.final;
 
