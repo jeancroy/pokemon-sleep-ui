@@ -7,6 +7,7 @@ import {getSleepdexMap, getSleepdexMapOfPokemon} from '@/controller/sleepdex';
 import {getActivationDataByFilter} from '@/controller/user/activation/data';
 import {generateActivationKey, getActivationKeyByFilter} from '@/controller/user/activation/key';
 import {userRatingConfig} from '@/controller/user/manager';
+import {getProductionComparisonTargetById} from '@/controller/user/productionComparison/preset';
 import {getTeamMemberById} from '@/controller/user/teamAnalysis/comp';
 import {ActivationData} from '@/types/mongo/activation';
 import {UserDataLoadingOpts} from '@/types/userData/load';
@@ -39,6 +40,12 @@ const loadData = async ({userId, options}: GetUserLazyDataOpts) => {
     }
 
     return member satisfies UserLazyLoadedData['teamAnalysisMember'];
+  }
+
+  if (type === 'productionComparisonTarget') {
+    const target = await getProductionComparisonTargetById(opts.targetUuid) ?? undefined;
+
+    return target satisfies UserLazyLoadedData['productionComparisonTarget'];
   }
 
   if (type === 'pokeboxSingle') {

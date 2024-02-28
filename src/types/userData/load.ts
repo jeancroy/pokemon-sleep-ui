@@ -12,6 +12,11 @@ export type UserDataLoadingOpts = {
     teamMemberId: string,
   },
 } | {
+  type: 'productionComparisonTarget',
+  opts: {
+    targetUuid: string,
+  },
+} | {
   type: 'pokeboxSingle',
   opts: {
     pokeInBoxUuid: string,

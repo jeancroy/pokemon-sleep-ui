@@ -8,6 +8,7 @@ import {PacketRecordingConfig} from '@/types/packet/config';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CookingConfig} from '@/types/userData/config/cooking/main';
 import {PokeInBox} from '@/types/userData/pokebox';
+import {UserProductionComparisonContent} from '@/types/userData/productionComparison';
 import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
 import {PokedexDisplay} from '@/ui/pokedex/index/type';
 import {PokeboxViewerDisplay} from '@/ui/team/pokebox/viewer/type';
@@ -32,6 +33,9 @@ export type UserDataUploadOpts = {
 } | {
   type: 'teamAnalysis',
   data: UserTeamAnalysisContent,
+} | {
+  type: 'productionComparison',
+  data: UserProductionComparisonContent,
 } | {
   type: 'team.maker.export',
   data: ToTeamCompFromPokeboxCommonOpts,
