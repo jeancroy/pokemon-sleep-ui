@@ -1,3 +1,5 @@
+import omit from 'lodash/omit';
+
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetup} from '@/types/game/team/setup';
@@ -37,6 +39,13 @@ export const getCurrentTeam = <
 
   if (!override) {
     return currentTeam;
+  }
+
+  if (override.member === null) {
+    return {
+      ...currentTeam,
+      members: omit(currentTeam.members, override.key),
+    };
   }
 
   return {
