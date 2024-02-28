@@ -1,4 +1,4 @@
-import {zip} from 'lodash';
+import zip from 'lodash/zip';
 
 import {PatreonCampaignMemberResponse} from '@/handler/activation/check/patreon/api/campaign/type';
 import {patreonSearchParams} from '@/handler/activation/check/patreon/api/const';

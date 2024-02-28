@@ -2,7 +2,7 @@ import React from 'react';
 
 import {InboxArrowDownIcon} from '@heroicons/react/24/outline';
 import LinkIcon from '@heroicons/react/24/outline/LinkIcon';
-import {pick} from 'lodash';
+import pick from 'lodash/pick';
 import {useTranslations} from 'next-intl';
 
 import {AdsUnit} from '@/components/ads/main';

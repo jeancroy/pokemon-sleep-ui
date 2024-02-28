@@ -1,5 +1,5 @@
-import {uniqBy} from 'lodash';
 import groupBy from 'lodash/groupBy';
+import uniqBy from 'lodash/uniqBy';
 
 import {IngredientCounter, IngredientOfMeals} from '@/types/game/ingredient';
 import {MealIngredientInfo} from '@/types/game/meal/info';

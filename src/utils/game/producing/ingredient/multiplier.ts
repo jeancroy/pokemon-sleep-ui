@@ -1,4 +1,4 @@
-import {countBy} from 'lodash';
+import countBy from 'lodash/countBy';
 
 import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
 import {IngredientCounter, IngredientId, IngredientMap} from '@/types/game/ingredient';

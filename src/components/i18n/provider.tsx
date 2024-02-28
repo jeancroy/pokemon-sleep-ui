@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {pick} from 'lodash';
+import pick from 'lodash/pick';
 import {NextIntlClientProvider} from 'next-intl';
 
 import {I18nNamespaces} from '@/types/i18n';

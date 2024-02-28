@@ -1,4 +1,5 @@
-import {ValueIteratee, uniqBy} from 'lodash';
+import {ValueIteratee} from 'lodash';
+import uniqBy from 'lodash/uniqBy';
 
 import {ActivationScanResult} from '@/handler/activation/poll/scan/type';
 
