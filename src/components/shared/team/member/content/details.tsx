@@ -19,8 +19,8 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
     rate,
   } = props;
   const {skill} = pokemon;
-  const {params} = rate;
-  const {skillTrigger} = params;
+  const {intermediate} = rate;
+  const {skillTrigger} = intermediate;
 
   const t = useTranslations('Game');
 

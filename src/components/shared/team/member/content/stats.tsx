@@ -39,7 +39,7 @@ export const TeamMemberStats = ({
     skill,
   } = pokemon;
   const {
-    params,
+    intermediate,
     fullPackStats,
     ingredient,
     skillIndirect,
@@ -49,7 +49,7 @@ export const TeamMemberStats = ({
   const {
     carryLimitInfo,
     produceSplit,
-  } = params;
+  } = intermediate;
 
   const t = useTranslations('UI.Common');
   const t2 = useTranslations('UI.InPage.Pokedex.Sort');

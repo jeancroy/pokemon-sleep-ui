@@ -172,6 +172,7 @@ export const PokedexLinkDetail = React.memo(({
     type: display,
     pokemon,
     pokemonProducingParams,
+    individual,
     berryDataMap,
     ingredientMap,
     ingredients,
@@ -183,7 +184,6 @@ export const PokedexLinkDetail = React.memo(({
     eventStrengthMultiplierData,
     calculatedConfigBundle,
     dateAdded: null,
-    ...individual,
   });
 
   if (display === 'friendshipPoint') {

@@ -61,14 +61,14 @@ export const toPokemonInfoWithSortingPayloadFromPokemonList = <TFilter extends P
       pokemonId: pokemon.id,
       pokemonProducingParamsMap,
     }),
-    dateAdded: null,
-    extra: null,
-    calculatedConfigBundle,
-    ...getProductionIndividualParams({
+    individual: getProductionIndividualParams({
       input: filter,
       pokemon,
       subSkillMap,
     }),
+    dateAdded: null,
+    extra: null,
+    calculatedConfigBundle,
   };
   const chain = ingredientChainMap[pokemon.ingredientChain];
 

@@ -11,8 +11,7 @@ import {isFullPackEffective} from '@/utils/user/config/user/fullPack';
 
 
 export const getPokemonProductionIntermediateParams = ({
-  seeds,
-  evolutionCount,
+  individual,
   calculatedUserConfig,
   period,
   skillData,
@@ -21,11 +20,17 @@ export const getPokemonProductionIntermediateParams = ({
   const {
     pokemon,
     pokemonProducingParams,
-    natureId,
+    helpingBonusEffect,
   } = opts;
+  const {
+    level,
+    seeds,
+    evolutionCount,
+    natureId,
+  } = individual;
   const {behavior} = calculatedUserConfig.origin;
 
-  const subSkillBonus = opts.subSkillBonus ?? {};
+  const subSkillBonus = individual.subSkillBonus ?? {};
 
   const isFullPack = isFullPackEffective({
     fullPackBehavior: behavior.alwaysFullPack,
@@ -36,9 +41,12 @@ export const getPokemonProductionIntermediateParams = ({
     isFullPack,
     period: period ?? defaultProductionPeriod,
     frequency: getBaseFrequencyFromPokemon({
-      ...opts,
-      behavior,
+      pokemon,
+      level,
+      natureId,
       subSkillBonus,
+      helpingBonusEffect,
+      behavior,
     }),
     carryLimitInfo: getCarryLimitInfo({
       pokemon,
@@ -47,8 +55,10 @@ export const getPokemonProductionIntermediateParams = ({
       behavior,
     }),
     produceSplit: getProduceSplit({
+      pokemonProducingParams,
+      natureId,
+      subSkillBonus,
       isFullPack,
-      ...opts,
     }),
     skillTrigger: {
       ratePercent: getSkillTriggerRatePercent({

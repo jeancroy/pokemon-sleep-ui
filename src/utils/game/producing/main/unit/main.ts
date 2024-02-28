@@ -16,19 +16,19 @@ import {ToFinalProductionOfDropCommonOpts} from '@/utils/game/producing/toFinal/
 
 
 type GetPokemonProductionInitialOpts = GetPokemonProductionUnitOpts & {
-  params?: PokemonProductionIntermediateParams,
+  intermediate?: PokemonProductionIntermediateParams,
 };
 
 export const getPokemonProductionInitial = ({
-  params,
+  intermediate,
   ...opts
 }: GetPokemonProductionInitialOpts): PokemonProductionInitial => {
-  const {calculatedUserConfig} = opts;
+  const {calculatedUserConfig, individual} = opts;
   const {bonus} = calculatedUserConfig;
   const {sleepSessionInfo, intervalsDuringSleep} = bonus.stamina;
 
-  if (!params) {
-    params = getPokemonProductionIntermediateParams(opts);
+  if (!intermediate) {
+    intermediate = getPokemonProductionIntermediateParams(opts);
   }
   const {
     isFullPack,
@@ -38,16 +38,20 @@ export const getPokemonProductionInitial = ({
     produceSplit,
     skillTrigger,
     activeSkillEffect,
-  } = params;
+  } = intermediate;
+  const {level, subSkillBonus} = individual;
 
   // Calculate base rates of berry and ingredient
   // > Base rate assumes all helps are giving the same drop type in the given `period`
   const berryBase = getBerryProductionBase({
     baseFrequency: frequency,
+    level,
+    subSkillBonus,
     ...opts,
   });
   const ingredientBaseList = getIngredientProductionBaseList({
     baseFrequency: frequency,
+    level,
     ...opts,
   });
   const skillBase = getMainSkillProduction({
@@ -100,7 +104,7 @@ export const getPokemonProductionInitial = ({
   });
 
   return {
-    params,
+    intermediate,
     noSkillTriggerPercent: {
       // Expected skill count is exactly the probability of having 1 skill during sleep
       primary: 1 - skillFinal.sleep1Vacant.qty,

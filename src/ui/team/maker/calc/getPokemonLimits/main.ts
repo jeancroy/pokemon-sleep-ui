@@ -15,7 +15,6 @@ import {
 import {GetPokemonProductionOpts} from '@/utils/game/producing/main/type';
 import {
   getPokemonProducingParams,
-  getProductionImplicitParamsFromPokeInbox,
 } from '@/utils/game/producing/params';
 import {isNotNullish} from '@/utils/type';
 
@@ -39,13 +38,13 @@ export const getTeamMakerPokemonLimits = (opts: TeamMakerGetTeamMakerPokemonLimi
 
   const pokeInBoxDataList: TeamMakerPokeInBoxDataForLimits[] = getTeamMakerPokeInBoxDataForLimits(opts);
   const subSkillBonuses = pokeInBoxDataList
-    .map(({singleParams}) => singleParams.subSkillBonus)
+    .map(({individual}) => individual.subSkillBonus)
     .filter(isNotNullish);
 
   const toTeamMakerPokemonLimits = ({
     pokeInBox,
     actualLevel,
-    singleParams,
+    individual,
   }: TeamMakerPokeInBoxDataForLimits): TeamMakerPokemonLimits | null => {
     const pokemon = pokedexMap[pokeInBox.pokemon];
 
@@ -60,6 +59,9 @@ export const getTeamMakerPokemonLimits = (opts: TeamMakerGetTeamMakerPokemonLimi
     }
 
     const calcOpts: GetPokemonProductionOpts = {
+      pokemon,
+      ingredients: getEffectiveIngredientProductions(pokeInBox),
+      individual,
       berryData: berryDataMap[pokemon.berry.id],
       skillData: mainSkillMap[pokemon.skill],
       pokemonProducingParams: getPokemonProducingParams({
@@ -68,15 +70,6 @@ export const getTeamMakerPokemonLimits = (opts: TeamMakerGetTeamMakerPokemonLimi
       }),
       ingredientMap,
       recipeLevelData,
-      ...pokeInBox,
-      ...singleParams,
-      ...getProductionImplicitParamsFromPokeInbox({pokeInBox}),
-      // Override `level` in `pokeInBox` because preview level might be active
-      level: actualLevel,
-      // Override `pokemon` in `pokeInBox`
-      pokemon,
-      // Override `ingredients` in `pokeInBox`
-      ingredients: getEffectiveIngredientProductions(pokeInBox),
     };
     const productionOpts: GetPokemonProductionSingleOpts = {
       ...opts,

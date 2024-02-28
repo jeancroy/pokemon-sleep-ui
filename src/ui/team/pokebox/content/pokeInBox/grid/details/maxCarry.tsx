@@ -18,8 +18,8 @@ export const PokeInBoxGridMaxCarry = (props: PokeInBoxGridDetailsProps) => {
     return <LoadingText dimension="size-4"/>;
   }
 
-  const {fullPackStats, params} = rate;
-  const {carryLimitInfo} = params;
+  const {fullPackStats, intermediate} = rate;
+  const {carryLimitInfo} = intermediate;
 
   return (
     <Flex direction="row" noFullWidth className="items-center gap-2">

@@ -14,7 +14,7 @@ describe('Pokemon Production (Skill) / Recovery from Production', () => {
           testPokemonProductionInitial,
           {
             skill: {qty: {equivalent: 3}},
-            params: {activeSkillEffect: {type: 'stamina', target: 'team', value: 18}},
+            intermediate: {activeSkillEffect: {type: 'stamina', target: 'team', value: 18}},
           },
         ),
         testPokemonProductionInitial,
@@ -23,14 +23,14 @@ describe('Pokemon Production (Skill) / Recovery from Production', () => {
           testPokemonProductionInitial,
           {
             skill: {qty: {equivalent: 1}},
-            params: {activeSkillEffect: {type: 'stamina', target: 'random', value: 20}},
+            intermediate: {activeSkillEffect: {type: 'stamina', target: 'random', value: 20}},
           },
         ),
         cloneMerge(
           testPokemonProductionInitial,
           {
             skill: {qty: {equivalent: 2}},
-            params: {activeSkillEffect: {type: 'stamina', target: 'self', value: 36}},
+            intermediate: {activeSkillEffect: {type: 'stamina', target: 'self', value: 36}},
           },
         ),
       ],
@@ -70,7 +70,7 @@ describe('Pokemon Production (Skill) / Recovery from Production', () => {
           testPokemonProductionInitial,
           {
             skill: {qty: {equivalent: 3}},
-            params: {activeSkillEffect: {type: 'stamina', target: 'team', value: 18}},
+            intermediate: {activeSkillEffect: {type: 'stamina', target: 'team', value: 18}},
           },
         ),
         testPokemonProductionInitial,
@@ -79,14 +79,14 @@ describe('Pokemon Production (Skill) / Recovery from Production', () => {
           testPokemonProductionInitial,
           {
             skill: {qty: {equivalent: 1}},
-            params: {activeSkillEffect: {type: 'stamina', target: 'random', value: 20}},
+            intermediate: {activeSkillEffect: {type: 'stamina', target: 'random', value: 20}},
           },
         ),
         cloneMerge(
           testPokemonProductionInitial,
           {
             skill: {qty: {equivalent: 2}},
-            params: {activeSkillEffect: {type: 'stamina', target: 'self', value: 36}},
+            intermediate: {activeSkillEffect: {type: 'stamina', target: 'self', value: 36}},
           },
         ),
       ],

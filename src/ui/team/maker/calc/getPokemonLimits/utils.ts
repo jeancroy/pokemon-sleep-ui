@@ -4,8 +4,9 @@ import {
   TeamMakerPokeInBoxDataForLimits,
 } from '@/ui/team/maker/calc/getPokemonLimits/type';
 import {getPokemonFinalEvolutionIds} from '@/utils/game/pokemon/evolution/final';
-import {getProductionSingleParams} from '@/utils/game/producing/params';
+import {getProductionIndividualParams} from '@/utils/game/producing/params';
 import {getLevelToCalcForPokeInBox} from '@/utils/team/previewLevel';
+import {isNotNullish} from '@/utils/type';
 
 
 export const getTeamMakerPokeInBoxDataForLimits = ({
@@ -24,7 +25,7 @@ export const getTeamMakerPokeInBoxDataForLimits = ({
 
       return getPokemonFinalEvolutionIds({
         pokemonId: pokeInBox.pokemon,
-        pokedex: pokedexMap,
+        pokedexMap,
         evolutionCount: pokeInBox.evolutionCount,
       }).map(({id, evolutionCount}): PokeInBox => ({
         ...pokeInBox,
@@ -33,6 +34,11 @@ export const getTeamMakerPokeInBoxDataForLimits = ({
       }));
     })
     .map((pokeInBox) => {
+      const pokemon = pokedexMap[pokeInBox.pokemon];
+      if (!pokemon) {
+        return null;
+      }
+
       const actualLevel = getLevelToCalcForPokeInBox({
         actualLevel: pokeInBox.level,
         previewLevel,
@@ -41,11 +47,13 @@ export const getTeamMakerPokeInBoxDataForLimits = ({
       return {
         pokeInBox,
         actualLevel,
-        singleParams: getProductionSingleParams({
-          ...pokeInBox,
-          level: actualLevel,
+        individual: getProductionIndividualParams({
+          input: pokeInBox,
+          pokemon,
           subSkillMap,
+          overrideLevel: actualLevel,
         }),
       };
-    });
+    })
+    .filter(isNotNullish);
 };

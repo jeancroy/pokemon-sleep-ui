@@ -3,7 +3,10 @@ import {SkillTriggerAnalysisCalcResult, SkillTriggerAnalysisCalcUnit} from '@/ui
 import {SkillTriggerAnalysisUnit} from '@/ui/team/mainskill/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
-import {getPokemonProducingParams, getProductionSingleParams} from '@/utils/game/producing/params';
+import {
+  getPokemonProducingParams,
+  getProductionIndividualParams,
+} from '@/utils/game/producing/params';
 
 
 type GetSkillTriggerAnalysisCalcUnitOpts = GetSkillTriggerAnalysisCalcUnitCommonOpts & {
@@ -30,8 +33,6 @@ export const getSkillTriggerAnalysisCalcUnit = ({
   const {
     level,
     pokemonId,
-    nature,
-    subSkill,
     ingredients,
   } = unit;
 
@@ -51,18 +52,15 @@ export const getSkillTriggerAnalysisCalcUnit = ({
     pokemonId,
     pokemonProducingParamsMap,
   });
-  const singleParams = getProductionSingleParams({
-    level,
-    subSkill,
-    nature,
+  const individual = getProductionIndividualParams({
+    input: unit,
+    pokemon,
     subSkillMap,
   });
 
   const rate = getPokemonProductionSingle({
     ...opts,
-    // `unit` could have `pokemon` from Poke-in-box, therefore it should always be at the top
-    ...unit,
-    ...singleParams,
+    individual,
     pokemon,
     snorlaxFavorite,
     bundle,

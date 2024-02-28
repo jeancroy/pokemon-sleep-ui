@@ -3,18 +3,16 @@ import React from 'react';
 import {PokemonComplexFilterOrigin} from '@/components/shared/pokemon/predefined/complexPicker/type';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientChainMap, IngredientProductionAtLevels} from '@/types/game/pokemon/ingredient';
-import {NatureId} from '@/types/game/pokemon/nature';
-import {PokemonSubSkill, SubSkillMap} from '@/types/game/pokemon/subSkill';
+import {PokemonIndividualParams} from '@/types/game/pokemon/params';
+import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {ProductionImplicitParams} from '@/types/game/producing/rate/params';
 import {OcrTranslationsForPokemonInfo} from '@/types/ocr/extracted/pokemon';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
 
 
-export type PokemonOnDeskState = ProductionImplicitParams & {
+export type PokemonOnDeskState = Omit<PokemonIndividualParams, 'level'> & ProductionImplicitParams & {
   pokemon: PokemonInfo,
   ingredients: IngredientProductionAtLevels,
-  subSkill: PokemonSubSkill,
-  nature: NatureId | null,
   origin: PokemonComplexFilterOrigin,
 };
 

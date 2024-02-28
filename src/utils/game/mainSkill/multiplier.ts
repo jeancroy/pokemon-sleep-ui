@@ -4,9 +4,7 @@ import {getNatureMultiplier} from '@/utils/game/nature';
 import {getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
 
 
-export type GetSkillTriggerRateMultiplierOpts = Pick<ProductionSingleParams, 'natureId' | 'subSkillBonus'>;
-
-export const getSkillTriggerRateMultiplier = ({natureId, subSkillBonus}: GetSkillTriggerRateMultiplierOpts) => {
+export const getSkillTriggerRateMultiplier = ({natureId, subSkillBonus}: ProductionSingleParams) => {
   const natureMultiplier = getNatureMultiplier({id: natureId, effect: 'mainSkill'});
   const subSkillRate = toSum(getSubSkillBonusValue(subSkillBonus, 'mainSkillProbability')) / 100;
 

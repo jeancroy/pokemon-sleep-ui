@@ -21,7 +21,7 @@ export const getPokemonSkillRecoveryFromProduction = ({
 
   for (let currentIdx = 0; currentIdx < rates.length; currentIdx++) {
     const rate = rates[currentIdx];
-    const {activeSkillEffect} = rate.params;
+    const {activeSkillEffect} = rate.intermediate;
 
     if (!activeSkillEffect || activeSkillEffect.type !== 'stamina') {
       continue;

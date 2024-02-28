@@ -5,7 +5,7 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {MainSkillData} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
-import {ProductionImplicitParams, ProductionSingleParams} from '@/types/game/producing/rate/params';
+import {ProductionIndividualParams} from '@/types/game/producing/rate/params';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
@@ -44,16 +44,16 @@ export const pokemonSortType = [
 
 export type PokemonSortType = typeof pokemonSortType[number];
 
-export type PokemonSortingRequiredData = ProductionImplicitParams & ConfigRequiredData & {
+export type PokemonSortingRequiredData = ConfigRequiredData & {
   pokemon: PokemonInfo,
   pokemonProducingParams: PokemonProducingParams,
-  level: number,
+  individual: ProductionIndividualParams,
   ingredients: IngredientProduction[],
   dateAdded: number | null,
   calculatedConfigBundle: CalculatedConfigBundle,
 };
 
-export type PokemonInfoWithSortingPayload<TExtra> = PokemonSortingRequiredData & ProductionSingleParams & {
+export type PokemonInfoWithSortingPayload<TExtra> = PokemonSortingRequiredData & {
   extra: TExtra,
 };
 
@@ -62,7 +62,7 @@ export type SortedPokemonInfo<TExtra, TSource extends PokemonInfoWithSortingPayl
   source: TSource,
 };
 
-export type PokemonSorterGetterOpts = PokemonSortingRequiredData & ProductionSingleParams & {
+export type PokemonSorterGetterOpts = PokemonSortingRequiredData & {
   ingredientMap: IngredientMap,
   berryData: BerryData,
   skillData: MainSkillData,

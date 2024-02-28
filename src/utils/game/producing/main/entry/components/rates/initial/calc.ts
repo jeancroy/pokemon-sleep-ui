@@ -32,14 +32,14 @@ export const getPokemonProductionInitialCalculated = <TPayload>({
   } = sharedOpts;
 
   return rateOpts.map(({opts, payload}, rateIdx) => {
-    const {natureId, alwaysFullPack} = opts;
+    const {individual, alwaysFullPack} = opts;
 
     const calculatedUserConfig = toCalculatedUserConfig({
       ...bundle,
       cookingRecoveryData,
       eventStrengthMultiplierData,
       snorlaxFavorite,
-      recoveryRate: toRecoveryRate({natureId, subSkillBonuses}),
+      recoveryRate: toRecoveryRate({natureId: individual.natureId, subSkillBonuses}),
       // Explicit `null` indicates no skill triggers
       skillTriggerOverride: skillTriggerOverrides?.at(rateIdx) ?? null,
       behaviorOverride: alwaysFullPack != null ? {alwaysFullPack: alwaysFullPack ? 'always' : 'disable'} : {},

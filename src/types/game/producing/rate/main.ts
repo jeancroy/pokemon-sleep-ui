@@ -22,7 +22,7 @@ export type PokemonProductionBase = {
 };
 
 export type PokemonProductionInitial = {
-  params: PokemonProductionIntermediateParams,
+  intermediate: PokemonProductionIntermediateParams,
   noSkillTriggerPercent: SleepSessionData<number | null>,
   fullPackStats: FullPackStats,
   producingStateSplit: ProducingStateSplit,

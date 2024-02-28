@@ -22,7 +22,7 @@ export const sortInAsc: PokemonSortType[] = [
 
 export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonSorterGetter} = {
   id: ({pokemon}) => pokemon.id,
-  level: ({level}) => level,
+  level: ({individual}) => individual.level,
   dateAdded: ({dateAdded}) => dateAdded ?? 0,
   ingredientEnergy: (opts) => getIngredientTotalRateSorter({key: 'strength', opts}),
   ingredientCount: (opts) => getIngredientTotalRateSorter({key: 'qty', opts}),
@@ -45,8 +45,8 @@ export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonS
     getPokemonRateSorter(opts).fullPackStats.bySleep.secondary?.duration.vacant ?? Infinity
   ),
   totalEnergy: (opts) => getTotalStrengthOfPokemonProduction(getPokemonRateSorter(opts)),
-  mainSkillLevel: ({seeds, skillData, ...opts}) => getMainSkillLevel({
-    seedsUsed: seeds.gold,
+  mainSkillLevel: ({individual, skillData, ...opts}) => getMainSkillLevel({
+    seedsUsed: individual.seeds.gold,
     mainSkillData: skillData,
     ...opts,
   }),

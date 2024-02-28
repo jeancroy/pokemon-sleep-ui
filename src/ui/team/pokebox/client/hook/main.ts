@@ -73,7 +73,7 @@ export const useCalculatedData = (opts: UseCalculatedDataOpts) => {
 
       return getPokemonFinalEvolutionIds({
         pokemonId: pokemon,
-        pokedex: pokedexMap,
+        pokedexMap,
         evolutionCount: pokeInBox.evolutionCount,
       }).map(({evolutionCount, id}) => ({
         ...pokeInBox,

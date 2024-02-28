@@ -38,7 +38,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
           return;
         }
 
-        const {params, skill} = getPokemonProductionSingle({
+        const {intermediate, skill} = getPokemonProductionSingle({
           pokemon,
           pokemonProducingParams: getPokemonProducingParams({
             pokemonId: pokemon.id,
@@ -57,7 +57,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
           ...props,
         }).atStage.final;
 
-        const {activeSkillEffect} = params;
+        const {activeSkillEffect} = intermediate;
 
         if (activeSkillEffect?.type !== 'stamina') {
           return;

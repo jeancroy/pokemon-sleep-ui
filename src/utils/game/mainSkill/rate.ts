@@ -1,7 +1,8 @@
-import {getSkillTriggerRateMultiplier, GetSkillTriggerRateMultiplierOpts} from '@/utils/game/mainSkill/multiplier';
+import {ProductionSingleParams} from '@/types/game/producing/rate/params';
+import {getSkillTriggerRateMultiplier} from '@/utils/game/mainSkill/multiplier';
 
 
-type GetSkillTriggerRatePercentOpts = GetSkillTriggerRateMultiplierOpts & {
+type GetSkillTriggerRatePercentOpts = ProductionSingleParams & {
   baseSkillRatePercent: number | null,
 };
 

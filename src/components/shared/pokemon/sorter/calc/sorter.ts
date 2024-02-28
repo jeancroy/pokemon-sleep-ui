@@ -1,18 +1,25 @@
 import {PokemonSorterGetterOpts} from '@/components/shared/pokemon/sorter/type';
 import {ProductionByCalculatedStates, ProductionValueByCalculatedStates} from '@/types/game/producing/rate/base';
-import {
-  PokemonProduction,
-
-} from '@/types/game/producing/rate/main';
+import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {toSum} from '@/utils/array';
 import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
 import {KeysOfType} from '@/utils/type';
 
 
-export const getPokemonRateSorter = (opts: PokemonSorterGetterOpts): PokemonProduction => {
-  const {bundle, calculatedCookingConfig} = opts.calculatedConfigBundle;
+export const getPokemonRateSorter = ({
+  calculatedConfigBundle,
+  ...opts
+}: PokemonSorterGetterOpts): PokemonProduction => {
+  const {
+    bundle,
+    calculatedCookingConfig,
+  } = calculatedConfigBundle;
 
-  return getPokemonProductionSingle({...opts, bundle, calculatedCookingConfig}).atStage.final;
+  return getPokemonProductionSingle({
+    ...opts,
+    bundle,
+    calculatedCookingConfig,
+  }).atStage.final;
 };
 
 type GetPokemonItemRateSorterOpts = {

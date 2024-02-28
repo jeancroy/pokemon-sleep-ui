@@ -6,11 +6,7 @@ import {Pokebox, PokeInBox} from '@/types/userData/pokebox';
 import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
-import {
-  getPokemonProducingParams,
-  getProductionImplicitParamsFromPokeInbox,
-  getProductionSingleParams,
-} from '@/utils/game/producing/params';
+import {getPokemonProducingParams, getProductionIndividualParams} from '@/utils/game/producing/params';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -51,8 +47,9 @@ export const useProcessedPokebox = ({
       }
 
       const {level, dateAdded} = pokeInBox;
-      const singleParams = getProductionSingleParams({
-        ...pokeInBox,
+      const individual = getProductionIndividualParams({
+        input: pokeInBox,
+        pokemon,
         subSkillMap,
       });
 
@@ -63,16 +60,16 @@ export const useProcessedPokebox = ({
           pokemonId: pokemon.id,
           pokemonProducingParamsMap,
         }),
-        level,
+        individual,
         dateAdded,
+        // `extra` is stripped off in the later stage while needed for processing,
+        // therefore additionally have a field to store it
         extra: pokeInBox,
         ingredients: getEffectiveIngredientProductions({level, ingredients: pokeInBox.ingredients}),
         calculatedConfigBundle,
         mealMap,
         eventStrengthMultiplierData,
         cookingRecoveryData,
-        ...singleParams,
-        ...getProductionImplicitParamsFromPokeInbox({pokeInBox}),
       } satisfies PokemonInfoWithSortingPayload<PokeInBox>;
     })
     .filter(isNotNullish),

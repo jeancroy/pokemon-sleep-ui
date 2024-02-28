@@ -25,7 +25,7 @@ export const getTeamMakerBasisValue = ({
     mealCoverage: getMealCoverage({
       meals: targetMeals,
       ingredientProduction,
-      period: pokemonRate.params.period,
+      period: pokemonRate.intermediate.period,
     }),
     ingredientProduction,
   };

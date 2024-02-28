@@ -9,7 +9,6 @@ import {
   ProductionIndividualParams,
   ProductionSingleParams,
 } from '@/types/game/producing/rate/params';
-import {PokeInBox} from '@/types/userData/pokebox';
 import {getEvolutionCountFromPokemonInfo} from '@/utils/game/pokemon/evolution/count';
 import {getSubSkillBonus, getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
 
@@ -30,24 +29,6 @@ export const getHelpingBonusStack = ({
   return helpingBonusCount;
 };
 
-export type GetProductionSingleParamsOpts = PokemonIndividualParams & {
-  subSkillMap: SubSkillMap,
-};
-
-export const getProductionSingleParams = ({
-  level,
-  subSkill,
-  nature,
-  subSkillMap,
-}: GetProductionSingleParamsOpts): ProductionSingleParams => {
-  const subSkillBonus = getSubSkillBonus({level, pokemonSubSkill: subSkill, subSkillMap});
-
-  return {
-    subSkillBonus,
-    natureId: nature,
-  };
-};
-
 type GetProductionNeutralParamsOpts = {
   pokemon: PokemonInfo,
 };
@@ -66,36 +47,25 @@ type GetProductionIndividualParamsOpts = {
   input: PokemonIndividualParams & Partial<ProductionImplicitParams>,
   pokemon: PokemonInfo,
   subSkillMap: SubSkillMap,
+  overrideLevel?: number,
 };
 
 export const getProductionIndividualParams = ({
   input,
   pokemon,
   subSkillMap,
+  overrideLevel,
 }: GetProductionIndividualParamsOpts): ProductionIndividualParams => {
+  const {subSkill, nature} = input;
+
+  const level = overrideLevel ?? input.level;
+
   return {
-    level: input.level,
+    level,
     seeds: input.seeds ?? defaultSeedUsage,
     evolutionCount: input.evolutionCount ?? getEvolutionCountFromPokemonInfo({pokemon}),
-    ...getProductionSingleParams({
-      ...input,
-      subSkillMap,
-    }),
-  };
-};
-
-type GetProductionImplicitParamsFromPokeboxOpts = {
-  pokeInBox: PokeInBox,
-};
-
-export const getProductionImplicitParamsFromPokeInbox = ({
-  pokeInBox,
-}: GetProductionImplicitParamsFromPokeboxOpts): ProductionImplicitParams => {
-  const {seeds, evolutionCount} = pokeInBox;
-
-  return {
-    seeds: seeds ?? defaultSeedUsage,
-    evolutionCount,
+    subSkillBonus: getSubSkillBonus({level, pokemonSubSkill: subSkill, subSkillMap}),
+    natureId: nature,
   };
 };
 

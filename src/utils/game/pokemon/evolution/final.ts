@@ -3,16 +3,16 @@ import {PokedexMap, PokemonFinalEvolutionInfo, PokemonId} from '@/types/game/pok
 
 export type GetPokemonFinalEvolutionIdsOpts = {
   pokemonId: PokemonId,
-  pokedex: PokedexMap,
+  pokedexMap: PokedexMap,
   evolutionCount?: number,
 };
 
 export const getPokemonFinalEvolutionIds = ({
   pokemonId,
-  pokedex,
+  pokedexMap,
   evolutionCount = 0,
 }: GetPokemonFinalEvolutionIdsOpts): PokemonFinalEvolutionInfo[] => {
-  const pokemon = pokedex[pokemonId];
+  const pokemon = pokedexMap[pokemonId];
   if (!pokemon) {
     return [];
   }
@@ -24,7 +24,7 @@ export const getPokemonFinalEvolutionIds = ({
 
   return evolution.next.flatMap(({id}) => getPokemonFinalEvolutionIds({
     pokemonId: id,
-    pokedex,
+    pokedexMap,
     evolutionCount: evolutionCount + 1,
   }));
 };

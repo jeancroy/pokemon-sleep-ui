@@ -24,11 +24,11 @@ export const getTotalPokemonProduction = ({
   state,
 }: Omit<GetPokemonProductionCommonOpts, 'target'>): Production => {
   const {
-    params,
+    intermediate,
     berry,
     skill,
   } = rate;
-  const {period} = params;
+  const {period} = intermediate;
 
   return {
     period,

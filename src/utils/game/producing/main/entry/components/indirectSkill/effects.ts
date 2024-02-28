@@ -11,8 +11,8 @@ export const getPokemonIndirectSkillEffects = ({
   initialRates,
 }: GetPokemonIndirectSkillEffectsOpts): PokemonIndirectSkillEffects => {
   const skillCount = initialRates.map((rate) => {
-    const {params, skill} = rate;
-    const {activeSkillEffect} = params;
+    const {intermediate, skill} = rate;
+    const {activeSkillEffect} = intermediate;
 
     return {activeSkillEffect, count: skill.qty.equivalent};
   });

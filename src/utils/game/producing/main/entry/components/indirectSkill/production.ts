@@ -15,10 +15,10 @@ export const getPokemonIndirectSkillProductionFromInitial = ({
   targetCount,
 }: GetPokemonIndirectSkillProductionFromInitialOpts): PokemonIndirectSkillProduction => {
   const {
-    params,
+    intermediate,
     baseRates,
   } = initialRate;
-  const {produceSplit} = params;
+  const {produceSplit} = intermediate;
   const {berry, ingredient} = baseRates;
 
   return getPokemonIndirectSkillProduction({

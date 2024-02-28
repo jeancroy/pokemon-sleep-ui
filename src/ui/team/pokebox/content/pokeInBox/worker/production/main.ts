@@ -3,9 +3,7 @@ import {PokeInBoxCommonProps} from '@/ui/team/pokebox/content/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
 import {
-  getPokemonProducingParams,
-  getProductionImplicitParamsFromPokeInbox,
-  getProductionSingleParams,
+  getPokemonProducingParams, getProductionIndividualParams,
 } from '@/utils/game/producing/params';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {toCalculatedConfigBundle} from '@/utils/user/config/bundle';
@@ -30,16 +28,15 @@ export const getRateOfPokemon = ({
   const {level, ingredients} = pokeInBox;
   const {id, berry, skill} = pokemon;
 
-  const singleParams = getProductionSingleParams({
+  const individual = getProductionIndividualParams({
+    input: pokeInBox,
+    pokemon,
     subSkillMap,
-    ...pokeInBox,
   });
-  const {natureId, subSkillBonus} = singleParams;
+  const {natureId, subSkillBonus} = individual;
 
   return getPokemonProductionSingle({
     ...props,
-    ...singleParams,
-    ...getProductionImplicitParamsFromPokeInbox({pokeInBox}),
     ...toCalculatedConfigBundle({
       ...bundle,
       mealMap,
@@ -51,7 +48,7 @@ export const getRateOfPokemon = ({
       eventStrengthMultiplierData,
       snorlaxFavorite,
     }),
-    level: pokeInBox.level,
+    individual,
     pokemonProducingParams: getPokemonProducingParams({
       pokemonId: id,
       pokemonProducingParamsMap,

@@ -3,7 +3,7 @@ import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
 
 
 export const testPokemonProductionInitial: PokemonProductionInitial = {
-  params: {
+  intermediate: {
     isFullPack: false,
     period: 'daily',
     frequency: NaN, // ignore
