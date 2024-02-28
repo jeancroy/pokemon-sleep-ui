@@ -18,7 +18,7 @@ export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
   const actorReturn = useUserDataActor();
   const setupControl = useTeamSetupControl({
     initialMigratedSetup: getInitialTeamAnalysisSetup({data: preloaded.setup}),
-    getNextKeyForDuplicate: ({members}) => {
+    getDuplicateTargetKey: ({members}) => {
       for (const slotName of teamAnalysisSlotName) {
         if (!!members[slotName]) {
           continue;

@@ -30,7 +30,7 @@ type UseTeamAnalysisSetupControlOpts<
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 > = {
   initialMigratedSetup: TSetup,
-  getNextKeyForDuplicate: (currentTeam: TTeam) => TKey | null,
+  getDuplicateTargetKey: (currentTeam: TTeam) => TKey | null,
   getLayoutCollapsibleIndexKeys: (team: TTeam) => TKey[],
 };
 
@@ -42,7 +42,7 @@ export const useTeamSetupControl = <
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 >({
   initialMigratedSetup,
-  getNextKeyForDuplicate,
+  getDuplicateTargetKey,
   getLayoutCollapsibleIndexKeys,
 }: UseTeamAnalysisSetupControlOpts<
   TKey,
@@ -135,7 +135,7 @@ export const useTeamSetupControl = <
       const currentTeam: TTeam = getCurrentTeam({setup});
       const {members} = currentTeam;
 
-      const key = getNextKeyForDuplicate(currentTeam);
+      const key = getDuplicateTargetKey(currentTeam);
 
       if (key === null) {
         return;
