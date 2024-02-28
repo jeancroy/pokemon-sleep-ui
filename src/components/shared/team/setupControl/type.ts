@@ -34,6 +34,7 @@ export type TeamSetupControl<
   setCurrentMember: (opts: TeamSetupSetMemberOpts<TKey, TMember>) => void,
   setCurrentMemberReplaceAll: (opts: TeamSetupReplaceAllMemberOpts) => void,
   setCurrentMemberPartial: (opts: TeamSetupUpdateMemberOpts<TKey>) => void,
+  setCurrentTeam: (getUpdatedTeam: (currentTeam: TTeam) => TTeam) => void,
   duplicateMemberToCurrentComp: (sourceKey: TKey) => void,
   updatePokemonFromPokebox: (pokebox: Pokebox) => void,
 };

@@ -21,7 +21,6 @@ import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetup} from '@/types/game/team/setup';
 import {TeamData} from '@/types/game/team/team';
 import {UserDataUploadOpts} from '@/types/userData/upload';
-import {getCurrentTeam} from '@/utils/team/setup/getCurrentTeam';
 import {isNotNullish, Nullable} from '@/utils/type';
 
 
@@ -53,8 +52,8 @@ export const TeamSetupControlUI = <
 }: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
   const {setupControl} = props;
   const {
-    setSetup,
     layoutControl,
+    setCurrentTeam,
     setCurrentMemberReplaceAll,
     updatePokemonFromPokebox,
   } = setupControl;
@@ -69,17 +68,7 @@ export const TeamSetupControlUI = <
     <Flex className="gap-1">
       <SnorlaxFavoriteInput
         filter={currentTeam}
-        setFilter={(getUpdatedTeam) => setSetup((setup) => {
-          const updated = getUpdatedTeam(getCurrentTeam({setup}));
-
-          return {
-            ...setup,
-            teams: {
-              ...setup.teams,
-              [updated.uuid]: updated,
-            },
-          };
-        })}
+        setFilter={(getUpdatedTeam) => setCurrentTeam(getUpdatedTeam)}
         filterKey="snorlaxFavorite"
         fieldMetaMap={fieldMetaMap}
         pokemonList={pokemonList}
@@ -89,15 +78,9 @@ export const TeamSetupControlUI = <
         idToText={(period) => t2(productionPeriodI18nId[period])}
         ids={[...productionPeriod]}
         isActive={(period) => period === currentTeam.analysisPeriod}
-        onClick={(analysisPeriod) => setSetup((setup) => ({
-          ...setup,
-          teams: {
-            ...setup.teams,
-            [currentTeam.uuid]: {
-              ...currentTeam,
-              analysisPeriod,
-            },
-          },
+        onClick={(analysisPeriod) => setCurrentTeam((currentTeam) => ({
+          ...currentTeam,
+          analysisPeriod,
         }))}
       />
       <TeamQuickActionGlobalLevel

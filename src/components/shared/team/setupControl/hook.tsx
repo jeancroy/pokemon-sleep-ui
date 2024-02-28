@@ -135,6 +135,17 @@ export const useTeamSetupControl = <
         update,
       }));
     },
+    setCurrentTeam: (getUpdatedTeam) => setSetup((setup) => {
+      const updated = getUpdatedTeam(getCurrentTeam({setup}));
+
+      return {
+        ...setup,
+        teams: {
+          ...setup.teams,
+          [updated.uuid]: updated,
+        },
+      };
+    }),
     duplicateMemberToCurrentComp: (sourceKey) => {
       const currentTeam: TTeam = getCurrentTeam({setup});
       const {members} = currentTeam;
