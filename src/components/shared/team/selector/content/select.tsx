@@ -39,7 +39,7 @@ export const TeamSelectButton = <
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 >({
   setupControl,
-  memberList,
+  getMemberList,
   onUpdated,
   onDeleted,
   onCopied,
@@ -81,7 +81,7 @@ export const TeamSelectButton = <
           onClick={() => onPicked(team.uuid)}
           className="enabled:button-clickable gap-1.5 p-2"
         >
-          {memberList.map((member, idx) => (
+          {getMemberList(team).map((member, idx) => (
             member ?
               <IconWithInfo
                 key={idx}

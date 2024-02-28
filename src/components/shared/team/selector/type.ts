@@ -15,5 +15,5 @@ export type TeamSelectorCommonProps<
 > = {
   setupControl: TeamSetupControl<TKey, TMember, TConfig, TTeam, TSetup>,
   generateNewTeam: (uuid: string) => TTeam,
-  memberList: TMember[],
+  getMemberList: (team: TTeam) => TMember[],
 };

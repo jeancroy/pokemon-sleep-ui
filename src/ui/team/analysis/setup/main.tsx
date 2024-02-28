@@ -69,6 +69,7 @@ export const TeamAnalysisSetupView = (props: TeamAnalysisSetupViewCommonProps) =
             comps: Object.values(setup.teams),
           },
         }}
+        getMemberList={(team) => Object.values(team.members)}
         {...props}
       />
       <AdsUnit hideIfNotBlocked/>

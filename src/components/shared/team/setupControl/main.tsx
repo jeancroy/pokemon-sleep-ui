@@ -107,7 +107,6 @@ export const TeamSetupControlUI = <
         <TeamSelector
           className="mr-auto shrink-0"
           status={session.status}
-          memberList={memberList}
           {...props}
         />
         <Flex direction="row" noFullWidth wrap className="justify-end gap-1">
