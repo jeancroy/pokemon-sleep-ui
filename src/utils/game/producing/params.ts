@@ -63,7 +63,7 @@ export const getProductionNeutralParams = ({
 };
 
 type GetProductionIndividualParamsOpts = {
-  input: PokemonIndividualParams,
+  input: PokemonIndividualParams & Partial<ProductionImplicitParams>,
   pokemon: PokemonInfo,
   subSkillMap: SubSkillMap,
 };
@@ -75,8 +75,8 @@ export const getProductionIndividualParams = ({
 }: GetProductionIndividualParamsOpts): ProductionIndividualParams => {
   return {
     level: input.level,
-    seeds: defaultSeedUsage,
-    evolutionCount: getEvolutionCountFromPokemonInfo({pokemon}),
+    seeds: input.seeds ?? defaultSeedUsage,
+    evolutionCount: input.evolutionCount ?? getEvolutionCountFromPokemonInfo({pokemon}),
     ...getProductionSingleParams({
       ...input,
       subSkillMap,
