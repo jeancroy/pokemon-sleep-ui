@@ -52,10 +52,13 @@ export const TeamMemberEmptySlot = <TKey extends TeamMemberKey, TMember extends 
       <PokeboxImporter
         show={popup === 'pokebox'}
         setShow={(show) => setPopup(show ? 'pokebox' : null)}
-        onPokeboxPicked={(pokeInBox) => setCurrentMember({
-          key: memberKey,
-          member: getMemberFromPokeInBox(pokeInBox, memberKey),
-        })}
+        onPokeboxPicked={(pokeInBox) => {
+          setCurrentMember({
+            key: memberKey,
+            member: getMemberFromPokeInBox(pokeInBox, memberKey),
+          });
+          setPopup(null);
+        }}
         {...props}
       />
       <PopupCommon
@@ -63,7 +66,10 @@ export const TeamMemberEmptySlot = <TKey extends TeamMemberKey, TMember extends 
         setShow={(show) => setPopup(show ? 'cloudPull' : null)}
       >
         <TeamMemberCloudPull
-          onCloudPulled={(member) => setCurrentMember({key: memberKey, member})}
+          onCloudPulled={(member) => {
+            setCurrentMember({key: memberKey, member});
+            setPopup(null);
+          }}
           {...props}
         />
       </PopupCommon>
@@ -71,10 +77,13 @@ export const TeamMemberEmptySlot = <TKey extends TeamMemberKey, TMember extends 
         show={popup === 'vanilla'}
         setShow={(show) => setPopup(show ? 'vanilla' : null)}
         pokemonList={pokemonList}
-        onPokemonSelected={(pokemon) => setCurrentMember({
-          key: memberKey,
-          member: getMemberFromVanilla(pokemon, memberKey),
-        })}
+        onPokemonSelected={(pokemon) => {
+          setCurrentMember({
+            key: memberKey,
+            member: getMemberFromVanilla(pokemon, memberKey),
+          });
+          setPopup(null);
+        }}
         {...props}
       />
       <UnavailableIcon/>
