@@ -7,17 +7,20 @@ import {Flex} from '@/components/layout/flex/common';
 import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {staminaConfigSectionStyling} from '@/components/shared/stamina/input/const';
 import {StaminaConfigSkillRecoveryInput} from '@/components/shared/stamina/input/skillRecovery/input';
+import {StaminaConfigSkillRecoveryFromPokebox} from '@/components/shared/stamina/input/skillRecovery/pokebox';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 import {staminaStrategyI18nId} from '@/const/game/stamina';
 import {staminaRecoveryStrategies} from '@/types/game/stamina/strategy';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
-export const StaminaConfigSkillRecovery = ({config, setConfig, setTrigger}: StaminaConfigProps) => {
+export const StaminaConfigSkillRecovery = (props: StaminaConfigProps) => {
+  const {config, setConfig, setTrigger} = props;
   const {general, skillRecovery} = config;
   const {amount, dailyCount} = skillRecovery.recovery;
 
   const t = useTranslations('UI.Stamina');
+
   const title = t('SkillRecovery.Name');
 
   return (
@@ -50,6 +53,7 @@ export const StaminaConfigSkillRecovery = ({config, setConfig, setTrigger}: Stam
           value={dailyCount}
           onValueChanged={(dailyCount) => setTrigger({...skillRecovery.recovery, dailyCount})}
         />
+        <StaminaConfigSkillRecoveryFromPokebox {...props}/>
       </Flex>
     </Flex>
   );

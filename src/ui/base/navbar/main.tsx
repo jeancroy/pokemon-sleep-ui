@@ -5,15 +5,20 @@ import {getServerSession} from 'next-auth';
 import {Announcements} from '@/components/announcement/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
+import {getBerryDataMap} from '@/controller/berry';
 import {getConfigRequiredData} from '@/controller/dataBundle/config';
-import {getIngredientIds} from '@/controller/ingredient';
+import {getIngredientIds, getIngredientMap} from '@/controller/ingredient';
+import {getIngredientChainMap} from '@/controller/ingredientChain';
+import {getMainSkillMap} from '@/controller/mainSkill';
 import {getFieldMetaMap, getMapIds} from '@/controller/mapMeta';
-import {getPokemonList} from '@/controller/pokemon/info';
+import {getPokedexMap} from '@/controller/pokemon/info';
+import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getPotInfoList} from '@/controller/potInfo';
 import {getMaxMapBonusPercent} from '@/controller/progress';
 import {getRecipeLevelData} from '@/controller/recipeLevel';
+import {getSubSkillMap} from '@/controller/subSkill';
 import {NavBarClient} from '@/ui/base/navbar/client';
-import {NavBarCommonProps} from '@/ui/base/navbar/type';
+import {NavBarCommonProps, NavBarServerDataProps} from '@/ui/base/navbar/type';
 import {getPossibleMealTypes} from '@/utils/game/meal/mealType';
 import {isNotNullish} from '@/utils/type';
 
@@ -27,9 +32,15 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
     session,
     mapIds,
     maxMapBonusPercent,
+    pokedexMap,
+    berryDataMap,
     ingredientIds,
-    pokemonList,
-    mapMeta,
+    ingredientMap,
+    ingredientChainMap,
+    mainSkillMap,
+    subSkillMap,
+    pokemonProducingParamsMap,
+    fieldMetaMap,
     potInfoList,
     recipeLevelData,
     configRequiredData,
@@ -37,8 +48,14 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
     getServerSession(authOptions),
     getMapIds(),
     getMaxMapBonusPercent(),
+    getPokedexMap(),
+    getBerryDataMap(),
     getIngredientIds(),
-    getPokemonList(),
+    getIngredientMap(),
+    getIngredientChainMap(),
+    getMainSkillMap(),
+    getSubSkillMap(),
+    getPokemonProducingParamsMap(),
     getFieldMetaMap(),
     getPotInfoList(),
     getRecipeLevelData(),
@@ -47,6 +64,26 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
 
   const {mealMap} = configRequiredData;
   const mealTypes = getPossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
+
+  const props: NavBarServerDataProps = {
+    noUserControl,
+    session,
+    mapIds,
+    maxMapBonusPercent,
+    mealTypes,
+    pokedexMap,
+    berryDataMap,
+    ingredientIds,
+    ingredientMap,
+    ingredientChainMap,
+    mainSkillMap,
+    subSkillMap,
+    pokemonProducingParamsMap,
+    fieldMetaMap,
+    potInfoList,
+    recipeLevelData,
+    ...configRequiredData,
+  };
 
   return (
     <I18nProvider locale={locale} namespaces={[
@@ -60,19 +97,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
       'UI.UserConfig',
       'UI.UserControl',
     ]}>
-      <NavBarClient
-        noUserControl={noUserControl}
-        session={session}
-        mapIds={mapIds}
-        maxMapBonusPercent={maxMapBonusPercent}
-        mealTypes={mealTypes}
-        ingredientIds={ingredientIds}
-        pokemonList={pokemonList}
-        fieldMetaMap={mapMeta}
-        potInfoList={potInfoList}
-        recipeLevelData={recipeLevelData}
-        {...configRequiredData}
-      >
+      <NavBarClient {...props}>
         {announcement && <Announcements showOn="landscape"/>}
       </NavBarClient>
     </I18nProvider>

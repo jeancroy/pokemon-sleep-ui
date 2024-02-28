@@ -12,7 +12,7 @@ export const useStaminaAnalysis = ({
   subSkillMap,
 }: StaminaAnalysisDataProps): UseStaminaAnalysisReturn => {
   const [state, setState] = React.useState<StaminaAnalysisState>({
-    ...preloaded,
+    config: preloaded.bundle.userConfig.stamina,
     subSkill: {},
     nature: null,
   });

@@ -11,6 +11,7 @@ import {ReactStateUpdaterFromOriginal} from '@/types/react';
 import {UserConfig} from '@/types/userData/config/user/main';
 import {UserConfigSection} from '@/ui/base/navbar/userConfig/sections/base';
 import {UserConfigMapBonusDataProps} from '@/ui/base/navbar/userConfig/sections/mapBonus/type';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 type Props = UserConfigMapBonusDataProps & {
@@ -23,7 +24,7 @@ type Props = UserConfigMapBonusDataProps & {
 export const UserConfigMapBonusUI = ({
   mapIds,
   maxMapBonusPercent,
-  pokemonList,
+  pokedexMap,
   fieldMetaMap,
   config,
   setConfig,
@@ -38,7 +39,7 @@ export const UserConfigMapBonusUI = ({
         filter={config}
         setFilter={setConfig}
         filterKey="snorlaxFavorite"
-        pokemonList={pokemonList}
+        pokemonList={toPokemonList(pokedexMap)}
         fieldMetaMap={fieldMetaMap}
       />
       <Grid className="grid-cols-1 gap-1.5 lg:grid-cols-2">
