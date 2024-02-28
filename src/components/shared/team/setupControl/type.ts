@@ -46,3 +46,8 @@ export type TeamSetupControlDataProps = {
 export type TeamSetupBatchUpdateMemberOpts = {
   getUpdatedMember: (member: TeamMemberData) => TeamMemberData,
 };
+
+export type TeamSetupDuplicatedMember<TKey extends TeamMemberKey, TMember extends Nullable<TeamMemberData>> = {
+  key: TKey,
+  member: TMember,
+};

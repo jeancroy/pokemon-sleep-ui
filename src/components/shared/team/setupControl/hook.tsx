@@ -6,7 +6,11 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {useTeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/hook';
-import {TeamSetupBatchUpdateMemberOpts, TeamSetupControl} from '@/components/shared/team/setupControl/type';
+import {
+  TeamSetupBatchUpdateMemberOpts,
+  TeamSetupControl,
+  TeamSetupDuplicatedMember,
+} from '@/components/shared/team/setupControl/type';
 import {imageIconSizes} from '@/styles/image';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
@@ -30,7 +34,7 @@ type UseTeamAnalysisSetupControlOpts<
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 > = {
   initialMigratedSetup: TSetup,
-  getDuplicateTargetKey: (currentTeam: TTeam) => TKey | null,
+  getDuplicatedMember: (currentTeam: TTeam, source: TMember) => TeamSetupDuplicatedMember<TKey, TMember> | null,
   getLayoutCollapsibleIndexKeys: (team: TTeam) => TKey[],
 };
 
@@ -42,7 +46,7 @@ export const useTeamSetupControl = <
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 >({
   initialMigratedSetup,
-  getDuplicateTargetKey,
+  getDuplicatedMember,
   getLayoutCollapsibleIndexKeys,
 }: UseTeamAnalysisSetupControlOpts<
   TKey,
@@ -135,13 +139,12 @@ export const useTeamSetupControl = <
       const currentTeam: TTeam = getCurrentTeam({setup});
       const {members} = currentTeam;
 
-      const key = getDuplicateTargetKey(currentTeam);
-
-      if (key === null) {
+      const duplicatedMember = getDuplicatedMember(currentTeam, members[sourceKey]);
+      if (!duplicatedMember) {
         return;
       }
 
-      setCurrentMember({key, member: members[sourceKey] ?? null});
+      setCurrentMember(duplicatedMember);
     },
     updatePokemonFromPokebox: (pokebox) => updateTeamMemberBatched({
       getUpdatedMember: (member) => {
