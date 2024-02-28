@@ -31,6 +31,7 @@ type Props<
   getMemberFromPokeInBox: (pokeInBox: PokeInBox) => TMember,
   getTeamMemberFromCloud: (identifier: string) => Promise<Nullable<TMember>>,
   getMemberIdForShare: (currentTeam: TTeam, memberKey: TKey) => string,
+  generateKeyForEmptySlot?: () => TKey,
 };
 
 export const TeamMemberView = <
@@ -46,6 +47,7 @@ export const TeamMemberView = <
   getMemberFromVanilla,
   getMemberFromPokeInBox,
   getMemberIdForShare,
+  generateKeyForEmptySlot,
   ...props
 }: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
   const {
@@ -59,6 +61,19 @@ export const TeamMemberView = <
   const {layoutControl} = setupControl;
   const {generateCollapsibleControl} = layoutControl;
   const {setCurrentMember} = setupControl;
+
+  const emptySlotKey = React.useMemo(() => {
+    if (!generateKeyForEmptySlot) {
+      return null;
+    }
+
+    let key = generateKeyForEmptySlot();
+    while (!!currentTeam.members[key]) {
+      key = generateKeyForEmptySlot();
+    }
+
+    return key;
+  }, [currentTeam.members]);
 
   return (
     <Grid className="grid-cols-1 gap-1.5 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
@@ -104,6 +119,23 @@ export const TeamMemberView = <
           />
         );
       })}
+      {
+        emptySlotKey &&
+        <TeamMemberEmptySlot
+          onPokeboxPicked={(pokeInBox) => setCurrentMember({
+            key: emptySlotKey,
+            member: getMemberFromPokeInBox(pokeInBox),
+          })}
+          onPokemonSelected={(pokemon) => setCurrentMember({
+            key: emptySlotKey,
+            member: getMemberFromVanilla(pokemon),
+          })}
+          onCloudPulled={(member) => setCurrentMember({key: emptySlotKey, member})}
+          pokemonList={toPokemonList(pokedexMap)}
+          sessionStatus={session.status}
+          {...props}
+        />
+      }
     </Grid>
   );
 };
