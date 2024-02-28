@@ -2,7 +2,6 @@ import React from 'react';
 
 import {TeamMemberView} from '@/components/shared/team/memberView/main';
 import {TeamMemberFilledCommonProps} from '@/components/shared/team/memberView/type';
-import {TeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/type';
 import {
   TeamAnalysisComp,
   TeamAnalysisConfig,
@@ -21,21 +20,19 @@ import {getTeamMemberId} from '@/utils/user/teamAnalysis';
 
 
 type Props = TeamAnalysisSetupViewCommonProps & TeamMemberFilledCommonProps & {
-  layoutControl: TeamLayoutControl<TeamAnalysisSlotName>,
   statsOfTeam: TeamProduction,
   calculatedCookingConfig: CalculatedCookingConfig,
 };
 
 export const TeamAnalysisMemberView = ({
-  layoutControl,
   statsOfTeam,
   ...props
 }: Props) => {
   const {
-    currentTeam,
-    setupControl,
-    ingredientChainMap,
     actorReturn,
+    setupControl,
+    currentTeam,
+    ingredientChainMap,
   } = props;
   const {actAsync} = actorReturn;
   const {setup} = setupControl;

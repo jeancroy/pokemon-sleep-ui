@@ -9,7 +9,6 @@ import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {TeamSelector} from '@/components/shared/team/selector/main';
 import {TeamSelectorCommonProps} from '@/components/shared/team/selector/type';
 import {TeamLayoutControlUI} from '@/components/shared/team/setupControl/layoutControl/main';
-import {TeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/type';
 import {TeamQuickActionGlobalLevel} from '@/components/shared/team/setupControl/quickAction/globalLevel';
 import {TeamQuickActionSyncPokemon} from '@/components/shared/team/setupControl/quickAction/syncPokemon';
 import {TeamSetupControlDataProps} from '@/components/shared/team/setupControl/type';
@@ -35,7 +34,6 @@ type Props<
 > = TeamSetupControlDataProps & Omit<TeamSelectorCommonProps<TKey, TMember, TConfig, TTeam, TSetup>, 'memberList'> & {
   currentTeam: TTeam,
   actorReturn: UseUserDataActorReturn,
-  layoutControl: TeamLayoutControl<TKey>,
   uploadOpts: UserDataUploadOpts,
 };
 
@@ -50,13 +48,13 @@ export const TeamSetupControlUI = <
   pokemonList,
   currentTeam,
   actorReturn,
-  layoutControl,
   uploadOpts,
   ...props
 }: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
   const {setupControl} = props;
   const {
     setSetup,
+    layoutControl,
     setCurrentMemberReplaceAll,
     updatePokemonFromPokebox,
   } = setupControl;
