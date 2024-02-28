@@ -12,10 +12,14 @@ import {TeamMemberData} from '@/types/game/team/member';
 import {Nullable} from '@/utils/type';
 
 
+type Props<TMember extends Nullable<TeamMemberData>> = TeamMemberCloudPullProps<TMember> & {
+  onCloudPulled: (member: TMember) => void,
+};
+
 export const TeamMemberCloudPull = <TMember extends Nullable<TeamMemberData>>({
   getTeamMemberFromCloud,
   onCloudPulled,
-}: TeamMemberCloudPullProps<TMember>) => {
+}: Props<TMember>) => {
   const [identifier, setIdentifier] = React.useState('');
   const {actAsync, status} = useUserDataActor();
 

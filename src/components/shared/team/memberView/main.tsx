@@ -3,15 +3,17 @@ import React from 'react';
 import {Grid} from '@/components/layout/grid';
 import {TeamMemberEmptySlot} from '@/components/shared/team/memberView/empty';
 import {TeamMemberFilledSlot} from '@/components/shared/team/memberView/filled';
-import {TeamMemberFilledProps, TeamMemberViewRequiredData} from '@/components/shared/team/memberView/type';
+import {
+  TeamMemberEmptySlotProps,
+  TeamMemberFilledProps,
+  TeamMemberViewRequiredData,
+} from '@/components/shared/team/memberView/type';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
-import {PokemonInfo} from '@/types/game/pokemon';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamMemberProduction} from '@/types/game/team/production';
 import {TeamSetup} from '@/types/game/team/setup';
 import {TeamData} from '@/types/game/team/team';
-import {PokeInBox} from '@/types/userData/pokebox';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getPokemonProducingParams} from '@/utils/game/producing/params';
 import {Nullable} from '@/utils/type';
@@ -23,16 +25,17 @@ type Props<
   TConfig extends TeamSetupConfig,
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
-> = TeamMemberViewRequiredData & TeamMemberFilledProps<TKey, TMember, TConfig, TTeam, TSetup> & {
-  memberKeys: TKey[],
-  actorReturn: UseUserDataActorReturn,
-  getMemberProduction: (memberKey: TKey) => Nullable<TeamMemberProduction>,
-  getMemberFromVanilla: (pokemon: PokemonInfo) => TMember,
-  getMemberFromPokeInBox: (pokeInBox: PokeInBox) => TMember,
-  getTeamMemberFromCloud: (identifier: string) => Promise<Nullable<TMember>>,
-  getMemberIdForShare: (currentTeam: TTeam, memberKey: TKey) => string,
-  generateKeyForEmptySlot?: () => TKey,
-};
+> =
+  TeamMemberViewRequiredData &
+  TeamMemberEmptySlotProps<TKey, TMember> &
+  TeamMemberFilledProps<TKey, TMember, TConfig, TTeam, TSetup> & {
+    memberKeys: TKey[],
+    actorReturn: UseUserDataActorReturn,
+    getMemberProduction: (memberKey: TKey) => Nullable<TeamMemberProduction>,
+    getTeamMemberFromCloud: (identifier: string) => Promise<Nullable<TMember>>,
+    getMemberIdForShare: (currentTeam: TTeam, memberKey: TKey) => string,
+    generateKeyForEmptySlot?: () => TKey,
+  };
 
 export const TeamMemberView = <
   TKey extends TeamMemberKey,
@@ -75,6 +78,8 @@ export const TeamMemberView = <
     return key;
   }, [currentTeam.members]);
 
+  const pokemonList = toPokemonList(pokedexMap);
+
   return (
     <Grid className="grid-cols-1 gap-1.5 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
       {memberKeys.map((memberKey) => {
@@ -104,17 +109,12 @@ export const TeamMemberView = <
         return (
           <TeamMemberEmptySlot
             key={memberKey}
-            onPokeboxPicked={(pokeInBox) => setCurrentMember({
-              key: memberKey,
-              member: getMemberFromPokeInBox(pokeInBox),
-            })}
-            onPokemonSelected={(pokemon) => setCurrentMember({
-              key: memberKey,
-              member: getMemberFromVanilla(pokemon),
-            })}
-            onCloudPulled={(member) => setCurrentMember({key: memberKey, member})}
-            pokemonList={toPokemonList(pokedexMap)}
+            pokemonList={pokemonList}
+            memberKey={memberKey}
             sessionStatus={session.status}
+            getMemberFromPokeInBox={getMemberFromPokeInBox}
+            getMemberFromVanilla={getMemberFromVanilla}
+            setCurrentMember={setCurrentMember}
             {...props}
           />
         );
@@ -122,17 +122,12 @@ export const TeamMemberView = <
       {
         emptySlotKey &&
         <TeamMemberEmptySlot
-          onPokeboxPicked={(pokeInBox) => setCurrentMember({
-            key: emptySlotKey,
-            member: getMemberFromPokeInBox(pokeInBox),
-          })}
-          onPokemonSelected={(pokemon) => setCurrentMember({
-            key: emptySlotKey,
-            member: getMemberFromVanilla(pokemon),
-          })}
-          onCloudPulled={(member) => setCurrentMember({key: emptySlotKey, member})}
-          pokemonList={toPokemonList(pokedexMap)}
+          pokemonList={pokemonList}
+          memberKey={emptySlotKey}
           sessionStatus={session.status}
+          getMemberFromPokeInBox={getMemberFromPokeInBox}
+          getMemberFromVanilla={getMemberFromVanilla}
+          setCurrentMember={setCurrentMember}
           {...props}
         />
       }

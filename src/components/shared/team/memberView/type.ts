@@ -14,6 +14,7 @@ import {TeamData} from '@/types/game/team/team';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {ConfigRequiredData} from '@/types/userData/config/data';
+import {PokeInBox} from '@/types/userData/pokebox';
 import {Nullable} from '@/utils/type';
 
 
@@ -59,9 +60,16 @@ export type TeamMemberFilledSlotProps<
   stats: TeamMemberProduction,
 };
 
+export type TeamMemberEmptySlotProps<
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>,
+> = {
+  getMemberFromVanilla: (pokemon: PokemonInfo, memberKey: TKey) => TMember,
+  getMemberFromPokeInBox: (pokeInBox: PokeInBox, memberKey: TKey) => TMember,
+};
+
 export type TeamMemberEmptySlotPopupType = 'vanilla' | 'pokebox' | 'cloudPull';
 
 export type TeamMemberCloudPullProps<TMember extends Nullable<TeamMemberData>> = {
   getTeamMemberFromCloud: (identifier: string) => Promise<Nullable<TMember>>,
-  onCloudPulled: (member: TMember) => void,
 };
