@@ -46,7 +46,7 @@
       "CoveredStrength": "Cobertura de Vigor"
     },
     "MealFilter": {
-      "IngredientInclusion": "Ingredient Inclusion",
+      "IngredientInclusion": "Ingredientes incluidos",
       "IngredientExclusion": "Excluir Ingredientes",
       "MinRecipeBonus": "Min. Bono de receta"
     },
@@ -531,8 +531,8 @@
           "ToNext": "Al próximo",
           "Accumulated": "Acumulado",
           "PokemonMaxLevel": {
-            "Short": "Max Lv.",
-            "Long": "Pokemon Max Level"
+            "Short": "Nv. Max",
+            "Long": "Nivel Máximo de Pokemon"
           }
         }
       }

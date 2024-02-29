@@ -531,8 +531,8 @@
           "ToNext": "次まで",
           "Accumulated": "累計",
           "PokemonMaxLevel": {
-            "Short": "Max Lv.",
-            "Long": "Pokemon Max Level"
+            "Short": "最大レベル",
+            "Long": "ポケモン最大レベル"
           }
         }
       }
