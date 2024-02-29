@@ -28,7 +28,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
   return (
     <PokeboxImporterButton
       {...props}
-      dimension="size-6"
+      dimension="size-5"
       noFullWidth
       onPokeboxPicked={(pokeInBox) => {
         const pokemon = pokedexMap[pokeInBox.pokemon];
