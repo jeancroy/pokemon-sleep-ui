@@ -44,7 +44,6 @@ export const TeamAnalysisMemberView = ({
         TeamAnalysisComp,
         TeamAnalysisSetup
       >
-      currentTeam={currentTeam}
       getRateByLevel={(level, memberKey) => getTeamCompCalcResult({
         period: currentTeam.analysisPeriod,
         state: stateOfRateToShow,

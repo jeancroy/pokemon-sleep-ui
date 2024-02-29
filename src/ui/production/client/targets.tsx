@@ -28,7 +28,6 @@ type Props = ProductionComparisonDataProps & {
   presetStats: ProductionComparisonPresetProduction,
   actorReturn: UseUserDataActorReturn,
   setupControl: ProductionComparisonSetupControl,
-  currentPreset: ProductionComparisonPreset,
   showPokemon: (pokemon: PokemonInfo) => void,
 };
 
@@ -38,11 +37,11 @@ export const ProductionComparisonTargets = ({
   presetStats,
   actorReturn,
   setupControl,
-  currentPreset,
   showPokemon,
   ...props
 }: Props) => {
   const {ingredientChainMap} = props;
+  const {currentTeam} = setupControl;
   const {actAsync} = actorReturn;
   const {bundle, calculatedCookingConfig} = calculatedConfigBundle;
 
@@ -58,7 +57,6 @@ export const ProductionComparisonTargets = ({
       showPokemon={showPokemon}
       bundle={bundle}
       calculatedCookingConfig={calculatedCookingConfig}
-      currentTeam={currentPreset}
       setupControl={setupControl}
       getRateByLevel={(level, uuid) => getProductionComparisonPresetStats({
         overrideLevel: level,
@@ -66,12 +64,12 @@ export const ProductionComparisonTargets = ({
         calculatedCookingConfig,
         // Override `currentPreset.members` to contain the target to evaluate only to save some performance
         currentPreset: {
-          ...currentPreset,
-          members: pick(currentPreset.members, [uuid]),
+          ...currentTeam,
+          members: pick(currentTeam.members, [uuid]),
         },
         ...props,
       })[uuid]}
-      memberKeys={Object.keys(currentPreset.members)}
+      memberKeys={Object.keys(currentTeam.members)}
       getMemberProduction={(uuid) => presetStats[uuid]}
       getMemberFromVanilla={(pokemon, memberKey) => ({
         ...toTeamMemberDataFromVanilla({
@@ -104,7 +102,7 @@ export const ProductionComparisonTargets = ({
       }}
       getMemberIdForShare={({uuid}) => uuid}
       generateKeyForEmptySlot={v4}
-      productionSorter={currentPreset.sort === null ? undefined : sortTeamMemberProduction(currentPreset.sort)}
+      productionSorter={currentTeam.sort === null ? undefined : sortTeamMemberProduction(currentTeam.sort)}
       {...props}
     />
   );

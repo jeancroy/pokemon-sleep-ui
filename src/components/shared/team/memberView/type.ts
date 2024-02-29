@@ -42,7 +42,6 @@ export type TeamMemberFilledProps<
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 > = TeamMemberFilledCommonProps & {
-  currentTeam: TTeam,
   calculatedCookingConfig: CalculatedCookingConfig,
   maxEvolutionCount: number,
   setupControl: TeamSetupControl<TKey, TMember, TConfig, TTeam, TSetup>,

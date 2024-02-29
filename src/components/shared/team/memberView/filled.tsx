@@ -33,10 +33,9 @@ export const TeamMemberFilledSlot = <
   const {
     setupControl,
     stats,
-    currentTeam,
     memberKey,
   } = props;
-  const {setCurrentMemberPartial, duplicateMemberToCurrentComp} = setupControl;
+  const {currentTeam, setCurrentMemberPartial, duplicateMemberToCurrentComp} = setupControl;
 
   return (
     <TeamMember

@@ -109,7 +109,6 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
         presetStats={presetStats}
         actorReturn={actorReturn}
         setupControl={setupControl}
-        currentPreset={currentTeam}
         showPokemon={showPokemon}
         {...props}
       />

@@ -57,14 +57,13 @@ export const TeamMemberView = <
   ...props
 }: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
   const {
-    currentTeam,
     setupControl,
     pokedexMap,
     pokemonProducingParamsMap,
   } = props;
   const {session} = actorReturn;
+  const {layoutControl, currentTeam} = setupControl;
   const {members} = currentTeam;
-  const {layoutControl} = setupControl;
   const {generateCollapsibleControl} = layoutControl;
   const {setCurrentMember} = setupControl;
 
