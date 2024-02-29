@@ -61,7 +61,6 @@ export const ProductionComparisonTargets = ({
       setupControl={setupControl}
       getRateByLevel={(level, uuid) => getProductionComparisonPresetStats({
         overrideLevel: level,
-        snorlaxFavorite: currentPreset.snorlaxFavorite,
         bundle,
         calculatedCookingConfig,
         // Override `currentPreset.members` to contain the target to evaluate only to save some performance

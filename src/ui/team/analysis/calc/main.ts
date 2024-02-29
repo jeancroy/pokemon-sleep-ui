@@ -15,15 +15,11 @@ export const getTeamProduction = (opts: GetTeamProductionOpts): TeamProduction =
     currentTeam,
     calculatedCookingConfig,
   } = opts;
-  const {
-    snorlaxFavorite,
-    analysisPeriod,
-  } = currentTeam;
+  const {analysisPeriod} = currentTeam;
 
   const compsStats = getTeamCompCalcResult({
     period: analysisPeriod,
     state: stateOfRateToShow,
-    snorlaxFavorite,
     ...opts,
   });
   const {

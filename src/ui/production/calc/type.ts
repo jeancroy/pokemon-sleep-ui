@@ -25,7 +25,10 @@ export type GetProductionComparisonStatsCommonOpts = ConfigRequiredData & {
   overrideLevel?: number,
 };
 
-export type GetProductionComparisonTargetStatsOpts = GetProductionComparisonStatsCommonOpts & {
+export type GetProductionComparisonTargetStatsOpts = Omit<
+  GetProductionComparisonStatsCommonOpts,
+  'snorlaxFavorite'
+> & {
   pokedexMap: PokedexMap,
   currentPreset: ProductionComparisonPreset,
 };

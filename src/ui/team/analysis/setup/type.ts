@@ -1,4 +1,3 @@
-
 import {TeamSetupControl} from '@/components/shared/team/setupControl/type';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {
@@ -22,5 +21,4 @@ export type TeamAnalysisSetupControl = TeamSetupControl<
 export type TeamAnalysisSetupViewCommonProps = TeamAnalysisDataProps & {
   actorReturn: UseUserDataActorReturn,
   setupControl: TeamAnalysisSetupControl,
-  currentTeam: TeamAnalysisComp,
 };

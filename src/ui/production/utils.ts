@@ -7,7 +7,7 @@ import {
   ProductionComparisonPreset,
   ProductionComparisonSetup,
 } from '@/types/productionComparison';
-import {CookingTarget} from '@/types/userData/config/cooking/target';
+import {ConfigBundle} from '@/types/userData/config/bundle';
 import {UserProductionComparisonContent} from '@/types/userData/productionComparison';
 import {getDefaultTeamName} from '@/utils/game/team/name';
 import {migrate} from '@/utils/migrate/main';
@@ -18,22 +18,21 @@ import {Nullable} from '@/utils/type';
 
 type GenerateNewProductionComparisonPresetOpts = {
   uuid: string,
-  cookingTarget: CookingTarget,
+  bundle: ConfigBundle,
 };
 
 export const generateNewProductionComparisonPreset = ({
   uuid,
-  cookingTarget,
+  bundle,
 }: GenerateNewProductionComparisonPresetOpts): ProductionComparisonPreset => {
   return {
     version: productionComparisonPresetMigrators.length,
     uuid,
     name: getDefaultTeamName(uuid),
-    snorlaxFavorite: defaultSnorlaxFavorite,
     analysisPeriod: defaultProductionPeriod,
     members: {},
     pinnedStats: [],
-    cookingTarget,
+    cookingTarget: bundle.cookingConfig.target,
     team: {
       skill: {
         recovery: [],
@@ -45,17 +44,22 @@ export const generateNewProductionComparisonPreset = ({
         helpingBonus: 0,
       },
     },
+    configOverride: {
+      snorlaxFavorite: defaultSnorlaxFavorite,
+      cooking: bundle.cookingConfig,
+      stamina: bundle.userConfig.stamina,
+    },
   };
 };
 
 type GetInitialProductionComparisonSetupOpts = {
   data: Nullable<UserProductionComparisonContent>,
-  defaultCookingTarget: CookingTarget,
+  defaultBundle: ConfigBundle,
 };
 
 export const getInitialProductionComparisonSetup = ({
   data,
-  defaultCookingTarget,
+  defaultBundle,
 }: GetInitialProductionComparisonSetupOpts): ProductionComparisonSetup => {
   // If the user is not logged in or new, they won't have `preloadedSetup` so they need an initial comp
   // Therefore generate the initial comp for migration, then ignore it if it's not needed
@@ -72,12 +76,12 @@ export const getInitialProductionComparisonSetup = ({
 
   const presetsToMigrate = data?.presets ?? [generateNewProductionComparisonPreset({
     uuid: initialCompUuid,
-    cookingTarget: defaultCookingTarget,
+    bundle: defaultBundle,
   })];
   const presets: ProductionComparisonPreset[] = presetsToMigrate.map((team) => migrate({
     original: generateNewProductionComparisonPreset({
       uuid: team.uuid,
-      cookingTarget: defaultCookingTarget,
+      bundle: defaultBundle,
     }),
     override: team,
     migrators: productionComparisonPresetMigrators,

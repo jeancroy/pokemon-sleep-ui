@@ -1,27 +1,22 @@
 import {Production} from '@/types/game/producing/rate/base';
-import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamMemberProduction} from '@/types/game/team/production';
 import {TeamAnalysisSlotName, teamAnalysisSlotName, TeamProductionBySlot} from '@/types/teamAnalysis';
 import {getTeamProductionOfSlot} from '@/ui/team/analysis/calc/slot';
 import {GetTeamProductionCommonOpts, GetTeamProductionOpts, TeamCompCalcResult} from '@/ui/team/analysis/calc/type';
 import {getPokemonProductionMulti} from '@/utils/game/producing/main/entry/multi';
 import {getTotalPokemonProduction} from '@/utils/game/producing/reducer/total/common';
-import {getCurrentTeam} from '@/utils/team/setup/getCurrentTeam';
 import {isNotNullish} from '@/utils/type';
 
 
-type TeamCompCalcOpts = GetTeamProductionCommonOpts & GetTeamProductionOpts & {
-  snorlaxFavorite: SnorlaxFavorite,
-};
+type TeamCompCalcOpts = GetTeamProductionCommonOpts & GetTeamProductionOpts;
 
 export const getTeamCompCalcResult = ({
   period,
   state,
-  snorlaxFavorite,
   ...opts
 }: TeamCompCalcOpts): TeamCompCalcResult => {
-  const {setup} = opts;
-  const currentTeam = getCurrentTeam({setup});
+  const {configOverride, members} = opts.currentTeam;
+  const {snorlaxFavorite} = configOverride;
 
   const {rates, grouped} = getPokemonProductionMulti({
     ...opts,
@@ -66,7 +61,7 @@ export const getTeamCompCalcResult = ({
           ...atStage.final,
           calculatedUserConfig,
           total,
-          level: currentTeam.members[slotName]?.level ?? null,
+          level: members[slotName]?.level ?? null,
         },
       ];
     })) as TeamProductionBySlot,

@@ -12,9 +12,9 @@ export type ToTeamAnalysisCompFromPokeboxOpts =
   ToTeamMemberNullableData;
 
 export const toTeamAnalysisCompFromPokebox = ({
-  members,
-  snorlaxFavorite,
   name,
+  members,
+  configOverride,
   ...opts
 }: ToTeamAnalysisCompFromPokeboxOpts): TeamAnalysisComp => {
   const uuid = v4();
@@ -23,7 +23,6 @@ export const toTeamAnalysisCompFromPokebox = ({
     version: teamAnalysisCompMigrators.length,
     uuid,
     name: name || getDefaultTeamName(uuid),
-    snorlaxFavorite,
     analysisPeriod: 'daily',
     members: {
       A: toTeamMemberFromPokeInBoxNullable({pokeInBox: members.at(0), ...opts}) ?? null,
@@ -32,5 +31,6 @@ export const toTeamAnalysisCompFromPokebox = ({
       D: toTeamMemberFromPokeInBoxNullable({pokeInBox: members.at(3), ...opts}) ?? null,
       E: toTeamMemberFromPokeInBoxNullable({pokeInBox: members.at(4), ...opts}) ?? null,
     },
+    configOverride,
   };
 };

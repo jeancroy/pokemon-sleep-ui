@@ -1,7 +1,7 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {Migratable} from '@/types/migrate';
+import {ConfigOverride} from '@/types/userData/config/bundle';
 import {Nullable} from '@/utils/type';
 
 
@@ -16,8 +16,8 @@ export type TeamMemberMap<
 export type TeamMetadata = {
   uuid: string,
   name: string,
-  snorlaxFavorite: SnorlaxFavorite,
   analysisPeriod: ProductionPeriod,
+  configOverride: ConfigOverride,
 };
 
 // Changing the typing of this requires migrating and any references of this type

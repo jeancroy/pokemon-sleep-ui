@@ -4,10 +4,11 @@ import {TeamMakerResult} from '@/ui/team/maker/type/result';
 
 
 export const getTeamMakerFinalResult = (opts: TeamMakerCalcResultsOpts): TeamMakerResult => {
-  const {input} = opts;
+  const {input, bundle} = opts;
 
   return {
     comps: getTeamMakerComps(opts),
     inputUsed: input,
+    bundleUsed: bundle,
   };
 };

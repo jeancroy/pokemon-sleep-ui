@@ -1,13 +1,13 @@
 import {PokedexMap} from '@/types/game/pokemon';
 import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
-import {SnorlaxFavorite} from '@/types/game/snorlax';
+import {ConfigOverride} from '@/types/userData/config/bundle';
 import {PokeInBox} from '@/types/userData/pokebox';
 
 
 export type ToTeamCompFromPokeboxCommonOpts = {
-  members: PokeInBox[],
-  snorlaxFavorite: SnorlaxFavorite,
   name: string,
+  members: PokeInBox[],
+  configOverride: ConfigOverride,
 };
 
 export type ToTeamMemberNullableData = {

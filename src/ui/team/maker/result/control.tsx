@@ -11,16 +11,16 @@ import {PopupCommon} from '@/components/popup/common/main';
 import {ClickableIconButton} from '@/components/shared/common/button/clickable';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
-import {SnorlaxFavorite} from '@/types/game/snorlax';
+import {ConfigBundle} from '@/types/userData/config/bundle';
 import {PokeInBox} from '@/types/userData/pokebox';
 
 
 type Props = {
   pokeInBoxList: PokeInBox[],
-  snorlaxFavoriteForExport: SnorlaxFavorite,
+  bundleUsed: ConfigBundle,
 };
 
-export const TeamMakerCompControl = ({pokeInBoxList, snorlaxFavoriteForExport}: Props) => {
+export const TeamMakerCompControl = ({pokeInBoxList, bundleUsed}: Props) => {
   const t = useTranslations('UI.InPage.Team.Maker.Control');
   const [show, setShow] = React.useState(false);
   const [teamName, setTeamName] = React.useState('');
@@ -42,7 +42,11 @@ export const TeamMakerCompControl = ({pokeInBoxList, snorlaxFavoriteForExport}: 
                 name: teamName,
                 // No need to migrate as it is done server-side
                 members: pokeInBoxList,
-                snorlaxFavorite: snorlaxFavoriteForExport,
+                configOverride: {
+                  snorlaxFavorite: bundleUsed.userConfig.snorlaxFavorite,
+                  cooking: bundleUsed.cookingConfig,
+                  stamina: bundleUsed.userConfig.stamina,
+                },
               },
             },
           });

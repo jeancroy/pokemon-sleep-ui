@@ -11,12 +11,16 @@ import {
   TeamSetupControl,
   TeamSetupDuplicatedMember,
 } from '@/components/shared/team/setupControl/type';
+import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
+import {UseUserDataOpts} from '@/hooks/userData/type';
 import {imageIconSizes} from '@/styles/image';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetup} from '@/types/game/team/setup';
 import {TeamData} from '@/types/game/team/team';
 import {TeamSetupSetMemberOpts} from '@/types/game/team/update';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {ConfigRequiredData} from '@/types/userData/config/data';
 import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 import {getCurrentTeam} from '@/utils/team/setup/getCurrentTeam';
@@ -24,6 +28,7 @@ import {updateCurrentTeamMember} from '@/utils/team/setup/updateCurrentMember';
 import {toTeamMemberFromPokeInBox} from '@/utils/team/toMember';
 import {showToast} from '@/utils/toast';
 import {Nullable} from '@/utils/type';
+import {toCalculatedConfigBundle} from '@/utils/user/config/bundle';
 
 
 type UseTeamAnalysisSetupControlOpts<
@@ -32,7 +37,8 @@ type UseTeamAnalysisSetupControlOpts<
   TConfig extends TeamSetupConfig,
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
-> = {
+> = ConfigRequiredData & {
+  bundleBase: UseUserDataOpts<ConfigBundle>,
   initialMigratedSetup: TSetup,
   getDuplicatedMember: (currentTeam: TTeam, source: TMember) => TeamSetupDuplicatedMember<TKey, TMember> | null,
   getLayoutCollapsibleIndexKeys: (team: TTeam) => TKey[],
@@ -45,9 +51,11 @@ export const useTeamSetupControl = <
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 >({
+  bundleBase,
   initialMigratedSetup,
   getDuplicatedMember,
   getLayoutCollapsibleIndexKeys,
+  ...props
 }: UseTeamAnalysisSetupControlOpts<
   TKey,
   TMember,
@@ -57,12 +65,29 @@ export const useTeamSetupControl = <
 >): TeamSetupControl<TKey, TMember, TConfig, TTeam, TSetup> => {
   const [setup, setSetup] = React.useState(initialMigratedSetup);
 
+  const bundle = useConfigBundle({
+    bundle: bundleBase,
+    ...props,
+  });
+
   const layoutControl = useTeamLayoutControl({
     setup,
     getLayoutCollapsibleIndexKeys,
   });
 
   const t = useTranslations('Game');
+
+  const currentTeam: TTeam = getCurrentTeam({setup});
+
+  // Need to memoize to prevent infinite re-render
+  const currentCalculatedConfigBundle = React.useMemo(() => toCalculatedConfigBundle({
+    override: {
+      ...currentTeam.configOverride,
+      snorlaxFavorite: currentTeam.configOverride.snorlaxFavorite,
+    },
+    ...bundle,
+    ...props,
+  }), [bundle, currentTeam]);
 
   const setCurrentMember = ({key, member}: TeamSetupSetMemberOpts<TKey, TMember>) => {
     setSetup((original): TSetup => ({
@@ -95,7 +120,6 @@ export const useTeamSetupControl = <
     getUpdatedMember,
   }: TeamSetupBatchUpdateMemberOpts) => setSetup((original) => {
     const {teams, config} = original;
-    const currentTeam: TTeam = getCurrentTeam({setup});
 
     return {
       ...original,
@@ -119,6 +143,8 @@ export const useTeamSetupControl = <
     setup,
     setSetup,
     layoutControl,
+    currentTeam,
+    currentCalculatedConfigBundle,
     setCurrentMember,
     setCurrentMemberReplaceAll: ({update}) => updateTeamMemberBatched({
       getUpdatedMember: (member) => ({...member, ...update}),
@@ -147,7 +173,6 @@ export const useTeamSetupControl = <
       };
     }),
     duplicateMemberToCurrentComp: (sourceKey) => {
-      const currentTeam: TTeam = getCurrentTeam({setup});
       const {members} = currentTeam;
 
       const duplicatedMember = getDuplicatedMember(currentTeam, members[sourceKey]);

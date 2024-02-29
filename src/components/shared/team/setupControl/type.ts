@@ -8,6 +8,7 @@ import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetup} from '@/types/game/team/setup';
 import {TeamData} from '@/types/game/team/team';
 import {TeamSetupSetMemberOpts} from '@/types/game/team/update';
+import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {Pokebox} from '@/types/userData/pokebox';
 import {Nullable} from '@/utils/type';
 
@@ -31,6 +32,8 @@ export type TeamSetupControl<
   setup: TSetup,
   setSetup: React.Dispatch<React.SetStateAction<TSetup>>,
   layoutControl: TeamLayoutControl<TKey>,
+  currentTeam: TTeam,
+  currentCalculatedConfigBundle: CalculatedConfigBundle,
   setCurrentMember: (opts: TeamSetupSetMemberOpts<TKey, TMember>) => void,
   setCurrentMemberReplaceAll: (opts: TeamSetupReplaceAllMemberOpts) => void,
   setCurrentMemberPartial: (opts: TeamSetupUpdateMemberOpts<TKey>) => void,

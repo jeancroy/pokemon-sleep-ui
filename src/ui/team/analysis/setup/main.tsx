@@ -14,44 +14,43 @@ import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
 import {TeamContributionSplitIndicator} from '@/components/shared/team/contributionSplit/main';
 import {TeamSetupControlUI} from '@/components/shared/team/setupControl/main';
-import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
+import {useIngredientIdsFromMeals} from '@/hooks/ingredient/ingredientIds';
+import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {useTeamProduction} from '@/ui/team/analysis/calc/hook';
 import {TeamAnalysisMemberView} from '@/ui/team/analysis/setup/members';
 import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';
 import {TeamAnalysisSetupViewCommonProps} from '@/ui/team/analysis/setup/type';
-import {generateEmptyTeam} from '@/ui/team/analysis/utils';
+import {generateTeamAnalysisComp} from '@/ui/team/analysis/utils';
 import {isNotNullish} from '@/utils/type';
 
 
 export const TeamAnalysisSetupView = (props: TeamAnalysisSetupViewCommonProps) => {
   const {
     setupControl,
-    currentTeam,
     snorlaxData,
     mealMap,
-    preloaded,
-    actorReturn,
   } = props;
-  const {session} = actorReturn;
-  const {setup} = setupControl;
+  const {
+    setup,
+    currentCalculatedConfigBundle,
+    currentTeam,
+  } = setupControl;
 
-  const calculatedConfigBundle = useCalculatedConfigBundle({
-    bundle: {
-      server: preloaded.bundle,
-      client: session?.data?.user.preloaded,
-    },
-    ...props,
-  });
-  const {bundle, calculatedCookingConfig} = calculatedConfigBundle;
+  const {bundle, calculatedCookingConfig} = currentCalculatedConfigBundle;
   const statsOfTeam = useTeamProduction({
     ...props,
+    currentTeam,
     setup,
     bundle,
     calculatedCookingConfig,
   });
   const {state, setState, showPokemon} = usePokemonLinkPopup();
   const collapsible = useCollapsibleControl();
+
+  const meals = Object.values(mealMap).filter(isNotNullish);
+  const mealTypes = usePossibleMealTypes(meals);
+  const ingredientIds = useIngredientIdsFromMeals(meals);
 
   if (!statsOfTeam) {
     return <Loading text="Worker"/>;
@@ -61,7 +60,7 @@ export const TeamAnalysisSetupView = (props: TeamAnalysisSetupViewCommonProps) =
     <>
       <PokemonLinkPopup state={state} setState={setState}/>
       <TeamSetupControlUI
-        generateNewTeam={generateEmptyTeam}
+        generateNewTeam={(uuid) => generateTeamAnalysisComp({uuid, bundle})}
         uploadOpts={{
           type: 'teamAnalysis',
           data: {
@@ -70,6 +69,8 @@ export const TeamAnalysisSetupView = (props: TeamAnalysisSetupViewCommonProps) =
           },
         }}
         getMemberList={(team) => Object.values(team.members)}
+        mealTypes={mealTypes}
+        ingredientIds={ingredientIds}
         {...props}
       />
       <AdsUnit hideIfNotBlocked/>

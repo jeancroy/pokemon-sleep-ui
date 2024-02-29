@@ -46,7 +46,7 @@ export const getRateOfPokemon = ({
       }),
       cookingRecoveryData,
       eventStrengthMultiplierData,
-      snorlaxFavorite,
+      override: {snorlaxFavorite},
     }),
     individual,
     pokemonProducingParams: getPokemonProducingParams({

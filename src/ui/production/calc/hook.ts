@@ -21,7 +21,6 @@ export const useProductionComparisonPresetStats = ({
   eventStrengthMultiplierData,
   bundle,
   calculatedCookingConfig,
-  snorlaxFavorite,
   currentPreset,
   overrideLevel,
 }: GetProductionComparisonTargetStatsOpts): Nullable<ProductionComparisonPresetProduction> => {
@@ -49,7 +48,6 @@ export const useProductionComparisonPresetStats = ({
       eventStrengthMultiplierData,
       bundle,
       calculatedCookingConfig,
-      snorlaxFavorite,
       currentPreset,
       overrideLevel,
     };
@@ -61,7 +59,7 @@ export const useProductionComparisonPresetStats = ({
     }
 
     work(opts);
-  }, [bundle, calculatedCookingConfig, snorlaxFavorite, currentPreset, overrideLevel]);
+  }, [bundle, calculatedCookingConfig, currentPreset, overrideLevel]);
 
   return result;
 };

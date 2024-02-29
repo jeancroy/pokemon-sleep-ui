@@ -20,6 +20,7 @@ export const getProductionComparisonPresetStats = ({
       target.uuid,
       getProductionComparisonTargetStats({
         ...opts,
+        snorlaxFavorite: currentPreset.configOverride.snorlaxFavorite,
         pokemon,
         target,
       }),

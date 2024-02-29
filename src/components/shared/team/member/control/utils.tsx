@@ -17,7 +17,7 @@ export const teamMemberSendRatingRequest = ({
   ratingControl.sendRequest(toRatingSetup({
     member,
     pokemon,
-    snorlaxFavorite: teamMetadata.snorlaxFavorite,
+    snorlaxFavorite: teamMetadata.configOverride.snorlaxFavorite,
     specialtyId: pokemon.specialty,
     bundle,
   }));

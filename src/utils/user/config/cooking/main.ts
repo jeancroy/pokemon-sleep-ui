@@ -5,9 +5,7 @@ import {toActualPotCapacity} from '@/utils/user/config/cooking/potCapacity';
 import {toTargetMeals} from '@/utils/user/config/cooking/targetMeals';
 
 
-export type ToCalculatedCookingConfigOpts =
-  ConfigBundle &
-  Pick<CalculatedCookingConfigRequiredData, 'mealMap'>;
+export type ToCalculatedCookingConfigOpts = ConfigBundle & Pick<CalculatedCookingConfigRequiredData, 'mealMap'>;
 
 export const toCalculatedCookingConfig = ({
   userConfig,

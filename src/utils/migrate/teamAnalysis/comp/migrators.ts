@@ -1,4 +1,7 @@
 import {defaultSeedUsage} from '@/const/game/seed';
+import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
+import {defaultCookingConfig} from '@/const/user/config/cooking';
+import {defaultStaminaCalcConfig} from '@/const/user/config/user';
 import {TeamMemberData} from '@/types/game/team/member';
 import {Migrator} from '@/types/migrate';
 import {TeamAnalysisComp, teamAnalysisSlotName} from '@/types/teamAnalysis';
@@ -35,6 +38,7 @@ export const teamAnalysisCompMigrators: Migrator<TeamAnalysisComp, TeamAnalysisC
   {
     // Updated `SnorlaxFavorite` typing
     toVersion: 4,
+    // @ts-ignore
     migrate: ({snorlaxFavorite, ...old}) => ({
       ...old,
       snorlaxFavorite: {
@@ -57,6 +61,19 @@ export const teamAnalysisCompMigrators: Migrator<TeamAnalysisComp, TeamAnalysisC
 
         return [slot, {...member, linkedPokeInBoxUuid: null} satisfies TeamMemberData | null];
       })) as TeamAnalysisComp['members'],
+    }),
+  },
+  {
+    // Updated `SnorlaxFavorite` typing placement
+    toVersion: 6,
+    // @ts-ignore
+    migrate: ({snorlaxFavorite, ...old}) => ({
+      ...old,
+      configOverride: {
+        snorlaxFavorite: snorlaxFavorite ?? defaultSnorlaxFavorite,
+        cooking: defaultCookingConfig,
+        stamina: defaultStaminaCalcConfig,
+      },
     }),
   },
 ];

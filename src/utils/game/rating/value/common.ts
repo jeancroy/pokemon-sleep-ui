@@ -29,6 +29,7 @@ export const getRatingValueCommon = (opts: GetRatingValueCommonOpts): RatingValu
     subSkillMap,
     bundle,
     pokemon,
+    snorlaxFavorite,
     evolutionCount,
     seeds,
   } = baseOpts;
@@ -47,6 +48,7 @@ export const getRatingValueCommon = (opts: GetRatingValueCommonOpts): RatingValu
       natureId,
       subSkillBonuses: [subSkillBonus],
     }),
+    override: {snorlaxFavorite},
   });
   const {calculatedCookingConfig} = calculatedConfigBundle;
   const {targetMeals} = calculatedCookingConfig;

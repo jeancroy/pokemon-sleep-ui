@@ -16,7 +16,6 @@ import {TeamSetup} from '@/types/game/team/setup';
 import {TeamData} from '@/types/game/team/team';
 import {SessionStatus} from '@/types/session';
 import {getDefaultTeamName, getTeamName} from '@/utils/game/team/name';
-import {getCurrentTeam} from '@/utils/team/setup/getCurrentTeam';
 import {Nullable} from '@/utils/type';
 
 
@@ -39,11 +38,9 @@ export const TeamSelector = <
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 >({status, className, ...props}: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
   const {setupControl} = props;
-  const {setup, setSetup} = setupControl;
+  const {setup, setSetup, currentTeam} = setupControl;
 
   const [show, setShow] = React.useState(false);
-
-  const currentTeam = getCurrentTeam({setup});
 
   return (
     <>

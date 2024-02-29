@@ -31,11 +31,10 @@ export const TeamAnalysisMemberView = ({
   const {
     actorReturn,
     setupControl,
-    currentTeam,
     ingredientChainMap,
   } = props;
   const {actAsync} = actorReturn;
-  const {setup} = setupControl;
+  const {setup, currentTeam} = setupControl;
 
   return (
     // Need to explicitly type or there will be some typing error
@@ -46,12 +45,13 @@ export const TeamAnalysisMemberView = ({
         TeamAnalysisComp,
         TeamAnalysisSetup
       >
+      currentTeam={currentTeam}
       getRateByLevel={(level, memberKey) => getTeamCompCalcResult({
         period: currentTeam.analysisPeriod,
         state: stateOfRateToShow,
         overrideLevel: level,
-        snorlaxFavorite: currentTeam.snorlaxFavorite,
         setup,
+        currentTeam,
         ...props,
       }).bySlot[memberKey]}
       memberKeys={[...teamAnalysisSlotName]}

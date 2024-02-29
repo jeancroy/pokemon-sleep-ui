@@ -39,7 +39,7 @@ export const TeamMakerResultCompUI = ({comp, ...props}: Props) => {
     ingredientStats,
     finalEstimates,
   } = comp;
-  const {inputUsed} = result;
+  const {inputUsed, bundleUsed} = result;
 
   const collapsible = useCollapsibleControl();
   const t = useTranslations('UI.Producing');
@@ -83,7 +83,7 @@ export const TeamMakerResultCompUI = ({comp, ...props}: Props) => {
           <TeamMakerSnorlaxRankFinalEstimate finalEstimates={finalEstimates}/>
           <TeamMakerCompControl
             pokeInBoxList={rates.rates.map(({payload}) => payload.pokeInBox)}
-            snorlaxFavoriteForExport={inputUsed.snorlaxFavorite}
+            bundleUsed={bundleUsed}
           />
         </Flex>
       </Flex>

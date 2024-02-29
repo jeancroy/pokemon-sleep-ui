@@ -3,15 +3,14 @@ import {useCustomCompareMemo} from 'use-custom-compare';
 
 import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
 import {UseUserDataOpts} from '@/hooks/userData/type';
-import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedConfigBundle, ConfigBundle, ConfigOverride} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
 import {toCalculatedConfigBundle} from '@/utils/user/config/bundle';
 
 
 type UseCalculatedConfigBundleOpts = ConfigRequiredData & {
   bundle: UseUserDataOpts<ConfigBundle>,
-  snorlaxFavorite?: SnorlaxFavorite,
+  override?: Partial<ConfigOverride>,
 };
 
 export const useCalculatedConfigBundle = ({
@@ -19,7 +18,7 @@ export const useCalculatedConfigBundle = ({
   cookingRecoveryData,
   eventStrengthMultiplierData,
   bundle,
-  snorlaxFavorite,
+  override,
 }: UseCalculatedConfigBundleOpts): CalculatedConfigBundle => {
   const {userConfig, cookingConfig} = useConfigBundle({bundle});
 
@@ -30,9 +29,9 @@ export const useCalculatedConfigBundle = ({
       eventStrengthMultiplierData,
       userConfig,
       cookingConfig,
-      snorlaxFavorite,
+      override,
     }),
-    [userConfig, cookingConfig, snorlaxFavorite],
+    [userConfig, cookingConfig, override],
     (prev, next) => isEqual(prev, next),
   );
 };

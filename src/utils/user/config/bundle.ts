@@ -1,5 +1,5 @@
-import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
+import {CalculatedConfigBundle, ConfigOverride} from '@/types/userData/config/bundle';
+import {cloneMerge} from '@/utils/object/cloneMerge';
 import {toCalculatedCookingConfig, ToCalculatedCookingConfigOpts} from '@/utils/user/config/cooking/main';
 import {toCalculatedUserConfig, ToCalculatedUserConfigOpts} from '@/utils/user/config/user/main';
 
@@ -7,19 +7,35 @@ import {toCalculatedUserConfig, ToCalculatedUserConfigOpts} from '@/utils/user/c
 type ToCalculatedConfigBundleOpts =
   Omit<ToCalculatedUserConfigOpts, 'snorlaxFavorite'> &
   ToCalculatedCookingConfigOpts & {
-    snorlaxFavorite?: SnorlaxFavorite,
+    override?: Partial<ConfigOverride>,
   };
 
-export const toCalculatedConfigBundle = (opts: ToCalculatedConfigBundleOpts): CalculatedConfigBundle => {
-  const {userConfig, cookingConfig} = opts;
+export const toCalculatedConfigBundle = ({
+  mealMap,
+  userConfig,
+  override,
+  ...opts
+}: ToCalculatedConfigBundleOpts): CalculatedConfigBundle => {
+  if (override?.stamina) {
+    userConfig = cloneMerge(userConfig, {stamina: override.stamina});
+  }
 
-  const snorlaxFavorite = opts.snorlaxFavorite ?? userConfig.snorlaxFavorite;
+  const cookingConfig = override?.cooking ?? opts.cookingConfig;
+  const snorlaxFavorite = override?.snorlaxFavorite ?? userConfig.snorlaxFavorite;
 
   return {
     bundle: {userConfig, cookingConfig},
     snorlaxFavorite,
     // `opts` might have explicit `undefined`, therefore `snorlaxFavorite` goes after `opts` to force override
-    calculatedUserConfig: toCalculatedUserConfig({...opts, snorlaxFavorite}),
-    calculatedCookingConfig: toCalculatedCookingConfig(opts),
+    calculatedUserConfig: toCalculatedUserConfig({
+      ...opts,
+      userConfig,
+      snorlaxFavorite,
+    }),
+    calculatedCookingConfig: toCalculatedCookingConfig({
+      userConfig,
+      cookingConfig,
+      mealMap,
+    }),
   };
 };
