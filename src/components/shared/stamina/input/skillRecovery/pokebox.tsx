@@ -61,7 +61,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
 
         const {activeSkillEffect} = intermediate;
 
-        if (activeSkillEffect?.type !== 'stamina') {
+        if (activeSkillEffect?.type !== 'stamina' || activeSkillEffect.target !== 'team') {
           return;
         }
 
