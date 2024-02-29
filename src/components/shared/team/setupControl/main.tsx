@@ -78,26 +78,6 @@ export const TeamSetupControlUI = <
 
   return (
     <Flex className="gap-1">
-      <SnorlaxFavoriteInput
-        filter={currentTeam.configOverride}
-        setFilter={(getUpdatedConfigOverride) => setCurrentTeam((currentTeam) => ({
-          ...currentTeam,
-          configOverride: getUpdatedConfigOverride(currentTeam.configOverride),
-        }))}
-        filterKey="snorlaxFavorite"
-        fieldMetaMap={fieldMetaMap}
-        pokemonList={pokemonList}
-      />
-      <FilterTextInput
-        title={t('Period')}
-        idToText={(period) => t2(productionPeriodI18nId[period])}
-        ids={[...productionPeriod]}
-        isActive={(period) => period === currentTeam.analysisPeriod}
-        onClick={(analysisPeriod) => setCurrentTeam((currentTeam) => ({
-          ...currentTeam,
-          analysisPeriod,
-        }))}
-      />
       <TeamUserConfig
         bundle={bundle}
         cookingConfig={bundle.cookingConfig}
@@ -119,6 +99,26 @@ export const TeamSetupControlUI = <
         isPremium={isPremium}
         hideManualSkillRecovery={hideManualStaminaSkillRecovery}
         {...props}
+      />
+      <SnorlaxFavoriteInput
+        filter={currentTeam.configOverride}
+        setFilter={(getUpdatedConfigOverride) => setCurrentTeam((currentTeam) => ({
+          ...currentTeam,
+          configOverride: getUpdatedConfigOverride(currentTeam.configOverride),
+        }))}
+        filterKey="snorlaxFavorite"
+        fieldMetaMap={fieldMetaMap}
+        pokemonList={pokemonList}
+      />
+      <FilterTextInput
+        title={t('Period')}
+        idToText={(period) => t2(productionPeriodI18nId[period])}
+        ids={[...productionPeriod]}
+        isActive={(period) => period === currentTeam.analysisPeriod}
+        onClick={(analysisPeriod) => setCurrentTeam((currentTeam) => ({
+          ...currentTeam,
+          analysisPeriod,
+        }))}
       />
       <TeamQuickActionGlobalLevel
         onLevelSelected={(level) => setCurrentMemberReplaceAll({update: {level}})}
