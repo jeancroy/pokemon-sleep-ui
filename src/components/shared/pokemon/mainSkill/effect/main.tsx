@@ -42,10 +42,19 @@ export const MainSkillEffectUI = ({effect}: Props) => {
   }
 
   if (effect.type === 'cooking') {
+    if (effect.successPercent) {
+      return (
+        <MainSkillEffectValue
+          type={effect.type}
+          value={`${effect.successPercent}%`}
+        />
+      );
+    }
+
     return (
       <MainSkillEffectValue
         type={effect.type}
-        value={effect.ingredients || effect.capacity || effect.successPercent}
+        value={effect.ingredients || effect.capacity}
       />
     );
   }
