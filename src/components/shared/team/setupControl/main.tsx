@@ -10,6 +10,7 @@ import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {StaminaConfigDataProps} from '@/components/shared/stamina/input/type';
 import {TeamSelector} from '@/components/shared/team/selector/main';
 import {TeamSelectorCommonProps} from '@/components/shared/team/selector/type';
+import {TeamUserConfig} from '@/components/shared/team/setupControl/config/main';
 import {TeamLayoutControlUI} from '@/components/shared/team/setupControl/layoutControl/main';
 import {TeamQuickActionGlobalLevel} from '@/components/shared/team/setupControl/quickAction/globalLevel';
 import {TeamQuickActionSyncPokemon} from '@/components/shared/team/setupControl/quickAction/syncPokemon';
@@ -23,6 +24,7 @@ import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetup} from '@/types/game/team/setup';
 import {TeamData} from '@/types/game/team/team';
 import {UserDataUploadOpts} from '@/types/userData/upload';
+import {cloneMerge} from '@/utils/object/cloneMerge';
 import {isNotNullish, Nullable} from '@/utils/type';
 
 
@@ -39,6 +41,7 @@ type Props<
   Omit<TeamSelectorCommonProps<TKey, TMember, TConfig, TTeam, TSetup>, 'memberList'> & {
     actorReturn: UseUserDataActorReturn,
     uploadOpts: UserDataUploadOpts,
+    hideManualStaminaSkillRecovery?: boolean,
   };
 
 export const TeamSetupControlUI = <
@@ -52,17 +55,20 @@ export const TeamSetupControlUI = <
   pokemonList,
   actorReturn,
   uploadOpts,
+  hideManualStaminaSkillRecovery,
   ...props
 }: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
   const {setupControl} = props;
   const {
     layoutControl,
     currentTeam,
+    currentCalculatedConfigBundle,
     setCurrentTeam,
     setCurrentMemberReplaceAll,
     updatePokemonFromPokebox,
   } = setupControl;
   const {session} = actorReturn;
+  const {bundle} = currentCalculatedConfigBundle;
 
   const t = useTranslations('UI.Component.Team.SetupControl');
   const t2 = useTranslations('UI.Producing.Period');
@@ -90,6 +96,27 @@ export const TeamSetupControlUI = <
           ...currentTeam,
           analysisPeriod,
         }))}
+      />
+      <TeamUserConfig
+        bundle={bundle}
+        cookingConfig={bundle.cookingConfig}
+        setStaminaConfig={(stamina) => setCurrentTeam((currentTeam) => ({
+          ...currentTeam,
+          configOverride: {...currentTeam.configOverride, stamina},
+        }))}
+        setStaminaSkillTrigger={(recovery) => setCurrentTeam((currentTeam) => ({
+          ...currentTeam,
+          configOverride: cloneMerge(currentTeam.configOverride, {stamina: {skillRecovery: {recovery}}}),
+        }))}
+        setCookingConfig={(update) => setCurrentTeam((currentTeam) => ({
+          ...currentTeam,
+          configOverride: {
+            ...currentTeam.configOverride,
+            cooking: cloneMerge(currentTeam.configOverride.cooking, update),
+          },
+        }))}
+        hideManualSkillRecovery={hideManualStaminaSkillRecovery}
+        {...props}
       />
       <TeamQuickActionGlobalLevel
         onLevelSelected={(level) => setCurrentMemberReplaceAll({update: {level}})}

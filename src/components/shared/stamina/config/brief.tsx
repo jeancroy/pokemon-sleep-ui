@@ -11,9 +11,10 @@ import {formatFloat} from '@/utils/number/format/regular';
 
 type Props = {
   config: StaminaCalcConfig,
+  isManualSkillRecoveryHidden?: boolean,
 };
 
-export const StaminaSkillRecoveryBrief = ({config}: Props) => {
+export const StaminaSkillRecoveryBrief = ({config, isManualSkillRecoveryHidden}: Props) => {
   const {general, skillRecovery} = config;
   const {amount, dailyCount} = skillRecovery.recovery;
 
@@ -21,10 +22,10 @@ export const StaminaSkillRecoveryBrief = ({config}: Props) => {
   const t2 = useTranslations('UI.Stamina.Strategy');
 
   return (
-    <Flex direction="row" className="items-center gap-1">
+    <Flex direction="row" center className="gap-1">
       <EnergyIcon alt={t('Name')}/>
       <span>{t2(staminaStrategyI18nId[general.strategy])}</span>
-      <span>{amount} &times; {formatFloat(dailyCount)}</span>
+      {!isManualSkillRecoveryHidden && <span>{amount} &times; {formatFloat(dailyCount)}</span>}
     </Flex>
   );
 };

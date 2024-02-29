@@ -9,8 +9,8 @@ import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 
 export const StaminaConfig = (props: StaminaConfigProps) => {
   return (
-    <Flex className="gap-1.5">
-      <Flex className="items-center gap-1.5 lg:flex-row">
+    <Flex className="gap-1">
+      <Flex className="items-center gap-1 lg:flex-row">
         <StaminaConfigSleepSchedule {...props}/>
         <StaminaConfigSkillRecovery {...props}/>
       </Flex>

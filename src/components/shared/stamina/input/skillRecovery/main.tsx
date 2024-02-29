@@ -15,7 +15,12 @@ import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
 export const StaminaConfigSkillRecovery = (props: StaminaConfigProps) => {
-  const {bundle, setStaminaConfig, setStaminaSkillTrigger} = props;
+  const {
+    bundle,
+    setStaminaConfig,
+    setStaminaSkillTrigger,
+    hideManualSkillRecovery,
+  } = props;
   const {stamina} = bundle.userConfig;
   const {general, skillRecovery} = stamina;
   const {amount, dailyCount} = skillRecovery.recovery;
@@ -41,21 +46,24 @@ export const StaminaConfigSkillRecovery = (props: StaminaConfigProps) => {
         idToText={(strategy) => t(`Strategy.${staminaStrategyI18nId[strategy]}`)}
         noFixedTitleWidth
       />
-      <Flex direction="row" className="justify-center gap-1.5">
-        <StaminaConfigSkillRecoveryInput
-          iconI18nId="Amount"
-          iconSrc="/images/mainSkill/target/team.png"
-          value={amount}
-          onValueChanged={(amount) => setStaminaSkillTrigger({...skillRecovery.recovery, amount})}
-        />
-        <StaminaConfigSkillRecoveryInput
-          iconI18nId="DailyCount"
-          iconSrc="/images/generic/flash.png"
-          value={dailyCount}
-          onValueChanged={(dailyCount) => setStaminaSkillTrigger({...skillRecovery.recovery, dailyCount})}
-        />
-        <StaminaConfigSkillRecoveryFromPokebox {...props}/>
-      </Flex>
+      {
+        !hideManualSkillRecovery &&
+        <Flex direction="row" className="justify-center gap-1.5">
+          <StaminaConfigSkillRecoveryInput
+            iconI18nId="Amount"
+            iconSrc="/images/mainSkill/target/team.png"
+            value={amount}
+            onValueChanged={(amount) => setStaminaSkillTrigger({...skillRecovery.recovery, amount})}
+          />
+          <StaminaConfigSkillRecoveryInput
+            iconI18nId="DailyCount"
+            iconSrc="/images/generic/flash.png"
+            value={dailyCount}
+            onValueChanged={(dailyCount) => setStaminaSkillTrigger({...skillRecovery.recovery, dailyCount})}
+          />
+          <StaminaConfigSkillRecoveryFromPokebox {...props}/>
+        </Flex>
+      }
     </Flex>
   );
 };

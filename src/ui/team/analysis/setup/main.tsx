@@ -71,6 +71,7 @@ export const TeamAnalysisSetupView = (props: TeamAnalysisSetupViewCommonProps) =
         getMemberList={(team) => Object.values(team.members)}
         mealTypes={mealTypes}
         ingredientIds={ingredientIds}
+        hideManualStaminaSkillRecovery
         {...props}
       />
       <AdsUnit hideIfNotBlocked/>

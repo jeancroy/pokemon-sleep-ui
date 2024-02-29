@@ -22,4 +22,5 @@ export type StaminaConfigProps = StaminaConfigDataProps & {
   bundle: ConfigBundle,
   setStaminaConfig: (updated: StaminaCalcConfig) => void,
   setStaminaSkillTrigger: (updated: StaminaSkillTriggerData) => void,
+  hideManualSkillRecovery?: boolean,
 };
