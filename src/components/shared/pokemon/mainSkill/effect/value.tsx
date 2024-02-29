@@ -10,12 +10,11 @@ type Props = {
   value: React.ReactNode,
 };
 
-export const MainSkillEffectValue = ({type, value, children}: React.PropsWithChildren<Props>) => {
+export const MainSkillEffectValue = ({type, value}: Props) => {
   return (
     <Flex direction="row" noFullWidth className="items-center gap-1">
       <MainSkillEffectTypeIcon type={type}/>
-      {children}
-      <div>{value}</div>
+      <span>{value || '-'}</span>
     </Flex>
   );
 };
