@@ -615,6 +615,22 @@
       "Mode": "Modo",
       "Shared": "Compartido",
       "BySpecialty": "Por especialidad"
+    },
+    "Stats": {
+      "Strength": {
+        "Berry": "Vigor de Bayas",
+        "Ingredient": "Vigor de Ingredientes",
+        "Total": "Vigor total"
+      },
+      "MainSkill": {
+        "DailyCount": "Recuento de habilidades esperado",
+        "TriggerRate": "Tasa de Activación de Habilidad"
+      },
+      "Frequency": "Frecuencia",
+      "TimeToFullPack": {
+        "Primary": "Tiempo para Capacidad Completa (Sueño 1)",
+        "Secondary": "Tiempo para Capacidad Completa (Sueño 2)"
+      }
     }
   },
   "Rating": {

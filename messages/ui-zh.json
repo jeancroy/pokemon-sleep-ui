@@ -615,6 +615,22 @@
       "Mode": "模式",
       "Shared": "共用",
       "BySpecialty": "根據專長"
+    },
+    "Stats": {
+      "Strength": {
+        "Berry": "樹果能量",
+        "Ingredient": "食材能量",
+        "Total": "總能量"
+      },
+      "MainSkill": {
+        "DailyCount": "技能觸發數",
+        "TriggerRate": "技能觸發率"
+      },
+      "Frequency": "幫忙間隔",
+      "TimeToFullPack": {
+        "Primary": "滿包所需時長 (一睡)",
+        "Secondary": "滿包所需時長 (二睡)"
+      }
     }
   },
   "Rating": {

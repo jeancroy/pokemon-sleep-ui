@@ -615,6 +615,22 @@
       "Mode": "Mode",
       "Shared": "Shared",
       "BySpecialty": "By Specialty"
+    },
+    "Stats": {
+      "Strength": {
+        "Berry": "나무열매 에너지",
+        "Ingredient": "식재료 능력치",
+        "Total": "종합적인 능력치"
+      },
+      "MainSkill": {
+        "DailyCount": "예상되는 스킬 횟수",
+        "TriggerRate": "스킬 발동률"
+      },
+      "Frequency": "도우미 시간",
+      "TimeToFullPack": {
+        "Primary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 1)",
+        "Secondary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 2)"
+      }
     }
   },
   "Rating": {

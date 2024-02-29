@@ -615,6 +615,22 @@
       "Mode": "Modus",
       "Shared": "Geteilt",
       "BySpecialty": "Nach Spezialität"
+    },
+    "Stats": {
+      "Strength": {
+        "Berry": "Beerenstärke",
+        "Ingredient": "Zutaten-Stärke",
+        "Total": "Gesamt-Stärke"
+      },
+      "MainSkill": {
+        "DailyCount": "Erwartete Fähigkeiten-Auslösungen",
+        "TriggerRate": "Talent-Auslöserate"
+      },
+      "Frequency": "Frequenz",
+      "TimeToFullPack": {
+        "Primary": "Zeit bis Inventar voll ist (Sleep 1)",
+        "Secondary": "Zeit bis Inventar voll ist (Sleep 2)"
+      }
     }
   },
   "Rating": {

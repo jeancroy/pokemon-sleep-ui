@@ -615,6 +615,22 @@
       "Mode": "モード",
       "Shared": "共通",
       "BySpecialty": "得意型別"
+    },
+    "Stats": {
+      "Strength": {
+        "Berry": "きのみエナジー",
+        "Ingredient": "食材エナジー",
+        "Total": "総エナジー"
+      },
+      "MainSkill": {
+        "DailyCount": "スキル発動回数",
+        "TriggerRate": "スキル発動率"
+      },
+      "Frequency": "おてつだい時間",
+      "TimeToFullPack": {
+        "Primary": "所持上限に達するまでの時間 (寝 1)",
+        "Secondary": "所持上限に達するまでの時間 (寝 2)"
+      }
     }
   },
   "Rating": {

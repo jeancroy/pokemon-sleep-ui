@@ -615,6 +615,22 @@
       "Mode": "Mode",
       "Shared": "Shared",
       "BySpecialty": "By Specialty"
+    },
+    "Stats": {
+      "Strength": {
+        "Berry": "Berry Strength",
+        "Ingredient": "Ingredient strength",
+        "Total": "Total strength"
+      },
+      "MainSkill": {
+        "DailyCount": "Expected skill count",
+        "TriggerRate": "Skill Trigger Rate"
+      },
+      "Frequency": "Frequency",
+      "TimeToFullPack": {
+        "Primary": "Time to Full Pack (Sleep 1)",
+        "Secondary": "Time to Full Pack (Sleep 2)"
+      }
     }
   },
   "Rating": {

@@ -501,6 +501,22 @@ declare global {
           Shared: string,
           BySpecialty: string,
         },
+        Stats: {
+          Strength: {
+            Berry: string,
+            Ingredient: string,
+            Total: string,
+          },
+          MainSkill: {
+            DailyCount: string,
+            TriggerRate: string,
+          },
+          Frequency: string,
+          TimeToFullPack: {
+            Primary: string,
+            Secondary: string,
+          },
+        },
       },
       Rating: {
         Basis: {
