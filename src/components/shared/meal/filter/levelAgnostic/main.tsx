@@ -13,9 +13,9 @@ import {
   MealFilterAgnosticCommonProps,
   MealInputFilterLevelAgnostic,
 } from '@/components/shared/meal/filter/levelAgnostic/type';
+import {useIngredientIdsFromMeals} from '@/hooks/ingredient/ingredientIds';
 import {useUniqueMealStrengthBonusPercent} from '@/hooks/meal/bonusPercent';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
-import {toUnique} from '@/utils/array';
 import {KeysOfType} from '@/utils/type';
 
 
@@ -29,10 +29,8 @@ export const MealFilterLevelAgnostic = <TFilter extends MealInputFilterLevelAgno
   const t = useTranslations('UI.Component.MealFilter');
 
   const mealTypes = usePossibleMealTypes(meals);
+  const ingredientIds = useIngredientIdsFromMeals(meals);
   const bonusPercents = useUniqueMealStrengthBonusPercent({meals, ingredientMap});
-
-  const ingredientIds = toUnique(meals.flatMap(({ingredients}) => ingredients.map(({id}) => id)))
-    .sort((a, b) => a - b);
 
   return (
     <>

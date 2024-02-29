@@ -21,8 +21,8 @@ import {
   mealCoverageComboSort,
 } from '@/components/shared/meal/coverage/combo/type';
 import {PremiumIcon} from '@/components/static/premium/icon';
+import {useIngredientIdsFromMeals} from '@/hooks/ingredient/ingredientIds';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
-import {toUnique} from '@/utils/array';
 import {isNotNullish} from '@/utils/type';
 
 
@@ -42,13 +42,7 @@ export const MealCoverageCombo = (props: MealCoverageComboCommonProps) => {
     premiumOnly: true,
     session,
   });
-  const ingredientIds = React.useMemo(
-    () => toUnique(Object.values(mealMap)
-      .filter(isNotNullish)
-      .flatMap(({ingredients}) => ingredients.map(({id}) => id))
-      .sort((a, b) => a - b)),
-    [mealMap],
-  );
+  const ingredientIds = useIngredientIdsFromMeals(Object.values(mealMap).filter(isNotNullish));
 
   const data = useMealCoverageComboData({
     filter,
