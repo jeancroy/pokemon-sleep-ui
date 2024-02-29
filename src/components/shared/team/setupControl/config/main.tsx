@@ -11,7 +11,7 @@ import {CookingConfigUiCommonProps} from '@/components/shared/cooking/config/typ
 import {StaminaConfig} from '@/components/shared/stamina/input/main';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 import {TeamUserConfigButton} from '@/components/shared/team/setupControl/config/button';
-import {TeamUserConfigSourceInput} from '@/components/shared/team/setupControl/config/configSource';
+import {TeamUserConfigSourceInput} from '@/components/shared/team/setupControl/config/source';
 import {TeamSetupControl} from '@/components/shared/team/setupControl/type';
 import {noOp} from '@/const/noOp';
 import {TeamSetupConfig} from '@/types/game/team/config';
