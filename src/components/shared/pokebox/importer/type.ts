@@ -11,6 +11,7 @@ export type PokeboxImporterDataProps = UsePokemonFilterCommonData & {
 
 export type PokeboxImporterCommonProps = PokeboxImporterDataProps & {
   onPokeboxPicked: (pokeInBox: PokeInBox) => void,
+  isPokeInBoxIncluded?: (pokeInBox: PokeInBox) => boolean,
 };
 
 export type PokeInBoxForFilter = Omit<PokeInBox, 'name' | 'pokemon'> & {

@@ -4,13 +4,11 @@ import InboxArrowDownIcon from '@heroicons/react/24/outline/InboxArrowDownIcon';
 import {clsx} from 'clsx';
 
 import {PokeboxImporter} from '@/components/shared/pokebox/importer/main';
-import {PokeboxImporterDataProps} from '@/components/shared/pokebox/importer/type';
+import {PokeboxImporterCommonProps} from '@/components/shared/pokebox/importer/type';
 import {Dimension} from '@/types/style';
-import {PokeInBox} from '@/types/userData/pokebox';
 
 
-type Props = PokeboxImporterDataProps & {
-  onPokeboxPicked: (pokeInBox: PokeInBox) => void,
+type Props = PokeboxImporterCommonProps & {
   noFullWidth?: boolean,
   dimension?: Dimension,
 };

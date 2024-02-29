@@ -30,6 +30,15 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
       {...props}
       dimension="size-5"
       noFullWidth
+      isPokeInBoxIncluded={(pokeInBox) => {
+        const pokemon = pokedexMap[pokeInBox.pokemon];
+        if (!pokemon) {
+          return false;
+        }
+
+        const mainSkill = mainSkillMap[pokemon.skill];
+        return mainSkill.effects.some((effect) => effect.type === 'stamina' && effect.target === 'team');
+      }}
       onPokeboxPicked={(pokeInBox) => {
         const pokemon = pokedexMap[pokeInBox.pokemon];
 
@@ -61,7 +70,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
 
         const {activeSkillEffect} = intermediate;
 
-        if (activeSkillEffect?.type !== 'stamina' || activeSkillEffect.target !== 'team') {
+        if (activeSkillEffect?.type !== 'stamina') {
           return;
         }
 

@@ -9,16 +9,14 @@ import {PokeboxImporterContent} from '@/components/shared/pokebox/importer/conte
 import {PokeboxImporterCommonProps} from '@/components/shared/pokebox/importer/type';
 import {PokeboxImporterViaUuid} from '@/components/shared/pokebox/importer/uuid';
 import {UserDataLazyLoadPokeboxSorted} from '@/components/shared/userData/lazyLoad/pokeboxSorted';
-import {PokeInBox} from '@/types/userData/pokebox';
 
 
 type Props = PokeboxImporterCommonProps & {
   show: boolean,
   setShow: (show: boolean) => void,
-  isPokeInBoxIncluded?: (pokeInBox: PokeInBox) => boolean,
 };
 
-export const PokeboxImporter = ({show, setShow, isPokeInBoxIncluded, ...props}: Props) => {
+export const PokeboxImporter = ({isPokeInBoxIncluded, show, setShow, ...props}: Props) => {
   const session = useSession();
 
   return (
