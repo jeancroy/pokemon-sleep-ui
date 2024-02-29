@@ -5,7 +5,6 @@ import {getServerSession} from 'next-auth';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getTeamMemberViewRequiredData} from '@/controller/dataBundle/teamMemberView';
-import {getFieldMetaMap} from '@/controller/mapMeta';
 import {getSnorlaxData} from '@/controller/snorlax';
 import {getUserTeamAnalysisContent} from '@/controller/user/teamAnalysis/merged';
 import {DefaultPageProps} from '@/types/next/page/common';
@@ -21,19 +20,16 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
 
   const [
     snorlaxData,
-    mapMeta,
     userTeamAnalysisContent,
     teamMemberViewRequiredData,
   ] = await Promise.all([
     getSnorlaxData(),
-    getFieldMetaMap(),
     getUserTeamAnalysisContent(session?.user.id),
     getTeamMemberViewRequiredData(),
   ]);
 
   const props: TeamAnalysisServerDataProps = {
     snorlaxData,
-    fieldMetaMap: mapMeta,
     preloaded: {
       bundle: createConfigBundle(session),
       setup: userTeamAnalysisContent,

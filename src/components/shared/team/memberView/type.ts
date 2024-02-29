@@ -2,10 +2,12 @@ import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {PokeboxImporterDataProps} from '@/components/shared/pokebox/importer/type';
 import {TeamSetupControl} from '@/components/shared/team/setupControl/type';
 import {BerryDataMap} from '@/types/game/berry';
+import {FieldMetaMap} from '@/types/game/mapMeta';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParams, PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
+import {PotInfo} from '@/types/game/potInfo';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamMemberProduction} from '@/types/game/team/production';
@@ -21,6 +23,8 @@ import {Nullable} from '@/utils/type';
 export type TeamMemberViewRequiredData = ConfigRequiredData & PokeboxImporterDataProps & {
   berryDataMap: BerryDataMap,
   mainSkillMap: MainSkillMap,
+  fieldMetaMap: FieldMetaMap,
+  potInfoList: PotInfo[],
   recipeLevelData: RecipeLevelData[],
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   pokemonMaxLevel: number,
