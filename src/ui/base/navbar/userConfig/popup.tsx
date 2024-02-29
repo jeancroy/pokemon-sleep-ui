@@ -77,7 +77,6 @@ export const UserConfigPopup = ({
         <UserConfigStamina
           {...props}
           bundle={bundle}
-          config={userConfig.stamina}
           setConfig={(stamina) => setBundle(({userConfig, ...original}) => ({
             ...original,
             userConfig: {...userConfig, stamina},

@@ -5,7 +5,7 @@ import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
 import {SleepSession, SleepSessionTimes} from '@/types/game/sleep';
 
 
-type Props = Pick<StaminaConfigProps, 'config' | 'setConfig'> & {
+type Props = Pick<StaminaConfigProps, 'bundle' | 'setConfig'> & {
   session: SleepSession,
   times: SleepSessionTimes | null,
   timing: keyof SleepSessionTimes,
@@ -13,15 +13,17 @@ type Props = Pick<StaminaConfigProps, 'config' | 'setConfig'> & {
   icon?: React.ReactNode,
 };
 
-export const StaminaConfigSleepTime = ({config, setConfig, session, times, timing, isActive, icon}: Props) => {
+export const StaminaConfigSleepTime = ({bundle, setConfig, session, times, timing, isActive, icon}: Props) => {
+  const {stamina} = bundle.userConfig;
+
   return (
     <StaminaConfigTimeInput
       timeValue={times ? times[timing] : null}
       disabled={!times || !isActive}
       onUpdate={(time) => setConfig({
-        ...config,
+        ...stamina,
         sleepSession: {
-          ...config.sleepSession,
+          ...stamina.sleepSession,
           [session]: {
             ...times,
             [timing]: time,

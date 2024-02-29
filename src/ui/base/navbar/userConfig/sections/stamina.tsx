@@ -11,7 +11,7 @@ import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
 
 export const UserConfigStamina = (props: StaminaConfigProps) => {
-  const {config, cookingRecoveryData} = props;
+  const {bundle, cookingRecoveryData} = props;
 
   const t = useTranslations('UI.Stamina');
   const t2 = useTranslations('UI.UserConfig');
@@ -23,7 +23,7 @@ export const UserConfigStamina = (props: StaminaConfigProps) => {
     >
       <StaminaConfig {...props}/>
       <StaminaEfficiencyUI efficiency={getStaminaEfficiency({
-        config,
+        config: bundle.userConfig.stamina,
         cookingRecoveryData,
       })}/>
     </UserConfigSection>

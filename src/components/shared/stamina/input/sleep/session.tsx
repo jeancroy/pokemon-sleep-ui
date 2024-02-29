@@ -31,13 +31,13 @@ type Props = StaminaConfigProps & {
 
 export const StaminaConfigSleepSession = (props: Props) => {
   const {
-    config,
+    bundle,
     session,
     num,
     onClick,
     isActive,
   } = props;
-  const {sleepSession} = config;
+  const {sleepSession} = bundle.userConfig.stamina;
   const t = useTranslations('UI.Stamina');
 
   const times = sleepSession[session];

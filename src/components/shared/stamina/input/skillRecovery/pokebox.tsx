@@ -11,7 +11,6 @@ import {toCalculatedCookingConfig} from '@/utils/user/config/cooking/main';
 
 
 export const StaminaConfigSkillRecoveryFromPokebox = ({
-  config,
   setConfig,
   berryDataMap,
   mainSkillMap,
@@ -24,7 +23,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
     subSkillMap,
     mealMap,
   } = props;
-  const {snorlaxFavorite} = bundle.userConfig;
+  const {stamina, snorlaxFavorite} = bundle.userConfig;
 
   return (
     <PokeboxImporterButton
@@ -67,7 +66,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
         }
 
         setConfig(cloneMerge(
-          config,
+          stamina,
           {
             skillRecovery: {
               recovery: {

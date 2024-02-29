@@ -20,7 +20,6 @@ export type StaminaConfigDataProps = PokeboxImporterDataProps & ConfigRequiredDa
 
 export type StaminaConfigProps = StaminaConfigDataProps & {
   bundle: ConfigBundle,
-  config: StaminaCalcConfig,
   setConfig: (updated: StaminaCalcConfig) => void,
   setTrigger: (updated: StaminaSkillTriggerData) => void,
 };

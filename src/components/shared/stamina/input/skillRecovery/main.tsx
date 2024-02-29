@@ -15,8 +15,9 @@ import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
 export const StaminaConfigSkillRecovery = (props: StaminaConfigProps) => {
-  const {config, setConfig, setTrigger} = props;
-  const {general, skillRecovery} = config;
+  const {bundle, setConfig, setTrigger} = props;
+  const {stamina} = bundle.userConfig;
+  const {general, skillRecovery} = stamina;
   const {amount, dailyCount} = skillRecovery.recovery;
 
   const t = useTranslations('UI.Stamina');
@@ -32,7 +33,7 @@ export const StaminaConfigSkillRecovery = (props: StaminaConfigProps) => {
       <FilterTextInput
         title={null}
         onClick={(strategy) => setConfig(cloneMerge(
-          config,
+          stamina,
           {general: {strategy}},
         ))}
         isActive={(strategy) => strategy === general.strategy}
