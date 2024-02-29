@@ -113,7 +113,8 @@
       "Stamina": "活力",
       "Help": "幫忙",
       "Cooking": "製作料理",
-      "Random": "隨機"
+      "Random": "隨機",
+      "Unknown": "?"
     },
     "Target": {
       "Self": "自身",

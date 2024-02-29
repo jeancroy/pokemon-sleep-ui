@@ -1,5 +1,7 @@
 import React from 'react';
 
+import QuestionMarkCircleIcon from '@heroicons/react/24/outline/QuestionMarkCircleIcon';
+
 import {Flex} from '@/components/layout/flex/common';
 import {MainSkillTargetIcon} from '@/components/shared/icon/mainSkill/target';
 import {MainSkillEffectTypeIcon} from '@/components/shared/icon/mainSkill/type';
@@ -40,11 +42,20 @@ export const MainSkillEffectUI = ({effect}: Props) => {
   }
 
   if (effect.type === 'cooking') {
-    return <MainSkillEffectValue type={effect.type} value={effect.ingredients || effect.capacity}/>;
+    return (
+      <MainSkillEffectValue
+        type={effect.type}
+        value={effect.ingredients || effect.capacity || effect.successPercent}
+      />
+    );
   }
 
   if (effect.type === 'random') {
     return <MainSkillEffectTypeIcon type={effect.type}/>;
+  }
+
+  if (effect.type === 'unknown') {
+    return <QuestionMarkCircleIcon className="size-6"/>;
   }
 
   console.error(`Unhandled main skill effect type [${effect.type satisfies never}]`);

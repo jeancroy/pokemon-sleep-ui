@@ -136,6 +136,7 @@ declare global {
           Help: string,
           Cooking: string,
           Random: string,
+          Unknown: string,
         },
         Target: {
           Self: string,

@@ -11,6 +11,7 @@ export const mainSkillEffectTypeI18nId: {
   help: 'Help',
   cooking: 'Cooking',
   random: 'Random',
+  unknown: 'Unknown',
 };
 
 export const mainSkillEffectTypeImageSrc: {[type in MainSkillEffectType]: string} = {
@@ -20,6 +21,7 @@ export const mainSkillEffectTypeImageSrc: {[type in MainSkillEffectType]: string
   help: '/images/generic/search.png',
   cooking: '/images/generic/pot.png',
   random: '/images/generic/flash.png',
+  unknown: '/images/generic/question.png',
 };
 
 export const mainSkillEffectTargetI18nId: {

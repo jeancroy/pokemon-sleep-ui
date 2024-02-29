@@ -113,7 +113,8 @@
       "Stamina": "Energy",
       "Help": "Helping",
       "Cooking": "Cooking",
-      "Random": "Random"
+      "Random": "Random",
+      "Unknown": "?"
     },
     "Target": {
       "Self": "Self",

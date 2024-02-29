@@ -24,12 +24,21 @@ export type MainSkillEffectAtLevel = {
   type: 'cooking',
   ingredients: number,
   capacity?: never,
+  successPercent?: never,
 } | {
   type: 'cooking',
   ingredients?: never,
   capacity: number,
+  successPercent?: never,
+} | {
+  type: 'cooking',
+  ingredients?: never,
+  capacity?: never,
+  successPercent: number,
 } | {
   type: 'random',
+} | {
+  type: 'unknown',
 };
 
 export type MainSkillEffectType = MainSkillEffectAtLevel['type'];

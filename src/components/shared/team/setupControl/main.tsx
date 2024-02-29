@@ -10,7 +10,6 @@ import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {StaminaConfigDataProps} from '@/components/shared/stamina/input/type';
 import {TeamSelector} from '@/components/shared/team/selector/main';
 import {TeamSelectorCommonProps} from '@/components/shared/team/selector/type';
-import {TeamUserConfig} from '@/components/shared/team/setupControl/config/main';
 import {TeamLayoutControlUI} from '@/components/shared/team/setupControl/layoutControl/main';
 import {TeamQuickActionGlobalLevel} from '@/components/shared/team/setupControl/quickAction/globalLevel';
 import {TeamQuickActionSyncPokemon} from '@/components/shared/team/setupControl/quickAction/syncPokemon';
@@ -24,7 +23,6 @@ import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetup} from '@/types/game/team/setup';
 import {TeamData} from '@/types/game/team/team';
 import {UserDataUploadOpts} from '@/types/userData/upload';
-import {cloneMerge} from '@/utils/object/cloneMerge';
 import {isNotNullish, Nullable} from '@/utils/type';
 
 
@@ -60,7 +58,6 @@ export const TeamSetupControlUI = <
   const {
     layoutControl,
     currentTeam,
-    currentCalculatedConfigBundle,
     setCurrentTeam,
     setCurrentMemberReplaceAll,
     updatePokemonFromPokebox,

@@ -113,7 +113,8 @@
       "Stamina": "기력",
       "Help": "도우미",
       "Cooking": "요리하기",
-      "Random": "랜덤"
+      "Random": "랜덤",
+      "Unknown": "?"
     },
     "Target": {
       "Self": "자신",
