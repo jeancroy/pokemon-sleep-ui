@@ -19,7 +19,7 @@ import {calculateRatingResultOfLevel} from '@/utils/game/rating/calc/main';
 
 
 describe('Rating / Calculate', () => {
-  it('factors in carry limit if the evolution count is changed', async () => {
+  it('factors in carry limit if the evolution count has changed', async () => {
     const {result} = await calculateRatingResultOfLevel({
       level: 30,
       pokemon: testPokemonData.absol,

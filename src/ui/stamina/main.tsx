@@ -63,7 +63,13 @@ export const StaminaAnalysis = async ({params}: DefaultPageProps) => {
 
   return (
     <PublicPageLayout locale={locale}>
-      <I18nProvider locale={locale} namespaces={['Game', 'UI.Common', 'UI.Stamina', 'UI.InPage.Team']}>
+      <I18nProvider locale={locale} namespaces={[
+        'Game',
+        'UI.Common',
+        'UI.Stamina',
+        'UI.InPage.Pokedex',
+        'UI.InPage.Team',
+      ]}>
         <StaminaAnalysisClient {...props}/>
       </I18nProvider>
     </PublicPageLayout>

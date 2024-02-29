@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import {pokemonSubSkillLevel} from '@/types/game/pokemon/subSkill';
 import {StaminaAnalysisDataProps, StaminaAnalysisState, UseStaminaAnalysisReturn} from '@/ui/stamina/type';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
@@ -12,56 +13,60 @@ export const useStaminaAnalysis = ({
   subSkillMap,
 }: StaminaAnalysisDataProps): UseStaminaAnalysisReturn => {
   const [state, setState] = React.useState<StaminaAnalysisState>({
-    config: preloaded.bundle.userConfig.stamina,
+    bundle: preloaded.bundle,
     subSkill: {},
     nature: null,
   });
 
   return {
     state,
-    setConfig: (config) => setState((original) => ({
-      ...original,
-      config,
-    })),
+    setConfig: (stamina) => setState((original) => cloneMerge(
+      original,
+      {bundle: {userConfig: {stamina}}},
+    )),
     setSkillTrigger: (recovery) => setState((original) => cloneMerge(
       original,
-      {config: {skillRecovery: {recovery}}},
+      {bundle: {userConfig: {stamina: {skillRecovery: {recovery}}}}},
     )),
-    setNature: (nature) => setState(({config, ...original}) => {
+    setNature: (nature) => setState((original) => {
       const subSkillBonus = getSubSkillBonus({
         level: Math.max(...pokemonSubSkillLevel),
         pokemonSubSkill: original.subSkill,
         subSkillMap,
       });
+      const recoveryRate = toRecoveryRate({
+        natureId: nature,
+        subSkillBonuses: [subSkillBonus],
+      });
 
       return {
         ...original,
-        config: {
-          ...config,
-          recoveryRate: toRecoveryRate({
-            natureId: nature,
-            subSkillBonuses: [subSkillBonus],
-          }),
-        },
+        ...cloneMerge(
+          original,
+          {bundle: {userConfig: {stamina: {recoveryRate}}}},
+        ),
+        // Cannot use `cloneMerge()` as it has to be overwriting
         nature,
       };
     }),
-    setSubSkill: (subSkill) => setState(({config, ...original}) => {
+    setSubSkill: (subSkill) => setState((original) => {
       const subSkillBonus = getSubSkillBonus({
         level: Math.max(...pokemonSubSkillLevel),
         pokemonSubSkill: subSkill,
         subSkillMap,
       });
+      const recoveryRate = toRecoveryRate({
+        natureId: original.nature,
+        subSkillBonuses: [subSkillBonus],
+      });
 
       return {
         ...original,
-        config: {
-          ...config,
-          recoveryRate: toRecoveryRate({
-            natureId: original.nature,
-            subSkillBonuses: [subSkillBonus],
-          }),
-        },
+        ...cloneMerge(
+          original,
+          {bundle: {userConfig: {stamina: {recoveryRate}}}},
+        ),
+        // Cannot use `cloneMerge()` as it has to be overwriting
         subSkill,
       };
     }),

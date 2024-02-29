@@ -13,7 +13,7 @@ export type StaminaAnalysisDataProps = StaminaConfigDataProps & {
 };
 
 export type StaminaAnalysisState = {
-  config: StaminaCalcConfig,
+  bundle: ConfigBundle,
   subSkill: PokemonSubSkill,
   nature: NatureId | null,
 };
