@@ -83,6 +83,7 @@
         "Control": {
           "ExportToPokebox": "Export zur Pokebox",
           "PokeboxLinking": "Pokebox Verlinkung",
+          "PokemonInfo": "Pokemon Info",
           "ShareableLink": "Teilbarer Link",
           "Rating": "Bewertung",
           "DetailedStats": "Detaillierte Werte",

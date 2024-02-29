@@ -1,7 +1,6 @@
 import React from 'react';
 
 import ArrowTopRightOnSquareIcon from '@heroicons/react/24/outline/ArrowTopRightOnSquareIcon';
-import DocumentDuplicateIcon from '@heroicons/react/24/outline/DocumentDuplicateIcon';
 import EllipsisVerticalIcon from '@heroicons/react/24/outline/EllipsisVerticalIcon';
 import LinkIcon from '@heroicons/react/24/outline/LinkIcon';
 import PresentationChartLineIcon from '@heroicons/react/24/outline/PresentationChartLineIcon';
@@ -12,12 +11,14 @@ import {useTranslations} from 'next-intl';
 import {DropDown} from '@/components/dropdown/main';
 import {FlexButton} from '@/components/layout/flex/button';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
+import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
 import {RatingPopupControl} from '@/components/shared/pokemon/rating/type';
 import {
   teamMemberControlButtonStyle,
   teamMemberControlMenuIconStyle,
   teamMemberControlMenuOptionStyle,
 } from '@/components/shared/team/member/control/const';
+import {TeamMemberCopyIcon} from '@/components/shared/team/member/control/icon/copy';
 import {TeamMemberDetailedStatsIcon} from '@/components/shared/team/member/control/icon/detailedStats';
 import {TeamMemberEditIcon} from '@/components/shared/team/member/control/icon/edit';
 import {TeamMemberRatingIcon} from '@/components/shared/team/member/control/icon/rating';
@@ -42,7 +43,7 @@ export const TeamMemberControlMenu = ({
   isPremium,
   ...props
 }: Props) => {
-  const {member, onDuplicateClick} = props;
+  const {member, onDuplicateClick, pokemon, showPokemon} = props;
 
   const {act, status} = useUserDataActor({statusToast: true});
   const t = useTranslations('UI.Component.Team.Member');
@@ -95,6 +96,16 @@ export const TeamMemberControlMenu = ({
           ),
         ],
         [
+          () => {
+            const text = t('Control.PokemonInfo');
+
+            return (
+              <FlexButton className={teamMemberControlMenuOptionStyle} onClick={() => showPokemon(pokemon)}>
+                <GenericPokeballIcon alt={text} dimension="size-5" noShrink className="scale-120"/>
+                <span>{text}</span>
+              </FlexButton>
+            );
+          },
           () => (
             <FlexButton
               className={teamMemberControlMenuOptionStyle}
@@ -144,7 +155,7 @@ export const TeamMemberControlMenu = ({
           ),
           () => (
             <FlexButton className={teamMemberControlMenuOptionStyle} onClick={onDuplicateClick}>
-              <DocumentDuplicateIcon className={teamMemberControlMenuIconStyle}/>
+              <TeamMemberCopyIcon/>
               <span>{t('Control.Duplicate')}</span>
             </FlexButton>
           ),

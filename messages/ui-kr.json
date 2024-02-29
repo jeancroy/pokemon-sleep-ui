@@ -83,6 +83,7 @@
         "Control": {
           "ExportToPokebox": "Export to Pokebox",
           "PokeboxLinking": "포켓몬 박스 연동",
+          "PokemonInfo": "포켓몬 정보",
           "ShareableLink": "Sharable Link",
           "Rating": "단독평가",
           "DetailedStats": "Detailed Stats",

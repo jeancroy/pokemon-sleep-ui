@@ -105,6 +105,7 @@ declare global {
             Control: {
               ExportToPokebox: string,
               PokeboxLinking: string,
+              PokemonInfo: string,
               ShareableLink: string,
               Rating: string,
               DetailedStats: string,

@@ -83,6 +83,7 @@
         "Control": {
           "ExportToPokebox": "輸出至寶可夢盒",
           "PokeboxLinking": "同步寶可夢",
+          "PokemonInfo": "寶可夢資訊",
           "ShareableLink": "獲取分享連結",
           "Rating": "查閱評級",
           "DetailedStats": "詳細分析資訊",
