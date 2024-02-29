@@ -67,15 +67,17 @@ export const TeamUserConfig = <
       <Flex className="gap-1">
         <TeamUserConfigSourceInput setupControl={setupControl}/>
         <AnimatedCollapse show={isPremium && configSource === 'override'}>
-          <StaminaConfig
-            setStaminaConfig={isPremium ? setStaminaConfig : noOp}
-            setStaminaSkillTrigger={isPremium ? setStaminaSkillTrigger : noOp}
-            {...props}
-          />
-          <CookingConfigUI
-            setCookingConfig={isPremium ? setCookingConfig : noOp}
-            {...props}
-          />
+          <Flex className="gap-1">
+            <StaminaConfig
+              setStaminaConfig={isPremium ? setStaminaConfig : noOp}
+              setStaminaSkillTrigger={isPremium ? setStaminaSkillTrigger : noOp}
+              {...props}
+            />
+            <CookingConfigUI
+              setCookingConfig={isPremium ? setCookingConfig : noOp}
+              {...props}
+            />
+          </Flex>
         </AnimatedCollapse>
         <AdsUnit/>
       </Flex>
