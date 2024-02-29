@@ -28,4 +28,12 @@ export const productionComparisonPresetMigrators: Migrator<
       },
     }),
   },
+  {
+    // Added `configSource`
+    toVersion: 3,
+    migrate: (old) => ({
+      ...old,
+      configSource: 'default',
+    }),
+  },
 ];

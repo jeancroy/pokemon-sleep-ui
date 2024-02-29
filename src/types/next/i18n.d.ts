@@ -86,8 +86,10 @@ declare global {
                 Syncing: string,
               },
             },
-            Message: {
-              PremiumOnly: string,
+            ConfigSource: {
+              Name: string,
+              Default: string,
+              Override: string,
             },
           },
           Member: {

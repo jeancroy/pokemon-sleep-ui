@@ -31,5 +31,6 @@ export const generateTeamAnalysisComp = ({
       cooking: bundle.cookingConfig,
       stamina: bundle.userConfig.stamina,
     },
+    configSource: 'default',
   };
 };

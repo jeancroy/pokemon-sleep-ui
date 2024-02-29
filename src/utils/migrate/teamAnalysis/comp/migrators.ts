@@ -76,4 +76,12 @@ export const teamAnalysisCompMigrators: Migrator<TeamAnalysisComp, TeamAnalysisC
       },
     }),
   },
+  {
+    // Added `configSource`
+    toVersion: 7,
+    migrate: (old) => ({
+      ...old,
+      configSource: 'default',
+    }),
+  },
 ];

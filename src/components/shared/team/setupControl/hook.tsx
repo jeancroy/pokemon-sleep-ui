@@ -11,8 +11,9 @@ import {
   TeamSetupControl,
   TeamSetupDuplicatedMember,
 } from '@/components/shared/team/setupControl/type';
+import {useUserActivation} from '@/hooks/userData/activation';
+import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
-import {UseUserDataOpts} from '@/hooks/userData/type';
 import {imageIconSizes} from '@/styles/image';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
@@ -38,9 +39,8 @@ type UseTeamAnalysisSetupControlOpts<
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 > = ConfigRequiredData & {
-  bundleBase: UseUserDataOpts<ConfigBundle>,
+  bundleFromServer: ConfigBundle,
   initialMigratedSetup: TSetup,
-  isPremium: boolean,
   getDuplicatedMember: (currentTeam: TTeam, source: TMember) => TeamSetupDuplicatedMember<TKey, TMember> | null,
   getLayoutCollapsibleIndexKeys: (team: TTeam) => TKey[],
 };
@@ -52,9 +52,8 @@ export const useTeamSetupControl = <
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 >({
-  bundleBase,
+  bundleFromServer,
   initialMigratedSetup,
-  isPremium,
   getDuplicatedMember,
   getLayoutCollapsibleIndexKeys,
   ...props
@@ -67,8 +66,15 @@ export const useTeamSetupControl = <
 >): TeamSetupControl<TKey, TMember, TConfig, TTeam, TSetup> => {
   const [setup, setSetup] = React.useState(initialMigratedSetup);
 
+  const actorReturn = useUserDataActor();
+  const {session} = actorReturn;
+  const {isPremium} = useUserActivation(session.data);
+
   const bundle = useConfigBundle({
-    bundle: bundleBase,
+    bundle: {
+      server: bundleFromServer,
+      client: session?.data?.user.preloaded,
+    },
     ...props,
   });
 
@@ -84,7 +90,7 @@ export const useTeamSetupControl = <
   // Need to memoize to prevent infinite re-render
   const currentCalculatedConfigBundle = React.useMemo(() => toCalculatedConfigBundle({
     override: {
-      ...(isPremium ? currentTeam.configOverride : {}),
+      ...(isPremium && currentTeam.configSource === 'override' ? currentTeam.configOverride : {}),
       snorlaxFavorite: currentTeam.configOverride.snorlaxFavorite,
     },
     ...bundle,
@@ -145,6 +151,7 @@ export const useTeamSetupControl = <
     setup,
     setSetup,
     layoutControl,
+    actorReturn,
     isPremium,
     currentTeam,
     currentCalculatedConfigBundle,

@@ -49,6 +49,7 @@ export const generateNewProductionComparisonPreset = ({
       cooking: bundle.cookingConfig,
       stamina: bundle.userConfig.stamina,
     },
+    configSource: 'default',
   };
 };
 

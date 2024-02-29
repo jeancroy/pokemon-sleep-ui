@@ -29,12 +29,11 @@ export const TeamAnalysisMemberView = ({
   ...props
 }: Props) => {
   const {
-    actorReturn,
     setupControl,
     ingredientChainMap,
   } = props;
+  const {setup, currentTeam, actorReturn} = setupControl;
   const {actAsync} = actorReturn;
-  const {setup, currentTeam} = setupControl;
 
   return (
     // Need to explicitly type or there will be some typing error
@@ -83,6 +82,7 @@ export const TeamAnalysisMemberView = ({
 
         return updated?.user.lazyLoaded.teamAnalysisMember ?? null;
       }}
+      actorReturn={actorReturn}
       {...props}
     />
   );

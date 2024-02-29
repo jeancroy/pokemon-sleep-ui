@@ -32,6 +32,7 @@ export const TeamAnalysisSetupView = (props: TeamAnalysisSetupViewCommonProps) =
     mealMap,
   } = props;
   const {
+    actorReturn,
     setup,
     currentCalculatedConfigBundle,
     currentTeam,
@@ -60,6 +61,7 @@ export const TeamAnalysisSetupView = (props: TeamAnalysisSetupViewCommonProps) =
     <>
       <PokemonLinkPopup state={state} setState={setState}/>
       <TeamSetupControlUI
+        actorReturn={actorReturn}
         generateNewTeam={(uuid) => generateTeamAnalysisComp({uuid, bundle})}
         uploadOpts={{
           type: 'teamAnalysis',

@@ -64,8 +64,10 @@
             "Syncing": "同步中..."
           }
         },
-        "Message": {
-          "PremiumOnly": "Preset-dependent config is only available for Premium users. Please check [Subscription Intro](https://pks.raenonx.cc/docs/view/subscription/intro) for details."
+        "ConfigSource": {
+          "Name": "基準",
+          "Default": "預設",
+          "Override": "指定"
         }
       },
       "Member": {

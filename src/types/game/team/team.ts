@@ -10,6 +10,13 @@ export type TeamMemberMap<
   TMember extends Nullable<TeamMemberData>
 > = {[key in TKey]: TMember};
 
+export const teamConfigSource = [
+  'default',
+  'override',
+] as const;
+
+export type TeamConfigSource = typeof teamConfigSource[number];
+
 // Changing the typing of this requires migrating and any references of this type
 // This includes but not limited to:
 // - `TeamData`
@@ -18,6 +25,7 @@ export type TeamMetadata = {
   name: string,
   analysisPeriod: ProductionPeriod,
   configOverride: ConfigOverride,
+  configSource: TeamConfigSource,
 };
 
 // Changing the typing of this requires migrating and any references of this type

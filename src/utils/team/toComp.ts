@@ -32,5 +32,6 @@ export const toTeamAnalysisCompFromPokebox = ({
       E: toTeamMemberFromPokeInBoxNullable({pokeInBox: members.at(4), ...opts}) ?? null,
     },
     configOverride,
+    configSource: 'default',
   };
 };

@@ -11,8 +11,6 @@ import {useTeamSetupControl} from '@/components/shared/team/setupControl/hook';
 import {TeamSetupControlUI} from '@/components/shared/team/setupControl/main';
 import {useIngredientIdsFromMeals} from '@/hooks/ingredient/ingredientIds';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
-import {useUserActivation} from '@/hooks/userData/activation';
-import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {useProductionComparisonPresetStats} from '@/ui/production/calc/hook';
 import {ProductionComparisonTargets} from '@/ui/production/client/targets';
 import {ProductionComparisonSetupControl} from '@/ui/production/client/type';
@@ -30,17 +28,10 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
     mealMap,
   } = props;
 
-  const actorReturn = useUserDataActor();
-  const {session} = actorReturn;
-  const {isPremium} = useUserActivation(session.data);
-
   const {state, setState, showPokemon} = usePokemonLinkPopup();
 
   const setupControl: ProductionComparisonSetupControl = useTeamSetupControl({
-    bundleBase: {
-      server: preloaded.bundle,
-      client: session?.data?.user.preloaded,
-    },
+    bundleFromServer: preloaded.bundle,
     initialMigratedSetup: getInitialProductionComparisonSetup({
       data: preloaded.setup,
       defaultBundle: preloaded.bundle,
@@ -51,11 +42,11 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
       return {key: newUuid, member: {...source, uuid: newUuid}};
     },
     getLayoutCollapsibleIndexKeys: (team) => Object.keys(team.members),
-    isPremium,
     ...props,
   });
   const {
     setup,
+    actorReturn,
     currentTeam,
     currentCalculatedConfigBundle,
   } = setupControl;
