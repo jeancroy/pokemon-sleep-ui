@@ -29,10 +29,12 @@ export const getRatingValueCommon = (opts: GetRatingValueCommonOpts): RatingValu
     subSkillMap,
     bundle,
     pokemon,
+    evolutionCount,
+    seeds,
   } = baseOpts;
 
   const individual = getProductionIndividualParams({
-    input: {level, subSkill, nature},
+    input: {level, subSkill, nature, evolutionCount, seeds},
     pokemon,
     subSkillMap,
   });
