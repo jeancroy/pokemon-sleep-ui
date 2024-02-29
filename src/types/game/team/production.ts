@@ -9,3 +9,20 @@ export type TeamMemberProduction = PokemonProduction & {
   calculatedUserConfig: CalculatedUserConfig,
   level: Nullable<number>,
 };
+
+export const teamMemberProductionSortingBasis = [
+  'totalStrength',
+  'berryStrength',
+  'ingredientStrength',
+  'mainSkillTriggerCount',
+  'mainSkillTriggerRate',
+  'frequency',
+  'timeToFullPackPrimary',
+  'timeToFullPackSecondary',
+] as const;
+
+export type TeamMemberProductionSortingBasis = typeof teamMemberProductionSortingBasis[number];
+
+export type TeamMemberProductionSorter = (a: TeamMemberProduction, b: TeamMemberProduction) => number;
+
+export type TeamMemberProductionSorterGetter = (production: TeamMemberProduction) => number;

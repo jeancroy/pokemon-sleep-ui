@@ -12,7 +12,7 @@ import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/produci
 import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 
 
-export const sortInAsc: PokemonSortType[] = [
+export const pokemonSortTypeInAsc: PokemonSortType[] = [
   'id',
   'frequencyBase',
   'frequency',

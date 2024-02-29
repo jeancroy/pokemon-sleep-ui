@@ -1,5 +1,6 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
+import {TeamMemberProductionSortingBasis} from '@/types/game/team/production';
 import {I18nMessageKeysOfNamespace} from '@/types/i18n';
 
 
@@ -21,4 +22,17 @@ export const pokemonProducingStateI18nId: {
   base: 'State.Base',
   equivalent: 'Total',
   unfilledOnly: 'Preset.UnfilledOnly',
+};
+
+export const teamMemberProductionSortingBasisI18nId: {
+  [basis in TeamMemberProductionSortingBasis]: I18nMessageKeysOfNamespace<'UI.Producing.Stats'>
+} = {
+  totalStrength: 'Strength.Total',
+  berryStrength: 'Strength.Berry',
+  ingredientStrength: 'Strength.Ingredient',
+  mainSkillTriggerCount: 'MainSkill.DailyCount',
+  mainSkillTriggerRate: 'MainSkill.TriggerRate',
+  frequency: 'Frequency',
+  timeToFullPackPrimary: 'TimeToFullPack.Primary',
+  timeToFullPackSecondary: 'TimeToFullPack.Secondary',
 };

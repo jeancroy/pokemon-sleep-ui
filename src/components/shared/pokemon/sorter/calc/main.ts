@@ -1,4 +1,4 @@
-import {pokemonSorterGetterBySortType, sortInAsc} from '@/components/shared/pokemon/sorter/calc/const';
+import {pokemonSorterGetterBySortType, pokemonSortTypeInAsc} from '@/components/shared/pokemon/sorter/calc/const';
 import {
   PokemonInfoWithSortingPayload,
   PokemonSorterGetterOpts,
@@ -37,7 +37,7 @@ export const sortPokemon = <TExtra, TSource extends PokemonInfoWithSortingPayloa
 ) => {
   let comparer = a.sorter - b.sorter;
 
-  if (comparer !== 0 && !sortInAsc.some((basis) => type === basis)) {
+  if (comparer !== 0 && !pokemonSortTypeInAsc.some((basis) => type === basis)) {
     comparer *= -1;
   }
 

@@ -1,7 +1,7 @@
 import {PokemonIndirectSkillEffects} from '@/types/game/producing/rate/skill';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData} from '@/types/game/team/member';
-import {TeamMemberProduction} from '@/types/game/team/production';
+import {TeamMemberProduction, TeamMemberProductionSortingBasis} from '@/types/game/team/production';
 import {TeamSetup} from '@/types/game/team/setup';
 import {TeamMemberStatsType} from '@/types/game/team/statsType';
 import {TeamData} from '@/types/game/team/team';
@@ -27,6 +27,7 @@ export type ProductionComparisonTeamStacks = {
 export type ProductionComparisonPreset = TeamData<ProductionComparisonTargetUuid, ProductionComparisonTarget> & {
   pinnedStats: TeamMemberStatsType[],
   cookingTarget: CookingTarget,
+  sort: TeamMemberProductionSortingBasis | null,
   team: {
     skill: ProductionComparisonTeamSkill,
     stacks: ProductionComparisonTeamStacks,
