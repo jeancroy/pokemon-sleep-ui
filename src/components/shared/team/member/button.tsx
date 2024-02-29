@@ -14,6 +14,7 @@ import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/ind
 import {TeamMemberStats} from '@/components/shared/team/member/content/stats';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
+import {teamMemberStatsType} from '@/types/game/team/statsType';
 
 
 type Props = TeamMemberProps & {
@@ -83,7 +84,9 @@ export const TeamMemberCollapsibleButton = ({
           />
         </Flex>
       </Flex>
-      {pinnedStats.map((type) => <TeamMemberStats key={type} type={type} {...props}/>)}
+      {teamMemberStatsType
+        .filter((type) => !!pinnedStats[type])
+        .map((type) => <TeamMemberStats key={type} type={type} {...props}/>)}
       <PokemonProductionSplitFromPokemonRate
         rate={rate}
         state={stateOfRate}

@@ -1,3 +1,4 @@
+import {FilterInclusionMap} from '@/components/input/filter/type';
 import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {BerryDataMap} from '@/types/game/berry';
@@ -33,7 +34,7 @@ export type TeamMemberProps = TeamMemberDataProps & {
   calculatedCookingConfig: CalculatedCookingConfig,
   member: TeamMemberData,
   memberIdForShare: string,
-  pinnedStats: TeamMemberStatsType[],
+  pinnedStats: FilterInclusionMap<TeamMemberStatsType>,
   pokemon: PokemonInfo,
   pokemonProducingParams: PokemonProducingParams,
   rate: TeamMemberProduction,

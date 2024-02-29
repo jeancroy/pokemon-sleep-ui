@@ -36,4 +36,13 @@ export const productionComparisonPresetMigrators: Migrator<
       configSource: 'default',
     }),
   },
+  {
+    // Updated `pinnedStats` typing and add `sort`
+    toVersion: 4,
+    migrate: (old) => ({
+      ...old,
+      sort: null,
+      pinnedStats: {total: true},
+    }),
+  },
 ];

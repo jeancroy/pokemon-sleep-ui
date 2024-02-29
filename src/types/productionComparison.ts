@@ -1,3 +1,4 @@
+import {FilterInclusionMap} from '@/components/input/filter/type';
 import {PokemonIndirectSkillEffects} from '@/types/game/producing/rate/skill';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData} from '@/types/game/team/member';
@@ -25,7 +26,7 @@ export type ProductionComparisonTeamStacks = {
 };
 
 export type ProductionComparisonPreset = TeamData<ProductionComparisonTargetUuid, ProductionComparisonTarget> & {
-  pinnedStats: TeamMemberStatsType[],
+  pinnedStats: FilterInclusionMap<TeamMemberStatsType>,
   cookingTarget: CookingTarget,
   sort: TeamMemberProductionSortingBasis | null,
   team: {

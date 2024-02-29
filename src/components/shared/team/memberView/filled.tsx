@@ -41,7 +41,7 @@ export const TeamMemberFilledSlot = <
   return (
     <TeamMember
       teamMetadata={currentTeam}
-      pinnedStats={['total']}
+      pinnedStats={{total: true}}
       rate={stats}
       stateOfRate={stateOfRateToShow}
       setMember={(update) => setCurrentMemberPartial({

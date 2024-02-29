@@ -31,7 +31,7 @@ export const generateNewProductionComparisonPreset = ({
     name: getDefaultTeamName(uuid),
     analysisPeriod: defaultProductionPeriod,
     members: {},
-    pinnedStats: [],
+    pinnedStats: {total: true},
     cookingTarget: bundle.cookingConfig.target,
     sort: null,
     team: {
