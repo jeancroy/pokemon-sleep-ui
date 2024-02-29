@@ -70,13 +70,13 @@
           "Override": "Überschreiben"
         },
         "StatsType": {
-          "Total": "Total",
-          "Berry": "Berry",
-          "Ingredient": "Ingredient",
-          "Skill": "Skill",
-          "Frequency": "Frequency",
-          "Energy": "Energy",
-          "Inventory": "Inventory"
+          "Total": "Gesamt",
+          "Berry": "Beere",
+          "Ingredient": "Zutat",
+          "Skill": "Talent",
+          "Frequency": "Frequenz",
+          "Energy": "Energie",
+          "Inventory": "Inventar"
         }
       },
       "Member": {
