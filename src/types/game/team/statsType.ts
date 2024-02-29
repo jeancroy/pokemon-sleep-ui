@@ -1,11 +1,11 @@
 export const teamMemberStatsType = [
-  'frequency',
-  'inventory',
-  'energy',
+  'total',
   'berry',
   'ingredient',
   'skill',
-  'total',
+  'frequency',
+  'energy',
+  'inventory',
 ] as const;
 
 export type TeamMemberStatsType = typeof teamMemberStatsType[number];

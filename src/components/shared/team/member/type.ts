@@ -1,4 +1,3 @@
-import {FilterInclusionMap} from '@/components/input/filter/type';
 import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {BerryDataMap} from '@/types/game/berry';
@@ -10,7 +9,6 @@ import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {TeamMemberData} from '@/types/game/team/member';
 import {TeamMemberProduction} from '@/types/game/team/production';
-import {TeamMemberStatsType} from '@/types/game/team/statsType';
 import {TeamMetadata} from '@/types/game/team/team';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
@@ -34,7 +32,6 @@ export type TeamMemberProps = TeamMemberDataProps & {
   calculatedCookingConfig: CalculatedCookingConfig,
   member: TeamMemberData,
   memberIdForShare: string,
-  pinnedStats: FilterInclusionMap<TeamMemberStatsType>,
   pokemon: PokemonInfo,
   pokemonProducingParams: PokemonProducingParams,
   rate: TeamMemberProduction,

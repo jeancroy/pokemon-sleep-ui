@@ -120,7 +120,7 @@ export const TeamMemberStats = ({
   }
 
   if (type === 'total') {
-    return <ProductionUI rate={total} hideQuantity normalSize className="self-center"/>;
+    return <ProductionUI rate={total} hideQuantity normalSize className="justify-center self-center"/>;
   }
 
   throw new Error(`Unhandled team member pinned stats type [${type satisfies never}] to show`);

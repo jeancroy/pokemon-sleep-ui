@@ -25,6 +25,7 @@ export type TeamConfigSource = typeof teamConfigSource[number];
 export type TeamMetadata = {
   uuid: string,
   name: string,
+  pinnedStats: FilterInclusionMap<TeamMemberStatsType>,
   analysisPeriod: ProductionPeriod,
   configOverride: ConfigOverride,
   configSource: TeamConfigSource,
@@ -39,5 +40,4 @@ export type TeamData<
   TMember extends Nullable<TeamMemberData>
 > = Migratable & TeamMetadata & {
   members: TeamMemberMap<TKey, TMember>,
-  pinnedStats: FilterInclusionMap<TeamMemberStatsType>,
 };

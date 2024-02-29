@@ -91,6 +91,15 @@ declare global {
               Default: string,
               Override: string,
             },
+            StatsType: {
+              Total: string,
+              Berry: string,
+              Ingredient: string,
+              Skill: string,
+              Frequency: string,
+              Energy: string,
+              Inventory: string,
+            },
           },
           Member: {
             Control: {

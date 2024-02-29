@@ -68,6 +68,15 @@
           "Name": "基準",
           "Default": "預設",
           "Override": "指定"
+        },
+        "StatsType": {
+          "Total": "總計",
+          "Berry": "樹果",
+          "Ingredient": "食材",
+          "Skill": "技能",
+          "Frequency": "幫忙速度",
+          "Energy": "活力",
+          "Inventory": "持有上限"
         }
       },
       "Member": {

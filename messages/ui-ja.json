@@ -68,6 +68,15 @@
           "Name": "参照先",
           "Default": "デフォルト",
           "Override": "上書き"
+        },
+        "StatsType": {
+          "Total": "Total",
+          "Berry": "Berry",
+          "Ingredient": "Ingredient",
+          "Skill": "Skill",
+          "Frequency": "Frequency",
+          "Energy": "Energy",
+          "Inventory": "Inventory"
         }
       },
       "Member": {

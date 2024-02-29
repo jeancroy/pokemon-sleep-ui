@@ -3,6 +3,7 @@ import React from 'react';
 import LinkIcon from '@heroicons/react/24/outline/LinkIcon';
 import {clsx} from 'clsx';
 
+import {AnimatedCollapseQuick} from '@/components/layout/collapsible/animatedQuick';
 import {Flex} from '@/components/layout/flex/common';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
@@ -30,10 +31,11 @@ export const TeamMemberCollapsibleButton = ({
     classOfButton,
     pokemon,
     member,
-    pinnedStats,
+    teamMetadata,
     rate,
     stateOfRate,
   } = props;
+  const {pinnedStats} = teamMetadata;
   const {specialty} = pokemon;
   const {level, subSkill, nature, linkedPokeInBoxUuid} = member;
 
@@ -84,9 +86,11 @@ export const TeamMemberCollapsibleButton = ({
           />
         </Flex>
       </Flex>
-      {teamMemberStatsType
-        .filter((type) => !!pinnedStats[type])
-        .map((type) => <TeamMemberStats key={type} type={type} {...props}/>)}
+      {teamMemberStatsType.map((type) => (
+        <AnimatedCollapseQuick key={type} show={!!pinnedStats[type]}>
+          <TeamMemberStats key={type} type={type} {...props}/>
+        </AnimatedCollapseQuick>
+      ))}
       <PokemonProductionSplitFromPokemonRate
         rate={rate}
         state={stateOfRate}

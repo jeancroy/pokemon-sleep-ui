@@ -4,6 +4,7 @@ import {useTranslations} from 'next-intl';
 
 import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {InputRow} from '@/components/input/filter/row';
+import {getMultiSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {Flex} from '@/components/layout/flex/common';
 import {CookingConfigDataProps} from '@/components/shared/cooking/config/type';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
@@ -14,6 +15,7 @@ import {TeamUserConfig} from '@/components/shared/team/setupControl/config/main'
 import {TeamLayoutControlUI} from '@/components/shared/team/setupControl/layoutControl/main';
 import {TeamQuickActionGlobalLevel} from '@/components/shared/team/setupControl/quickAction/globalLevel';
 import {TeamQuickActionSyncPokemon} from '@/components/shared/team/setupControl/quickAction/syncPokemon';
+import {TeamMemberStatsTypeInput} from '@/components/shared/team/setupControl/statsType/input';
 import {TeamSetupControlDataProps} from '@/components/shared/team/setupControl/type';
 import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {productionPeriodI18nId} from '@/const/game/production/i18n';
@@ -21,7 +23,8 @@ import {productionPeriod} from '@/types/game/producing/display';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetup} from '@/types/game/team/setup';
-import {TeamData} from '@/types/game/team/team';
+import {TeamMemberStatsType} from '@/types/game/team/statsType';
+import {TeamData, TeamMetadata} from '@/types/game/team/team';
 import {UserDataUploadOpts} from '@/types/userData/upload';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 import {isNotNullish, Nullable} from '@/utils/type';
@@ -108,6 +111,16 @@ export const TeamSetupControlUI = <
         filterKey="snorlaxFavorite"
         fieldMetaMap={fieldMetaMap}
         pokemonList={pokemonList}
+      />
+      <TeamMemberStatsTypeInput
+        {...getMultiSelectOnClickProps<TeamMetadata, TeamMemberStatsType>({
+          filter: currentTeam,
+          setFilter: (getUpdated) => setCurrentTeam((original) => ({
+            ...original,
+            ...getUpdated(original),
+          })),
+          filterKey: 'pinnedStats',
+        })}
       />
       <FilterTextInput
         title={t('Period')}

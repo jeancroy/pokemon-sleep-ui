@@ -68,6 +68,15 @@
           "Name": "Quelle",
           "Default": "Standard",
           "Override": "Überschreiben"
+        },
+        "StatsType": {
+          "Total": "Total",
+          "Berry": "Berry",
+          "Ingredient": "Ingredient",
+          "Skill": "Skill",
+          "Frequency": "Frequency",
+          "Energy": "Energy",
+          "Inventory": "Inventory"
         }
       },
       "Member": {
