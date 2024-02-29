@@ -1,8 +1,8 @@
 import React from 'react';
 
 import {clsx} from 'clsx';
-import ReactMarkdown from 'react-markdown';
 
+import {MarkdownContent} from '@/components/markdown/main';
 import {DocRenderingCommonProps} from '@/components/shared/docs/type';
 import {tableOfContentsText} from '@/components/shared/docs/view/const';
 import {remarkDirectiveComponents} from '@/components/shared/docs/view/directive/const';
@@ -26,13 +26,15 @@ export const DocsContentView = ({locale, doc, className}: Props) => {
     .join('\n');
 
   return (
-    <ReactMarkdown
-      remarkPlugins={remarkPlugins}
-      rehypePlugins={rehypePlugins}
+    <MarkdownContent
+      plugins={{
+        remark: remarkPlugins,
+        rehype: rehypePlugins,
+      }}
       className={clsx('markdown flex flex-col gap-2.5 break-words p-2', className)}
       components={remarkDirectiveComponents}
     >
       {content}
-    </ReactMarkdown>
+    </MarkdownContent>
   );
 };

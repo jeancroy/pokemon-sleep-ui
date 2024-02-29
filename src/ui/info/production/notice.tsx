@@ -1,10 +1,9 @@
 import React from 'react';
 
 import {useTranslations} from 'next-intl';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 import {Flex} from '@/components/layout/flex/common';
+import {MarkdownContent} from '@/components/markdown/main';
 
 
 export const ProducingParamsNotice = () => {
@@ -12,9 +11,9 @@ export const ProducingParamsNotice = () => {
 
   return (
     <Flex className="rounded-lg p-1.5 shadow-border dark:shadow-slate-300">
-      <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown">
+      <MarkdownContent>
         {t('Notice')}
-      </ReactMarkdown>
+      </MarkdownContent>
     </Flex>
   );
 };

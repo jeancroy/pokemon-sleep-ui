@@ -3,12 +3,11 @@ import React from 'react';
 
 import {useSession} from 'next-auth/react';
 import {useTranslations} from 'next-intl';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {LazyLoad} from '@/components/layout/lazyLoad';
+import {MarkdownContent} from '@/components/markdown/main';
 import {CompletionResultUI} from '@/components/shared/completion/main';
 import {useUserActivation} from '@/hooks/userData/activation';
 import {usePokedexCalc} from '@/ui/pokedex/common/calc/main';
@@ -43,9 +42,9 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
 
   return (
     <Flex className="gap-1.5">
-      <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown info-highlight p-1.5">
+      <MarkdownContent className="info-highlight p-1.5">
         {t('Tips')}
-      </ReactMarkdown>
+      </MarkdownContent>
       <PokedexTierListInputUI
         isPremium={isPremium}
         input={input}

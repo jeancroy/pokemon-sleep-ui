@@ -2,10 +2,9 @@
 import React from 'react';
 
 import {clsx} from 'clsx';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 import {AnnouncementProps} from '@/components/announcement/type';
+import {MarkdownContent} from '@/components/markdown/main';
 import {useLayout} from '@/hooks/layout/main';
 import {announcementTextClasses} from '@/styles/text/announcement';
 import {AnnouncementClient} from '@/types/mongo/announcement';
@@ -47,9 +46,9 @@ export const AnnouncementsDisplay = ({larger, showOn, height, announcements}: Pr
       styles['announcement-animation'],
     )}>
       <div className={clsx('items-center', announcementClass, announcementTextClasses[level])}>
-        <ReactMarkdown remarkPlugins={[remarkGfm]} className="markdown">
+        <MarkdownContent>
           {message}
-        </ReactMarkdown>
+        </MarkdownContent>
       </div>
     </div>
   );
