@@ -2,7 +2,7 @@
   "Subscription": {
     "AdBlockActive": "<p>Usar un Ad-blocker en este sitio no es recomendado. Mantener el sitio web cuesta dinero y desarrollarlo requiere tiempo.</p>\n<p>Por favor permite los anuncios o <strong>revisa la &quot;Introducción a la Suscripción&quot; en la sección de Documentación</strong>.</p>\n<p>Si tienes comentarios sobre la ubicación de los anuncios, únete a nuestro Discord (link en la página 'Acerca de') y coméntanos.</p>",
     "Popup": "<p>Por favor suscríbete si te gusta el sitio :) Revisa <a href=\"https://pks.raenonx.cc/docs/view/subscription/intro\">Introducción a la Suscripción</a> para ver los detalles.</p>",
-    "PremiumOnly": "<p>Necesitas tener una suscipción Premium. Revisa <a href=\"https://pks.raenonx.cc/docs/view/subscription/intro\">Introducción a la Suscripción</a> para ver los detalles.</p>",
+    "PremiumOnly": "Necesitas tener una suscipción Premium. Revisa [Introducción a la Suscripción](https://pks.raenonx.cc/docs/view/subscription/intro) para ver los detalles.",
     "Activation": {
       "AdsFree": "Navegación sin anuncios",
       "Premium": "Acceso a Funciones Premium"

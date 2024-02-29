@@ -2,7 +2,7 @@
   "Subscription": {
     "AdBlockActive": "<p>継続的なサイト運営のため、広告ブロックの解除をお願いします。</p>\n<p><strong>広告をクリックすれば広告が1時間OFFになります。</strong> ヘルプ内の サブスクの紹介 もあわせてご覧ください。</p>\n<p>広告の表示位置に関するご意見はDiscordサーバーまで。</p>",
     "Popup": "<p>サイトを気に入ってくださってありがとうございます。サブスクもよろしくお願いします。詳しくは <a href=\"https://pks.raenonx.cc/ja/docs/view/subscription/intro\">サブスクの紹介</a> へ。</p>",
-    "PremiumOnly": "<p>こちらはプレミアム限定機能です。詳しくは <a href=\"https://pks.raenonx.cc/ja/docs/view/subscription/intro\">サブスクの紹介</a> へ。</p>",
+    "PremiumOnly": "こちらはプレミアム限定機能です。詳しくは [サブスクの紹介](https://pks.raenonx.cc/docs/view/subscription/intro) へ。",
     "Activation": {
       "AdsFree": "広告非表示",
       "Premium": "プレミアム機能"

@@ -1,6 +1,8 @@
 import React from 'react';
 
 import {useTranslations} from 'next-intl';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 import {Flex} from '@/components/layout/flex/common';
 import {premiumOnlyNoticeStyles} from '@/components/static/premium/const';
@@ -19,7 +21,9 @@ export const PremiumOnlyNotice = ({style, hideIcon}: Props) => {
   return (
     <Flex direction="row" center className="gap-1">
       {!hideIcon && <PremiumIcon/>}
-      <div dangerouslySetInnerHTML={{__html: t.raw('PremiumOnly')}} className={premiumOnlyNoticeStyles[style]}/>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} className={premiumOnlyNoticeStyles[style]}>
+        {t('PremiumOnly')}
+      </ReactMarkdown>
     </Flex>
   );
 };
