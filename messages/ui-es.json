@@ -63,6 +63,9 @@
             "Name": "Sincronizar Pokémon",
             "Syncing": "Sincronizando..."
           }
+        },
+        "Message": {
+          "PremiumOnly": "Preset-dependent config is only available for Premium users. Please check [Subscription Intro](https://pks.raenonx.cc/docs/view/subscription/intro) for details."
         }
       },
       "Member": {

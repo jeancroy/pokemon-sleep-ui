@@ -32,6 +32,7 @@ export type TeamSetupControl<
   setup: TSetup,
   setSetup: React.Dispatch<React.SetStateAction<TSetup>>,
   layoutControl: TeamLayoutControl<TKey>,
+  isPremium: boolean,
   currentTeam: TTeam,
   currentCalculatedConfigBundle: CalculatedConfigBundle,
   setCurrentMember: (opts: TeamSetupSetMemberOpts<TKey, TMember>) => void,

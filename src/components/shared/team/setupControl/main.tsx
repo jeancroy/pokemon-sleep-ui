@@ -61,6 +61,7 @@ export const TeamSetupControlUI = <
   const {setupControl} = props;
   const {
     layoutControl,
+    isPremium,
     currentTeam,
     currentCalculatedConfigBundle,
     setCurrentTeam,
@@ -115,6 +116,7 @@ export const TeamSetupControlUI = <
             cooking: cloneMerge(currentTeam.configOverride.cooking, update),
           },
         }))}
+        isPremium={isPremium}
         hideManualSkillRecovery={hideManualStaminaSkillRecovery}
         {...props}
       />

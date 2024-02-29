@@ -86,6 +86,9 @@ declare global {
                 Syncing: string,
               },
             },
+            Message: {
+              PremiumOnly: string,
+            },
           },
           Member: {
             Control: {

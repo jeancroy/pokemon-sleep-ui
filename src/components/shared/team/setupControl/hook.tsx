@@ -40,6 +40,7 @@ type UseTeamAnalysisSetupControlOpts<
 > = ConfigRequiredData & {
   bundleBase: UseUserDataOpts<ConfigBundle>,
   initialMigratedSetup: TSetup,
+  isPremium: boolean,
   getDuplicatedMember: (currentTeam: TTeam, source: TMember) => TeamSetupDuplicatedMember<TKey, TMember> | null,
   getLayoutCollapsibleIndexKeys: (team: TTeam) => TKey[],
 };
@@ -53,6 +54,7 @@ export const useTeamSetupControl = <
 >({
   bundleBase,
   initialMigratedSetup,
+  isPremium,
   getDuplicatedMember,
   getLayoutCollapsibleIndexKeys,
   ...props
@@ -82,7 +84,7 @@ export const useTeamSetupControl = <
   // Need to memoize to prevent infinite re-render
   const currentCalculatedConfigBundle = React.useMemo(() => toCalculatedConfigBundle({
     override: {
-      ...currentTeam.configOverride,
+      ...(isPremium ? currentTeam.configOverride : {}),
       snorlaxFavorite: currentTeam.configOverride.snorlaxFavorite,
     },
     ...bundle,
@@ -143,6 +145,7 @@ export const useTeamSetupControl = <
     setup,
     setSetup,
     layoutControl,
+    isPremium,
     currentTeam,
     currentCalculatedConfigBundle,
     setCurrentMember,

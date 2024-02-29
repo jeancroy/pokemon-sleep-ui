@@ -11,6 +11,7 @@ import {useTeamSetupControl} from '@/components/shared/team/setupControl/hook';
 import {TeamSetupControlUI} from '@/components/shared/team/setupControl/main';
 import {useIngredientIdsFromMeals} from '@/hooks/ingredient/ingredientIds';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
+import {useUserActivation} from '@/hooks/userData/activation';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {useProductionComparisonPresetStats} from '@/ui/production/calc/hook';
 import {ProductionComparisonTargets} from '@/ui/production/client/targets';
@@ -31,6 +32,7 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
 
   const actorReturn = useUserDataActor();
   const {session} = actorReturn;
+  const {isPremium} = useUserActivation(session.data);
 
   const {state, setState, showPokemon} = usePokemonLinkPopup();
 
@@ -49,6 +51,7 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
       return {key: newUuid, member: {...source, uuid: newUuid}};
     },
     getLayoutCollapsibleIndexKeys: (team) => Object.keys(team.members),
+    isPremium,
     ...props,
   });
   const {

@@ -2,6 +2,7 @@
 import React from 'react';
 
 import {useTeamSetupControl} from '@/components/shared/team/setupControl/hook';
+import {useUserActivation} from '@/hooks/userData/activation';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {teamAnalysisSlotName} from '@/types/teamAnalysis';
 import {TeamAnalysisSetupView} from '@/ui/team/analysis/setup/main';
@@ -17,6 +18,7 @@ export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
 
   const actorReturn = useUserDataActor();
   const {session} = actorReturn;
+  const {isPremium} = useUserActivation(session.data);
 
   const setupControl: TeamAnalysisSetupControl = useTeamSetupControl({
     bundleBase: {
@@ -39,6 +41,7 @@ export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
       return null;
     },
     getLayoutCollapsibleIndexKeys: () => [...teamAnalysisSlotName],
+    isPremium,
     ...props,
   });
 
