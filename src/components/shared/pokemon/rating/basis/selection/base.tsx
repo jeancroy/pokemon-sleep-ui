@@ -4,7 +4,6 @@ import MagnifyingGlassCircleIcon from '@heroicons/react/24/outline/MagnifyingGla
 
 import {FilterExpandedInput} from '@/components/input/filter/expanded/main';
 import {FilterExpandedInputProps} from '@/components/input/filter/expanded/type';
-import {Flex} from '@/components/layout/flex/common';
 import {RatingBasisSelectionCommonProps} from '@/components/shared/pokemon/rating/basis/selection/type';
 import {textFilterButtonStyle} from '@/styles/input';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
@@ -23,11 +22,7 @@ export const RatingBasisSelectionBase = <TRatingBasis extends RatingBasis | null
     <FilterExpandedInput
       onClick={onSelect}
       isActive={(basis) => basis === current}
-      title={
-        <Flex center>
-          <MagnifyingGlassCircleIcon className="size-6"/>
-        </Flex>
-      }
+      title={<MagnifyingGlassCircleIcon className="size-6"/>}
       className={textFilterButtonStyle}
       {...props}
     />
