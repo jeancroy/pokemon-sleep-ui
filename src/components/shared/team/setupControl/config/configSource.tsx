@@ -3,7 +3,6 @@ import React from 'react';
 import Cog6ToothIcon from '@heroicons/react/24/outline/Cog6ToothIcon';
 import {useTranslations} from 'next-intl';
 
-import {useFilterPremiumRestrictable} from '@/components/input/filter/common/premium/hook';
 import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {Flex} from '@/components/layout/flex/common';
@@ -36,12 +35,8 @@ export const TeamUserConfigSourceInput = <
 >({
   setupControl,
 }: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
-  const {currentTeam, setCurrentTeam, actorReturn} = setupControl;
-
-  const {isInputChangeRestricted, isPremium} = useFilterPremiumRestrictable({
-    premiumOnly: true,
-    session: actorReturn.session.data,
-  });
+  const {currentTeam, setCurrentTeam, premiumInputControl} = setupControl;
+  const {isPremium, isInputChangeRestricted} = premiumInputControl;
 
   const t = useTranslations('UI.Component.Team.SetupControl.ConfigSource');
 

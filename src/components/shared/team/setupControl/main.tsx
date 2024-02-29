@@ -61,13 +61,14 @@ export const TeamSetupControlUI = <
   const {setupControl} = props;
   const {
     layoutControl,
-    isPremium,
+    premiumInputControl,
     currentTeam,
     currentCalculatedConfigBundle,
     setCurrentTeam,
     setCurrentMemberReplaceAll,
     updatePokemonFromPokebox,
   } = setupControl;
+  const {isPremium} = premiumInputControl;
   const {session} = actorReturn;
   const {bundle} = currentCalculatedConfigBundle;
 

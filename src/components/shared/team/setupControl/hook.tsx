@@ -3,6 +3,7 @@ import React from 'react';
 import PlusCircleIcon from '@heroicons/react/24/outline/PlusCircleIcon';
 import {useTranslations} from 'next-intl';
 
+import {useFilterPremiumRestrictable} from '@/components/input/filter/common/premium/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {useTeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/hook';
@@ -97,6 +98,11 @@ export const useTeamSetupControl = <
     ...props,
   }), [bundle, currentTeam]);
 
+  const premiumInputControl = useFilterPremiumRestrictable({
+    premiumOnly: true,
+    session: actorReturn.session.data,
+  });
+
   const setCurrentMember = ({key, member}: TeamSetupSetMemberOpts<TKey, TMember>) => {
     setSetup((original): TSetup => ({
       ...original,
@@ -151,8 +157,8 @@ export const useTeamSetupControl = <
     setup,
     setSetup,
     layoutControl,
+    premiumInputControl,
     actorReturn,
-    isPremium,
     currentTeam,
     currentCalculatedConfigBundle,
     setCurrentMember,

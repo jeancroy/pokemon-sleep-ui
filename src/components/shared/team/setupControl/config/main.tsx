@@ -50,7 +50,8 @@ export const TeamUserConfig = <
     mealMap,
     hideManualSkillRecovery,
   } = props;
-  const {currentTeam, isPremium} = setupControl;
+  const {currentTeam, premiumInputControl} = setupControl;
+  const {isPremium} = premiumInputControl;
   const {configSource} = currentTeam;
 
   const collapsible = useCollapsibleControl();

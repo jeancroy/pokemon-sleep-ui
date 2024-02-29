@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {UseFilterPremiumRestrictableReturn} from '@/components/input/filter/common/premium/type';
 import {TeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/type';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {FieldMetaMap} from '@/types/game/mapMeta';
@@ -34,7 +35,7 @@ export type TeamSetupControl<
   setSetup: React.Dispatch<React.SetStateAction<TSetup>>,
   layoutControl: TeamLayoutControl<TKey>,
   actorReturn: UseUserDataActorReturn,
-  isPremium: boolean,
+  premiumInputControl: UseFilterPremiumRestrictableReturn,
   currentTeam: TTeam,
   currentCalculatedConfigBundle: CalculatedConfigBundle,
   setCurrentMember: (opts: TeamSetupSetMemberOpts<TKey, TMember>) => void,

@@ -10,3 +10,9 @@ export type FilterPremiumRestrictableProps = {
   premiumOnly?: false,
   session?: never,
 };
+
+export type UseFilterPremiumRestrictableReturn = {
+  isPremium: boolean,
+  isInputRestricted: boolean,
+  isInputChangeRestricted: () => boolean,
+};
