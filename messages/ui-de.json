@@ -65,9 +65,9 @@
           }
         },
         "ConfigSource": {
-          "Name": "Source",
-          "Default": "Default",
-          "Override": "Override"
+          "Name": "Quelle",
+          "Default": "Standard",
+          "Override": "Überschreiben"
         }
       },
       "Member": {
