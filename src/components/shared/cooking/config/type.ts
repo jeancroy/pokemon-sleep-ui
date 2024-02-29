@@ -6,14 +6,14 @@ import {CookingConfig} from '@/types/userData/config/cooking/main';
 import {CalculatedCookingConfigRequiredData} from '@/types/userData/config/data';
 
 
-export type UserConfigCookingDataProps = CalculatedCookingConfigRequiredData & {
+export type CookingConfigDataProps = CalculatedCookingConfigRequiredData & {
   potInfoList: PotInfo[],
   recipeLevelData: RecipeLevelData[],
   mealTypes: MealTypeId[],
   ingredientIds: IngredientId[],
 };
 
-export type UserConfigCookingCommonProps = UserConfigCookingDataProps & {
+export type CookingConfigUiCommonProps = CookingConfigDataProps & {
   cookingConfig: CookingConfig,
   setCookingConfig: (updated: Partial<CookingConfig>) => void,
 };
