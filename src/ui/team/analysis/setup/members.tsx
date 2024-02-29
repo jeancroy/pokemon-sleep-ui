@@ -54,7 +54,7 @@ export const TeamAnalysisMemberView = ({
         ...props,
       }).bySlot[memberKey]}
       memberKeys={[...teamAnalysisSlotName]}
-      getMemberProduction={(memberKey) => statsOfTeam.bySlot[memberKey]}
+      getMemberProduction={(memberKey) => statsOfTeam.bySlot[memberKey] ?? null}
       getMemberFromVanilla={(pokemon) => toTeamMemberDataFromVanilla({
         pokemon,
         chain: ingredientChainMap[pokemon.ingredientChain],

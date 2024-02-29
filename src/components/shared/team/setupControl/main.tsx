@@ -17,7 +17,6 @@ import {TeamQuickActionSyncPokemon} from '@/components/shared/team/setupControl/
 import {TeamSetupControlDataProps} from '@/components/shared/team/setupControl/type';
 import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {productionPeriodI18nId} from '@/const/game/production/i18n';
-import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {productionPeriod} from '@/types/game/producing/display';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
@@ -39,7 +38,6 @@ type Props<
   CookingConfigDataProps &
   StaminaConfigDataProps &
   Omit<TeamSelectorCommonProps<TKey, TMember, TConfig, TTeam, TSetup>, 'memberList'> & {
-    actorReturn: UseUserDataActorReturn,
     uploadOpts: UserDataUploadOpts,
     hideManualStaminaSkillRecovery?: boolean,
   };
@@ -53,13 +51,13 @@ export const TeamSetupControlUI = <
 >({
   fieldMetaMap,
   pokemonList,
-  actorReturn,
   uploadOpts,
   hideManualStaminaSkillRecovery,
   ...props
 }: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
   const {setupControl} = props;
   const {
+    actorReturn,
     layoutControl,
     premiumInputControl,
     currentTeam,

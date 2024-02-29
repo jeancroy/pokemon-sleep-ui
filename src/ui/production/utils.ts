@@ -33,6 +33,7 @@ export const generateNewProductionComparisonPreset = ({
     members: {},
     pinnedStats: [],
     cookingTarget: bundle.cookingConfig.target,
+    sort: null,
     team: {
       skill: {
         indirectSkills: {

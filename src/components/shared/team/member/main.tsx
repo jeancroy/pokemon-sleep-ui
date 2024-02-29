@@ -18,7 +18,7 @@ export const TeamMember = (props: TeamMemberProps) => {
   const ratingControl = useRatingPopup();
 
   return (
-    <Flex className="items-center gap-1">
+    <Flex className="items-center gap-0.5">
       <TeamMemberPopup
         state={teamMemberPopup}
         ratingControl={ratingControl}

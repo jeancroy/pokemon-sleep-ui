@@ -5,8 +5,11 @@ import {v4} from 'uuid';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Loading} from '@/components/icons/loading';
+import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
+import {Flex} from '@/components/layout/flex/common';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
+import {TeamMemberProductionSortingBasisInput} from '@/components/shared/team/productionSort/input/main';
 import {useTeamSetupControl} from '@/components/shared/team/setupControl/hook';
 import {TeamSetupControlUI} from '@/components/shared/team/setupControl/main';
 import {useIngredientIdsFromMeals} from '@/hooks/ingredient/ingredientIds';
@@ -49,6 +52,7 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
     actorReturn,
     currentTeam,
     currentCalculatedConfigBundle,
+    setCurrentTeam,
   } = setupControl;
   const {bundle, calculatedCookingConfig} = currentCalculatedConfigBundle;
 
@@ -69,10 +73,9 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
   }
 
   return (
-    <>
+    <Flex className="gap-1">
       <PokemonLinkPopup state={state} setState={setState}/>
       <TeamSetupControlUI
-        actorReturn={actorReturn}
         setupControl={setupControl}
         pokemonList={pokemonList}
         generateNewTeam={(uuid) => generateNewProductionComparisonPreset({uuid, bundle})}
@@ -88,6 +91,13 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
         ingredientIds={ingredientIds}
         {...props}
       />
+      <TeamMemberProductionSortingBasisInput
+        {...getSingleSelectOnClickProps({
+          filter: currentTeam,
+          setFilter: setCurrentTeam,
+          filterKey: 'sort',
+        })}
+      />
       <AdsUnit hideIfNotBlocked/>
       <ProductionComparisonTargets
         maxEvolutionCount={getPokemonMaxEvolutionCount(pokemonList)}
@@ -102,6 +112,6 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
       <AdsUnit/>
       {/* Gap for toast to show on Pokemon addition without blocking the view */}
       <div className="h-40"/>
-    </>
+    </Flex>
   );
 };

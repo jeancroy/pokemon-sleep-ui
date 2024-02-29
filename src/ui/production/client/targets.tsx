@@ -4,6 +4,7 @@ import pick from 'lodash/pick';
 import {v4} from 'uuid';
 
 import {TeamMemberView} from '@/components/shared/team/memberView/main';
+import {sortTeamMemberProduction} from '@/components/shared/team/productionSort/calc/main';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {
@@ -103,6 +104,7 @@ export const ProductionComparisonTargets = ({
       }}
       getMemberIdForShare={({uuid}) => uuid}
       generateKeyForEmptySlot={v4}
+      productionSorter={currentPreset.sort === null ? undefined : sortTeamMemberProduction(currentPreset.sort)}
       {...props}
     />
   );

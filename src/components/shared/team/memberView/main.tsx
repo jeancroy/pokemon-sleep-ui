@@ -11,12 +11,12 @@ import {
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
-import {TeamMemberProduction} from '@/types/game/team/production';
+import {TeamMemberProduction, TeamMemberProductionSorter} from '@/types/game/team/production';
 import {TeamSetup} from '@/types/game/team/setup';
 import {TeamData} from '@/types/game/team/team';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getPokemonProducingParams} from '@/utils/game/producing/params';
-import {Nullable} from '@/utils/type';
+import {isNotNullish, Nullable} from '@/utils/type';
 
 
 type Props<
@@ -31,10 +31,12 @@ type Props<
   TeamMemberFilledProps<TKey, TMember, TConfig, TTeam, TSetup> & {
     memberKeys: TKey[],
     actorReturn: UseUserDataActorReturn,
+    // Returning `null` means to show an empty slot while `undefined` means just hide it
     getMemberProduction: (memberKey: TKey) => Nullable<TeamMemberProduction>,
     getTeamMemberFromCloud: (identifier: string) => Promise<Nullable<TMember>>,
     getMemberIdForShare: (currentTeam: TTeam, memberKey: TKey) => string,
     generateKeyForEmptySlot?: () => TKey,
+    productionSorter?: TeamMemberProductionSorter,
   };
 
 export const TeamMemberView = <
@@ -51,6 +53,7 @@ export const TeamMemberView = <
   getMemberFromPokeInBox,
   getMemberIdForShare,
   generateKeyForEmptySlot,
+  productionSorter,
   ...props
 }: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
   const {
@@ -80,12 +83,33 @@ export const TeamMemberView = <
 
   const pokemonList = toPokemonList(pokedexMap);
 
+  let productions = memberKeys
+    .map((memberKey) => {
+      const stats = getMemberProduction(memberKey);
+      // Explicit check if `stats` is `undefined` since `stats` of `null` means to show an empty slot instead
+      if (stats === undefined) {
+        return null;
+      }
+
+      return {memberKey, stats};
+    })
+    .filter(isNotNullish);
+
+  if (productionSorter) {
+    productions = productions.sort((a, b) => {
+      if (a.stats && b.stats) {
+        return productionSorter(a.stats, b.stats);
+      }
+
+      return 0;
+    });
+  }
+
   return (
-    <Grid className="grid-cols-1 gap-1.5 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
-      {memberKeys.map((memberKey) => {
+    <Grid className="grid-cols-1 gap-1 xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
+      {productions.map(({memberKey, stats}) => {
         const member = members[memberKey];
         const pokemon = member ? pokedexMap[member.pokemonId] : undefined;
-        const stats = getMemberProduction(memberKey);
 
         if (member && pokemon && stats) {
           return (
