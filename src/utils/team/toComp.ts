@@ -33,5 +33,6 @@ export const toTeamAnalysisCompFromPokebox = ({
     },
     configOverride,
     configSource: 'default',
+    pinnedStats: {total: true},
   };
 };

@@ -84,4 +84,12 @@ export const teamAnalysisCompMigrators: Migrator<TeamAnalysisComp, TeamAnalysisC
       configSource: 'default',
     }),
   },
+  {
+    // Added `pinnedStats`
+    toVersion: 8,
+    migrate: (old) => ({
+      ...old,
+      pinnedStats: {total: true},
+    }),
+  },
 ];

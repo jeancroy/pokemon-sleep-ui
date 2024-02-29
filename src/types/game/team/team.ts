@@ -1,5 +1,7 @@
+import {FilterInclusionMap} from '@/components/input/filter/type';
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
+import {TeamMemberStatsType} from '@/types/game/team/statsType';
 import {Migratable} from '@/types/migrate';
 import {ConfigOverride} from '@/types/userData/config/bundle';
 import {Nullable} from '@/utils/type';
@@ -37,4 +39,5 @@ export type TeamData<
   TMember extends Nullable<TeamMemberData>
 > = Migratable & TeamMetadata & {
   members: TeamMemberMap<TKey, TMember>,
+  pinnedStats: FilterInclusionMap<TeamMemberStatsType>,
 };

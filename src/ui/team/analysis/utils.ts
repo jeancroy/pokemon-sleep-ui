@@ -32,5 +32,6 @@ export const generateTeamAnalysisComp = ({
       stamina: bundle.userConfig.stamina,
     },
     configSource: 'default',
+    pinnedStats: {total: true},
   };
 };
