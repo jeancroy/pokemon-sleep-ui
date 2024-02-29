@@ -50,10 +50,12 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
   const {
     setup,
     actorReturn,
+    premiumInputControl,
     currentTeam,
     currentCalculatedConfigBundle,
     setCurrentTeam,
   } = setupControl;
+  const {isPremium, isInputChangeRestricted} = premiumInputControl;
   const {bundle, calculatedCookingConfig} = currentCalculatedConfigBundle;
 
   const presetStats = useProductionComparisonPresetStats({
@@ -92,10 +94,12 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
         {...props}
       />
       <TeamMemberProductionSortingBasisInput
+        isPremium={isPremium}
         {...getSingleSelectOnClickProps({
           filter: currentTeam,
           setFilter: setCurrentTeam,
           filterKey: 'sort',
+          isAllowed: () => !isInputChangeRestricted(),
         })}
       />
       <AdsUnit hideIfNotBlocked/>
