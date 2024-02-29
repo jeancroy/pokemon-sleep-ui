@@ -14,6 +14,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {GenericIcon} from '@/components/shared/icon/common/main';
 import {StaminaConfigSleepTime} from '@/components/shared/stamina/input/sleep/time';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
+import {noOp} from '@/const/noOp';
 import {getToggleButtonClass} from '@/styles/input';
 import {SleepSession} from '@/types/game/sleep';
 
@@ -45,7 +46,7 @@ export const StaminaConfigSleepSession = (props: Props) => {
 
   return (
     <Flex direction="row" center className="items-stretch gap-1.5">
-      <FlexButton disabled={!onClick} onClick={onClick ?? (() => void 0)} className={clsx(
+      <FlexButton disabled={!onClick} onClick={onClick ?? noOp} className={clsx(
         'group items-center rounded-lg px-2 py-1 md:rounded-full',
         onClick ? getToggleButtonClass(active) : 'button-toggle-active-bg',
       )}>

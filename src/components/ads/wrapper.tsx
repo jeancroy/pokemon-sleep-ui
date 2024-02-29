@@ -9,6 +9,7 @@ import {useAdBlockDetector} from '@/components/ads/hook/adBlockDetect';
 import {useAdClickDetector} from '@/components/ads/hook/adClickDetect';
 import {AdsUnitProps} from '@/components/ads/type';
 import {Flex} from '@/components/layout/flex/common';
+import {noOp} from '@/const/noOp';
 import {useTimedTick} from '@/hooks/timedTick';
 import {useUserActivation} from '@/hooks/userData/activation';
 
@@ -28,7 +29,7 @@ export const AdsWrapper = ({
   const [isAdsFree, setIsAdsFree] = React.useState<boolean | null>(null);
   // Used to force ads rerender
   const counter = useTimedTick({
-    onTick: () => void 0,
+    onTick: noOp,
     intervalMs: adsRefreshIntervalMs,
     rescheduleDeps: [],
   });
