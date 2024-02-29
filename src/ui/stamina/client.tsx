@@ -42,8 +42,8 @@ export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
     <Flex className="gap-1.5 p-2">
       <StaminaConfig
         bundle={bundle}
-        setConfig={setConfig}
-        setTrigger={setSkillTrigger}
+        setStaminaConfig={setConfig}
+        setStaminaSkillTrigger={setSkillTrigger}
         {...props}
       />
       <Flex className="gap-1.5 md:flex-row">

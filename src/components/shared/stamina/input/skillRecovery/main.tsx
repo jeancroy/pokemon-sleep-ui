@@ -15,7 +15,7 @@ import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
 export const StaminaConfigSkillRecovery = (props: StaminaConfigProps) => {
-  const {bundle, setConfig, setTrigger} = props;
+  const {bundle, setStaminaConfig, setStaminaSkillTrigger} = props;
   const {stamina} = bundle.userConfig;
   const {general, skillRecovery} = stamina;
   const {amount, dailyCount} = skillRecovery.recovery;
@@ -32,7 +32,7 @@ export const StaminaConfigSkillRecovery = (props: StaminaConfigProps) => {
       </Flex>
       <FilterTextInput
         title={null}
-        onClick={(strategy) => setConfig(cloneMerge(
+        onClick={(strategy) => setStaminaConfig(cloneMerge(
           stamina,
           {general: {strategy}},
         ))}
@@ -46,13 +46,13 @@ export const StaminaConfigSkillRecovery = (props: StaminaConfigProps) => {
           iconI18nId="Amount"
           iconSrc="/images/mainSkill/target/team.png"
           value={amount}
-          onValueChanged={(amount) => setTrigger({...skillRecovery.recovery, amount})}
+          onValueChanged={(amount) => setStaminaSkillTrigger({...skillRecovery.recovery, amount})}
         />
         <StaminaConfigSkillRecoveryInput
           iconI18nId="DailyCount"
           iconSrc="/images/generic/flash.png"
           value={dailyCount}
-          onValueChanged={(dailyCount) => setTrigger({...skillRecovery.recovery, dailyCount})}
+          onValueChanged={(dailyCount) => setStaminaSkillTrigger({...skillRecovery.recovery, dailyCount})}
         />
         <StaminaConfigSkillRecoveryFromPokebox {...props}/>
       </Flex>

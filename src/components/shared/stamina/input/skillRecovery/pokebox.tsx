@@ -11,7 +11,7 @@ import {toCalculatedCookingConfig} from '@/utils/user/config/cooking/main';
 
 
 export const StaminaConfigSkillRecoveryFromPokebox = ({
-  setConfig,
+  setStaminaConfig,
   berryDataMap,
   mainSkillMap,
   pokemonProducingParamsMap,
@@ -65,7 +65,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
           return;
         }
 
-        setConfig(cloneMerge(
+        setStaminaConfig(cloneMerge(
           stamina,
           {
             skillRecovery: {

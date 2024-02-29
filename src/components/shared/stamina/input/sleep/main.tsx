@@ -11,7 +11,7 @@ import {defaultStaminaCalcConfig} from '@/const/user/config/user';
 
 
 export const StaminaConfigSleepSchedule = (props: StaminaConfigProps) => {
-  const {bundle, setConfig} = props;
+  const {bundle, setStaminaConfig} = props;
   const {stamina} = bundle.userConfig;
   const {sleepSession} = stamina;
 
@@ -30,7 +30,7 @@ export const StaminaConfigSleepSchedule = (props: StaminaConfigProps) => {
         session="secondary"
         num={2}
         isActive={!!sleepSession.secondary}
-        onClick={() => setConfig({
+        onClick={() => setStaminaConfig({
           ...stamina,
           sleepSession: {
             ...sleepSession,

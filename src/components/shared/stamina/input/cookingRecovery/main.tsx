@@ -11,7 +11,7 @@ import {mealOfDayIcon} from '@/const/game/cooking';
 import {cookingMeals} from '@/types/userData/config/cooking/meal';
 
 
-export const StaminaConfigCookingRecovery = ({bundle, setConfig}: StaminaConfigProps) => {
+export const StaminaConfigCookingRecovery = ({bundle, setStaminaConfig}: StaminaConfigProps) => {
   const {stamina} = bundle.userConfig;
   const {cookingRecovery} = stamina;
 
@@ -29,7 +29,7 @@ export const StaminaConfigCookingRecovery = ({bundle, setConfig}: StaminaConfigP
           <StaminaConfigTimeInput
             key={cookingMeal}
             timeValue={cookingRecovery[cookingMeal]}
-            onUpdate={(time) => setConfig({
+            onUpdate={(time) => setStaminaConfig({
               ...stamina,
               cookingRecovery: {
                 ...stamina.cookingRecovery,

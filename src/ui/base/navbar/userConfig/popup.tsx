@@ -77,11 +77,11 @@ export const UserConfigPopup = ({
         <UserConfigStamina
           {...props}
           bundle={bundle}
-          setConfig={(stamina) => setBundle(({userConfig, ...original}) => ({
+          setStaminaConfig={(stamina) => setBundle(({userConfig, ...original}) => ({
             ...original,
             userConfig: {...userConfig, stamina},
           } satisfies ConfigBundle))}
-          setTrigger={(recovery) => setBundle(({userConfig, ...original}) => ({
+          setStaminaSkillTrigger={(recovery) => setBundle(({userConfig, ...original}) => ({
             ...original,
             userConfig: cloneMerge(userConfig, {stamina: {skillRecovery: {recovery}}}),
           } satisfies ConfigBundle))}
