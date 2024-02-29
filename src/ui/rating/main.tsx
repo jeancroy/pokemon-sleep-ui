@@ -75,6 +75,7 @@ export const Rating = async ({params}: DefaultPageProps) => {
       <I18nProvider locale={locale} namespaces={[
         'Game',
         'UI.Common',
+        'UI.Component.PokemonFilter',
         'UI.InPage.Pokedex',
         'UI.InPage.Rating',
         'UI.InPage.Team',

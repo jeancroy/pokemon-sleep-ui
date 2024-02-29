@@ -50,6 +50,10 @@
       "IngredientExclusion": "禁止食材",
       "MinRecipeBonus": "Min. Recipe Bonus"
     },
+    "PokemonFilter": {
+      "EvolutionCount": "進化回数",
+      "FinalEvolution": "最終進化"
+    },
     "TimePeriodSchedule": {
       "Start": "開始",
       "End": "終了",
@@ -402,10 +406,6 @@
         "SkillStrength": "スキルのエナジー",
         "TotalEnergy": "総エナジー",
         "MealCoverage": "レシピカバー率"
-      },
-      "Input": {
-        "EvolutionCount": "進化回数",
-        "FinalEvolution": "最終進化"
       },
       "Tier": {
         "Details": "詳細",

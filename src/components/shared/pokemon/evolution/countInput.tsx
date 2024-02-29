@@ -19,9 +19,9 @@ export const PokemonEvolutionCountInput = ({
   maxEvolutionCount,
   setEvolutionCount,
 }: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Component.PokemonFilter');
 
-  const text = t('Input.EvolutionCount');
+  const text = t('EvolutionCount');
 
   return (
     <FilterExpandedInput

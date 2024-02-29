@@ -50,6 +50,10 @@
       "IngredientExclusion": "특정 식재료 제외",
       "MinRecipeBonus": "Min. Recipe Bonus"
     },
+    "PokemonFilter": {
+      "EvolutionCount": "진화횟수",
+      "FinalEvolution": "최종 진화"
+    },
     "TimePeriodSchedule": {
       "Start": "시작",
       "End": "종료",
@@ -402,10 +406,6 @@
         "SkillStrength": "스킬 에너지",
         "TotalEnergy": "총 에너지",
         "MealCoverage": "Meal Coverage"
-      },
-      "Input": {
-        "EvolutionCount": "진화횟수",
-        "FinalEvolution": "최종 진화"
       },
       "Tier": {
         "Details": "자세히",

@@ -94,6 +94,7 @@ export const Pokedex = async ({params}: DefaultPageProps) => {
       <I18nProvider locale={locale} namespaces={[
         'Game',
         'UI.Common',
+        'UI.Component.PokemonFilter',
         'UI.Metadata',
         'UI.InPage.Pokedex',
         'UI.InPage.Team',

@@ -80,6 +80,7 @@ export const PokeboxEntry = async ({params}: DefaultPageProps) => {
       <I18nProvider locale={locale} namespaces={[
         'Game',
         'UI.Common',
+        'UI.Component.PokemonFilter',
         'UI.InPage.Pokedex',
         'UI.InPage.Team',
         'UI.Metadata',

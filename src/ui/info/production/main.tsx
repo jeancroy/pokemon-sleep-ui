@@ -47,6 +47,7 @@ export const ProducingParams = async ({params}: DefaultPageProps) => {
         <AdsUnit hideIfNotBlocked/>
         <I18nProvider locale={locale} namespaces={[
           'Game',
+          'UI.Component.PokemonFilter',
           'UI.Metadata',
           'UI.InPage.Pokedex',
         ]}>

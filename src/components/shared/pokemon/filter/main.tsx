@@ -40,7 +40,7 @@ export const PokemonFilter = <TFilter extends PokemonInputFilter>({
   const {filter, setFilter} = props;
 
   const t = useTranslations('Game');
-  const t2 = useTranslations('UI.InPage.Pokedex.Input');
+  const t2 = useTranslations('UI.Component.PokemonFilter');
 
   return (
     <Flex className={clsx('gap-1', className)}>

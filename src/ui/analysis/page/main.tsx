@@ -87,6 +87,7 @@ export const AnalysisPage = async ({params}: Props) => {
       <I18nProvider locale={locale} namespaces={[
         'Game',
         'UI.Common',
+        'UI.Component.PokemonFilter',
         'UI.InPage.Analysis',
         'UI.InPage.Pokedex',
         'UI.Metadata',

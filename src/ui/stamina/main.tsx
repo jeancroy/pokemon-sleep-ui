@@ -66,6 +66,7 @@ export const StaminaAnalysis = async ({params}: DefaultPageProps) => {
       <I18nProvider locale={locale} namespaces={[
         'Game',
         'UI.Common',
+        'UI.Component.PokemonFilter',
         'UI.Stamina',
         'UI.InPage.Pokedex',
         'UI.InPage.Team',

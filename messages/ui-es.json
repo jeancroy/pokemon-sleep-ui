@@ -50,6 +50,10 @@
       "IngredientExclusion": "Excluir Ingredientes",
       "MinRecipeBonus": "Min. Bono de receta"
     },
+    "PokemonFilter": {
+      "EvolutionCount": "Evolución",
+      "FinalEvolution": "Última Evolución"
+    },
     "TimePeriodSchedule": {
       "Start": "Desde",
       "End": "Hasta",
@@ -402,10 +406,6 @@
         "SkillStrength": "Vigor de Habilidad",
         "TotalEnergy": "Vigor Total",
         "MealCoverage": "Cobertura de Comida"
-      },
-      "Input": {
-        "EvolutionCount": "Evolución",
-        "FinalEvolution": "Última Evolución"
       },
       "Tier": {
         "Details": "Detalles",

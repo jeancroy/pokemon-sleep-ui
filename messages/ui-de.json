@@ -50,6 +50,10 @@
       "IngredientExclusion": "Zutaten Ausschluss",
       "MinRecipeBonus": "Min. Rezept-Bonus"
     },
+    "PokemonFilter": {
+      "EvolutionCount": "Anzahl der Entwicklungen",
+      "FinalEvolution": "finale Entwicklungen"
+    },
     "TimePeriodSchedule": {
       "Start": "Von",
       "End": "Bis",
@@ -402,10 +406,6 @@
         "SkillStrength": "Haupttalentstärke",
         "TotalEnergy": "Gesamtstärke",
         "MealCoverage": "Gericht-Abdeckung"
-      },
-      "Input": {
-        "EvolutionCount": "Anzahl der Entwicklungen",
-        "FinalEvolution": "finale Entwicklungen"
       },
       "Tier": {
         "Details": "Details",

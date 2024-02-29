@@ -50,6 +50,10 @@
       "IngredientExclusion": "Ingredient Exclusion",
       "MinRecipeBonus": "Min. Recipe Bonus"
     },
+    "PokemonFilter": {
+      "EvolutionCount": "Evolution Count",
+      "FinalEvolution": "Final Evolution"
+    },
     "TimePeriodSchedule": {
       "Start": "From",
       "End": "To",
@@ -402,10 +406,6 @@
         "SkillStrength": "Skill Strength",
         "TotalEnergy": "Total Strength",
         "MealCoverage": "Meal Coverage"
-      },
-      "Input": {
-        "EvolutionCount": "Evolution Count",
-        "FinalEvolution": "Final Evolution"
       },
       "Tier": {
         "Details": "Details",

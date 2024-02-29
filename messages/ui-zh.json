@@ -50,6 +50,10 @@
       "IngredientExclusion": "不顯示含有下列食材的食譜",
       "MinRecipeBonus": "最低食譜加成"
     },
+    "PokemonFilter": {
+      "EvolutionCount": "進化次數",
+      "FinalEvolution": "最終進化"
+    },
     "TimePeriodSchedule": {
       "Start": "開始",
       "End": "終止",
@@ -402,10 +406,6 @@
         "SkillStrength": "技能能量",
         "TotalEnergy": "總能量",
         "MealCoverage": "食譜覆蓋率"
-      },
-      "Input": {
-        "EvolutionCount": "進化次數",
-        "FinalEvolution": "最終進化"
       },
       "Tier": {
         "Details": "詳細資訊",

@@ -89,6 +89,7 @@ export const NavBar = ({noUserControl, locale, announcement}: Props) => {
     <I18nProvider locale={locale} namespaces={[
       'Game',
       'UI.Common',
+      'UI.Component.PokemonFilter',
       'UI.InPage.Cooking',
       'UI.InPage.Pokedex.Info',
       'UI.Metadata',

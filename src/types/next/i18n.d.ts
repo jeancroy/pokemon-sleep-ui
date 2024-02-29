@@ -72,6 +72,10 @@ declare global {
           IngredientExclusion: string,
           MinRecipeBonus: string,
         },
+        PokemonFilter: {
+          EvolutionCount: string,
+          FinalEvolution: string,
+        },
         TimePeriodSchedule: {
           Start: string,
           End: string,
@@ -289,10 +293,6 @@ declare global {
             SkillStrength: string,
             TotalEnergy: string,
             MealCoverage: string,
-          },
-          Input: {
-            EvolutionCount: string,
-            FinalEvolution: string,
           },
           Tier: {
             Details: string,
