@@ -35,7 +35,6 @@ export const generateNewProductionComparisonPreset = ({
     cookingTarget: bundle.cookingConfig.target,
     team: {
       skill: {
-        recovery: [],
         indirectSkills: {
           totalExtraHelps: 0,
         },

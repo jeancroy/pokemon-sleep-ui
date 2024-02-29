@@ -1,5 +1,4 @@
 import {PokemonIndirectSkillEffects} from '@/types/game/producing/rate/skill';
-import {StaminaSkillTriggerData} from '@/types/game/stamina/skill';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData} from '@/types/game/team/member';
 import {TeamMemberProduction} from '@/types/game/team/production';
@@ -18,7 +17,6 @@ export type ProductionComparisonTarget = TeamMemberData & {
 export type ProductionComparisonConfig = TeamSetupConfig;
 
 export type ProductionComparisonTeamSkill = {
-  recovery: StaminaSkillTriggerData[],
   indirectSkills: PokemonIndirectSkillEffects,
 };
 
