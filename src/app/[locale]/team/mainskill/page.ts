@@ -1,17 +1,8 @@
-import {GenerateMetadata} from '@/types/next/metadata';
-import {SkillTriggerAnalysis} from '@/ui/team/mainskill/main';
-import {getI18nTranslator} from '@/utils/i18n';
-import {generatePageMetaFromString} from '@/utils/meta';
+import {redirect} from '@/components/i18n/exports';
 
 
-export const generateMetadata: GenerateMetadata = async ({params}) => {
-  const {locale} = params;
-  const t = await getI18nTranslator({locale, namespace: 'UI.Metadata'});
-
-  return generatePageMetaFromString({
-    t,
-    title: `${t('Team.Index.Title')} / ${t('Team.SkillTriggerAnalysis.Title')}`,
-  });
+const redirectToNewPath = () => {
+  redirect('/production');
 };
 
-export default SkillTriggerAnalysis;
+export default redirectToNewPath;

@@ -202,7 +202,6 @@ declare global {
           Box: I18nMetadata,
           Index: I18nMetadata,
           Maker: I18nMetadata,
-          SkillTriggerAnalysis: I18nMetadata,
         },
         Info: {
           Index: I18nMetadata,
