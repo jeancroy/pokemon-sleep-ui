@@ -12,8 +12,7 @@ import {toOnDeskState} from '@/components/shared/pokemon/predefined/lab/utils';
 
 type Props<TOnDesk extends PokemonOnDeskState> =
   PokemonLabDataProps &
-  PokemonOnDeskCommonProps<TOnDesk> &
-  {
+  PokemonOnDeskCommonProps<TOnDesk> & {
     renderResult: (initialSetup: TOnDesk) => React.ReactNode,
     onPokemonPicked: (setup: TOnDesk, opts: PokemonComplexFilterOnSelectOpts) => void,
     toState: (onDeskState: PokemonOnDeskState) => TOnDesk,

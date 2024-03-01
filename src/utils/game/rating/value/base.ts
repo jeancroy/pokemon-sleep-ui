@@ -30,8 +30,12 @@ export const getRatingValueOfBase = (opts: GetRatingValueOfSimulationOpts) => {
       ...opts,
       individual: {
         ...individual,
+        // Override `seeds` to apply no-seed usage
+        seeds: {gold: 0, silver: 0},
         // Override `evolutionCount` to apply default evolution count of the Pokémon
         evolutionCount: getEvolutionCountFromPokemonInfo({pokemon}),
+        // Force `mainSkillLevelOverride` to null to use the base main skill level without seeds
+        mainSkillLevelOverride: undefined,
       },
       calculatedCookingConfig,
       calcBehavior: getRatingProductionCalcBehavior(basis),

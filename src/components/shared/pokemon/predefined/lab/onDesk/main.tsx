@@ -15,6 +15,7 @@ import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureSelector} from '@/components/shared/pokemon/nature/selector/main';
 import {PokemonOnDeskExportButton} from '@/components/shared/pokemon/predefined/lab/onDesk/export';
 import {PokemonOnDeskCommonProps, PokemonOnDeskState} from '@/components/shared/pokemon/predefined/lab/onDesk/type';
+import {SeedUsageInput} from '@/components/shared/pokemon/seed/input/main';
 import {PokemonSubSkillSelector} from '@/components/shared/pokemon/subSkill/selector/main';
 
 
@@ -24,6 +25,7 @@ export type PokemonOnDeskProps<TOnDesk extends PokemonOnDeskState> = PokemonOnDe
 
 const PokemonOnDeskInternal = <TOnDesk extends PokemonOnDeskState>({
   ingredientChainMap,
+  mainSkillMap,
   subSkillMap,
   pokemonMaxLevel,
   ocrTranslations,
@@ -44,6 +46,7 @@ const PokemonOnDeskInternal = <TOnDesk extends PokemonOnDeskState>({
     ingredients,
     subSkill,
     nature,
+    seeds,
     evolutionCount,
   } = setup;
 
@@ -112,6 +115,15 @@ const PokemonOnDeskInternal = <TOnDesk extends PokemonOnDeskState>({
           evolutionCount,
         }))}
         maxEvolutionCount={maxEvolutionCount}
+      />
+      <SeedUsageInput
+        mainSkillData={mainSkillMap[pokemon.skill]}
+        usage={seeds}
+        setUsage={(getUpdated) => setSetup((setup) => ({
+          ...setup,
+          seeds: getUpdated(seeds),
+        }))}
+        evolutionCount={evolutionCount}
       />
       {renderAdditional && renderAdditional(setup, setSetup)}
       <Flex direction="row" center className="gap-1.5">

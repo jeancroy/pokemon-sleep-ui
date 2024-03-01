@@ -17,11 +17,11 @@ import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
 
 
 type Props = {
-  mainSkillData: MainSkillData,
-  evolutionCount?: number,
-  subSkillBonus?: GroupedSubSkillBonus,
   usage: SeedUsage,
   setUsage: ReactStateUpdaterFromOriginal<SeedUsage>,
+  mainSkillData: MainSkillData,
+  evolutionCount: number,
+  subSkillBonus?: GroupedSubSkillBonus,
 };
 
 export const SeedUsageInput = ({
@@ -29,6 +29,7 @@ export const SeedUsageInput = ({
   setUsage,
   ...props
 }: Props) => {
+  const {mainSkillData} = props;
   const {gold, silver} = usage;
 
   const t = useTranslations('UI.Common');
@@ -70,7 +71,7 @@ export const SeedUsageInput = ({
       <Flex direction="row" noFullWidth center className="ml-auto">
         <GenericMainSkillIcon alt={t('MainSkill')}/>
         <LevelIcon/>
-        <div>{expectedMainSkillLevel}</div>
+        <span>{expectedMainSkillLevel}&nbsp;/&nbsp;{mainSkillData.maxLevel}</span>
       </Flex>
     </InputRow>
   );

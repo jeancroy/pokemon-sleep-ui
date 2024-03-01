@@ -7,6 +7,7 @@ import {ProductionPeriod} from '@/types/game/producing/display';
 import {CarryLimitInfo} from '@/types/game/producing/inventory';
 import {ProduceSplit} from '@/types/game/producing/split';
 import {CalculatedUserConfig} from '@/types/userData/config/user/main';
+import {Nullable} from '@/utils/type';
 
 
 export type ProductionSingleParams = {
@@ -21,7 +22,7 @@ export type ProductionImplicitParams = {
 
 export type ProductionIndividualParams = ProductionSingleParams & ProductionImplicitParams & {
   level: number,
-  mainSkillLevelOverride?: MainSkillLevel,
+  mainSkillLevelOverride?: Nullable<MainSkillLevel>,
 };
 
 export type ProductionCommonParams = {

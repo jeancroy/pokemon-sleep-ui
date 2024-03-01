@@ -2,6 +2,7 @@ import {MainSkillData, MainSkillLevel} from '@/types/game/pokemon/mainSkill';
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
 import {toSum} from '@/utils/array';
 import {getSubSkillBonusValue} from '@/utils/game/subSkill/effect';
+import {Nullable} from '@/utils/type';
 
 
 type GetMainSkillLevelOpts = {
@@ -9,7 +10,7 @@ type GetMainSkillLevelOpts = {
   evolutionCount?: number,
   subSkillBonus?: GroupedSubSkillBonus | null,
   mainSkillData: MainSkillData,
-  mainSkillLevelOverride?: MainSkillLevel,
+  mainSkillLevelOverride?: Nullable<MainSkillLevel>,
 };
 
 export const getMainSkillLevel = ({
@@ -19,7 +20,7 @@ export const getMainSkillLevel = ({
   mainSkillData,
   mainSkillLevelOverride,
 }: GetMainSkillLevelOpts) => {
-  if (mainSkillLevelOverride) {
+  if (mainSkillLevelOverride != null) {
     if (mainSkillLevelOverride === 'max') {
       return mainSkillData.maxLevel;
     }
