@@ -49,6 +49,7 @@ export type MainSkillEffect = MainSkillEffectAtLevel & {
 
 export type MainSkillData = {
   id: MainSkillId,
+  maxLevel: number,
   effects: MainSkillEffect[],
 };
 

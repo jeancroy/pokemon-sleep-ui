@@ -4,6 +4,7 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 export const testMainSkillMap: MainSkillMap = {
   1: {
     id: 1,
+    maxLevel: 6,
     effects: [
       {
         type: 'strength',
@@ -39,6 +40,7 @@ export const testMainSkillMap: MainSkillMap = {
   },
   2: {
     id: 2,
+    maxLevel: 6,
     effects: [
       {
         type: 'strength',
