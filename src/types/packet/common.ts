@@ -1,4 +1,4 @@
-import {ApiActionWithToken} from '@/types/api';
+import {ApiActionWithToken} from '@/types/website/api';
 
 
 export type PacketDataFromApiCommonProps<TData extends PacketDataCommonProps> = ApiActionWithToken & {

@@ -2,7 +2,7 @@ import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {defaultCookingConfig} from '@/const/user/config/cooking';
 import {defaultStaminaCalcConfig} from '@/const/user/config/user';
 import {Migrator} from '@/types/migrate';
-import {ProductionComparisonPreset} from '@/types/productionComparison';
+import {ProductionComparisonPreset} from '@/types/website/feature/productionComparison';
 import {ProductionComparisonPresetMigrateParams} from '@/utils/migrate/productionComparison/preset/type';
 
 

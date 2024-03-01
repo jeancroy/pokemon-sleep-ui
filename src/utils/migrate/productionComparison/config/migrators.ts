@@ -1,5 +1,5 @@
 import {Migrator} from '@/types/migrate';
-import {ProductionComparisonConfig} from '@/types/productionComparison';
+import {ProductionComparisonConfig} from '@/types/website/feature/productionComparison';
 import {ProductionComparisonConfigMigrateParams} from '@/utils/migrate/productionComparison/config/type';
 
 

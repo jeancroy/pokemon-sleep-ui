@@ -7,7 +7,7 @@ import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {imageSmallIconSizes} from '@/styles/image';
-import {NavEntryGroup} from '@/types/nav';
+import {NavEntryGroup} from '@/types/website/nav';
 import {NavListEntry} from '@/ui/base/navbar/list/entry/main';
 
 

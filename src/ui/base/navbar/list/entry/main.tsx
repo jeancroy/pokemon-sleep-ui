@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import {NavEntry} from '@/types/nav';
+import {NavEntry} from '@/types/website/nav';
 import {NavListEntryGroup} from '@/ui/base/navbar/list/entry/group';
 import {NavListEntryLink} from '@/ui/base/navbar/list/entry/link';
 

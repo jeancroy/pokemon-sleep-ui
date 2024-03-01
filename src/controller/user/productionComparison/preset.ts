@@ -3,7 +3,7 @@ import {Collection} from 'mongodb';
 import {getDataAsArray, getSingleData} from '@/controller/common';
 import mongoPromise from '@/lib/mongodb';
 import {ProductionComparisonPresetData} from '@/types/mongo/productionComparison';
-import {ProductionComparisonPreset, ProductionComparisonTarget} from '@/types/productionComparison';
+import {ProductionComparisonPreset, ProductionComparisonTarget} from '@/types/website/feature/productionComparison';
 import {migrate} from '@/utils/migrate/main';
 import {productionComparisonPresetMigrators} from '@/utils/migrate/productionComparison/preset/migrators';
 

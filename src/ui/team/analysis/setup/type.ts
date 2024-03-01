@@ -5,7 +5,7 @@ import {
   TeamAnalysisMember,
   TeamAnalysisSetup,
   TeamAnalysisSlotName,
-} from '@/types/teamAnalysis';
+} from '@/types/website/feature/teamAnalysis';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 
 

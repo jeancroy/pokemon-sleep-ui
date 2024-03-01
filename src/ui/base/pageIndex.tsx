@@ -5,8 +5,8 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {FeatureLinkImage} from '@/components/shared/link/featureImage';
-import {NavEntry} from '@/types/nav';
 import {DefaultPageProps} from '@/types/next/page/common';
+import {NavEntry} from '@/types/website/nav';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 
 

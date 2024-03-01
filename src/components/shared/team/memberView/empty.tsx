@@ -19,7 +19,7 @@ import {
 import {PokemonInfo} from '@/types/game/pokemon';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetupSetMemberOpts} from '@/types/game/team/update';
-import {SessionStatus} from '@/types/session';
+import {SessionStatus} from '@/types/website/session';
 import {Nullable} from '@/utils/type';
 
 

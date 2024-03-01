@@ -7,7 +7,7 @@ import {GenericBerryIcon} from '@/components/shared/icon/berry';
 import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {PokemonProductionSplit} from '@/components/shared/pokemon/production/split/main';
 import {ProductionPeriod} from '@/types/game/producing/display';
-import {TeamProduction} from '@/types/teamAnalysis';
+import {TeamProduction} from '@/types/website/feature/teamAnalysis';
 import {TeamAnalysisFinalEstimate} from '@/ui/team/analysis/setup/summary/finalEstimate';
 import {TeamAnalysisSummaryProductionLayout} from '@/ui/team/analysis/setup/summary/layout';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';

@@ -1,4 +1,4 @@
-import {teamAnalysisSlotName, TeamAnalysisSlotName, TeamMemberIdData} from '@/types/teamAnalysis';
+import {teamAnalysisSlotName, TeamAnalysisSlotName, TeamMemberIdData} from '@/types/website/feature/teamAnalysis';
 
 
 export const isTeamAnalysisSlotName = (type: string): type is TeamAnalysisSlotName => {

@@ -6,10 +6,10 @@ import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
-import {ProductionComparisonPreset} from '@/types/productionComparison';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {ConfigRequiredData} from '@/types/userData/config/data';
+import {ProductionComparisonPreset} from '@/types/website/feature/productionComparison';
 
 
 export type GetProductionComparisonStatsCommonOpts = ConfigRequiredData & {

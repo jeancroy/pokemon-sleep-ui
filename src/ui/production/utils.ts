@@ -2,13 +2,13 @@ import {v4} from 'uuid';
 
 import {defaultProductionPeriod} from '@/const/game/production/defaults';
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {UserProductionComparisonContent} from '@/types/userData/productionComparison';
 import {
   ProductionComparisonConfig,
   ProductionComparisonPreset,
   ProductionComparisonSetup,
-} from '@/types/productionComparison';
-import {ConfigBundle} from '@/types/userData/config/bundle';
-import {UserProductionComparisonContent} from '@/types/userData/productionComparison';
+} from '@/types/website/feature/productionComparison';
 import {getDefaultTeamName} from '@/utils/game/team/name';
 import {migrate} from '@/utils/migrate/main';
 import {productionComparisonConfigMigrators} from '@/utils/migrate/productionComparison/config/migrators';

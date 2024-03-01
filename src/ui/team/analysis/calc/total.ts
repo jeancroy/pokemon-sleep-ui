@@ -1,4 +1,4 @@
-import {teamAnalysisSlotName, TeamProductionBySlot, TeamProductionTotal} from '@/types/teamAnalysis';
+import {teamAnalysisSlotName, TeamProductionBySlot, TeamProductionTotal} from '@/types/website/feature/teamAnalysis';
 import {
   GetTeamProductionCommonOpts,
 } from '@/ui/team/analysis/calc/type';

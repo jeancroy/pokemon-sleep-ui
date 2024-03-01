@@ -1,4 +1,4 @@
-import {NavEntryLink} from '@/types/nav';
+import {NavEntryLink} from '@/types/website/nav';
 
 
 export const navEntriesForTeam: NavEntryLink[] = [

@@ -1,4 +1,4 @@
-import {TeamAnalysisComp, TeamAnalysisConfig} from '@/types/teamAnalysis';
+import {TeamAnalysisComp, TeamAnalysisConfig} from '@/types/website/feature/teamAnalysis';
 
 
 export type UserTeamAnalysisContent = {

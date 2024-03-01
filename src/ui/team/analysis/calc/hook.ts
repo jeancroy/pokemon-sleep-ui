@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {useWorker} from '@/hooks/worker/main';
-import {TeamProduction} from '@/types/teamAnalysis';
+import {TeamProduction} from '@/types/website/feature/teamAnalysis';
 import {getTeamProduction} from '@/ui/team/analysis/calc/main';
 import {GetTeamProductionOpts} from '@/ui/team/analysis/calc/type';
 import {isProduction} from '@/utils/environment';

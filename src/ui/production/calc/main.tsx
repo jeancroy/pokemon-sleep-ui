@@ -1,4 +1,4 @@
-import {ProductionComparisonPresetProduction} from '@/types/productionComparison';
+import {ProductionComparisonPresetProduction} from '@/types/website/feature/productionComparison';
 import {getProductionComparisonTargetStats} from '@/ui/production/calc/target';
 import {GetProductionComparisonTargetStatsOpts} from '@/ui/production/calc/type';
 import {isNotNullish} from '@/utils/type';

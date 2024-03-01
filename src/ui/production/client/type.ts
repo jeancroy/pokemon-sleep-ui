@@ -5,7 +5,7 @@ import {
   ProductionComparisonSetup,
   ProductionComparisonTarget,
   ProductionComparisonTargetUuid,
-} from '@/types/productionComparison';
+} from '@/types/website/feature/productionComparison';
 
 
 export type ProductionComparisonSetupControl = TeamSetupControl<

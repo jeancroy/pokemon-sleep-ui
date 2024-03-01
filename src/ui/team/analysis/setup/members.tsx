@@ -2,6 +2,7 @@ import React from 'react';
 
 import {TeamMemberView} from '@/components/shared/team/memberView/main';
 import {TeamMemberFilledCommonProps} from '@/components/shared/team/memberView/type';
+import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {
   TeamAnalysisComp,
   TeamAnalysisConfig,
@@ -10,8 +11,7 @@ import {
   TeamAnalysisSlotName,
   teamAnalysisSlotName,
   TeamProduction,
-} from '@/types/teamAnalysis';
-import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
+} from '@/types/website/feature/teamAnalysis';
 import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
 import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
 import {TeamAnalysisSetupViewCommonProps} from '@/ui/team/analysis/setup/type';

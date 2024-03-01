@@ -1,4 +1,4 @@
-import {ProductionComparisonConfig, ProductionComparisonPreset} from '@/types/productionComparison';
+import {ProductionComparisonConfig, ProductionComparisonPreset} from '@/types/website/feature/productionComparison';
 
 
 export type UserProductionComparisonContent = {

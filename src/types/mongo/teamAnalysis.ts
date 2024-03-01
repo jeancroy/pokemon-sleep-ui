@@ -1,5 +1,5 @@
 import {MongoDataOfUser} from '@/types/mongo/user';
-import {TeamAnalysisComp, TeamAnalysisConfig} from '@/types/teamAnalysis';
+import {TeamAnalysisComp, TeamAnalysisConfig} from '@/types/website/feature/teamAnalysis';
 
 
 export type TeamAnalysisConfigData = MongoDataOfUser & TeamAnalysisConfig;

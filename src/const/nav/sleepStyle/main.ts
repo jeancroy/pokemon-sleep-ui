@@ -1,5 +1,5 @@
 import {navEntriesForSleepdex} from '@/const/nav/sleepStyle/sleepdex';
-import {NavEntry} from '@/types/nav';
+import {NavEntry} from '@/types/website/nav';
 
 
 export const navEntriesForSleepStyle: NavEntry[] = [

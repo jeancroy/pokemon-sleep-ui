@@ -1,6 +1,6 @@
 import {v4} from 'uuid';
 
-import {TeamAnalysisComp} from '@/types/teamAnalysis';
+import {TeamAnalysisComp} from '@/types/website/feature/teamAnalysis';
 import {getDefaultTeamName} from '@/utils/game/team/name';
 import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';
 import {toTeamMemberFromPokeInBoxNullable} from '@/utils/team/toMember';

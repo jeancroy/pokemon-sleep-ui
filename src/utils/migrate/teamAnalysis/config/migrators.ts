@@ -1,5 +1,5 @@
 import {Migrator} from '@/types/migrate';
-import {TeamAnalysisConfig} from '@/types/teamAnalysis';
+import {TeamAnalysisConfig} from '@/types/website/feature/teamAnalysis';
 import {TeamAnalysisConfigMigrateParams} from '@/utils/migrate/teamAnalysis/config/type';
 
 

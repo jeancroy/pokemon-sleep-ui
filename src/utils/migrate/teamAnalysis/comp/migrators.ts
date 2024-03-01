@@ -4,7 +4,7 @@ import {defaultCookingConfig} from '@/const/user/config/cooking';
 import {defaultStaminaCalcConfig} from '@/const/user/config/user';
 import {TeamMemberData} from '@/types/game/team/member';
 import {Migrator} from '@/types/migrate';
-import {TeamAnalysisComp, teamAnalysisSlotName} from '@/types/teamAnalysis';
+import {TeamAnalysisComp, teamAnalysisSlotName} from '@/types/website/feature/teamAnalysis';
 import {TeamAnalysisCompMigrateParams} from '@/utils/migrate/teamAnalysis/comp/type';
 
 

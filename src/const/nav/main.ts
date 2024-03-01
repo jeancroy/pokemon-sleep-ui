@@ -3,7 +3,7 @@ import {navEntriesForInfo} from '@/const/nav/info';
 import {navEntriesForItem} from '@/const/nav/item';
 import {navEntriesForSleepStyle} from '@/const/nav/sleepStyle/main';
 import {navEntriesForTeam} from '@/const/nav/team';
-import {NavEntry} from '@/types/nav';
+import {NavEntry} from '@/types/website/nav';
 
 
 export const navEntries: NavEntry[] = [

@@ -1,9 +1,9 @@
 import {ProductionPeriod} from '@/types/game/producing/display';
 import {GroupedProductionByType} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
-import {TeamAnalysisComp, TeamAnalysisSetup, TeamProductionBySlot} from '@/types/teamAnalysis';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
+import {TeamAnalysisComp, TeamAnalysisSetup, TeamProductionBySlot} from '@/types/website/feature/teamAnalysis';
 import {TeamAnalysisDataProps} from '@/ui/team/analysis/type';
 
 

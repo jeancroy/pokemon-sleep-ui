@@ -16,7 +16,7 @@ import {TeamContributionSplitIndicator} from '@/components/shared/team/contribut
 import {TeamSetupControlUI} from '@/components/shared/team/setupControl/main';
 import {useIngredientIdsFromMeals} from '@/hooks/ingredient/ingredientIds';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
-import {teamAnalysisSlotName} from '@/types/teamAnalysis';
+import {teamAnalysisSlotName} from '@/types/website/feature/teamAnalysis';
 import {useTeamProduction} from '@/ui/team/analysis/calc/hook';
 import {TeamAnalysisMemberView} from '@/ui/team/analysis/setup/members';
 import {TeamAnalysisSummary} from '@/ui/team/analysis/setup/summary/main';

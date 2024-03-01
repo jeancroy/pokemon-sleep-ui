@@ -3,7 +3,7 @@ import {Collection} from 'mongodb';
 import {getSingleData} from '@/controller/common';
 import mongoPromise from '@/lib/mongodb';
 import {TeamAnalysisConfigData} from '@/types/mongo/teamAnalysis';
-import {TeamAnalysisConfig} from '@/types/teamAnalysis';
+import {TeamAnalysisConfig} from '@/types/website/feature/teamAnalysis';
 
 
 const getCollection = async (): Promise<Collection<TeamAnalysisConfigData>> => {

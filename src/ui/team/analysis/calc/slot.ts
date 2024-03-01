@@ -1,4 +1,4 @@
-import {TeamAnalysisSlotName} from '@/types/teamAnalysis';
+import {TeamAnalysisSlotName} from '@/types/website/feature/teamAnalysis';
 import {GetTeamProductionOpts} from '@/ui/team/analysis/calc/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {GetPokemonProductionOpts} from '@/utils/game/producing/main/type';

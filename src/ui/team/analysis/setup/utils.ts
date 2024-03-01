@@ -1,8 +1,8 @@
 import {v4} from 'uuid';
 
-import {TeamAnalysisComp, TeamAnalysisConfig, TeamAnalysisSetup} from '@/types/teamAnalysis';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
+import {TeamAnalysisComp, TeamAnalysisConfig, TeamAnalysisSetup} from '@/types/website/feature/teamAnalysis';
 import {generateTeamAnalysisComp} from '@/ui/team/analysis/utils';
 import {migrate} from '@/utils/migrate/main';
 import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';

@@ -4,7 +4,7 @@ import {getDataAsArray, getSingleData} from '@/controller/common';
 import mongoPromise from '@/lib/mongodb';
 import {TeamMemberData} from '@/types/game/team/member';
 import {TeamAnalysisCompData} from '@/types/mongo/teamAnalysis';
-import {TeamAnalysisComp, TeamMemberIdData} from '@/types/teamAnalysis';
+import {TeamAnalysisComp, TeamMemberIdData} from '@/types/website/feature/teamAnalysis';
 import {migrate} from '@/utils/migrate/main';
 import {teamAnalysisCompMigrators} from '@/utils/migrate/teamAnalysis/comp/migrators';
 

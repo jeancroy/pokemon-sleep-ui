@@ -7,6 +7,7 @@ import {TeamMemberView} from '@/components/shared/team/memberView/main';
 import {sortTeamMemberProduction} from '@/components/shared/team/productionSort/calc/main';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {PokemonInfo} from '@/types/game/pokemon';
+import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {
   ProductionComparisonConfig,
   ProductionComparisonPreset,
@@ -14,8 +15,7 @@ import {
   ProductionComparisonSetup,
   ProductionComparisonTarget,
   ProductionComparisonTargetUuid,
-} from '@/types/productionComparison';
-import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
+} from '@/types/website/feature/productionComparison';
 import {getProductionComparisonPresetStats} from '@/ui/production/calc/main';
 import {ProductionComparisonSetupControl} from '@/ui/production/client/type';
 import {ProductionComparisonDataProps} from '@/ui/production/type';

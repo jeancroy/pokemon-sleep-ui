@@ -2,7 +2,7 @@
 import React from 'react';
 
 import {useTeamSetupControl} from '@/components/shared/team/setupControl/hook';
-import {teamAnalysisSlotName} from '@/types/teamAnalysis';
+import {teamAnalysisSlotName} from '@/types/website/feature/teamAnalysis';
 import {TeamAnalysisSetupView} from '@/ui/team/analysis/setup/main';
 import {TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/type';
 import {getInitialTeamAnalysisSetup} from '@/ui/team/analysis/setup/utils';

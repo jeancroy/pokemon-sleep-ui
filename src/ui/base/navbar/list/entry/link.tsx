@@ -7,7 +7,7 @@ import {usePathname} from '@/components/i18n/exports';
 import {FlexLink} from '@/components/layout/flex/link';
 import {NextImage} from '@/components/shared/common/image/main';
 import {imageSmallIconSizes} from '@/styles/image';
-import {NavEntryLink} from '@/types/nav';
+import {NavEntryLink} from '@/types/website/nav';
 
 
 type Props = {

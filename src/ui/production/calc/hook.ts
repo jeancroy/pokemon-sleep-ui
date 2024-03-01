@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {useWorker} from '@/hooks/worker/main';
-import {ProductionComparisonPresetProduction} from '@/types/productionComparison';
+import {ProductionComparisonPresetProduction} from '@/types/website/feature/productionComparison';
 import {getProductionComparisonPresetStats} from '@/ui/production/calc/main';
 import {GetProductionComparisonTargetStatsOpts} from '@/ui/production/calc/type';
 import {isProduction} from '@/utils/environment';

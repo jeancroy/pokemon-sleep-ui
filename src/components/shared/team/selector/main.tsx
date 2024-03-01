@@ -14,7 +14,7 @@ import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetup} from '@/types/game/team/setup';
 import {TeamData} from '@/types/game/team/team';
-import {SessionStatus} from '@/types/session';
+import {SessionStatus} from '@/types/website/session';
 import {getDefaultTeamName, getTeamName} from '@/utils/game/team/name';
 import {Nullable} from '@/utils/type';
 
