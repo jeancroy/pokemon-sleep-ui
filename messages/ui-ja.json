@@ -74,13 +74,13 @@
           "Override": "上書き"
         },
         "StatsType": {
-          "Total": "Total",
-          "Berry": "Berry",
-          "Ingredient": "Ingredient",
-          "Skill": "Skill",
-          "Frequency": "Frequency",
-          "Energy": "Energy",
-          "Inventory": "Inventory"
+          "Total": "総合",
+          "Berry": "きのみ",
+          "Ingredient": "食材",
+          "Skill": "スキル",
+          "Frequency": "おてつだい時間",
+          "Energy": "げんき",
+          "Inventory": "所持数"
         }
       },
       "Member": {
