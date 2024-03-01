@@ -16,11 +16,11 @@ import {formatFloat, formatFloat3} from '@/utils/number/format/regular';
 export const PokemonIngredientRate = ({params, noIcon, dimension}: PokemonProducingParamsCommonProps) => {
   const {dataCount, ingredientSplit} = params;
 
-  const t = useTranslations('UI.InPage.Pokedex.Sort');
+  const t = useTranslations('UI.Pokemon.Stats.Ingredient');
 
   return (
     <Flex direction="row" noFullWidth className={getProducingParamsSectionStyle(params)}>
-      {!noIcon && <GenericIngredientIcon alt={t('IngredientRate')} dimension={dimension}/>}
+      {!noIcon && <GenericIngredientIcon alt={t('Rate')} dimension={dimension}/>}
       {!isParamsTrustWorthy(dataCount) && <ExclamationTriangleIcon className={dimension}/>}
       <span>
         {formatFloat(ingredientSplit * 100)}%

@@ -22,7 +22,7 @@ export const PokemonSubSkillFilter = <TFilter extends FilterWithInclusionMap<Sub
   subSkillMap,
   ...props
 }: Props<TFilter>) => {
-  const t = useTranslations('UI.InPage.Team');
+  const t = useTranslations('UI.Pokemon.Individual');
 
   return (
     <FilterExpandedInput

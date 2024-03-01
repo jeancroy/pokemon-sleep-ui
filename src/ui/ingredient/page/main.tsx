@@ -99,8 +99,7 @@ export const IngredientPage = async ({params}: Props) => {
         'Game',
         'UI.Common',
         'UI.Metadata',
-        'UI.InPage.Pokedex',
-        'UI.InPage.Team',
+        'UI.Pokemon',
       ]}>
         <IngredientPokemonProduction
           pokemonMaxLevel={pokemonMaxLevel}

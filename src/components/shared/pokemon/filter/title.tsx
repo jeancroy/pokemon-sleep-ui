@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const PokemonFilterTitle = ({type}: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex.Info');
+  const t = useTranslations('UI.Pokemon.Info');
 
   if (type === 'pokemonType') {
     return t('PokemonType');

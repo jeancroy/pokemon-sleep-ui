@@ -19,7 +19,7 @@ type Props = {
 export const PokemonProductionSingleDisplaySwitch = ({control, itemAlt, itemImageSrc}: Props) => {
   const {display, setDisplay} = control;
 
-  const t = useTranslations('UI.InPage.Pokedex.Sort');
+  const t = useTranslations('UI.Pokemon.Stats.Strength');
 
   return (
     <FilterIconInput
@@ -27,7 +27,7 @@ export const PokemonProductionSingleDisplaySwitch = ({control, itemAlt, itemImag
       isActive={(id) => display === id}
       title={<EyeIcon className="size-6"/>}
       ids={[...pokemonProductionSingleDisplay]}
-      idToAlt={(id) => id === 'total' ? t('TotalEnergy') : itemAlt}
+      idToAlt={(id) => id === 'total' ? t('Total') : itemAlt}
       idToImageSrc={(id) => id === 'total' ? '/images/generic/strength.png' : itemImageSrc}
     />
   );

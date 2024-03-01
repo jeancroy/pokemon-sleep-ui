@@ -69,10 +69,10 @@ export const MapPage = async ({locale, mapId, getDataPromise, isUnique}: Props) 
       <I18nProvider locale={locale} namespaces={[
         'Game',
         'UI.Component.PokemonFilter',
-        'UI.InPage.Pokedex.Info',
         'UI.InPage.Map',
         'UI.Common',
         'UI.Metadata',
+        'UI.Pokemon.Info',
       ]}>
         <MapPageClient locale={locale} {...props}/>
       </I18nProvider>

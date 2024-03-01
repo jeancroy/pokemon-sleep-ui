@@ -38,7 +38,7 @@ export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
     subSkillMap,
   } = props;
 
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Pokemon');
   const collapsible = useCollapsibleControl();
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);

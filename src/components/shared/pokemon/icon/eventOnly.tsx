@@ -15,7 +15,7 @@ type Props = {
 };
 
 export const PokemonEventOnlyIcon = ({pokemon, dimension}: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Pokemon.Info.Flags');
 
   if (!isPokemonEventOnly(pokemon)) {
     return null;
@@ -24,7 +24,7 @@ export const PokemonEventOnlyIcon = ({pokemon, dimension}: Props) => {
   return (
     <CalendarDaysIcon
       className={clsx('text-event-pokemon shrink-0', dimension ?? 'size-6')}
-      title={t('Stats.EventOnly')}
+      title={t('EventOnly')}
     />
   );
 };

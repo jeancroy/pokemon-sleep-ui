@@ -364,49 +364,6 @@
       "Welcome": "ようこそ！"
     },
     "Pokedex": {
-      "Info": {
-        "Berry": "きのみ",
-        "Evolution": "進化段階",
-        "Ingredient": "食材",
-        "MainSkill": "メインスキル",
-        "Name": "名前",
-        "PokemonLevel": "ポケモンレベル",
-        "PokemonType": "ポケモンタイプ",
-        "Production": "生産",
-        "SleepType": "睡眠タイプ",
-        "Specialty": "とくいなもの",
-        "Stats": "能力"
-      },
-      "Stats": {
-        "FrequencyBase": "おてつだい時間 (ベース)",
-        "FrequencyEquivalent": "おてつだい時間 (同等)",
-        "Friendship": "フレンドポイント",
-        "Recruit": "仲間になる",
-        "TransferReward": "博士送り",
-        "TimeToFullPack": {
-          "Primary": "所持上限に達するまでの時間 (寝 1)",
-          "Secondary": "所持上限に達するまでの時間 (寝 2)"
-        },
-        "MainSkillTriggerRate": "スキル発動率",
-        "EventOnly": "イベント限定"
-      },
-      "Sort": {
-        "Id": "ID",
-        "DateRegistered": "登録日",
-        "IngredientEnergy": "食材エナジー",
-        "IngredientCount": "食材の数",
-        "IngredientRate": "食材確率",
-        "BerryEnergy": "きのみエナジー",
-        "BerryCount": "きのみの数",
-        "MainSkillLevel": "スキルレベル",
-        "FrequencyOfBerry": "おてつだい時間 (きのみ)",
-        "FrequencyOfIngredient": "おてつだい時間 (食材)",
-        "FriendshipPoint": "フレンドポイント",
-        "SkillCount": "スキル発動回数",
-        "SkillStrength": "スキルのエナジー",
-        "TotalEnergy": "総エナジー",
-        "MealCoverage": "レシピカバー率"
-      },
       "Tier": {
         "Details": "詳細",
         "Tips": "初心者向けの簡易なティア表です。慣れてきたら、[図鑑](https://pks.raenonx.cc/ja/pokedex)で粒度の高い検索や一覧表示をして調べましょう。"
@@ -456,9 +413,6 @@
       }
     },
     "Team": {
-      "CurrentEnergy": "エナジー",
-      "SubSkill": "サブスキル",
-      "NatureEffect": "せいかく効果",
       "Box": {
         "DisplayType": {
           "Frequency": "おてつだい時間",
@@ -587,6 +541,68 @@
       "Tips": "許容差を広げるのは画質の悪いときだけにしましょう。広げると読み取り精度が落ちます。"
     }
   },
+  "Pokemon": {
+    "Stats": {
+      "Strength": {
+        "Berry": "きのみエナジー",
+        "Ingredient": "食材エナジー",
+        "Skill": "スキルエナジー",
+        "Total": "総エナジー"
+      },
+      "Count": {
+        "Berry": "きのみの数",
+        "Ingredient": "食材の数"
+      },
+      "Ingredient": {
+        "Rate": "食材確率",
+        "MealCoverage": "レシピカバー率"
+      },
+      "MainSkill": {
+        "Level": "スキルレベル",
+        "DailyCount": "スキル発動回数",
+        "TriggerRate": "スキル発動率"
+      },
+      "Frequency": {
+        "Common": "おてつだい時間",
+        "Base": "おてつだい時間 (ベース)",
+        "Berry": "おてつだい時間 (きのみ)",
+        "Ingredient": "おてつだい時間 (食材)",
+        "Equivalent": "おてつだい時間 (同等)"
+      },
+      "TimeToFullPack": {
+        "Primary": "所持上限に達するまでの時間 (寝 1)",
+        "Secondary": "所持上限に達するまでの時間 (寝 2)"
+      }
+    },
+    "Info": {
+      "Name": "名前",
+      "PokemonType": "ポケモンタイプ",
+      "SleepType": "睡眠タイプ",
+      "Specialty": "とくいなもの",
+      "Berry": "きのみ",
+      "Ingredient": "食材",
+      "MainSkill": "メインスキル",
+      "Evolution": "進化段階",
+      "Production": "生産",
+      "SleepStyle": "寝顔",
+      "Stats": {
+        "Name": "能力",
+        "Friendship": "フレンドポイント",
+        "Recruit": "仲間になる",
+        "TransferReward": "博士送り"
+      },
+      "Flags": {
+        "EventOnly": "イベント限定"
+      }
+    },
+    "Individual": {
+      "Id": "ID",
+      "DateRegistered": "登録日",
+      "Level": "ポケモンレベル",
+      "SubSkill": "サブスキル",
+      "NatureEffect": "せいかく効果"
+    }
+  },
   "Producing": {
     "State": {
       "Base": "基礎",
@@ -622,22 +638,6 @@
       "Mode": "モード",
       "Shared": "共通",
       "BySpecialty": "得意型別"
-    },
-    "Stats": {
-      "Strength": {
-        "Berry": "きのみエナジー",
-        "Ingredient": "食材エナジー",
-        "Total": "総エナジー"
-      },
-      "MainSkill": {
-        "DailyCount": "スキル発動回数",
-        "TriggerRate": "スキル発動率"
-      },
-      "Frequency": "おてつだい時間",
-      "TimeToFullPack": {
-        "Primary": "所持上限に達するまでの時間 (寝 1)",
-        "Secondary": "所持上限に達するまでの時間 (寝 2)"
-      }
     }
   },
   "Rating": {

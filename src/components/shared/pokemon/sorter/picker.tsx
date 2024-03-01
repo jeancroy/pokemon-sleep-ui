@@ -25,7 +25,7 @@ export const PokemonSortingPicker = <TSort extends PokemonSortType>({
   options,
   exclude,
 }: Props<TSort>) => {
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Pokemon');
 
   return (
     <FilterTextInput

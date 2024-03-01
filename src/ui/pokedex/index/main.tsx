@@ -96,8 +96,7 @@ export const Pokedex = async ({params}: DefaultPageProps) => {
         'UI.Common',
         'UI.Component.PokemonFilter',
         'UI.Metadata',
-        'UI.InPage.Pokedex',
-        'UI.InPage.Team',
+        'UI.Pokemon',
       ]}>
         <PokedexClient {...props}/>
       </I18nProvider>

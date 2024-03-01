@@ -24,7 +24,7 @@ export const PokemonNatureEffectInput = <TFilter extends FilterWithInclusionMap<
   direction,
   ...props
 }: Props<TFilter>) => {
-  const t = useTranslations('UI.InPage.Team');
+  const t = useTranslations('UI.Pokemon.Individual');
 
   return (
     <FilterExpandedInput

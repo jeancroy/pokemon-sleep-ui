@@ -4,7 +4,7 @@ import {PokedexDisplayType} from '@/ui/pokedex/common/type';
 
 
 export const displayTypeToI18nId: {
-  [displayType in PokedexDisplayType]: I18nMessageKeysOfNamespace<'UI.InPage.Pokedex'>
+  [displayType in PokedexDisplayType]: I18nMessageKeysOfNamespace<'UI.Pokemon'>
 } = {
   ...sortTypeToI18nId,
   berry: 'Info.Berry',

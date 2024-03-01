@@ -60,7 +60,7 @@ export const SleepdexLookup = async ({params}: DefaultPageProps) => {
         'UI.SleepStyle',
         'UI.Metadata',
         'UI.Multiplier',
-        'UI.InPage.Pokedex',
+        'UI.Pokemon',
       ]}>
         <SleepdexLookupClient {...props}/>
       </I18nProvider>

@@ -16,11 +16,11 @@ import {formatFloat, formatFloat3} from '@/utils/number/format/regular';
 export const PokemonMainSkillTriggerRate = ({params, noIcon, dimension}: PokemonProducingParamsCommonProps) => {
   const {dataCount, skillPercent} = params;
 
-  const t = useTranslations('UI.InPage.Pokedex.Stats');
+  const t = useTranslations('UI.Pokemon.Stats.MainSkill');
 
   return (
     <Flex direction="row" noFullWidth className={getProducingParamsSectionStyle(params)}>
-      {!noIcon && <GenericMainSkillIcon alt={t('MainSkillTriggerRate')} dimension={dimension}/>}
+      {!noIcon && <GenericMainSkillIcon alt={t('TriggerRate')} dimension={dimension}/>}
       {!isParamsTrustWorthy(dataCount) && <ExclamationTriangleIcon className={dimension}/>}
       <span>
         {formatFloat3(skillPercent)}%

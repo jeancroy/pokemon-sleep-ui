@@ -22,7 +22,7 @@ export const AnalysisStatsOfProduction = ({stats, pokemon}: AnalysisStatsUiProps
   const {berry} = pokemon;
   const {production} = stats;
 
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Pokemon');
   const percentileThreshold: TextMarkThreshold = {superRare: 93, rare: 85, ordinary: 10};
 
   const textTotalEnergy = t(sortTypeToI18nId.totalEnergy);

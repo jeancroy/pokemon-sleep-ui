@@ -49,7 +49,7 @@ export const ProducingParams = async ({params}: DefaultPageProps) => {
           'Game',
           'UI.Component.PokemonFilter',
           'UI.Metadata',
-          'UI.InPage.Pokedex',
+          'UI.Pokemon',
         ]}>
           <ProducingParamsClient {...props}/>
         </I18nProvider>

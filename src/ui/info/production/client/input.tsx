@@ -16,7 +16,7 @@ import {ProducingParamsDataProps} from '@/ui/info/production/type';
 type Props = ProducingParamsDataProps & FilterWithUpdaterProps<ProducingParamsFilter>;
 
 export const ProducingParamsInput = (props: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Pokemon');
 
   return (
     <Flex className="info-section">

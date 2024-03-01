@@ -67,9 +67,8 @@ export const StaminaAnalysis = async ({params}: DefaultPageProps) => {
         'Game',
         'UI.Common',
         'UI.Component.PokemonFilter',
+        'UI.Pokemon',
         'UI.Stamina',
-        'UI.InPage.Pokedex',
-        'UI.InPage.Team',
       ]}>
         <StaminaAnalysisClient {...props}/>
       </I18nProvider>

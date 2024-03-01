@@ -364,49 +364,6 @@
       "Welcome": "歡迎！"
     },
     "Pokedex": {
-      "Info": {
-        "Berry": "樹果",
-        "Evolution": "進化階段",
-        "Ingredient": "食材",
-        "MainSkill": "主技能",
-        "Name": "名稱",
-        "PokemonLevel": "寶可夢等級",
-        "PokemonType": "寶可夢屬性",
-        "Production": "生產",
-        "SleepType": "睡眠類型",
-        "Specialty": "專長",
-        "Stats": "能力"
-      },
-      "Stats": {
-        "FrequencyBase": "幫忙間隔 (基礎)",
-        "FrequencyEquivalent": "幫忙間隔 (等效)",
-        "Friendship": "友情點數",
-        "Recruit": "成為夥伴",
-        "TransferReward": "傳送給博士的獎勵",
-        "TimeToFullPack": {
-          "Primary": "滿包所需時長 (一睡)",
-          "Secondary": "滿包所需時長 (二睡)"
-        },
-        "MainSkillTriggerRate": "技能觸發率",
-        "EventOnly": "活動限定"
-      },
-      "Sort": {
-        "Id": "ID",
-        "DateRegistered": "登錄日期",
-        "IngredientEnergy": "食材能量",
-        "IngredientCount": "食材產量",
-        "IngredientRate": "食材機率",
-        "BerryEnergy": "樹果能量",
-        "BerryCount": "樹果產量",
-        "MainSkillLevel": "技能等級",
-        "FrequencyOfBerry": "幫忙間隔 (樹果)",
-        "FrequencyOfIngredient": "幫忙間隔 (食材)",
-        "FriendshipPoint": "友情點數",
-        "SkillCount": "技能觸發次數",
-        "SkillStrength": "技能能量",
-        "TotalEnergy": "總能量",
-        "MealCoverage": "食譜覆蓋率"
-      },
       "Tier": {
         "Details": "詳細資訊",
         "Tips": "我們推薦對遊戲較有經驗的玩家使用 [寶可夢圖鑑](https://pks.raenonx.cc/zh/pokedex)。該功能可以提供更多選項以利資訊查找和顯示。"
@@ -456,9 +413,6 @@
       }
     },
     "Team": {
-      "CurrentEnergy": "能量",
-      "SubSkill": "副技能",
-      "NatureEffect": "性格效果",
       "Box": {
         "DisplayType": {
           "Frequency": "幫忙間隔",
@@ -587,6 +541,68 @@
       "Tips": "若圖片品質較差，將這個數值調高。容許誤差越高 OCR 越容易失準。"
     }
   },
+  "Pokemon": {
+    "Stats": {
+      "Strength": {
+        "Berry": "樹果能量",
+        "Ingredient": "食材能量",
+        "Skill": "技能能量",
+        "Total": "總能量"
+      },
+      "Count": {
+        "Berry": "樹果產量",
+        "Ingredient": "食材產量"
+      },
+      "Ingredient": {
+        "Rate": "食材機率",
+        "MealCoverage": "食譜覆蓋率"
+      },
+      "MainSkill": {
+        "Level": "技能等級",
+        "DailyCount": "技能觸發數",
+        "TriggerRate": "技能觸發率"
+      },
+      "Frequency": {
+        "Common": "幫忙間隔",
+        "Base": "幫忙間隔 (基礎)",
+        "Berry": "幫忙間隔 (樹果)",
+        "Ingredient": "幫忙間隔 (食材)",
+        "Equivalent": "幫忙間隔 (等效)"
+      },
+      "TimeToFullPack": {
+        "Primary": "滿包所需時長 (一睡)",
+        "Secondary": "滿包所需時長 (二睡)"
+      }
+    },
+    "Info": {
+      "Name": "名稱",
+      "PokemonType": "寶可夢屬性",
+      "SleepType": "睡眠類型",
+      "Specialty": "專長",
+      "Berry": "樹果",
+      "Ingredient": "食材",
+      "MainSkill": "主技能",
+      "Evolution": "進化階段",
+      "Production": "生產",
+      "SleepStyle": "睡姿",
+      "Stats": {
+        "Name": "能力",
+        "Friendship": "友情點數",
+        "Recruit": "成為夥伴",
+        "TransferReward": "傳送給博士的獎勵"
+      },
+      "Flags": {
+        "EventOnly": "活動限定"
+      }
+    },
+    "Individual": {
+      "Id": "ID",
+      "DateRegistered": "登錄日期",
+      "Level": "寶可夢等級",
+      "SubSkill": "副技能",
+      "NatureEffect": "性格效果"
+    }
+  },
   "Producing": {
     "State": {
       "Base": "基礎",
@@ -622,22 +638,6 @@
       "Mode": "模式",
       "Shared": "共用",
       "BySpecialty": "根據專長"
-    },
-    "Stats": {
-      "Strength": {
-        "Berry": "樹果能量",
-        "Ingredient": "食材能量",
-        "Total": "總能量"
-      },
-      "MainSkill": {
-        "DailyCount": "技能觸發數",
-        "TriggerRate": "技能觸發率"
-      },
-      "Frequency": "幫忙間隔",
-      "TimeToFullPack": {
-        "Primary": "滿包所需時長 (一睡)",
-        "Secondary": "滿包所需時長 (二睡)"
-      }
     }
   },
   "Rating": {

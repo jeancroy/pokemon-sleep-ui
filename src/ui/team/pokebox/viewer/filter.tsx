@@ -24,7 +24,7 @@ export const PokeboxViewerFilterUI = (props: PokeboxViewerInputCommonProps) => {
   } = props;
 
   const filterCollapsible = useCollapsibleControl();
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Pokemon.Info');
 
   return (
     <Collapsible control={filterCollapsible} classNameForHeight={inputSectionHeight} button={
@@ -35,7 +35,7 @@ export const PokeboxViewerFilterUI = (props: PokeboxViewerInputCommonProps) => {
       </Flex>
     }>
       <Flex className="gap-1 pr-1">
-        <InputRowWithTitle title={t('Info.Name')}>
+        <InputRowWithTitle title={t('Name')}>
           <InputBox type="text" value={filter.name} onChange={({target}) => setFilter((original) => ({
             ...original,
             name: target.value,

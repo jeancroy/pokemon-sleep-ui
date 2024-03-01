@@ -26,7 +26,7 @@ export const MealContentCoverageItem = ({entry, showPokemon}: Props) => {
   const {id, specialty} = pokemon;
 
   const t = useTranslations('Game');
-  const t2 = useTranslations('UI.InPage.Pokedex.Info');
+  const t2 = useTranslations('UI.Pokemon.Info');
 
   return (
     <AnimatedCollapse show appear className="button-clickable-bg">

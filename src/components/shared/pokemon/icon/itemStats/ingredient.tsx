@@ -25,7 +25,7 @@ export const PokemonIngredientStats = ({
   hidePokebox,
   ...props
 }: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex.Info');
+  const t = useTranslations('UI.Pokemon.Info');
 
   if (!ingredient) {
     return null;

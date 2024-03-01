@@ -16,7 +16,6 @@ import {PokemonIngredientRate} from '@/components/shared/pokemon/production/para
 import {PokemonMainSkillTriggerRate} from '@/components/shared/pokemon/production/params/skillRate';
 import {PokemonSleepType} from '@/components/shared/pokemon/sleepType/main';
 import {getPokemonSorter} from '@/components/shared/pokemon/sorter/calc/main';
-import {sortTypeToI18nId} from '@/components/shared/pokemon/sorter/const';
 import {isPokedexSortExclusion} from '@/components/shared/pokemon/sorter/utils';
 import {PokemonSpecialty} from '@/components/shared/pokemon/specialty/main';
 import {imageSmallIconSizes} from '@/styles/image';
@@ -54,7 +53,7 @@ export const PokedexLinkDetail = React.memo(({
   } = pokemon;
 
   const t = useTranslations('Game');
-  const t2 = useTranslations('UI.InPage.Pokedex');
+  const t2 = useTranslations('UI.Pokemon');
   const t3 = useTranslations('UI.Common');
 
   if (display === 'berry') {
@@ -192,7 +191,7 @@ export const PokedexLinkDetail = React.memo(({
         <div className="relative size-5">
           <NextImage
             src="/images/generic/friendship.png"
-            alt={t2('Stats.Friendship')}
+            alt={t2('Info.Stats.Friendship')}
             sizes={imageSmallIconSizes}
           />
         </div>
@@ -276,7 +275,7 @@ export const PokedexLinkDetail = React.memo(({
   if (display === 'mealCoverage') {
     return (
       <Flex direction="row" noFullWidth className="items-center gap-1">
-        <MealCoverageIcon alt={t2(sortTypeToI18nId.mealCoverage)} dimension="size-4"/>
+        <MealCoverageIcon alt={t2('Stats.Ingredient.MealCoverage')} dimension="size-4"/>
         <span>{formatFloat(sorter * 100)}%</span>
       </Flex>
     );

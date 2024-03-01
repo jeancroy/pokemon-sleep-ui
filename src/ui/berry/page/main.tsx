@@ -89,8 +89,7 @@ export const BerryPage = async ({params}: Props) => {
       <I18nProvider locale={locale} namespaces={[
         'Game',
         'UI.Common',
-        'UI.InPage.Pokedex',
-        'UI.InPage.Team',
+        'UI.Pokemon',
         'UI.Metadata',
       ]}>
         <BerryPageClient {...props}/>

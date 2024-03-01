@@ -251,49 +251,6 @@ declare global {
           Welcome: string,
         },
         Pokedex: {
-          Info: {
-            Berry: string,
-            Evolution: string,
-            Ingredient: string,
-            MainSkill: string,
-            Name: string,
-            PokemonLevel: string,
-            PokemonType: string,
-            Production: string,
-            SleepType: string,
-            Specialty: string,
-            Stats: string,
-          },
-          Stats: {
-            FrequencyBase: string,
-            FrequencyEquivalent: string,
-            Friendship: string,
-            Recruit: string,
-            TransferReward: string,
-            TimeToFullPack: {
-              Primary: string,
-              Secondary: string,
-            },
-            MainSkillTriggerRate: string,
-            EventOnly: string,
-          },
-          Sort: {
-            Id: string,
-            DateRegistered: string,
-            IngredientEnergy: string,
-            IngredientCount: string,
-            IngredientRate: string,
-            BerryEnergy: string,
-            BerryCount: string,
-            MainSkillLevel: string,
-            FrequencyOfBerry: string,
-            FrequencyOfIngredient: string,
-            FriendshipPoint: string,
-            SkillCount: string,
-            SkillStrength: string,
-            TotalEnergy: string,
-            MealCoverage: string,
-          },
           Tier: {
             Details: string,
             Tips: string,
@@ -343,9 +300,6 @@ declare global {
           },
         },
         Team: {
-          CurrentEnergy: string,
-          SubSkill: string,
-          NatureEffect: string,
           Box: {
             DisplayType: {
               Frequency: string,
@@ -474,6 +428,68 @@ declare global {
           Tips: string,
         },
       },
+      Pokemon: {
+        Stats: {
+          Strength: {
+            Berry: string,
+            Ingredient: string,
+            Skill: string,
+            Total: string,
+          },
+          Count: {
+            Berry: string,
+            Ingredient: string,
+          },
+          Ingredient: {
+            Rate: string,
+            MealCoverage: string,
+          },
+          MainSkill: {
+            Level: string,
+            DailyCount: string,
+            TriggerRate: string,
+          },
+          Frequency: {
+            Common: string,
+            Base: string,
+            Berry: string,
+            Ingredient: string,
+            Equivalent: string,
+          },
+          TimeToFullPack: {
+            Primary: string,
+            Secondary: string,
+          },
+        },
+        Info: {
+          Name: string,
+          PokemonType: string,
+          SleepType: string,
+          Specialty: string,
+          Berry: string,
+          Ingredient: string,
+          MainSkill: string,
+          Evolution: string,
+          Production: string,
+          SleepStyle: string,
+          Stats: {
+            Name: string,
+            Friendship: string,
+            Recruit: string,
+            TransferReward: string,
+          },
+          Flags: {
+            EventOnly: string,
+          },
+        },
+        Individual: {
+          Id: string,
+          DateRegistered: string,
+          Level: string,
+          SubSkill: string,
+          NatureEffect: string,
+        },
+      },
       Producing: {
         State: {
           Base: string,
@@ -509,22 +525,6 @@ declare global {
           Mode: string,
           Shared: string,
           BySpecialty: string,
-        },
-        Stats: {
-          Strength: {
-            Berry: string,
-            Ingredient: string,
-            Total: string,
-          },
-          MainSkill: {
-            DailyCount: string,
-            TriggerRate: string,
-          },
-          Frequency: string,
-          TimeToFullPack: {
-            Primary: string,
-            Secondary: string,
-          },
         },
       },
       Rating: {

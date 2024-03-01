@@ -52,7 +52,7 @@ export const TeamMemberStats = ({
   } = intermediate;
 
   const t = useTranslations('UI.Common');
-  const t2 = useTranslations('UI.InPage.Pokedex.Sort');
+  const t2 = useTranslations('UI.Pokemon.Stats');
 
   const berryData = berryDataMap[berry.id];
   const ingredientRates = Object.values(ingredient);
@@ -93,7 +93,7 @@ export const TeamMemberStats = ({
   if (type === 'ingredient') {
     return (
       <Flex center className={clsx(specialty === specialtyIdMap.ingredient && 'text-energy')}>
-        <PokemonIngredientProbability alt={t2('IngredientRate')} probabilityRate={produceSplit.ingredient}/>
+        <PokemonIngredientProbability alt={t2('Ingredient.Rate')} probabilityRate={produceSplit.ingredient}/>
         {ingredientRates.map((rate) => (
           <PokemonIngredientProduction
             key={rate.id}

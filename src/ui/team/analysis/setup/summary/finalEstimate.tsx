@@ -20,7 +20,7 @@ type Props = Pick<TeamAnalysisDataProps, 'snorlaxData'> & {
 };
 
 export const TeamAnalysisFinalEstimate = ({strengthProduction, snorlaxData}: Props) => {
-  const t = useTranslations('UI.InPage.Team');
+  const t = useTranslations('UI.Common');
 
   const [estimateInput, setEstimateInput] = React.useState<TeamFinalEstimateInput>(() => {
     const endsAt = new Date();
@@ -59,7 +59,7 @@ export const TeamAnalysisFinalEstimate = ({strengthProduction, snorlaxData}: Pro
           />
         </Flex>
         <Flex direction="row" center noFullWidth className="gap-1">
-          <StrengthIcon alt={t('CurrentEnergy')} dimension="size-6"/>
+          <StrengthIcon alt={t('Strength')} dimension="size-6"/>
           <InputBox
             type="number"
             min={0}

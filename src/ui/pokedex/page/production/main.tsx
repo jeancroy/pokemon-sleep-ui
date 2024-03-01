@@ -42,7 +42,7 @@ export const PokemonProduction = (props: Props) => {
   const {isPremium} = useUserActivation(session);
 
   const t = useTranslations('Game');
-  const t2 = useTranslations('UI.InPage.Pokedex');
+  const t2 = useTranslations('UI.Pokemon.Info');
   const t3 = useTranslations('UI.Metadata');
 
   const chain = ingredientChainMap[ingredientChain];
@@ -59,7 +59,7 @@ export const PokemonProduction = (props: Props) => {
       />
       <HorizontalSplitter className="w-full"/>
       <PokemonMetaSection
-        title={t2('Info.Berry')}
+        title={t2('Berry')}
         titleClassName={clsx(metaTitleClass, specialty === specialtyIdMap.berry && 'bg-blink')}
       >
         <PokemonBerryProduction
@@ -68,12 +68,12 @@ export const PokemonProduction = (props: Props) => {
         />
       </PokemonMetaSection>
       <PokemonMetaSection
-        title={t2('Info.Ingredient')}
+        title={t2('Ingredient')}
         titleClassName={clsx(metaTitleClass, specialty === specialtyIdMap.ingredient && 'bg-blink')}
       >
         <PokemonIngredientPossibilities chain={chain}/>
       </PokemonMetaSection>
-      <PokemonMetaSection title={t2('Info.Production')} titleClassName={metaTitleClass}>
+      <PokemonMetaSection title={t2('Production')} titleClassName={metaTitleClass}>
         <PokemonProductionCombination
           input={input}
           chain={chain}

@@ -25,7 +25,7 @@ export const TeamAnalysisSummary = ({snorlaxData, stats, period}: Props) => {
     skill,
   } = stats.total;
 
-  const t = useTranslations('UI.InPage.Pokedex.Info');
+  const t = useTranslations('UI.Pokemon.Info');
 
   return (
     <Flex className="info-section-bg items-end justify-end gap-3 rounded-lg p-2 md:flex-row">

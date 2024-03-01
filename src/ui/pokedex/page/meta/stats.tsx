@@ -14,7 +14,7 @@ import {PokemonDataProps} from '@/ui/pokedex/page/type';
 export const PokemonStats = ({pokemon}: PokemonDataProps) => {
   const {stats, candy} = pokemon;
 
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Pokemon');
   const t2 = useTranslations('UI.Common');
   const t3 = useTranslations('Game.PokemonCandy');
 
@@ -23,7 +23,7 @@ export const PokemonStats = ({pokemon}: PokemonDataProps) => {
       <tbody>
         <tr>
           <td>
-            <GenericIconLarger src="/images/generic/friendship.png" alt={t('Stats.Friendship')} noInvert/>
+            <GenericIconLarger src="/images/generic/friendship.png" alt={t('Info.Stats.Friendship')} noInvert/>
           </td>
           <td>
             {stats.friendshipPoints}
@@ -31,7 +31,7 @@ export const PokemonStats = ({pokemon}: PokemonDataProps) => {
         </tr>
         <tr>
           <td>
-            <GenericIconLarger src="/images/generic/clock.png" alt={t('Stats.FrequencyBase')}/>
+            <GenericIconLarger src="/images/generic/clock.png" alt={t('Stats.Frequency.Base')}/>
           </td>
           <td>
             <PokemonFrequency frequency={stats.frequency} noIcon normalText/>
@@ -47,7 +47,7 @@ export const PokemonStats = ({pokemon}: PokemonDataProps) => {
         </tr>
         <tr>
           <td>
-            <GenericIconLarger src="/images/generic/pokebox.png" alt={t('Stats.Recruit')}/>
+            <GenericIconLarger src="/images/generic/pokebox.png" alt={t('Info.Stats.Recruit')}/>
           </td>
           <td>
             <table className="mx-4 flex border-separate border-spacing-0.5 place-content-center">
@@ -74,7 +74,7 @@ export const PokemonStats = ({pokemon}: PokemonDataProps) => {
         </tr>
         <tr>
           <td>
-            <ArchiveBoxXMarkIcon className="size-5" title={t('Stats.TransferReward')}/>
+            <ArchiveBoxXMarkIcon className="size-5" title={t('Info.Stats.TransferReward')}/>
           </td>
           <td>
             <Flex direction="row" center noFullWidth className="gap-1.5">

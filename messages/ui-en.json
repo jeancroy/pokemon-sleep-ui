@@ -364,49 +364,6 @@
       "Welcome": "Welcome!"
     },
     "Pokedex": {
-      "Info": {
-        "Berry": "Berry",
-        "Evolution": "Evolution Stage",
-        "Ingredient": "Ingredient",
-        "MainSkill": "Main Skill",
-        "Name": "Name",
-        "PokemonLevel": "Pokemon Level",
-        "PokemonType": "Pokemon Type",
-        "Production": "Production",
-        "SleepType": "Sleep Type",
-        "Specialty": "Specialty",
-        "Stats": "Stats"
-      },
-      "Stats": {
-        "FrequencyBase": "Frequency (Base)",
-        "FrequencyEquivalent": "Frequency (Equivalent)",
-        "Friendship": "Friendship Points",
-        "Recruit": "Partnered",
-        "TransferReward": "Reward of sending the Pokemon to professor",
-        "TimeToFullPack": {
-          "Primary": "Time to Full Pack (Sleep 1)",
-          "Secondary": "Time to Full Pack (Sleep 2)"
-        },
-        "MainSkillTriggerRate": "Skill Trigger Rate",
-        "EventOnly": "Event Only"
-      },
-      "Sort": {
-        "Id": "ID",
-        "DateRegistered": "Date Registered",
-        "IngredientEnergy": "Ingredient Strength",
-        "IngredientCount": "Ingredient Count",
-        "IngredientRate": "Ingredient Rate",
-        "BerryEnergy": "Berry Strength",
-        "BerryCount": "Berry Count",
-        "MainSkillLevel": "Skill Level",
-        "FrequencyOfBerry": "Frequency (Berry)",
-        "FrequencyOfIngredient": "Frequency (Ingredient)",
-        "FriendshipPoint": "Friendship Points",
-        "SkillCount": "Skill Count",
-        "SkillStrength": "Skill Strength",
-        "TotalEnergy": "Total Strength",
-        "MealCoverage": "Meal Coverage"
-      },
       "Tier": {
         "Details": "Details",
         "Tips": "For experienced users, please try [Pokedex](https://pks.raenonx.cc/en/pokedex), which gives more granular control on both data searching and displaying."
@@ -456,9 +413,6 @@
       }
     },
     "Team": {
-      "CurrentEnergy": "Strength",
-      "SubSkill": "Sub Skill",
-      "NatureEffect": "Nature Effect",
       "Box": {
         "DisplayType": {
           "Frequency": "Frequency",
@@ -587,6 +541,68 @@
       "Tips": "Increase only if the image quality is bad. Higher value could decrease accuracy."
     }
   },
+  "Pokemon": {
+    "Stats": {
+      "Strength": {
+        "Berry": "Berry Strength",
+        "Ingredient": "Ingredient strength",
+        "Skill": "Skill Strength",
+        "Total": "Total strength"
+      },
+      "Count": {
+        "Berry": "Berry Count",
+        "Ingredient": "Ingredient Count"
+      },
+      "Ingredient": {
+        "Rate": "Ingredient Rate",
+        "MealCoverage": "Meal Coverage"
+      },
+      "MainSkill": {
+        "Level": "Skill Level",
+        "DailyCount": "Expected skill count",
+        "TriggerRate": "Skill Trigger Rate"
+      },
+      "Frequency": {
+        "Common": "Frequency",
+        "Base": "Frequency (Base)",
+        "Berry": "Frequency (Berry)",
+        "Ingredient": "Frequency (Ingredient)",
+        "Equivalent": "Frequency (Equivalent)"
+      },
+      "TimeToFullPack": {
+        "Primary": "Time to Full Pack (Sleep 1)",
+        "Secondary": "Time to Full Pack (Sleep 2)"
+      }
+    },
+    "Info": {
+      "Name": "Name",
+      "PokemonType": "Pokemon Type",
+      "SleepType": "Sleep Type",
+      "Specialty": "Specialty",
+      "Berry": "Berry",
+      "Ingredient": "Ingredient",
+      "MainSkill": "Main Skill",
+      "Evolution": "Evolution Stage",
+      "Production": "Production",
+      "SleepStyle": "Sleep Style",
+      "Stats": {
+        "Name": "Stats",
+        "Friendship": "Friendship Points",
+        "Recruit": "Partnered",
+        "TransferReward": "Reward of sending the Pokemon to professor"
+      },
+      "Flags": {
+        "EventOnly": "Event Only"
+      }
+    },
+    "Individual": {
+      "Id": "ID",
+      "DateRegistered": "Date Registered",
+      "Level": "Pokemon Level",
+      "SubSkill": "Sub Skill",
+      "NatureEffect": "Nature Effect"
+    }
+  },
   "Producing": {
     "State": {
       "Base": "Base",
@@ -622,22 +638,6 @@
       "Mode": "Mode",
       "Shared": "Shared",
       "BySpecialty": "By Specialty"
-    },
-    "Stats": {
-      "Strength": {
-        "Berry": "Berry Strength",
-        "Ingredient": "Ingredient strength",
-        "Total": "Total strength"
-      },
-      "MainSkill": {
-        "DailyCount": "Expected skill count",
-        "TriggerRate": "Skill Trigger Rate"
-      },
-      "Frequency": "Frequency",
-      "TimeToFullPack": {
-        "Primary": "Time to Full Pack (Sleep 1)",
-        "Secondary": "Time to Full Pack (Sleep 2)"
-      }
     }
   },
   "Rating": {

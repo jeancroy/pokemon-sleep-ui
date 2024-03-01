@@ -18,7 +18,7 @@ type Props = FilterInputOnClickProps<TeamMemberProductionSortingBasis | null> & 
 };
 
 export const TeamMemberProductionSortingBasisInput = ({isPremium, ...props}: Props) => {
-  const t = useTranslations('UI.Producing.Stats');
+  const t = useTranslations('UI.Pokemon.Stats');
 
   return (
     <FilterExpandedInput

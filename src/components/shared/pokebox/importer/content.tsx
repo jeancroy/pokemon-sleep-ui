@@ -29,7 +29,7 @@ export const PokeboxImporterContent = ({pokebox, ...props}: Props) => {
 
   const t = useTranslations('UI.Metadata.Team');
   const t2 = useTranslations('Game');
-  const t3 = useTranslations('UI.InPage.Pokedex');
+  const t3 = useTranslations('UI.Pokemon.Info');
 
   const {
     filter,
@@ -76,7 +76,7 @@ export const PokeboxImporterContent = ({pokebox, ...props}: Props) => {
         </Flex>
       }>
         <Flex noFullWidth className="gap-1 pr-1">
-          <InputRowWithTitle title={t3('Info.Name')}>
+          <InputRowWithTitle title={t3('Name')}>
             <InputBox
               type="text"
               value={filter.name}

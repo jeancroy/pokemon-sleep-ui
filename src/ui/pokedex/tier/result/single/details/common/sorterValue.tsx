@@ -17,7 +17,7 @@ type Props = {
 };
 
 export const PokedexTierListSorterValue = ({basis, value}: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Pokemon');
 
   const text = t(sortTypeToI18nId[basis]);
 

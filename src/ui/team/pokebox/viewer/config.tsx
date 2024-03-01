@@ -44,7 +44,7 @@ export const PokeboxViewerConfig = ({session, ...props}: PokeboxViewerInputCommo
   const collapsible = useCollapsibleControl();
   const {showPremiumRequiredToast} = usePremiumRequiredToast();
   const t = useTranslations('UI.InPage.Team.Box.DisplayType');
-  const t2 = useTranslations('UI.InPage.Pokedex.Input');
+  const t2 = useTranslations('UI.Component.PokemonFilter');
 
   return (
     <Collapsible control={collapsible} classNameForHeight={inputSectionHeight} button={

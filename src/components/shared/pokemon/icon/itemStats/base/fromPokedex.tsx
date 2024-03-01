@@ -41,7 +41,7 @@ export const PokemonItemStatsFromPokedex = (props: Props) => {
   const control = usePokemonProductionSingleDisplay();
 
   const t = useTranslations('Game');
-  const t2 = useTranslations('UI.InPage.Pokedex.Info');
+  const t2 = useTranslations('UI.Pokemon.Info');
 
   return (
     <Flex className="info-section gap-2">

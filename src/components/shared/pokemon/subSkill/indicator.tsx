@@ -19,7 +19,7 @@ type Props = {
 };
 
 export const PokemonSubSkillIndicator = ({subSkill, subSkillMap, level, dimension, className}: Props) => {
-  const t = useTranslations('UI.InPage.Team');
+  const t = useTranslations('UI.Pokemon.Individual');
 
   return (
     <Flex direction="row" noFullWidth className={clsx('items-center gap-1 p-0.5', className)}>

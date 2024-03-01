@@ -364,49 +364,6 @@
       "Welcome": "환영합니다"
     },
     "Pokedex": {
-      "Info": {
-        "Berry": "나무열매",
-        "Evolution": "진화단계",
-        "Ingredient": "식재료",
-        "MainSkill": "메인 스킬",
-        "Name": "이름",
-        "PokemonLevel": "포켓몬 레벨",
-        "PokemonType": "포켓몬 타입",
-        "Production": "생산",
-        "SleepType": "수면 타입",
-        "Specialty": "특기",
-        "Stats": "능력치"
-      },
-      "Stats": {
-        "FrequencyBase": "기본 도우미 시간",
-        "FrequencyEquivalent": "도우미 시간",
-        "Friendship": "프렌드 포인트",
-        "Recruit": "동료가 되어",
-        "TransferReward": "박사에게 포켓몬을 보낼때 받는 보상",
-        "TimeToFullPack": {
-          "Primary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 1)",
-          "Secondary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 2)"
-        },
-        "MainSkillTriggerRate": "스킬 발동률",
-        "EventOnly": "이벤트 한정"
-      },
-      "Sort": {
-        "Id": "ID",
-        "DateRegistered": "등록일",
-        "IngredientEnergy": "식재료 에너지",
-        "IngredientCount": "식재료",
-        "IngredientRate": "나무열매:식재료 비율",
-        "BerryEnergy": "나무열매 에너지",
-        "BerryCount": "나무열매",
-        "MainSkillLevel": "스킬 레벨",
-        "FrequencyOfBerry": "나무열매 도우미 시간",
-        "FrequencyOfIngredient": "식재료 도우미 시간",
-        "FriendshipPoint": "프렌드 포인트",
-        "SkillCount": "스킬 수",
-        "SkillStrength": "스킬 에너지",
-        "TotalEnergy": "총 에너지",
-        "MealCoverage": "Meal Coverage"
-      },
       "Tier": {
         "Details": "자세히",
         "Tips": "당신이 포켓몬 슬립 고수라면 데이터 검색 및 표시에 대해 보다 세분화된 제어를 제공하는 [포켓몬 도감](https://pks.raenonx.cc/kr/pokedex) 를 사용해보세요!"
@@ -456,9 +413,6 @@
       }
     },
     "Team": {
-      "CurrentEnergy": "에너지",
-      "SubSkill": "서브 스킬",
-      "NatureEffect": "성격 효과",
       "Box": {
         "DisplayType": {
           "Frequency": "도우미 시간",
@@ -587,6 +541,68 @@
       "Tips": "Increase only if the image quality is bad. Higher value could decrease accuracy."
     }
   },
+  "Pokemon": {
+    "Stats": {
+      "Strength": {
+        "Berry": "나무열매 에너지",
+        "Ingredient": "식재료 능력치",
+        "Skill": "스킬 에너지",
+        "Total": "종합적인 능력치"
+      },
+      "Count": {
+        "Berry": "나무열매",
+        "Ingredient": "식재료"
+      },
+      "Ingredient": {
+        "Rate": "나무열매:식재료 비율",
+        "MealCoverage": "Meal Coverage"
+      },
+      "MainSkill": {
+        "Level": "스킬 레벨",
+        "DailyCount": "예상되는 스킬 횟수",
+        "TriggerRate": "스킬 발동률"
+      },
+      "Frequency": {
+        "Common": "도우미 시간",
+        "Base": "기본 도우미 시간",
+        "Berry": "나무열매 도우미 시간",
+        "Ingredient": "식재료 도우미 시간",
+        "Equivalent": "도우미 시간"
+      },
+      "TimeToFullPack": {
+        "Primary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 1)",
+        "Secondary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 2)"
+      }
+    },
+    "Info": {
+      "Name": "이름",
+      "PokemonType": "포켓몬 타입",
+      "SleepType": "수면 타입",
+      "Specialty": "특기",
+      "Berry": "나무열매",
+      "Ingredient": "식재료",
+      "MainSkill": "메인 스킬",
+      "Evolution": "진화단계",
+      "Production": "생산",
+      "SleepStyle": "잠자는 모습",
+      "Stats":{
+        "Name": "능력치",
+        "Friendship": "프렌드 포인트",
+        "Recruit": "동료가 되어",
+        "TransferReward": "박사에게 포켓몬을 보낼때 받는 보상"
+      },
+      "Flags": {
+        "EventOnly": "이벤트 한정"
+      }
+    },
+    "Individual": {
+      "Id": "ID",
+      "DateRegistered": "등록일",
+      "Level": "포켓몬 레벨",
+      "SubSkill": "서브 스킬",
+      "NatureEffect": "성격 효과"
+    }
+  },
   "Producing": {
     "State": {
       "Base": "Base",
@@ -622,22 +638,6 @@
       "Mode": "Mode",
       "Shared": "Shared",
       "BySpecialty": "By Specialty"
-    },
-    "Stats": {
-      "Strength": {
-        "Berry": "나무열매 에너지",
-        "Ingredient": "식재료 능력치",
-        "Total": "종합적인 능력치"
-      },
-      "MainSkill": {
-        "DailyCount": "예상되는 스킬 횟수",
-        "TriggerRate": "스킬 발동률"
-      },
-      "Frequency": "도우미 시간",
-      "TimeToFullPack": {
-        "Primary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 1)",
-        "Secondary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 2)"
-      }
     }
   },
   "Rating": {

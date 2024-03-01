@@ -69,18 +69,18 @@
           }
         },
         "ConfigSource": {
-          "Name": "Source",
-          "Default": "Default",
-          "Override": "Override"
+          "Name": "Origen",
+          "Default": "Por defecto",
+          "Override": "Anular"
         },
         "StatsType": {
           "Total": "Total",
-          "Berry": "Berry",
-          "Ingredient": "Ingredient",
-          "Skill": "Skill",
-          "Frequency": "Frequency",
-          "Energy": "Energy",
-          "Inventory": "Inventory"
+          "Berry": "Baya",
+          "Ingredient": "Ingrediente",
+          "Skill": "Habilidad",
+          "Frequency": "Frecuencia",
+          "Energy": "Energía",
+          "Inventory": "Inventario"
         }
       },
       "Member": {
@@ -364,49 +364,6 @@
       "Welcome": "Bienvenido!"
     },
     "Pokedex": {
-      "Info": {
-        "Berry": "Baya",
-        "Evolution": "Evoluciones",
-        "Ingredient": "Ingrediente",
-        "MainSkill": "Habilidad principal",
-        "Name": "Nombre",
-        "PokemonLevel": "Nivel",
-        "PokemonType": "Tipo",
-        "Production": "Producción",
-        "SleepType": "Tipo de sueño",
-        "Specialty": "Especialidad",
-        "Stats": "Estadísticas"
-      },
-      "Stats": {
-        "FrequencyBase": "Frecuencia (Base)",
-        "FrequencyEquivalent": "Frecuencia (Equivalente)",
-        "Friendship": "Puntos de Amistad",
-        "Recruit": "Recompensas",
-        "TransferReward": "Recompensa al enviar el Pokémon al profesor",
-        "TimeToFullPack": {
-          "Primary": "Tiempo para Capacidad Completa (Sueño 1)",
-          "Secondary": "Tiempo para Capacidad Completa (Sueño 2)"
-        },
-        "MainSkillTriggerRate": "Tasa de Activación de Habilidad",
-        "EventOnly": "Solo Evento"
-      },
-      "Sort": {
-        "Id": "ID",
-        "DateRegistered": "Fecha de Registro",
-        "IngredientEnergy": "Vigor de Ingredientes",
-        "IngredientCount": "Cantidad de Ingredientes",
-        "IngredientRate": "Tasa de Ingredientes",
-        "BerryEnergy": "Vigor de Bayas",
-        "BerryCount": "Cantidad de Bayas",
-        "MainSkillLevel": "Nivel de Habilidad",
-        "FrequencyOfBerry": "Frecuencia (Bayas)",
-        "FrequencyOfIngredient": "Frecuencia (Ingredientes)",
-        "FriendshipPoint": "Puntos de Amistad",
-        "SkillCount": "Activaciones de Habilidad",
-        "SkillStrength": "Vigor de Habilidad",
-        "TotalEnergy": "Vigor Total",
-        "MealCoverage": "Cobertura de Comida"
-      },
       "Tier": {
         "Details": "Detalles",
         "Tips": "Para usuarios avanzados, usa [Pokédex](https://pks.raenonx.cc/en/pokedex), que entrega un control más específico en la búsqueda y en la visualización de los datos."
@@ -456,9 +413,6 @@
       }
     },
     "Team": {
-      "CurrentEnergy": "Vigor",
-      "SubSkill": "Habilidad secundaria",
-      "NatureEffect": "Efecto de Naturaleza",
       "Box": {
         "DisplayType": {
           "Frequency": "Frecuencia",
@@ -587,6 +541,68 @@
       "Tips": "Aumenta solo si la calidad de la imagen es mala. Valores altos pueden disminuir la precisión."
     }
   },
+  "Pokemon": {
+    "Stats": {
+      "Strength": {
+        "Berry": "Vigor de Bayas",
+        "Ingredient": "Vigor de Ingredientes",
+        "Skill": "Vigor de Habilidad",
+        "Total": "Vigor total"
+      },
+      "Count": {
+        "Berry": "Cantidad de Bayas",
+        "Ingredient": "Cantidad de Ingredientes"
+      },
+      "Ingredient": {
+        "Rate": "Tasa de Ingredientes",
+        "MealCoverage": "Cobertura de Comida"
+      },
+      "MainSkill": {
+        "Level": "Nivel de Habilidad",
+        "DailyCount": "Recuento de habilidades esperado",
+        "TriggerRate": "Tasa de Activación de Habilidad"
+      },
+      "Frequency": {
+        "Common": "Frecuencia",
+        "Base": "Frecuencia (Base)",
+        "Berry": "Frecuencia (Bayas)",
+        "Ingredient": "Frecuencia (Ingredientes)",
+        "Equivalent": "Frecuencia (Equivalente)"
+      },
+      "TimeToFullPack": {
+        "Primary": "Tiempo para Capacidad Completa (Sueño 1)",
+        "Secondary": "Tiempo para Capacidad Completa (Sueño 2)"
+      }
+    },
+    "Info": {
+      "Name": "Nombre",
+      "PokemonType": "Tipo",
+      "SleepType": "Tipo de sueño",
+      "Specialty": "Especialidad",
+      "Berry": "Baya",
+      "Ingredient": "Ingrediente",
+      "MainSkill": "Habilidad principal",
+      "Evolution": "Evoluciones",
+      "Production": "Producción",
+      "SleepStyle": "Estilos de sueños",
+      "Stats": {
+        "Name": "Estadísticas",
+        "Friendship": "Puntos de Amistad",
+        "Recruit": "Recompensas",
+        "TransferReward": "Recompensa al enviar el Pokémon al profesor"
+      },
+      "Flags": {
+        "EventOnly": "Solo Evento"
+      }
+    },
+    "Individual": {
+      "Id": "ID",
+      "DateRegistered": "Fecha de Registro",
+      "Level": "Nivel",
+      "SubSkill": "Habilidad secundaria",
+      "NatureEffect": "Efecto de Naturaleza"
+    }
+  },
   "Producing": {
     "State": {
       "Base": "Base",
@@ -622,22 +638,6 @@
       "Mode": "Modo",
       "Shared": "Compartido",
       "BySpecialty": "Por especialidad"
-    },
-    "Stats": {
-      "Strength": {
-        "Berry": "Vigor de Bayas",
-        "Ingredient": "Vigor de Ingredientes",
-        "Total": "Vigor total"
-      },
-      "MainSkill": {
-        "DailyCount": "Recuento de habilidades esperado",
-        "TriggerRate": "Tasa de Activación de Habilidad"
-      },
-      "Frequency": "Frecuencia",
-      "TimeToFullPack": {
-        "Primary": "Tiempo para Capacidad Completa (Sueño 1)",
-        "Secondary": "Tiempo para Capacidad Completa (Sueño 2)"
-      }
     }
   },
   "Rating": {

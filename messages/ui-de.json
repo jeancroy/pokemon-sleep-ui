@@ -364,49 +364,6 @@
       "Welcome": "Willkommen!"
     },
     "Pokedex": {
-      "Info": {
-        "Berry": "Beere",
-        "Evolution": "Entwicklungsstufe",
-        "Ingredient": "Zutat",
-        "MainSkill": "Haupttalent",
-        "Name": "Name",
-        "PokemonLevel": "Pokemon Level",
-        "PokemonType": "Pokemontyp",
-        "Production": "Produktion",
-        "SleepType": "Schlaftyp",
-        "Specialty": "Spezialität",
-        "Stats": "Status"
-      },
-      "Stats": {
-        "FrequencyBase": "Basisfrequenz",
-        "FrequencyEquivalent": "verhältnismäßige Frequenz",
-        "Friendship": "Max. Freundespunkte",
-        "Recruit": "Befreundet",
-        "TransferReward": "Belohnung für den Transfer des Pokemon an den Professor",
-        "TimeToFullPack": {
-          "Primary": "Zeit bis Inventar voll ist (Sleep 1)",
-          "Secondary": "Zeit bis Inventar voll ist (Sleep 2)"
-        },
-        "MainSkillTriggerRate": "Talent-Auslöserate",
-        "EventOnly": "Nur Event"
-      },
-      "Sort": {
-        "Id": "ID",
-        "DateRegistered": "Registrierungsdatum",
-        "IngredientEnergy": "Zutatenstärke",
-        "IngredientCount": "Zutatenanzahl",
-        "IngredientRate": "Zutatenwahrscheinlichkeit",
-        "BerryEnergy": "Beerenstärke",
-        "BerryCount": "Beerenanzahl",
-        "MainSkillLevel": "Haupttalent Level",
-        "FrequencyOfBerry": "Frequenz (Beeren)",
-        "FrequencyOfIngredient": "Frequenz (Zutaten)",
-        "FriendshipPoint": "Freundespunkte",
-        "SkillCount": "Haupttalentanzahl",
-        "SkillStrength": "Haupttalentstärke",
-        "TotalEnergy": "Gesamtstärke",
-        "MealCoverage": "Gericht-Abdeckung"
-      },
       "Tier": {
         "Details": "Details",
         "Tips": "Erfahrene Nutzer bitte [Pokedex](https://pks.raenonx.cc/de/pokedex) versuchen, was eine feinere Kontrolle der Datensuche und Darstellung bietet."
@@ -456,9 +413,6 @@
       }
     },
     "Team": {
-      "CurrentEnergy": "Stärke",
-      "SubSkill": "Nebentalent",
-      "NatureEffect": "Effekt des Wesens",
       "Box": {
         "DisplayType": {
           "Frequency": "Frequenz",
@@ -587,6 +541,68 @@
       "Tips": "Erhöhe den Wert nur, wenn die Bildqualität schlecht ist. Ein höherer Wert könnte die Genauigkeit verringern."
     }
   },
+  "Pokemon": {
+    "Stats": {
+      "Strength": {
+        "Berry": "Beerenstärke",
+        "Ingredient": "Zutaten-Stärke",
+        "Skill": "Haupttalentstärke",
+        "Total": "Gesamt-Stärke"
+      },
+      "Count": {
+        "Berry": "Beerenanzahl",
+        "Ingredient": "Zutatenanzahl"
+      },
+      "Ingredient": {
+        "Rate": "Zutatenwahrscheinlichkeit",
+        "MealCoverage": "Gericht-Abdeckung"
+      },
+      "MainSkill": {
+        "Level": "Haupttalent Level",
+        "DailyCount": "Erwartete Fähigkeiten-Auslösungen",
+        "TriggerRate": "Talent-Auslöserate"
+      },
+      "Frequency": {
+        "Common": "Frequenz",
+        "Base": "Basisfrequenz",
+        "Berry": "Frequenz (Beeren)",
+        "Ingredient": "Frequenz (Zutaten)",
+        "Equivalent": "verhältnismäßige Frequenz"
+      },
+      "TimeToFullPack": {
+        "Primary": "Zeit bis Inventar voll ist (Sleep 1)",
+        "Secondary": "Zeit bis Inventar voll ist (Sleep 2)"
+      }
+    },
+    "Info": {
+      "Name": "Name",
+      "PokemonType": "Pokemontyp",
+      "SleepType": "Schlaftyp",
+      "Specialty": "Spezialität",
+      "Berry": "Beere",
+      "Ingredient": "Zutat",
+      "MainSkill": "Haupttalent",
+      "Evolution": "Entwicklungsstufe",
+      "Production": "Produktion",
+      "SleepStyle": "Schlafpose",
+      "Stats": {
+        "Name": "Status",
+        "Friendship": "Max. Freundespunkte",
+        "Recruit": "Befreundet",
+        "TransferReward": "Belohnung für den Transfer des Pokemon an den Professor"
+      },
+      "Flags": {
+        "EventOnly": "Nur Event"
+      }
+    },
+    "Individual": {
+      "Id": "ID",
+      "DateRegistered": "Registrierungsdatum",
+      "Level": "Pokemon Level",
+      "SubSkill": "Nebentalent",
+      "NatureEffect": "Effekt des Wesens"
+    }
+  },
   "Producing": {
     "State": {
       "Base": "Grundwert",
@@ -622,22 +638,6 @@
       "Mode": "Modus",
       "Shared": "Geteilt",
       "BySpecialty": "Nach Spezialität"
-    },
-    "Stats": {
-      "Strength": {
-        "Berry": "Beerenstärke",
-        "Ingredient": "Zutaten-Stärke",
-        "Total": "Gesamt-Stärke"
-      },
-      "MainSkill": {
-        "DailyCount": "Erwartete Fähigkeiten-Auslösungen",
-        "TriggerRate": "Talent-Auslöserate"
-      },
-      "Frequency": "Frequenz",
-      "TimeToFullPack": {
-        "Primary": "Zeit bis Inventar voll ist (Sleep 1)",
-        "Secondary": "Zeit bis Inventar voll ist (Sleep 2)"
-      }
     }
   },
   "Rating": {

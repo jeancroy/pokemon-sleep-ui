@@ -76,7 +76,7 @@ export const PokedexTierList = async ({params}: DefaultPageProps) => {
         'UI.Common',
         'UI.Metadata',
         'UI.InPage.Pokedex',
-        'UI.InPage.Team',
+        'UI.Pokemon',
       ]}>
         <PokedexTierListClient {...props}/>
       </I18nProvider>

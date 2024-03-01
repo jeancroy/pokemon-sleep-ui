@@ -3,9 +3,9 @@ import {ProducingParamsSort} from '@/ui/info/production/client/type';
 
 
 export const producingParamsSortToI18nId: {
-  [sort in ProducingParamsSort]: I18nMessageKeysOfNamespace<'UI.InPage.Pokedex'>
+  [sort in ProducingParamsSort]: I18nMessageKeysOfNamespace<'UI.Pokemon'>
 } = {
-  id: 'Sort.Id',
-  ingredientRate: 'Sort.IngredientRate',
-  skillRate: 'Stats.MainSkillTriggerRate',
+  id: 'Individual.Id',
+  ingredientRate: 'Stats.Ingredient.Rate',
+  skillRate: 'Stats.MainSkill.TriggerRate',
 };

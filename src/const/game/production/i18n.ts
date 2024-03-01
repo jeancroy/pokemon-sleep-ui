@@ -25,14 +25,14 @@ export const pokemonProducingStateI18nId: {
 };
 
 export const teamMemberProductionSortingBasisI18nId: {
-  [basis in TeamMemberProductionSortingBasis]: I18nMessageKeysOfNamespace<'UI.Producing.Stats'>
+  [basis in TeamMemberProductionSortingBasis]: I18nMessageKeysOfNamespace<'UI.Pokemon.Stats'>
 } = {
   totalStrength: 'Strength.Total',
   berryStrength: 'Strength.Berry',
   ingredientStrength: 'Strength.Ingredient',
   mainSkillTriggerCount: 'MainSkill.DailyCount',
   mainSkillTriggerRate: 'MainSkill.TriggerRate',
-  frequency: 'Frequency',
+  frequency: 'Frequency.Common',
   timeToFullPackPrimary: 'TimeToFullPack.Primary',
   timeToFullPackSecondary: 'TimeToFullPack.Secondary',
 };

@@ -3,9 +3,9 @@ import {I18nMessageKeysOfNamespace} from '@/types/i18n';
 
 
 export const displayTypeToI18nId: {
-  [displayType in MapUnlockTableDisplayType]: I18nMessageKeysOfNamespace<'UI.InPage'>
+  [displayType in MapUnlockTableDisplayType]: I18nMessageKeysOfNamespace<'UI.Pokemon.Info'>
 } = {
-  sleepStyle: 'Map.SleepStyle',
-  specialty: 'Pokedex.Info.Specialty',
-  sleepType: 'Pokedex.Info.SleepType',
+  sleepStyle: 'SleepStyle',
+  specialty: 'Specialty',
+  sleepType: 'SleepType',
 };

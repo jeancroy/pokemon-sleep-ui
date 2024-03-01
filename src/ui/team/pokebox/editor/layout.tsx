@@ -62,7 +62,7 @@ export const PokeInBoxEditLayout = ({
   } = pokeInBox;
   const t = useTranslations('Game');
   const t2 = useTranslations('UI.Common');
-  const t3 = useTranslations('UI.InPage.Pokedex');
+  const t3 = useTranslations('UI.Pokemon.Individual');
   const t4 = useTranslations('UI.InPage.Team.Box');
 
   const pokemon = pokedexMap[pokemonId];
@@ -194,7 +194,7 @@ export const PokeInBoxEditLayout = ({
       </Flex>
       <InputRowWithTitle noFixedTitleWidth title={
         <div className="px-2">
-          {t3('Sort.DateRegistered')}
+          {t3('DateRegistered')}
         </div>
       }>
         <InputBox

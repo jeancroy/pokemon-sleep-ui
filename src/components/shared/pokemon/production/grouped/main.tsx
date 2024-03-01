@@ -18,7 +18,7 @@ type Props = {
 };
 
 export const PokemonGroupedProduction = ({grouped}: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex.Info');
+  const t = useTranslations('UI.Pokemon.Info');
   const genericIconDimension: Dimension = 'size-8';
 
   return (

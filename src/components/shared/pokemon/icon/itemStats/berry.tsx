@@ -24,7 +24,7 @@ export const PokemonBerryStats = ({
   berryData,
   ...props
 }: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex.Info');
+  const t = useTranslations('UI.Pokemon.Info');
 
   const commonProps: PokemonItemStatsCommonProps = {
     targetSpecialty: specialtyIdMap.berry,

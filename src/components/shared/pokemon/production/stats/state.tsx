@@ -49,7 +49,7 @@ export const PokemonDetailedProducingStatsOfState = ({
 
   const {berry, ingredient, skill} = rate;
 
-  const t = useTranslations('UI.InPage.Pokedex.Info');
+  const t = useTranslations('UI.Pokemon.Info');
 
   return (
     <Flex className="bg-plate gap-1">

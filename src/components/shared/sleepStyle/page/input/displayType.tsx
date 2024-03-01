@@ -11,7 +11,7 @@ import {MapPageFilter, mapUnlockTableDisplayType} from '@/components/shared/slee
 
 
 export const MapInputDisplayType = ({filter, setFilter}: MapInputCommonProps) => {
-  const t = useTranslations('UI.InPage');
+  const t = useTranslations('UI.Pokemon.Info');
 
   return (
     <FilterTextInput

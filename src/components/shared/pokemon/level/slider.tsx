@@ -10,11 +10,11 @@ import {pokemonKeyLevels} from '@/types/game/pokemon/level';
 
 
 export const PokemonLevelSlider = (props: Omit<NumberSliderRequiredProps, 'text'>) => {
-  const t = useTranslations('UI.InPage.Pokedex.Info');
+  const t = useTranslations('UI.Pokemon.Individual');
 
   return (
     <NumberPresetRequired
-      sliderTitle={t('PokemonLevel')}
+      sliderTitle={t('Level')}
       presetTitle={
         <Flex center>
           <LevelIcon/>

@@ -89,7 +89,7 @@ export const AnalysisPage = async ({params}: Props) => {
         'UI.Common',
         'UI.Component.PokemonFilter',
         'UI.InPage.Analysis',
-        'UI.InPage.Pokedex',
+        'UI.Pokemon',
         'UI.Metadata',
       ]}>
         <AnalysisPageClient {...props}/>

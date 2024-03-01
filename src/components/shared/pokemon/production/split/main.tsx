@@ -26,7 +26,7 @@ export const PokemonProductionSplit = ({
   ingredient,
   skill,
 }: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex.Info');
+  const t = useTranslations('UI.Pokemon.Info');
 
   return (
     <Flex center className={clsx('gap-1', className)}>

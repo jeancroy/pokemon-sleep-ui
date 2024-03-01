@@ -76,11 +76,10 @@ export const Rating = async ({params}: DefaultPageProps) => {
         'Game',
         'UI.Common',
         'UI.Component.PokemonFilter',
-        'UI.InPage.Pokedex',
         'UI.InPage.Rating',
-        'UI.InPage.Team',
         'UI.Metadata',
         'UI.Ocr',
+        'UI.Pokemon',
         'UI.Rating',
       ]}>
         <RatingClient {...props}/>

@@ -17,20 +17,20 @@ type Props = PokemonInventoryCommonProps & {
 };
 
 export const PokemonTimeToFullPack = ({direction, fullPackStats, ...props}: Props) => {
-  const t = useTranslations('UI.InPage.Pokedex');
+  const t = useTranslations('UI.Pokemon.Stats.TimeToFullPack');
   const t2 = useTranslations('UI.Producing.State.Asleep');
 
   return (
     <Flex direction={direction} noFullWidth className={clsx(direction === 'row' && 'gap-3')}>
       <PokemonTimeToFullPackSingle
         title={<ProducingStateIcon state="sleep1Filled" alt={t2('Primary.Filled')}/>}
-        alt={t('Stats.TimeToFullPack.Primary')}
+        alt={t('Primary')}
         fullPackStatsOfSleep={fullPackStats.bySleep.primary}
         {...props}
       />
       <PokemonTimeToFullPackSingle
         title={<ProducingStateIcon state="sleep2Filled" alt={t2('Secondary.Filled')}/>}
-        alt={t('Stats.TimeToFullPack.Secondary')}
+        alt={t('Secondary')}
         fullPackStatsOfSleep={fullPackStats.bySleep.secondary}
         {...props}
       />

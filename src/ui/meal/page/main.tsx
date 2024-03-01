@@ -87,8 +87,7 @@ export const MealPage = async ({params}: Props) => {
         'UI.Component.MealCoverageCombo',
         'UI.Metadata',
         'UI.InPage.Cooking',
-        'UI.InPage.Pokedex',
-        'UI.InPage.Team',
+        'UI.Pokemon',
       ]}>
         <MealClient {...props}/>
       </I18nProvider>

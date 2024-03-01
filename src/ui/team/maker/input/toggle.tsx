@@ -26,7 +26,7 @@ export const TeamMakerInputToggles = ({
   } = input;
 
   const t = useTranslations('UI.InPage.Team');
-  const t2 = useTranslations('UI.InPage.Pokedex.Input');
+  const t2 = useTranslations('UI.Component.PokemonFilter');
 
   return (
     <>

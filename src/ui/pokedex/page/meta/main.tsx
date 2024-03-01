@@ -27,7 +27,7 @@ export const PokemonMeta = (props: PokemonDataProps) => {
   const {specialty, sleepType, skill} = pokemon;
 
   const t = useTranslations('Game');
-  const t2 = useTranslations('UI.InPage.Pokedex');
+  const t2 = useTranslations('UI.Pokemon');
 
   return (
     <Flex center className="info-section lg:flex-row">
@@ -37,7 +37,7 @@ export const PokemonMeta = (props: PokemonDataProps) => {
           <div className={clsx(
             'text-event-pokemon rounded-lg p-1 shadow-border shadow-fuchsia-700 dark:shadow-fuchsia-500',
           )}>
-            {t2('Stats.EventOnly')}
+            {t2('Info.Flags.EventOnly')}
           </div>
         }
         <PokemonName size="lg" pokemon={pokemon}/>
@@ -71,7 +71,7 @@ export const PokemonMeta = (props: PokemonDataProps) => {
           </Flex>
         </PokemonMetaSection>
         <PokemonMetaSection
-          title={t2('Sort.IngredientRate')}
+          title={t2('Stats.Ingredient.Rate')}
           contentClassName="flex justify-center"
         >
           <FlexLink href="/info/production" center className={clsx(
@@ -81,7 +81,7 @@ export const PokemonMeta = (props: PokemonDataProps) => {
           </FlexLink>
         </PokemonMetaSection>
         <PokemonMetaSection
-          title={t2('Stats.MainSkillTriggerRate')}
+          title={t2('Stats.MainSkill.TriggerRate')}
           contentClassName="flex justify-center"
         >
           <FlexLink href="/info/production" center className={clsx(
@@ -91,7 +91,7 @@ export const PokemonMeta = (props: PokemonDataProps) => {
           </FlexLink>
         </PokemonMetaSection>
         <PokemonMetaSection
-          title={t2('Info.Stats')}
+          title={t2('Info.Stats.Name')}
           contentClassName="flex justify-center"
         >
           <PokemonStats {...props}/>
