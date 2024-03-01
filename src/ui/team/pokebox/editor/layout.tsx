@@ -133,7 +133,7 @@ export const PokeInBoxEditLayout = ({
       </Flex>
       <PokemonEvolutionSelector
         pokemon={pokemon}
-        pokedex={pokedexMap}
+        pokedexMap={pokedexMap}
         onClick={(pokemon) => setPokeInBox({...pokeInBox, pokemon})}
       />
       <PokemonLevelSlider

@@ -18,7 +18,7 @@ import {isNotNullish} from '@/utils/type';
 
 
 export const SleepStyleSpecialClient = ({
-  pokedex,
+  pokedexMap,
   sleepdexMap,
   sleepStyleSpecialMap,
 }: SleepStyleSpecialServerDataProps) => {
@@ -70,7 +70,8 @@ export const SleepStyleSpecialClient = ({
         sleepdex={sleepdex}
         updateSleepdex={updateSleepdex}
         showPokemon={showPokemon}
-        pokemonListToShow={[...pokemonIdWithIncenseOnly].map((pokemonId) => pokedex[pokemonId]).filter(isNotNullish)}
+        pokemonListToShow={[...pokemonIdWithIncenseOnly]
+          .map((pokemonId) => pokedexMap[pokemonId]).filter(isNotNullish)}
         getSleepStylesFromPokemon={getSleepStylesFromPokemon}
         sleepStyleDependencies={[sleepStyleSpecialMap]}
       />
@@ -84,7 +85,8 @@ export const SleepStyleSpecialClient = ({
         sleepdex={sleepdex}
         updateSleepdex={updateSleepdex}
         showPokemon={showPokemon}
-        pokemonListToShow={[...pokemonIdWithUnreleased].map((pokemonId) => pokedex[pokemonId]).filter(isNotNullish)}
+        pokemonListToShow={[...pokemonIdWithUnreleased]
+          .map((pokemonId) => pokedexMap[pokemonId]).filter(isNotNullish)}
         getSleepStylesFromPokemon={getSleepStylesFromPokemon}
         sleepStyleDependencies={[sleepStyleSpecialMap]}
         hideButtons

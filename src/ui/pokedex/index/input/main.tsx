@@ -31,7 +31,7 @@ import {toUnique} from '@/utils/array';
 
 type Props = PokedexInputProps & PokedexDataProps;
 
-export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
+export const PokedexInput = ({pokedexData, maxLevel, ...props}: Props) => {
   const {
     filter,
     setFilter,
@@ -59,7 +59,7 @@ export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
           <Flex className="gap-1 pr-1">
             <MapFilter
               highlight
-              mapIds={toUnique(pokedex
+              mapIds={toUnique(pokedexData
                 .flatMap(({sleepStyles}) => sleepStyles.map(({mapId}) => mapId)))
                 .sort((a, b) => a - b)}
               {...getMultiSelectOnClickProps({
@@ -75,7 +75,7 @@ export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
               }))}/>
             </InputRowWithTitle>
             <PokemonFilter
-              pokemonList={pokedex}
+              pokemonList={pokedexData}
               skipLevelInput
               {...props}
             />
@@ -89,7 +89,7 @@ export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
             />
             <SnorlaxFavoriteInput
               filterKey="snorlaxFavorite"
-              pokemonList={pokedex}
+              pokemonList={pokedexData}
               {...props}
             />
             <FilterTextInput

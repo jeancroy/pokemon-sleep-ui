@@ -32,7 +32,7 @@ type Props = PokemonItemStatsFromPokeboxCommonProps & {
 export const PokemonItemStatsFromPokeboxList = ({
   targetSpecialty,
   getIcon,
-  pokedex,
+  pokedexMap,
   pokemonProducingParamsMap,
   berryDataMap,
   calculatedConfigBundle,
@@ -57,7 +57,7 @@ export const PokemonItemStatsFromPokeboxList = ({
   const producingStats = React.useMemo(() => (
     pokeInBoxList
       .map((pokeInBox) => {
-        const pokemonInfo = pokedex[pokeInBox.pokemon];
+        const pokemonInfo = pokedexMap[pokeInBox.pokemon];
 
         if (!pokemonInfo || !filter.internal({pokeInBox, pokemonInfo})) {
           return null;

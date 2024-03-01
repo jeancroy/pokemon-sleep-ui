@@ -34,7 +34,7 @@ export const PokemonConfig = (props: PokemonConfigProps) => {
     <Flex className="gap-1.5">
       <PokemonEvolutionSelector
         pokemon={pokemon}
-        pokedex={pokedexMap}
+        pokedexMap={pokedexMap}
         onClick={(pokemonId) => onDataUpdated({pokemonId})}
       />
       <PokemonIngredientPicker

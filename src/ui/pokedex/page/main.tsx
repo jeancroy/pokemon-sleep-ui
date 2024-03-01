@@ -42,7 +42,7 @@ export const Pokemon = async ({params}: PageProps<PokedexPageParams>) => {
 
   const [
     session,
-    pokedex,
+    pokedexMap,
     pokemonProducingParams,
     ingredientChainMap,
     sleepStyles,
@@ -77,7 +77,7 @@ export const Pokemon = async ({params}: PageProps<PokedexPageParams>) => {
   }
 
   const props: PokemonDataProps = {
-    pokedex,
+    pokedexMap,
     pokemon,
     pokemonBranch,
     pokemonProducingParams,

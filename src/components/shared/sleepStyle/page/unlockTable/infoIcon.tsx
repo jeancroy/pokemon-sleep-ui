@@ -12,18 +12,18 @@ import {SleepStyleNormalFlattened} from '@/types/game/sleepStyle';
 
 type Props = {
   data: SleepStyleNormalFlattened,
-  pokedex: PokedexMap,
+  pokedexMap: PokedexMap,
   displayType: MapUnlockTableDisplayType,
 };
 
-export const MapTableInfoIcon = ({data, pokedex, displayType}: Props) => {
+export const MapTableInfoIcon = ({data, pokedexMap, displayType}: Props) => {
   if (displayType === 'sleepStyle') {
     const {style} = data;
 
     return <SleepdexStyleIcon styleId={style.style} dimension="size-4"/>;
   }
 
-  const pokemon = pokedex[data.pokemonId];
+  const pokemon = pokedexMap[data.pokemonId];
 
   if (!pokemon) {
     return <QuestionMarkCircleIcon className="size-4"/>;

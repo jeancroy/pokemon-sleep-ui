@@ -17,7 +17,7 @@ export const SleepStyleSpecial = async ({params}: DefaultPageProps) => {
   const {locale} = params;
   const session = await getServerSession(authOptions);
   const [
-    pokedex,
+    pokedexMap,
     sleepdexMap,
     sleepStyleSpecialMap,
   ] = await Promise.all([
@@ -27,7 +27,7 @@ export const SleepStyleSpecial = async ({params}: DefaultPageProps) => {
   ]);
 
   const props: SleepStyleSpecialServerDataProps = {
-    pokedex,
+    pokedexMap,
     sleepStyleSpecialMap,
     sleepdexMap,
   };

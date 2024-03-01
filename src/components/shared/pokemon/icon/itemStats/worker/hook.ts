@@ -11,7 +11,7 @@ type UsePokemonProducingStatsWorkerOpts = PokemonItemStatsWorkerOpts & {
 
 export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProducingStatsWorkerOpts) => {
   const {
-    pokedex,
+    pokedexMap,
     pokemonProducingParamsMap,
     pokemonIngredientProduction,
     berryDataMap,
@@ -52,7 +52,7 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
   const calculate = () => {
     // Explicit to avoid copying unwanted properties
     work({
-      pokedex,
+      pokedexMap,
       pokemonProducingParamsMap,
       pokemonIngredientProduction,
       berryDataMap,

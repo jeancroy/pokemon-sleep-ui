@@ -7,15 +7,15 @@ import {isNotNullish} from '@/utils/type';
 
 type Props = {
   pokemon: PokemonInfo,
-  pokedex: PokedexMap,
+  pokedexMap: PokedexMap,
   onClick: (id: PokemonId) => void,
 };
 
-export const PokemonEvolutionSelector = ({pokemon, pokedex, onClick}: Props) => {
+export const PokemonEvolutionSelector = ({pokemon, pokedexMap, onClick}: Props) => {
   const {evolution} = pokemon;
   const relatedPokemon = [evolution.previous, pokemon.id, ...evolution.next.map(({id}) => id)]
     .filter(isNotNullish)
-    .map((id) => pokedex[id])
+    .map((id) => pokedexMap[id])
     .filter(isNotNullish);
 
   return (

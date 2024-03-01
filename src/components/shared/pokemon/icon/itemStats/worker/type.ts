@@ -13,7 +13,7 @@ import {ConfigRequiredData} from '@/types/userData/config/data';
 
 export type PokemonItemStatsWorkerOpts = ConfigRequiredData & {
   input: PokemonIndividualParams,
-  pokedex: PokedexMap,
+  pokedexMap: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   pokemonIngredientProduction: PokemonIngredientProduction[],
   berryDataMap: BerryDataMap,

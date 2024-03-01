@@ -19,7 +19,7 @@ import {getPokemonProducingParams} from '@/utils/game/producing/params';
 
 export const PokedexClient = (props: PokedexDataProps) => {
   const {
-    pokedex,
+    pokedexData,
     pokemonProducingParamsMap,
     preloaded,
   } = props;
@@ -27,7 +27,7 @@ export const PokedexClient = (props: PokedexDataProps) => {
   const {data: session} = useSession();
   const [loading, setLoading] = React.useState(false);
   const {filter, setFilter, isIncluded} = usePokedexFilter({
-    data: pokedex,
+    data: pokedexData,
     preloadedDisplay: preloaded.display,
     ...props,
   });
@@ -38,7 +38,7 @@ export const PokedexClient = (props: PokedexDataProps) => {
     count,
   } = usePokedexCalc({
     session,
-    pokemonList: pokedex,
+    pokemonList: pokedexData,
     filter,
     isPokemonIncluded: isIncluded,
     setLoading,

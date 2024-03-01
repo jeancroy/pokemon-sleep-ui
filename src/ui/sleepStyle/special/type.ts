@@ -4,7 +4,7 @@ import {SleepStyleSpecialMap} from '@/types/game/sleepStyle';
 
 
 export type SleepStyleSpecialServerDataProps = {
-  pokedex: PokedexMap,
+  pokedexMap: PokedexMap,
   sleepdexMap: SleepdexMap,
   sleepStyleSpecialMap: SleepStyleSpecialMap,
 };

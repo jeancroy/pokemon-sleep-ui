@@ -9,7 +9,7 @@ import {isNotNullish} from '@/utils/type';
 
 const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
   const {
-    pokedex,
+    pokedexMap,
     pokemonProducingParamsMap,
     pokemonIngredientProduction,
     berryDataMap,
@@ -23,7 +23,7 @@ const onMessage = ({data}: MessageEvent<PokemonItemStatsWorkerOpts>) => {
 
   const producingStats: PokemonItemStatsCalcResult[] = pokemonIngredientProduction
     .flatMap(({pokemonId, ingredientChainId}) => {
-      const pokemon = pokedex[pokemonId];
+      const pokemon = pokedexMap[pokemonId];
 
       if (!pokemon) {
         return null;

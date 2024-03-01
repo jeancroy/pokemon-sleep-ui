@@ -13,7 +13,7 @@ import {isNotNullish} from '@/utils/type';
 
 type Props = PokemonDataProps & UsePokemonLinkPopupReturn;
 
-export const PokemonBranches = ({pokemon, pokemonBranch, pokedex, ...props}: Props) => {
+export const PokemonBranches = ({pokemon, pokemonBranch, pokedexMap, ...props}: Props) => {
   if (!pokemonBranch) {
     return null;
   }
@@ -23,7 +23,7 @@ export const PokemonBranches = ({pokemon, pokemonBranch, pokedex, ...props}: Pro
   return (
     <PokemonTitledLayout title={<ShareIcon className="size-6"/>} className="!gap-5 lg:flex-row">
       <PokemonBranchPortrait
-        pokemon={pokedex[pokemonId]}
+        pokemon={pokedexMap[pokemonId]}
         clickable={pokemonId !== pokemon.id}
         {...props}
       />
@@ -31,7 +31,7 @@ export const PokemonBranches = ({pokemon, pokemonBranch, pokedex, ...props}: Pro
         <ArrowDownIcon className="block lg:hidden"/>
         <ArrowRightIcon className="hidden lg:block"/>
       </div>
-      {branches.map((pokemonId) => pokedex[pokemonId]).filter(isNotNullish).map((branch) => (
+      {branches.map((pokemonId) => pokedexMap[pokemonId]).filter(isNotNullish).map((branch) => (
         <PokemonBranchPortrait
           key={branch.id}
           pokemon={branch}

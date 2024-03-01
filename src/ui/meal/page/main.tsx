@@ -39,7 +39,7 @@ export const MealPage = async ({params}: Props) => {
 
   const [
     session,
-    pokedex,
+    pokedexMap,
     pokemonProducingParamsMap,
     berryDataMap,
     ingredientMap,
@@ -65,7 +65,7 @@ export const MealPage = async ({params}: Props) => {
 
   const props: MealServerDataProps = {
     meal,
-    pokedex,
+    pokedexMap,
     pokemonProducingParamsMap,
     berryDataMap,
     ingredientMap,

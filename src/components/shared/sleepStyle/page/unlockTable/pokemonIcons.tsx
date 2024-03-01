@@ -28,7 +28,7 @@ export const MapUnlockTablePokemonIcons = ({
         getPokemon={({pokemonId}) => pokedexMap[pokemonId]}
         getPokemonId={({pokemonId}) => pokemonId}
         getInfo={(data) => (
-          <MapTableInfoIcon data={data} pokedex={pokedexMap} displayType={displayType}/>
+          <MapTableInfoIcon data={data} pokedexMap={pokedexMap} displayType={displayType}/>
         )}
         getClassName={({pokemonId, style}) => clsx(
           'm-0.5',

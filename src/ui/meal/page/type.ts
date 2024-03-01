@@ -13,7 +13,7 @@ import {ConfigRequiredData} from '@/types/userData/config/data';
 
 export type MealServerDataProps = ConfigRequiredData & {
   meal: Meal,
-  pokedex: PokedexMap,
+  pokedexMap: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   berryDataMap: BerryDataMap,
   ingredientMap: IngredientMap,

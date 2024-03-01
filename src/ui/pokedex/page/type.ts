@@ -15,7 +15,7 @@ import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
 export type PokemonDataProps = ConfigRequiredData & {
-  pokedex: PokedexMap,
+  pokedexMap: PokedexMap,
   pokemon: PokemonInfo,
   pokemonBranch: PokemonBranchData | null,
   pokemonProducingParams: PokemonProducingParams,

@@ -13,7 +13,7 @@ import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
 export type PokemonProducingStatsCommonProps = ConfigRequiredData & {
-  pokedex: PokedexMap,
+  pokedexMap: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
   pokemonIngredientProduction: PokemonIngredientProduction[],
   berryDataMap: BerryDataMap,

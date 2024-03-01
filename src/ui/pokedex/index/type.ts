@@ -30,7 +30,7 @@ export type PokedexFilterSave = Pick<
 >;
 
 export type PokedexDataProps = Omit<PokedexCalcDataProps, 'pokemonList' | 'preloaded'> & {
-  pokedex: PokedexData,
+  pokedexData: PokedexData,
   maxLevel: number,
   fieldMetaMap: FieldMetaMap,
   preloaded: {

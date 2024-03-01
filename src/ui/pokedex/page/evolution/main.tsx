@@ -12,14 +12,14 @@ import {PokemonTitledLayout} from '@/ui/pokedex/page/layout/titled';
 import {PokemonDataProps} from '@/ui/pokedex/page/type';
 
 
-export const PokemonEvolution = ({pokedex, pokemon, showPokemon}: PokemonDataProps & UsePokemonLinkPopupReturn) => {
+export const PokemonEvolution = ({pokedexMap, pokemon, showPokemon}: PokemonDataProps & UsePokemonLinkPopupReturn) => {
   const {evolution} = pokemon;
 
   return (
     <PokemonTitledLayout title={<ChevronDoubleUpIcon className="size-6"/>} className="!gap-5 lg:flex-row">
       <PokemonEvolutionPortrait
         dimension="size-40"
-        pokemon={evolution.previous ? pokedex[evolution.previous] : undefined}
+        pokemon={evolution.previous ? pokedexMap[evolution.previous] : undefined}
         showPokemon={showPokemon}
       />
       <div className="size-7 shrink-0">
@@ -36,7 +36,7 @@ export const PokemonEvolution = ({pokedex, pokemon, showPokemon}: PokemonDataPro
             <ArrowDownIcon className="block lg:hidden"/>
             <ArrowRightIcon className="hidden lg:block"/>
           </div>
-          <PokemonEvolutionNextStage pokedex={pokedex} evolutions={evolution.next} showPokemon={showPokemon}/>
+          <PokemonEvolutionNextStage pokedexMap={pokedexMap} evolutions={evolution.next} showPokemon={showPokemon}/>
         </>
       }
     </PokemonTitledLayout>

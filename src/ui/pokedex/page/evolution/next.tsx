@@ -9,17 +9,17 @@ import {PokemonEvolutionPortrait} from '@/ui/pokedex/page/evolution/portrait';
 
 
 type Props = {
-  pokedex: PokedexMap,
+  pokedexMap: PokedexMap,
   evolutions: EvolutionBranch[],
   showPokemon: UsePokemonLinkPopupReturn['showPokemon'],
 };
 
-export const PokemonEvolutionNextStage = ({pokedex, evolutions, showPokemon}: Props) => {
+export const PokemonEvolutionNextStage = ({pokedexMap, evolutions, showPokemon}: Props) => {
   return (
     <Flex direction="row" noFullWidth wrap center className="gap-2">
       {evolutions.map(({id, conditions}) => (
         <Flex key={id} noFullWidth className="gap-1">
-          <PokemonEvolutionPortrait dimension="size-44" pokemon={pokedex[id]} showPokemon={showPokemon}/>
+          <PokemonEvolutionPortrait dimension="size-44" pokemon={pokedexMap[id]} showPokemon={showPokemon}/>
           {conditions.map((condition, idx) => (
             <PokemonEvolutionCondition key={idx} condition={condition}/>
           ))}

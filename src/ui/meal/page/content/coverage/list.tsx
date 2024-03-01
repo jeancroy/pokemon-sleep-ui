@@ -12,13 +12,13 @@ import {isNotNullish} from '@/utils/type';
 
 
 export const MealContentCoverageList = ({ingredientLevel, ...props}: MealContentCoverageCommonProps) => {
-  const {pokedex, meal, ingredientChainMap} = props;
+  const {pokedexMap, meal, ingredientChainMap} = props;
 
   const {state, setState, showPokemon} = usePokemonLinkPopup();
 
   // Memoization is needed to prevent `usePokemonProducingStats()` keeps re-calculating
   const pokemonIngredientProduction = React.useMemo(
-    () => toPokemonList(pokedex)
+    () => toPokemonList(pokedexMap)
       .map(({id, ingredientChain}): PokemonIngredientProduction | null => {
         const chain = ingredientChainMap[ingredientChain];
         const ingredientIncludedInMeal = chain.ingredients[ingredientLevel]
@@ -34,7 +34,7 @@ export const MealContentCoverageList = ({ingredientLevel, ...props}: MealContent
         };
       })
       .filter(isNotNullish),
-    [pokedex],
+    [pokedexMap],
   );
   const data = useMealContentCoverageItemData({
     pokemonIngredientProduction,

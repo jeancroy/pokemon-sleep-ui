@@ -48,7 +48,7 @@ export const IngredientPage = async ({params}: Props) => {
     ingredientChainMap,
     mainSkillMap,
     subSkillMap,
-    pokedex,
+    pokedexMap,
     pokemonMaxLevel,
     recipeLevelData,
     configRequiredData,
@@ -70,7 +70,7 @@ export const IngredientPage = async ({params}: Props) => {
   const {mealMap} = configRequiredData;
 
   const props: IngredientProductionDataProps = {
-    pokedex,
+    pokedexMap,
     pokemonIngredientProduction,
     pokemonProducingParamsMap,
     berryDataMap,

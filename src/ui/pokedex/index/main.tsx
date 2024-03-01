@@ -72,7 +72,7 @@ export const Pokedex = async ({params}: DefaultPageProps) => {
   ]);
 
   const props: PokedexDataProps = {
-    pokedex,
+    pokedexData: pokedex,
     pokemonProducingParamsMap,
     maxLevel,
     berryDataMap,
