@@ -5,10 +5,7 @@ import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
 import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
 import {initialPokedexTierListInputSortDisplay} from '@/ui/pokedex/tier/input/const';
-import {
-  PokedexTierListInput,
-  PokedexTierListInputControls,
-} from '@/ui/pokedex/tier/input/type';
+import {PokedexTierListInput, PokedexTierListInputControls} from '@/ui/pokedex/tier/input/type';
 import {getPossibleIngredientsFromChain} from '@/utils/game/ingredient/chain';
 
 
@@ -25,6 +22,7 @@ export const usePokedexTierListInput = (opts: UsePokedexTierListInputOpts): Poke
         ingredient: {},
         mainSkill: {},
         snorlaxFavorite: defaultSnorlaxFavorite,
+        mainSkillLevel: 'max',
         sort: initialPokedexTierListInputSortDisplay,
         display: initialPokedexTierListInputSortDisplay,
         ...defaultPokemonIndividualParams,

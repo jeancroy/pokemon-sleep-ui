@@ -45,10 +45,12 @@ export const pokemonSorterGetterBySortType: {[type in PokemonSortType]: PokemonS
     getPokemonRateSorter(opts).fullPackStats.bySleep.secondary?.duration.vacant ?? Infinity
   ),
   totalEnergy: (opts) => getTotalStrengthOfPokemonProduction(getPokemonRateSorter(opts)),
-  mainSkillLevel: ({individual, skillData, ...opts}) => getMainSkillLevel({
+  mainSkillLevel: ({individual, skillData}) => getMainSkillLevel({
     seedsUsed: individual.seeds.gold,
+    evolutionCount: individual.evolutionCount,
+    subSkillBonus: individual.subSkillBonus,
     mainSkillData: skillData,
-    ...opts,
+    mainSkillLevelOverride: individual.mainSkillLevelOverride,
   }),
   mainSkillTriggerRate: ({pokemonProducingParams}) => pokemonProducingParams.skillPercent ?? 0,
   mainSkillDailyCount: (opts) => getPokemonRateSorter(opts).skill.qty.equivalent,

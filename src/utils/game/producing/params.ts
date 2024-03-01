@@ -1,6 +1,7 @@
 import {defaultNeutralOpts, defaultProducingParams} from '@/const/game/production/defaults';
 import {defaultSeedUsage} from '@/const/game/seed';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
+import {MainSkillLevel} from '@/types/game/pokemon/mainSkill';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {PokemonProducingParams, PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {GroupedSubSkillBonus, SubSkillMap} from '@/types/game/pokemon/subSkill';
@@ -47,18 +48,21 @@ type GetProductionIndividualParamsOpts = {
   input: PokemonIndividualParams & Partial<ProductionImplicitParams>,
   pokemon: PokemonInfo,
   subSkillMap: SubSkillMap,
-  overrideLevel?: number,
+  override?: Partial<{
+    level: number,
+    mainSkillLevel: MainSkillLevel,
+  }>,
 };
 
 export const getProductionIndividualParams = ({
   input,
   pokemon,
   subSkillMap,
-  overrideLevel,
+  override,
 }: GetProductionIndividualParamsOpts): ProductionIndividualParams => {
   const {subSkill, nature} = input;
 
-  const level = overrideLevel ?? input.level;
+  const level = override?.level ?? input.level;
 
   return {
     level,
@@ -66,6 +70,7 @@ export const getProductionIndividualParams = ({
     evolutionCount: input.evolutionCount ?? getEvolutionCountFromPokemonInfo({pokemon}),
     subSkillBonus: getSubSkillBonus({level, pokemonSubSkill: subSkill, subSkillMap}),
     natureId: nature,
+    mainSkillLevelOverride: override?.mainSkillLevel,
   };
 };
 

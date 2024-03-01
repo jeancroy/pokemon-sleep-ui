@@ -73,6 +73,7 @@ export const getPokemonProductionIntermediateParams = ({
         evolutionCount,
         subSkillBonus,
         mainSkillData: skillData,
+        mainSkillLevelOverride: individual.mainSkillLevelOverride,
       }),
       skillData,
     }),

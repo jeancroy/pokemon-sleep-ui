@@ -65,6 +65,7 @@ export const toPokemonInfoWithSortingPayloadFromPokemonList = <TFilter extends P
       input: filter,
       pokemon,
       subSkillMap,
+      override: {mainSkillLevel: filter.mainSkillLevel},
     }),
     dateAdded: null,
     extra: null,

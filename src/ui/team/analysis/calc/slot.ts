@@ -51,7 +51,7 @@ export const getTeamProductionOfSlot = ({
     input: member,
     pokemon,
     subSkillMap,
-    overrideLevel,
+    override: {level: overrideLevel},
   });
 
   return {

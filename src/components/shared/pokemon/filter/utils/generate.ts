@@ -31,6 +31,7 @@ export const generatePokemonInputFilter = ({
 
 export const generatePokemonInputFilterExtended = (): PokemonInputFilterExtended => ({
   mapId: {},
+  mainSkillLevel: 'max',
   snorlaxFavorite: defaultSnorlaxFavorite,
   ...generatePokemonInputFilter({isLevelAgnostic: false}),
   ...defaultPokemonIndividualParams,

@@ -10,14 +10,14 @@ import {CookingConfig} from '@/types/userData/config/cooking/main';
 import {PokeInBox} from '@/types/userData/pokebox';
 import {UserProductionComparisonContent} from '@/types/userData/productionComparison';
 import {UserTeamAnalysisContent} from '@/types/userData/teamAnalysis';
-import {PokedexDisplay} from '@/ui/pokedex/index/type';
+import {PokedexFilterSave} from '@/ui/pokedex/index/type';
 import {PokeboxViewerDisplay} from '@/ui/team/pokebox/viewer/type';
 import {ToTeamCompFromPokeboxCommonOpts} from '@/utils/team/type';
 
 
 export type UserDataUploadOpts = {
   type: 'pokedex',
-  data: Omit<PokedexDisplay, 'ingredient'>,
+  data: PokedexFilterSave,
 } | {
   type: 'pokebox.display',
   data: PokeboxViewerDisplay,

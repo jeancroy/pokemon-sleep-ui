@@ -52,7 +52,6 @@ export const PokedexClient = (props: PokedexDataProps) => {
         level: filter.level,
         sort: filter.sort,
         display: filter.display,
-        mainSkill: filter.mainSkill,
         subSkill: filter.subSkill,
         nature: filter.nature,
         version: filter.version,
@@ -62,7 +61,6 @@ export const PokedexClient = (props: PokedexDataProps) => {
       filter.level,
       filter.sort,
       filter.display,
-      filter.mainSkill,
       filter.subSkill,
       filter.nature,
     ],
@@ -106,6 +104,7 @@ export const PokedexClient = (props: PokedexDataProps) => {
                 level={filter.level}
                 subSkill={filter.subSkill}
                 nature={filter.nature}
+                mainSkillLevel={filter.mainSkillLevel}
                 ingredients={source.ingredients}
                 snorlaxFavorite={filter.snorlaxFavorite}
                 calculatedConfigBundle={calculatedConfigBundle}

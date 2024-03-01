@@ -3,14 +3,14 @@ import {isDataIncludingAllOfFilter, isFilterMatchingSearch} from '@/components/i
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {PokemonId} from '@/types/game/pokemon';
-import {PokedexData, PokedexDisplay, PokedexFilter, PokemonInfoForPokedex} from '@/ui/pokedex/index/type';
+import {PokedexData, PokedexFilterSave, PokedexFilter, PokemonInfoForPokedex} from '@/ui/pokedex/index/type';
 import {generateInitialFilter} from '@/ui/pokedex/index/utils';
 import {Nullable} from '@/utils/type';
 
 
 type UsePokedexFilterOpts = UsePokemonFilterCommonData & {
   data: PokedexData,
-  preloadedDisplay: Nullable<Partial<PokedexDisplay>>,
+  preloadedDisplay: Nullable<Partial<PokedexFilterSave>>,
 };
 
 export const usePokedexFilter = ({data, preloadedDisplay, ...filterData}: UsePokedexFilterOpts) => {

@@ -51,7 +51,7 @@ export const getTeamMakerPokeInBoxDataForLimits = ({
           input: pokeInBox,
           pokemon,
           subSkillMap,
-          overrideLevel: actualLevel,
+          override: {level: actualLevel},
         }),
       };
     })

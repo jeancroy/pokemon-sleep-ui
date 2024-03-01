@@ -1,5 +1,5 @@
 import {PokemonInfo} from '@/types/game/pokemon';
-import {MainSkillEffect} from '@/types/game/pokemon/mainSkill';
+import {MainSkillEffect, MainSkillLevel} from '@/types/game/pokemon/mainSkill';
 import {NatureId} from '@/types/game/pokemon/nature';
 import {SeedUsage} from '@/types/game/pokemon/seed';
 import {GroupedSubSkillBonus} from '@/types/game/pokemon/subSkill';
@@ -21,6 +21,7 @@ export type ProductionImplicitParams = {
 
 export type ProductionIndividualParams = ProductionSingleParams & ProductionImplicitParams & {
   level: number,
+  mainSkillLevelOverride?: MainSkillLevel,
 };
 
 export type ProductionCommonParams = {

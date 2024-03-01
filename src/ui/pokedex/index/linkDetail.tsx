@@ -32,6 +32,7 @@ export const PokedexLinkDetail = React.memo(({
   level,
   subSkill,
   nature,
+  mainSkillLevel,
   berryDataMap,
   ingredientMap,
   mealMap,
@@ -106,6 +107,7 @@ export const PokedexLinkDetail = React.memo(({
     input: {level, subSkill, nature},
     pokemon,
     subSkillMap,
+    override: {mainSkillLevel},
   });
 
   if (display === 'ingredientCount' || display === 'timeToFullPackPrimary' || display === 'timeToFullPackSecondary') {

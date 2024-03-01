@@ -1,4 +1,4 @@
-import {PokemonInputFilter, PokemonInputFilterExtended} from '@/components/shared/pokemon/filter/type';
+import {PokemonInputFilterExtended} from '@/components/shared/pokemon/filter/type';
 import {FieldMetaMap} from '@/types/game/mapMeta';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
@@ -20,30 +20,29 @@ export type PokemonInfoForPokedex = PokemonInfo & {
 
 export type PokedexData = PokemonInfoForPokedex[];
 
-// This is used for auto-saving Pokédex filter
-export type PokedexDisplay =
-  Migratable &
-  // Need to store `mainSkill` to ensure the filter is properly enforced for main skill
-  Pick<PokemonInputFilter, 'mainSkill'> &
-  // Shouldn't need to store `snorlaxFavorite`
-  // This is still included in `PokedexFilter` from `PokemonInputFilterExtended.snorlaxFavorite`
-  Omit<PokedexFilterCommon, 'snorlaxFavorite'>;
-
-export type PokedexFilter = PokemonInputFilterExtended & PokedexDisplay & {
+export type PokedexFilter = Migratable & PokemonInputFilterExtended & PokedexFilterCommon & {
   name: string,
 };
+
+export type PokedexFilterSave = Pick<
+  PokedexFilter,
+  'version' | 'sort' | 'display' | keyof PokemonIndividualParams
+>;
 
 export type PokedexDataProps = Omit<PokedexCalcDataProps, 'pokemonList' | 'preloaded'> & {
   pokedex: PokedexData,
   maxLevel: number,
   fieldMetaMap: FieldMetaMap,
   preloaded: {
-    display: Nullable<Partial<PokedexDisplay>>,
+    display: Nullable<Partial<PokedexFilterSave>>,
     bundle: ConfigBundle,
   },
 };
 
-export type PokedexLinkProps = Pick<PokedexFilter, 'display' | keyof PokemonIndividualParams> & PokedexDataProps & {
+export type PokedexLinkProps = Pick<
+  PokedexFilter,
+  'display' | 'mainSkillLevel' | keyof PokemonIndividualParams
+> & PokedexDataProps & {
   pokemon: PokemonInfo,
   pokemonProducingParams: PokemonProducingParams,
   snorlaxFavorite: SnorlaxFavorite,

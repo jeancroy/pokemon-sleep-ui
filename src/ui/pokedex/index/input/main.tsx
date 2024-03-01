@@ -14,6 +14,7 @@ import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
 import {MapFilter} from '@/components/shared/map/filter';
 import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
+import {PokemonMainSkillLevelInput} from '@/components/shared/pokemon/mainSkill/levelInput/main';
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {PokemonSortingPicker} from '@/components/shared/pokemon/sorter/picker';
 import {pokedexSortExclusion} from '@/components/shared/pokemon/sorter/type';
@@ -24,7 +25,7 @@ import {pokedexDisplayType} from '@/ui/pokedex/common/type';
 import {PokedexInputClearer} from '@/ui/pokedex/index/input/clearer';
 import {displayTypeToI18nId} from '@/ui/pokedex/index/input/const';
 import {PokedexInputProps} from '@/ui/pokedex/index/input/type';
-import {PokedexDataProps} from '@/ui/pokedex/index/type';
+import {PokedexDataProps, PokedexFilter} from '@/ui/pokedex/index/type';
 import {toUnique} from '@/utils/array';
 
 
@@ -34,8 +35,9 @@ export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
   const {
     filter,
     setFilter,
-    preloaded,
+    mainSkillMap,
     subSkillMap,
+    preloaded,
   } = props;
 
   const t = useTranslations('UI.Pokemon');
@@ -76,6 +78,14 @@ export const PokedexInput = ({pokedex, maxLevel, ...props}: Props) => {
               pokemonList={pokedex}
               skipLevelInput
               {...props}
+            />
+            <PokemonMainSkillLevelInput
+              maxSkillLevel={Math.max(...Object.values(mainSkillMap).map(({maxLevel}) => maxLevel))}
+              current={filter.mainSkillLevel}
+              onSelected={(mainSkillLevel) => setFilter((original) => ({
+                ...original,
+                mainSkillLevel,
+              } satisfies PokedexFilter))}
             />
             <SnorlaxFavoriteInput
               filterKey="snorlaxFavorite"

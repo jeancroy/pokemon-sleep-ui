@@ -1,13 +1,13 @@
 import {generatePokemonInputFilterExtended} from '@/components/shared/pokemon/filter/utils/generate';
 import {defaultPokemonSort} from '@/const/filter';
-import {PokedexDisplay, PokedexFilter} from '@/ui/pokedex/index/type';
+import {PokedexFilterSave, PokedexFilter} from '@/ui/pokedex/index/type';
 import {migrate} from '@/utils/migrate/main';
 import {pokedexMigrators} from '@/utils/migrate/pokedex/migrators';
 import {PokedexFilterMigrateParams} from '@/utils/migrate/pokedex/type';
 import {Nullable} from '@/utils/type';
 
 
-export const generateInitialFilter = (preloadedDisplay: Nullable<Partial<PokedexDisplay>>): PokedexFilter => {
+export const generateInitialFilter = (preloadedDisplay: Nullable<Partial<PokedexFilterSave>>): PokedexFilter => {
   return migrate<PokedexFilter, PokedexFilterMigrateParams>({
     original: {
       name: '',

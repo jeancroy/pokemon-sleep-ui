@@ -54,3 +54,5 @@ export type MainSkillData = {
 };
 
 export type MainSkillMap = {[id in MainSkillId]: MainSkillData};
+
+export type MainSkillLevel = number | 'max';
