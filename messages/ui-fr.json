@@ -1,0 +1,764 @@
+{
+  "Subscription": {
+    "AdBlockActive": "<p> L'utilisation d'un bloqueur de publicité sur ce site Web est déconseillée. L'hébergement du site Web a un coût, et le développement du site Web prend du temps</p>\n<p>Veuillez autoriser les publicités ou <strong>consultez &quot;Présentation à l'abonnement&quot; dans la section documentation</strong>.</p>\n<p>Si vous avez des remarques sur l'emplacement des publicités, veuillez rejoindre notre Discord (lien dans la page À propos) et nous le signaler.</p>",
+    "Popup": "<p>Veuillez vous abonner si vous aimez utiliser le site Web :) Consultez <a href=\"https://pks.raenonx.cc/docs/view/subscription/intro\">Présentation de l'abonnement</a> pour plus de détails.</p>",
+    "PremiumOnly": "Abonnement premium requis. Veuillez consulter la section [Présentation de l'abonnement](https://pks.raenonx.cc/docs/view/subscription/intro) pour plus de détails.",
+    "Activation": {
+      "AdsFree": "Navigation sans publicité",
+      "Premium": "Accès aux fonctionnalités premium"
+    }
+  },
+  "Root": {
+    "Help": "Aide / Documentation"
+  },
+  "Auth": {
+    "EmailSent": "Un email vous a été envoyé."
+  },
+  "Common": {
+    "Candy": "Bonbon",
+    "Day": "Jour",
+    "Default": "Défaut",
+    "Diamond": "Diamant",
+    "DreamShards": "Fragments de rêve",
+    "Hour": "Heure",
+    "Map": "Carte",
+    "MainSkill": "Compétence Principale",
+    "MaxCarry": "Maximum Transportable",
+    "MealCoverage": "Taille du Repas",
+    "Pokebox": "Boîte Pokémon",
+    "Rank": "Rang",
+    "ResearchExp": "EXP de Recherche",
+    "Rewards": "Récompenses",
+    "Shiny": "Shiny",
+    "SnorlaxFavorite": "Snorlax's Favorite Berries",
+    "SnorlaxRank": "Rang de Ronflex",
+    "Stamina": "Énergie",
+    "Strength": "Force"
+  },
+  "Component": {
+    "Collapsible": {
+      "CollapseAll": "Réduire tout",
+      "ExpandAll": "Développer tout"
+    },
+    "MealCoverageCombo": {
+      "IngredientCoverage": "Ingrédients inclus",
+      "IngredientExclusion": "Ingrédients exclus",
+      "CoveredStrength": "Force couverte"
+    },
+    "MealFilter": {
+      "IngredientInclusion": "Ingrédients inclus",
+      "IngredientExclusion": "Ingrédients exclus",
+      "MinRecipeBonus": "Bonus de recette minimum"
+    },
+    "PokemonFilter": {
+      "EvolutionCount": "Nombre d'évolutions",
+      "FinalEvolution": "Évolution finale"
+    },
+    "TimePeriodSchedule": {
+      "Start": "De",
+      "End": "À",
+      "Close": "Fermer"
+    },
+    "PokemonDetailedProduction": {
+      "Tab": {
+        "DailyBreakdown": "Production quotidienne",
+        "EnergyCurve": "Courbe d'énergie",
+        "AtEnergy": "Production au niveau d'énergie",
+        "Cooking": "Repas / Recettes"
+      },
+      "Cooking": {
+        "IngredientMultiplier": "Multiplicateur d'ingrédient"
+      }
+    },
+    "Team": {
+      "SetupControl": {
+        "Period": "Période d'analyse",
+        "QuickAction": {
+          "Sync": {
+            "Name": "Synchroniser la boîte Pokémon",
+            "Syncing": "Synchronisation en cours..."
+          }
+        },
+        "ConfigSource": {
+          "Name": "Source de configuration",
+          "Default": "Défaut",
+          "Override": "Remplacer"
+        },
+        "StatsType": {
+          "Total": "Total",
+          "Berry": "Baie",
+          "Ingredient": "Ingredient",
+          "Skill": "Compétence",
+          "Frequency": "Fréquence",
+          "Energy": "Énergie",
+          "Inventory": "Inventaire"
+        }
+      },
+      "Member": {
+        "Control": {
+          "ExportToPokebox": "Exporter vers la Boîte Pokémon",
+          "PokeboxLinking": "Lier à la Boîte",
+          "PokemonInfo": "Infos du Pokémon",
+          "ShareableLink": "Lien partageable",
+          "Rating": "Évaluation",
+          "DetailedStats": "Statistiques détaillées",
+          "StrengthGrowth": "Courbe de croissance dodoforce",
+          "MealCoverage": "Couverture des repas",
+          "Edit": "Modifier",
+          "Duplicate": "Dupliquer"
+        },
+        "Message": {
+          "ShareableLink": "Ce lien est lié à l'équipe et à l'emplacement, pas au Pokémon lui-même.",
+          "StrengthGrowth": "Les résultats supposent que les Pokémon de l'équipe ne changent pas."
+        }
+      }
+    },
+    "EventList": {
+      "Section": {
+        "Upcoming": "À venir",
+        "Current": "En cours",
+        "Ended": "Terminé"
+      }
+    }
+  },
+  "Evolution": {
+    "SleepTime": "Temps de sommeil",
+    "Gender": {
+      "Male": "Mâle",
+      "Female": "Femelle",
+      "Unknown": "Assexués"
+    }
+  },
+  "Game": {
+    "Feature": {
+      "LevelUp": "Montée en niveau du Pokémon",
+      "CookRecipe": "Cuisson",
+      "PotExpand": "Agrandir la marmite"
+    }
+  },
+  "MainSkill": {
+    "EffectType": {
+      "Strength": "Force",
+      "Shards": "Fragments de rêve",
+      "Stamina": "Énergie",
+      "Help": "Aide",
+      "Cooking": "Cuisson",
+      "Random": "Aléatoire",
+      "Unknown": "?"
+    },
+    "Target": {
+      "Self": "Soi-même",
+      "Random": "1 Pokémon aléatoire",
+      "Team": "Équipe"
+    }
+  },
+  "Metadata": {
+    "Site": {
+      "Name": "Pokémon Sleep Info Wiki",
+      "Description": "Le Wiki Info sur Pokémon Sleep fournit diverses informations, notamment le Pokédex, les recettes, les ingrédients, les baies, ainsi que d'autres outils tels que l'analyse d'équipe et l'analyse du Pokédex.",
+      "Keywords": {
+        "PokemonSleep": "Pokémon Sleep",
+        "Pokemon": "Pokémon",
+        "PokemonSleepGuide": "Guide Pokémon Sleep"
+      }
+    },
+    "NotFound": {
+      "Title": "Page introuvable"
+    },
+    "Home": {
+      "Title": "Accueil"
+    },
+    "Pokedex": {
+      "Main": {
+        "Index": {
+          "Title": "Pokédex"
+        },
+        "Page": {
+          "Title": "{name} - Pokémon"
+        }
+      },
+      "Tier": {
+        "Title": "Liste des tiers Pokémon"
+      }
+    },
+    "SleepStyle": {
+      "Index": {
+        "Title": "Carte / Styles de sommeil"
+      },
+      "Sleepdex": {
+        "Index": {
+          "Title": "Dododex"
+        },
+        "Record": {
+          "Title": "Enregistrement Dododex"
+        },
+        "Lookup": {
+          "Title": "Recherche Dododex"
+        }
+      },
+      "Map": {
+        "Index": {
+          "Title": "Cartes"
+        },
+        "Page": {
+          "Title": "{name} - Carte"
+        }
+      },
+      "UniqueMap": {
+        "Index": {
+          "Title": "Styles de sommeil (carte)"
+        },
+        "Page": {
+          "Title": "{name} - Styles de sommeil (carte unique)"
+        }
+      },
+      "Special": {
+        "Title": "Styles de sommeil (Encens / Autres)"
+      }
+    },
+    "Analysis": {
+      "Title": "{name} - Analyse de Pokémon"
+    },
+    "Rating": {
+      "Title": "Évaluation de Pokémon"
+    },
+    "Production": {
+      "Title": "Comparaison de Production"
+    },
+    "Cooking": {
+      "Index": {
+        "Title": "Cuisine"
+      },
+      "Make": {
+        "Title": "Calculateur de recette"
+      },
+      "Prepare": {
+        "Title": "Préparation de repas"
+      }
+    },
+    "Meal": {
+      "Index": {
+        "Title": "Repas / Recettes"
+      },
+      "Page": {
+        "Title": "{name} - Repas / Recette"
+      }
+    },
+    "Ingredient": {
+      "Index": {
+        "Title": "Ingredients"
+      },
+      "Page": {
+        "Title": "{name} - Ingredient"
+      }
+    },
+    "Berry": {
+      "Index": {
+        "Title": "Baies"
+      },
+      "Page": {
+        "Title": "{name} - Baie"
+      }
+    },
+    "Team": {
+      "Analysis": {
+        "Title": "Analyse d'équipe"
+      },
+      "Box": {
+        "Title": "Boîte Pokémon"
+      },
+      "Index": {
+        "Title": "Equipe"
+      },
+      "Maker": {
+        "Title": "Créateur d'équipe automatique"
+      }
+    },
+    "Info": {
+      "Index": {
+        "Title": "Autre"
+      },
+      "Event": {
+        "Index": {
+          "Title": "Événements"
+        },
+        "Page": {
+          "Title": "{name} - Événement"
+        }
+      },
+      "Pot": {
+        "Title": "Marmite"
+      },
+      "Nature": {
+        "Title": "Nature"
+      },
+      "MainSkill": {
+        "Index": {
+          "Title": "Compétence Principale"
+        },
+        "Page": {
+          "Title": "{name} - Compétence Principale"
+        }
+      },
+      "SubSkill": {
+        "Title": "Compétence Secondaire"
+      },
+      "ProducingParams": {
+        "Title": "Taux de production"
+      },
+      "Progress": {
+        "Title": "Récompense de palier Dododex"
+      },
+      "RecipeLevel": {
+        "Title": "Niveau de recette"
+      },
+      "ResearchRank": {
+        "Title": "Rang de recherche"
+      }
+    },
+    "Item": {
+      "Index": {
+        "Title": "Objets"
+      },
+      "Evolution": {
+        "Title": "Objets d'évolution"
+      },
+      "Incense": {
+        "Index": {
+          "Title": "Encens"
+        },
+        "Page": {
+          "Title": "{name} - Encens"
+        }
+      }
+    },
+    "PokemonExp": {
+      "Title": "Calculateur d'EXP Pokémon"
+    },
+    "Stamina": {
+      "Title": "Analyse courbe d'énergie"
+    },
+    "Encounter": {
+      "Title": "Calculateur de rencontre Pokémon"
+    },
+    "About": {
+      "Title": "À propos"
+    },
+    "Docs": {
+      "Index": {
+        "Title": "Documentation"
+      },
+      "New": {
+        "Title": "Nouvelle documentation"
+      },
+      "Edit": {
+        "Title": "Modifier le document - {name}"
+      },
+      "View": {
+        "Title": "Document - {name}"
+      }
+    }
+  },
+  "Multiplier": {
+    "Strength": {
+      "Name": "Multiplicateur de dodoforce",
+      "Type": {
+        "Berry": "Baie",
+        "Cooking": "Repas",
+        "Skill": "Compétence"
+      }
+    },
+    "DrowsyPower": "Force x Score de sommeil"
+  },
+  "InPage": {
+    "Home": {
+      "Welcome": "Bienvenue !"
+    },
+    "Pokedex": {
+      "Tier": {
+        "Details": "Détails",
+        "Tips": "Pour les utilisateurs expérimentés, veuillez essayer [Pokedex](https://pks.raenonx.cc/en/pokedex), qui donne un contrôle plus précis sur la recherche et l'affichage des données."
+      }
+    },
+    "Analysis": {
+      "FirstAppearance": "Première apparition - {mapName}",
+      "LastSleepStyle": "Dernier style de dodo - {mapName}"
+    },
+    "Rating": {
+      "FriendshipLevel": "Niveau d'amitié",
+      "AdvancedOptions": "Options avancées"
+    },
+    "Cooking": {
+      "Energy": "Puissance finale",
+      "Ingredient": {
+        "Name": "Ingrédient",
+        "Filler": "Ingrédient de remplissage",
+        "Missing": "Manquant",
+        "Required": "Requis"
+      },
+      "MealType": "Repas",
+      "PotCapacity": "Capacité de la marmite",
+      "Preparer": {
+        "IncludeFiller": "(+ Ingrédient de remplissage)"
+      },
+      "RecipeLevel": "Niveau de recette",
+      "ToggleUnmakeable": "Afficher/Masquer les plats impossibles à préparer",
+      "Total": "Total",
+      "TargetMealCount": "Nombre de repas cible",
+      "Sort": {
+        "RecipeBaseStrength": "Puissance de base de la recette",
+        "IngredientCount": "Nombre d'ingrédients"
+      }
+    },
+    "Map": {
+      "Unique": "Carte unique",
+      "Pokemon": "Pokémon",
+      "SleepStyle": "Style de sommeil",
+      "SleepStylesUnlocked": "Styles de sommeil débloqués",
+      "UnlockConditions": "Conditions d'obtention",
+      "Toggle": {
+        "SleepdexRegisterMode": "Mode d'enregistrement du Dododex",
+        "CompletionStatus": "Etat de complétion",
+        "Registered": "Enregistré",
+        "NoNewSleepStyle": "Rang sans déblocage de style de sommeil"
+      }
+    },
+    "Team": {
+      "Box": {
+        "DisplayType": {
+          "Frequency": "Fréquence",
+          "Info": "Infos",
+          "Pokemon": "Infos du Pokémon",
+          "MaxCarry": "Limite de portage",
+          "ProductionBerry": "Production (Baie)",
+          "ProductionIngredient": "Production (Ingrédient)",
+          "ProductionTotal": "Production (Total)",
+          "Rating": "Évaluation",
+          "Skills": "Compétences"
+        },
+        "Favorite": "Favoris",
+        "Preview": {
+          "Level": "Niveau d'aperçu",
+          "FinalEvolution": "Évolution finale d'aperçu"
+        }
+      },
+      "Maker": {
+        "Basis": "Base",
+        "Behavior": {
+          "ToggleInsufficientIngredients": "Afficher/masquer les compositions d'équipe incapables de satisfaire aux exigences en ingrédients"
+        },
+        "CompCountWarning": "Un nombre élevé de compositions d'équipe prendra plus de temps à calculer, voire plantera le navigateur. Augmenter la différence de production entre les Pokémon permet de réduire le nombre possible de compositions d'équipe. Cela peut être fait en désactivant l'aperçu des niveaux, en définissant les baies préférées de Ronflex, en réduisant le nombre de membres de l'équipe ou en réduisant le nombre de Pokémon à inclure dans le calcul.",
+        "Control": {
+          "ExportToTeamAnalysis": "Exporter vers l'analyse d'équipe",
+          "ExportTeamName": "Nom de l'équipe"
+        },
+        "Source": {
+          "Pokebox": "Boîte Pokémon",
+          "Vanilla": "Pokémon"
+        },
+        "State": {
+          "IngredientRequirements": {
+            "Pass": "Satisfait les exigences en ingrédients",
+            "Fail": "Ne satisfait pas les exigences en ingrédients"
+          },
+          "Status": {
+            "Standby": "Prêt",
+            "Initializing": "Initialisation",
+            "GeneratingTeams": "Génération d'équipes",
+            "Calculating": "Calcul en cours",
+            "Completed": "Terminé",
+            "Error": "Erreur",
+            "Canceled": "Annulé"
+          }
+        }
+      }
+    },
+    "Info": {
+      "Event": {
+        "Mission": "Missions"
+      },
+      "Pot": {
+        "Capacity": "Capacité actuelle",
+        "Expand": "Développer",
+        "UnlockedRecipes": "Recettes débloquées"
+      },
+      "Progress": {
+        "SleepStylesUnlocked": "Styles de dodo débloqués",
+        "MapUnlock": "Débloquer la carte",
+        "MaxMapBonusPercent": "Bonus de carte maximal",
+        "MaxPotCapacity": "Capacité de marmite maximale",
+        "FeatureUnlock": "Débloquer la fonctionnalité",
+        "Rewards": "Récompenses"
+      },
+      "RecipeLevel": {
+        "Input": {
+          "CurrentLevel": "Niveau actuel"
+        },
+        "Table": {
+          "Level": "Niveau",
+          "Bonus": "Bonus",
+          "ToNext": "Pour atteindre le prochain",
+          "TotalRequired": "Total requis",
+          "Accumulated": "Accumulé",
+          "Strength": "Puissance finale du plat cuisiné"
+        }
+      },
+      "ResearchRank": {
+        "Table": {
+          "Rank": "Rang de recherche",
+          "ToNext": "Pour atteindre le prochain",
+          "Accumulated": "Accumulé",
+          "PokemonMaxLevel": {
+            "Short": "Niv. Max.",
+            "Long": "Niveau max. du Pokémon"
+          }
+        }
+      }
+    },
+    "PokemonExp": {
+      "OtherPokemon": "Autre",
+      "ExpToNext": "EXP pour le atteeindre le prochain niveau",
+      "OwnedCandies": "Bonbons possédés",
+      "NormalCandy": "Bonbon Pokémon",
+      "HandyCandy": "Bonbon utile",
+      "Multiplier": {
+        "DreamShardDepletion": "Taux d'utilisation des fragments de rêve",
+        "ExpBoost": "Taux d'EXP boost"
+      },
+      "KeyLevel": "Niveau clé"
+    },
+    "Docs": {
+      "Title": "Titre"
+    },
+    "ProducingParams": {
+      "Notice": "- Cette page est mise à jour quotidiennement.\n- La valeur de la compétence n'est pas affectée par le niveau. Consultez le [Pokedex](https://pks.raenonx.cc/pokedex) ou[Main Skill Trigger Analysis](https://pks.raenonx.cc/team/mainskill) pour la valeur de déclenchement de compétence.\n- Un taux de déclenchement de compétence sans valeur signifie qu'il n'est pas encore vérifié.\n- Remerciements à @jc, @goobliss, @harold_grant sur Mathcord pour avoir fourni le modèle et les informations connexes ; à @calpistori pour les tests et la vérification des données."
+    }
+  },
+  "Image": {
+    "Portrait": "Portrait",
+    "Eating": "En train de manger"
+  },
+  "Ocr": {
+    "Status": {
+      "Error": "Erreur",
+      "Ready": "Prêt",
+      "Thresholding": "Seuillage en cours",
+      "LoadingOcr": "Chargement de la reconnaissance de texte",
+      "Recognizing": "Reconnaissance en cours",
+      "Completed": "Terminé"
+    },
+    "Tolerance": {
+      "Title": "Tolérance",
+      "Tips": "Augmenter uniquement si la qualité de l'image est mauvaise. Une valeur plus élevée pourrait réduire la précision."
+    }
+  },
+  "Pokemon": {
+    "Stats": {
+      "Strength": {
+        "Berry": "Force de la Baie",
+        "Ingredient": "Force de l'Ingrédient",
+        "Skill": "Force de la Compétence",
+        "Total": "Force Totale"
+      },
+      "Count": {
+        "Berry": "Nombre de Baies",
+        "Ingredient": "Nombre d'Ingrédients"
+      },
+      "Ingredient": {
+        "Rate": "Taux d'Ingrédient",
+        "MealCoverage": "Couverture de Repas"
+      },
+      "MainSkill": {
+        "Level": "Niveau de Compétence",
+        "DailyCount": "Nombre de compétences attendues",
+        "TriggerRate": "Taux de Déclenchement de Compétence"
+      },
+      "Frequency": {
+        "Common": "Fréquence",
+        "Base": "Fréquence (Base)",
+        "Berry": "Fréquence (Baie)",
+        "Ingredient": "Fréquence (Ingrédient)",
+        "Equivalent": "Fréquence (équivalente)"
+      },
+      "TimeToFullPack": {
+        "Primary": "Temps pour un cycle complet (Sommeil 1)",
+        "Secondary": "Temps pour un cycle complet (Sommeil 2)"
+      }
+    },
+    "Info": {
+      "Name": "Nom",
+      "PokemonType": "Type de Pokémon",
+      "SleepType": "Type de Sommeil",
+      "Specialty": "Spécialité",
+      "Berry": "Baie",
+      "Ingredient": "Ingrédient",
+      "MainSkill": "Compétence Principale",
+      "Evolution": "Stade d'évolution",
+      "Production": "Production",
+      "SleepStyle": "Style de dodo",
+      "Stats": {
+        "Name": "Stats",
+        "Friendship": "Points d'amitié",
+        "Recruit": "Partenaire",
+        "TransferReward": "Récompense d'envoi du Pokémon au professeur"
+      },
+      "Flags": {
+        "EventOnly": "Exclusivité Évènement"
+      }
+    },
+    "Individual": {
+      "Id": "ID",
+      "DateRegistered": "Date d'enregistrement",
+      "Level": "Niveau du Pokémon",
+      "SubSkill": "Compétence secondaire",
+      "NatureEffect": "Effet de la nature"
+    }
+  },
+  "Producing": {
+    "State": {
+      "Base": "Base",
+      "Awake": "Réveillé",
+      "Asleep": {
+        "Primary": {
+          "Vacant": "[1] Endormi (Inventaire vide)",
+          "Filled": "[1] Endormi (Inventaire plein)"
+        },
+        "Secondary": {
+          "Vacant": "[2] Endormi (Inventaire vide)",
+          "Filled": "[2] Endormi (Inventaire plein)"
+        }
+      }
+    },
+    "Preset": {
+      "UnfilledOnly": "Seulement les packs non remplis"
+    },
+    "Total": "Total",
+    "Period": {
+      "Daily": "Journalier",
+      "Weekly": "Hebdomadaire"
+    },
+    "Probability": {
+      "NoSkillAfterWakeup": "Probabilité d'aucune compétence au réveil"
+    },
+    "ProduceType": {
+      "Berry": "Baie",
+      "Ingredient": "Ingrédient",
+      "MainSkill": "Compétence principale"
+    },
+    "VanillaPreset": {
+      "Mode": "Mode",
+      "Shared": "Partagé",
+      "BySpecialty": "Par Spécialité"
+    }
+  },
+  "Rating": {
+    "Basis": {
+      "TotalStrength": {
+        "Name": "Force totale",
+        "Explainer": "Production quotidienne totale de force attendue. **Le programme de recette défini par l'utilisateur affecte le résultat.**"
+      },
+      "IngredientStrength": {
+        "Name": "Force des ingrédients",
+        "Explainer": "Force attendue provenant de la production d'ingrédients. **Le programme de recette défini par l'utilisateur affecte le résultat.**"
+      },
+      "MealCoverage": {
+        "Name": "Couverture des repas",
+        "Explainer": "Pourcentage des besoins en ingrédients couverts en fonction du programme de recette actuel défini par l'utilisateur."
+      },
+      "MainSkillTriggerCount": {
+        "Name": "Nombre de compétences attendues",
+        "Explainer": "Nombre déclenchements de compétence attendus par jour. Cela tient compte de la limite d'inventaire."
+      }
+    },
+    "WeightedStatsBasis": {
+      "Percentile": "Centile",
+      "Percentage": "Pourcentage",
+      "RelativeStrength": "Force relative"
+    },
+    "Category": {
+      "Title": "En comparaison...",
+      "CrossSpecies": "Entre espèces (Même Compétence secondaire/Nature)",
+      "IntraSpecies": "Intra-espèce",
+      "IntraSpeciesSameIngredient": "Intra-espèce (Mêmes ingrédients)"
+    }
+  },
+  "SleepStyle": {
+    "SPO": "SPO (DPR / 38K)",
+    "DrowsyPowerRequirement": "Exigence de Puissance Endormie",
+    "IncenseOnly": "Encens seulement",
+    "Unreleased": "Non publié",
+    "Message": {
+      "UnlockRankDiffers": "Le style de sommeil débloquant le rang de Ronflex inclut une exigence minimale de Puissance Endormie. Par conséquent, ce qui est montré ici peut différer de Serebii ou d'autres sources. Consultez la documentation accessible en haut à droite de la page pour plus de détails.",
+      "ChooseMapFirst": "Veuillez d'abord choisir une carte."
+    }
+  },
+  "Stamina": {
+    "Title": "Calcul d'énergie",
+    "SleepSchedule": "Programmation du sommeil",
+    "Chart": {
+      "Stamina": "Énergie",
+      "Efficiency": "Efficacité"
+    },
+    "Strategy": {
+      "Optimistic": "Optimiste",
+      "Conservative": "Conservateur"
+    },
+    "SkillRecovery": {
+      "Name": "Récupération Compétence",
+      "Amount": "Récupération par compétence",
+      "DailyCount": "Nombre d'utilisations quotidiennes de compétence"
+    },
+    "CookingRecovery": {
+      "Name": "Programmation de cuisson"
+    },
+    "EventType": {
+      "SkillRecovery": "Récupération de compétence",
+      "CookingRecovery": "Récupération de cuisson",
+      "EfficiencyBlock": "Point d'efficacité",
+      "Sleep": "Sommeil",
+      "Wakeup": "Réveil",
+      "EndOfPeriod": "Fin de la période"
+    },
+    "State": {
+      "Average": "Moyenne",
+      "Awake": "Réveillé",
+      "Asleep": {
+        "Neutral": "Endormi",
+        "Primary": "Endormi (1)",
+        "Secondary": "Endormi (2)"
+      }
+    }
+  },
+  "UserConfig": {
+    "AlwaysFullPack": "Toujours un inventaire complet",
+    "BerryPokemonFullPack": "Toujours un inventaire complet pour les spécialistes des baies",
+    "GoodCampTicket": "Bon Ticket de Camp",
+    "Cooking": {
+      "Title": "Cuisson"
+    },
+    "Message": {
+      "ConfigNotStored": "Affichage de la configuration par défaut de l'utilisateur. La connexion est requise pour enregistrer la configuration de l'utilisateur et la rendre effective."
+    },
+    "Multiplier": {
+      "Overall": "Global",
+      "Strength": {
+        "Behavior": {
+          "Custom": "Personnalisé",
+          "Default": "Par défaut (Actuel : {multiplier}x)"
+        }
+      }
+    },
+    "Section": {
+      "AppInfo": "Infos sur l'application",
+      "MapBonus": "Bonus de carte",
+      "Multiplier": "Multiplicateur",
+      "Cooking": "Repas / Recettes",
+      "Language": "Langue",
+      "Stamina": "Énergie"
+    }
+  },
+  "UserControl": {
+    "Login": "Connexion",
+    "Logout": "Déconnexion"
+  }
+}
