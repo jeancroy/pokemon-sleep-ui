@@ -6,7 +6,6 @@ import {AdsUnit} from '@/components/ads/main';
 import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
 import {Flex} from '@/components/layout/flex/common';
-import {getPokemonMaxLevelByBerry} from '@/controller/berry';
 import {getIngredientData} from '@/controller/ingredient';
 import {getPokemonIngredientProductionByIngredient} from '@/controller/pokemon/ingredient';
 import {PublicPageLayout} from '@/ui/base/layout/public';
@@ -30,10 +29,8 @@ export const IngredientPage = async ({params}: Props) => {
 
   const [
     pokemonIngredientProduction,
-    pokemonMaxLevel,
   ] = await Promise.all([
     getPokemonIngredientProductionByIngredient(ingredient.id),
-    getPokemonMaxLevelByBerry(),
   ]);
 
   return (
@@ -51,7 +48,6 @@ export const IngredientPage = async ({params}: Props) => {
         </Flex>
         <AdsUnit/>
         <IngredientPokemonProduction
-          pokemonMaxLevel={pokemonMaxLevel}
           ingredient={ingredient}
           pokemonIngredientProduction={pokemonIngredientProduction}
         />

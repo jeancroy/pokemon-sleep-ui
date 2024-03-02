@@ -18,7 +18,7 @@ import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
 export const StaminaAnalysisClient = () => {
   const serverData = useCommonServerData();
-  const {subSkillMap, cookingRecoveryData} = serverData;
+  const {cookingRecoveryData} = serverData;
 
   const {
     state,
@@ -50,7 +50,6 @@ export const StaminaAnalysisClient = () => {
           classNameForHeight="h-8"
           subSkill={subSkill}
           setSubSkill={setSubSkill}
-          subSkillMap={subSkillMap}
         />
         <PokemonNatureSelector
           classNameForHeight="h-8"

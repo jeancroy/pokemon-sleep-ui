@@ -15,11 +15,10 @@ import {usePokedexCalc} from '@/ui/pokedex/common/calc/main';
 import {usePokedexTierListInput} from '@/ui/pokedex/tier/input/hook';
 import {PokedexTierListInputUI} from '@/ui/pokedex/tier/input/main';
 import {PokedexTierListResult} from '@/ui/pokedex/tier/result/main';
-import {PokedexTierListDataProps} from '@/ui/pokedex/tier/type';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
-export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
+export const PokedexTierListClient = () => {
   const serverData = useCommonServerData();
   const {pokedexMap} = serverData;
 
@@ -61,7 +60,6 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
         isPremium={isPremium}
         input={input}
         setInput={setInput}
-        {...props}
       />
       <CompletionResultUI completed={count.selected} total={count.total} className="self-end"/>
       <AdsUnit hideIfNotBlocked/>

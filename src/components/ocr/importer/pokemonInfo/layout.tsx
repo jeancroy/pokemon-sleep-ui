@@ -21,7 +21,6 @@ type Props = OcrPokemonInfoImportCommonProps & {
 };
 
 export const OcrPokemonInfoImportLayout = ({
-  subSkillMap,
   onCompleteImport,
   pokemonIdOverride,
   data,
@@ -47,7 +46,6 @@ export const OcrPokemonInfoImportLayout = ({
             ...original,
             subSkill,
           }))}
-          subSkillMap={subSkillMap}
           classNameForHeight="h-8"
         />
         <PokemonNatureSelector

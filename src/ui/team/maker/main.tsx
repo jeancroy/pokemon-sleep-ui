@@ -2,7 +2,6 @@ import React from 'react';
 
 
 import {I18nProvider} from '@/components/i18n/provider';
-import {getPokemonMaxLevelByBerry} from '@/controller/berry';
 import {getSnorlaxData} from '@/controller/snorlax';
 import {Locale} from '@/types/next/locale';
 import {DefaultPageProps} from '@/types/next/page/common';
@@ -18,15 +17,12 @@ type TeamMakerProps = {
 const TeamMaker = async ({locale}: TeamMakerProps) => {
   const [
     snorlaxData,
-    pokemonMaxLevel,
   ] = await Promise.all([
     getSnorlaxData(),
-    getPokemonMaxLevelByBerry(),
   ]);
 
   const props: TeamMakerServerDataProps = {
     snorlaxData,
-    pokemonMaxLevel,
   };
 
   return (

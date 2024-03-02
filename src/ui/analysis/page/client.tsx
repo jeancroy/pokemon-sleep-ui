@@ -53,7 +53,6 @@ export const AnalysisPageClient = (props: AnalysisPageServerDataProps) => {
     calculateDeps: [filter, calculatedConfigBundle],
     ...props,
     ...filter,
-    ...serverData,
     calculatedConfigBundle,
     ingredients,
   });
@@ -67,7 +66,6 @@ export const AnalysisPageClient = (props: AnalysisPageServerDataProps) => {
         setFilter={setFilter}
         session={session}
         {...props}
-        {...serverData}
       />
       <AnalysisStatsUI stats={stats} loading={loading} level={filter.level} {...props}/>
     </Flex>

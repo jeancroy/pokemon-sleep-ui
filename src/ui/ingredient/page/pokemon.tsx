@@ -15,19 +15,16 @@ import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 
 
 type Props = {
-  pokemonMaxLevel: number,
   ingredient: Ingredient,
   pokemonIngredientProduction: PokemonIngredientProduction[],
 };
 
 export const IngredientPokemonProduction = ({
-  pokemonMaxLevel,
   ingredient,
   pokemonIngredientProduction,
 }: Props) => {
   const serverData = useCommonServerData();
   const {
-    subSkillMap,
     serverConfigBundle,
   } = serverData;
 
@@ -49,9 +46,7 @@ export const IngredientPokemonProduction = ({
       <PokemonIndividualParamsPicker
         filter={input}
         setFilter={setInput}
-        maxLevel={pokemonMaxLevel}
         isPremium={isPremium}
-        subSkillMap={subSkillMap}
         className="info-section"
       />
       <PokemonIngredientStats

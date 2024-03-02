@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {TeamMember} from '@/components/shared/team/member/main';
-import {TeamMemberFilledSlotProps, TeamMemberViewRequiredData} from '@/components/shared/team/memberView/type';
+import {TeamMemberFilledSlotProps} from '@/components/shared/team/memberView/type';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetup} from '@/types/game/team/setup';
@@ -16,7 +16,7 @@ type Props<
   TConfig extends TeamSetupConfig,
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
-> = TeamMemberViewRequiredData & TeamMemberFilledSlotProps<TKey, TMember, TConfig, TTeam, TSetup> & {
+> = TeamMemberFilledSlotProps<TKey, TMember, TConfig, TTeam, TSetup> & {
   memberIdForShare: string,
 };
 

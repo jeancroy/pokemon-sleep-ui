@@ -13,18 +13,13 @@ import {PokemonSpecialty} from '@/components/shared/pokemon/specialty/main';
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {PokemonVanillaPreset, pokemonVanillaPresetMode} from '@/types/game/pokemon/params';
 import {specialtyType} from '@/types/game/pokemon/specialty';
-import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 
 
 type Props = FilterWithUpdaterProps<PokemonVanillaPreset> & {
-  subSkillMap: SubSkillMap,
-  pokemonMaxLevel: number,
   className?: string,
 };
 
 export const PokemonVanillaPresetInput = ({
-  subSkillMap,
-  pokemonMaxLevel,
   filter,
   setFilter,
   className,
@@ -63,8 +58,6 @@ export const PokemonVanillaPresetInput = ({
                 shared: getUpdated(shared),
               } satisfies PokemonVanillaPreset))}
               isPremium
-              subSkillMap={subSkillMap}
-              maxLevel={pokemonMaxLevel}
               noSameLine={false}
             />
           </InputRowWithTitle>
@@ -88,8 +81,6 @@ export const PokemonVanillaPresetInput = ({
                   },
                 } satisfies PokemonVanillaPreset))}
                 isPremium
-                subSkillMap={subSkillMap}
-                maxLevel={pokemonMaxLevel}
                 noSameLine={false}
               />
             </InputRowWithTitle>

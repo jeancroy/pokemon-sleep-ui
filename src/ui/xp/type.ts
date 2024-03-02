@@ -7,7 +7,6 @@ import {PokemonExpValueMap, PokemonShardConsumptionData} from '@/types/game/poke
 export type PokemonExpCalculatorDataProps = {
   xpValueData: PokemonExpValueMap,
   xpShardConsumption: PokemonShardConsumptionData,
-  pokemonMaxLevel: number,
 };
 
 export type PokemonExpCalculatorCommonProps =

@@ -13,7 +13,6 @@ export type RatingResultProps = {
   pokemonList: PokemonInfo[],
   pokemonProducingParams: PokemonProducingParams,
   request: RatingRequest | undefined,
-  pokemonMaxLevel: number,
   setRequest?: (updated: RatingRequest) => void,
 };
 

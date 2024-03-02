@@ -4,7 +4,6 @@ import {OcrTranslationsForPokemonInfo} from '@/types/ocr/extracted/pokemon';
 
 
 export type RatingServerDataProps = {
-  pokemonMaxLevel: number,
   ocrTranslations: OcrTranslationsForPokemonInfo,
 };
 

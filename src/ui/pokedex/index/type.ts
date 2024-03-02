@@ -29,7 +29,6 @@ export type PokedexFilterSave = Pick<
 
 export type PokedexDataProps = {
   pokedexData: PokedexData,
-  pokemonMaxLevel: number,
   preloaded: {
     display: Nullable<Partial<PokedexFilterSave>>,
   },

@@ -18,7 +18,6 @@ export const PokemonConfig = (props: PokemonConfigProps) => {
     data,
     onDataUpdated,
     pokemon,
-    pokemonMaxLevel,
     maxEvolutionCount,
     showSeeds,
   } = props;
@@ -55,7 +54,6 @@ export const PokemonConfig = (props: PokemonConfigProps) => {
         <PokemonSubSkillSelector
           subSkill={data.subSkill}
           setSubSkill={(subSkill) => onDataUpdated({subSkill})}
-          subSkillMap={subSkillMap}
         />
         <PokemonNatureSelector
           nature={data.nature}
@@ -65,7 +63,6 @@ export const PokemonConfig = (props: PokemonConfigProps) => {
       <PokemonLevelSlider
         value={data.level}
         setValue={(level) => onDataUpdated({level})}
-        max={pokemonMaxLevel}
         noSameLine
       />
       <PokemonEvolutionCountInput

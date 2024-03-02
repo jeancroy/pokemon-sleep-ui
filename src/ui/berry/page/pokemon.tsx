@@ -13,10 +13,8 @@ import {BerryPageDataProps} from '@/ui/berry/page/type';
 
 
 export const BerryProductionsOfPokemon = (props: BerryPageDataProps) => {
-  const {berryData} = props;
-
   const serverData = useCommonServerData();
-  const {subSkillMap, serverConfigBundle} = serverData;
+  const {serverConfigBundle} = serverData;
 
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
@@ -35,9 +33,7 @@ export const BerryProductionsOfPokemon = (props: BerryPageDataProps) => {
       <PokemonIndividualParamsPicker
         filter={input}
         setFilter={setInput}
-        maxLevel={berryData.energy.length}
         isPremium={isPremium}
-        subSkillMap={subSkillMap}
         className="info-section"
       />
       <PokemonBerryStats

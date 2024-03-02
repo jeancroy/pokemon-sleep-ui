@@ -13,6 +13,7 @@ import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
 import {PokemonIngredientPicker} from '@/components/shared/pokemon/ingredients/picker';
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useUserActivation} from '@/hooks/userData/activation';
 import {AnalysisComparisonFilter, AnalysisPageCommonProps} from '@/ui/analysis/page/type';
 import {toUnique} from '@/utils/array';
@@ -28,14 +29,11 @@ export const AnalysisPageInput = ({
   setFilter,
   pokemon,
   pokemonList,
-  sleepStyleMap,
-  ingredientChainMap,
-  pokemonMaxLevel,
-  fieldMetaMap,
-  subSkillMap,
   session,
-  ...props
+  sleepStyleMap,
 }: Props) => {
+  const {fieldMetaMap, ingredientChainMap} = useCommonServerData();
+
   const collapsible = useCollapsibleControl();
   const {isPremium} = useUserActivation(session);
 
@@ -64,7 +62,6 @@ export const AnalysisPageInput = ({
             setFilter={setFilter}
             pokemonList={pokemonList}
             skipLevelInput
-            {...props}
           />
           <SnorlaxFavoriteInput
             filter={filter}
@@ -90,8 +87,6 @@ export const AnalysisPageInput = ({
         filter={filter}
         setFilter={setFilter}
         isPremium={isPremium}
-        subSkillMap={subSkillMap}
-        maxLevel={pokemonMaxLevel}
         className="bg-plate"
       />
     </Flex>

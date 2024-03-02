@@ -32,7 +32,7 @@ import {toUnique} from '@/utils/array';
 
 type Props = PokedexInputProps & PokedexDataProps;
 
-export const PokedexInput = ({pokedexData, pokemonMaxLevel, ...props}: Props) => {
+export const PokedexInput = ({pokedexData, ...props}: Props) => {
   const {
     filter,
     setFilter,
@@ -42,7 +42,6 @@ export const PokedexInput = ({pokedexData, pokemonMaxLevel, ...props}: Props) =>
   const serverData = useCommonServerData();
   const {
     mainSkillMap,
-    subSkillMap,
   } = serverData;
 
   const t = useTranslations('UI.Pokemon');
@@ -128,9 +127,7 @@ export const PokedexInput = ({pokedexData, pokemonMaxLevel, ...props}: Props) =>
       <PokemonIndividualParamsPicker
         filter={filter}
         setFilter={setFilter}
-        maxLevel={pokemonMaxLevel}
         isPremium={isPremium}
-        subSkillMap={subSkillMap}
         className="bg-plate"
       />
     </Flex>

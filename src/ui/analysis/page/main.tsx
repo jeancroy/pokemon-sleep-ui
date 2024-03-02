@@ -4,7 +4,6 @@ import React from 'react';
 import {AnalysisPageParams} from '@/app/[locale]/analysis/[id]/page';
 import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
-import {getPokemonMaxLevelByBerry} from '@/controller/berry';
 import {getPokemonList} from '@/controller/pokemon/info';
 import {getSleepStyleNormalMap} from '@/controller/sleepStyle';
 import {AnalysisPageClient} from '@/ui/analysis/page/client';
@@ -21,11 +20,9 @@ export const AnalysisPage = async ({params}: Props) => {
   const [
     pokemonList,
     sleepStyleMap,
-    pokemonMaxLevel,
   ] = await Promise.all([
     getPokemonList(),
     getSleepStyleNormalMap(),
-    getPokemonMaxLevelByBerry(),
   ]);
 
   const pokemon = pokemonList.find((pokemon) => pokemon.id === Number(id));
@@ -38,7 +35,6 @@ export const AnalysisPage = async ({params}: Props) => {
     pokemonList,
     pokemon,
     sleepStyleMap,
-    pokemonMaxLevel,
   };
 
   return (

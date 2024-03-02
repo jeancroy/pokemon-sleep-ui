@@ -24,11 +24,10 @@ import {PokemonInfo} from '@/types/game/pokemon';
 import {MainSkillId} from '@/types/game/pokemon/mainSkill';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
 import {pokedexTierListBasis, PokedexTierListInput, PokedexTierListInputFilter} from '@/ui/pokedex/tier/input/type';
-import {PokedexTierListDataProps} from '@/ui/pokedex/tier/type';
 import {isNotNullish, KeysOfType} from '@/utils/type';
 
 
-type Props = PokedexTierListDataProps & {
+type Props = {
   pokemonList: PokemonInfo[],
   input: PokedexTierListInput,
   setInput: ReactStateUpdaterFromOriginal<PokedexTierListInput>,
@@ -37,14 +36,12 @@ type Props = PokedexTierListDataProps & {
 
 export const PokedexTierListInputUI = ({
   pokemonList,
-  pokemonMaxLevel,
   input,
   setInput,
   isPremium,
 }: Props) => {
   const {
     ingredientMap,
-    subSkillMap,
     fieldMetaMap,
   } = useCommonServerData();
 
@@ -106,9 +103,7 @@ export const PokedexTierListInputUI = ({
       <PokemonIndividualParamsPicker
         filter={filter}
         setFilter={setFilter}
-        maxLevel={pokemonMaxLevel}
         isPremium={isPremium}
-        subSkillMap={subSkillMap}
         className="bg-plate"
       />
       <InputRow className="justify-end">

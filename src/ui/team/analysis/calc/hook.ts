@@ -11,7 +11,6 @@ import {Nullable} from '@/utils/type';
 
 export const useTeamProduction = ({
   pokemonList,
-  pokemonMaxLevel,
   snorlaxData,
   preloaded,
   maxEvolutionCount,
@@ -64,7 +63,6 @@ export const useTeamProduction = ({
       recipeLevelData,
       eventStrengthMultiplierData,
       subSkillMap,
-      pokemonMaxLevel,
       preloaded,
       maxEvolutionCount,
       setup,

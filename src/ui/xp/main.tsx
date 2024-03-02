@@ -21,12 +21,6 @@ export const PokemonExpCalculator = async ({params}: DefaultPageProps) => {
     getExpShardConsumption(),
   ]);
 
-  const pokemonMaxLevel = Object.values(xpValueData).at(0)?.data.length;
-
-  if (!pokemonMaxLevel) {
-    return <Failed text="XP Data"/>;
-  }
-
   if (!xpShardConsumption) {
     return <Failed text="XP Shard Consumption"/>;
   }
@@ -34,7 +28,6 @@ export const PokemonExpCalculator = async ({params}: DefaultPageProps) => {
   const props: PokemonExpCalculatorDataProps = {
     xpValueData,
     xpShardConsumption,
-    pokemonMaxLevel,
   };
 
   return (

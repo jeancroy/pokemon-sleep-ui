@@ -1,22 +1,22 @@
 import {useFilterInput} from '@/components/input/filter/hook';
 import {isDataIncludingAllOfFilter} from '@/components/input/filter/utils/match';
-import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {
   isPokemonIncludedFromFilter,
 } from '@/components/shared/pokemon/filter/utils/filter';
 import {generatePokemonInputFilterExtended} from '@/components/shared/pokemon/filter/utils/generate';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonId, PokemonInfo, PokemonInfoWithMap} from '@/types/game/pokemon';
 import {AnalysisComparisonFilter} from '@/ui/analysis/page/type';
 import {generateDefaultIngredientProductionAtLevels} from '@/utils/game/producing/ingredient/chain';
 
 
-type UseAnalysisFilterOpts = UsePokemonFilterCommonData & {
+type UseAnalysisFilterOpts = {
   data: PokemonInfoWithMap[],
   currentPokemon: PokemonInfo,
 };
 
-export const useAnalysisFilter = ({data, currentPokemon, ...filterData}: UseAnalysisFilterOpts) => {
-  const {ingredientChainMap} = filterData;
+export const useAnalysisFilter = ({data, currentPokemon}: UseAnalysisFilterOpts) => {
+  const {ingredientMap, ingredientChainMap} = useCommonServerData();
 
   return useFilterInput<AnalysisComparisonFilter, PokemonInfoWithMap, PokemonId>({
     data,
@@ -37,7 +37,7 @@ export const useAnalysisFilter = ({data, currentPokemon, ...filterData}: UseAnal
       }
 
       // `filterData` has name conflict of `pokemon`, so it has to be the first in the spread
-      return isPokemonIncludedFromFilter({...filterData, filter, pokemon: data.info});
+      return isPokemonIncludedFromFilter({filter, pokemon: data.info, ingredientMap, ingredientChainMap});
     },
   });
 };

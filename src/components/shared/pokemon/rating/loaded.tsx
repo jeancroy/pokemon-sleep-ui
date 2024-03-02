@@ -13,6 +13,7 @@ import {RatingDetails} from '@/components/shared/pokemon/rating/section/details/
 import {RatingResultSummary} from '@/components/shared/pokemon/rating/section/summary';
 import {RatingResultProps, RatingSummaryCommonProps} from '@/components/shared/pokemon/rating/type';
 import {defaultRatingConfig} from '@/const/game/rating';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useAutoUpload} from '@/hooks/userData/autoUpload';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
 import {getRatingWeightedStats} from '@/utils/game/rating/result/weighted';
@@ -27,12 +28,13 @@ type Props = RatingResultProps & {
 };
 
 const RatingResultLoadedInternal = ({
-  pokemonMaxLevel,
   session,
   preloadedConfig,
   ...props
 }: Props, ref: React.ForwardedRef<HTMLDivElement>) => {
   const {request} = props;
+
+  const {pokemonMaxLevel} = useCommonServerData();
 
   const [show, setShow] = React.useState(false);
   const [config, setConfig] = React.useState<RatingConfig>(migrate({
@@ -81,7 +83,6 @@ const RatingResultLoadedInternal = ({
       <RatingResultSummary
         rating={weightedRating}
         basis={basis}
-        pokemonMaxLevel={pokemonMaxLevel}
         {...props}
       />
       <RatingResultChart {...ratingSummaryCommonProps}/>

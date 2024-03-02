@@ -14,13 +14,13 @@ import {PokemonIndividualSelectorButtonProps} from '@/components/shared/pokemon/
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {PokemonSubSkillSelectionButtons} from '@/components/shared/pokemon/subSkill/selector/buttons';
 import {PokemonSubSkillSelected} from '@/components/shared/pokemon/subSkill/selector/selected';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useSearchableData} from '@/hooks/search';
 import {
   PokemonSubSkill,
   PokemonSubSkillLevel,
   pokemonSubSkillLevel,
   SubSkillId,
-  SubSkillMap,
 } from '@/types/game/pokemon/subSkill';
 import {isNotNullish} from '@/utils/type';
 
@@ -28,15 +28,15 @@ import {isNotNullish} from '@/utils/type';
 type Props = PokemonIndividualSelectorButtonProps & {
   subSkill: PokemonSubSkill,
   setSubSkill: (subSkill: PokemonSubSkill) => void,
-  subSkillMap: SubSkillMap,
 };
 
 export const PokemonSubSkillSelector = ({
   subSkill,
   setSubSkill,
-  subSkillMap,
   ...selectButtonProps
 }: Props) => {
+  const {subSkillMap} = useCommonServerData();
+
   const [show, setShow] = React.useState(false);
   const [search, setSearch] = React.useState('');
 

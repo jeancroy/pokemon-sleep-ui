@@ -25,7 +25,6 @@ import {defaultSeedUsage} from '@/const/game/seed';
 import {useCommonServerData} from '@/contexts/data/common/hook';
 import {imageSmallIconSizes} from '@/styles/image';
 import {getToggleButtonClass} from '@/styles/input';
-import {pokemonSubSkillLevel} from '@/types/game/pokemon/subSkill';
 import {Dimension} from '@/types/style';
 import {PokeInBox} from '@/types/userData/pokebox';
 import {PokeInBoxEditCommonProps, PokeInBoxEditStateProps} from '@/ui/team/pokebox/editor/type';
@@ -142,7 +141,6 @@ export const PokeInBoxEditLayout = ({
         onClick={(pokemon) => setPokeInBox({...pokeInBox, pokemon})}
       />
       <PokemonLevelSlider
-        max={Math.max(...pokemonSubSkillLevel)}
         value={level}
         setValue={(level) => setPokeInBox({
           ...pokeInBox,
@@ -181,7 +179,6 @@ export const PokeInBoxEditLayout = ({
       <Flex className="gap-1.5 md:flex-row">
         <PokemonSubSkillSelector
           subSkill={subSkill}
-          subSkillMap={subSkillMap}
           setSubSkill={(subSkill) => setPokeInBox({
             ...pokeInBox,
             subSkill,

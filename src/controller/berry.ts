@@ -21,17 +21,6 @@ export const getBerryDataMap = async (): Promise<BerryDataMap> => {
   return getDataAsMap(getCollection(), ({id}) => id);
 };
 
-// FIXME: Remove
-export const getPokemonMaxLevelByBerry = async (): Promise<number> => {
-  const data = await getSingleData(getCollection(), {});
-
-  if (!data) {
-    throw new Error('No berry data available for getting max pokemon level');
-  }
-
-  return data.energy.length;
-};
-
 const addIndex = async () => {
   const collection = await getCollection();
 

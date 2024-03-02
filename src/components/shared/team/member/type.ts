@@ -11,7 +11,6 @@ import {Nullable} from '@/utils/type';
 
 
 export type TeamMemberDataProps = {
-  pokemonMaxLevel: number,
   maxEvolutionCount: number,
 };
 

@@ -18,16 +18,11 @@ import {getDefaultExpRequired, getPokemonExpValueData} from '@/ui/xp/utils';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
-type Props = PokemonExpCalculatorCommonProps & {
-  pokemonMaxLevel: number,
-};
-
 export const PokemonExpCalculatorInputUI = ({
   xpValueData,
   filter,
   setFilter,
-  pokemonMaxLevel,
-}: Props) => {
+}: PokemonExpCalculatorCommonProps) => {
   const {
     currentLv,
     xpToNext,
@@ -61,7 +56,6 @@ export const PokemonExpCalculatorInputUI = ({
         )}
       </PokemonClickableIcons>
       <PokemonLevelSlider
-        max={pokemonMaxLevel}
         value={currentLv}
         setValue={(currentLv) => setFilter((original) => ({
           ...original,

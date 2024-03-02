@@ -5,7 +5,7 @@ import {NumberSliderRequiredProps} from '@/components/shared/input/number/requir
 import {PokemonLevelSlider} from '@/components/shared/pokemon/level/slider';
 
 
-export const PokemonLevelSliderRow = (props: Omit<NumberSliderRequiredProps, 'text'>) => {
+export const PokemonLevelSliderRow = (props: Omit<NumberSliderRequiredProps, 'text' | 'max'>) => {
   return (
     <InputRow className="p-1.5">
       <PokemonLevelSlider {...props}/>

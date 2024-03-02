@@ -17,6 +17,7 @@ import {PokemonOnDeskExportButton} from '@/components/shared/pokemon/predefined/
 import {PokemonOnDeskCommonProps, PokemonOnDeskState} from '@/components/shared/pokemon/predefined/lab/onDesk/type';
 import {SeedUsageInput} from '@/components/shared/pokemon/seed/input/main';
 import {PokemonSubSkillSelector} from '@/components/shared/pokemon/subSkill/selector/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 
 
 export type PokemonOnDeskProps<TOnDesk extends PokemonOnDeskState> = PokemonOnDeskCommonProps<TOnDesk> & {
@@ -24,10 +25,6 @@ export type PokemonOnDeskProps<TOnDesk extends PokemonOnDeskState> = PokemonOnDe
 };
 
 const PokemonOnDeskInternal = <TOnDesk extends PokemonOnDeskState>({
-  ingredientChainMap,
-  mainSkillMap,
-  subSkillMap,
-  pokemonMaxLevel,
   ocrTranslations,
   maxEvolutionCount,
   onRun,
@@ -35,6 +32,8 @@ const PokemonOnDeskInternal = <TOnDesk extends PokemonOnDeskState>({
   renderAdditional,
   initialSetup,
 }: PokemonOnDeskProps<TOnDesk>, ref: React.ForwardedRef<HTMLDivElement>) => {
+  const {ingredientChainMap, mainSkillMap} = useCommonServerData();
+
   const [setup, setSetup] = React.useState(initialSetup);
   const {state, setState, showPokemon} = usePokemonLinkPopup();
 
@@ -98,7 +97,6 @@ const PokemonOnDeskInternal = <TOnDesk extends PokemonOnDeskState>({
             ...setup,
             subSkill,
           }))}
-          subSkillMap={subSkillMap}
         />
         <PokemonNatureSelector
           nature={nature}
@@ -134,12 +132,11 @@ const PokemonOnDeskInternal = <TOnDesk extends PokemonOnDeskState>({
             subSkill,
             nature,
           }))}
-          subSkillMap={subSkillMap}
           pokemonIdOverride={pokemon.id}
           noFullWidth={!immediateUpdate}
         />
         {!immediateUpdate && <ButtonToStartTheSorcery onClick={() => onRun(setup)}/>}
-        <PokemonOnDeskExportButton setup={setup} pokemon={setup.pokemon} pokemonMaxLevel={pokemonMaxLevel}/>
+        <PokemonOnDeskExportButton setup={setup} pokemon={setup.pokemon}/>
       </Flex>
     </Flex>
   );

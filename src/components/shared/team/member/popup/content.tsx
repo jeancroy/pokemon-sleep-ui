@@ -37,7 +37,6 @@ export const TeamMemberPopupContent = ({
     teamMetadata,
     calculatedCookingConfig,
     memberIdForShare,
-    pokemonMaxLevel,
     pokemon,
     production,
     stateOfRate,
@@ -47,7 +46,7 @@ export const TeamMemberPopupContent = ({
   const {control, hide} = state;
   const {type} = control;
 
-  const {mealMap} = useCommonServerData();
+  const {mealMap, pokemonMaxLevel} = useCommonServerData();
 
   const t = useTranslations('UI.Producing');
   const t2 = useTranslations('UI.Component.Team.Member');

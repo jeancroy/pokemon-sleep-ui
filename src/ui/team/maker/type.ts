@@ -7,7 +7,6 @@ import {CommonServerDataCollection} from '@/types/website/data/common';
 
 export type TeamMakerServerDataProps = {
   snorlaxData: SnorlaxDataOfMap[],
-  pokemonMaxLevel: number,
 };
 
 export type TeamMakerDataProps = TeamMakerServerDataProps & {

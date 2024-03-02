@@ -8,16 +8,17 @@ import {usePokemonComplexPickerFilter} from '@/components/shared/pokemon/predefi
 import {PokemonComplexFilterCommonProps} from '@/components/shared/pokemon/predefined/complexPicker/type';
 import {PokemonCollapsibleFilter} from '@/components/shared/pokemon/predefined/filter';
 import {PokemonCollapsiblePicker} from '@/components/shared/pokemon/predefined/picker';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 
 
 export const PokemonComplexFilter = (props: PokemonComplexFilterCommonProps) => {
   const {
     pokemonList,
-    pokedexMap,
-    subSkillMap,
     ocrTranslations,
     onPokemonPicked,
   } = props;
+
+  const {pokedexMap} = useCommonServerData();
 
   const {filter, setFilter, isIncluded} = usePokemonComplexPickerFilter({
     data: pokemonList,
@@ -74,7 +75,6 @@ export const PokemonComplexFilter = (props: PokemonComplexFilterCommonProps) => 
               nature,
             });
           }}
-          subSkillMap={subSkillMap}
           noFullWidth={false}
         />
       </Flex>

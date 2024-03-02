@@ -8,6 +8,7 @@ import {PokemonOnDesk} from '@/components/shared/pokemon/predefined/lab/onDesk/m
 import {PokemonOnDeskCommonProps, PokemonOnDeskState} from '@/components/shared/pokemon/predefined/lab/onDesk/type';
 import {PokemonLabDataProps} from '@/components/shared/pokemon/predefined/lab/type';
 import {toOnDeskState} from '@/components/shared/pokemon/predefined/lab/utils';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 
 
 type Props<TOnDesk extends PokemonOnDeskState> =
@@ -20,11 +21,12 @@ type Props<TOnDesk extends PokemonOnDeskState> =
 
 export const PokemonLab = <TOnDesk extends PokemonOnDeskState>(props: Props<TOnDesk>) => {
   const {
-    ingredientChainMap,
     renderResult,
     onPokemonPicked,
     toState,
   } = props;
+  const {ingredientChainMap} = useCommonServerData();
+
   const [initialSetup, setInitialSetup] = React.useState<TOnDesk>();
 
   const onDeskRef = React.useRef<HTMLDivElement>(null);

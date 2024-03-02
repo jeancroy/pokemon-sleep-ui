@@ -5,7 +5,6 @@ import {getServerSession} from 'next-auth';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
-import {getPokemonMaxLevelByBerry} from '@/controller/berry';
 import {userDataPokeboxDisplay} from '@/controller/user/manager';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {LoginRequiredPageLayout} from '@/ui/base/layout/loginRequired';
@@ -16,17 +15,14 @@ import {PokeboxServerDataProps} from '@/ui/team/pokebox/type';
 const Pokebox = async () => {
   const [
     session,
-    pokemonMaxLevel,
   ] = await Promise.all([
     getServerSession(authOptions),
-    getPokemonMaxLevelByBerry(),
   ]);
 
   const props: PokeboxServerDataProps = {
     preloaded: {
       display: (await userDataPokeboxDisplay.getDataOptional(session?.user.id))?.data,
     },
-    pokemonMaxLevel,
   };
 
   return <PokeboxClient {...props}/>;

@@ -1,8 +1,8 @@
-import {PokemonInputFilter, UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
-import {PokedexMap, PokemonInfo} from '@/types/game/pokemon';
+import {PokemonInputFilter} from '@/components/shared/pokemon/filter/type';
+import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProductionAtLevels} from '@/types/game/pokemon/ingredient';
 import {NatureId} from '@/types/game/pokemon/nature';
-import {PokemonSubSkill, SubSkillMap} from '@/types/game/pokemon/subSkill';
+import {PokemonSubSkill} from '@/types/game/pokemon/subSkill';
 import {OcrTranslationsForPokemonInfo} from '@/types/ocr/extracted/pokemon';
 
 
@@ -29,10 +29,8 @@ export type PokemonComplexFilterOnSelectOpts = {
 
 export type PokemonComplexFilterOrigin = PokemonComplexFilterOnSelectOpts['origin'];
 
-export type PokemonComplexFilterDataProps = UsePokemonFilterCommonData & {
+export type PokemonComplexFilterDataProps = {
   pokemonList: PokemonInfo[],
-  pokedexMap: PokedexMap,
-  subSkillMap: SubSkillMap,
   ocrTranslations: OcrTranslationsForPokemonInfo,
 };
 

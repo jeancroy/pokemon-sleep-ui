@@ -1,10 +1,10 @@
 import {ingredientLevels, IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {getAnalysisStatsOfGrouped} from '@/ui/analysis/page/calc/grouped';
 import {getAnalysisStatsOfSleepStyle} from '@/ui/analysis/page/calc/pokemon/sleepStyle';
-import {AnalysisStats, AnalysisStatsGrouped, GetAnalysisStatsOpts} from '@/ui/analysis/page/calc/type';
+import {AnalysisStats, AnalysisStatsGrouped, GetAnalysisStatsWorkerOpts} from '@/ui/analysis/page/calc/type';
 
 
-export const getAnalysisStatsOfPokemon = (opts: GetAnalysisStatsOpts): AnalysisStats['pokemon'] => {
+export const getAnalysisStatsOfPokemon = (opts: GetAnalysisStatsWorkerOpts): AnalysisStats['pokemon'] => {
   const {
     pokemonList,
     pokemon,

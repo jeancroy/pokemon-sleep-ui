@@ -3,13 +3,13 @@ import {toAnalysisIngredientProducingStats} from '@/ui/analysis/page/calc/produc
 import {toAnalysisSkillTriggerCountProducingStats} from '@/ui/analysis/page/calc/production/skill';
 import {toAnalysisTotalProducingStats} from '@/ui/analysis/page/calc/production/total';
 import {PokemonAnalysisRateInfo} from '@/ui/analysis/page/calc/production/type';
-import {AnalysisStats, GetAnalysisStatsOpts} from '@/ui/analysis/page/calc/type';
+import {AnalysisStats, GetAnalysisStatsWorkerOpts} from '@/ui/analysis/page/calc/type';
 import {generatePossibleIngredientProductions} from '@/utils/game/producing/ingredient/chain';
 import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
 import {getPokemonProducingParams, getProductionIndividualParams} from '@/utils/game/producing/params';
 
 
-export const getAnalysisStatsOfProduction = (opts: GetAnalysisStatsOpts): AnalysisStats['production'] => {
+export const getAnalysisStatsOfProduction = (opts: GetAnalysisStatsWorkerOpts): AnalysisStats['production'] => {
   const {
     pokemonList,
     pokemon,

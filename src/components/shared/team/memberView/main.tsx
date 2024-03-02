@@ -3,11 +3,7 @@ import React from 'react';
 import {Grid} from '@/components/layout/grid';
 import {TeamMemberEmptySlot} from '@/components/shared/team/memberView/empty';
 import {TeamMemberFilledSlot} from '@/components/shared/team/memberView/filled';
-import {
-  TeamMemberEmptySlotProps,
-  TeamMemberFilledProps,
-  TeamMemberViewRequiredData,
-} from '@/components/shared/team/memberView/type';
+import {TeamMemberEmptySlotProps, TeamMemberFilledProps} from '@/components/shared/team/memberView/type';
 import {useCommonServerData} from '@/contexts/data/common/hook';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {TeamSetupConfig} from '@/types/game/team/config';
@@ -27,7 +23,6 @@ type Props<
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 > =
-  TeamMemberViewRequiredData &
   TeamMemberEmptySlotProps<TKey, TMember> &
   TeamMemberFilledProps<TKey, TMember, TConfig, TTeam, TSetup> & {
     memberKeys: TKey[],

@@ -18,10 +18,9 @@ import {PokemonInfo} from '@/types/game/pokemon';
 type Props = {
   setup: PokemonOnDeskState,
   pokemon: PokemonInfo,
-  pokemonMaxLevel: number,
 };
 
-export const PokemonOnDeskExportButton = ({setup, pokemon, pokemonMaxLevel}: Props) => {
+export const PokemonOnDeskExportButton = ({setup, pokemon}: Props) => {
   const [state, setState] = React.useState<PokemonOnDeskExportState>({
     level: 1,
     name: null,
@@ -58,7 +57,6 @@ export const PokemonOnDeskExportButton = ({setup, pokemon, pokemonMaxLevel}: Pro
             }))}
           />
           <PokemonLevelSlider
-            max={pokemonMaxLevel}
             value={level}
             setValue={(level) => setState((original) => ({
               ...original,

@@ -4,7 +4,6 @@ import {getServerSession} from 'next-auth';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
-import {getPokemonMaxLevelByBerry} from '@/controller/berry';
 import {getPokemonList} from '@/controller/pokemon/info';
 import {getSleepStyleNormalMap} from '@/controller/sleepStyle';
 import {userDataPokedex} from '@/controller/user/manager';
@@ -37,16 +36,13 @@ export const Pokedex = async ({params}: DefaultPageProps) => {
   const [
     session,
     pokedexData,
-    pokemonMaxLevel,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexData(),
-    getPokemonMaxLevelByBerry(),
   ]);
 
   const props: PokedexDataProps = {
     pokedexData,
-    pokemonMaxLevel,
     preloaded: {
       display: (await userDataPokedex.getDataOptional(session?.user.id))?.data,
     },

@@ -6,7 +6,6 @@ import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 export type MealServerDataProps = {
   meal: Meal,
   pokemonIngredientProductionMap: PokemonIngredientProductionMap,
-  pokemonMaxLevel: number,
 };
 
 export type MealCommonProps = MealServerDataProps & {

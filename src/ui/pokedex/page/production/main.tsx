@@ -30,12 +30,11 @@ type Props = PokemonDataCommonProps & {
 export const PokemonProduction = (props: Props) => {
   const {
     pokemon,
-    berryData,
     session,
   } = props;
   const {specialty, berry, ingredientChain} = pokemon;
 
-  const {ingredientChainMap, subSkillMap} = useCommonServerData();
+  const {ingredientChainMap} = useCommonServerData();
 
   const [input, setInput] = React.useState<PokemonIndividualParams>(
     defaultPokemonIndividualParams,
@@ -54,9 +53,7 @@ export const PokemonProduction = (props: Props) => {
       <PokemonIndividualParamsPicker
         filter={input}
         setFilter={setInput}
-        maxLevel={berryData.energy.length}
         isPremium={isPremium}
-        subSkillMap={subSkillMap}
       />
       <HorizontalSplitter className="w-full"/>
       <PokemonMetaSection

@@ -13,7 +13,6 @@ export type PokemonConfigProps = {
   data: PokemonConfigPokemonData,
   onDataUpdated: (update: Partial<PokemonConfigPokemonData>) => void,
   pokemon: PokemonInfo,
-  pokemonMaxLevel: number,
   maxEvolutionCount: number,
   showSeeds?: boolean,
 };

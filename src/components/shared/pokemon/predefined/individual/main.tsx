@@ -9,13 +9,10 @@ import {PokemonNatureSelector} from '@/components/shared/pokemon/nature/selector
 import {PokemonIndividualSelectorButtonProps} from '@/components/shared/pokemon/selector/type';
 import {PokemonSubSkillSelector} from '@/components/shared/pokemon/subSkill/selector/main';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
-import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 
 
 type Props<TFilter extends PokemonIndividualParams> = FilterWithUpdaterProps<TFilter> & {
   isPremium: boolean,
-  subSkillMap: SubSkillMap,
-  maxLevel: number,
   className?: string,
   noSameLine?: boolean,
 };
@@ -24,8 +21,6 @@ export const PokemonIndividualParamsPicker = <TFilter extends PokemonIndividualP
   filter,
   setFilter,
   isPremium,
-  subSkillMap,
-  maxLevel,
   className,
   noSameLine,
 }: Props<TFilter>) => {
@@ -43,9 +38,7 @@ export const PokemonIndividualParamsPicker = <TFilter extends PokemonIndividualP
           ...original,
           level,
         }))}
-        max={maxLevel}
-        noSameLine={
-          noSameLine}
+        noSameLine={noSameLine}
       />
       <Flex className="gap-1.5 sm:flex-row">
         <PokemonSubSkillSelector
@@ -54,7 +47,6 @@ export const PokemonIndividualParamsPicker = <TFilter extends PokemonIndividualP
             ...original,
             subSkill,
           }))}
-          subSkillMap={subSkillMap}
           {...selectorProps}
         />
         <PokemonNatureSelector
