@@ -31,4 +31,5 @@ export type CommonServerDataCollection = ConfigRequiredData & UsePokemonFilterCo
   mapIds: SleepMapId[],
   mealTypes: MealTypeId[],
   maxMapBonusPercent: number,
+  pokemonMaxLevel: number,
 };

@@ -13,10 +13,6 @@ import {PokeInBox} from '@/types/userData/pokebox';
 import {Nullable} from '@/utils/type';
 
 
-export type TeamMemberViewRequiredData = {
-  pokemonMaxLevel: number,
-};
-
 export type TeamMemberFilledCommonProps = {
   showPokemon: (pokemon: PokemonInfo) => void,
   bundle: ConfigBundle,

@@ -15,6 +15,7 @@ import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
 import {getPotInfoList} from '@/controller/potInfo';
 import {getMaxMapBonusPercent} from '@/controller/progress';
 import {getRecipeLevelData} from '@/controller/recipeLevel';
+import {getPokemonMaxLevelByResearchRank} from '@/controller/researchRank';
 import {getSubSkillMap} from '@/controller/subSkill';
 import {CommonServerDataCollection} from '@/types/website/data/common';
 import {toUnique} from '@/utils/array';
@@ -39,6 +40,7 @@ export const CommonServerDataProvider = async ({children}: React.PropsWithChildr
     potInfoList,
     recipeLevelData,
     configRequiredData,
+    pokemonMaxLevel,
   ] = await Promise.all([
     getServerSession(authOptions),
     getMapIds(),
@@ -54,6 +56,7 @@ export const CommonServerDataProvider = async ({children}: React.PropsWithChildr
     getPotInfoList(),
     getRecipeLevelData(),
     getConfigRequiredData(),
+    getPokemonMaxLevelByResearchRank(),
   ]);
 
   const {mealMap} = configRequiredData;
@@ -80,6 +83,7 @@ export const CommonServerDataProvider = async ({children}: React.PropsWithChildr
     mapIds,
     mealTypes,
     maxMapBonusPercent,
+    pokemonMaxLevel,
     ...configRequiredData,
   };
 

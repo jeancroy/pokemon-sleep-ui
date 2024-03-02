@@ -4,7 +4,6 @@ import {getServerSession} from 'next-auth';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
-import {getTeamMemberViewRequiredData} from '@/controller/dataBundle/teamMemberView';
 import {getUserProductionComparisonContent} from '@/controller/user/productionComparison/main';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
@@ -19,14 +18,11 @@ export const ProductionComparison = async ({params}: DefaultPageProps) => {
   const session = await getServerSession(authOptions);
   const [
     userProductionComparisonContent,
-    teamMemberViewRequiredData,
   ] = await Promise.all([
     getUserProductionComparisonContent(session?.user.id),
-    getTeamMemberViewRequiredData(),
   ]);
 
   const props: ProductionComparisonDataProps = {
-    ...teamMemberViewRequiredData,
     preloaded: {
       bundle: createConfigBundle(session),
       setup: userProductionComparisonContent,
