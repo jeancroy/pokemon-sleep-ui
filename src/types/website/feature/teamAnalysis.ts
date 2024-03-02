@@ -1,4 +1,4 @@
-import {MealCoverage} from '@/types/game/cooking';
+import {MealCoverage} from '@/types/game/cooking/meal';
 import {Production} from '@/types/game/producing/rate/base';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData} from '@/types/game/team/member';

@@ -1,5 +1,5 @@
 import {productionMultiplierByPeriod} from '@/const/game/production/multiplier';
-import {MealCoverage} from '@/types/game/cooking';
+import {MealCoverage} from '@/types/game/cooking/meal';
 import {IngredientCounter} from '@/types/game/ingredient';
 import {Meal} from '@/types/game/meal/main';
 import {ProductionPeriod} from '@/types/game/producing/display';

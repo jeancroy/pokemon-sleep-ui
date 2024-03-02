@@ -1,5 +1,5 @@
 import {FilterInclusionMap} from '@/components/input/filter/type';
-import {MealCoverage} from '@/types/game/cooking';
+import {MealCoverage} from '@/types/game/cooking/meal';
 import {IngredientCounter, IngredientId} from '@/types/game/ingredient';
 import {Meal, MealId, MealMap, MealTypeId} from '@/types/game/meal/main';
 import {ProductionPeriod} from '@/types/game/producing/display';

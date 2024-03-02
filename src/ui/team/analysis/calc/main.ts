@@ -1,4 +1,4 @@
-import {MealCoverage} from '@/types/game/cooking';
+import {MealCoverage} from '@/types/game/cooking/meal';
 import {Production} from '@/types/game/producing/rate/base';
 import {TeamProduction} from '@/types/website/feature/teamAnalysis';
 import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';

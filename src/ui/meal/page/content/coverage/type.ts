@@ -1,5 +1,5 @@
 import {PokemonItemStatsCalcResult} from '@/components/shared/pokemon/icon/itemStats/type';
-import {MealCoverage} from '@/types/game/cooking';
+import {MealCoverage} from '@/types/game/cooking/meal';
 import {MealPageContentCommonProps} from '@/ui/meal/page/content/type';
 import {MealCommonProps} from '@/ui/meal/page/type';
 

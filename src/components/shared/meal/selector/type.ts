@@ -1,4 +1,4 @@
-import {RecipeLevel} from '@/types/game/cooking';
+import {RecipeLevel} from '@/types/game/cooking/meal';
 import {MealId, MealTypeId} from '@/types/game/meal/main';
 
 

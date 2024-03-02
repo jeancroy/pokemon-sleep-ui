@@ -1,5 +1,5 @@
 import {FilterInclusionMap} from '@/components/input/filter/type';
-import {RecipeLevel} from '@/types/game/cooking';
+import {RecipeLevel} from '@/types/game/cooking/meal';
 import {IngredientCounter, IngredientId} from '@/types/game/ingredient';
 import {Meal, MealCounter, MealsMarked, MealTypeId} from '@/types/game/meal/main';
 import {CookingTarget} from '@/types/userData/config/cooking/target';

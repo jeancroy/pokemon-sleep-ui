@@ -6,7 +6,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {MealImage} from '@/components/shared/meal/image';
 import {mealTypeTextStyle} from '@/styles/game/mealType';
-import {RecipeLevel} from '@/types/game/cooking';
+import {RecipeLevel} from '@/types/game/cooking/meal';
 import {MealTypeId} from '@/types/game/meal/main';
 import {cookingMeals} from '@/types/userData/config/cooking/meal';
 import {CookingTarget} from '@/types/userData/config/cooking/target';

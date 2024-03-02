@@ -1,4 +1,4 @@
-import {MealCoverage} from '@/types/game/cooking';
+import {MealCoverage} from '@/types/game/cooking/meal';
 
 
 export type MealCoverageSummaryCommonProps = {
