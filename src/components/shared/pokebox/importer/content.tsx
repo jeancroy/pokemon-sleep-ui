@@ -15,6 +15,7 @@ import {usePokeboxImporterFilter} from '@/components/shared/pokebox/importer/fil
 import {PokeboxImporterCommonProps, PokeInBoxForFilter} from '@/components/shared/pokebox/importer/type';
 import {PokeboxImporterUnit} from '@/components/shared/pokebox/importer/unit';
 import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokeInBox} from '@/types/userData/pokebox';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {isNotNullish} from '@/utils/type';
@@ -25,7 +26,8 @@ type Props = PokeboxImporterCommonProps & {
 };
 
 export const PokeboxImporterContent = ({pokebox, ...props}: Props) => {
-  const {pokedexMap} = props;
+  const serverData = useCommonServerData();
+  const {pokedexMap} = serverData;
 
   const t = useTranslations('UI.Metadata.Team');
   const t2 = useTranslations('Game');
@@ -36,7 +38,7 @@ export const PokeboxImporterContent = ({pokebox, ...props}: Props) => {
     setFilter,
     isIncluded,
   } = usePokeboxImporterFilter({
-    ...props,
+    ...serverData,
     data: pokebox
       .map(({pokemon, ...pokeInBox}): PokeInBoxForFilter | null => {
         const pokemonInfo = pokedexMap[pokemon];

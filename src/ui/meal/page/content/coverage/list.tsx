@@ -3,6 +3,7 @@ import React from 'react';
 import {Grid} from '@/components/layout/grid';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonIngredientProduction} from '@/types/game/pokemon';
 import {useMealContentCoverageItemData} from '@/ui/meal/page/content/coverage/calc/hook';
 import {MealContentCoverageItem} from '@/ui/meal/page/content/coverage/item';
@@ -12,7 +13,9 @@ import {isNotNullish} from '@/utils/type';
 
 
 export const MealContentCoverageList = ({ingredientLevel, ...props}: MealContentCoverageCommonProps) => {
-  const {pokedexMap, meal, ingredientChainMap} = props;
+  const {meal} = props;
+  const serverData = useCommonServerData();
+  const {pokedexMap, ingredientChainMap} = serverData;
 
   const {state, setState, showPokemon} = usePokemonLinkPopup();
 

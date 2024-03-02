@@ -4,29 +4,33 @@ import isEqual from 'lodash/isEqual';
 import {useCustomCompareEffect} from 'use-custom-compare';
 
 import {PokemonInfoWithSortingPayload, SortedPokemonInfo} from '@/components/shared/pokemon/sorter/type';
-import {SortingWorkerOpts} from '@/components/shared/pokemon/sorter/worker/type';
+import {SortingNonDataOpts, SortingWorkerOpts} from '@/components/shared/pokemon/sorter/worker/type';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useWorker} from '@/hooks/worker/main';
 
 
 type UsePokemonSortingWorkerOpts<
   TExtra,
   TData extends PokemonInfoWithSortingPayload<TExtra>
-> = SortingWorkerOpts<TExtra, TData> & {
+> = SortingNonDataOpts<TExtra, TData> & {
   triggerDeps: React.DependencyList,
   setLoading: (loading: boolean) => void,
 };
 
 export const usePokemonSortingWorker = <TExtra, TData extends PokemonInfoWithSortingPayload<TExtra>>({
-  triggerDeps,
-  setLoading,
   data,
   sort,
   snorlaxFavorite,
-  ingredientMap,
-  berryDataMap,
-  mainSkillMap,
-  recipeLevelData,
+  triggerDeps,
+  setLoading,
 }: UsePokemonSortingWorkerOpts<TExtra, TData>) => {
+  const {
+    ingredientMap,
+    berryDataMap,
+    mainSkillMap,
+    recipeLevelData,
+  } = useCommonServerData();
+
   const [sorted, setSorted] = React.useState<SortedPokemonInfo<TExtra, TData>[]>([]);
   const {work} = useWorker<SortingWorkerOpts<TExtra, TData>, SortedPokemonInfo<TExtra, TData>[]>({
     workerName: 'Pokemon Sorter',

@@ -1,7 +1,9 @@
 import React from 'react';
 
 import {usePokemonProducingStats} from '@/components/shared/pokemon/icon/itemStats/worker/hook';
-import {PokemonItemStatsWorkerOpts} from '@/components/shared/pokemon/icon/itemStats/worker/type';
+import {
+  PokemonItemStatsCommonOpts,
+} from '@/components/shared/pokemon/icon/itemStats/worker/type';
 import {useWorker} from '@/hooks/worker/main';
 import {Meal} from '@/types/game/meal/main';
 import {PokemonIngredientProduction} from '@/types/game/pokemon';
@@ -9,7 +11,7 @@ import {ToSortedMealContentCoverageItemDataOpts} from '@/ui/meal/page/content/co
 import {MealContentCoverageItemData} from '@/ui/meal/page/content/coverage/type';
 
 
-type UseMealContentCoverageItemDataOpts = PokemonItemStatsWorkerOpts & {
+type UseMealContentCoverageItemDataOpts = PokemonItemStatsCommonOpts & {
   meal: Meal,
   pokemonIngredientProduction: PokemonIngredientProduction[],
 };

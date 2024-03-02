@@ -33,7 +33,11 @@ export const EvolutionItemSingle = ({locale, itemId, pokemonList}: Props) => {
         <div className="text-lg">{itemName}</div>
       </Flex>
       <Flex direction="row" center className="gap-2">
-        <I18nProvider locale={locale} namespaces={['Game', 'UI.Metadata']}>
+        <I18nProvider locale={locale} namespaces={[
+          'Game',
+          'UI.Metadata',
+          'UI.Pokemon.Info.Flags',
+        ]}>
           <EvolutionIconPokemon pokemonList={pokemonList}/>
         </I18nProvider>
       </Flex>

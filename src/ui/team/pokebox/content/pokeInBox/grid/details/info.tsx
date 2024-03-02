@@ -7,6 +7,7 @@ import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {specialtyIdMap} from '@/const/game/pokemon';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
 
 
@@ -14,7 +15,6 @@ export const PokeInBoxGridInfo = (props: PokeInBoxGridDetailsProps) => {
   const {
     pokemon,
     pokeInBox,
-    subSkillMap,
   } = props;
   const {specialty} = pokemon;
   const {
@@ -23,6 +23,8 @@ export const PokeInBoxGridInfo = (props: PokeInBoxGridDetailsProps) => {
     nature,
     subSkill,
   } = pokeInBox;
+
+  const {subSkillMap} = useCommonServerData();
 
   return (
     <Flex className="gap-1.5">

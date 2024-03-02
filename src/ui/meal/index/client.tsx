@@ -10,25 +10,33 @@ import {Grid} from '@/components/layout/grid';
 import {useMealInputFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/hook';
 import {generateEmptyMealFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/utils';
 import {MealLink} from '@/components/shared/meal/link/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {MealIndexInput} from '@/ui/meal/index/input';
-import {MealDataProps, MealIndexFilter} from '@/ui/meal/index/type';
+import {MealIndexFilter} from '@/ui/meal/index/type';
 import {sortMealIndexRecipe} from '@/ui/meal/index/utils';
 import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {isNotNullish} from '@/utils/type';
 
 
-export const MealIndexClient = ({ingredientMap, recipeLevelData, preloaded, ...props}: MealDataProps) => {
-  const {mealMap} = props;
+export const MealIndexClient = () => {
+  const serverData = useCommonServerData();
+
+  const {
+    mealMap,
+    ingredientMap,
+    recipeLevelData,
+    serverConfigBundle,
+  } = serverData;
   const meals = Object.values(mealMap).filter(isNotNullish);
 
   const {data: session} = useSession();
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
-      server: preloaded,
+      server: serverConfigBundle,
       client: session?.user.preloaded,
     },
-    ...props,
+    ...serverData,
   });
   const {bundle} = calculatedConfigBundle;
   const {

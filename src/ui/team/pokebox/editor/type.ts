@@ -1,20 +1,15 @@
 import {PokemonId} from '@/types/game/pokemon';
 import {PokeInBox} from '@/types/userData/pokebox';
-import {PokeboxDataProps} from '@/ui/team/pokebox/type';
+import {PokeboxServerDataProps} from '@/ui/team/pokebox/type';
 
 
-export type PokeInBoxEditCommonProps = PokeboxDataProps & {
+export type PokeInBoxEditCommonProps = PokeboxServerDataProps & {
   onRemovePokeInBox: (toRemove: PokeInBox['uuid']) => void,
 };
 
 export type PokeInBoxEditStateProps = {
   pokeInBox: PokeInBox,
   setPokeInBox: (newPokeInBox: PokeInBox) => void,
-};
-
-export type PokeInBoxActionProps = {
-  onRemovePokeInBox: () => void,
-  onCopyPokeInBox: (pokeInBox: PokeInBox) => void,
 };
 
 export type PokeInBoxEditorState = {

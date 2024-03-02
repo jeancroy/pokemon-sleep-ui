@@ -9,6 +9,7 @@ import {PokemonNatureSelector} from '@/components/shared/pokemon/nature/selector
 import {PokemonConfigProps} from '@/components/shared/pokemon/predefined/config/type';
 import {SeedUsageInput} from '@/components/shared/pokemon/seed/input/main';
 import {PokemonSubSkillSelector} from '@/components/shared/pokemon/subSkill/selector/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {getSubSkillBonus} from '@/utils/game/subSkill/effect';
 
 
@@ -17,16 +18,18 @@ export const PokemonConfig = (props: PokemonConfigProps) => {
     data,
     onDataUpdated,
     pokemon,
-    pokedexMap,
-    ingredientChainMap,
     pokemonMaxLevel,
-    mainSkillMap,
-    subSkillMap,
     maxEvolutionCount,
     showSeeds,
   } = props;
-
   const {ingredientChain, skill} = pokemon;
+
+  const {
+    pokedexMap,
+    ingredientChainMap,
+    mainSkillMap,
+    subSkillMap,
+  } = useCommonServerData();
 
   const mainSkillData = mainSkillMap[skill];
 

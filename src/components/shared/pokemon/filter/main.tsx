@@ -15,9 +15,10 @@ import {generateFilterOptionIdsFromPokemon} from '@/components/shared/pokemon/fi
 import {PokemonLevelSliderRow} from '@/components/shared/pokemon/level/sliderRow';
 import {PokemonSleepType} from '@/components/shared/pokemon/sleepType/main';
 import {PokemonSpecialty} from '@/components/shared/pokemon/specialty/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {textFilterButtonStyle} from '@/styles/input';
 import {BerryId} from '@/types/game/berry';
-import {IngredientId, IngredientMap} from '@/types/game/ingredient';
+import {IngredientId} from '@/types/game/ingredient';
 import {PokemonInfo, PokemonSleepTypeId, PokemonSpecialtyId, PokemonTypeId} from '@/types/game/pokemon';
 import {MainSkillId} from '@/types/game/pokemon/mainSkill';
 import {isNotNullish, KeysOfType} from '@/utils/type';
@@ -25,19 +26,19 @@ import {isNotNullish, KeysOfType} from '@/utils/type';
 
 type Props<TFilter extends PokemonInputFilter> = FilterWithUpdaterProps<TFilter> & {
   pokemonList: PokemonInfo[],
-  ingredientMap: IngredientMap,
   skipLevelInput?: boolean,
   className?: string,
 };
 
 export const PokemonFilter = <TFilter extends PokemonInputFilter>({
   pokemonList,
-  ingredientMap,
   skipLevelInput,
   className,
   ...props
 }: Props<TFilter>) => {
   const {filter, setFilter} = props;
+
+  const {ingredientMap} = useCommonServerData();
 
   const t = useTranslations('Game');
   const t2 = useTranslations('UI.Component.PokemonFilter');

@@ -2,10 +2,7 @@ import React from 'react';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {getEventDrowsyPowerMultiplierData} from '@/controller/event/drowsyPowerMultiplier';
-import {getIngredientMap} from '@/controller/ingredient';
-import {getIngredientChainMap} from '@/controller/ingredientChain';
 import {getMapIds} from '@/controller/mapMeta';
-import {getPokedexMap} from '@/controller/pokemon/info';
 import {getSleepStyleNormalFlattenedList} from '@/controller/sleepStyle';
 import {getSleepStyleSpecialList} from '@/controller/sleepStyleSpecial';
 import {getSnorlaxDataMap} from '@/controller/snorlax';
@@ -19,18 +16,12 @@ export const SleepdexLookup = async ({params}: DefaultPageProps) => {
   const {locale} = params;
 
   const [
-    ingredientMap,
-    ingredientChainMap,
-    pokedexMap,
     snorlaxDataMap,
     eventDrowsyPowerMultiplierData,
     mapIds,
     normal,
     special,
   ] = await Promise.all([
-    getIngredientMap(),
-    getIngredientChainMap(),
-    getPokedexMap(),
     getSnorlaxDataMap(),
     getEventDrowsyPowerMultiplierData(),
     getMapIds(),
@@ -39,9 +30,6 @@ export const SleepdexLookup = async ({params}: DefaultPageProps) => {
   ]);
 
   const props: SleepdexLookupServerDataProps = {
-    ingredientMap,
-    ingredientChainMap,
-    pokedexMap,
     snorlaxDataMap,
     eventDrowsyPowerMultiplierData,
     mapIds,

@@ -8,6 +8,7 @@ import {clsx} from 'clsx';
 
 import {ToggleButton} from '@/components/input/toggleButton';
 import {Flex} from '@/components/layout/flex/common';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {textFilterButtonStyle} from '@/styles/input';
 import {ResearchRankInfoHeader} from '@/ui/info/researchRank/table/header';
 import {ResearchRankInfoRow} from '@/ui/info/researchRank/table/row';
@@ -15,6 +16,8 @@ import {ResearchRankInfoDataProps} from '@/ui/info/researchRank/type';
 
 
 export const ResearchRankInfoTable = ({researchRankData, ...props}: ResearchRankInfoDataProps) => {
+  const {pokedexMap} = useCommonServerData();
+
   const [showRewards, setShowRewards] = React.useState(true);
 
   return (
@@ -37,11 +40,17 @@ export const ResearchRankInfoTable = ({researchRankData, ...props}: ResearchRank
         'info-section-bg border-separate border-spacing-0.5 rounded-lg p-2 text-center [&_td]:px-1.5',
       )}>
         <thead>
-          <ResearchRankInfoHeader showRewards={showRewards} {...props}/>
+          <ResearchRankInfoHeader showRewards={showRewards} pokedexMap={pokedexMap} {...props}/>
         </thead>
         <tbody>
           {researchRankData.map((entry) => (
-            <ResearchRankInfoRow key={entry.rank} entry={entry} showRewards={showRewards} {...props}/>
+            <ResearchRankInfoRow
+              key={entry.rank}
+              entry={entry}
+              showRewards={showRewards}
+              pokedexMap={pokedexMap}
+              {...props}
+            />
           ))}
         </tbody>
       </table>

@@ -25,17 +25,11 @@ export const usePokedexCalc = ({
   setLoading,
   ...opts
 }: UsePokedexCalcOpts<PokedexFilterCommon>): PokedexCalcResult => {
-  const {
-    berryDataMap,
-    ingredientMap,
-    mainSkillMap,
-    recipeLevelData,
-    preloaded,
-  } = opts;
+  const {serverConfigBundle} = opts;
 
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
-      server: preloaded.bundle,
+      server: serverConfigBundle,
       client: session?.user.preloaded,
     },
     override: {snorlaxFavorite: filter.snorlaxFavorite},
@@ -70,10 +64,6 @@ export const usePokedexCalc = ({
       return single;
     }).filter(isNotNullish),
     sort: filter.sort,
-    berryDataMap,
-    ingredientMap,
-    mainSkillMap,
-    recipeLevelData,
     snorlaxFavorite: filter.snorlaxFavorite,
     triggerDeps: [filter, calculatedConfigBundle],
     setLoading,

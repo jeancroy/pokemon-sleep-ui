@@ -12,21 +12,21 @@ import {PokemonClickableIcons} from '@/components/shared/pokemon/icon/clickable/
 import {PokemonLevelSlider} from '@/components/shared/pokemon/level/slider';
 import {PokemonNatureSelector} from '@/components/shared/pokemon/nature/selector/main';
 import {defaultExpType} from '@/const/game/xp';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonExpCalculatorCommonProps, PokemonExpCalculatorInput} from '@/ui/xp/type';
 import {getDefaultExpRequired, getPokemonExpValueData} from '@/ui/xp/utils';
-import {isNotNullish} from '@/utils/type';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 type Props = PokemonExpCalculatorCommonProps & {
-  maxLevel: number,
+  pokemonMaxLevel: number,
 };
 
 export const PokemonExpCalculatorInputUI = ({
-  pokedexMap,
   xpValueData,
   filter,
   setFilter,
-  maxLevel,
+  pokemonMaxLevel,
 }: Props) => {
   const {
     currentLv,
@@ -36,6 +36,7 @@ export const PokemonExpCalculatorInputUI = ({
     pokemon,
     nature,
   } = filter;
+  const {pokedexMap} = useCommonServerData();
 
   const t = useTranslations('UI.InPage.PokemonExp');
 
@@ -43,10 +44,7 @@ export const PokemonExpCalculatorInputUI = ({
     <Flex className="info-section">
       <AdsUnit hideIfNotBlocked/>
       <PokemonClickableIcons
-        pokemonList={Object
-          .values(pokedexMap)
-          .filter(isNotNullish)
-          .filter(({expType}) => expType !== defaultExpType)}
+        pokemonList={toPokemonList(pokedexMap).filter(({expType}) => expType !== defaultExpType)}
         isActive={(id) => id === pokemon}
         onClick={({id}) => setFilter((original) => ({
           ...original,
@@ -63,7 +61,7 @@ export const PokemonExpCalculatorInputUI = ({
         )}
       </PokemonClickableIcons>
       <PokemonLevelSlider
-        max={maxLevel}
+        max={pokemonMaxLevel}
         value={currentLv}
         setValue={(currentLv) => setFilter((original) => ({
           ...original,

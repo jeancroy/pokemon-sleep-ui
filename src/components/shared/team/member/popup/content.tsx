@@ -18,6 +18,7 @@ import {
   teamMemberStrengthGrowthDataTypes,
 } from '@/components/shared/team/member/popup/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {getTotalPokemonIngredientProduction} from '@/utils/game/producing/reducer/total/common';
 import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 import {formatFloat} from '@/utils/number/format/regular';
@@ -33,7 +34,6 @@ export const TeamMemberPopupContent = ({
   const {
     member,
     setMember,
-    mealMap,
     teamMetadata,
     calculatedCookingConfig,
     memberIdForShare,
@@ -46,6 +46,8 @@ export const TeamMemberPopupContent = ({
   const {linkedPokeInBoxUuid} = member;
   const {control, hide} = state;
   const {type} = control;
+
+  const {mealMap} = useCommonServerData();
 
   const t = useTranslations('UI.Producing');
   const t2 = useTranslations('UI.Component.Team.Member');

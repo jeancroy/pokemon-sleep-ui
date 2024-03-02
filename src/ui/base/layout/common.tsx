@@ -18,6 +18,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {ScrollToAnchorOnLoad} from '@/components/shared/common/anchor';
 import {DocsAutoLink} from '@/components/shared/docs/autoLink/main';
 import {authOptions} from '@/const/auth';
+import {CommonServerDataProvider} from '@/contexts/data/common/provider';
 import {AdsLayout} from '@/ui/base/layout/ads';
 import {UiPageProps} from '@/ui/base/layout/type';
 import {NavListContent} from '@/ui/base/navbar/list/content';
@@ -55,35 +56,37 @@ export const PageLayout = ({
       <I18nProvider locale={locale} namespaces={[]}>
         <Toaster position="bottom-center" toastOptions={{duration: 3000}}/>
       </I18nProvider>
-      <Flex direction="row" stretch className={clsx(
-        'nav-bar-height sticky top-0 z-nav gap-1.5 border-b border-b-gray-700 bg-slate-300/90 dark:bg-slate-900/90',
-      )}>
-        <NavBar announcement={announcement} {...props}/>
-      </Flex>
-      <Flex direction="row">
-        <Flex noFullWidth className={clsx(
-          'sticky top-[var(--nav-bar-height)] hidden h-[calc(100vh-var(--nav-bar-height))] w-96 lg:flex',
+      <CommonServerDataProvider>
+        <Flex direction="row" stretch className={clsx(
+          'nav-bar-height sticky top-0 z-nav gap-1.5 border-b border-b-gray-700 bg-slate-300/90 dark:bg-slate-900/90',
         )}>
-          <I18nProvider locale={locale} namespaces={['UI.Metadata']}>
-            <NavListContent/>
-          </I18nProvider>
+          <NavBar announcement={announcement} {...props}/>
         </Flex>
-        <div className="size-full overflow-y-visible">
-          <Flex className="gap-1 p-2">
-            {announcement && <Announcements showOn="portrait" height="h-10"/>}
-            {!noPageEndAds && <AdsUnit/>}
-            <DocsAutoLink locale={locale}/>
-            <React.Suspense fallback={<Loading/>}>
-              {children}
-            </React.Suspense>
-            {!noPageEndAds && <AdsUnit/>}
-            <AdsGap show={adsShouldShow}/>
+        <Flex direction="row">
+          <Flex noFullWidth className={clsx(
+            'sticky top-[var(--nav-bar-height)] hidden h-[calc(100vh-var(--nav-bar-height))] w-96 lg:flex',
+          )}>
+            <I18nProvider locale={locale} namespaces={['UI.Metadata']}>
+              <NavListContent/>
+            </I18nProvider>
           </Flex>
-        </div>
-      </Flex>
-      <Flex className="info-section-opaque fixed bottom-0 z-nav">
-        <AdsLayout adsShouldShow={adsShouldShow}/>
-      </Flex>
+          <div className="size-full overflow-y-visible">
+            <Flex className="gap-1 p-2">
+              {announcement && <Announcements showOn="portrait" height="h-10"/>}
+              {!noPageEndAds && <AdsUnit/>}
+              <DocsAutoLink locale={locale}/>
+              <React.Suspense fallback={<Loading/>}>
+                {children}
+              </React.Suspense>
+              {!noPageEndAds && <AdsUnit/>}
+              <AdsGap show={adsShouldShow}/>
+            </Flex>
+          </div>
+        </Flex>
+        <Flex className="info-section-opaque fixed bottom-0 z-nav">
+          <AdsLayout adsShouldShow={adsShouldShow}/>
+        </Flex>
+      </CommonServerDataProvider>
     </>
   );
 };

@@ -9,6 +9,7 @@ import {CookingConfigUiCommonProps} from '@/components/shared/cooking/config/typ
 import {MealTypeInput} from '@/components/shared/input/mealType';
 import {PotCapacityInput} from '@/components/shared/input/potCapacity';
 import {MealPlanner} from '@/components/shared/meal/planner/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {isNotNullish} from '@/utils/type';
@@ -16,13 +17,17 @@ import {isNotNullish} from '@/utils/type';
 
 export const CookingConfigUI = (props: CookingConfigUiCommonProps) => {
   const {
-    mealMap,
-    potInfoList,
-    recipeLevelData,
     ingredientIds,
     cookingConfig,
     setCookingConfig,
   } = props;
+
+  const {
+    mealMap,
+    potInfoList,
+    recipeLevelData,
+  } = useCommonServerData();
+
   const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
   const {unlockedIngredients} = cookingConfig;
 

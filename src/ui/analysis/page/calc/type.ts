@@ -85,7 +85,7 @@ export type GetAnalysisStatsCommonOpts<TSample> = {
 };
 
 export type GetAnalysisStatsOpts =
-  Omit<AnalysisPageCommonProps, 'fieldMetaMap' | 'preloaded'> &
+  Omit<AnalysisPageCommonProps, 'fieldMetaMap' | 'serverConfigBundle'> &
   PokemonIndividualParams & {
     ingredients: IngredientProduction[],
     snorlaxFavorite: SnorlaxFavorite,

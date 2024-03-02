@@ -10,16 +10,23 @@ import {StaminaChartOfEfficiency} from '@/components/shared/stamina/chart/effici
 import {StaminaChartOfStamina} from '@/components/shared/stamina/chart/stamina';
 import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
 import {StaminaConfig} from '@/components/shared/stamina/input/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useStaminaAnalysis} from '@/ui/stamina/hook';
-import {StaminaAnalysisDataProps} from '@/ui/stamina/type';
 import {getStaminaEventLogsFlattened} from '@/utils/game/stamina/flatten';
 import {getStaminaEfficiency} from '@/utils/game/stamina/main';
 
 
-export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
-  const {subSkillMap, cookingRecoveryData} = props;
+export const StaminaAnalysisClient = () => {
+  const serverData = useCommonServerData();
+  const {subSkillMap, cookingRecoveryData} = serverData;
 
-  const {state, setConfig, setSkillTrigger, setNature, setSubSkill} = useStaminaAnalysis(props);
+  const {
+    state,
+    setConfig,
+    setSkillTrigger,
+    setNature,
+    setSubSkill,
+  } = useStaminaAnalysis(serverData);
   const {bundle, subSkill, nature} = state;
 
   const config = bundle.userConfig.stamina;
@@ -36,7 +43,7 @@ export const StaminaAnalysisClient = (props: StaminaAnalysisDataProps) => {
         bundle={bundle}
         setStaminaConfig={setConfig}
         setStaminaSkillTrigger={setSkillTrigger}
-        {...props}
+        {...serverData}
       />
       <Flex className="gap-1.5 md:flex-row">
         <PokemonSubSkillSelector

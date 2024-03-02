@@ -8,14 +8,14 @@ import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/ut
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {natureDataMap} from '@/data/nature';
-import {PokeboxDataProps} from '@/ui/team/pokebox/type';
+import {PokeboxServerDataProps} from '@/ui/team/pokebox/type';
 import {PokeboxPokemonForView, PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {migrate} from '@/utils/migrate/main';
 import {pokeboxDisplayMigrators} from '@/utils/migrate/pokeboxDisplay/migrators';
 
 
-export const generatePokeboxViewerFilter = (preloaded: PokeboxDataProps['preloaded']): PokeboxViewerFilter => ({
+export const generatePokeboxViewerFilter = (preloaded: PokeboxServerDataProps['preloaded']): PokeboxViewerFilter => ({
   ...generatePokemonInputFilter({
     isLevelAgnostic: false,
     defaultPokemonLevel: 1,

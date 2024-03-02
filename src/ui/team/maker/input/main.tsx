@@ -4,6 +4,7 @@ import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonCollapsibleFilter} from '@/components/shared/pokemon/predefined/filter';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {TeamMakerInputCooking} from '@/ui/team/maker/input/cooking';
 import {TeamMakerInputGeneral} from '@/ui/team/maker/input/general';
 import {TeamMakerInputToggles} from '@/ui/team/maker/input/toggle';
@@ -16,16 +17,16 @@ export const TeamMakerInputUI = (props: TeamMakerInputCommonProps) => {
   const {
     input,
     setInput,
-    pokedexMap,
-    fieldMetaMap,
   } = props;
   const {pokemon} = input;
 
+  const {
+    pokedexMap,
+    fieldMetaMap,
+  } = useCommonServerData();
+
   const collapsible = useCollapsibleControl();
-  const pokemonList = React.useMemo(
-    () => toPokemonList(pokedexMap),
-    [pokedexMap],
-  );
+  const pokemonList = React.useMemo(() => toPokemonList(pokedexMap), [pokedexMap]);
 
   return (
     <Flex className="gap-1">

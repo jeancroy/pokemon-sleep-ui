@@ -2,7 +2,6 @@ import React from 'react';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {Failed} from '@/components/icons/failed';
-import {getPokedexMap} from '@/controller/pokemon/info';
 import {getExpShardConsumption} from '@/controller/pokemon/xpShard';
 import {getPokemonExpValueMap} from '@/controller/pokemon/xpValue';
 import {DefaultPageProps} from '@/types/next/page/common';
@@ -15,18 +14,16 @@ export const PokemonExpCalculator = async ({params}: DefaultPageProps) => {
   const {locale} = params;
 
   const [
-    pokedexMap,
     xpValueData,
     xpShardConsumption,
   ] = await Promise.all([
-    getPokedexMap(),
     getPokemonExpValueMap(),
     getExpShardConsumption(),
   ]);
 
-  const maxLevel = Object.values(xpValueData).at(0)?.data.length;
+  const pokemonMaxLevel = Object.values(xpValueData).at(0)?.data.length;
 
-  if (!maxLevel) {
+  if (!pokemonMaxLevel) {
     return <Failed text="XP Data"/>;
   }
 
@@ -35,10 +32,9 @@ export const PokemonExpCalculator = async ({params}: DefaultPageProps) => {
   }
 
   const props: PokemonExpCalculatorDataProps = {
-    pokedexMap,
     xpValueData,
     xpShardConsumption,
-    maxLevel,
+    pokemonMaxLevel,
   };
 
   return (

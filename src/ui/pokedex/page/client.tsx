@@ -6,6 +6,7 @@ import {useSession} from 'next-auth/react';
 import {AdsUnit} from '@/components/ads/main';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {PokemonBranches} from '@/ui/pokedex/page/branch/main';
 import {PokemonEvolution} from '@/ui/pokedex/page/evolution/main';
@@ -16,19 +17,19 @@ import {PokemonDataCommonProps, PokemonDataProps} from '@/ui/pokedex/page/type';
 
 
 export const PokemonClient = (props: PokemonDataProps) => {
-  const {
-    pokemonBranch,
-    preloaded,
-  } = props;
+  const {pokemonBranch} = props;
+
+  const serverData = useCommonServerData();
+  const {serverConfigBundle} = serverData;
 
   const pokemonLinkPopup = usePokemonLinkPopup();
   const {data} = useSession();
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
-      server: preloaded,
+      server: serverConfigBundle,
       client: data?.user.preloaded,
     },
-    ...props,
+    ...serverData,
   });
 
   const commonProps: PokemonDataCommonProps = {

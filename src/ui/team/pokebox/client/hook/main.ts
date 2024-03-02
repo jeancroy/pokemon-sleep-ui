@@ -3,18 +3,20 @@ import React from 'react';
 import {useSession} from 'next-auth/react';
 import {useTranslations} from 'next-intl';
 
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useAutoUpload} from '@/hooks/userData/autoUpload';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {Pokebox} from '@/types/userData/pokebox';
 import {useProcessedPokebox} from '@/ui/team/pokebox/client/hook/process';
-import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
+import {PokeboxServerDataProps} from '@/ui/team/pokebox/type';
 import {usePokeboxViewerFilter} from '@/ui/team/pokebox/viewer/hook';
 import {getPokemonFinalEvolutionIds} from '@/utils/game/pokemon/evolution/final';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getLevelToCalcForPokeInBox} from '@/utils/team/previewLevel';
 import {isNotNullish} from '@/utils/type';
 
 
-type UseCalculatedDataOpts = PokeboxCommonProps & {
+type UseCalculatedDataOpts = PokeboxServerDataProps & {
   pokebox: Pokebox,
   session: ReturnType<typeof useSession>,
   setLoading: React.Dispatch<React.SetStateAction<boolean>>,
@@ -22,21 +24,23 @@ type UseCalculatedDataOpts = PokeboxCommonProps & {
 
 export const useCalculatedData = (opts: UseCalculatedDataOpts) => {
   const {
-    pokedexMap,
-    preloaded,
     pokebox,
     session,
     setLoading,
   } = opts;
 
+  const serverData = useCommonServerData();
+  const {pokedexMap, serverConfigBundle} = serverData;
+
   const t = useTranslations('Game');
 
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
-      server: preloaded.bundle,
+      server: serverConfigBundle,
       client: session.data?.user.preloaded,
     },
     ...opts,
+    ...serverData,
   });
 
   const {
@@ -46,9 +50,7 @@ export const useCalculatedData = (opts: UseCalculatedDataOpts) => {
   } = usePokeboxViewerFilter({
     ...opts,
     pokemonNameMap: Object.fromEntries(
-      Object.values(pokedexMap)
-        .filter(isNotNullish)
-        .map(({id}) => [id, t(`PokemonName.${id}`)]),
+      toPokemonList(pokedexMap).map(({id}) => [id, t(`PokemonName.${id}`)]),
     ),
   });
 

@@ -13,6 +13,7 @@ import {LazyLoad} from '@/components/layout/lazyLoad';
 import {ProgressBarSingle} from '@/components/progressBar/single';
 import {ButtonToStartTheSorcery} from '@/components/shared/common/button/sorcery';
 import {CompletionResultUI} from '@/components/shared/completion/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
 import {
   teamMakerCompCountWarningThreshold,
@@ -25,21 +26,23 @@ import {TeamMakerInputUI} from '@/ui/team/maker/input/main';
 import {TeamMakerResults} from '@/ui/team/maker/result/main';
 import {TeamMakerDataProps} from '@/ui/team/maker/type';
 import {isTeamMakerStatusLoading} from '@/ui/team/maker/utils';
+import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 
 
 export const TeamMakerLoadedClient = (props: TeamMakerDataProps) => {
-  const {preloaded} = props;
+  const serverData = useCommonServerData();
+  const {serverConfigBundle, recipeLevelData} = serverData;
 
   const t = useTranslations('UI.InPage.Team.Maker');
   const {data} = useSession();
   const bundle = useConfigBundle({
     bundle: {
-      server: preloaded,
+      server: serverConfigBundle,
       client: data?.user.preloaded,
     },
   });
 
-  const {input, setInput} = useTeamMakerInput({preloaded});
+  const {input, setInput} = useTeamMakerInput({serverConfigBundle});
   const {
     state,
     calculateTeam,
@@ -57,18 +60,21 @@ export const TeamMakerLoadedClient = (props: TeamMakerDataProps) => {
     cancel,
   } = state;
   const isLoading = isTeamMakerStatusLoading(status);
+  const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
 
   return (
     <Flex className="gap-1.5">
       <TeamMakerInputUI
         input={input}
         setInput={setInput}
+        maxRecipeLevel={maxRecipeLevel}
         {...props}
+        {...serverData}
       />
       <Flex direction="row" className="gap-1.5">
         <ButtonToStartTheSorcery
           ref={resultsRef}
-          onClick={() => calculateTeam({...props, input, bundle})}
+          onClick={() => calculateTeam({...props, ...serverData, maxRecipeLevel, input, bundle})}
           disabled={isLoading}
         />
         {

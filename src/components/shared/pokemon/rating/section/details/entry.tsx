@@ -10,6 +10,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {RatingDetailsButton} from '@/components/shared/pokemon/rating/section/details/button/main';
 import {RatingResultProps} from '@/components/shared/pokemon/rating/type';
 import {RatingDataPointUI} from '@/components/shared/pokemon/rating/units/point';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useRatingWorker} from '@/hooks/rating/hook';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingResultOfCategoryAtLevel, RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
@@ -25,21 +26,24 @@ export const RatingDetailsEntry = ({
   pokemon,
   pokemonList,
   pokemonProducingParams,
-  berryDataMap,
-  ingredientChainMap,
-  ingredientMap,
-  mainSkillMap,
-  subSkillMap,
-  mealMap,
-  cookingRecoveryData,
-  recipeLevelData,
-  eventStrengthMultiplierData,
   request,
   level,
   result,
   onRated,
 }: Props) => {
   const {extrema} = result;
+
+  const {
+    berryDataMap,
+    ingredientChainMap,
+    ingredientMap,
+    mainSkillMap,
+    subSkillMap,
+    mealMap,
+    cookingRecoveryData,
+    recipeLevelData,
+    eventStrengthMultiplierData,
+  } = useCommonServerData();
 
   const collapsible = useCollapsibleControl();
   const [loading, setLoading] = React.useState(false);

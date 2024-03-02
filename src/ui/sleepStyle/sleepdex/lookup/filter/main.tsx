@@ -19,6 +19,7 @@ import {MapFilter} from '@/components/shared/map/filter';
 import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
 import {DrowsyPowerMultiplierInput} from '@/components/shared/sleepStyle/input/drowsyPowerMultiplier';
 import {DrowsyPowerRequirementInput} from '@/components/shared/sleepStyle/input/drowsyPowerRequirement';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {textFilterButtonStyle} from '@/styles/input';
 import {SleepdexLookupFilter, sleepdexLookupSortType} from '@/ui/sleepStyle/sleepdex/lookup/filter/type';
 import {SleepdexLookupSortTypeUI} from '@/ui/sleepStyle/sleepdex/lookup/sort/main';
@@ -37,7 +38,6 @@ export const SleepdexLookupInput = ({
   ...props
 }: Props) => {
   const {
-    pokedexMap,
     eventDrowsyPowerMultiplierData,
     mapIds,
     filter,
@@ -48,6 +48,9 @@ export const SleepdexLookupInput = ({
     drowsyPowerRequirement,
     incenseOnly,
   } = filter;
+
+  const serverData = useCommonServerData();
+  const {pokedexMap} = serverData;
 
   const collapsible = useCollapsibleControl();
   const t = useTranslations('UI.SleepStyle');
@@ -90,10 +93,7 @@ export const SleepdexLookupInput = ({
           }))}
           step={drowsyPowerMultiplier}
         />
-        <PokemonFilter
-          pokemonList={toPokemonList(pokedexMap)}
-          {...props}
-        />
+        <PokemonFilter pokemonList={toPokemonList(pokedexMap)} {...props} {...serverData}/>
         <FilterExpandedInput
           title={
             <Flex center>

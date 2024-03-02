@@ -18,6 +18,7 @@ import {ProductionUI} from '@/components/shared/production/rate/main';
 import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {TeamMemberStatsType} from '@/types/game/team/statsType';
 import {toProductionOfState} from '@/utils/game/producing/convert';
 
@@ -29,7 +30,6 @@ type Props = TeamMemberProps & {
 export const TeamMemberStats = ({
   pokemon,
   rate,
-  berryDataMap,
   stateOfRate,
   type,
 }: Props) => {
@@ -50,6 +50,8 @@ export const TeamMemberStats = ({
     carryLimitInfo,
     produceSplit,
   } = intermediate;
+
+  const {berryDataMap} = useCommonServerData();
 
   const t = useTranslations('UI.Common');
   const t2 = useTranslations('UI.Pokemon.Stats');

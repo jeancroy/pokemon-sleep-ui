@@ -4,9 +4,9 @@ import React from 'react';
 import {useSession} from 'next-auth/react';
 
 import {defaultCookingConfig} from '@/const/user/config/cooking';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
-import {CookingServerDataProps} from '@/ui/cooking/common/type';
 import {generateCookingCommonFilter} from '@/ui/cooking/common/utils/main';
 import {useMealPreparerInfo} from '@/ui/cooking/prepare/hook/main';
 import {MealPreparerInput} from '@/ui/cooking/prepare/input/main';
@@ -18,24 +18,25 @@ import {cloneMerge} from '@/utils/object/cloneMerge';
 import {isNotNullish} from '@/utils/type';
 
 
-export const MealPreparerClient = (props: CookingServerDataProps) => {
+export const MealPreparerClient = () => {
+  const serverData = useCommonServerData();
   const {
     mealMap,
     recipeLevelData,
-    preloaded,
-  } = props;
+    serverConfigBundle,
+  } = serverData;
 
   const {data: session} = useSession();
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
-      server: preloaded,
+      server: serverConfigBundle,
       client: session?.user.preloaded,
     },
-    ...props,
+    ...serverData,
   });
   const [filter, setFilter] = React.useState<MealPreparerFilter>({
-    ...generateCookingCommonFilter(preloaded.cookingConfig),
-    mealsWanted: cloneMerge(defaultCookingConfig.mealsWanted, preloaded.cookingConfig?.mealsWanted) ?? {},
+    ...generateCookingCommonFilter(serverConfigBundle.cookingConfig),
+    mealsWanted: cloneMerge(defaultCookingConfig.mealsWanted, serverConfigBundle.cookingConfig?.mealsWanted) ?? {},
     showRecipeStrength: false,
   });
 
@@ -43,13 +44,13 @@ export const MealPreparerClient = (props: CookingServerDataProps) => {
   const mealTypes = usePossibleMealTypes(meals);
 
   const commonProps: MealPreparerCommonProps = {
-    ...props,
+    ...serverData,
     filter,
     setFilter,
     mealTypes,
     maxRecipeLevel: getMaxRecipeLevel({recipeLevelData}),
     calculatedUserConfig: calculatedConfigBundle.calculatedUserConfig,
-    preloaded: preloaded.cookingConfig,
+    preloaded: serverConfigBundle.cookingConfig,
   };
 
   const info = useMealPreparerInfo({

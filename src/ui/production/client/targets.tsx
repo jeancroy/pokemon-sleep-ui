@@ -5,6 +5,7 @@ import {v4} from 'uuid';
 
 import {TeamMemberView} from '@/components/shared/team/memberView/main';
 import {sortTeamMemberProduction} from '@/components/shared/team/productionSort/calc/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
@@ -40,10 +41,12 @@ export const ProductionComparisonTargets = ({
   showPokemon,
   ...props
 }: Props) => {
-  const {ingredientChainMap} = props;
   const {currentTeam} = setupControl;
   const {actAsync} = actorReturn;
   const {bundle, calculatedCookingConfig} = calculatedConfigBundle;
+
+  const serverData = useCommonServerData();
+  const {ingredientChainMap} = serverData;
 
   return (
     <TeamMemberView<
@@ -67,7 +70,7 @@ export const ProductionComparisonTargets = ({
           ...currentTeam,
           members: pick(currentTeam.members, [uuid]),
         },
-        ...props,
+        ...serverData,
       })[uuid]}
       memberKeys={Object.keys(currentTeam.members)}
       getMemberProduction={(uuid) => presetStats[uuid]}

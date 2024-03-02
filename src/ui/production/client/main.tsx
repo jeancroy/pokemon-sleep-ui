@@ -12,6 +12,7 @@ import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {TeamMemberProductionSortingBasisInput} from '@/components/shared/team/productionSort/input/main';
 import {useTeamSetupControl} from '@/components/shared/team/setupControl/hook';
 import {TeamSetupControlUI} from '@/components/shared/team/setupControl/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useIngredientIdsFromMeals} from '@/hooks/ingredient/ingredientIds';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {useProductionComparisonPresetStats} from '@/ui/production/calc/hook';
@@ -25,16 +26,14 @@ import {isNotNullish} from '@/utils/type';
 
 
 export const ProductionComparisonClient = (props: ProductionComparisonDataProps) => {
-  const {
-    preloaded,
-    pokedexMap,
-    mealMap,
-  } = props;
+  const {preloaded} = props;
+
+  const serverData = useCommonServerData();
+  const {pokedexMap, mealMap} = serverData;
 
   const {state, setState, showPokemon} = usePokemonLinkPopup();
 
   const setupControl: ProductionComparisonSetupControl = useTeamSetupControl({
-    bundleFromServer: preloaded.bundle,
     initialMigratedSetup: getInitialProductionComparisonSetup({
       data: preloaded.setup,
       defaultBundle: preloaded.bundle,
@@ -46,6 +45,7 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
     },
     getLayoutCollapsibleIndexKeys: (team) => Object.keys(team.members),
     ...props,
+    ...serverData,
   });
   const {
     setup,
@@ -62,7 +62,7 @@ export const ProductionComparisonClient = (props: ProductionComparisonDataProps)
     bundle,
     calculatedCookingConfig,
     currentPreset: currentTeam,
-    ...props,
+    ...serverData,
   });
 
   const meals = Object.values(mealMap).filter(isNotNullish);

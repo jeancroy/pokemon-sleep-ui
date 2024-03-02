@@ -1,10 +1,7 @@
 import React from 'react';
 
-import {PokeboxImporterDataProps} from '@/components/shared/pokebox/importer/type';
 import {PokeInBox} from '@/types/userData/pokebox';
 
-
-export type PokeboxLinkerDataProps = PokeboxImporterDataProps;
 
 export type PokeboxLinkerState = {
   pokeInBoxUuid: string,

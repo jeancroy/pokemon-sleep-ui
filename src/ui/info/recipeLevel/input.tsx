@@ -3,10 +3,12 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {NumberInputRequired} from '@/components/shared/input/number/required/main';
-import {RecipeLevelInfoDataProps, RecipeLevelInfoInput} from '@/ui/info/recipeLevel/type';
+import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
+import {RecipeLevelInfoInput} from '@/ui/info/recipeLevel/type';
 
 
-type Props = RecipeLevelInfoDataProps & {
+type Props = {
+  recipeLevelData: RecipeLevelData[],
   input: RecipeLevelInfoInput,
   setInput: React.Dispatch<React.SetStateAction<RecipeLevelInfoInput>>,
 };

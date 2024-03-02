@@ -5,5 +5,5 @@ import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 
 export type ProducingParamsDataProps = UsePokemonFilterCommonData & {
   pokemonList: PokemonInfo[],
-  producingParamsMap: PokemonProducingParamsMap,
+  pokemonProducingParamsMap: PokemonProducingParamsMap,
 };

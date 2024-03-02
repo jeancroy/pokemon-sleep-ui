@@ -11,16 +11,19 @@ import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
-export type PokemonItemStatsWorkerOpts = ConfigRequiredData & {
+export type PokemonItemStatsCommonOpts = {
   input: PokemonIndividualParams,
+  calculatedConfigBundle: CalculatedConfigBundle,
+  pokemonIngredientProduction: PokemonIngredientProduction[],
+};
+
+export type PokemonItemStatsWorkerOpts = PokemonItemStatsCommonOpts & ConfigRequiredData & {
   pokedexMap: PokedexMap,
   pokemonProducingParamsMap: PokemonProducingParamsMap,
-  pokemonIngredientProduction: PokemonIngredientProduction[],
   berryDataMap: BerryDataMap,
   ingredientMap: IngredientMap,
   ingredientChainMap: IngredientChainMap,
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
   recipeLevelData: RecipeLevelData[],
-  calculatedConfigBundle: CalculatedConfigBundle,
 };

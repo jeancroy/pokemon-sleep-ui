@@ -9,6 +9,7 @@ import {GenericIconLarger} from '@/components/shared/icon/common/larger';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {SleepdexSection} from '@/components/shared/sleepdex/section/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useUpdateSleepdex} from '@/hooks/sleepdex/update';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
 import {SleepStyleCommon} from '@/types/game/sleepStyle';
@@ -18,11 +19,13 @@ import {isNotNullish} from '@/utils/type';
 
 
 export const SleepStyleSpecialClient = ({
-  pokedexMap,
   sleepdexMap,
   sleepStyleSpecialMap,
 }: SleepStyleSpecialServerDataProps) => {
   const [sleepdex, setSleepdex] = React.useState(sleepdexMap);
+
+  const serverData = useCommonServerData();
+  const {pokedexMap} = serverData;
 
   const t = useTranslations('UI.SleepStyle');
   const updateSleepdex = useUpdateSleepdex({sleepdex, setSleepdex});

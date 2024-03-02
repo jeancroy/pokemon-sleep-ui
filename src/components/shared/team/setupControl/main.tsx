@@ -8,7 +8,6 @@ import {getMultiSelectOnClickProps} from '@/components/input/filter/utils/props'
 import {Flex} from '@/components/layout/flex/common';
 import {CookingConfigDataProps} from '@/components/shared/cooking/config/type';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
-import {StaminaConfigDataProps} from '@/components/shared/stamina/input/type';
 import {TeamSelector} from '@/components/shared/team/selector/main';
 import {TeamSelectorCommonProps} from '@/components/shared/team/selector/type';
 import {TeamUserConfig} from '@/components/shared/team/setupControl/config/main';
@@ -19,6 +18,7 @@ import {TeamMemberStatsTypeInput} from '@/components/shared/team/setupControl/st
 import {TeamSetupControlDataProps} from '@/components/shared/team/setupControl/type';
 import {UserDataUploadButton} from '@/components/shared/userData/upload';
 import {productionPeriodI18nId} from '@/const/game/production/i18n';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {productionPeriod} from '@/types/game/producing/display';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
@@ -39,7 +39,6 @@ type Props<
 > =
   TeamSetupControlDataProps &
   CookingConfigDataProps &
-  StaminaConfigDataProps &
   Omit<TeamSelectorCommonProps<TKey, TMember, TConfig, TTeam, TSetup>, 'memberList'> & {
     uploadOpts: UserDataUploadOpts,
     hideManualStaminaSkillRecovery?: boolean,
@@ -52,7 +51,6 @@ export const TeamSetupControlUI = <
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 >({
-  fieldMetaMap,
   pokemonList,
   uploadOpts,
   hideManualStaminaSkillRecovery,
@@ -72,6 +70,8 @@ export const TeamSetupControlUI = <
   const {isPremium} = premiumInputControl;
   const {session} = actorReturn;
   const {bundle} = currentCalculatedConfigBundle;
+
+  const {fieldMetaMap} = useCommonServerData();
 
   const t = useTranslations('UI.Component.Team.SetupControl');
   const t2 = useTranslations('UI.Producing.Period');

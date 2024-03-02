@@ -14,6 +14,7 @@ import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {PokemonGroupedProduction} from '@/components/shared/pokemon/production/grouped/main';
 import {TeamContributionSplitIndicator} from '@/components/shared/team/contributionSplit/main';
 import {TeamSetupControlUI} from '@/components/shared/team/setupControl/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useIngredientIdsFromMeals} from '@/hooks/ingredient/ingredientIds';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {teamAnalysisSlotName} from '@/types/website/feature/teamAnalysis';
@@ -29,7 +30,6 @@ export const TeamAnalysisSetupView = (props: TeamAnalysisSetupViewCommonProps) =
   const {
     setupControl,
     snorlaxData,
-    mealMap,
   } = props;
   const {
     setup,
@@ -37,9 +37,13 @@ export const TeamAnalysisSetupView = (props: TeamAnalysisSetupViewCommonProps) =
     currentTeam,
   } = setupControl;
 
+  const serverData = useCommonServerData();
+  const {mealMap} = serverData;
+
   const {bundle, calculatedCookingConfig} = currentCalculatedConfigBundle;
   const statsOfTeam = useTeamProduction({
     ...props,
+    ...serverData,
     currentTeam,
     setup,
     bundle,

@@ -6,6 +6,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {NextImage} from '@/components/shared/common/image/main';
 import {PokeInBoxMeta} from '@/components/shared/pokebox/meta';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {imageIconSizes} from '@/styles/image';
 import {PokeInBoxLevel} from '@/ui/team/pokebox/content/pokeInBox/common/level';
 import {PokeInBoxGridPopUps} from '@/ui/team/pokebox/content/pokeInBox/grid/decorations/popup';
@@ -17,12 +18,14 @@ import {PokeInBoxCommonProps} from '@/ui/team/pokebox/content/type';
 export const PokeInBoxGridCell = (props: PokeInBoxViewUnitProps) => {
   const {
     pokeInBox,
-    pokedexMap,
     onClick,
     display,
     isLevelPreview,
   } = props;
   const {pokemon: pokemonId, isShiny} = pokeInBox;
+
+  const {pokedexMap} = useCommonServerData();
+
   const pokemon = pokedexMap[pokemonId];
 
   const t = useTranslations('Game');

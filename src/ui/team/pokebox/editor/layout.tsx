@@ -22,6 +22,7 @@ import {PokemonNatureSelector} from '@/components/shared/pokemon/nature/selector
 import {SeedUsageInput} from '@/components/shared/pokemon/seed/input/main';
 import {PokemonSubSkillSelector} from '@/components/shared/pokemon/subSkill/selector/main';
 import {defaultSeedUsage} from '@/const/game/seed';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {imageSmallIconSizes} from '@/styles/image';
 import {getToggleButtonClass} from '@/styles/input';
 import {pokemonSubSkillLevel} from '@/types/game/pokemon/subSkill';
@@ -39,10 +40,6 @@ type Props = PokeInBoxEditCommonProps & PokeInBoxEditStateProps & {
 };
 
 export const PokeInBoxEditLayout = ({
-  pokedexMap,
-  ingredientChainMap,
-  mainSkillMap,
-  subSkillMap,
   onRemovePokeInBox,
   pokeInBox,
   setPokeInBox,
@@ -60,6 +57,14 @@ export const PokeInBoxEditLayout = ({
     isShiny,
     isFavorite,
   } = pokeInBox;
+
+  const {
+    pokedexMap,
+    ingredientChainMap,
+    mainSkillMap,
+    subSkillMap,
+  } = useCommonServerData();
+
   const t = useTranslations('Game');
   const t2 = useTranslations('UI.Common');
   const t3 = useTranslations('UI.Pokemon.Individual');

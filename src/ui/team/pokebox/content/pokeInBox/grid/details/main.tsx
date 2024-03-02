@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokeInBoxGridFrequency} from '@/ui/team/pokebox/content/pokeInBox/grid/details/frequency';
 import {PokeInBoxGridInfo} from '@/ui/team/pokebox/content/pokeInBox/grid/details/info';
 import {PokeInBoxGridMaxCarry} from '@/ui/team/pokebox/content/pokeInBox/grid/details/maxCarry';
@@ -22,10 +23,9 @@ type Props = PokeInBoxCommonProps & {
 };
 
 export const PokeInBoxDetails = ({displayType, ...props}: Props) => {
-  const {
-    pokemon,
-    pokemonProducingParamsMap,
-  } = props;
+  const {pokemon} = props;
+
+  const {pokemonProducingParamsMap} = useCommonServerData();
 
   const detailProps: PokeInBoxGridDetailsProps = {
     ...props,

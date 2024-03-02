@@ -10,10 +10,10 @@ import {TeamMakerInput} from '@/ui/team/maker/type/input';
 
 
 type UseTeamMakerInputOpts = {
-  preloaded: ConfigBundle,
+  serverConfigBundle: ConfigBundle,
 };
 
-export const useTeamMakerInput = ({preloaded}: UseTeamMakerInputOpts) => {
+export const useTeamMakerInput = ({serverConfigBundle}: UseTeamMakerInputOpts) => {
   const [input, setInput] = React.useState<TeamMakerInput>({
     source: 'pokebox',
     snorlaxFavorite: defaultSnorlaxFavorite,
@@ -21,10 +21,10 @@ export const useTeamMakerInput = ({preloaded}: UseTeamMakerInputOpts) => {
       isLevelAgnostic: false,
       defaultPokemonLevel: 1,
     }),
-    mealType: preloaded.cookingConfig.mealType,
-    recipeLevel: preloaded.cookingConfig.recipeLevel,
-    ingredientCount: preloaded.cookingConfig.ingredientCount,
-    potCapacity: preloaded.cookingConfig.potCapacity,
+    mealType: serverConfigBundle.cookingConfig.mealType,
+    recipeLevel: serverConfigBundle.cookingConfig.recipeLevel,
+    ingredientCount: serverConfigBundle.cookingConfig.ingredientCount,
+    potCapacity: serverConfigBundle.cookingConfig.potCapacity,
     memberCount: 5,
     basis: 'strength',
     previewLevel: null,
@@ -38,7 +38,7 @@ export const useTeamMakerInput = ({preloaded}: UseTeamMakerInputOpts) => {
       mode: 'shared',
     },
     previewFinalEvolution: false,
-    target: preloaded.cookingConfig.target,
+    target: serverConfigBundle.cookingConfig.target,
     showInsufficientIngredients: true,
     teamCompsToShow: defaultTeamMakerMaxResultCount,
   });

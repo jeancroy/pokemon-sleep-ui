@@ -11,6 +11,7 @@ import {PokemonNoSkillProbability} from '@/components/shared/pokemon/production/
 import {PokemonSkillProduction} from '@/components/shared/pokemon/production/skill';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {specialtyIdMap} from '@/const/game/pokemon';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokeInBoxTableDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/table/details/type';
 import {toProductionOfState} from '@/utils/game/producing/convert';
 
@@ -18,7 +19,6 @@ import {toProductionOfState} from '@/utils/game/producing/convert';
 export const PokeInBoxTableSkills = ({
   pokeInBox,
   pokemon,
-  subSkillMap,
   rateOfPokemon,
 }: PokeInBoxTableDetailsProps) => {
   const {
@@ -32,6 +32,8 @@ export const PokeInBoxTableSkills = ({
   } = pokeInBox;
 
   const t = useTranslations('Game');
+
+  const {subSkillMap} = useCommonServerData();
 
   return (
     <>

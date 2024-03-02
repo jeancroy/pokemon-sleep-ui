@@ -3,7 +3,8 @@ import {IngredientCounter} from '@/types/game/ingredient';
 import {MealCounter, MealTypeId} from '@/types/game/meal/main';
 import {CookingConfig} from '@/types/userData/config/cooking/main';
 import {CalculatedUserConfig} from '@/types/userData/config/user/main';
-import {CookingCommonFilter, CookingServerDataProps} from '@/ui/cooking/common/type';
+import {CommonServerDataCollection} from '@/types/website/data/common';
+import {CookingCommonFilter} from '@/ui/cooking/common/type';
 
 
 export type MealPreparerIngredientStats = {
@@ -19,7 +20,11 @@ export type MealPreparerFilter = CookingCommonFilter & {
 
 export type MealPreparerCommonProps =
   FilterWithUpdaterProps<MealPreparerFilter> &
-  Omit<CookingServerDataProps, 'preloaded'> & {
+  Pick<
+    CommonServerDataCollection,
+    'ingredientMap' |
+    'recipeLevelData'
+  > & {
     mealTypes: MealTypeId[],
     maxRecipeLevel: number,
     calculatedUserConfig: CalculatedUserConfig,

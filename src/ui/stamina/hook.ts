@@ -1,19 +1,25 @@
 import React from 'react';
 
 
-import {pokemonSubSkillLevel} from '@/types/game/pokemon/subSkill';
-import {StaminaAnalysisDataProps, StaminaAnalysisState, UseStaminaAnalysisReturn} from '@/ui/stamina/type';
+import {pokemonSubSkillLevel, SubSkillMap} from '@/types/game/pokemon/subSkill';
+import {ConfigBundle} from '@/types/userData/config/bundle';
+import {StaminaAnalysisState, UseStaminaAnalysisReturn} from '@/ui/stamina/type';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {getSubSkillBonus} from '@/utils/game/subSkill/effect';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
+type UseStaminaAnalysisOpts = {
+  serverConfigBundle: ConfigBundle,
+  subSkillMap: SubSkillMap,
+};
+
 export const useStaminaAnalysis = ({
-  preloaded,
+  serverConfigBundle,
   subSkillMap,
-}: StaminaAnalysisDataProps): UseStaminaAnalysisReturn => {
+}: UseStaminaAnalysisOpts): UseStaminaAnalysisReturn => {
   const [state, setState] = React.useState<StaminaAnalysisState>({
-    bundle: preloaded.bundle,
+    bundle: serverConfigBundle,
     subSkill: {},
     nature: null,
   });

@@ -17,8 +17,10 @@ import {generateFilterOptionIdsFromPokemon} from '@/components/shared/pokemon/fi
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {PokemonSortingPicker} from '@/components/shared/pokemon/sorter/picker';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {textFilterButtonStyle} from '@/styles/input';
 import {IngredientId} from '@/types/game/ingredient';
+import {PokemonInfo} from '@/types/game/pokemon';
 import {MainSkillId} from '@/types/game/pokemon/mainSkill';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
 import {pokedexTierListBasis, PokedexTierListInput, PokedexTierListInputFilter} from '@/ui/pokedex/tier/input/type';
@@ -27,6 +29,7 @@ import {isNotNullish, KeysOfType} from '@/utils/type';
 
 
 type Props = PokedexTierListDataProps & {
+  pokemonList: PokemonInfo[],
   input: PokedexTierListInput,
   setInput: ReactStateUpdaterFromOriginal<PokedexTierListInput>,
   isPremium: boolean,
@@ -35,13 +38,16 @@ type Props = PokedexTierListDataProps & {
 export const PokedexTierListInputUI = ({
   pokemonList,
   pokemonMaxLevel,
-  ingredientMap,
-  subSkillMap,
-  fieldMetaMap,
   input,
   setInput,
   isPremium,
 }: Props) => {
+  const {
+    ingredientMap,
+    subSkillMap,
+    fieldMetaMap,
+  } = useCommonServerData();
+
   const {filter, showDetails} = input;
   const setFilter: ReactStateUpdaterFromOriginal<PokedexTierListInputFilter> = (getUpdated) => (
     setInput(({filter, ...original}) => ({

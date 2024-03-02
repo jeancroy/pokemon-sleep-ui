@@ -2,18 +2,30 @@ import React from 'react';
 
 import {PokemonItemStatsCalcResult} from '@/components/shared/pokemon/icon/itemStats/type';
 import {PokemonItemStatsWorkerOpts} from '@/components/shared/pokemon/icon/itemStats/worker/type';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useWorker} from '@/hooks/worker/main';
+import {PokemonIngredientProduction} from '@/types/game/pokemon';
+import {PokemonIndividualParams} from '@/types/game/pokemon/params';
+import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 
 
-type UsePokemonProducingStatsWorkerOpts = PokemonItemStatsWorkerOpts & {
+type UsePokemonProducingStatsWorkerOpts = {
+  input: PokemonIndividualParams,
+  calculatedConfigBundle: CalculatedConfigBundle,
+  pokemonIngredientProduction: PokemonIngredientProduction[],
   setLoading?: (loading: boolean) => void,
 };
 
 export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProducingStatsWorkerOpts) => {
   const {
+    input,
+    pokemonIngredientProduction,
+    calculatedConfigBundle,
+  } = opts;
+
+  const {
     pokedexMap,
     pokemonProducingParamsMap,
-    pokemonIngredientProduction,
     berryDataMap,
     ingredientMap,
     ingredientChainMap,
@@ -23,9 +35,7 @@ export const usePokemonProducingStats = ({setLoading, ...opts}: UsePokemonProduc
     recipeLevelData,
     eventStrengthMultiplierData,
     cookingRecoveryData,
-    input,
-    calculatedConfigBundle,
-  } = opts;
+  } = useCommonServerData();
 
   const [
     producingStats,

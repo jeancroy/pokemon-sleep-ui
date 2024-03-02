@@ -1,14 +1,13 @@
 import {FilterInputProps} from '@/components/input/filter/type';
-import {PokedexMap, PokemonId} from '@/types/game/pokemon';
+import {PokemonId} from '@/types/game/pokemon';
 import {NatureId} from '@/types/game/pokemon/nature';
 import {PokemonExpValueMap, PokemonShardConsumptionData} from '@/types/game/pokemon/xp';
 
 
 export type PokemonExpCalculatorDataProps = {
-  pokedexMap: PokedexMap,
   xpValueData: PokemonExpValueMap,
   xpShardConsumption: PokemonShardConsumptionData,
-  maxLevel: number,
+  pokemonMaxLevel: number,
 };
 
 export type PokemonExpCalculatorCommonProps =

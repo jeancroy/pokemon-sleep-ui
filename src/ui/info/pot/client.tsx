@@ -5,31 +5,34 @@ import {useSession} from 'next-auth/react';
 
 import {useMealInputFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/hook';
 import {generateEmptyMealFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/utils';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {PotInfoInput} from '@/ui/info/pot/input';
-import {PotInfoDataProps, PotInfoFilter} from '@/ui/info/pot/type';
+import {PotInfoFilter} from '@/ui/info/pot/type';
 import {PotRecipeUnlockTable} from '@/ui/info/pot/unlock/main';
 import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {isNotNullish} from '@/utils/type';
 
 
-export const PotInfoClient = (props: PotInfoDataProps) => {
+export const PotInfoClient = () => {
+  const serverData = useCommonServerData();
+
   const {
     mealMap,
     ingredientMap,
     potInfoList,
     recipeLevelData,
-    preloaded,
-  } = props;
+    serverConfigBundle,
+  } = serverData;
   const meals = Object.values(mealMap).filter(isNotNullish);
 
   const {data: session} = useSession();
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
-      server: preloaded,
+      server: serverConfigBundle,
       client: session?.user.preloaded,
     },
-    ...props,
+    ...serverData,
   });
   const {bundle} = calculatedConfigBundle;
 

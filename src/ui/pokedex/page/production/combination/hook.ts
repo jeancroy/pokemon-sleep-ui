@@ -1,3 +1,4 @@
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {IngredientChain} from '@/types/game/pokemon/ingredient';
 import {
   PokemonProductionCombinationCommonProps,
@@ -9,21 +10,22 @@ import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/sing
 import {getProductionIndividualParams} from '@/utils/game/producing/params';
 
 
-type GetPokemonProductionCombinationRateCollectionOpts = PokemonProductionCombinationCommonProps & {
+type UsePokemonProductionCombinationRateCollectionOpts = PokemonProductionCombinationCommonProps & {
   chain: IngredientChain,
 };
 
-export const getPokemonProductionCombinationRateCollection = ({
+export const usePokemonProductionCombinationRateCollection = ({
   chain,
   ...props
-}: GetPokemonProductionCombinationRateCollectionOpts): PokemonProductionCombinationRateCollection => {
+}: UsePokemonProductionCombinationRateCollectionOpts): PokemonProductionCombinationRateCollection => {
   const {
     input,
     pokemon,
     calculatedConfigBundle,
-    mainSkillMap,
-    subSkillMap,
   } = props;
+
+  const serverData = useCommonServerData();
+  const {mainSkillMap, subSkillMap} = serverData;
 
   const skillData = mainSkillMap[pokemon.skill];
   const {level} = input;
@@ -46,6 +48,7 @@ export const getPokemonProductionCombinationRateCollection = ({
           }),
           ...calculatedConfigBundle,
           ...props,
+          ...serverData,
         }).atStage.final,
       } satisfies PokemonProductionCombinationRateCollectionItem,
     ];

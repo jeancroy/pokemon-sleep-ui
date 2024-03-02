@@ -8,7 +8,6 @@ import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
 import {UnavailableIcon} from '@/components/shared/common/unavailable';
 import {PokeboxImporter} from '@/components/shared/pokebox/importer/main';
-import {PokeboxImporterDataProps} from '@/components/shared/pokebox/importer/type';
 import {PokemonVanillaPopup} from '@/components/shared/pokemon/vanillaPopup/main';
 import {TeamMemberCloudPull} from '@/components/shared/team/memberView/cloudPull';
 import {
@@ -26,7 +25,7 @@ import {Nullable} from '@/utils/type';
 type Props<
   TKey extends TeamMemberKey,
   TMember extends Nullable<TeamMemberData>
-> = PokeboxImporterDataProps & TeamMemberCloudPullProps<TMember> & TeamMemberEmptySlotProps<TKey, TMember> & {
+> = TeamMemberCloudPullProps<TMember> & TeamMemberEmptySlotProps<TKey, TMember> & {
   pokemonList: PokemonInfo[],
   memberKey: TKey,
   sessionStatus: SessionStatus,

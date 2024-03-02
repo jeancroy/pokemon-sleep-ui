@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {PopupCommon} from '@/components/popup/common/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {Pokebox, PokeInBox} from '@/types/userData/pokebox';
 import {PokeInBoxEditLayout} from '@/ui/team/pokebox/editor/layout';
 import {PokeInBoxEditCommonProps, PokeInBoxEditorState} from '@/ui/team/pokebox/editor/type';
@@ -26,9 +27,9 @@ export const PokeInBoxEditPopup = ({
   // Keeping a copy of the current editing Pokebox data as state,
   // so the parent layout won't keep getting re-rendered when some changes are made in the editing popup
   // (because of the data holding state change)
-  const {pokedexMap} = props;
-
   const [pokeInBox, setPokeInBox] = React.useState<PokeInBox>();
+
+  const {pokedexMap, ingredientChainMap} = useCommonServerData();
 
   React.useEffect(() => {
     if (!editingPokeInBox) {
@@ -44,7 +45,7 @@ export const PokeInBoxEditPopup = ({
         return;
       }
 
-      setPokeInBox(generateNewPokeInBox({pokemon, ...props}));
+      setPokeInBox(generateNewPokeInBox({pokemon, ingredientChainMap}));
       return;
     }
 

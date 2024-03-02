@@ -1,7 +1,8 @@
+import {DreamClusterData} from '@/types/game/dreamCluster';
 import {ResearchRankData} from '@/types/game/researchRank';
-import {ResearchRankInfoTableDataProps} from '@/ui/info/researchRank/table/type';
 
 
-export type ResearchRankInfoDataProps = ResearchRankInfoTableDataProps & {
+export type ResearchRankInfoDataProps = {
+  dreamClusterData: DreamClusterData[],
   researchRankData: ResearchRankData[],
 };

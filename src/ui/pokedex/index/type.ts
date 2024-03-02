@@ -1,5 +1,4 @@
 import {PokemonInputFilterExtended} from '@/components/shared/pokemon/filter/type';
-import {FieldMetaMap} from '@/types/game/mapMeta';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
@@ -7,8 +6,7 @@ import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {SleepStyleNormal} from '@/types/game/sleepStyle';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {Migratable} from '@/types/migrate';
-import {CalculatedConfigBundle, ConfigBundle} from '@/types/userData/config/bundle';
-import {PokedexCalcDataProps} from '@/ui/pokedex/common/calc/type';
+import {CalculatedConfigBundle} from '@/types/userData/config/bundle';
 import {PokedexFilterCommon} from '@/ui/pokedex/common/type';
 import {Nullable} from '@/utils/type';
 
@@ -29,13 +27,11 @@ export type PokedexFilterSave = Pick<
   'version' | 'sort' | 'display' | keyof PokemonIndividualParams
 >;
 
-export type PokedexDataProps = Omit<PokedexCalcDataProps, 'pokemonList' | 'preloaded'> & {
+export type PokedexDataProps = {
   pokedexData: PokedexData,
-  maxLevel: number,
-  fieldMetaMap: FieldMetaMap,
+  pokemonMaxLevel: number,
   preloaded: {
     display: Nullable<Partial<PokedexFilterSave>>,
-    bundle: ConfigBundle,
   },
 };
 

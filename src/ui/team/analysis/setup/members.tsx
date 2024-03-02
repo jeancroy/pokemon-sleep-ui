@@ -2,6 +2,7 @@ import React from 'react';
 
 import {TeamMemberView} from '@/components/shared/team/memberView/main';
 import {TeamMemberFilledCommonProps} from '@/components/shared/team/memberView/type';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {
   TeamAnalysisComp,
@@ -30,10 +31,12 @@ export const TeamAnalysisMemberView = ({
 }: Props) => {
   const {
     setupControl,
-    ingredientChainMap,
   } = props;
   const {setup, currentTeam, actorReturn} = setupControl;
   const {actAsync} = actorReturn;
+
+  const serverData = useCommonServerData();
+  const {ingredientChainMap} = serverData;
 
   return (
     // Need to explicitly type or there will be some typing error
@@ -51,6 +54,7 @@ export const TeamAnalysisMemberView = ({
         setup,
         currentTeam,
         ...props,
+        ...serverData,
       }).bySlot[memberKey]}
       memberKeys={[...teamAnalysisSlotName]}
       getMemberProduction={(memberKey) => statsOfTeam.bySlot[memberKey] ?? null}

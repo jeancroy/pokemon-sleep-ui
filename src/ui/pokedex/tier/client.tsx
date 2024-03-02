@@ -9,18 +9,28 @@ import {Flex} from '@/components/layout/flex/common';
 import {LazyLoad} from '@/components/layout/lazyLoad';
 import {MarkdownContent} from '@/components/markdown/main';
 import {CompletionResultUI} from '@/components/shared/completion/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useUserActivation} from '@/hooks/userData/activation';
 import {usePokedexCalc} from '@/ui/pokedex/common/calc/main';
 import {usePokedexTierListInput} from '@/ui/pokedex/tier/input/hook';
 import {PokedexTierListInputUI} from '@/ui/pokedex/tier/input/main';
 import {PokedexTierListResult} from '@/ui/pokedex/tier/result/main';
 import {PokedexTierListDataProps} from '@/ui/pokedex/tier/type';
+import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
+  const serverData = useCommonServerData();
+  const {pokedexMap} = serverData;
+
+  const pokemonList = toPokemonList(pokedexMap);
+
   const {data: session} = useSession();
   const {isPremium} = useUserActivation(session);
-  const inputControls = usePokedexTierListInput(props);
+  const inputControls = usePokedexTierListInput({
+    pokemonList,
+    ...serverData,
+  });
   const {
     filter: input,
     setFilter: setInput,
@@ -35,7 +45,8 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
     filter: input.filter,
     isPokemonIncluded: isIncluded,
     setLoading,
-    ...props,
+    pokemonList,
+    ...serverData,
   });
 
   const t = useTranslations('UI.InPage.Pokedex.Tier');
@@ -46,6 +57,7 @@ export const PokedexTierListClient = (props: PokedexTierListDataProps) => {
         {t('Tips')}
       </MarkdownContent>
       <PokedexTierListInputUI
+        pokemonList={pokemonList}
         isPremium={isPremium}
         input={input}
         setInput={setInput}

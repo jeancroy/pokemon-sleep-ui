@@ -1,20 +1,22 @@
 import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
-import {PokeboxLinkerCurrentPokemonCommonProps} from '@/components/shared/pokebox/linker/current/type';
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokeInBox} from '@/types/userData/pokebox';
 
 
-type Props = PokeboxLinkerCurrentPokemonCommonProps & {
+type Props = {
   pokeInBox: PokeInBox,
 };
 
-export const PokeboxLinkerCurrentAvailable = ({pokedexMap, subSkillMap, pokeInBox}: Props) => {
+export const PokeboxLinkerCurrentAvailable = ({pokeInBox}: Props) => {
   const {pokemon, name, subSkill, nature} = pokeInBox;
+
+  const {pokedexMap, subSkillMap} = useCommonServerData();
 
   const pokemonInfo = pokedexMap[pokemon];
   if (!pokemonInfo) {

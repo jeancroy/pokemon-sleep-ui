@@ -1,14 +1,13 @@
 import {Session} from 'next-auth';
 
 import {FilterInclusionMap, FilterWithUpdaterProps} from '@/components/input/filter/type';
-import {PokemonInputFilter, UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
+import {PokemonInputFilter} from '@/components/shared/pokemon/filter/type';
 import {PokemonSortType} from '@/components/shared/pokemon/sorter/type';
-import {FieldMetaMap} from '@/types/game/mapMeta';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {NatureEffectId} from '@/types/game/pokemon/nature';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
-import {SubSkillData, SubSkillId, SubSkillMap} from '@/types/game/pokemon/subSkill';
+import {SubSkillData, SubSkillId} from '@/types/game/pokemon/subSkill';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {Migratable} from '@/types/migrate';
 import {PokeInBox} from '@/types/userData/pokebox';
@@ -59,12 +58,8 @@ export type PokeboxViewerFilter = PokemonInputFilter & PokeboxViewerDisplay & {
   natureNerf: FilterInclusionMap<NatureEffectId>,
 };
 
-export type PokeboxViewerInputCommonProps =
-  FilterWithUpdaterProps<PokeboxViewerFilter> &
-  UsePokemonFilterCommonData & {
-    pokemonList: PokemonInfo[],
-    subSkillMap: SubSkillMap,
-    subSkillList: SubSkillData[],
-    fieldMetaMap: FieldMetaMap,
-    session: Session | null,
-  };
+export type PokeboxViewerInputCommonProps = FilterWithUpdaterProps<PokeboxViewerFilter> & {
+  pokemonList: PokemonInfo[],
+  subSkillList: SubSkillData[],
+  session: Session | null,
+};

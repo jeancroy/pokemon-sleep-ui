@@ -6,10 +6,10 @@ import {Flex} from '@/components/layout/flex/common';
 import {useMealInputFilterLevelAgnostic} from '@/components/shared/meal/filter/levelAgnostic/hook';
 import {generateEmptyMealFilterLevelGnostic} from '@/components/shared/meal/filter/levelGnostic/utils';
 import {defaultCookingConfig} from '@/const/user/config/cooking';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
-import {CookingServerDataProps} from '@/ui/cooking/common/type';
 import {generateCookingCommonFilter} from '@/ui/cooking/common/utils/main';
 import {MealMakerInputUI} from '@/ui/cooking/make/input/main';
 import {MealMakerRecipe} from '@/ui/cooking/make/recipe/main';
@@ -19,23 +19,24 @@ import {subtractIngredientCount} from '@/utils/game/ingredient/counter';
 import {isNotNullish} from '@/utils/type';
 
 
-export const MealMakerClient = (props: CookingServerDataProps) => {
+export const MealMakerClient = () => {
+  const serverData = useCommonServerData();
   const {
     ingredientMap,
     mealMap,
     potInfoList,
     recipeLevelData,
-    preloaded,
-  } = props;
+    serverConfigBundle,
+  } = serverData;
   const meals = Object.values(mealMap).filter(isNotNullish);
 
   const {actAsync, session, status} = useUserDataActor();
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
-      server: preloaded,
+      server: serverConfigBundle,
       client: session.data?.user.preloaded,
     },
-    ...props,
+    ...serverData,
   });
   const {calculatedUserConfig, bundle} = calculatedConfigBundle;
   const {
@@ -80,11 +81,11 @@ export const MealMakerClient = (props: CookingServerDataProps) => {
         action: 'upload',
         options: {
           type: 'config.cooking',
-          data: toCookingConfigFromMealMakerFilter({preloaded: preloaded.cookingConfig, filter}),
+          data: toCookingConfigFromMealMakerFilter({preloaded: bundle.cookingConfig, filter}),
         },
       });
     },
-    preloaded: preloaded.cookingConfig,
+    preloaded: serverData.serverConfigBundle.cookingConfig,
   };
 
   return (

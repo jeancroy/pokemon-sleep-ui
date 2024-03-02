@@ -5,6 +5,7 @@ import ArrowRightIcon from '@heroicons/react/24/outline/ArrowRightIcon';
 import ShareIcon from '@heroicons/react/24/outline/ShareIcon';
 
 import {UsePokemonLinkPopupReturn} from '@/components/shared/pokemon/linkPopup/type';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonBranchPortrait} from '@/ui/pokedex/page/branch/portrait';
 import {PokemonTitledLayout} from '@/ui/pokedex/page/layout/titled';
 import {PokemonDataProps} from '@/ui/pokedex/page/type';
@@ -13,7 +14,9 @@ import {isNotNullish} from '@/utils/type';
 
 type Props = PokemonDataProps & UsePokemonLinkPopupReturn;
 
-export const PokemonBranches = ({pokemon, pokemonBranch, pokedexMap, ...props}: Props) => {
+export const PokemonBranches = ({pokemon, pokemonBranch, ...props}: Props) => {
+  const {pokedexMap} = useCommonServerData();
+
   if (!pokemonBranch) {
     return null;
   }

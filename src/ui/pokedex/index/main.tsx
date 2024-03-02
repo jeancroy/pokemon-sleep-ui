@@ -4,17 +4,9 @@ import {getServerSession} from 'next-auth';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
-import {getBerryDataMap, getPokemonMaxLevelByBerry} from '@/controller/berry';
-import {getConfigRequiredData} from '@/controller/dataBundle/config';
-import {getIngredientMap} from '@/controller/ingredient';
-import {getIngredientChainMap} from '@/controller/ingredientChain';
-import {getMainSkillMap} from '@/controller/mainSkill';
-import {getFieldMetaMap} from '@/controller/mapMeta';
+import {getPokemonMaxLevelByBerry} from '@/controller/berry';
 import {getPokemonList} from '@/controller/pokemon/info';
-import {getPokemonProducingParamsMap} from '@/controller/pokemon/producing';
-import {getRecipeLevelData} from '@/controller/recipeLevel';
 import {getSleepStyleNormalMap} from '@/controller/sleepStyle';
-import {getSubSkillMap} from '@/controller/subSkill';
 import {userDataPokedex} from '@/controller/user/manager';
 import {locales} from '@/types/next/locale';
 import {DefaultPageProps} from '@/types/next/page/common';
@@ -22,7 +14,6 @@ import {PublicPageLayout} from '@/ui/base/layout/public';
 import {PokedexClient} from '@/ui/pokedex/index/client';
 import {PokedexData, PokedexDataProps, PokemonInfoForPokedex} from '@/ui/pokedex/index/type';
 import {getI18nTranslator, isLocale} from '@/utils/i18n';
-import {createConfigBundle} from '@/utils/user/config/create';
 
 
 const getPokedexData = async (): Promise<PokedexData> => {
@@ -45,48 +36,20 @@ export const Pokedex = async ({params}: DefaultPageProps) => {
   const {locale} = params;
   const [
     session,
-    pokedex,
-    pokemonProducingParamsMap,
-    maxLevel,
-    berryDataMap,
-    ingredientMap,
-    ingredientChainMap,
-    mainSkillMap,
-    subSkillMap,
-    mapMeta,
-    recipeLevelData,
-    configRequiredData,
+    pokedexData,
+    pokemonMaxLevel,
   ] = await Promise.all([
     getServerSession(authOptions),
     getPokedexData(),
-    getPokemonProducingParamsMap(),
     getPokemonMaxLevelByBerry(),
-    getBerryDataMap(),
-    getIngredientMap(),
-    getIngredientChainMap(),
-    getMainSkillMap(),
-    getSubSkillMap(),
-    getFieldMetaMap(),
-    getRecipeLevelData(),
-    getConfigRequiredData(),
   ]);
 
   const props: PokedexDataProps = {
-    pokedexData: pokedex,
-    pokemonProducingParamsMap,
-    maxLevel,
-    berryDataMap,
-    ingredientMap,
-    ingredientChainMap,
-    mainSkillMap,
-    subSkillMap,
-    fieldMetaMap: mapMeta,
-    recipeLevelData,
+    pokedexData,
+    pokemonMaxLevel,
     preloaded: {
       display: (await userDataPokedex.getDataOptional(session?.user.id))?.data,
-      bundle: createConfigBundle(session),
     },
-    ...configRequiredData,
   };
 
   return (

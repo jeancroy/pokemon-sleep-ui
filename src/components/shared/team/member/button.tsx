@@ -15,6 +15,7 @@ import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/ind
 import {TeamMemberStats} from '@/components/shared/team/member/content/stats';
 import {TeamMemberProps} from '@/components/shared/team/member/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {teamMemberStatsType} from '@/types/game/team/statsType';
 
 
@@ -27,7 +28,6 @@ export const TeamMemberCollapsibleButton = ({
   ...props
 }: Props) => {
   const {
-    subSkillMap,
     classOfButton,
     pokemon,
     member,
@@ -38,6 +38,8 @@ export const TeamMemberCollapsibleButton = ({
   const {pinnedStats} = teamMetadata;
   const {specialty} = pokemon;
   const {level, subSkill, nature, linkedPokeInBoxUuid} = member;
+
+  const {subSkillMap} = useCommonServerData();
 
   return (
     <Flex className="gap-1 p-1 pb-5">

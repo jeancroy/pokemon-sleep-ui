@@ -21,7 +21,7 @@ export const MapIndex = async ({getDataPromise, isUnique}: Props) => {
   const [
     data,
     sleepdexMap,
-    mapMeta,
+    fieldMetaMap,
   ] = await Promise.all([
     getDataPromise(),
     getSleepdexMap(session?.user.id),
@@ -31,7 +31,7 @@ export const MapIndex = async ({getDataPromise, isUnique}: Props) => {
   const props: MapIndexServerDataProps = {
     data,
     sleepdexMap,
-    fieldMetaMap: mapMeta,
+    fieldMetaMap,
     isLoggedIn: !!session,
     isUnique,
   };

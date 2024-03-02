@@ -2,6 +2,7 @@ import React from 'react';
 
 import {PokeboxImporterButton} from '@/components/shared/pokebox/importer/button';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
 import {getPokemonProducingParams, getProductionIndividualParams} from '@/utils/game/producing/params';
@@ -10,24 +11,21 @@ import {cloneMerge} from '@/utils/object/cloneMerge';
 import {toCalculatedCookingConfig} from '@/utils/user/config/cooking/main';
 
 
-export const StaminaConfigSkillRecoveryFromPokebox = ({
-  setStaminaConfig,
-  berryDataMap,
-  mainSkillMap,
-  pokemonProducingParamsMap,
-  ...props
-}: StaminaConfigProps) => {
+export const StaminaConfigSkillRecoveryFromPokebox = ({bundle, setStaminaConfig}: StaminaConfigProps) => {
+  const {stamina, snorlaxFavorite} = bundle.userConfig;
+
+  const serverData = useCommonServerData();
   const {
-    bundle,
     pokedexMap,
     subSkillMap,
     mealMap,
-  } = props;
-  const {stamina, snorlaxFavorite} = bundle.userConfig;
+    berryDataMap,
+    mainSkillMap,
+    pokemonProducingParamsMap,
+  } = serverData;
 
   return (
     <PokeboxImporterButton
-      {...props}
       dimension="size-5"
       noFullWidth
       isPokeInBoxIncluded={(pokeInBox) => {
@@ -47,6 +45,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
         }
 
         const {intermediate, skill} = getPokemonProductionSingle({
+          bundle,
           pokemon,
           pokemonProducingParams: getPokemonProducingParams({
             pokemonId: pokemon.id,
@@ -65,7 +64,7 @@ export const StaminaConfigSkillRecoveryFromPokebox = ({
           // Do not calculate as single, otherwise the recovery settings before this calc gets applied
           // This causes each calc to gradually increase the daily count until it reaches the optima
           calcBehavior: {asSingle: false},
-          ...props,
+          ...serverData,
         }).atStage.final;
 
         const {activeSkillEffect} = intermediate;

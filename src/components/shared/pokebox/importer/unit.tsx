@@ -12,6 +12,7 @@ import {PokeboxImporterCommonProps} from '@/components/shared/pokebox/importer/t
 import {PokemonIconWithIngredients} from '@/components/shared/pokemon/icon/withIngredients';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {pokeInBoxFavoriteStyle} from '@/styles/game/pokebox';
 import {imageSmallIconSizes} from '@/styles/image';
 import {ingredientLevels} from '@/types/game/pokemon/ingredient';
@@ -22,7 +23,7 @@ type Props = PokeboxImporterCommonProps & {
   pokeInBox: PokeInBox,
 };
 
-export const PokeboxImporterUnit = ({subSkillMap, onPokeboxPicked, pokeInBox}: Props) => {
+export const PokeboxImporterUnit = ({onPokeboxPicked, pokeInBox}: Props) => {
   const {
     pokemon,
     level,
@@ -33,6 +34,8 @@ export const PokeboxImporterUnit = ({subSkillMap, onPokeboxPicked, pokeInBox}: P
     isShiny,
     isFavorite,
   } = pokeInBox;
+
+  const {subSkillMap} = useCommonServerData();
 
   const t = useTranslations('UI.Common');
   const t2 = useTranslations('Game');

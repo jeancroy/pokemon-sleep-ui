@@ -1,5 +1,5 @@
 import {RatingWorkerOpts} from '@/types/game/pokemon/rating/request';
-import {PokeInBoxCommonProps} from '@/ui/team/pokebox/content/type';
+import {PokeInBoxCalcOpts} from '@/ui/team/pokebox/content/pokeInBox/worker/type';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getPokemonProducingParams} from '@/utils/game/producing/params';
 import {getDefaultRatingBasis} from '@/utils/game/rating/utils';
@@ -22,7 +22,7 @@ export const toRatingWorkerOpts = ({
   snorlaxFavorite,
   bundle,
   ratingBasis,
-}: PokeInBoxCommonProps): RatingWorkerOpts => {
+}: PokeInBoxCalcOpts): RatingWorkerOpts => {
   const {
     level,
     ingredients,

@@ -1,25 +1,26 @@
 import {useFilterInput} from '@/components/input/filter/hook';
-import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonId} from '@/types/game/pokemon';
 import {Pokebox} from '@/types/userData/pokebox';
-import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
+import {PokeboxServerDataProps} from '@/ui/team/pokebox/type';
 import {PokeboxPokemonForView, PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 import {generatePokeboxViewerFilter, isPokeInBoxIncluded} from '@/ui/team/pokebox/viewer/utils';
 import {isNotNullish} from '@/utils/type';
 
 
-type UsePokeboxViewerFilterOpts = UsePokemonFilterCommonData & PokeboxCommonProps & {
+type UsePokeboxViewerFilterOpts = PokeboxServerDataProps & {
   pokebox: Pokebox,
   pokemonNameMap: {[id in PokemonId]?: string},
 };
 
 export const usePokeboxViewerFilter = ({
   pokebox,
-  pokedexMap,
   pokemonNameMap,
   preloaded,
-  ...filterData
 }: UsePokeboxViewerFilterOpts) => {
+  const serverData = useCommonServerData();
+  const {pokedexMap} = serverData;
+
   return useFilterInput<PokeboxViewerFilter, PokeboxPokemonForView, string>({
     data: Object.values(pokebox)
       .filter(isNotNullish)
@@ -43,7 +44,7 @@ export const usePokeboxViewerFilter = ({
       .filter(isNotNullish),
     dataToId: ({inBox}) => inBox.uuid,
     initialFilter: generatePokeboxViewerFilter(preloaded),
-    isDataIncluded: isPokeInBoxIncluded(filterData),
+    isDataIncluded: isPokeInBoxIncluded(serverData),
     deps: [pokebox],
   });
 };

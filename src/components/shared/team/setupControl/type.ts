@@ -3,7 +3,6 @@ import React from 'react';
 import {UseFilterPremiumRestrictableReturn} from '@/components/input/filter/common/premium/type';
 import {TeamLayoutControl} from '@/components/shared/team/setupControl/layoutControl/type';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
-import {FieldMetaMap} from '@/types/game/mapMeta';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
@@ -47,7 +46,6 @@ export type TeamSetupControl<
 };
 
 export type TeamSetupControlDataProps = {
-  fieldMetaMap: FieldMetaMap,
   pokemonList: PokemonInfo[],
 };
 

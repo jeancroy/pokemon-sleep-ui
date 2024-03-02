@@ -8,10 +8,10 @@ import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
 import {PokemonVanillaPopup} from '@/components/shared/pokemon/vanillaPopup/main';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
 import {pokeboxInputDimension} from '@/ui/team/pokebox/const';
-import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
+import {PokeboxServerDataProps} from '@/ui/team/pokebox/type';
 
 
-type Props = PokeboxCommonProps & {
+type Props = PokeboxServerDataProps & {
   pokemonList: PokemonInfo[],
   onClick: (pokemonId: PokemonId) => void,
 };

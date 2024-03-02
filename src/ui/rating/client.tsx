@@ -13,6 +13,7 @@ import {RatingFriendshipLevel} from '@/components/shared/pokemon/rating/friendsh
 import {RatingResult} from '@/components/shared/pokemon/rating/main';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
 import {RatingOnDeskState, RatingRequest} from '@/types/game/pokemon/rating/request';
 import {RatingDataProps, RatingServerDataProps} from '@/ui/rating/type';
@@ -24,19 +25,20 @@ import {getDefaultRatingBasis} from '@/utils/game/rating/utils';
 
 
 export const RatingClient = (props: RatingServerDataProps) => {
+  const serverData = useCommonServerData();
   const {
     pokedexMap,
     pokemonProducingParamsMap,
     fieldMetaMap,
-    preloaded,
-  } = props;
+    serverConfigBundle,
+  } = serverData;
 
   const t = useTranslations('UI.InPage.Rating');
   const [request, setRequest] = React.useState<RatingRequest>();
   const {data: session} = useSession();
   const bundle = useConfigBundle({
     bundle: {
-      server: preloaded,
+      server: serverConfigBundle,
       client: session?.user.preloaded,
     },
   });
@@ -49,6 +51,7 @@ export const RatingClient = (props: RatingServerDataProps) => {
     pokemonList,
     maxEvolutionCount: getPokemonMaxEvolutionCount(pokemonList),
     ...props,
+    ...serverData,
   };
 
   const scrollToResult = () => resultRef.current?.scrollIntoView({behavior: 'smooth', block: 'start'});
@@ -119,6 +122,7 @@ export const RatingClient = (props: RatingServerDataProps) => {
             pokemonProducingParamsMap,
           })}
           {...data}
+          {...serverData}
         />
       )}
     />

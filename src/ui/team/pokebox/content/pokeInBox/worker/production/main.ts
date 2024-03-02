@@ -1,5 +1,5 @@
 import {PokemonProduction} from '@/types/game/producing/rate/main';
-import {PokeInBoxCommonProps} from '@/ui/team/pokebox/content/type';
+import {PokeInBoxCalcOpts} from '@/ui/team/pokebox/content/pokeInBox/worker/type';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
 import {
@@ -15,7 +15,7 @@ export const getRateOfPokemon = ({
   mainSkillMap,
   subSkillMap,
   ...props
-}: PokeInBoxCommonProps): PokemonProduction => {
+}: PokeInBoxCalcOpts): PokemonProduction => {
   const {
     pokemon,
     pokemonProducingParamsMap,

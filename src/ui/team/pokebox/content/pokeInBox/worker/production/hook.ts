@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokeInBoxProductionRateCalcState} from '@/ui/team/pokebox/content/pokeInBox/worker/production/type';
 import {pokeboxProductionPool} from '@/ui/team/pokebox/content/pokeInBox/worker/production/workerPool';
@@ -14,21 +15,24 @@ type UseCalculatePokeInBoxProductionOpts = Omit<PokeInBoxCommonProps, 'pokemon'>
 export const useCalculatePokeInBoxProduction = ({
   bundle,
   snorlaxFavorite,
-  mealMap,
-  cookingRecoveryData,
   pokeInBox,
   pokemon,
-  pokemonProducingParamsMap,
-  pokedexMap,
-  subSkillMap,
-  berryDataMap,
-  ingredientMap,
-  ingredientChainMap,
-  mainSkillMap,
-  recipeLevelData,
-  eventStrengthMultiplierData,
   ratingBasis,
 }: UseCalculatePokeInBoxProductionOpts): PokeInBoxProductionRateCalcState => {
+  const {
+    mealMap,
+    cookingRecoveryData,
+    pokemonProducingParamsMap,
+    pokedexMap,
+    subSkillMap,
+    berryDataMap,
+    ingredientMap,
+    ingredientChainMap,
+    mainSkillMap,
+    recipeLevelData,
+    eventStrengthMultiplierData,
+  } = useCommonServerData();
+
   const [state, setState] = React.useState<PokeInBoxProductionRateCalcState>({
     loading: false,
     rate: null,

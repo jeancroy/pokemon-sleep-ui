@@ -8,12 +8,15 @@ import {PokemonIngredientRate} from '@/components/shared/pokemon/production/para
 import {PokemonMainSkillTriggerRate} from '@/components/shared/pokemon/production/params/skillRate';
 import {PokemonSleepTypeIcon} from '@/components/shared/pokemon/sleepType/icon';
 import {specialtyIdMap} from '@/const/game/pokemon';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokeInBoxGridDetailsProps} from '@/ui/team/pokebox/content/pokeInBox/grid/details/type';
 import {getPokemonProducingParams} from '@/utils/game/producing/params';
 
 
-export const PokeInBoxGridPokemon = ({pokemon, pokemonProducingParamsMap}: PokeInBoxGridDetailsProps) => {
+export const PokeInBoxGridPokemon = ({pokemon}: PokeInBoxGridDetailsProps) => {
   const {id, specialty, sleepType, berry} = pokemon;
+
+  const {pokemonProducingParamsMap} = useCommonServerData();
 
   const pokemonProducingParams = getPokemonProducingParams({
     pokemonId: id,

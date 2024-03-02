@@ -8,6 +8,7 @@ import {
   TeamMemberFilledProps,
   TeamMemberViewRequiredData,
 } from '@/components/shared/team/memberView/type';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
@@ -56,16 +57,14 @@ export const TeamMemberView = <
   productionSorter,
   ...props
 }: Props<TKey, TMember, TConfig, TTeam, TSetup>) => {
-  const {
-    setupControl,
-    pokedexMap,
-    pokemonProducingParamsMap,
-  } = props;
+  const {setupControl} = props;
   const {session} = actorReturn;
   const {layoutControl, currentTeam} = setupControl;
   const {members} = currentTeam;
   const {generateCollapsibleControl} = layoutControl;
   const {setCurrentMember} = setupControl;
+
+  const {pokedexMap, pokemonProducingParamsMap} = useCommonServerData();
 
   const emptySlotKey = React.useMemo(() => {
     if (!generateKeyForEmptySlot) {

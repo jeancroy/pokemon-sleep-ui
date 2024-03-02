@@ -9,14 +9,15 @@ import {Collapsible} from '@/components/layout/collapsible/main';
 import {Flex} from '@/components/layout/flex/common';
 import {PopupCommon} from '@/components/popup/common/main';
 import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
-import {PokemonInputFilter, UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
+import {PokemonInputFilter} from '@/components/shared/pokemon/filter/type';
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {PokemonClickableIcons} from '@/components/shared/pokemon/icon/clickable/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
 
 
-type Props = UsePokemonFilterCommonData & {
+type Props = {
   show: boolean,
   setShow: (show: boolean) => void,
   pokemonList: PokemonInfo[],
@@ -28,9 +29,9 @@ export const PokemonVanillaPopup = ({
   setShow,
   pokemonList,
   onPokemonSelected,
-  ...props
 }: Props) => {
-  const {ingredientMap} = props;
+  const serverData = useCommonServerData();
+
   const collapsible = useCollapsibleControl(false);
 
   const {
@@ -42,7 +43,7 @@ export const PokemonVanillaPopup = ({
     dataToId: ({id}) => id,
     initialFilter: generatePokemonInputFilter({isLevelAgnostic: true}),
     isDataIncluded: (filter, pokemon) => {
-      return isPokemonIncludedFromFilter({filter, pokemon, ...props});
+      return isPokemonIncludedFromFilter({filter, pokemon, ...serverData});
     },
   });
 
@@ -56,7 +57,6 @@ export const PokemonVanillaPopup = ({
           </Flex>
         }>
           <PokemonFilter
-            ingredientMap={ingredientMap}
             filter={filter}
             setFilter={setFilter}
             className="pr-1"

@@ -40,7 +40,7 @@ type UseTeamAnalysisSetupControlOpts<
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 > = ConfigRequiredData & {
-  bundleFromServer: ConfigBundle,
+  serverConfigBundle: ConfigBundle,
   initialMigratedSetup: TSetup,
   getDuplicatedMember: (currentTeam: TTeam, source: TMember) => TeamSetupDuplicatedMember<TKey, TMember> | null,
   getLayoutCollapsibleIndexKeys: (team: TTeam) => TKey[],
@@ -53,7 +53,7 @@ export const useTeamSetupControl = <
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 >({
-  bundleFromServer,
+  serverConfigBundle,
   initialMigratedSetup,
   getDuplicatedMember,
   getLayoutCollapsibleIndexKeys,
@@ -73,7 +73,7 @@ export const useTeamSetupControl = <
 
   const bundle = useConfigBundle({
     bundle: {
-      server: bundleFromServer,
+      server: serverConfigBundle,
       client: session?.data?.user.preloaded,
     },
     ...props,

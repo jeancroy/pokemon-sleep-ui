@@ -9,16 +9,15 @@ import {
   RatingWeightedStatsUI,
   RatingWeightedStatsUiProps,
 } from '@/components/shared/pokemon/rating/units/weightedStats';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 
 
 type Props = RatingResultProps & RatingWeightedStatsUiProps;
 
 export const RatingResultSummary = (props: Props) => {
-  const {
-    request,
-    setRequest,
-    subSkillMap,
-  } = props;
+  const {request, setRequest} = props;
+
+  const {subSkillMap} = useCommonServerData();
 
   if (!request) {
     return null;

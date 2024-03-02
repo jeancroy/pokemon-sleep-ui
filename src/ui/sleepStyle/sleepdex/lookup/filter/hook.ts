@@ -1,6 +1,7 @@
 import {useFilterInput} from '@/components/input/filter/hook';
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {SleepStyleInternalId} from '@/types/game/sleepStyle';
 import {enforceFilterSelectedMapToShowSnorlaxRank} from '@/ui/sleepStyle/sleepdex/lookup/filter/enforcer';
 import {
@@ -19,11 +20,13 @@ type UseSleepdexLookupFilterOpts = SleepdexLookupServerDataProps & SleepdexLooku
 
 export const useSleepdexLookupFilter = ({
   sleepStyles,
-  pokedexMap,
   snorlaxDataMap,
   eventDrowsyPowerMultiplierData,
   ...opts
 }: UseSleepdexLookupFilterOpts) => {
+  const serverData = useCommonServerData();
+  const {pokedexMap} = serverData;
+
   return useFilterInput<SleepdexLookupFilter, SleepdexLookupDataEntry, SleepStyleInternalId>({
     data: ({mapId, drowsyPowerMultiplier}) => getSleepStyleMerged(sleepStyles)
       .map((sleepStyle): SleepdexLookupDataEntry | null => {
@@ -77,6 +80,7 @@ export const useSleepdexLookupFilter = ({
         filter,
         pokemon: data.pokemon,
         ...opts,
+        ...serverData,
       });
     },
     onSetFilter: (original, updated) => enforceFilterSelectedMapToShowSnorlaxRank({

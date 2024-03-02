@@ -6,13 +6,16 @@ import ChevronDoubleUpIcon from '@heroicons/react/24/solid/ChevronDoubleUpIcon';
 
 import {PokemonImage} from '@/components/shared/pokemon/image/main';
 import {UsePokemonLinkPopupReturn} from '@/components/shared/pokemon/linkPopup/type';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonEvolutionNextStage} from '@/ui/pokedex/page/evolution/next';
 import {PokemonEvolutionPortrait} from '@/ui/pokedex/page/evolution/portrait';
 import {PokemonTitledLayout} from '@/ui/pokedex/page/layout/titled';
 import {PokemonDataProps} from '@/ui/pokedex/page/type';
 
 
-export const PokemonEvolution = ({pokedexMap, pokemon, showPokemon}: PokemonDataProps & UsePokemonLinkPopupReturn) => {
+export const PokemonEvolution = ({pokemon, showPokemon}: PokemonDataProps & UsePokemonLinkPopupReturn) => {
+  const {pokedexMap} = useCommonServerData();
+
   const {evolution} = pokemon;
 
   return (

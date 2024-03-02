@@ -7,7 +7,6 @@ import {getEventDrowsyPowerMultiplierOfEvents} from '@/controller/event/drowsyPo
 import {getEventInfo} from '@/controller/event/info';
 import {getEventMissionMap} from '@/controller/event/mission';
 import {getEventStrengthMultiplierOfEvents} from '@/controller/event/strengthMultiplier';
-import {getPokedexMap} from '@/controller/pokemon/info';
 import {PageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {EventPageClient} from '@/ui/info/event/page/client/main';
@@ -25,12 +24,10 @@ export const EventPage = async ({params}: PageProps<EventPageParams>) => {
   const eventIds = eventInfo.associatedInternalId;
 
   const [
-    pokedexMap,
     eventMissionMap,
     strengthMultiplierEntries,
     drowsyPowerMultiplierEntries,
   ] = await Promise.all([
-    getPokedexMap(),
     getEventMissionMap({eventIds}),
     getEventStrengthMultiplierOfEvents({eventIds}),
     getEventDrowsyPowerMultiplierOfEvents({eventIds}),
@@ -38,7 +35,6 @@ export const EventPage = async ({params}: PageProps<EventPageParams>) => {
 
   const props: EventPageDataProps = {
     eventInfo,
-    pokedexMap,
     eventMissionMap,
     strengthMultiplierEntries,
     drowsyPowerMultiplierEntries,

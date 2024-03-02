@@ -11,6 +11,7 @@ import {NextImage} from '@/components/shared/common/image/main';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {defaultPokemonIndividualParams, specialtyIdMap} from '@/const/game/pokemon';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useUserActivation} from '@/hooks/userData/activation';
 import {imageIconSizes} from '@/styles/image';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
@@ -30,11 +31,11 @@ export const PokemonProduction = (props: Props) => {
   const {
     pokemon,
     berryData,
-    ingredientChainMap,
-    subSkillMap,
     session,
   } = props;
   const {specialty, berry, ingredientChain} = pokemon;
+
+  const {ingredientChainMap, subSkillMap} = useCommonServerData();
 
   const [input, setInput] = React.useState<PokemonIndividualParams>(
     defaultPokemonIndividualParams,

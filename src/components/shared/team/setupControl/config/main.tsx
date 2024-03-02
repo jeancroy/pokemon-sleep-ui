@@ -14,6 +14,7 @@ import {TeamUserConfigButton} from '@/components/shared/team/setupControl/config
 import {TeamUserConfigSourceInput} from '@/components/shared/team/setupControl/config/source';
 import {TeamSetupControl} from '@/components/shared/team/setupControl/type';
 import {noOp} from '@/const/noOp';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {TeamSetupConfig} from '@/types/game/team/config';
 import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {TeamSetup} from '@/types/game/team/setup';
@@ -47,12 +48,13 @@ export const TeamUserConfig = <
   const {
     bundle,
     setupControl,
-    mealMap,
     hideManualSkillRecovery,
   } = props;
   const {currentTeam, premiumInputControl} = setupControl;
   const {isPremium} = premiumInputControl;
   const {configSource} = currentTeam;
+
+  const {mealMap} = useCommonServerData();
 
   const collapsible = useCollapsibleControl();
 

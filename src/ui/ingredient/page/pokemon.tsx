@@ -6,25 +6,31 @@ import {useSession} from 'next-auth/react';
 import {PokemonIngredientStats} from '@/components/shared/pokemon/icon/itemStats/ingredient';
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useUserActivation} from '@/hooks/userData/activation';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {Ingredient} from '@/types/game/ingredient';
+import {PokemonIngredientProduction} from '@/types/game/pokemon';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
-import {IngredientProductionDataProps} from '@/ui/ingredient/page/type';
 
 
-type Props = IngredientProductionDataProps & {
+type Props = {
   pokemonMaxLevel: number,
   ingredient: Ingredient,
+  pokemonIngredientProduction: PokemonIngredientProduction[],
 };
 
 export const IngredientPokemonProduction = ({
-  preloaded,
   pokemonMaxLevel,
-  subSkillMap,
   ingredient,
-  ...props
+  pokemonIngredientProduction,
 }: Props) => {
+  const serverData = useCommonServerData();
+  const {
+    subSkillMap,
+    serverConfigBundle,
+  } = serverData;
+
   const [input, setInput] = React.useState<PokemonIndividualParams>(
     defaultPokemonIndividualParams,
   );
@@ -32,10 +38,10 @@ export const IngredientPokemonProduction = ({
   const {isPremium} = useUserActivation(data);
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
-      server: preloaded,
+      server: serverConfigBundle,
       client: data?.user.preloaded,
     },
-    ...props,
+    ...serverData,
   });
 
   return (
@@ -52,8 +58,8 @@ export const IngredientPokemonProduction = ({
         input={input}
         ingredient={ingredient}
         calculatedConfigBundle={calculatedConfigBundle}
-        subSkillMap={subSkillMap}
-        {...props}
+        pokemonIngredientProduction={pokemonIngredientProduction}
+        {...serverData}
       />
     </>
   );

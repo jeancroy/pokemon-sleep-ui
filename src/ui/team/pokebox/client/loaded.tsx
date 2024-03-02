@@ -5,6 +5,7 @@ import {v4} from 'uuid';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
 import {Pokebox, PokeInBox} from '@/types/userData/pokebox';
 import {useCalculatedData} from '@/ui/team/pokebox/client/hook/main';
@@ -12,7 +13,7 @@ import {PokeboxContent} from '@/ui/team/pokebox/content/main';
 import {PokeInBoxEditPopup} from '@/ui/team/pokebox/editor/main';
 import {PokeInBoxEditorState} from '@/ui/team/pokebox/editor/type';
 import {PokeboxPickerInput} from '@/ui/team/pokebox/picker/main';
-import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
+import {PokeboxServerDataProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerInput} from '@/ui/team/pokebox/viewer/main';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getSortedSubSkills} from '@/utils/game/subSkill/sort';
@@ -20,12 +21,15 @@ import {toPokebox} from '@/utils/team/pokebox/toPokebox';
 import {isNotNullish} from '@/utils/type';
 
 
-type Props = PokeboxCommonProps & {
+type Props = PokeboxServerDataProps & {
   pokeInBoxList: PokeInBox[],
 };
 
 export const PokeboxLoadedClient = (props: Props) => {
-  const {pokedexMap, subSkillMap, pokeInBoxList} = props;
+  const {pokeInBoxList} = props;
+
+  const serverData = useCommonServerData();
+  const {pokedexMap, subSkillMap} = serverData;
 
   const {act, session} = useUserDataActor({
     statusToast: true,
@@ -44,6 +48,7 @@ export const PokeboxLoadedClient = (props: Props) => {
     processedPokebox,
   } = useCalculatedData({
     ...props,
+    ...serverData,
     pokebox,
     session,
     setLoading,

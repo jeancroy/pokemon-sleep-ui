@@ -3,7 +3,7 @@ import {PokemonProductionTotal} from '@/types/game/producing/rate/main';
 import {teamMakerProductionPeriod} from '@/ui/team/maker/calc/const';
 import {getTeamMakerIngredientStats} from '@/ui/team/maker/calc/ingredient';
 import {reduceTeamMakerResultComp} from '@/ui/team/maker/calc/utils/reducer';
-import {TeamMakerDataProps} from '@/ui/team/maker/type';
+import {TeamMakerCalcDataProps} from '@/ui/team/maker/type';
 import {TeamMakerCalcResultsOpts} from '@/ui/team/maker/type/calc';
 import {TeamMakerResultComp} from '@/ui/team/maker/type/result';
 import {toSum} from '@/utils/array';
@@ -17,7 +17,7 @@ import {getSnorlaxRankFinalEstimate} from '@/utils/game/rank';
 import {isNotNullish} from '@/utils/type';
 
 
-type GetTeamMakerCompsOpts = TeamMakerDataProps & TeamMakerCalcResultsOpts;
+type GetTeamMakerCompsOpts = TeamMakerCalcDataProps & TeamMakerCalcResultsOpts;
 
 export const getTeamMakerComps = ({
   ingredientMap,

@@ -14,6 +14,7 @@ import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicat
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
 import {PokemonDetailedProducingStats} from '@/components/shared/pokemon/production/stats/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
 import {teamMakerUnitStrengthAtState} from '@/ui/team/maker/result/const';
 import {TeamMakerResultCommonProps} from '@/ui/team/maker/result/type';
@@ -29,8 +30,6 @@ type Props = TeamMakerDataProps & TeamMakerResultCommonProps & {
 };
 
 export const TeamMakerResultUnit = ({
-  pokedexMap,
-  subSkillMap,
   input,
   rate,
   compStrength,
@@ -44,6 +43,11 @@ export const TeamMakerResultUnit = ({
     subSkill,
     nature,
   } = pokeInBox;
+
+  const {
+    pokedexMap,
+    subSkillMap,
+  } = useCommonServerData();
 
   const t = useTranslations('UI.Producing');
   const [show, setShow] = React.useState(false);

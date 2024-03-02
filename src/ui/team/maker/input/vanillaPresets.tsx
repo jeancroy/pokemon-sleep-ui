@@ -2,11 +2,11 @@ import React from 'react';
 
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {PokemonVanillaPresetInput} from '@/components/shared/pokemon/predefined/vanillaPreset/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {TeamMakerInputCommonProps} from '@/ui/team/maker/input/type';
 
 
 export const TeamMakerInputVanillaPresets = ({
-  subSkillMap,
   pokemonMaxLevel,
   input,
   setInput,
@@ -15,6 +15,8 @@ export const TeamMakerInputVanillaPresets = ({
     source,
     vanillaPresets,
   } = input;
+
+  const {subSkillMap} = useCommonServerData();
 
   return (
     <AnimatedCollapse show={source === 'vanilla'}>

@@ -11,7 +11,6 @@ import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {TeamAnalysisClient} from '@/ui/team/analysis/client';
 import {TeamAnalysisServerDataProps} from '@/ui/team/analysis/type';
-import {createConfigBundle} from '@/utils/user/config/create';
 
 
 export const TeamAnalysis = async ({params}: DefaultPageProps) => {
@@ -31,7 +30,6 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
   const props: TeamAnalysisServerDataProps = {
     snorlaxData,
     preloaded: {
-      bundle: createConfigBundle(session),
       setup: userTeamAnalysisContent,
     },
     ...teamMemberViewRequiredData,

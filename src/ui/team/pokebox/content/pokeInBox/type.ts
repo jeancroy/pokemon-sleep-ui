@@ -1,13 +1,13 @@
 import React from 'react';
 
 import {PokemonInfoWithSortingPayload, SortedPokemonInfo} from '@/components/shared/pokemon/sorter/type';
-import {PokedexMap, PokemonInfo} from '@/types/game/pokemon';
+import {PokemonInfo} from '@/types/game/pokemon';
 import {RatingSetupData} from '@/types/game/pokemon/rating/request';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {PokeInBox} from '@/types/userData/pokebox';
 import {PokeInBoxChangeableProps} from '@/ui/team/pokebox/content/type';
 import {PokeInBoxEditorState} from '@/ui/team/pokebox/editor/type';
-import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
+import {PokeboxServerDataProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerDisplay, PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 
 
@@ -27,7 +27,7 @@ export type PokeInBoxViewCommonProps = {
 };
 
 export type PokeInBoxViewProps =
-  PokeboxCommonProps &
+  PokeboxServerDataProps &
   PokeInBoxPopupProps &
   PokeInBoxRefreshDependency &
   PokeInBoxViewCommonProps & {
@@ -36,9 +36,8 @@ export type PokeInBoxViewProps =
 
 export type PokeInBoxViewOfTypeProps = PokeInBoxViewProps;
 
-export type PokeInBoxViewUnitProps = PokeboxCommonProps & PokeInBoxPopupProps & PokeInBoxChangeableProps & {
+export type PokeInBoxViewUnitProps = PokeboxServerDataProps & PokeInBoxPopupProps & PokeInBoxChangeableProps & {
   pokeInBox: PokeInBox,
-  pokedexMap: PokedexMap,
   display: PokeboxViewerDisplay,
   onClick: () => void,
   isLevelPreview: boolean,

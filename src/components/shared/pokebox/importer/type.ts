@@ -1,15 +1,9 @@
-import {PokemonInputFilter, UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
-import {PokedexMap, PokemonInfo} from '@/types/game/pokemon';
-import {SubSkillMap} from '@/types/game/pokemon/subSkill';
+import {PokemonInputFilter} from '@/components/shared/pokemon/filter/type';
+import {PokemonInfo} from '@/types/game/pokemon';
 import {PokeInBox} from '@/types/userData/pokebox';
 
 
-export type PokeboxImporterDataProps = UsePokemonFilterCommonData & {
-  pokedexMap: PokedexMap,
-  subSkillMap: SubSkillMap,
-};
-
-export type PokeboxImporterCommonProps = PokeboxImporterDataProps & {
+export type PokeboxImporterCommonProps = {
   onPokeboxPicked: (pokeInBox: PokeInBox) => void,
   isPokeInBoxIncluded?: (pokeInBox: PokeInBox) => boolean,
 };

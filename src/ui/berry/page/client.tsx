@@ -10,9 +10,7 @@ import {BerryStrengthInfo} from '@/ui/berry/page/strengthInfo';
 import {BerryPageDataProps} from '@/ui/berry/page/type';
 
 
-type Props = BerryPageDataProps;
-
-export const BerryPageClient = (props: Props) => {
+export const BerryPageClient = (props: BerryPageDataProps) => {
   return (
     <Flex className="gap-1.5">
       <Flex className="gap-1.5 lg:flex-row">

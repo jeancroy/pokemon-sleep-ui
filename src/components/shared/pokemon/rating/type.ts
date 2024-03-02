@@ -1,31 +1,18 @@
 import React from 'react';
 
-import {BerryDataMap} from '@/types/game/berry';
-import {IngredientMap} from '@/types/game/ingredient';
-import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokemonInfo} from '@/types/game/pokemon';
-import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
-import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
 import {RatingRequest, RatingSetupData} from '@/types/game/pokemon/rating/request';
 import {RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
-import {SubSkillMap} from '@/types/game/pokemon/subSkill';
-import {ConfigRequiredData} from '@/types/userData/config/data';
 
 
-export type RatingResultProps = ConfigRequiredData & {
+export type RatingResultProps = {
   pokemon: PokemonInfo,
   pokemonList: PokemonInfo[],
   pokemonProducingParams: PokemonProducingParams,
   request: RatingRequest | undefined,
-  berryDataMap: BerryDataMap,
-  ingredientChainMap: IngredientChainMap,
-  ingredientMap: IngredientMap,
-  mainSkillMap: MainSkillMap,
-  subSkillMap: SubSkillMap,
-  recipeLevelData: RecipeLevelData[],
   pokemonMaxLevel: number,
   setRequest?: (updated: RatingRequest) => void,
 };

@@ -11,6 +11,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {GenericIcon} from '@/components/shared/icon/common/main';
 import {LevelIcon} from '@/components/shared/icon/lv';
 import {defaultExpType} from '@/const/game/xp';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {textFilterButtonStyle} from '@/styles/input';
 import {Dimension} from '@/types/style';
 import {PokemonExpCalculatorTableRow} from '@/ui/xp/results/row';
@@ -19,22 +20,18 @@ import {PokemonExpCalculatorCommonProps, PokemonExpCalculatorInput} from '@/ui/x
 import {getNatureMultiplier} from '@/utils/game/nature';
 
 
-type Props = PokemonExpCalculatorCommonProps & {
-  maxLevel: number,
-};
-
 export const PokemonExpCalculatorTable = ({
-  pokedexMap,
   xpValueData,
   xpShardConsumption,
   filter,
   setFilter,
-}: Props) => {
+}: PokemonExpCalculatorCommonProps) => {
   const {
     pokemon,
     nature,
     showNonBreakthroughLevel,
   } = filter;
+  const {pokedexMap} = useCommonServerData();
 
   const t = useTranslations('UI.InPage.PokemonExp');
   const t2 = useTranslations('UI.Common');

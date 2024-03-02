@@ -5,3 +5,4 @@ export type PokeInBoxProductionRateCalcState = {
   loading: boolean,
   rate: PokemonProduction | null,
 };
+

@@ -17,9 +17,7 @@ export type PokedexCalcDataProps = UsePokemonFilterCommonData & ConfigRequiredDa
   mainSkillMap: MainSkillMap,
   subSkillMap: SubSkillMap,
   recipeLevelData: RecipeLevelData[],
-  preloaded: {
-    bundle: ConfigBundle,
-  },
+  serverConfigBundle: ConfigBundle,
 };
 
 export type PokedexCalcResultEntry = SortedPokemonInfo<null, PokemonInfoWithSortingPayload<null>>;

@@ -8,11 +8,11 @@ import {CollapsibleControl} from '@/components/layout/collapsible/type';
 import {Flex} from '@/components/layout/flex/common';
 import {GenericPokeballIcon} from '@/components/shared/icon/pokeball';
 import {PokemonFilter} from '@/components/shared/pokemon/filter/main';
-import {PokemonInputFilter, UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
+import {PokemonInputFilter} from '@/components/shared/pokemon/filter/type';
 import {PokemonInfo} from '@/types/game/pokemon';
 
 
-type Props = FilterWithUpdaterProps<PokemonInputFilter> & UsePokemonFilterCommonData & {
+type Props = FilterWithUpdaterProps<PokemonInputFilter> & {
   collapsibleState: CollapsibleControl,
   pokemonList: PokemonInfo[],
 };

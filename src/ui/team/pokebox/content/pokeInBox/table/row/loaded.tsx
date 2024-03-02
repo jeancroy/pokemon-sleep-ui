@@ -2,6 +2,7 @@ import React from 'react';
 
 import {isFilterIncludingSome} from '@/components/input/filter/utils/match';
 import {Flex} from '@/components/layout/flex/common';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {PokeInBoxTableFrequency} from '@/ui/team/pokebox/content/pokeInBox/table/details/frequency';
@@ -25,11 +26,12 @@ type Props = PokeInBoxViewUnitProps & {
 export const PokeInBoxTableLoadedRow = (props: Props) => {
   const {
     pokemon,
-    pokemonProducingParamsMap,
     display,
     onClick,
   } = props;
   const {ratingBasis} = display;
+
+  const {pokemonProducingParamsMap} = useCommonServerData();
 
   const detailProps: PokeInBoxTableDetailsProps = {
     ratingBasis,

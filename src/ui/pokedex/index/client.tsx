@@ -8,6 +8,7 @@ import {AdsUnit} from '@/components/ads/main';
 import {Grid} from '@/components/layout/grid';
 import {LazyLoad} from '@/components/layout/lazyLoad';
 import {CompletionResultUI} from '@/components/shared/completion/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useAutoUpload} from '@/hooks/userData/autoUpload';
 import {usePokedexCalc} from '@/ui/pokedex/common/calc/main';
 import {usePokedexFilter} from '@/ui/pokedex/index/filter';
@@ -20,16 +21,18 @@ import {getPokemonProducingParams} from '@/utils/game/producing/params';
 export const PokedexClient = (props: PokedexDataProps) => {
   const {
     pokedexData,
-    pokemonProducingParamsMap,
     preloaded,
   } = props;
+
+  const serverData = useCommonServerData();
+  const {pokemonProducingParamsMap} = serverData;
 
   const {data: session} = useSession();
   const [loading, setLoading] = React.useState(false);
   const {filter, setFilter, isIncluded} = usePokedexFilter({
     data: pokedexData,
     preloadedDisplay: preloaded.display,
-    ...props,
+    ...serverData,
   });
 
   const {
@@ -42,7 +45,7 @@ export const PokedexClient = (props: PokedexDataProps) => {
     filter,
     isPokemonIncluded: isIncluded,
     setLoading,
-    ...props,
+    ...serverData,
   });
 
   useAutoUpload({

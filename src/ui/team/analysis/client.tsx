@@ -2,6 +2,7 @@
 import React from 'react';
 
 import {useTeamSetupControl} from '@/components/shared/team/setupControl/hook';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {teamAnalysisSlotName} from '@/types/website/feature/teamAnalysis';
 import {TeamAnalysisSetupView} from '@/ui/team/analysis/setup/main';
 import {TeamAnalysisSetupControl} from '@/ui/team/analysis/setup/type';
@@ -12,13 +13,15 @@ import {toPokemonList} from '@/utils/game/pokemon/utils';
 
 
 export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
-  const {preloaded, pokedexMap} = props;
+  const {preloaded} = props;
+
+  const serverData = useCommonServerData();
+  const {serverConfigBundle, pokedexMap} = serverData;
 
   const setupControl: TeamAnalysisSetupControl = useTeamSetupControl({
-    bundleFromServer: preloaded.bundle,
     initialMigratedSetup: getInitialTeamAnalysisSetup({
       data: preloaded.setup,
-      bundle: preloaded.bundle,
+      bundle: serverConfigBundle,
     }),
     getDuplicatedMember: ({members}, source) => {
       for (const slotName of teamAnalysisSlotName) {
@@ -33,6 +36,7 @@ export const TeamAnalysisClient = (props: TeamAnalysisServerDataProps) => {
     },
     getLayoutCollapsibleIndexKeys: () => [...teamAnalysisSlotName],
     ...props,
+    ...serverData,
   });
 
   const pokemonList = toPokemonList(pokedexMap);

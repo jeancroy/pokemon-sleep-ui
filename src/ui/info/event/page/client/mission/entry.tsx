@@ -4,15 +4,17 @@ import {Flex} from '@/components/layout/flex/common';
 import {HorizontalSplitter} from '@/components/shared/common/splitter';
 import {ItemPackUI} from '@/components/shared/item/pack';
 import {MissionUI} from '@/components/shared/mission/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {EventMission} from '@/types/game/event/mission';
-import {EventPageMissionCommonProps} from '@/ui/info/event/page/client/mission/type';
 
 
-type Props = EventPageMissionCommonProps & {
+type Props = {
   mission: EventMission,
 };
 
-export const EventPageMissionEntry = ({pokedexMap, mission}: Props) => {
+export const EventPageMissionEntry = ({mission}: Props) => {
+  const {pokedexMap} = useCommonServerData();
+
   const {reward} = mission;
 
   return (

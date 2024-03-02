@@ -5,6 +5,7 @@ import {IngredientInventoryInput} from '@/components/shared/input/ingredient/inv
 import {MealTypeInput} from '@/components/shared/input/mealType';
 import {PotCapacityInput} from '@/components/shared/input/potCapacity';
 import {MealPlanner} from '@/components/shared/meal/planner/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {usePossibleMealTypes} from '@/hooks/meal/mealTypes';
 import {TeamMakerInputCommonProps} from '@/ui/team/maker/input/type';
 import {TeamMakerInput} from '@/ui/team/maker/type/input';
@@ -13,18 +14,21 @@ import {isNotNullish} from '@/utils/type';
 
 
 export const TeamMakerInputCooking = ({
-  ingredientMap,
-  mealMap,
-  potInfoList,
-  maxRecipeLevel,
   input,
   setInput,
+  maxRecipeLevel,
 }: TeamMakerInputCommonProps) => {
   const {
     target,
     recipeLevel,
     ingredientCount,
   } = input;
+
+  const {
+    ingredientMap,
+    mealMap,
+    potInfoList,
+  } = useCommonServerData();
 
   const mealTypes = usePossibleMealTypes(Object.values(mealMap).filter(isNotNullish));
 

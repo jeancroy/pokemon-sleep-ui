@@ -4,13 +4,19 @@ import {useTranslations} from 'next-intl';
 
 import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {InfoSlider} from '@/components/shared/input/infoSlider';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {MealCommonProps} from '@/ui/meal/page/type';
 import {formatMealStrengthInfo} from '@/utils/game/meal/format';
 import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {getMealFinalStrength} from '@/utils/game/meal/strength/final/recipe';
 
 
-export const MealExp = ({recipeLevelData, meal, ingredientMap, calculatedConfigBundle}: MealCommonProps) => {
+export const MealExp = ({meal, calculatedConfigBundle}: MealCommonProps) => {
+  const {
+    ingredientMap,
+    recipeLevelData,
+  } = useCommonServerData();
+
   const {mapMultiplier, strengthMultiplier} = calculatedConfigBundle.calculatedUserConfig.bonus;
   const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
 

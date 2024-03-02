@@ -9,14 +9,13 @@ import {PokemonItemStatsFromPokedex} from '@/components/shared/pokemon/icon/item
 import {PokemonItemStatsCommonProps} from '@/components/shared/pokemon/icon/itemStats/base/type';
 import {PokemonBerryStatsCommonProps} from '@/components/shared/pokemon/icon/itemStats/type';
 import {specialtyIdMap} from '@/const/game/pokemon';
-import {BerryData, BerryDataMap} from '@/types/game/berry';
+import {BerryData} from '@/types/game/berry';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 
 
 type Props = PokemonBerryStatsCommonProps & {
   input: PokemonIndividualParams,
   berryData: BerryData,
-  berryDataMap: BerryDataMap,
 };
 
 export const PokemonBerryStats = ({

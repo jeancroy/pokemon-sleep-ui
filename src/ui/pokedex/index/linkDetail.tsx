@@ -18,6 +18,7 @@ import {PokemonSleepType} from '@/components/shared/pokemon/sleepType/main';
 import {getPokemonSorter} from '@/components/shared/pokemon/sorter/calc/main';
 import {isPokedexSortExclusion} from '@/components/shared/pokemon/sorter/utils';
 import {PokemonSpecialty} from '@/components/shared/pokemon/specialty/main';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {imageSmallIconSizes} from '@/styles/image';
 import {PokedexLinkProps} from '@/ui/pokedex/index/type';
 import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
@@ -33,18 +34,20 @@ export const PokedexLinkDetail = React.memo(({
   subSkill,
   nature,
   mainSkillLevel,
-  berryDataMap,
-  ingredientMap,
-  mealMap,
-  mainSkillMap,
-  subSkillMap,
-  recipeLevelData,
-  eventStrengthMultiplierData,
-  cookingRecoveryData,
   ingredients,
   snorlaxFavorite,
   calculatedConfigBundle,
 }: PokedexLinkProps) => {
+  const {
+    berryDataMap,
+    ingredientMap,
+    mealMap,
+    mainSkillMap,
+    subSkillMap,
+    recipeLevelData,
+    eventStrengthMultiplierData,
+    cookingRecoveryData,
+  } = useCommonServerData();
   const {
     berry,
     skill,

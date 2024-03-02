@@ -20,6 +20,7 @@ import {PokemonSortingPicker} from '@/components/shared/pokemon/sorter/picker';
 import {pokedexSortExclusion} from '@/components/shared/pokemon/sorter/type';
 import {isPokedexSortExclusion} from '@/components/shared/pokemon/sorter/utils';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useUserActivation} from '@/hooks/userData/activation';
 import {pokedexDisplayType} from '@/ui/pokedex/common/type';
 import {PokedexInputClearer} from '@/ui/pokedex/index/input/clearer';
@@ -31,14 +32,18 @@ import {toUnique} from '@/utils/array';
 
 type Props = PokedexInputProps & PokedexDataProps;
 
-export const PokedexInput = ({pokedexData, maxLevel, ...props}: Props) => {
+export const PokedexInput = ({pokedexData, pokemonMaxLevel, ...props}: Props) => {
   const {
     filter,
     setFilter,
-    mainSkillMap,
-    subSkillMap,
     preloaded,
   } = props;
+
+  const serverData = useCommonServerData();
+  const {
+    mainSkillMap,
+    subSkillMap,
+  } = serverData;
 
   const t = useTranslations('UI.Pokemon');
   const collapsible = useCollapsibleControl();
@@ -78,6 +83,7 @@ export const PokedexInput = ({pokedexData, maxLevel, ...props}: Props) => {
               pokemonList={pokedexData}
               skipLevelInput
               {...props}
+              {...serverData}
             />
             <PokemonMainSkillLevelInput
               maxSkillLevel={Math.max(...Object.values(mainSkillMap).map(({maxLevel}) => maxLevel))}
@@ -91,6 +97,7 @@ export const PokedexInput = ({pokedexData, maxLevel, ...props}: Props) => {
               filterKey="snorlaxFavorite"
               pokemonList={pokedexData}
               {...props}
+              {...serverData}
             />
             <FilterTextInput
               title={
@@ -121,7 +128,7 @@ export const PokedexInput = ({pokedexData, maxLevel, ...props}: Props) => {
       <PokemonIndividualParamsPicker
         filter={filter}
         setFilter={setFilter}
-        maxLevel={maxLevel}
+        maxLevel={pokemonMaxLevel}
         isPremium={isPremium}
         subSkillMap={subSkillMap}
         className="bg-plate"

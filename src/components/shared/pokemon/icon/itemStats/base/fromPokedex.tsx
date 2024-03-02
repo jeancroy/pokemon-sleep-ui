@@ -10,7 +10,9 @@ import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {PokemonItemStatsList} from '@/components/shared/pokemon/icon/itemStats/base/list';
 import {PokemonItemStatsCommonProps} from '@/components/shared/pokemon/icon/itemStats/base/type';
 import {usePokemonProducingStats} from '@/components/shared/pokemon/icon/itemStats/worker/hook';
-import {PokemonItemStatsWorkerOpts} from '@/components/shared/pokemon/icon/itemStats/worker/type';
+import {
+  PokemonItemStatsCommonOpts,
+} from '@/components/shared/pokemon/icon/itemStats/worker/type';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {usePokemonProductionSingleDisplay} from '@/components/shared/pokemon/production/single/hook';
@@ -20,7 +22,7 @@ import {imageIconSizes, imageSmallIconSizes} from '@/styles/image';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
 
 
-type Props = PokemonItemStatsWorkerOpts & PokemonItemStatsCommonProps & {
+type Props = PokemonItemStatsCommonOpts & PokemonItemStatsCommonProps & {
   itemAlt: string,
   itemImageSrc: string,
   isProductionIncluded?: (productions: IngredientProduction[]) => boolean,

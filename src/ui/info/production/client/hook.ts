@@ -1,30 +1,24 @@
 import React from 'react';
 
 import {useFilterInput} from '@/components/input/filter/hook';
-import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {isPokemonIncludedFromFilter} from '@/components/shared/pokemon/filter/utils/filter';
 import {generatePokemonInputFilter} from '@/components/shared/pokemon/filter/utils/generate';
 import {PokemonId, PokemonInfo} from '@/types/game/pokemon';
-import {PokemonProducingParamsMap} from '@/types/game/pokemon/producing';
 import {
   ProducingParamsDisplayResult,
   ProducingParamsFilter,
   ProducingParamsMaximum,
 } from '@/ui/info/production/client/type';
 import {getProducingParamsMaximum} from '@/ui/info/production/client/utils';
+import {ProducingParamsDataProps} from '@/ui/info/production/type';
 import {isNotNullish} from '@/utils/type';
 
 
-type UseProducingParamsOpts = UsePokemonFilterCommonData & {
-  pokemonList: PokemonInfo[],
-  producingParamsMap: PokemonProducingParamsMap,
-};
-
 export const useProducingParams = ({
   pokemonList,
-  producingParamsMap,
+  pokemonProducingParamsMap,
   ...filterData
-}: UseProducingParamsOpts) => {
+}: ProducingParamsDataProps) => {
   const {
     filter,
     setFilter,
@@ -48,7 +42,7 @@ export const useProducingParams = ({
 
     return pokemonList
       .map((pokemonInfo) => {
-        const params = producingParamsMap[pokemonInfo.id];
+        const params = pokemonProducingParamsMap[pokemonInfo.id];
         if (!params) {
           return null;
         }
@@ -75,7 +69,7 @@ export const useProducingParams = ({
 
         throw new Error(`Unhandled Pokemon producing params sorting basis ${sort satisfies never}`);
       });
-  }, [filter, pokemonList, producingParamsMap]);
+  }, [filter, pokemonList, pokemonProducingParamsMap]);
 
   const maximum: ProducingParamsMaximum = React.useMemo(
     () => getProducingParamsMaximum(pokemonResult),

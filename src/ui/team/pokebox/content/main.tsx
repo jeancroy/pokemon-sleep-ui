@@ -7,18 +7,19 @@ import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
 import {useRatingPopup} from '@/components/shared/pokemon/rating/hook';
 import {RatingResultPopup} from '@/components/shared/pokemon/rating/popup';
 import {PokemonInfoWithSortingPayload, SortedPokemonInfo} from '@/components/shared/pokemon/sorter/type';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';
 import {PokeInBox} from '@/types/userData/pokebox';
 import {PokeInBoxView} from '@/ui/team/pokebox/content/pokeInBox/main';
 import {PokeInBoxViewCommonProps} from '@/ui/team/pokebox/content/pokeInBox/type';
 import {PokeboxViewStatus} from '@/ui/team/pokebox/content/status';
-import {PokeboxCommonProps} from '@/ui/team/pokebox/type';
+import {PokeboxServerDataProps} from '@/ui/team/pokebox/type';
 import {PokeboxViewerFilter} from '@/ui/team/pokebox/viewer/type';
 import {toPokemonList} from '@/utils/game/pokemon/utils';
 import {getPokemonProducingParams} from '@/utils/game/producing/params';
 
 
-type Props = PokeboxCommonProps & PokeInBoxViewCommonProps & {
+type Props = PokeboxServerDataProps & PokeInBoxViewCommonProps & {
   filter: PokeboxViewerFilter,
   setFilter: ReactStateUpdaterFromOriginal<PokeboxViewerFilter>,
   loading: boolean,
@@ -28,14 +29,14 @@ type Props = PokeboxCommonProps & PokeInBoxViewCommonProps & {
 
 export const PokeboxContent = (props: Props) => {
   const {
-    pokedexMap,
     filter,
     setFilter,
     loading,
     totalPokeInBox,
     processedPokebox,
-    pokemonProducingParamsMap,
   } = props;
+
+  const {pokedexMap, pokemonProducingParamsMap} = useCommonServerData();
 
   const {state, setState, showPokemon} = usePokemonLinkPopup();
   const ratingControl = useRatingPopup();

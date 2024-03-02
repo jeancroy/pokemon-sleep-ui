@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import {useTranslations} from 'next-intl';
@@ -7,10 +8,9 @@ import {FlexLink} from '@/components/layout/flex/link';
 import {IconWithInfo} from '@/components/shared/common/image/iconWithInfo';
 import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
 import {IngredientIconsFromMeal} from '@/components/shared/ingredient/icons/fromMeal';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {imageGallerySizes} from '@/styles/image';
-import {IngredientId, IngredientMap} from '@/types/game/ingredient';
-import {MealMap} from '@/types/game/meal/main';
-import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
+import {IngredientId} from '@/types/game/ingredient';
 import {getCookableMeals} from '@/utils/game/meal/cookable';
 import {getMaxRecipeLevel} from '@/utils/game/meal/recipeLevel';
 import {getMealBaseStrength} from '@/utils/game/meal/strength/base';
@@ -18,13 +18,16 @@ import {isNotNullish} from '@/utils/type';
 
 
 type Props = {
-  mealMap: MealMap,
-  recipeLevelData: RecipeLevelData[],
-  ingredientMap: IngredientMap,
   ingredientId: IngredientId,
 };
 
-export const IngredientCookableMeals = ({mealMap, recipeLevelData, ingredientMap, ingredientId}: Props) => {
+export const IngredientCookableMeals = ({ingredientId}: Props) => {
+  const {
+    mealMap,
+    ingredientMap,
+    recipeLevelData,
+  } = useCommonServerData();
+
   const maxRecipeLevel = getMaxRecipeLevel({recipeLevelData});
 
   const t = useTranslations('Game.Food');

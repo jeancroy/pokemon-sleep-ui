@@ -13,7 +13,7 @@ import {ProducingParamsFilter, producingParamsSort} from '@/ui/info/production/c
 import {ProducingParamsDataProps} from '@/ui/info/production/type';
 
 
-type Props = ProducingParamsDataProps & FilterWithUpdaterProps<ProducingParamsFilter>;
+type Props = FilterWithUpdaterProps<ProducingParamsFilter> & ProducingParamsDataProps;
 
 export const ProducingParamsInput = (props: Props) => {
   const t = useTranslations('UI.Pokemon');

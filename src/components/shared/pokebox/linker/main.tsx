@@ -13,13 +13,13 @@ import {FlexForm} from '@/components/layout/flex/form';
 import {PokeboxImporter} from '@/components/shared/pokebox/importer/main';
 import {PokeboxLinkerCurrentPokemon} from '@/components/shared/pokebox/linker/current/main';
 import {usePokeboxLinker, UsePokeboxLinkerOpts} from '@/components/shared/pokebox/linker/hook';
-import {PokeboxLinkerDataProps, PokeboxLinkerState} from '@/components/shared/pokebox/linker/type';
+import {PokeboxLinkerState} from '@/components/shared/pokebox/linker/type';
 import {PokeInBox} from '@/types/userData/pokebox';
 import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
 
 
-type Props = PokeboxLinkerDataProps & UsePokeboxLinkerOpts & {
+type Props = UsePokeboxLinkerOpts & {
   onLinked: (pokeInBox: PokeInBox | null) => void,
 };
 

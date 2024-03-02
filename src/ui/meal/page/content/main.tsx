@@ -2,6 +2,7 @@ import React from 'react';
 
 import {PokemonIndividualParamsPicker} from '@/components/shared/pokemon/predefined/individual/main';
 import {defaultPokemonIndividualParams} from '@/const/game/pokemon';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonIndividualParams} from '@/types/game/pokemon/params';
 import {MealContentCoverage} from '@/ui/meal/page/content/coverage/main';
 import {MealContentIngredientProduction} from '@/ui/meal/page/content/production/main';
@@ -12,10 +13,11 @@ import {getEffectiveIngredientLevel} from '@/utils/game/ingredient/level';
 
 export const MealPageContent = (props: MealCommonProps) => {
   const {
-    subSkillMap,
     pokemonMaxLevel,
     isPremium,
   } = props;
+
+  const {subSkillMap} = useCommonServerData();
   const [input, setInput] = React.useState<PokemonIndividualParams>(
     defaultPokemonIndividualParams,
   );

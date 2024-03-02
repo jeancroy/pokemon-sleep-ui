@@ -5,6 +5,7 @@ import {useSession} from 'next-auth/react';
 
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useUserActivation} from '@/hooks/userData/activation';
 import {useCalculatedConfigBundle} from '@/hooks/userData/config/bundle/calculated';
 import {MealInfo} from '@/ui/meal/page/content/info/main';
@@ -13,16 +14,17 @@ import {MealCommonProps, MealServerDataProps} from '@/ui/meal/page/type';
 
 
 export const MealClient = (props: MealServerDataProps) => {
-  const {preloaded} = props;
+  const serverData = useCommonServerData();
+  const {serverConfigBundle} = serverData;
 
   const {data} = useSession();
   const {isPremium} = useUserActivation(data);
   const calculatedConfigBundle = useCalculatedConfigBundle({
     bundle: {
-      server: preloaded,
+      server: serverConfigBundle,
       client: data?.user.preloaded,
     },
-    ...props,
+    ...serverData,
   });
 
   const commonProps: MealCommonProps = {

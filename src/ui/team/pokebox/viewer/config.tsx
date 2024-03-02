@@ -20,6 +20,7 @@ import {RatingBasisSelectionNullable} from '@/components/shared/pokemon/rating/b
 import {PokemonSortingPicker} from '@/components/shared/pokemon/sorter/picker';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
 import {PremiumIcon} from '@/components/static/premium/icon';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {usePremiumRequiredToast} from '@/hooks/toast/main';
 import {useUserActivation} from '@/hooks/userData/activation';
 import {iconFilterButtonStyle, textFilterButtonStyle} from '@/styles/input';
@@ -37,8 +38,10 @@ import {
 } from '@/ui/team/pokebox/viewer/type';
 
 
-export const PokeboxViewerConfig = ({session, ...props}: PokeboxViewerInputCommonProps) => {
+export const PokeboxViewerConfig = ({session, pokemonList, ...props}: PokeboxViewerInputCommonProps) => {
   const {filter, setFilter} = props;
+
+  const {fieldMetaMap} = useCommonServerData();
 
   const {isPremium} = useUserActivation(session);
   const collapsible = useCollapsibleControl();
@@ -65,6 +68,8 @@ export const PokeboxViewerConfig = ({session, ...props}: PokeboxViewerInputCommo
         />
         <SnorlaxFavoriteInput
           filterKey="snorlaxFavorite"
+          fieldMetaMap={fieldMetaMap}
+          pokemonList={pokemonList}
           {...props}
         />
         <FilterExpandedInput

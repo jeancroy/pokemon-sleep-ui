@@ -13,12 +13,11 @@ import {PokemonItemStatsList} from '@/components/shared/pokemon/icon/itemStats/b
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProductionSingleAtItem} from '@/components/shared/pokemon/production/single/item';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
+import {useCommonServerData} from '@/contexts/data/common/hook';
 import {imageIconSizes} from '@/styles/image';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
 import {getPokemonProductionSingle} from '@/utils/game/producing/main/entry/single';
-import {
-  getPokemonProducingParams, getProductionIndividualParams,
-} from '@/utils/game/producing/params';
+import {getPokemonProducingParams, getProductionIndividualParams} from '@/utils/game/producing/params';
 import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 import {migrate} from '@/utils/migrate/main';
 import {pokeInBoxMigrators} from '@/utils/migrate/pokebox/migrators';
@@ -30,27 +29,27 @@ type Props = PokemonItemStatsFromPokeboxCommonProps & {
 };
 
 export const PokemonItemStatsFromPokeboxList = ({
-  targetSpecialty,
   getIcon,
-  pokedexMap,
-  pokemonProducingParamsMap,
-  berryDataMap,
   calculatedConfigBundle,
   pokeInBoxList,
   filter,
   reCalcDeps,
-  ...props
+  getItemRate,
 }: Props) => {
-  const {
-    getItemRate,
-    mainSkillMap,
-    subSkillMap,
-  } = props;
   const {
     bundle,
     snorlaxFavorite,
     calculatedCookingConfig,
   } = calculatedConfigBundle;
+
+  const serverData = useCommonServerData();
+  const {
+    pokedexMap,
+    pokemonProducingParamsMap,
+    berryDataMap,
+    mainSkillMap,
+    subSkillMap,
+  } = serverData;
 
   const t = useTranslations('Game');
 
@@ -79,10 +78,9 @@ export const PokemonItemStatsFromPokeboxList = ({
         const individual = getProductionIndividualParams({
           input: pokeInBox,
           pokemon,
-          ...props,
+          subSkillMap,
         });
         const pokemonRate = getPokemonProductionSingle({
-          ...props,
           pokemon,
           pokemonProducingParams: getPokemonProducingParams({
             pokemonId: pokemon.id,
@@ -95,6 +93,7 @@ export const PokemonItemStatsFromPokeboxList = ({
           berryData: berryDataMap[pokemon.berry.id],
           ingredients,
           skillData: mainSkillMap[pokemon.skill],
+          ...serverData,
         }).atStage.final;
 
         return {

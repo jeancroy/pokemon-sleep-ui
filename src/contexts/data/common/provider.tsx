@@ -25,7 +25,7 @@ import {createConfigBundle} from '@/utils/user/config/create';
 
 export const CommonServerDataProvider = async ({children}: React.PropsWithChildren) => {
   const [
-    session,
+    serverSession,
     mapIds,
     maxMapBonusPercent,
     pokedexMap,
@@ -64,8 +64,8 @@ export const CommonServerDataProvider = async ({children}: React.PropsWithChildr
     .sort((a, b) => a - b));
 
   const data: CommonServerDataCollection = {
-    session,
-    serverConfigBundle: createConfigBundle(session),
+    serverSession,
+    serverConfigBundle: createConfigBundle(serverSession),
     pokedexMap,
     berryDataMap,
     ingredientIds,
