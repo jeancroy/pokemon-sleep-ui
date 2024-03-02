@@ -12,7 +12,7 @@ import {PokemonClickableIcons} from '@/components/shared/pokemon/icon/clickable/
 import {PokemonName} from '@/components/shared/pokemon/name/main';
 import {PokemonNatureIndicator} from '@/components/shared/pokemon/nature/indicator/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
-import {PokemonDetailedProducingStats} from '@/components/shared/pokemon/production/stats/main';
+import {PokemonDetailedProduction} from '@/components/shared/pokemon/production/stats/main';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
 import {useCommonServerData} from '@/contexts/data/common/hook';
 import {PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
@@ -65,7 +65,7 @@ export const TeamMakerResultUnit = ({
   return (
     <Flex className="bg-plate gap-1.5">
       <PopupCommon show={show} setShow={setShow}>
-        <PokemonDetailedProducingStats
+        <PokemonDetailedProduction
           rate={rate.atStage.final}
           calculatedUserConfig={rate.calculatedUserConfig}
           specialty={pokemonInfo.specialty}

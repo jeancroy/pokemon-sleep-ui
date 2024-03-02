@@ -6,8 +6,8 @@ import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {GenericIcon} from '@/components/shared/icon/common/main';
-import {PokemonDetailedProducingStatsOfState} from '@/components/shared/pokemon/production/stats/state';
-import {PokemonDetailedProducingStatsProps} from '@/components/shared/pokemon/production/stats/type';
+import {PokemonDetailedProductionOfState} from '@/components/shared/pokemon/production/stats/state';
+import {PokemonDetailedProductionProps} from '@/components/shared/pokemon/production/stats/type';
 import {StaminaChartOfStamina} from '@/components/shared/stamina/chart/stamina';
 import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
 import {pokemonProducingStateI18nId} from '@/const/game/production/i18n';
@@ -17,7 +17,7 @@ import {getEfficiency} from '@/utils/game/stamina/efficiency';
 import {getStaminaEventLogsFlattened} from '@/utils/game/stamina/flatten';
 
 
-export const PokemonDetailedProducingStats = (props: PokemonDetailedProducingStatsProps) => {
+export const PokemonDetailedProduction = (props: PokemonDetailedProductionProps) => {
   const {calculatedUserConfig} = props;
 
   const t = useTranslations('UI.Producing');
@@ -26,34 +26,34 @@ export const PokemonDetailedProducingStats = (props: PokemonDetailedProducingSta
   return (
     <Flex className="gap-1 sm:w-[80vw]">
       <AdsUnit/>
-      <PokemonDetailedProducingStatsOfState
+      <PokemonDetailedProductionOfState
         {...props}
         state="equivalent"
         title={t(pokemonProducingStateI18nId.equivalent)}
       />
       <AdsUnit/>
       <Grid className="gap-1 2xl:grid-cols-2">
-        <PokemonDetailedProducingStatsOfState
+        <PokemonDetailedProductionOfState
           {...props}
           state="awake"
           title={t(pokemonProducingStateI18nId.awake)}
         />
-        <PokemonDetailedProducingStatsOfState
+        <PokemonDetailedProductionOfState
           {...props}
           state="sleep1Vacant"
           title={t(pokemonProducingStateI18nId.sleep1Vacant)}
         />
-        <PokemonDetailedProducingStatsOfState
+        <PokemonDetailedProductionOfState
           {...props}
           state="sleep1Filled"
           title={t(pokemonProducingStateI18nId.sleep1Filled)}
         />
-        <PokemonDetailedProducingStatsOfState
+        <PokemonDetailedProductionOfState
           {...props}
           state="sleep2Vacant"
           title={t(pokemonProducingStateI18nId.sleep2Vacant)}
         />
-        <PokemonDetailedProducingStatsOfState
+        <PokemonDetailedProductionOfState
           {...props}
           state="sleep2Filled"
           title={t(pokemonProducingStateI18nId.sleep2Filled)}
@@ -68,7 +68,7 @@ export const PokemonDetailedProducingStats = (props: PokemonDetailedProducingSta
       {/* If no +1 for `getEfficiency()`, the efficiency obtained is actually 1 level lower */}
       <Grid className="gap-1 2xl:grid-cols-2">
         {efficiencyBreakPoints.map((breakPoint) => (
-          <PokemonDetailedProducingStatsOfState
+          <PokemonDetailedProductionOfState
             {...props}
             key={breakPoint}
             state="base"

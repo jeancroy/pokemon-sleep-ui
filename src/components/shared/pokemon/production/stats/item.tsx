@@ -9,7 +9,7 @@ type Props = {
   icon: React.ReactNode,
 };
 
-export const PokemonDetailedProducingStatsLayout = ({icon, children}: React.PropsWithChildren<Props>) => {
+export const PokemonDetailedProductionLayout = ({icon, children}: React.PropsWithChildren<Props>) => {
   return (
     <Flex direction="row" stretch className="items-center">
       <Flex center noFullWidth className="button-bg rounded-l-lg">
