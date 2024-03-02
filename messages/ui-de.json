@@ -61,9 +61,9 @@
     },
     "PokemonDetailedProduction": {
       "Tab": {
-        "DailyBreakdown": "Production Breakdown",
-        "EnergyCurve": "Energy Curve",
-        "AtEnergy": "Production at Energy Level",
+        "DailyBreakdown": "Produktion Aufgliederung",
+        "EnergyCurve": "Energie-Kurve",
+        "AtEnergy": "Produktion bei Energie-Level",
         "Cooking": "Cooking"
       },
       "Cooking": {
