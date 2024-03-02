@@ -26,13 +26,17 @@ export const useRatingWeightedStats = ({
         return null;
       }
 
-      return {
-        num: getRatingWeightedStatsFromResult({
-          resultOfCategory: resultOfLevel.result[category],
-          basis,
-        }),
-        weight: weightOfLevel,
-      };
+      const weightedStats = getRatingWeightedStatsFromResult({
+        resultOfCategory: resultOfLevel.result[category],
+        basis,
+      });
+
+      // `NaN` for `weightedStats` means result not ready / unavailable, therefore skip weighting it
+      if (isNaN(weightedStats)) {
+        return null;
+      }
+
+      return {num: weightedStats, weight: weightOfLevel};
     }).filter(isNotNullish)),
   ])) as RatingWeightedStats;
 };
