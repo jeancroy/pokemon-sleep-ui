@@ -4,7 +4,7 @@ import {IngredientId} from '@/types/game/ingredient';
 import {PokemonProducingItem} from '@/types/game/pokemon/producing';
 
 
-export type IngredientIconMark = 'green' | 'red';
+export type IngredientIconMark = 'green' | 'red' | 'gray';
 
 export type IngredientIconsCommonProps = IngredientIconCommonProps & {
   useTextShadow?: boolean,
@@ -13,9 +13,11 @@ export type IngredientIconsCommonProps = IngredientIconCommonProps & {
   showTotalCount?: boolean,
   showXMarkOnEmpty?: boolean,
   formatQty?: (qty: number) => string,
+  noQuantity?: boolean,
+  wrapItem?: boolean,
+  wrapAll?: boolean,
   classOfGap?: `gap-${string}`,
   classOfText?: `text-${string}`,
   classOfItem?: string,
   className?: string,
-  noQuantity?: boolean,
 };

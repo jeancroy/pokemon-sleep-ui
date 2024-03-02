@@ -25,17 +25,19 @@ export const IngredientIcons = ({
   showTotalCount,
   showXMarkOnEmpty,
   formatQty,
+  noQuantity,
+  ingredients,
+  wrapItem,
+  wrapAll,
   classOfItem,
   classOfGap,
   classOfText,
-  noQuantity,
-  ingredients,
   ...props
 }: Props) => {
   const {dimension} = props;
 
   return (
-    <Flex direction={direction} noFullWidth className={clsx(
+    <Flex direction={direction} wrap={wrapAll} noFullWidth className={clsx(
       'items-end',
       classOfGap ?? 'gap-0.5',
       classOfText ?? 'text-xs',
@@ -55,7 +57,14 @@ export const IngredientIcons = ({
             const mark = getMark && getMark(ingredient);
 
             return (
-              <Flex key={`${id}x${qty}`} direction="row" noFullWidth wrap center className={classOfItem ?? 'gap-0.5'}>
+              <Flex
+                key={`${id}x${qty}`}
+                direction="row"
+                noFullWidth
+                wrap={wrapItem ?? true}
+                center
+                className={classOfItem ?? 'gap-0.5'}
+              >
                 <PokemonIngredientIcon id={id} dimension={dimension ?? 'size-4'} {...props}/>
                 {
                   !noQuantity &&
