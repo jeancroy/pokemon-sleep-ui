@@ -1,4 +1,4 @@
-import {initialRatingResultOfCategory} from '@/const/game/rating';
+import {initialRatingResultOfCategory} from '@/const/game/rating/common';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {RatingResultOfLevel} from '@/types/game/pokemon/rating/result';

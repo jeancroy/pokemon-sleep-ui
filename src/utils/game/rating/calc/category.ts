@@ -1,4 +1,4 @@
-import {initialRatingResultOfCategory} from '@/const/game/rating';
+import {initialRatingResultOfCategory} from '@/const/game/rating/common';
 import {RatingWorkerOpts} from '@/types/game/pokemon/rating/request';
 import {RatingCombination, RatingExtrema, RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';

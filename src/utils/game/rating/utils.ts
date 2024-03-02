@@ -1,5 +1,5 @@
 import {specialtyIdToType} from '@/const/game/pokemon';
-import {defaultRatingBasisOfSpecialty} from '@/const/game/rating';
+import {defaultRatingBasisOfSpecialty} from '@/const/game/rating/common';
 import {PokemonSpecialtyId} from '@/types/game/pokemon';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {ProductionCalcBehavior} from '@/types/game/producing/behavior/type';

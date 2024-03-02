@@ -13,7 +13,7 @@ import {RatingResultChart} from '@/components/shared/pokemon/rating/section/char
 import {RatingDetails} from '@/components/shared/pokemon/rating/section/details/main';
 import {RatingResultSummary} from '@/components/shared/pokemon/rating/section/summary';
 import {RatingResultProps, RatingSummaryCommonProps} from '@/components/shared/pokemon/rating/type';
-import {defaultRatingConfig} from '@/const/game/rating';
+import {defaultRatingConfig} from '@/const/game/rating/common';
 import {useAutoUpload} from '@/hooks/userData/autoUpload';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
 import {migrate} from '@/utils/migrate/main';

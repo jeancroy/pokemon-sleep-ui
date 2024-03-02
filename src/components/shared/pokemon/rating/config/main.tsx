@@ -9,7 +9,7 @@ import {ProgressBarSingle} from '@/components/progressBar/single';
 import {LevelIcon} from '@/components/shared/icon/lv';
 import {NumberInputRequired} from '@/components/shared/input/number/required/main';
 import {ratingConfigWeightExpressButtonStyle} from '@/components/shared/pokemon/rating/config/const';
-import {defaultRatingWeight} from '@/const/game/rating';
+import {defaultRatingWeight} from '@/const/game/rating/common';
 import {useSortedPokemonKeyLevels} from '@/hooks/pokemon/keyLevel/sorted';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';

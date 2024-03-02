@@ -8,7 +8,7 @@ import {MarkdownContent} from '@/components/markdown/main';
 import {RatingBasisSelectionBase} from '@/components/shared/pokemon/rating/basis/selection/base';
 import {RatingBasisSelectionCommonProps} from '@/components/shared/pokemon/rating/basis/selection/type';
 import {RatingBasisTitle} from '@/components/shared/pokemon/rating/basis/title';
-import {ratingBasisExplainerI18nId} from '@/const/game/rating';
+import {ratingBasisExplainerI18nId} from '@/const/game/rating/i18n';
 import {RatingBasis, ratingBasis} from '@/types/game/pokemon/rating/config';
 
 

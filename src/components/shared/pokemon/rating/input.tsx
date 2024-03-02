@@ -9,7 +9,7 @@ import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {Flex} from '@/components/layout/flex/common';
 import {PremiumIcon} from '@/components/static/premium/icon';
-import {ratingResultCategoryI18nId, ratingWeightedStatsBasisI18nId} from '@/const/game/rating';
+import {ratingResultCategoryI18nId, ratingWeightedStatsBasisI18nId} from '@/const/game/rating/i18n';
 import {RatingConfig, ratingWeightedStatsBasis} from '@/types/game/pokemon/rating/config';
 import {ratingResultCategory} from '@/types/game/pokemon/rating/result';
 import {ReactStateUpdaterFromOriginal} from '@/types/react';

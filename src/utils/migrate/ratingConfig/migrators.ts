@@ -1,4 +1,4 @@
-import {defaultRatingConfig} from '@/const/game/rating';
+import {defaultRatingConfig} from '@/const/game/rating/common';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
 import {Migrator} from '@/types/migrate';
 import {RatingConfigMigrateParams} from '@/utils/migrate/ratingConfig/type';

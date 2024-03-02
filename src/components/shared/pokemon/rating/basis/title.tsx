@@ -5,7 +5,8 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {PokemonSpecialtyIcon} from '@/components/shared/pokemon/specialty/icon';
-import {ratingBasisNameI18nId, ratingBasisSpecialty} from '@/const/game/rating';
+import {ratingBasisSpecialty} from '@/const/game/rating/common';
+import {ratingBasisNameI18nId} from '@/const/game/rating/i18n';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 
 

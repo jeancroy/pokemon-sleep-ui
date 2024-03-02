@@ -7,7 +7,7 @@ import {GenericIngredientIcon} from '@/components/shared/icon/ingredient';
 import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {MealCoverageIcon} from '@/components/shared/icon/mealCoverage';
 import {ColoredStrengthIcon} from '@/components/shared/icon/strengthColored';
-import {ratingBasisNameI18nId} from '@/const/game/rating';
+import {ratingBasisNameI18nId} from '@/const/game/rating/i18n';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 
 
