@@ -26,5 +26,5 @@ export type PokemonExpCalculatorParams = {
 export type PokemonExpCalculatorInput = PokemonExpCalculatorParams & {
   pokemon: PokemonId | null,
   nature: NatureId | null,
-  showNonBreakthroughLevel: boolean,
+  showNonKeyLevel: boolean,
 };

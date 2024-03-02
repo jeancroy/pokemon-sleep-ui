@@ -10,19 +10,21 @@ import {LevelIcon} from '@/components/shared/icon/lv';
 import {NumberInputRequired} from '@/components/shared/input/number/required/main';
 import {ratingConfigWeightExpressButtonStyle} from '@/components/shared/pokemon/rating/config/const';
 import {defaultRatingWeight} from '@/const/game/rating';
+import {useSortedPokemonKeyLevels} from '@/hooks/pokemon/keyLevel/sorted';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
 
 
 type Props = {
   initial: RatingConfig,
-  activeKeyLevels: PokemonKeyLevel[],
   show: boolean,
   setShow: (show: boolean) => void,
   onClose: (updated: RatingConfig) => void,
 };
 
-export const RatingConfigPopup = ({initial, activeKeyLevels, show, setShow, onClose}: Props) => {
+export const RatingConfigPopup = ({initial, show, setShow, onClose}: Props) => {
+  const sortedKeyLevels = useSortedPokemonKeyLevels();
+
   const [config, setConfig] = React.useState(initial);
 
   const updateWeightOfLevel = (level: PokemonKeyLevel, updatedWeight: number) => setConfig(({
@@ -45,7 +47,7 @@ export const RatingConfigPopup = ({initial, activeKeyLevels, show, setShow, onCl
       setShow(show);
     }}>
       <Flex className="gap-1">
-        {activeKeyLevels.sort((a, b) => a - b).map((level) => {
+        {sortedKeyLevels.map((level) => {
           const currentWeight = weight[level] ?? defaultRatingWeight[level] ?? NaN;
 
           return (

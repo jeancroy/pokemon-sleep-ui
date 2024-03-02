@@ -1,5 +1,6 @@
 import {PokemonId} from '@/types/game/pokemon';
 import {IngredientProduction} from '@/types/game/pokemon/ingredient';
+import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {NatureId} from '@/types/game/pokemon/nature';
 import {PokemonSubSkill} from '@/types/game/pokemon/subSkill';
 
@@ -43,6 +44,6 @@ export type RatingResultOfCategoryAtLevel = {
 };
 
 export type RatingResultOfLevel = {
-  level: number,
+  level: PokemonKeyLevel | number,
   result: {[category in RatingResultCategory]: RatingResultOfCategoryAtLevel},
 };

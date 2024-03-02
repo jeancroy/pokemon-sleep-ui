@@ -4,12 +4,11 @@ import {InfoIcon} from '@/components/icons/info';
 import {LoadingSvg} from '@/components/icons/loading';
 import {Flex} from '@/components/layout/flex/common';
 import {RatingDetailsButtonCompleted} from '@/components/shared/pokemon/rating/section/details/button/completed';
-import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
 
 
 type Props = {
-  level: PokemonKeyLevel,
+  level: number,
   loading: boolean,
   result: RatingResultOfCategoryAtLevel,
 };

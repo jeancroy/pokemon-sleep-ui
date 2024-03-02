@@ -7,7 +7,6 @@ import {Flex} from '@/components/layout/flex/common';
 import {RatingResultMap} from '@/components/shared/pokemon/rating/type';
 import {RankingResultPercentile} from '@/components/shared/pokemon/rating/units/percentile';
 import {RatingRelativeStrength} from '@/components/shared/pokemon/rating/units/relativeStrength';
-import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
 
 
@@ -17,7 +16,7 @@ type Props = TooltipProps<number, number> & {
 };
 
 export const RatingResultChartTooltip = ({active, payload, label, resultMap, config}: Props) => {
-  const level = label as PokemonKeyLevel;
+  const level = label as number;
   const result = resultMap[level];
 
   if (!active || !payload || !payload.length || !result) {

@@ -1,7 +1,4 @@
-import {PokemonKeyLevel} from '@/types/game/pokemon/level';
-
-
 export type RatingResultChartDataPoint = {
-  level: PokemonKeyLevel,
+  level: number,
   value: number,
 };

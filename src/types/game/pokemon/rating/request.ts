@@ -1,16 +1,13 @@
+import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {PokemonOnDeskState} from '@/components/shared/pokemon/predefined/lab/onDesk/type';
-import {BerryDataMap} from '@/types/game/berry';
-import {IngredientMap} from '@/types/game/ingredient';
-import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
 import {PokemonInfo} from '@/types/game/pokemon';
-import {IngredientChainMap} from '@/types/game/pokemon/ingredient';
-import {MainSkillMap} from '@/types/game/pokemon/mainSkill';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
-import {FriendshipLevelOfGoldLock, SubSkillMap} from '@/types/game/pokemon/subSkill';
+import {FriendshipLevelOfGoldLock} from '@/types/game/pokemon/subSkill';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
 import {ConfigBundle} from '@/types/userData/config/bundle';
 import {ConfigRequiredData} from '@/types/userData/config/data';
+import {CommonServerDataCollection} from '@/types/website/data/common';
 
 
 export type RatingOnDeskState = PokemonOnDeskState & {
@@ -28,17 +25,18 @@ export type RatingRequest = {
   timestamp: number,
 };
 
-export type RatingOpts = ConfigRequiredData & {
+export type RatingOpts = ConfigRequiredData & Pick<
+  CommonServerDataCollection,
+  keyof UsePokemonFilterCommonData |
+  'berryDataMap' |
+  'mainSkillMap' |
+  'subSkillMap' |
+  'recipeLevelData'
+> & {
   level: number,
   pokemon: PokemonInfo | undefined,
   pokemonList: PokemonInfo[],
   pokemonProducingParams: PokemonProducingParams,
-  ingredientChainMap: IngredientChainMap,
-  ingredientMap: IngredientMap,
-  berryDataMap: BerryDataMap,
-  mainSkillMap: MainSkillMap,
-  subSkillMap: SubSkillMap,
-  recipeLevelData: RecipeLevelData[],
   useNestedWorker: boolean,
 };
 

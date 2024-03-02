@@ -12,6 +12,7 @@ import {GenericIcon} from '@/components/shared/icon/common/main';
 import {LevelIcon} from '@/components/shared/icon/lv';
 import {defaultExpType} from '@/const/game/xp';
 import {useCommonServerData} from '@/contexts/data/common/hook';
+import {useNumericPokemonKeyLevels} from '@/hooks/pokemon/keyLevel/numeric';
 import {textFilterButtonStyle} from '@/styles/input';
 import {Dimension} from '@/types/style';
 import {PokemonExpCalculatorTableRow} from '@/ui/xp/results/row';
@@ -29,12 +30,14 @@ export const PokemonExpCalculatorTable = ({
   const {
     pokemon,
     nature,
-    showNonBreakthroughLevel,
+    showNonKeyLevel,
   } = filter;
   const {pokedexMap} = useCommonServerData();
 
   const t = useTranslations('UI.InPage.PokemonExp');
   const t2 = useTranslations('UI.Common');
+
+  const pokemonKeyLevels = useNumericPokemonKeyLevels();
 
   const dimension: Dimension = 'size-8';
 
@@ -50,16 +53,16 @@ export const PokemonExpCalculatorTable = ({
     <Flex className="info-section">
       <InputRow className="justify-end gap-2">
         <ToggleButton
-          active={showNonBreakthroughLevel}
+          active={showNonKeyLevel}
           onClick={() => setFilter((original) => ({
             ...original,
-            showNonBreakthroughLevel: !original.showNonBreakthroughLevel,
+            showNonKeyLevel: !original.showNonKeyLevel,
           } satisfies PokemonExpCalculatorInput))}
           className={clsx('group', textFilterButtonStyle)}
         >
           <Flex direction="row" center noFullWidth className="gap-1.5 p-1">
             <div className="size-5">
-              {showNonBreakthroughLevel ? <EyeIcon/> : <EyeSlashIcon/>}
+              {showNonKeyLevel ? <EyeIcon/> : <EyeSlashIcon/>}
             </div>
             <div>{t('KeyLevel')}</div>
           </Flex>
@@ -120,6 +123,7 @@ export const PokemonExpCalculatorTable = ({
             {getLevelUpRequirementsAccumulated(levelUpRequirements).map((data) => (
               <PokemonExpCalculatorTableRow
                 key={data.lv}
+                isKeyLevel={pokemonKeyLevels.includes(data.lv)}
                 input={filter}
                 data={data}
               />

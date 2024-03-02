@@ -24,7 +24,7 @@ export const PokemonExpCalculatorClient = (props: PokemonExpCalculatorDataProps)
       dreamShardDepletion: 1,
     },
     ownedCandies: 0,
-    showNonBreakthroughLevel: false,
+    showNonKeyLevel: false,
   });
 
   const commonProps: PokemonExpCalculatorCommonProps = {

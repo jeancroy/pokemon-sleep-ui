@@ -4,7 +4,7 @@ import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {usePokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/hook';
 import {PokemonLinkPopup} from '@/components/shared/pokemon/linkPopup/main';
-import {useRatingPopup} from '@/components/shared/pokemon/rating/hook';
+import {useRatingPopup} from '@/components/shared/pokemon/rating/hooks/popup';
 import {RatingResultPopup} from '@/components/shared/pokemon/rating/popup';
 import {PokemonInfoWithSortingPayload, SortedPokemonInfo} from '@/components/shared/pokemon/sorter/type';
 import {useCommonServerData} from '@/contexts/data/common/hook';

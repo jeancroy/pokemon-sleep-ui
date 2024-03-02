@@ -30,7 +30,11 @@ export const useCalculatedData = (opts: UseCalculatedDataOpts) => {
   } = opts;
 
   const serverData = useCommonServerData();
-  const {pokedexMap, serverConfigBundle} = serverData;
+  const {
+    pokedexMap,
+    serverConfigBundle,
+    pokemonMaxLevel,
+  } = serverData;
 
   const t = useTranslations('Game');
 
@@ -60,6 +64,7 @@ export const useCalculatedData = (opts: UseCalculatedDataOpts) => {
       const level = getLevelToCalcForPokeInBox({
         actualLevel: pokeInBox.level,
         previewLevel: filter.previewLevel,
+        pokemonMaxLevel,
       });
 
       if (!filter.previewFinalEvolution) {

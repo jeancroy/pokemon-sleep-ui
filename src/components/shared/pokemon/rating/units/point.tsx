@@ -13,14 +13,13 @@ import {RatingBasisIcon} from '@/components/shared/pokemon/rating/basis/icon';
 import {ratingExtremaDisplayMax} from '@/components/shared/pokemon/rating/const';
 import {getFormattedRatingValue} from '@/components/shared/pokemon/rating/utils';
 import {PokemonSubSkillIndicator} from '@/components/shared/pokemon/subSkill/indicator';
-import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {RatingExtrema} from '@/types/game/pokemon/rating/result';
 import {SubSkillMap} from '@/types/game/pokemon/subSkill';
 
 
 type Props = {
-  level: PokemonKeyLevel,
+  level: number,
   extrema: RatingExtrema | undefined,
   subSkillMap: SubSkillMap,
   icon: React.ReactNode,
@@ -82,7 +81,11 @@ export const RatingDataPointUI = ({level, extrema, subSkillMap, icon, basis, cla
                 <PokemonNatureIndicator nature={nature}/>
               </div>
               <div className="h-6">
-                <PokemonSubSkillIndicator subSkill={subSkill} subSkillMap={subSkillMap} level={level}/>
+                <PokemonSubSkillIndicator
+                  subSkill={subSkill}
+                  subSkillMap={subSkillMap}
+                  level={level}
+                />
               </div>
             </Flex>
           </Flex>

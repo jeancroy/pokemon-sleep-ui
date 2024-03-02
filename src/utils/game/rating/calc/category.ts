@@ -1,3 +1,4 @@
+import {initialRatingResultOfCategory} from '@/const/game/rating';
 import {RatingWorkerOpts} from '@/types/game/pokemon/rating/request';
 import {RatingCombination, RatingExtrema, RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
 import {getEffectiveIngredientProductions} from '@/utils/game/ingredient/production';
@@ -47,6 +48,12 @@ export const calculateRatingResultOfCategory = async ({
     ingredients: currentProductions,
     skillData,
   });
+
+  // Rating un-calculable, likely no berry data causing NaN result
+  if (isNaN(valueOfCurrent)) {
+    return initialRatingResultOfCategory;
+  }
+
   const valueOfBase = getRatingValueOfBase({
     ...opts,
     berryData,
@@ -90,7 +97,7 @@ export const calculateRatingResultOfCategory = async ({
     }
   }
 
-  const isValid = min?.value !== max?.value;
+  const isValid = min?.value !== max?.value && !isNaN(valueOfCurrent);
 
   return {
     samples,

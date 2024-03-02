@@ -6,17 +6,16 @@ import {Session} from 'next-auth';
 import {AdsUnit} from '@/components/ads/main';
 import {Flex} from '@/components/layout/flex/common';
 import {RatingConfigPopup} from '@/components/shared/pokemon/rating/config/main';
-import {useRatingResult} from '@/components/shared/pokemon/rating/hook';
+import {useRatingResult} from '@/components/shared/pokemon/rating/hooks/result';
+import {useRatingWeightedStats} from '@/components/shared/pokemon/rating/hooks/stats';
 import {RatingResultInput} from '@/components/shared/pokemon/rating/input';
 import {RatingResultChart} from '@/components/shared/pokemon/rating/section/chart/main';
 import {RatingDetails} from '@/components/shared/pokemon/rating/section/details/main';
 import {RatingResultSummary} from '@/components/shared/pokemon/rating/section/summary';
 import {RatingResultProps, RatingSummaryCommonProps} from '@/components/shared/pokemon/rating/type';
 import {defaultRatingConfig} from '@/const/game/rating';
-import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useAutoUpload} from '@/hooks/userData/autoUpload';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
-import {getRatingWeightedStats} from '@/utils/game/rating/result/weighted';
 import {migrate} from '@/utils/migrate/main';
 import {ratingConfigMigrators} from '@/utils/migrate/ratingConfig/migrators';
 import {Nullable} from '@/utils/type';
@@ -34,8 +33,6 @@ const RatingResultLoadedInternal = ({
 }: Props, ref: React.ForwardedRef<HTMLDivElement>) => {
   const {request} = props;
 
-  const {pokemonMaxLevel} = useCommonServerData();
-
   const [show, setShow] = React.useState(false);
   const [config, setConfig] = React.useState<RatingConfig>(migrate({
     original: defaultRatingConfig,
@@ -44,18 +41,16 @@ const RatingResultLoadedInternal = ({
     migrateParams: {},
   }));
   const {
-    activeKeyLevels,
     resultMap,
     updateResultOfLevel,
-  } = useRatingResult({pokemonMaxLevel, request});
+  } = useRatingResult({request});
 
   const {basis} = config;
   const ratingSummaryCommonProps: RatingSummaryCommonProps = {
-    activeKeyLevels,
     resultMap,
     config,
   };
-  const weightedRating = getRatingWeightedStats(ratingSummaryCommonProps);
+  const weightedRating = useRatingWeightedStats(ratingSummaryCommonProps);
 
   useAutoUpload({
     opts: {
@@ -69,7 +64,6 @@ const RatingResultLoadedInternal = ({
     <>
       <RatingConfigPopup
         initial={config}
-        activeKeyLevels={activeKeyLevels}
         show={show}
         setShow={setShow}
         onClose={setConfig}

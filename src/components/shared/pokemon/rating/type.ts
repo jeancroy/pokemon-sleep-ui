@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {PokemonInfo} from '@/types/game/pokemon';
-import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
 import {RatingRequest, RatingSetupData} from '@/types/game/pokemon/rating/request';
@@ -17,7 +16,6 @@ export type RatingResultProps = {
 };
 
 export type RatingSummaryCommonProps = {
-  activeKeyLevels: PokemonKeyLevel[],
   resultMap: RatingResultMap,
   config: RatingConfig,
 };
@@ -33,4 +31,6 @@ export type RatingPopupControl = {
   sendRequest: (setup: RatingSetupData) => void,
 };
 
-export type RatingResultMap = {[keyLevel in PokemonKeyLevel]?: RatingResultOfLevel};
+// Storing numeric level instead of `PokemonKeyLevel` to make sure that the results are not double counted,
+// if the current max level is one of the key levels
+export type RatingResultMap = {[keyLevel in number]?: RatingResultOfLevel};

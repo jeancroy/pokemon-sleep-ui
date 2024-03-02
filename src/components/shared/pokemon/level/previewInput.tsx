@@ -8,11 +8,14 @@ import {FilterInputOnClickProps} from '@/components/input/filter/common/type';
 import {FilterExpandedInput} from '@/components/input/filter/expanded/main';
 import {Flex} from '@/components/layout/flex/common';
 import {LevelIcon} from '@/components/shared/icon/lv';
+import {useSortedPokemonKeyLevels} from '@/hooks/pokemon/keyLevel/sorted';
 import {iconFilterButtonStyle} from '@/styles/input';
-import {PokemonKeyLevel, pokemonKeyLevels} from '@/types/game/pokemon/level';
+import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 
 
 export const PokemonPreviewLevelInput = (props: FilterInputOnClickProps<PokemonKeyLevel | null>) => {
+  const sortedPokemonLevels = useSortedPokemonKeyLevels();
+
   return (
     <FilterExpandedInput
       title={
@@ -21,7 +24,7 @@ export const PokemonPreviewLevelInput = (props: FilterInputOnClickProps<PokemonK
           <LevelIcon/>
         </Flex>
       }
-      ids={[null, ...[...pokemonKeyLevels].sort((a, b) => a - b)]}
+      ids={[null, ...sortedPokemonLevels]}
       idToButton={(level) => (
         level === null ? <XMarkIcon className="size-7"/> : level
       )}

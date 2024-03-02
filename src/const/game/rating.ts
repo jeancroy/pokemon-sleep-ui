@@ -7,7 +7,7 @@ import {I18nMessageKeysOfNamespace} from '@/types/i18n';
 import {ratingConfigMigrators} from '@/utils/migrate/ratingConfig/migrators';
 
 
-export const defaultRatingWeight: RatingWeight = {
+export const defaultRatingWeight: Required<RatingWeight> = {
   1: 0,
   10: 0,
   25: 0.75,
@@ -16,6 +16,7 @@ export const defaultRatingWeight: RatingWeight = {
   60: 0.5,
   75: 0.25,
   100: 0.1,
+  max: 0.5,
 };
 
 export const defaultRatingConfig: RatingConfig = {

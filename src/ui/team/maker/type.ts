@@ -25,4 +25,5 @@ export type TeamMakerCalcDataProps = TeamMakerDataProps & Pick<
   'recipeLevelData'
 > & {
   maxRecipeLevel: number,
+  pokemonMaxLevel: number,
 };

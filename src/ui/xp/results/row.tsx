@@ -3,7 +3,6 @@ import React from 'react';
 import {clsx} from 'clsx';
 
 import {handyCandyConversionRate, handyCandyItemId} from '@/const/game/xp';
-import {PokemonKeyLevel, pokemonKeyLevels} from '@/types/game/pokemon/level';
 import {PokemonExpCalculatorCandyCount} from '@/ui/xp/results/candyCount';
 import {PokemonLevelUpRequirements} from '@/ui/xp/results/type';
 import {PokemonExpCalculatorInput} from '@/ui/xp/type';
@@ -12,21 +11,21 @@ import {formatFloat3, formatInt} from '@/utils/number/format/regular';
 
 
 type Props = {
+  isKeyLevel: boolean,
   input: PokemonExpCalculatorInput,
   data: PokemonLevelUpRequirements,
 };
 
-export const PokemonExpCalculatorTableRow = ({input, data}: Props) => {
-  const {showNonBreakthroughLevel} = input;
+export const PokemonExpCalculatorTableRow = ({isKeyLevel, input, data}: Props) => {
+  const {showNonKeyLevel} = input;
   const {lv, xp, candy, shard} = data;
-  const isBreakthroughLevel = pokemonKeyLevels.includes(lv as PokemonKeyLevel);
 
-  if (!showNonBreakthroughLevel && !isBreakthroughLevel) {
+  if (!showNonKeyLevel && !isKeyLevel) {
     return null;
   }
 
   return (
-    <tr className={clsx(isBreakthroughLevel && 'bg-blink')}>
+    <tr className={clsx(isKeyLevel && 'bg-blink')}>
       <td>{lv}</td>
       <td>{formatInt(xp)}</td>
       <td>

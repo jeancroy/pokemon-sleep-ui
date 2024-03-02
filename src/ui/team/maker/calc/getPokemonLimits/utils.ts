@@ -14,6 +14,7 @@ export const getTeamMakerPokeInBoxDataForLimits = ({
   subSkillMap,
   input,
   pokeboxSource,
+  pokemonMaxLevel,
 }: TeamMakerGetTeamMakerPokemonLimitsOpts): TeamMakerPokeInBoxDataForLimits[] => {
   const {previewLevel, previewFinalEvolution} = input;
 
@@ -42,6 +43,7 @@ export const getTeamMakerPokeInBoxDataForLimits = ({
       const actualLevel = getLevelToCalcForPokeInBox({
         actualLevel: pokeInBox.level,
         previewLevel,
+        pokemonMaxLevel,
       });
 
       return {

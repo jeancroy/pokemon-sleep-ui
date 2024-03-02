@@ -14,37 +14,40 @@ import {RatingResultChartTooltip} from '@/components/shared/pokemon/rating/secti
 import {RatingResultChartDataPoint} from '@/components/shared/pokemon/rating/section/chart/type';
 import {RatingSummaryCommonProps} from '@/components/shared/pokemon/rating/type';
 import {useLayout} from '@/hooks/layout/main';
+import {usePokemonKeyLevelConverter} from '@/hooks/pokemon/keyLevel/convert';
+import {useNumericPokemonKeyLevels} from '@/hooks/pokemon/keyLevel/numeric';
 import {getRatingWeightedStatsFromResult} from '@/utils/game/rating/result/weighted';
 import {generateNumberTicks} from '@/utils/number/generator';
 import {isNotNullish} from '@/utils/type';
 
 
 export const RatingResultChart = ({
-  activeKeyLevels,
   resultMap,
   config,
 }: RatingSummaryCommonProps) => {
   const {basis, category} = config;
+
   const {isLandscape} = useLayout();
 
-  const maxLevel = Math.max(...activeKeyLevels);
-  const data = activeKeyLevels
-    .map((level): RatingResultChartDataPoint | null => {
-      const resultOfLevel = resultMap[level];
+  const convertPokemonKeyLevel = usePokemonKeyLevelConverter();
+  const numericPokemonKeyLevels = useNumericPokemonKeyLevels();
 
-      if (!resultOfLevel) {
-        return null;
-      }
+  const maxLevel = Math.max(...numericPokemonKeyLevels);
+  const data = numericPokemonKeyLevels.map((level): RatingResultChartDataPoint | null => {
+    const resultOfLevel = resultMap[level];
 
-      return {
-        level,
-        value: getRatingWeightedStatsFromResult({
-          resultOfCategory: resultOfLevel.result[category],
-          basis,
-        }),
-      };
-    })
-    .filter(isNotNullish);
+    if (!resultOfLevel) {
+      return null;
+    }
+
+    return {
+      level: convertPokemonKeyLevel(level),
+      value: getRatingWeightedStatsFromResult({
+        resultOfCategory: resultOfLevel.result[category],
+        basis,
+      }),
+    };
+  }).filter(isNotNullish);
 
   return (
     <Flex className="info-section h-80">

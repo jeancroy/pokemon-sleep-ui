@@ -1,11 +1,12 @@
 import {initialRatingResultOfCategory} from '@/const/game/rating';
+import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {RatingResultOfLevel} from '@/types/game/pokemon/rating/result';
 import {formatFloat, formatFloat3} from '@/utils/number/format/regular';
 import {Nullable} from '@/utils/type';
 
 
-export const generateInitialRatingResult = (level: number): RatingResultOfLevel => {
+export const generateInitialRatingResult = (level: PokemonKeyLevel | number): RatingResultOfLevel => {
   return {
     level,
     result: {
