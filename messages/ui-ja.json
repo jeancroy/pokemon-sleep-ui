@@ -61,13 +61,13 @@
     },
     "PokemonDetailedProduction": {
       "Tab": {
-        "DailyBreakdown": "Production Breakdown",
-        "EnergyCurve": "Energy Curve",
-        "AtEnergy": "Production at Energy Level",
-        "Cooking": "Cooking"
+        "DailyBreakdown": "生産量詳細",
+        "EnergyCurve": "げんき曲線",
+        "AtEnergy": "げんき別生産量",
+        "Cooking": "料理"
       },
       "Cooking": {
-        "IngredientMultiplier": "Ingredient Multiplier"
+        "IngredientMultiplier": "食材の実質ボーナス倍率"
       }
     },
     "Team": {
