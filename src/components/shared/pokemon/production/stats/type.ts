@@ -1,12 +1,9 @@
 import {PokemonSpecialtyId} from '@/types/game/pokemon';
-import {IngredientMultiplier} from '@/types/game/producing/multiplier';
-import {PokemonProduction} from '@/types/game/producing/rate/main';
-import {CalculatedUserConfig} from '@/types/userData/config/user/main';
+import {PokemonProduction, PokemonProductionMetadata} from '@/types/game/producing/rate/main';
 
 
 export type PokemonDetailedProductionProps = {
   rate: PokemonProduction,
-  ingredientMultiplier: IngredientMultiplier,
-  calculatedUserConfig: CalculatedUserConfig,
+  metadata: PokemonProductionMetadata,
   specialty: PokemonSpecialtyId,
 };

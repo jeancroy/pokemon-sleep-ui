@@ -29,7 +29,7 @@ type Props = TeamMemberProps & {
 
 export const TeamMemberStats = ({
   pokemon,
-  rate,
+  production,
   stateOfRate,
   type,
 }: Props) => {
@@ -39,12 +39,18 @@ export const TeamMemberStats = ({
     skill,
   } = pokemon;
   const {
+    total,
+    rate,
+    metadata,
+  } = production;
+  const {
+    calculatedUserConfig,
+  } = metadata;
+  const {
     intermediate,
     fullPackStats,
     ingredient,
     skillIndirect,
-    calculatedUserConfig,
-    total,
   } = rate;
   const {
     carryLimitInfo,

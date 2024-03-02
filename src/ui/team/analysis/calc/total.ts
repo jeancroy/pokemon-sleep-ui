@@ -23,32 +23,32 @@ export const getTeamProductionTotal = ({
   return {
     berry: {
       period,
-      strength: toSum(stats.map(({berry}) => berry.strength[state])),
-      qty: toSum(stats.map(({berry}) => berry.qty[state])),
+      strength: toSum(stats.map(({rate}) => rate.berry.strength[state])),
+      qty: toSum(stats.map(({rate}) => rate.berry.qty[state])),
     },
     ingredient: {
       period,
       strength: toSum(
         stats
-          .flatMap(({ingredient}) => (
-            Object.values(ingredient).map(({strength}) => strength[state])
+          .flatMap(({rate}) => (
+            Object.values(rate.ingredient).map(({strength}) => strength[state])
           ))
           .filter(isNotNullish),
       ),
       qty: toSum(
         stats
-          .flatMap(({ingredient}) => (
-            Object.values(ingredient).map(({qty}) => qty[state])
+          .flatMap(({rate}) => (
+            Object.values(rate.ingredient).map(({qty}) => qty[state])
           ))
           .filter(isNotNullish),
       ),
     },
     skill: {
       period,
-      strength: toSum(stats.map(({skill, skillIndirect}) => (
-        skill.strength[state] + getTotalStrengthProductionFromIndirectSkill({skillIndirect})
+      strength: toSum(stats.map(({rate}) => (
+        rate.skill.strength[state] + getTotalStrengthProductionFromIndirectSkill({skillIndirect: rate.skillIndirect})
       ))),
-      qty: toSum(stats.map(({skill}) => skill.qty[state])),
+      qty: toSum(stats.map(({rate}) => rate.skill.qty[state])),
     },
   };
 };

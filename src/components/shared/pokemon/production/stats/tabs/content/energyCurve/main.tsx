@@ -9,7 +9,9 @@ import {StaminaEfficiencyUI} from '@/components/shared/stamina/efficiency/main';
 import {getStaminaEventLogsFlattened} from '@/utils/game/stamina/flatten';
 
 
-export const PokemonDetailedProductionEnergyCurve = ({calculatedUserConfig}: PokemonDetailedProductionProps) => {
+export const PokemonDetailedProductionEnergyCurve = ({metadata}: PokemonDetailedProductionProps) => {
+  const {calculatedUserConfig} = metadata;
+
   return (
     <PokemonDetailedProductionTabLayout>
       <StaminaEfficiencyUI efficiency={calculatedUserConfig.bonus.stamina}/>

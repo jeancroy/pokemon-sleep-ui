@@ -40,7 +40,7 @@ export const TeamMemberFilledSlot = <
   return (
     <TeamMember
       teamMetadata={currentTeam}
-      rate={stats}
+      production={stats}
       stateOfRate={stateOfRateToShow}
       setMember={(update) => setCurrentMemberPartial({
         key: memberKey,
@@ -48,7 +48,7 @@ export const TeamMemberFilledSlot = <
       })}
       onDuplicateClick={() => duplicateMemberToCurrentComp(memberKey)}
       classOfButton="sm:flex-col 3xl:flex-row"
-      getRateByLevel={(level) => getRateByLevel(level, memberKey)}
+      getProductionByLevel={(level) => getRateByLevel(level, memberKey)}
       {...props}
     />
   );

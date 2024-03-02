@@ -1,15 +1,16 @@
-import {IngredientMultiplier} from '@/types/game/producing/multiplier';
 import {Production} from '@/types/game/producing/rate/base';
-import {PokemonProduction} from '@/types/game/producing/rate/main';
-import {CalculatedUserConfig} from '@/types/userData/config/user/main';
+import {
+  PokemonProduction,
+  PokemonProductionMetadata,
+} from '@/types/game/producing/rate/main';
 import {Nullable} from '@/utils/type';
 
 
-export type TeamMemberProduction = PokemonProduction & {
+export type TeamMemberProduction = {
   level: Nullable<number>,
   total: Production,
-  ingredientMultiplier: IngredientMultiplier,
-  calculatedUserConfig: CalculatedUserConfig,
+  rate: PokemonProduction,
+  metadata: PokemonProductionMetadata,
 };
 
 export const teamMemberProductionSortingBasis = [

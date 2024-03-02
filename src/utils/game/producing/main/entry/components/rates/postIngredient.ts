@@ -18,8 +18,10 @@ export const getPokemonProductionPostIngredientMultiplier = <TPayload>({
 >[] => {
   return rates.map(({rate, calculatedUserConfig, payload}) => ({
     payload,
-    ingredientMultiplier,
-    calculatedUserConfig,
+    metadata: {
+      ingredientMultiplier,
+      calculatedUserConfig,
+    },
     atStage: {
       original: rate,
       final: applyIngredientMultiplier({rate, ingredientMultiplier}),

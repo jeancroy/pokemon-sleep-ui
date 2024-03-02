@@ -41,14 +41,18 @@ export type PokemonProductionAtStage<TProduction extends PokemonProductionInitia
   [stage in PokemonProductionStage]: TProduction
 };
 
+export type PokemonProductionMetadata = {
+  ingredientMultiplier: IngredientMultiplier,
+  calculatedUserConfig: CalculatedUserConfig,
+};
+
 export type PokemonProductionWithPayload<
   TPayload,
   TProduction extends PokemonProductionInitial = PokemonProduction
 > = {
   payload: TPayload,
-  ingredientMultiplier: IngredientMultiplier,
-  calculatedUserConfig: CalculatedUserConfig,
   atStage: PokemonProductionAtStage<TProduction>,
+  metadata: PokemonProductionMetadata,
 };
 
 export type GroupedProduction<TId extends Indexable> = {[id in TId]?: Production};

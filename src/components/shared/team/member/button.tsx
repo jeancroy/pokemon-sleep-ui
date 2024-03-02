@@ -32,7 +32,7 @@ export const TeamMemberCollapsibleButton = ({
     pokemon,
     member,
     teamMetadata,
-    rate,
+    production,
     stateOfRate,
   } = props;
   const {pinnedStats} = teamMetadata;
@@ -94,7 +94,7 @@ export const TeamMemberCollapsibleButton = ({
         </AnimatedCollapseQuick>
       ))}
       <PokemonProductionSplitFromPokemonRate
-        rate={rate}
+        rate={production.rate}
         state={stateOfRate}
         specialty={specialty}
         showSummary={isExpanded}

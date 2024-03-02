@@ -53,7 +53,7 @@ export const getTeamCompCalcResult = ({
   return {
     bySlot: Object.fromEntries(rates.map(({
       payload,
-      calculatedUserConfig,
+      metadata,
       atStage,
     }): [TeamAnalysisSlotName, TeamMemberProduction] => {
       const {slotName} = payload;
@@ -62,9 +62,9 @@ export const getTeamCompCalcResult = ({
       return [
         slotName,
         {
-          ...atStage.final,
-          calculatedUserConfig,
           total,
+          rate: atStage.final,
+          metadata,
           level: members[slotName]?.level ?? null,
         },
       ];

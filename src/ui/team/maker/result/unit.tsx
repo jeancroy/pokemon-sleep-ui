@@ -67,8 +67,7 @@ export const TeamMakerResultUnit = ({
       <PopupCommon show={show} setShow={setShow}>
         <PokemonDetailedProduction
           rate={rate.atStage.final}
-          ingredientMultiplier={rate.ingredientMultiplier}
-          calculatedUserConfig={rate.calculatedUserConfig}
+          metadata={rate.metadata}
           specialty={pokemonInfo.specialty}
         />
       </PopupCommon>

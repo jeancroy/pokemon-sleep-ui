@@ -39,9 +39,9 @@ export const TeamMemberPopupContent = ({
     memberIdForShare,
     pokemonMaxLevel,
     pokemon,
-    rate,
+    production,
     stateOfRate,
-    getRateByLevel,
+    getProductionByLevel,
   } = props;
   const {linkedPokeInBoxUuid} = member;
   const {control, hide} = state;
@@ -59,9 +59,8 @@ export const TeamMemberPopupContent = ({
   if (type === 'detailedStats') {
     return (
       <PokemonDetailedProduction
-        rate={rate}
-        ingredientMultiplier={rate.ingredientMultiplier}
-        calculatedUserConfig={rate.calculatedUserConfig}
+        rate={production.rate}
+        metadata={production.metadata}
         specialty={pokemon.specialty}
       />
     );
@@ -95,11 +94,12 @@ export const TeamMemberPopupContent = ({
             interval: 1,
             start: 1,
           })].map((level): StrengthGrowthDataEntry<TeamMemberStrengthGrowthDataType> | null => {
-            const rate = getRateByLevel(level);
-
-            if (!rate) {
+            const production = getProductionByLevel(level);
+            if (!production) {
               return null;
             }
+
+            const {rate} = production;
 
             return {
               level,
@@ -123,7 +123,7 @@ export const TeamMemberPopupContent = ({
           }}
           formatTicks={formatFloat}
           leftMargin={15}
-          currentLevel={rate.level}
+          currentLevel={production.level}
         />
       </Flex>
     );
@@ -135,7 +135,7 @@ export const TeamMemberPopupContent = ({
         <MealCoverageCombo
           mealMap={mealMap}
           ingredientProduction={Object.fromEntries(
-            Object.entries(rate.ingredient).map(([id, rate]) => [id, rate?.qty[stateOfRate] ?? 0]),
+            Object.entries(production.rate.ingredient).map(([id, rate]) => [id, rate?.qty[stateOfRate] ?? 0]),
           )}
           actualPotCapacity={calculatedCookingConfig.actualPotCapacity}
           period={teamMetadata.analysisPeriod}

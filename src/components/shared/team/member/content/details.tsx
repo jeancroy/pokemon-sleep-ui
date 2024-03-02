@@ -16,11 +16,10 @@ import {formatFloat} from '@/utils/number/format/regular';
 export const TeamMemberDetails = (props: TeamMemberProps) => {
   const {
     pokemon,
-    rate,
+    production,
   } = props;
   const {skill} = pokemon;
-  const {intermediate} = rate;
-  const {skillTrigger} = intermediate;
+  const {skillTrigger} = production.rate.intermediate;
 
   const t = useTranslations('Game');
 

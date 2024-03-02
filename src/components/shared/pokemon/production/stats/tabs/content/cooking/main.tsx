@@ -12,8 +12,8 @@ import {useCommonServerData} from '@/contexts/data/common/hook';
 import {formatFloat3} from '@/utils/number/format/regular';
 
 
-export const PokemonDetailedProductionCooking = ({ingredientMultiplier}: PokemonDetailedProductionProps) => {
-  const {override, defaultValue} = ingredientMultiplier;
+export const PokemonDetailedProductionCooking = ({metadata}: PokemonDetailedProductionProps) => {
+  const {override, defaultValue} = metadata.ingredientMultiplier;
 
   const {ingredientIds} = useCommonServerData();
   const t = useTranslations('UI.Component.PokemonDetailedProduction.Cooking');
