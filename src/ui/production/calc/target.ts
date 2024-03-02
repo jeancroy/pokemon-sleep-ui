@@ -50,6 +50,7 @@ export const getProductionComparisonTargetStats = ({
       pokemon,
       subSkillMap,
     }),
+    alwaysFullPack: target.alwaysFullPack,
   });
   const rate = atStage.final;
 
