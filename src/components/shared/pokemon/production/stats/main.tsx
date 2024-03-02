@@ -7,6 +7,9 @@ import {
   PokemonDetailedProductionAtEnergy,
 } from '@/components/shared/pokemon/production/stats/tabs/content/atEnergy/main';
 import {
+  PokemonDetailedProductionCooking,
+} from '@/components/shared/pokemon/production/stats/tabs/content/cooking/main';
+import {
   PokemonDetailedProductionDailyBreakdown,
 } from '@/components/shared/pokemon/production/stats/tabs/content/dailyBreakdown/main';
 import {
@@ -32,6 +35,7 @@ export const PokemonDetailedProduction = (props: PokemonDetailedProductionProps)
           dailyBreakdown: <PokemonDetailedProductionDailyBreakdown {...props}/>,
           energyCurve: <PokemonDetailedProductionEnergyCurve {...props}/>,
           atEnergy: <PokemonDetailedProductionAtEnergy {...props}/>,
+          cooking: <PokemonDetailedProductionCooking {...props}/>,
         }}
       />
     </Flex>

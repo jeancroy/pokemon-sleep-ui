@@ -30,6 +30,7 @@ export const getProductionComparisonTargetStats = ({
 
   const {
     calculatedUserConfig,
+    ingredientMultiplier,
     atStage,
   } = getPokemonProductionSingle({
     // `opts` has to be the first because `pokemon`, `berryData`, `ingredients` have to be overridden
@@ -56,5 +57,11 @@ export const getProductionComparisonTargetStats = ({
 
   const total: Production = getTotalPokemonProduction({rate, state: 'equivalent'});
 
-  return {...rate, total, calculatedUserConfig, level};
+  return {
+    ...rate,
+    level,
+    total,
+    calculatedUserConfig,
+    ingredientMultiplier,
+  };
 };

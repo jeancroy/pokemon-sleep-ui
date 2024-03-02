@@ -63,7 +63,11 @@
       "Tab": {
         "DailyBreakdown": "各狀態產量",
         "EnergyCurve": "活力曲線",
-        "AtEnergy": "活力等效產量"
+        "AtEnergy": "活力等效產量",
+        "Cooking": "料理製作相關"
+      },
+      "Cooking": {
+        "IngredientMultiplier": "食材倍率"
       }
     },
     "Team": {

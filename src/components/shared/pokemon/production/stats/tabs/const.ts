@@ -8,4 +8,5 @@ export const pokemonDetailedProductionTabsI18nId: {
   dailyBreakdown: 'DailyBreakdown',
   energyCurve: 'EnergyCurve',
   atEnergy: 'AtEnergy',
+  cooking: 'Cooking',
 };

@@ -60,6 +60,7 @@ export const TeamMemberPopupContent = ({
     return (
       <PokemonDetailedProduction
         rate={rate}
+        ingredientMultiplier={rate.ingredientMultiplier}
         calculatedUserConfig={rate.calculatedUserConfig}
         specialty={pokemon.specialty}
       />

@@ -7,6 +7,9 @@ import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {groupPokemonProduction} from '@/utils/game/producing/group';
 import {getPokemonProductionHelpingBonusEffect} from '@/utils/game/producing/main/entry/components/helpingBonus';
+import {
+  getPokemonProductionIngredientMultiplier,
+} from '@/utils/game/producing/main/entry/components/ingredientMultiplier';
 import {getPokemonProductionFinal} from '@/utils/game/producing/main/entry/components/rates/final';
 import {getPokemonProductionInitialRates} from '@/utils/game/producing/main/entry/components/rates/initial/main';
 import {
@@ -64,15 +67,21 @@ export const getPokemonProductionMulti = <TPayload>({
     calcBehavior,
   });
 
-  const initialRatesPostIngredient = getPokemonProductionPostIngredientMultiplier({
-    groupingState,
-    rates: initialRates,
-    ingredientMultiplierOpts: {
+  const ingredientMultiplier = getPokemonProductionIngredientMultiplier({
+    period,
+    ingredientMap,
+    recipeLevelData,
+    calculatedCookingConfig,
+    groupedOriginalRates: groupPokemonProduction({
       period,
-      ingredientMap,
-      recipeLevelData,
-      calculatedCookingConfig,
-    },
+      rates: initialRates.map(({rate}) => rate),
+      state: groupingState,
+    }),
+  });
+
+  const initialRatesPostIngredient = getPokemonProductionPostIngredientMultiplier({
+    rates: initialRates,
+    ingredientMultiplier,
   });
 
   // Final calculation factors in any skill triggered by other Pokémon

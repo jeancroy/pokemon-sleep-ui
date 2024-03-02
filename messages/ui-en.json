@@ -63,7 +63,11 @@
       "Tab": {
         "DailyBreakdown": "Production Breakdown",
         "EnergyCurve": "Energy Curve",
-        "AtEnergy": "Production at Energy Level"
+        "AtEnergy": "Production at Energy Level",
+        "Cooking": "Cooking"
+      },
+      "Cooking": {
+        "IngredientMultiplier": "Ingredient Multiplier"
       }
     },
     "Team": {

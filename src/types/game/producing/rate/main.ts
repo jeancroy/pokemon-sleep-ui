@@ -2,6 +2,7 @@ import {BerryId} from '@/types/game/berry';
 import {IngredientId} from '@/types/game/ingredient';
 import {MainSkillId} from '@/types/game/pokemon/mainSkill';
 import {FullPackStats} from '@/types/game/producing/inventory';
+import {IngredientMultiplier} from '@/types/game/producing/multiplier';
 import {Production, ProductionByCalculatedStates, ProductionOfDrop} from '@/types/game/producing/rate/base';
 import {PokemonProductionIntermediateParams} from '@/types/game/producing/rate/params';
 import {PokemonIndirectSkillProduction} from '@/types/game/producing/rate/skill';
@@ -45,6 +46,7 @@ export type PokemonProductionWithPayload<
   TProduction extends PokemonProductionInitial = PokemonProduction
 > = {
   payload: TPayload,
+  ingredientMultiplier: IngredientMultiplier,
   calculatedUserConfig: CalculatedUserConfig,
   atStage: PokemonProductionAtStage<TProduction>,
 };

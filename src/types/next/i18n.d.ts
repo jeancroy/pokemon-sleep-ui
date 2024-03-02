@@ -81,6 +81,10 @@ declare global {
             DailyBreakdown: string,
             EnergyCurve: string,
             AtEnergy: string,
+            Cooking: string,
+          },
+          Cooking: {
+            IngredientMultiplier: string,
           },
         },
         TimePeriodSchedule: {
