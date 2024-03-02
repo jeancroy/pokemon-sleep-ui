@@ -14,7 +14,11 @@ import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {formatPokemonKeyLevel} from '@/utils/game/rating/format';
 
 
-export const PokemonKeyLevelInput = (props: FilterInputOnClickProps<PokemonKeyLevel | null>) => {
+type Props = FilterInputOnClickProps<PokemonKeyLevel | null> & {
+  disallowNull?: boolean,
+};
+
+export const PokemonKeyLevelInput = ({disallowNull, ...props}: Props) => {
   const sortedPokemonLevels = useSortedPokemonKeyLevels();
 
   return (
@@ -25,7 +29,7 @@ export const PokemonKeyLevelInput = (props: FilterInputOnClickProps<PokemonKeyLe
           <LevelIcon/>
         </Flex>
       }
-      ids={[null, ...sortedPokemonLevels]}
+      ids={[...(disallowNull ? [] : [null]), ...sortedPokemonLevels]}
       idToButton={(level) => (
         level === null ? <XMarkIcon className="size-7"/> : formatPokemonKeyLevel(level)
       )}

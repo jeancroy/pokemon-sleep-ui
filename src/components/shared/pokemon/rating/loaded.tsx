@@ -41,12 +41,14 @@ const RatingResultLoadedInternal = ({
     migrateParams: {},
   }));
   const {
+    activeNumericKeyLevels,
     resultMap,
     updateResultOfLevel,
   } = useRatingResult({request});
 
   const {basis} = config;
   const ratingSummaryCommonProps: RatingSummaryCommonProps = {
+    activeNumericKeyLevels,
     resultMap,
     config,
   };

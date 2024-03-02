@@ -4,14 +4,17 @@ import React from 'react';
 import {useSession} from 'next-auth/react';
 import {useTranslations} from 'next-intl';
 
+import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {CollapsibleFull} from '@/components/layout/collapsible/full';
 import {useCollapsibleControl} from '@/components/layout/collapsible/hook';
 import {Flex} from '@/components/layout/flex/common';
+import {PokemonKeyLevelInput} from '@/components/shared/pokemon/level/input';
 import {PokemonLab} from '@/components/shared/pokemon/predefined/lab/main';
 import {RatingBasisSelection} from '@/components/shared/pokemon/rating/basis/selection/main';
 import {RatingFriendshipLevel} from '@/components/shared/pokemon/rating/friendship/main';
 import {RatingResult} from '@/components/shared/pokemon/rating/main';
 import {SnorlaxFavoriteInput} from '@/components/shared/snorlax/favorite';
+import {defaultMaxRatingLevel} from '@/const/game/rating/common';
 import {defaultSnorlaxFavorite} from '@/const/game/snorlax';
 import {useCommonServerData} from '@/contexts/data/common/hook';
 import {useConfigBundle} from '@/hooks/userData/config/bundle/main';
@@ -82,6 +85,7 @@ export const RatingClient = (props: RatingServerDataProps) => {
         snorlaxFavorite: defaultSnorlaxFavorite,
         basis: getDefaultRatingBasis(onDeskState.pokemon.specialty),
         friendshipLevel: 0,
+        maxRatingLevel: defaultMaxRatingLevel,
       })}
       renderAdditional={(onDesk, setOnDesk) => (
         <Flex className="gap-1.5">
@@ -91,6 +95,15 @@ export const RatingClient = (props: RatingServerDataProps) => {
               ...original,
               basis,
             }))}
+          />
+          <PokemonKeyLevelInput
+            disallowNull
+            {...getSingleSelectOnClickProps({
+              filter: onDesk,
+              setFilter: setOnDesk,
+              filterKey: 'maxRatingLevel',
+              allowNull: false,
+            })}
           />
           <CollapsibleFull control={advancedOptionsCollapsible} button={t('AdvancedOptions')}>
             <Flex className="gap-1.5">

@@ -1,3 +1,4 @@
+import {defaultMaxRatingLevel} from '@/const/game/rating/common';
 import {PokemonInfo, PokemonSpecialtyId} from '@/types/game/pokemon';
 import {RatingSetupData} from '@/types/game/pokemon/rating/request';
 import {SnorlaxFavorite} from '@/types/game/snorlax';
@@ -19,4 +20,5 @@ export const toRatingSetup = ({member, specialtyId, ...opts}: ToRatingRequestOpt
   ...opts,
   basis: getDefaultRatingBasis(specialtyId),
   friendshipLevel: 0,
+  maxRatingLevel: defaultMaxRatingLevel,
 });

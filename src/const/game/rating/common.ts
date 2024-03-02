@@ -1,5 +1,6 @@
 import {specialtyIdMap} from '@/const/game/pokemon';
 import {PokemonSpecialtyId} from '@/types/game/pokemon';
+import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingBasis, RatingConfig, RatingWeight} from '@/types/game/pokemon/rating/config';
 import {RatingResultOfCategoryAtLevel} from '@/types/game/pokemon/rating/result';
 import {SpecialtyType} from '@/types/game/pokemon/specialty';
@@ -46,3 +47,5 @@ export const defaultRatingBasisOfSpecialty: {[specialty in SpecialtyType]: Ratin
   ingredient: 'ingredientProduction',
   skill: 'mainSkillTriggerCount',
 };
+
+export const defaultMaxRatingLevel: PokemonKeyLevel = 60;

@@ -3,6 +3,7 @@ import React from 'react';
 import {useTranslations} from 'next-intl';
 
 import {GenericIconLarger} from '@/components/shared/icon/common/larger';
+import {defaultMaxRatingLevel} from '@/const/game/rating/common';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {RatingSetupData} from '@/types/game/pokemon/rating/request';
 import {PokeInBoxViewUnitProps} from '@/ui/team/pokebox/content/pokeInBox/type';
@@ -30,6 +31,7 @@ export const PokeInBoxOpenRatingButton = ({
       snorlaxFavorite,
       basis: getDefaultRatingBasis(pokemon.specialty),
       friendshipLevel: 0,
+      maxRatingLevel: defaultMaxRatingLevel,
       bundle,
     })}>
       <GenericIconLarger src="/images/generic/search.png" alt={t('Rating.Title')}/>

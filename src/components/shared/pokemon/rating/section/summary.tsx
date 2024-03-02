@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
+import {PokemonKeyLevelInput} from '@/components/shared/pokemon/level/input';
 import {RatingBasisSelection} from '@/components/shared/pokemon/rating/basis/selection/main';
 import {RatingBasisTitle} from '@/components/shared/pokemon/rating/basis/title';
 import {RatingResultProps} from '@/components/shared/pokemon/rating/type';
@@ -10,6 +11,7 @@ import {
   RatingWeightedStatsUiProps,
 } from '@/components/shared/pokemon/rating/units/weightedStats';
 import {useCommonServerData} from '@/contexts/data/common/hook';
+import {cloneMerge} from '@/utils/object/cloneMerge';
 
 
 type Props = RatingResultProps & RatingWeightedStatsUiProps;
@@ -26,16 +28,22 @@ export const RatingResultSummary = (props: Props) => {
   if (setRequest) {
     return (
       <Flex className="gap-1.5">
+        <PokemonKeyLevelInput
+          disallowNull
+          isActive={(current) => current === request.setup.maxRatingLevel}
+          onClick={(maxRatingLevel) => {
+            if (maxRatingLevel === null) {
+              return;
+            }
+
+            setRequest(cloneMerge(request, {setup: {maxRatingLevel}, timestamp: Date.now()}));
+          }}
+        />
         <RatingBasisSelection
           current={request.setup.basis}
-          onSelect={(basis) => setRequest({
-            ...request,
-            setup: {
-              ...request.setup,
-              basis,
-            },
-            timestamp: Date.now(),
-          })}
+          onSelect={(basis) => (
+            setRequest(cloneMerge(request, {setup: {basis}, timestamp: Date.now()}))
+          )}
         />
         <RatingWeightedStatsUI {...props}/>
       </Flex>

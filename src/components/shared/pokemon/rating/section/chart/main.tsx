@@ -14,8 +14,6 @@ import {RatingResultChartTooltip} from '@/components/shared/pokemon/rating/secti
 import {RatingResultChartDataPoint} from '@/components/shared/pokemon/rating/section/chart/type';
 import {RatingSummaryCommonProps} from '@/components/shared/pokemon/rating/type';
 import {useLayout} from '@/hooks/layout/main';
-import {usePokemonKeyLevelConverter} from '@/hooks/pokemon/keyLevel/convert';
-import {useNumericPokemonKeyLevels} from '@/hooks/pokemon/keyLevel/numeric';
 import {getRatingWeightedStatsFromResult} from '@/utils/game/rating/result/weighted';
 import {generateNumberTicks} from '@/utils/number/generator';
 import {isNotNullish} from '@/utils/type';
@@ -24,16 +22,15 @@ import {isNotNullish} from '@/utils/type';
 export const RatingResultChart = ({
   resultMap,
   config,
+  activeNumericKeyLevels,
 }: RatingSummaryCommonProps) => {
   const {basis, category} = config;
 
   const {isLandscape} = useLayout();
 
-  const convertPokemonKeyLevel = usePokemonKeyLevelConverter();
-  const numericPokemonKeyLevels = useNumericPokemonKeyLevels();
+  const maxKeyLevel = Math.max(...activeNumericKeyLevels);
 
-  const maxLevel = Math.max(...numericPokemonKeyLevels);
-  const data = numericPokemonKeyLevels.map((level): RatingResultChartDataPoint | null => {
+  const data = activeNumericKeyLevels.map((level): RatingResultChartDataPoint | null => {
     const resultOfLevel = resultMap[level];
 
     if (!resultOfLevel) {
@@ -41,7 +38,7 @@ export const RatingResultChart = ({
     }
 
     return {
-      level: convertPokemonKeyLevel(level),
+      level,
       value: getRatingWeightedStatsFromResult({
         resultOfCategory: resultOfLevel.result[category],
         basis,
@@ -58,8 +55,8 @@ export const RatingResultChart = ({
             type="number"
             dataKey={({level}: RatingResultChartDataPoint) => level}
             ticks={[...generateNumberTicks({
-              max: maxLevel,
-              interval: isLandscape ? 5 : 10,
+              max: maxKeyLevel,
+              interval: isLandscape ? 5 : (maxKeyLevel > 60 ? 15 : 10),
               start: 5,
             })]}
             domain={[1, 'dataMax']}

@@ -1,6 +1,7 @@
 import {UsePokemonFilterCommonData} from '@/components/shared/pokemon/filter/type';
 import {PokemonOnDeskState} from '@/components/shared/pokemon/predefined/lab/onDesk/type';
 import {PokemonInfo} from '@/types/game/pokemon';
+import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {PokemonProducingParams} from '@/types/game/pokemon/producing';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {FriendshipLevelOfGoldLock} from '@/types/game/pokemon/subSkill';
@@ -14,6 +15,7 @@ export type RatingOnDeskState = PokemonOnDeskState & {
   snorlaxFavorite: SnorlaxFavorite,
   basis: RatingBasis,
   friendshipLevel: FriendshipLevelOfGoldLock,
+  maxRatingLevel: PokemonKeyLevel,
 };
 
 export type RatingSetupData = Omit<RatingOnDeskState, 'origin'> & {
@@ -40,4 +42,4 @@ export type RatingOpts = ConfigRequiredData & Pick<
   useNestedWorker: boolean,
 };
 
-export type RatingWorkerOpts = RatingSetupData & Omit<RatingOpts, 'pokemon'>;
+export type RatingWorkerOpts = Omit<RatingSetupData, 'maxRatingLevel'> & Omit<RatingOpts, 'pokemon'>;

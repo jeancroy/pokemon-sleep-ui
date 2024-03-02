@@ -18,6 +18,7 @@ export type RatingResultProps = {
 export type RatingSummaryCommonProps = {
   resultMap: RatingResultMap,
   config: RatingConfig,
+  activeNumericKeyLevels: number[],
 };
 
 export type RatingPopupControlState = {
