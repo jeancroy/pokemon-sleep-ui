@@ -26,7 +26,7 @@ export const PokemonPreviewLevelInput = (props: FilterInputOnClickProps<PokemonK
       }
       ids={[null, ...sortedPokemonLevels]}
       idToButton={(level) => (
-        level === null ? <XMarkIcon className="size-7"/> : level
+        level === null ? <XMarkIcon className="size-7"/> : level.toString().toUpperCase()
       )}
       className={clsx('text-sm', iconFilterButtonStyle)}
       {...props}
