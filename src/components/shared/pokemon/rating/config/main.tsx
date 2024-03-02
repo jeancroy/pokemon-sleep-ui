@@ -13,6 +13,7 @@ import {defaultRatingWeight} from '@/const/game/rating';
 import {useSortedPokemonKeyLevels} from '@/hooks/pokemon/keyLevel/sorted';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {RatingConfig} from '@/types/game/pokemon/rating/config';
+import {formatPokemonKeyLevel} from '@/utils/game/rating/format';
 
 
 type Props = {
@@ -60,7 +61,7 @@ export const RatingConfigPopup = ({initial, show, setShow, onClose}: Props) => {
                   text={
                     <Flex direction="row" center noFullWidth className="w-20 gap-1">
                       <LevelIcon dimension="size-6"/>
-                      <div className="text-lg">{level}</div>
+                      <div className="text-lg">{formatPokemonKeyLevel(level)}</div>
                     </Flex>
                   }
                   value={currentWeight}

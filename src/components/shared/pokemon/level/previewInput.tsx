@@ -11,6 +11,7 @@ import {LevelIcon} from '@/components/shared/icon/lv';
 import {useSortedPokemonKeyLevels} from '@/hooks/pokemon/keyLevel/sorted';
 import {iconFilterButtonStyle} from '@/styles/input';
 import {PokemonKeyLevel} from '@/types/game/pokemon/level';
+import {formatPokemonKeyLevel} from '@/utils/game/rating/format';
 
 
 export const PokemonPreviewLevelInput = (props: FilterInputOnClickProps<PokemonKeyLevel | null>) => {
@@ -26,7 +27,7 @@ export const PokemonPreviewLevelInput = (props: FilterInputOnClickProps<PokemonK
       }
       ids={[null, ...sortedPokemonLevels]}
       idToButton={(level) => (
-        level === null ? <XMarkIcon className="size-7"/> : level.toString().toUpperCase()
+        level === null ? <XMarkIcon className="size-7"/> : formatPokemonKeyLevel(level)
       )}
       className={clsx('text-sm', iconFilterButtonStyle)}
       {...props}
