@@ -9,7 +9,7 @@ import {FilterTextInput} from '@/components/input/filter/preset/text';
 import {getSingleSelectOnClickProps} from '@/components/input/filter/utils/props';
 import {AnimatedCollapse} from '@/components/layout/collapsible/animated';
 import {Flex} from '@/components/layout/flex/common';
-import {PokemonPreviewLevelInput} from '@/components/shared/pokemon/level/previewInput';
+import {PokemonKeyLevelInput} from '@/components/shared/pokemon/level/input';
 import {textFilterButtonStyle} from '@/styles/input';
 import {teamMakerSourceI18nId} from '@/ui/team/maker/const';
 import {TeamMakerBasisOption} from '@/ui/team/maker/input/basis';
@@ -73,7 +73,7 @@ export const TeamMakerInputGeneral = ({
         })}
       />
       <AnimatedCollapse show={source === 'pokebox'}>
-        <PokemonPreviewLevelInput
+        <PokemonKeyLevelInput
           {...getSingleSelectOnClickProps({
             filter: input,
             setFilter: setInput,

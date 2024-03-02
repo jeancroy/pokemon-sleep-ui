@@ -14,7 +14,7 @@ import {PokemonKeyLevel} from '@/types/game/pokemon/level';
 import {formatPokemonKeyLevel} from '@/utils/game/rating/format';
 
 
-export const PokemonPreviewLevelInput = (props: FilterInputOnClickProps<PokemonKeyLevel | null>) => {
+export const PokemonKeyLevelInput = (props: FilterInputOnClickProps<PokemonKeyLevel | null>) => {
   const sortedPokemonLevels = useSortedPokemonKeyLevels();
 
   return (
