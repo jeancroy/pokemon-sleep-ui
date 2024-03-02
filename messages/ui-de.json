@@ -64,10 +64,10 @@
         "DailyBreakdown": "Produktion Aufgliederung",
         "EnergyCurve": "Energie-Kurve",
         "AtEnergy": "Produktion bei Energie-Level",
-        "Cooking": "Cooking"
+        "Cooking": "Kochen"
       },
       "Cooking": {
-        "IngredientMultiplier": "Ingredient Multiplier"
+        "IngredientMultiplier": "Zutaten-Multiplikator"
       }
     },
     "Team": {
