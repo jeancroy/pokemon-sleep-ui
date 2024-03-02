@@ -7,6 +7,7 @@
 import deTranslations from '../../messages/ui-de.json';
 import enTranslations from '../../messages/ui-en.json';
 import esTranslations from '../../messages/ui-es.json';
+import frTranslations from '../../messages/ui-fr.json';
 import jaTranslations from '../../messages/ui-ja.json';
 import krTranslations from '../../messages/ui-kr.json';
 import zhTranslations from '../../messages/ui-zh.json';
@@ -16,6 +17,7 @@ import zhTranslations from '../../messages/ui-zh.json';
 deTranslations satisfies IntlMessages['UI'];
 enTranslations satisfies IntlMessages['UI'];
 esTranslations satisfies IntlMessages['UI'];
+frTranslations satisfies IntlMessages['UI'];
 jaTranslations satisfies IntlMessages['UI'];
 krTranslations satisfies IntlMessages['UI'];
 zhTranslations satisfies IntlMessages['UI'];

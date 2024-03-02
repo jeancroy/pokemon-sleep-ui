@@ -5,6 +5,7 @@ export const locales = [
   'kr',
   'de',
   'es',
+  'fr',
 ] as const;
 
 export type Locale = typeof locales[number];

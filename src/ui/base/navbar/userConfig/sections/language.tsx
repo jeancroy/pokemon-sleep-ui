@@ -16,7 +16,9 @@ export const UserConfigLanguage = () => {
 
   return (
     <UserConfigSection titleIcon={<LanguageIcon/>} title={t('Section.Language')}>
-      <Grid className="auto-cols-fr grid-cols-3 gap-2 lg:grid-flow-col lg:grid-cols-none lg:grid-rows-1">
+      <Grid className={clsx(
+        'auto-cols-fr grid-cols-3 gap-2 lg:grid-flow-col lg:grid-cols-none lg:grid-rows-2 2xl:grid-rows-1',
+      )}>
         {Object.entries(localeName).map(([locale, name]) => (
           <button
             key={locale}
