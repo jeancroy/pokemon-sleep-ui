@@ -2,7 +2,7 @@ import {GetMealCoverageComboDataOpts} from '@/components/shared/meal/coverage/co
 import {mealCoverageComboSortBasisGetter} from '@/components/shared/meal/coverage/combo/const';
 import {MealCoverageComboData} from '@/components/shared/meal/coverage/combo/type';
 import {toSum} from '@/utils/array';
-import {getMealCoverage} from '@/utils/game/cooking';
+import {getMealCoverage} from '@/utils/game/cooking/meal/coverage';
 import {generateTargetMeals} from '@/utils/game/meal/generate';
 import {isNotNullish} from '@/utils/type';
 

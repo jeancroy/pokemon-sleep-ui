@@ -7,7 +7,7 @@ import {TeamMakerCalcDataProps} from '@/ui/team/maker/type';
 import {TeamMakerCalcResultsOpts} from '@/ui/team/maker/type/calc';
 import {TeamMakerResultComp} from '@/ui/team/maker/type/result';
 import {toSum} from '@/utils/array';
-import {getMealCoverage} from '@/utils/game/cooking';
+import {getMealCoverage} from '@/utils/game/cooking/meal/coverage';
 import {getMealIngredientInfoFromTargetMeals} from '@/utils/game/meal/ingredient';
 import {toIngredientProductionCounterFromGroupedRate} from '@/utils/game/producing/ingredient/utils';
 import {getPokemonProductionMulti} from '@/utils/game/producing/main/entry/multi';

@@ -1,7 +1,7 @@
 import {Meal} from '@/types/game/meal/main';
 import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {TeamMakerBasisValue} from '@/ui/team/maker/type/common';
-import {getMealCoverage} from '@/utils/game/cooking';
+import {getMealCoverage} from '@/utils/game/cooking/meal/coverage';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
 import {getTotalPokemonProduction} from '@/utils/game/producing/reducer/total/common';
 

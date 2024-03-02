@@ -2,7 +2,7 @@ import {Meal} from '@/types/game/meal/main';
 import {RatingBasis} from '@/types/game/pokemon/rating/config';
 import {PokemonProduction} from '@/types/game/producing/rate/main';
 import {toSum} from '@/utils/array';
-import {getMealCoverage} from '@/utils/game/cooking';
+import {getMealCoverage} from '@/utils/game/cooking/meal/coverage';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
 import {getTotalStrengthOfPokemonProduction} from '@/utils/game/producing/reducer/total/strength';
 

@@ -6,7 +6,7 @@ import {AdsUnit} from '@/components/ads/main';
 import {InputRowWithTitle} from '@/components/input/filter/rowWithTitle';
 import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {MealPreparerIngredientStats} from '@/ui/cooking/prepare/type';
-import {toProducingItemFromIngredientCounter} from '@/utils/game/cooking';
+import {toProducingItemFromIngredientCounter} from '@/utils/game/cooking/meal/ingredients';
 
 
 type Props = {

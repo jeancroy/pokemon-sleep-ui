@@ -5,7 +5,7 @@ import {
   getPokemonRateSorter,
 } from '@/components/shared/pokemon/sorter/calc/sorter';
 import {PokemonSorterGetter, PokemonSortType} from '@/components/shared/pokemon/sorter/type';
-import {getMealCoverage} from '@/utils/game/cooking';
+import {getMealCoverage} from '@/utils/game/cooking/meal/coverage';
 import {getMainSkillLevel} from '@/utils/game/mainSkill/level';
 import {getFrequencyOfStateFromPokemonRate} from '@/utils/game/producing/frequency';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';

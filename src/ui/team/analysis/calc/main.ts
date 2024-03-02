@@ -5,7 +5,7 @@ import {getTeamCompCalcResult} from '@/ui/team/analysis/calc/comp';
 import {getTeamProductionTotal} from '@/ui/team/analysis/calc/total';
 import {GetTeamProductionOpts} from '@/ui/team/analysis/calc/type';
 import {stateOfRateToShow} from '@/ui/team/analysis/setup/const';
-import {getMealCoverage} from '@/utils/game/cooking';
+import {getMealCoverage} from '@/utils/game/cooking/meal/coverage';
 import {toIngredientProductionCounterFromGroupedRate} from '@/utils/game/producing/ingredient/utils';
 import {getTotalOfGroupedProduction} from '@/utils/game/producing/reducer/total/grouped';
 

@@ -1,7 +1,7 @@
 import {describe, expect, it} from '@jest/globals';
 
 import {testMealData} from '@/tests/data/game/meal';
-import {getMealCoverage} from '@/utils/game/cooking';
+import {getMealCoverage} from '@/utils/game/cooking/meal/coverage';
 
 
 describe('Cooking / Meal Coverage', () => {

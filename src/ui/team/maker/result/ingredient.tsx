@@ -7,7 +7,7 @@ import {InputRowWithTitle} from '@/components/input/filter/rowWithTitle';
 import {IngredientIcons} from '@/components/shared/ingredient/icons/main';
 import {Dimension} from '@/types/style';
 import {TeamMakerIngredientStats} from '@/ui/team/maker/type/common';
-import {toProducingItemFromIngredientCounter} from '@/utils/game/cooking';
+import {toProducingItemFromIngredientCounter} from '@/utils/game/cooking/meal/ingredients';
 import {formatInt} from '@/utils/number/format/regular';
 
 

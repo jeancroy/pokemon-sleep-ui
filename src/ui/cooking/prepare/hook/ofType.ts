@@ -3,7 +3,7 @@ import {MealPreparerInfoOfMealType} from '@/ui/cooking/prepare/hook/type';
 import {MealPreparerCommonProps} from '@/ui/cooking/prepare/type';
 import {getMealPreparerIngredientStats} from '@/ui/cooking/prepare/utils';
 import {toSum} from '@/utils/array';
-import {toMealIngredientFromIngredientCounter} from '@/utils/game/cooking';
+import {toMealIngredientFromIngredientCounter} from '@/utils/game/cooking/meal/ingredients';
 import {getMealIngredientInfo} from '@/utils/game/meal/ingredient';
 import {getMealFinalStrengthOfNonRecipe} from '@/utils/game/meal/strength/final/nonRecipe';
 import {getMealFinalStrength} from '@/utils/game/meal/strength/final/recipe';

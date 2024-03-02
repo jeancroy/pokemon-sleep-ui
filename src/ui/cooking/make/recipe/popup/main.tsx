@@ -18,7 +18,7 @@ import {MealMakerFilter} from '@/ui/cooking/make/type';
 import {
   toIngredientCounterFromMealIngredient,
   toMealIngredientFromIngredientCounter,
-} from '@/utils/game/cooking';
+} from '@/utils/game/cooking/meal/ingredients';
 import {subtractIngredientCount} from '@/utils/game/ingredient/counter';
 import {getMealFinalStrength} from '@/utils/game/meal/strength/final/recipe';
 import {formatInt} from '@/utils/number/format/regular';

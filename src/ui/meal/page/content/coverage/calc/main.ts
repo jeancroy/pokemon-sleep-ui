@@ -1,6 +1,6 @@
 import {ToSortedMealContentCoverageItemDataOpts} from '@/ui/meal/page/content/coverage/calc/type';
 import {MealContentCoverageItemData} from '@/ui/meal/page/content/coverage/type';
-import {getMealCoverage} from '@/utils/game/cooking';
+import {getMealCoverage} from '@/utils/game/cooking/meal/coverage';
 import {toIngredientProductionCounterFromPokemonRate} from '@/utils/game/producing/ingredient/utils';
 
 
