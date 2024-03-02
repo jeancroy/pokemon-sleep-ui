@@ -59,6 +59,13 @@
       "End": "終了",
       "Close": "受取期限"
     },
+    "PokemonDetailedProduction": {
+      "Tab": {
+        "DailyBreakdown": "Production Breakdown",
+        "EnergyCurve": "Energy Curve",
+        "AtEnergy": "Production at Energy Level"
+      }
+    },
     "Team": {
       "SetupControl": {
         "Period": "分析周期",

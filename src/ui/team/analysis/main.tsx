@@ -43,6 +43,7 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
         'UI.Component.Collapsible',
         'UI.Component.MealCoverageCombo',
         'UI.Component.PokemonFilter',
+        'UI.Component.PokemonDetailedProduction',
         'UI.Component.Team',
         'UI.InPage.Cooking',
         'UI.Metadata',

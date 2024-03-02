@@ -41,6 +41,7 @@ export const PokeboxEntry = async ({params}: DefaultPageProps) => {
         'Game',
         'UI.Common',
         'UI.Component.PokemonFilter',
+        'UI.Component.PokemonDetailedProduction',
         'UI.InPage.Team',
         'UI.Metadata',
         'UI.Pokemon',

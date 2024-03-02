@@ -35,6 +35,7 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
       'UI.Common',
       'UI.Component.MealCoverageCombo',
       'UI.Component.PokemonFilter',
+      'UI.Component.PokemonDetailedProduction',
       'UI.InPage.Cooking',
       'UI.InPage.Team',
       'UI.Metadata',

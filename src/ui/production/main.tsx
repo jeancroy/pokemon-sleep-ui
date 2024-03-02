@@ -41,6 +41,7 @@ export const ProductionComparison = async ({params}: DefaultPageProps) => {
         'UI.Component.Collapsible',
         'UI.Component.Team',
         'UI.Component.PokemonFilter',
+        'UI.Component.PokemonDetailedProduction',
         'UI.InPage.Cooking',
         'UI.Metadata',
         'UI.MainSkill.EffectType',

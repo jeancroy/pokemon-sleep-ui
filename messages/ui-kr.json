@@ -59,6 +59,13 @@
       "End": "종료",
       "Close": "닫기"
     },
+    "PokemonDetailedProduction": {
+      "Tab": {
+        "DailyBreakdown": "Production Breakdown",
+        "EnergyCurve": "Energy Curve",
+        "AtEnergy": "Production at Energy Level"
+      }
+    },
     "Team": {
       "SetupControl": {
         "Period": "분석 주기",

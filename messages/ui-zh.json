@@ -59,6 +59,13 @@
       "End": "終止",
       "Close": "領獎結束"
     },
+    "PokemonDetailedProduction": {
+      "Tab": {
+        "DailyBreakdown": "各狀態產量",
+        "EnergyCurve": "活力曲線",
+        "AtEnergy": "活力等效產量"
+      }
+    },
     "Team": {
       "SetupControl": {
         "Period": "分析週期",

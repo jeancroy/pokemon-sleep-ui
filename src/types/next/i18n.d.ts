@@ -76,6 +76,13 @@ declare global {
           EvolutionCount: string,
           FinalEvolution: string,
         },
+        PokemonDetailedProduction: {
+          Tab: {
+            DailyBreakdown: string,
+            EnergyCurve: string,
+            AtEnergy: string,
+          },
+        },
         TimePeriodSchedule: {
           Start: string,
           End: string,

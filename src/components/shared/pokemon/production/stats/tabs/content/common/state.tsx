@@ -12,7 +12,7 @@ import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
 import {PokemonIngredientIcon} from '@/components/shared/pokemon/ingredients/icon';
 import {PokemonProductionSingle} from '@/components/shared/pokemon/production/single/main';
 import {PokemonProductionSplitFromPokemonRate} from '@/components/shared/pokemon/production/split/fromPokemon';
-import {PokemonDetailedProductionLayout} from '@/components/shared/pokemon/production/stats/item';
+import {PokemonDetailedProductionLayout} from '@/components/shared/pokemon/production/stats/tabs/content/common/item';
 import {PokemonDetailedProductionProps} from '@/components/shared/pokemon/production/stats/type';
 import {ProductionUI} from '@/components/shared/production/rate/main';
 import {applyMultiplierTargets} from '@/types/game/producing/apply';
