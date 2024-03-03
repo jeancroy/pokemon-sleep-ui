@@ -17,7 +17,7 @@ import {PokemonDetailedProductionProps} from '@/components/shared/pokemon/produc
 import {ProductionUI} from '@/components/shared/production/rate/main';
 import {applyMultiplierTargets} from '@/types/game/producing/apply';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
-import {applyMultiplierToPokemonRate} from '@/utils/game/producing/apply/multiplier';
+import {applyMultiplierToPokemonRate} from '@/utils/game/producing/apply/common';
 import {getFrequencyOfStateFromPokemonRate} from '@/utils/game/producing/frequency';
 import {getTotalPokemonProduction} from '@/utils/game/producing/reducer/total/common';
 

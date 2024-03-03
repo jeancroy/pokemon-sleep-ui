@@ -1,6 +1,6 @@
 import {IngredientMultiplier} from '@/types/game/producing/multiplier';
 import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
-import {applyMultiplierToRateOfStates} from '@/utils/game/producing/apply/multiplier';
+import {applyMultiplierToRateOfStates} from '@/utils/game/producing/apply/common';
 import {getIngredientMultiplierValue} from '@/utils/game/producing/ingredient/multiplier';
 
 
