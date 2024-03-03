@@ -641,6 +641,15 @@ declare global {
         Login: string,
         Logout: string,
       },
+      WeekOfDay: {
+        Monday: string,
+        Tuesday: string,
+        Wednesday: string,
+        Thursday: string,
+        Friday: string,
+        Saturday: string,
+        Sunday: string,
+      },
     },
     Game: {
       Berry: GameObjectIdToString,
