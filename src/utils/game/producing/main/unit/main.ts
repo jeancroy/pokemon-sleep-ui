@@ -25,7 +25,7 @@ export const getPokemonProductionInitial = ({
 }: GetPokemonProductionInitialOpts): PokemonProductionInitial => {
   const {calculatedUserConfig, individual} = opts;
   const {bonus} = calculatedUserConfig;
-  const {sleepSessionInfo, intervalsDuringSleep} = bonus.stamina;
+  const {sleepSessionInfo, efficiencyIntervals} = bonus.stamina;
 
   if (!intermediate) {
     intermediate = getPokemonProductionIntermediateParams(opts);
@@ -63,7 +63,7 @@ export const getPokemonProductionInitial = ({
 
   // Calculate inventory-related stats
   const fullPackStats = getFullPackStats({
-    intervalsDuringSleep,
+    intervalsDuringSleep: efficiencyIntervals.sleep,
     isFullPack,
     carryLimit: carryLimitInfo.final,
     qtyPerHelp: getExpectedQtyPerHelp({

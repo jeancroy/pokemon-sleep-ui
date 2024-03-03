@@ -1,12 +1,18 @@
 import {ProducingState} from '@/types/game/producing/state';
-import {SleepSessionInfo, SleepSessionData} from '@/types/game/sleep';
+import {SleepSessionData, SleepSessionInfo} from '@/types/game/sleep';
 import {StaminaEventLog} from '@/types/game/stamina/event';
+import {CookingMeal} from '@/types/userData/config/cooking/meal';
 
 
 export type EfficiencyInterval = {
   efficiency: number,
   duration: number,
 };
+
+// Help count during sleep is not handled here as it involves inventory stats
+export type EfficiencyIntervalsByCookingMeal = {[meal in CookingMeal]: EfficiencyInterval[]};
+
+export type EfficiencyIntervalsBySleepSession = SleepSessionData<EfficiencyInterval[]>;
 
 export type StaminaEfficiencyCounter<TValue = number> = {[state in ProducingState]: TValue} & {
   average: TValue,
@@ -22,5 +28,7 @@ export type StaminaEfficiency = {
   // This is solely for easy displaying purpose.
   multiplier: StaminaEfficiencyCounter<number | null>,
   sleepSessionInfo: SleepSessionInfo,
-  intervalsDuringSleep: SleepSessionData<EfficiencyInterval[]>,
+  efficiencyIntervals: {
+    sleep: EfficiencyIntervalsBySleepSession,
+  },
 };

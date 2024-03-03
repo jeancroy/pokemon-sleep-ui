@@ -20,6 +20,8 @@ export const getStaminaEfficiency = (opts: Omit<GetStaminaEventLogOpts, 'sleepSe
     logs,
     multiplier,
     sleepSessionInfo,
-    intervalsDuringSleep: extractEfficiencyIntervalsDuringSleep({logs, hasSecondary}),
+    efficiencyIntervals: {
+      sleep: extractEfficiencyIntervalsDuringSleep({logs, hasSecondary}),
+    },
   };
 };

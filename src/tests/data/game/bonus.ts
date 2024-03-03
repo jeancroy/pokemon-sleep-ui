@@ -18,9 +18,11 @@ export const testBonus: {[id in number]: EffectiveBonus} = {
         sleep2: 2.2,
         awake: 1.6,
       },
-      intervalsDuringSleep: {
-        primary: [], // ignore
-        secondary: [], // ignore
+      efficiencyIntervals: {
+        sleep: {
+          primary: [], // ignore
+          secondary: [], // ignore
+        },
       },
     },
     overallMultiplier: 1.2,
