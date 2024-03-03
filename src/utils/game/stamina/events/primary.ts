@@ -1,5 +1,5 @@
 import {staminaMaxRecovery} from '@/const/game/stamina';
-import {StaminaEventLog} from '@/types/game/stamina/event';
+import {StaminaAtEvent, StaminaEventLog} from '@/types/game/stamina/event';
 import {StaminaCookingRecoveryData} from '@/types/game/stamina/recovery';
 import {toSum} from '@/utils/array';
 import {getStaminaAfterDuration} from '@/utils/game/stamina/depletion';
@@ -28,7 +28,7 @@ const getInitialRecovery = ({
   )));
 };
 
-export const getWakeupStamina = (opts: GetLogsWithPrimarySleepOpts) => {
+export const getWakeupStaminaAtEvent = (opts: GetLogsWithPrimarySleepOpts): StaminaAtEvent => {
   const {sleepSessionInfo, dailyNetChange} = opts;
 
   const sleepRecovery = sleepSessionInfo.session.primary.recovery;
@@ -38,10 +38,18 @@ export const getWakeupStamina = (opts: GetLogsWithPrimarySleepOpts) => {
   // If daily net change is positive, after infinite iterations,
   // the energy will stay at 100 after primary wakeup
   if (dailyNetChange && dailyNetChange >= 0) {
-    return staminaMaxRecovery + initialRecovery;
+    return {
+      before: staminaMaxRecovery,
+      after: staminaMaxRecovery + initialRecovery,
+    };
   }
 
-  return Math.min(sleepRecovery.actual, staminaMaxRecovery) + initialRecovery;
+  const baseStart = Math.min(sleepRecovery.actual, staminaMaxRecovery);
+
+  return {
+    before: baseStart,
+    after: baseStart + initialRecovery,
+  };
 };
 
 export const getLogsWithPrimarySleep = (opts: GetLogsWithPrimarySleepOpts): StaminaEventLog[] => {
@@ -49,9 +57,9 @@ export const getLogsWithPrimarySleep = (opts: GetLogsWithPrimarySleepOpts): Stam
   const {session, duration} = sleepSessionInfo;
   const {primary} = session;
 
-  const wakeupStamina = getWakeupStamina(opts);
+  const wakeupStamina = getWakeupStaminaAtEvent(opts);
   const sleepStamina = getStaminaAfterDuration({
-    start: wakeupStamina,
+    start: wakeupStamina.after,
     duration: duration.awake,
   });
 
@@ -59,14 +67,8 @@ export const getLogsWithPrimarySleep = (opts: GetLogsWithPrimarySleepOpts): Stam
     {
       type: 'wakeup',
       timing: primary.adjustedTiming.end,
-      stamina: {
-        before: wakeupStamina,
-        after: wakeupStamina,
-      },
-      staminaUnderlying: {
-        before: wakeupStamina,
-        after: wakeupStamina,
-      },
+      stamina: wakeupStamina,
+      staminaUnderlying: wakeupStamina,
     },
     {
       type: 'sleep',

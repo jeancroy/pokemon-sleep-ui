@@ -129,7 +129,7 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.before).toBe(122);
+    expect(logs[0].stamina.before).toBe(95);
     expect(logs[0].stamina.after).toBe(122);
     expect(logs[1].type).toBe('cookingRecovery');
     expect(logs[1].timing).toBe(1800);
@@ -263,7 +263,7 @@ describe('Stamina / Event Log (+Cooking Recovery)', () => {
 
     expect(logs[0].type).toBe('wakeup');
     expect(logs[0].timing).toBe(0);
-    expect(logs[0].stamina.before).toBe(295);
+    expect(logs[0].stamina.before).toBe(95);
     expect(logs[0].stamina.after).toBe(295);
     expect(logs[1].type).toBe('cookingRecovery');
     expect(logs[1].timing).toBe(1800);
