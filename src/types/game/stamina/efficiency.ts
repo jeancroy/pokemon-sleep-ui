@@ -30,5 +30,6 @@ export type StaminaEfficiency = {
   sleepSessionInfo: SleepSessionInfo,
   efficiencyIntervals: {
     sleep: EfficiencyIntervalsBySleepSession,
+    byMeal: EfficiencyIntervalsByCookingMeal,
   },
 };

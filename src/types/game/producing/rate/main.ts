@@ -1,4 +1,5 @@
 import {BerryId} from '@/types/game/berry';
+import {ExtraTastyInfo} from '@/types/game/cooking/extraTasty';
 import {IngredientId} from '@/types/game/ingredient';
 import {MainSkillId} from '@/types/game/pokemon/mainSkill';
 import {FullPackStats} from '@/types/game/producing/inventory';
@@ -37,12 +38,21 @@ export type PokemonProduction = PokemonProductionInitial & {
   skillIndirect: PokemonIndirectSkillProduction,
 };
 
+// The difference between `original` and `final` of this includes but not limited to
+// - Ingredient multiplier
+//    - [original] 0
+//    - [final] Calculated from target meals
+// - Extra Tasty
+//    - [original] Default (no Extra Tasty skill)
+//    - [final] Calculated from the provided rates
+// > Check the implementation of `getPokemonProductionPostMultiplier()`
 export type PokemonProductionAtStage<TProduction extends PokemonProductionInitial> = {
   [stage in PokemonProductionStage]: TProduction
 };
 
 export type PokemonProductionMetadata = {
   ingredientMultiplier: IngredientMultiplier,
+  extraTastyInfo: ExtraTastyInfo,
   calculatedUserConfig: CalculatedUserConfig,
 };
 

@@ -4,19 +4,19 @@ import {getPokemonProductionFinalOfStage} from '@/utils/game/producing/main/entr
 
 
 type GetPokemonProductionFinalOpts<TPayload> = {
-  initialRatesPostIngredient: PokemonProductionWithPayload<TPayload, PokemonProductionInitial>[],
+  postMultiplierRates: PokemonProductionWithPayload<TPayload, PokemonProductionInitial>[],
   targetCount: number,
 };
 
 export const getPokemonProductionFinal = <TPayload>({
-  initialRatesPostIngredient,
+  postMultiplierRates,
   targetCount,
 }: GetPokemonProductionFinalOpts<TPayload>): PokemonProductionWithPayload<TPayload>[] => {
   const skillEffects = getPokemonIndirectSkillEffects({
-    initialRates: initialRatesPostIngredient.map(({atStage}) => atStage.final),
+    initialRates: postMultiplierRates.map(({atStage}) => atStage.final),
   });
 
-  return initialRatesPostIngredient.map(({atStage, ...rest}) => {
+  return postMultiplierRates.map(({atStage, ...rest}) => {
     const {original, final} = atStage;
 
     return {

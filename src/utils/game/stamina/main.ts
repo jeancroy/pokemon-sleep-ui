@@ -1,5 +1,6 @@
 import {StaminaEfficiency} from '@/types/game/stamina/efficiency';
 import {getSleepSessionInfo} from '@/utils/game/sleep';
+import {extractEfficiencyIntervalsByCookingMeal} from '@/utils/game/stamina/log/extract/byMeal';
 import {extractEfficiencyIntervalsDuringSleep} from '@/utils/game/stamina/log/extract/sleep';
 import {getStaminaEventLogs} from '@/utils/game/stamina/log/main';
 import {getStaminaEfficiencyMultiplierFromLogs} from '@/utils/game/stamina/log/multiplier';
@@ -22,6 +23,7 @@ export const getStaminaEfficiency = (opts: Omit<GetStaminaEventLogOpts, 'sleepSe
     sleepSessionInfo,
     efficiencyIntervals: {
       sleep: extractEfficiencyIntervalsDuringSleep({logs, hasSecondary}),
+      byMeal: extractEfficiencyIntervalsByCookingMeal({logs}),
     },
   };
 };

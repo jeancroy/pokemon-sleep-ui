@@ -2,7 +2,7 @@ import {maxTeamMemberCount} from '@/const/game/production/const';
 import {defaultProductionCalcBehavior, defaultProductionPeriod} from '@/const/game/production/defaults';
 import {IngredientMap} from '@/types/game/ingredient';
 import {RecipeLevelData} from '@/types/game/meal/recipeLevel';
-import {PokemonProductionFinal} from '@/types/game/producing/rate/main';
+import {PokemonProductionFinalCollection} from '@/types/game/producing/rate/main';
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {groupPokemonProduction} from '@/utils/game/producing/group';
@@ -13,8 +13,8 @@ import {
 import {getPokemonProductionFinal} from '@/utils/game/producing/main/entry/components/rates/final/main';
 import {getPokemonProductionInitialRates} from '@/utils/game/producing/main/entry/components/rates/initial/main';
 import {
-  getPokemonProductionPostIngredientMultiplier,
-} from '@/utils/game/producing/main/entry/components/rates/postIngredient';
+  getPokemonProductionPostMultiplier,
+} from '@/utils/game/producing/main/entry/components/rates/postMultiplier/main';
 import {
   GetPokemonProductionSharedOpts,
   GetPokemonProductionUnitOptsWithPayload,
@@ -58,7 +58,8 @@ export const getPokemonProductionMulti = <TPayload>({
     calcBehavior,
   });
 
-  // Initial rate calculates the rate twice with the 1st pass calculating E4E only; 2nd pass calculating everything
+  // # Initial rate
+  // This calculates the rate twice with the 1st pass calculating E4E only; 2nd pass calculating everything
   const initialRates = getPokemonProductionInitialRates({
     helpingBonusEffect,
     subSkillBonuses,
@@ -67,26 +68,27 @@ export const getPokemonProductionMulti = <TPayload>({
     calcBehavior,
   });
 
-  const ingredientMultiplier = getPokemonProductionIngredientMultiplier({
-    period,
-    ingredientMap,
-    recipeLevelData,
-    calculatedCookingConfig,
-    groupedOriginalRates: groupPokemonProduction({
+  // # Post Multiplier rate
+  // This applies various multipliers to the rates, splitting them to `original` and `final`
+  const postMultiplierRates = getPokemonProductionPostMultiplier({
+    rates: initialRates,
+    ingredientMultiplier: getPokemonProductionIngredientMultiplier({
       period,
-      rates: initialRates.map(({rate}) => rate),
-      state: groupingState,
+      ingredientMap,
+      recipeLevelData,
+      calculatedCookingConfig,
+      groupedOriginalRates: groupPokemonProduction({
+        period,
+        rates: initialRates.map(({rate}) => rate),
+        state: groupingState,
+      }),
     }),
   });
 
-  const initialRatesPostIngredient = getPokemonProductionPostIngredientMultiplier({
-    rates: initialRates,
-    ingredientMultiplier,
-  });
-
-  // Final calculation factors in any skill triggered by other Pokémon
+  // # Final rate
+  // This calculation factors in any skill triggered by other Pokémon
   const finalRates = getPokemonProductionFinal({
-    initialRatesPostIngredient,
+    postMultiplierRates,
     targetCount: calcBehavior?.asSingle ? maxTeamMemberCount : rateOpts.length,
   });
 

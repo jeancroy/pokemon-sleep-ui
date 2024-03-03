@@ -23,6 +23,11 @@ export const testBonus: {[id in number]: EffectiveBonus} = {
           primary: [], // ignore
           secondary: [], // ignore
         },
+        byMeal: {
+          breakfast: [], // ignore
+          lunch: [], // ignore
+          dinner: [], // ignore
+        },
       },
     },
     overallMultiplier: 1.2,

@@ -1,6 +1,6 @@
 import {IngredientMultiplier} from '@/types/game/producing/multiplier';
 import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
-import {applyMultiplierToRateOfStates} from '@/utils/game/producing/apply/common';
+import {applyMultiplierOnIngredientStrength} from '@/utils/game/producing/apply/base/onIngredientStrength';
 import {getIngredientMultiplierValue} from '@/utils/game/producing/ingredient/multiplier';
 
 
@@ -13,33 +13,11 @@ export const applyIngredientMultiplier = <TProduction extends PokemonProductionI
   rate,
   ingredientMultiplier,
 }: ApplyIngredientMultiplierOpts<TProduction>): TProduction => {
-  const {baseRates} = rate;
-
-  return {
-    ...rate,
-    baseRates: {
-      ...baseRates,
-      ingredient: baseRates.ingredient.map(({strengthPerHelp, ...rateOfDrop}) => ({
-        ...rateOfDrop,
-        strengthPerHelp: strengthPerHelp * getIngredientMultiplierValue({
-          multiplier: ingredientMultiplier,
-          ingredientId: rateOfDrop.id,
-        }),
-      })),
-    },
-    ingredient: Object.fromEntries(Object.values(rate.ingredient).map((rate) => [
-      rate.id,
-      applyMultiplierToRateOfStates({
-        rate,
-        target: ['strength'],
-        multiplier: {
-          original: 1,
-          target: getIngredientMultiplierValue({
-            multiplier: ingredientMultiplier,
-            ingredientId: rate.id,
-          }),
-        },
-      }),
-    ])),
-  };
+  return applyMultiplierOnIngredientStrength({
+    rate,
+    getMultiplier: (ingredientId) => getIngredientMultiplierValue({
+      multiplier: ingredientMultiplier,
+      ingredientId,
+    }),
+  });
 };
