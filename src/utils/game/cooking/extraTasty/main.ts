@@ -5,7 +5,7 @@ import {getExtraTastyRateOfMeal} from '@/utils/game/cooking/extraTasty/single';
 import {
   getExtraTastySkillBoostPercentByMeal,
   GetExtraTastySkillBoostPercentByMealOpts,
-} from '@/utils/game/cooking/extraTasty/triggers';
+} from '@/utils/game/cooking/extraTasty/skillBoosts';
 import {ExtraTastyBranch, ExtraTastyLookup} from '@/utils/game/cooking/extraTasty/type';
 import {
   getCurrentExtraTastySkillBoostPercent,
