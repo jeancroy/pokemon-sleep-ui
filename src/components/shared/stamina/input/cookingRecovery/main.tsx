@@ -7,7 +7,7 @@ import {PotIcon} from '@/components/shared/icon/pot';
 import {staminaConfigSectionStyling} from '@/components/shared/stamina/input/const';
 import {StaminaConfigTimeInput} from '@/components/shared/stamina/input/time';
 import {StaminaConfigProps} from '@/components/shared/stamina/input/type';
-import {mealOfDayIcon} from '@/const/game/cooking';
+import {mealOfDayIcon} from '@/const/game/cooking/mealOfDay';
 import {cookingMeals} from '@/types/userData/config/cooking/meal';
 
 

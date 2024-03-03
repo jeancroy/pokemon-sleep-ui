@@ -9,7 +9,7 @@ import {Flex} from '@/components/layout/flex/common';
 import {Grid} from '@/components/layout/grid';
 import {MealPlannerButton} from '@/components/shared/meal/planner/button';
 import {MealSelector} from '@/components/shared/meal/selector/main';
-import {mealOfDayIcon} from '@/const/game/cooking';
+import {mealOfDayIcon} from '@/const/game/cooking/mealOfDay';
 import {mealTypeBorderStyle, mealTypeTextStyle} from '@/styles/game/mealType';
 import {RecipeLevel} from '@/types/game/cooking/meal';
 import {MealMap, MealTypeId} from '@/types/game/meal/main';

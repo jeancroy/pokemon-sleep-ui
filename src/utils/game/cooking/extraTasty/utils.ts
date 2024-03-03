@@ -1,4 +1,4 @@
-import {extraTastyMultiplier} from '@/const/game/cooking';
+import {extraTastyMultiplier} from '@/const/game/cooking/extraTasty';
 import {ExtraTastyTiming} from '@/types/game/cooking/extraTasty';
 import {cookingMeals} from '@/types/userData/config/cooking/meal';
 import {ExtraTastySkillBoostPercentByMeal} from '@/utils/game/cooking/extraTasty/type';

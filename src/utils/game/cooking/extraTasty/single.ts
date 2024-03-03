@@ -1,4 +1,4 @@
-import {extraTastyBasePercent} from '@/const/game/cooking';
+import {extraTastyBasePercent} from '@/const/game/cooking/extraTasty';
 import {ExtraTastyTiming} from '@/types/game/cooking/extraTasty';
 import {ExtraTastyLookup} from '@/utils/game/cooking/extraTasty/type';
 

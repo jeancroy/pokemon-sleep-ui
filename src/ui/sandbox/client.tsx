@@ -4,7 +4,7 @@ import React from 'react';
 import {Flex} from '@/components/layout/flex/common';
 import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {NumberInputRequired} from '@/components/shared/input/number/required/main';
-import {mealOfDayIcon} from '@/const/game/cooking';
+import {mealOfDayIcon} from '@/const/game/cooking/mealOfDay';
 import {cookingMeals} from '@/types/userData/config/cooking/meal';
 import {getExtraTastyInfo} from '@/utils/game/cooking/extraTasty/main';
 import {

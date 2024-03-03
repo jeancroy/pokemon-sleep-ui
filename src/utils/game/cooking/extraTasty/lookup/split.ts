@@ -1,4 +1,4 @@
-import {extraTastyBasePercent, extraTastySkillPercentMax} from '@/const/game/cooking';
+import {extraTastyBasePercent, extraTastySkillPercentMax} from '@/const/game/cooking/extraTasty';
 import {ExtraTastyTiming} from '@/types/game/cooking/extraTasty';
 import {ExtraTastySplitBranch} from '@/utils/game/cooking/extraTasty/lookup/type';
 import {ExtraTastyBranch} from '@/utils/game/cooking/extraTasty/type';
