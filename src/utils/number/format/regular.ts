@@ -1,5 +1,5 @@
 import {NumberFormat} from '@/types/number';
-import {isNotNullish} from '@/utils/type';
+import {isNotNullish, Nullable} from '@/utils/type';
 
 
 export const formatter: {[format in NumberFormat]: ReturnType<typeof Intl.NumberFormat>} = {
@@ -9,7 +9,7 @@ export const formatter: {[format in NumberFormat]: ReturnType<typeof Intl.Number
   float3: new Intl.NumberFormat(undefined, {minimumFractionDigits: 3, maximumFractionDigits: 3}),
 };
 
-export const formatFloat1 = (num: number | null | undefined): string => {
+export const formatFloat1 = (num: Nullable<number>): string => {
   if (isNotNullish(num)) {
     return formatter.float1.format(num);
   }
@@ -17,7 +17,7 @@ export const formatFloat1 = (num: number | null | undefined): string => {
   return '-';
 };
 
-export const formatFloat = (num: number | null | undefined): string => {
+export const formatFloat = (num: Nullable<number>): string => {
   if (isNotNullish(num)) {
     return formatter.float.format(num);
   }
@@ -25,7 +25,7 @@ export const formatFloat = (num: number | null | undefined): string => {
   return '-';
 };
 
-export const formatFloat3 = (num: number | null | undefined): string => {
+export const formatFloat3 = (num: Nullable<number>): string => {
   if (isNotNullish(num)) {
     return formatter.float3.format(num);
   }
@@ -34,7 +34,7 @@ export const formatFloat3 = (num: number | null | undefined): string => {
 };
 
 
-export const formatInt = (num: number | null | undefined): string => {
+export const formatInt = (num: Nullable<number>): string => {
   if (isNotNullish(num)) {
     return formatter.int.format(num);
   }
@@ -44,7 +44,7 @@ export const formatInt = (num: number | null | undefined): string => {
 
 export type FormatNumberOpts = {
   format: NumberFormat,
-  num: number | null | undefined,
+  num: Nullable<number>,
 };
 
 export const formatNumber = ({format, num}: FormatNumberOpts): string | null => {
