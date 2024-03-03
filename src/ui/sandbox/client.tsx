@@ -2,6 +2,7 @@
 import React from 'react';
 
 import {Flex} from '@/components/layout/flex/common';
+import {GenericMainSkillIcon} from '@/components/shared/icon/mainSkill/generic';
 import {MainSkillIcon} from '@/components/shared/icon/mainSkill/main';
 import {NumberInputRequired} from '@/components/shared/input/number/required/main';
 import {mealOfDayIcon} from '@/const/game/cooking/mealOfDay';
@@ -39,6 +40,8 @@ export const SandboxClient = () => {
             <div className="size-6 shrink-0">
               {mealOfDayIcon[mealOfDay]}
             </div>
+            <GenericMainSkillIcon alt="Skill Trigger Count before meal"/>
+            <span>Skill Trigger Count before the meal</span>
             <NumberInputRequired
               text={null}
               value={triggersPerMeal[mealOfDay]}
