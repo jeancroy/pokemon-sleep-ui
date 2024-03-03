@@ -1,23 +1,19 @@
 import React from 'react';
 
-import {redirect} from 'next/navigation';
-
+import {I18nProvider} from '@/components/i18n/provider';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {SandboxClient} from '@/ui/sandbox/client';
-import {isProduction} from '@/utils/environment';
 
 
 export const Sandbox = async ({params}: DefaultPageProps) => {
   const {locale} = params;
 
-  if (isProduction()) {
-    redirect('/');
-  }
-
   return (
     <PublicPageLayout locale={locale}>
-      <SandboxClient/>
+      <I18nProvider locale={locale} namespaces={['Game']}>
+        <SandboxClient/>
+      </I18nProvider>
     </PublicPageLayout>
   );
 };
