@@ -622,6 +622,10 @@
       "Level": "Pokemon Level",
       "SubSkill": "Nebentalent",
       "NatureEffect": "Effekt des Wesens"
+    },
+    "MainSkillLevel": {
+      "Base": "Base",
+      "Max": "Max"
     }
   },
   "Producing": {

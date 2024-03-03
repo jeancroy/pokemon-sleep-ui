@@ -4,6 +4,7 @@ import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {FilterExpandedInput} from '@/components/input/filter/expanded/main';
+import {PokemonMainSkillLevelText} from '@/components/shared/pokemon/mainSkill/text';
 import {textFilterButtonStyle} from '@/styles/input';
 import {MainSkillLevel} from '@/types/game/pokemon/mainSkill';
 import {generateNumberTicks} from '@/utils/number/generator';
@@ -24,10 +25,11 @@ export const PokemonMainSkillLevelInput = ({maxSkillLevel, current, onSelected}:
       ids={[
         ...generateNumberTicks({max: maxSkillLevel, interval: 1, start: 1}),
         'max',
+        'base',
       ] satisfies MainSkillLevel[]}
       idToButton={(level) => (
         <div className="mx-1">
-          {level === 'max' ? 'MAX' : level}
+          <PokemonMainSkillLevelText level={level}/>
         </div>
       )}
       onClick={onSelected}

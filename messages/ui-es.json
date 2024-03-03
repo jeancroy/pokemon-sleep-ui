@@ -622,6 +622,10 @@
       "Level": "Nivel",
       "SubSkill": "Habilidad secundaria",
       "NatureEffect": "Efecto de Naturaleza"
+    },
+    "MainSkillLevel": {
+      "Base": "Base",
+      "Max": "Max"
     }
   },
   "Producing": {

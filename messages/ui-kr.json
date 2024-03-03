@@ -622,6 +622,10 @@
       "Level": "포켓몬 레벨",
       "SubSkill": "서브 스킬",
       "NatureEffect": "성격 효과"
+    },
+    "MainSkillLevel": {
+      "Base": "Base",
+      "Max": "Max"
     }
   },
   "Producing": {

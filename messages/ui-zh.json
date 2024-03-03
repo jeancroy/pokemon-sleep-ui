@@ -622,6 +622,10 @@
       "Level": "寶可夢等級",
       "SubSkill": "副技能",
       "NatureEffect": "性格效果"
+    },
+    "MainSkillLevel": {
+      "Base": "基礎",
+      "Max": "最高"
     }
   },
   "Producing": {

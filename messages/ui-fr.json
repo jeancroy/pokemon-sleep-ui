@@ -622,6 +622,10 @@
       "Level": "Niveau du Pokémon",
       "SubSkill": "Compétence secondaire",
       "NatureEffect": "Effet de la nature"
+    },
+    "MainSkillLevel": {
+      "Base": "Base",
+      "Max": "Max"
     }
   },
   "Producing": {

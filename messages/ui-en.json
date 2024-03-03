@@ -622,6 +622,10 @@
       "Level": "Pokemon Level",
       "SubSkill": "Sub Skill",
       "NatureEffect": "Nature Effect"
+    },
+    "MainSkillLevel": {
+      "Base": "Base",
+      "Max": "Max"
     }
   },
   "Producing": {

@@ -510,6 +510,10 @@ declare global {
           SubSkill: string,
           NatureEffect: string,
         },
+        MainSkillLevel: {
+          Base: string,
+          Max: string,
+        },
       },
       Producing: {
         State: {

@@ -20,9 +20,15 @@ export const getMainSkillLevel = ({
   mainSkillData,
   mainSkillLevelOverride,
 }: GetMainSkillLevelOpts) => {
+  const baseLevel = 1 + seedsUsed + (evolutionCount ?? 0);
+
   if (mainSkillLevelOverride != null) {
     if (mainSkillLevelOverride === 'max') {
       return mainSkillData.maxLevel;
+    }
+
+    if (mainSkillLevelOverride === 'base') {
+      return baseLevel;
     }
 
     return Math.min(mainSkillData.maxLevel, mainSkillLevelOverride);
