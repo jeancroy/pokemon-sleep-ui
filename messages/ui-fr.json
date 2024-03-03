@@ -67,7 +67,12 @@
         "Cooking": "Repas / Recettes"
       },
       "Cooking": {
-        "IngredientMultiplier": "Multiplicateur d'ingrédient"
+        "IngredientMultiplier": "Multiplicateur d'ingrédient",
+        "ExtraTasty": {
+          "Name": "Extra Tasty",
+          "Average": "Average",
+          "ByMeal": "By Meal"
+        }
       }
     },
     "Team": {

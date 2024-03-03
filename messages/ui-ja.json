@@ -67,7 +67,12 @@
         "Cooking": "料理"
       },
       "Cooking": {
-        "IngredientMultiplier": "食材の実質ボーナス倍率"
+        "IngredientMultiplier": "食材の実質ボーナス倍率",
+        "ExtraTasty": {
+          "Name": "Extra Tasty",
+          "Average": "Average",
+          "ByMeal": "By Meal"
+        }
       }
     },
     "Team": {

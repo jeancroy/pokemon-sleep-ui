@@ -1,6 +1,8 @@
 import {I18nMessageKeysOfNamespace} from '@/types/i18n';
 
 
+export const daysInWeek = 7;
+
 export const weekOfDayI18nId: {
   [day in number]: I18nMessageKeysOfNamespace<'UI.WeekOfDay'>
 } = {

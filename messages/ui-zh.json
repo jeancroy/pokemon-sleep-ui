@@ -67,7 +67,12 @@
         "Cooking": "料理製作相關"
       },
       "Cooking": {
-        "IngredientMultiplier": "食材倍率"
+        "IngredientMultiplier": "食材倍率",
+        "ExtraTasty": {
+          "Name": "料理大成功",
+          "Average": "平均",
+          "ByMeal": "各餐"
+        }
       }
     },
     "Team": {

@@ -49,6 +49,7 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
         'UI.Stamina',
         'UI.Rating',
         'UI.UserConfig',
+        'UI.WeekOfDay',
       ]}>
         <TeamAnalysisClient {...props}/>
       </I18nProvider>

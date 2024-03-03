@@ -67,7 +67,12 @@
         "Cooking": "Cooking"
       },
       "Cooking": {
-        "IngredientMultiplier": "Ingredient Multiplier"
+        "IngredientMultiplier": "Ingredient Multiplier",
+        "ExtraTasty": {
+          "Name": "Extra Tasty",
+          "Average": "Average",
+          "ByMeal": "By Meal"
+        }
       }
     },
     "Team": {

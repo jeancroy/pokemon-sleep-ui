@@ -38,6 +38,7 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
       'UI.Pokemon',
       'UI.Producing',
       'UI.Stamina',
+      'UI.WeekOfDay',
     ]}>
       <TeamMakerClient {...props}/>
     </I18nProvider>

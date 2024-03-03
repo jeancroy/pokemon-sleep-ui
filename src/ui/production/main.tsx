@@ -46,6 +46,7 @@ export const ProductionComparison = async ({params}: DefaultPageProps) => {
         'UI.Stamina',
         'UI.Rating',
         'UI.UserConfig',
+        'UI.WeekOfDay',
       ]}>
         <ProductionComparisonClient {...props}/>
       </I18nProvider>

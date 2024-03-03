@@ -85,6 +85,11 @@ declare global {
           },
           Cooking: {
             IngredientMultiplier: string,
+            ExtraTasty: {
+              Name: string,
+              Average: string,
+              ByMeal: string,
+            },
           },
         },
         TimePeriodSchedule: {
