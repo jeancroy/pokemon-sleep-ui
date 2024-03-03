@@ -10,7 +10,7 @@ import {getPokemonProductionHelpingBonusEffect} from '@/utils/game/producing/mai
 import {
   getPokemonProductionIngredientMultiplier,
 } from '@/utils/game/producing/main/entry/components/ingredientMultiplier';
-import {getPokemonProductionFinal} from '@/utils/game/producing/main/entry/components/rates/final';
+import {getPokemonProductionFinal} from '@/utils/game/producing/main/entry/components/rates/final/main';
 import {getPokemonProductionInitialRates} from '@/utils/game/producing/main/entry/components/rates/initial/main';
 import {
   getPokemonProductionPostIngredientMultiplier,
@@ -58,7 +58,7 @@ export const getPokemonProductionMulti = <TPayload>({
     calcBehavior,
   });
 
-  // Initial rate calculates base production without factoring in any skill by other Pokémon
+  // Initial rate calculates the rate twice with the 1st pass calculating E4E only; 2nd pass calculating everything
   const initialRates = getPokemonProductionInitialRates({
     helpingBonusEffect,
     subSkillBonuses,

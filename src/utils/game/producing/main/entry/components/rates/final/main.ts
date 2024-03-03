@@ -1,8 +1,6 @@
 import {PokemonProductionInitial, PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
 import {getPokemonIndirectSkillEffects} from '@/utils/game/producing/main/entry/components/indirectSkill/effects';
-import {
-  getPokemonIndirectSkillProductionFromInitial,
-} from '@/utils/game/producing/main/entry/components/indirectSkill/production';
+import {getPokemonProductionFinalOfStage} from '@/utils/game/producing/main/entry/components/rates/final/ofStage';
 
 
 type GetPokemonProductionFinalOpts<TPayload> = {
@@ -24,22 +22,16 @@ export const getPokemonProductionFinal = <TPayload>({
     return {
       ...rest,
       atStage: {
-        original: {
-          ...original,
-          skillIndirect: getPokemonIndirectSkillProductionFromInitial({
-            initialRate: original,
-            skillEffects,
-            targetCount,
-          }),
-        },
-        final: {
-          ...final,
-          skillIndirect: getPokemonIndirectSkillProductionFromInitial({
-            initialRate: final,
-            skillEffects,
-            targetCount,
-          }),
-        },
+        original: getPokemonProductionFinalOfStage({
+          rate: original,
+          skillEffects,
+          targetCount,
+        }),
+        final: getPokemonProductionFinalOfStage({
+          rate: final,
+          skillEffects,
+          targetCount,
+        }),
       },
     };
   });
