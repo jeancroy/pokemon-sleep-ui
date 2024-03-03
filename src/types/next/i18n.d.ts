@@ -110,6 +110,7 @@ declare global {
               Total: string,
               Berry: string,
               Ingredient: string,
+              Cooking: string,
               Skill: string,
               Frequency: string,
               Energy: string,
@@ -470,6 +471,10 @@ declare global {
           TimeToFullPack: {
             Primary: string,
             Secondary: string,
+          },
+          ExtraTasty: {
+            Rate: string,
+            Multiplier: string,
           },
         },
         Info: {

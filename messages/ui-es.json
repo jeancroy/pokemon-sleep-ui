@@ -88,6 +88,7 @@
           "Total": "Total",
           "Berry": "Baya",
           "Ingredient": "Ingrediente",
+          "Cooking": "Cocina",
           "Skill": "Habilidad",
           "Frequency": "Frecuencia",
           "Energy": "Energía",
@@ -583,6 +584,10 @@
       "TimeToFullPack": {
         "Primary": "Tiempo para Capacidad Completa (Sueño 1)",
         "Secondary": "Tiempo para Capacidad Completa (Sueño 2)"
+      },
+      "ExtraTasty": {
+        "Rate": "Avg. Extra Tasty Rate (%)",
+        "Multiplier": "Avg. Strength Multiplier"
       }
     },
     "Info": {

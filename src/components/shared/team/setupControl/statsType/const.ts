@@ -8,6 +8,7 @@ export const teamMemberStatsTypeI18nId: {
   total: 'Total',
   berry: 'Berry',
   ingredient: 'Ingredient',
+  cooking: 'Cooking',
   skill: 'Skill',
   frequency: 'Frequency',
   energy: 'Energy',

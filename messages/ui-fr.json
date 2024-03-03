@@ -88,6 +88,7 @@
           "Total": "Total",
           "Berry": "Baie",
           "Ingredient": "Ingredient",
+          "Cooking": "Repas",
           "Skill": "Compétence",
           "Frequency": "Fréquence",
           "Energy": "Énergie",
@@ -583,6 +584,10 @@
       "TimeToFullPack": {
         "Primary": "Temps pour un cycle complet (Sommeil 1)",
         "Secondary": "Temps pour un cycle complet (Sommeil 2)"
+      },
+      "ExtraTasty": {
+        "Rate": "Avg. Extra Tasty Rate (%)",
+        "Multiplier": "Avg. Strength Multiplier"
       }
     },
     "Info": {

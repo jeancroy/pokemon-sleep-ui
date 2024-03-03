@@ -2,6 +2,7 @@ export const teamMemberStatsType = [
   'total',
   'berry',
   'ingredient',
+  'cooking',
   'skill',
   'frequency',
   'energy',

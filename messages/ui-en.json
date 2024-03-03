@@ -88,6 +88,7 @@
           "Total": "Total",
           "Berry": "Berry",
           "Ingredient": "Ingredient",
+          "Cooking": "Cooking",
           "Skill": "Skill",
           "Frequency": "Frequency",
           "Energy": "Energy",
@@ -583,6 +584,10 @@
       "TimeToFullPack": {
         "Primary": "Time to Full Pack (Sleep 1)",
         "Secondary": "Time to Full Pack (Sleep 2)"
+      },
+      "ExtraTasty": {
+        "Rate": "Avg. Extra Tasty Rate (%)",
+        "Multiplier": "Avg. Strength Multiplier"
       }
     },
     "Info": {

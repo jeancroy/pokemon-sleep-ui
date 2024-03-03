@@ -88,6 +88,7 @@
           "Total": "總計",
           "Berry": "樹果",
           "Ingredient": "食材",
+          "Cooking": "料理",
           "Skill": "技能",
           "Frequency": "幫忙速度",
           "Energy": "活力",
@@ -583,6 +584,10 @@
       "TimeToFullPack": {
         "Primary": "滿包所需時長 (一睡)",
         "Secondary": "滿包所需時長 (二睡)"
+      },
+      "ExtraTasty": {
+        "Rate": "平均大成功機率 (%)",
+        "Multiplier": "平均能量倍率"
       }
     },
     "Info": {

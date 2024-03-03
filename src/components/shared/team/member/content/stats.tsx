@@ -5,6 +5,8 @@ import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
 import {EnergyIcon} from '@/components/shared/icon/energy';
+import {ExtraTastyIcon} from '@/components/shared/icon/extraTasty';
+import {StrengthIcon} from '@/components/shared/icon/strength';
 import {PokemonFrequencyFromProduction} from '@/components/shared/pokemon/frequency/fromRate';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
 import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimit/main';
@@ -22,6 +24,7 @@ import {specialtyIdMap} from '@/const/game/pokemon';
 import {useCommonServerData} from '@/contexts/data/common/hook';
 import {TeamMemberStatsType} from '@/types/game/team/statsType';
 import {toProductionOfState} from '@/utils/game/producing/convert';
+import {formatFloat, formatFloat4} from '@/utils/number/format/regular';
 
 
 type Props = TeamMemberProps & {
@@ -46,6 +49,7 @@ export const TeamMemberStats = ({
   } = production;
   const {
     calculatedUserConfig,
+    extraTastyInfo,
   } = metadata;
   const {
     intermediate,
@@ -60,8 +64,8 @@ export const TeamMemberStats = ({
 
   const {berryDataMap} = useCommonServerData();
 
-  const t = useTranslations('UI.Common');
-  const t2 = useTranslations('UI.Pokemon.Stats');
+  const t = useTranslations('UI.Pokemon.Stats');
+  const t2 = useTranslations('UI.Common');
 
   const berryData = berryDataMap[berry.id];
   const ingredientRates = Object.values(ingredient);
@@ -73,7 +77,7 @@ export const TeamMemberStats = ({
   if (type === 'energy') {
     return (
       <Flex direction="row" center className="gap-1.5">
-        <EnergyIcon alt={t('Stamina')} dimension="size-7"/>
+        <EnergyIcon alt={t2('Stamina')} dimension="size-7"/>
         <StaminaEfficiencyUI efficiency={calculatedUserConfig.bonus.stamina} mini/>
       </Flex>
     );
@@ -102,7 +106,7 @@ export const TeamMemberStats = ({
   if (type === 'ingredient') {
     return (
       <Flex center className={clsx(specialty === specialtyIdMap.ingredient && 'text-energy')}>
-        <PokemonIngredientProbability alt={t2('Ingredient.Rate')} probabilityRate={produceSplit.ingredient}/>
+        <PokemonIngredientProbability alt={t('Ingredient.Rate')} probabilityRate={produceSplit.ingredient}/>
         {ingredientRates.map((rate) => (
           <PokemonIngredientProduction
             key={rate.id}
@@ -110,6 +114,19 @@ export const TeamMemberStats = ({
             rate={toProductionOfState({rate, state: stateOfRate})}
           />
         ))}
+      </Flex>
+    );
+  }
+
+  if (type === 'cooking') {
+    const {rate, multiplier} = extraTastyInfo.overall;
+
+    return (
+      <Flex direction="row" center className="items-center gap-0.5 text-sm">
+        <ExtraTastyIcon alt={t('ExtraTasty.Rate')} dimension="size-4"/>
+        <span>{formatFloat(rate * 100)}%</span>
+        <StrengthIcon alt={t2('Stamina')} dimension="size-4" className="scale-110"/>
+        <span>{formatFloat4(multiplier)}x</span>
       </Flex>
     );
   }

@@ -64,7 +64,7 @@
         "DailyBreakdown": "Production Breakdown",
         "EnergyCurve": "Energy Curve",
         "AtEnergy": "Production at Energy Level",
-        "Cooking": "Cooking"
+        "Cooking": "요리"
       },
       "Cooking": {
         "IngredientMultiplier": "Ingredient Multiplier"
@@ -88,6 +88,7 @@
           "Total": "Total",
           "Berry": "Berry",
           "Ingredient": "Ingredient",
+          "Cooking": "요리",
           "Skill": "Skill",
           "Frequency": "Frequency",
           "Energy": "Energy",
@@ -583,6 +584,10 @@
       "TimeToFullPack": {
         "Primary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 1)",
         "Secondary": "주머니가 꽉 찰 때 까지 필요한 시간 (수면 2)"
+      },
+      "ExtraTasty": {
+        "Rate": "Avg. Extra Tasty Rate (%)",
+        "Multiplier": "Avg. Strength Multiplier"
       }
     },
     "Info": {

@@ -88,6 +88,7 @@
           "Total": "総合",
           "Berry": "きのみ",
           "Ingredient": "食材",
+          "Cooking": "料理",
           "Skill": "スキル",
           "Frequency": "おてつだい時間",
           "Energy": "げんき",
@@ -583,6 +584,10 @@
       "TimeToFullPack": {
         "Primary": "所持上限に達するまでの時間 (寝 1)",
         "Secondary": "所持上限に達するまでの時間 (寝 2)"
+      },
+      "ExtraTasty": {
+        "Rate": "Avg. Extra Tasty Rate (%)",
+        "Multiplier": "Avg. Strength Multiplier"
       }
     },
     "Info": {

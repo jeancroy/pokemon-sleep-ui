@@ -46,6 +46,8 @@ export const TeamMemberDetails = (props: TeamMemberProps) => {
       <HorizontalSplitter/>
       <TeamMemberStats type="ingredient" {...props}/>
       <HorizontalSplitter/>
+      <TeamMemberStats type="cooking" {...props}/>
+      <HorizontalSplitter/>
       <TeamMemberStats type="skill" {...props}/>
     </Flex>
   );
