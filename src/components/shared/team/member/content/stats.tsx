@@ -6,6 +6,7 @@ import {useTranslations} from 'next-intl';
 import {Flex} from '@/components/layout/flex/common';
 import {EnergyIcon} from '@/components/shared/icon/energy';
 import {PokemonFrequencyFromProduction} from '@/components/shared/pokemon/frequency/fromRate';
+import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
 import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimit/main';
 import {PokemonTimeToFullPack} from '@/components/shared/pokemon/inventory/fullPack/main';
 import {PokemonBerryProduction} from '@/components/shared/pokemon/production/berry';
@@ -120,6 +121,7 @@ export const TeamMemberStats = ({
           id={skill}
           rate={toProductionOfState({rate: rate.skill, state: stateOfRate})}
         />
+        <PokemonFrequency frequency={rate.skill.frequency[stateOfRate]} noDailyCount/>
         <PokemonIndirectSkillProductionUI rate={skillIndirect}/>
         <PokemonNoSkillProbability noSkillTriggerPercent={rate.noSkillTriggerPercent} sleepSession="primary"/>
         <PokemonNoSkillProbability noSkillTriggerPercent={rate.noSkillTriggerPercent} sleepSession="secondary"/>
