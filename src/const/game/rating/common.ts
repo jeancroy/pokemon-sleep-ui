@@ -48,4 +48,4 @@ export const defaultRatingBasisOfSpecialty: {[specialty in SpecialtyType]: Ratin
   skill: 'mainSkillTriggerCount',
 };
 
-export const defaultMaxRatingLevel: PokemonKeyLevel = 60;
+export const defaultMaxRatingLevel: PokemonKeyLevel = 'max';
