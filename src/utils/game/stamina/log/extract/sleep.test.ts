@@ -1,12 +1,12 @@
 import {describe, expect, it} from '@jest/globals';
 
 import {efficiencyBeforeBreakPoint} from '@/const/game/efficiency';
-import {extractIntervalsDuringSleep} from '@/utils/game/stamina/interval';
+import {extractEfficiencyIntervalsDuringSleep} from '@/utils/game/stamina/log/extract/sleep';
 
 
-describe('Stamina / Extract Interval', () => {
+describe('Stamina (Extract Intervals) / Sleep', () => {
   it('extracts intervals with primary session only', () => {
-    const intervals = extractIntervalsDuringSleep({
+    const intervals = extractEfficiencyIntervalsDuringSleep({
       hasSecondary: false,
       logs: [
         {
@@ -71,7 +71,7 @@ describe('Stamina / Extract Interval', () => {
   });
 
   it('extracts intervals with dual sessions', () => {
-    const intervals = extractIntervalsDuringSleep({
+    const intervals = extractEfficiencyIntervalsDuringSleep({
       hasSecondary: true,
       logs: [
         {

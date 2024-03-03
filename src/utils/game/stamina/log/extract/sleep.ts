@@ -4,15 +4,15 @@ import {StaminaEventLog} from '@/types/game/stamina/event';
 import {getEfficiency} from '@/utils/game/stamina/efficiency';
 
 
-type ExtractIntervalsDuringSleepOpts = {
+type ExtractEfficiencyIntervalsDuringSleepOpts = {
   logs: StaminaEventLog[],
   hasSecondary: boolean,
 };
 
-export const extractIntervalsDuringSleep = ({
+export const extractEfficiencyIntervalsDuringSleep = ({
   logs,
   hasSecondary,
-}: ExtractIntervalsDuringSleepOpts): SleepSessionData<EfficiencyInterval[]> => {
+}: ExtractEfficiencyIntervalsDuringSleepOpts): SleepSessionData<EfficiencyInterval[]> => {
   const ret: SleepSessionData<EfficiencyInterval[]> = {
     primary: [],
     secondary: hasSecondary ? [] : null,
