@@ -90,14 +90,14 @@
           "Override": "Override"
         },
         "StatsType": {
-          "Total": "Total",
-          "Berry": "Berry",
-          "Ingredient": "Ingredient",
+          "Total": "전체",
+          "Berry": "나무열매",
+          "Ingredient": "식재료",
           "Cooking": "요리",
-          "Skill": "Skill",
-          "Frequency": "Frequency",
-          "Energy": "Energy",
-          "Inventory": "Inventory"
+          "Skill": "스킬",
+          "Frequency": "도우미 시간",
+          "Energy": "에너지",
+          "Inventory": "인벤토리"
         }
       },
       "Member": {
@@ -681,7 +681,7 @@
       },
       "MainSkillTriggerCount": {
         "Name": "예상되는 스킬 횟수",
-        "Explainer": "하루에 스킬 발동 횟수를 예측합니다. 이는 가방 한도에 영향을 받습니다."
+        "Explainer": "하루 스킬 발동 횟수를 예측합니다. 이는 가방 한도에 영향을 받습니다."
       }
     },
     "WeightedStatsBasis": {
