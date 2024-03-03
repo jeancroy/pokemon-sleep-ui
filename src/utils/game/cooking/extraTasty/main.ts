@@ -3,10 +3,10 @@ import {ExtraTastyInfo, ExtraTastyInfoUnit} from '@/types/game/cooking/extraTast
 import {getExtraTastyLookupOfNextMeal} from '@/utils/game/cooking/extraTasty/lookup/main';
 import {getExtraTastyRateOfMeal} from '@/utils/game/cooking/extraTasty/single';
 import {
-  getExtraTastySkillBoostPercentByMeal,
-  GetExtraTastySkillBoostPercentByMealOpts,
-} from '@/utils/game/cooking/extraTasty/skillBoosts';
-import {ExtraTastyBranch, ExtraTastyLookup} from '@/utils/game/cooking/extraTasty/type';
+  ExtraTastyBranch,
+  ExtraTastyLookup,
+  ExtraTastySkillBoostPercentByMeal,
+} from '@/utils/game/cooking/extraTasty/type';
 import {
   getCurrentExtraTastySkillBoostPercent,
   getExtraTastyAvgMultiplier,
@@ -15,7 +15,11 @@ import {
 import {getAverage} from '@/utils/number/average';
 
 
-export const getExtraTastyInfo = (opts: GetExtraTastySkillBoostPercentByMealOpts): ExtraTastyInfo => {
+type GetExtraTastyInfoOpts = {
+  skillBoostPercentByMeal: ExtraTastySkillBoostPercentByMeal,
+};
+
+export const getExtraTastyInfo = ({skillBoostPercentByMeal}: GetExtraTastyInfoOpts): ExtraTastyInfo => {
   const byMeal: ExtraTastyInfoUnit[] = [];
 
   // Week start, no extra tasty skill stacked
@@ -26,14 +30,13 @@ export const getExtraTastyInfo = (opts: GetExtraTastySkillBoostPercentByMealOpts
   let lookup: ExtraTastyLookup = new Map([
     [origin.extraTastyPercentFromSkill, origin],
   ]);
-  const percentBoostByMeal = getExtraTastySkillBoostPercentByMeal(opts);
 
   // 21 meals throughout the week
   for (let mealIdx = 0; mealIdx < 21; mealIdx++) {
     const extraTastyTiming = getExtraTastyTiming(mealIdx);
 
     const extraTastySkillBoostPercent = getCurrentExtraTastySkillBoostPercent({
-      percentBoostByMeal,
+      skillBoostPercentByMeal,
       mealIdx,
     });
 

@@ -1,4 +1,5 @@
 import {CookingMeal, cookingMeals} from '@/types/userData/config/cooking/meal';
+import {toSum} from '@/utils/array';
 import {ExtraTastySkillBoostPercentByMeal} from '@/utils/game/cooking/extraTasty/type';
 
 
@@ -15,5 +16,14 @@ export const getExtraTastySkillBoostPercentByMeal = ({
   return Object.fromEntries(cookingMeals.map((cookingMeal) => [
     cookingMeal,
     triggersPerMeal[cookingMeal] * percentBoostPerSkill,
+  ])) as ExtraTastySkillBoostPercentByMeal;
+};
+
+export const getMergedExtraTastySkillBoostPercentByMeal = (
+  skillBoosts: ExtraTastySkillBoostPercentByMeal[],
+): ExtraTastySkillBoostPercentByMeal => {
+  return Object.fromEntries(cookingMeals.map((cookingMeal) => [
+    cookingMeal,
+    toSum(skillBoosts.map((boosts) => boosts[cookingMeal])),
   ])) as ExtraTastySkillBoostPercentByMeal;
 };

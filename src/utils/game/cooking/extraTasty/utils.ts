@@ -19,13 +19,13 @@ export const getExtraTastyAvgMultiplier = ({
 };
 
 type GetCurrentExtraTastySkillBoostPercentOpts = {
-  percentBoostByMeal: ExtraTastySkillBoostPercentByMeal,
+  skillBoostPercentByMeal: ExtraTastySkillBoostPercentByMeal,
   mealIdx: number,
 };
 
 export const getCurrentExtraTastySkillBoostPercent = ({
-  percentBoostByMeal,
+  skillBoostPercentByMeal,
   mealIdx,
 }: GetCurrentExtraTastySkillBoostPercentOpts): number => {
-  return percentBoostByMeal[cookingMeals[mealIdx % cookingMeals.length]];
+  return skillBoostPercentByMeal[cookingMeals[mealIdx % cookingMeals.length]];
 };

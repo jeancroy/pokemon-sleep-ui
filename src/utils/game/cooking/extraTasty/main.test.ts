@@ -6,12 +6,11 @@ import {getExtraTastyInfo} from '@/utils/game/cooking/extraTasty/main';
 describe('Pokemon Production (Cooking) / Extra Tasty Info', () => {
   it('is correct for even split of skill trigger', () => {
     const {overall} = getExtraTastyInfo({
-      triggersPerMeal: {
-        breakfast: 1,
-        lunch: 1,
-        dinner: 1,
+      skillBoostPercentByMeal: {
+        breakfast: 10,
+        lunch: 10,
+        dinner: 10,
       },
-      percentBoostPerSkill: 10,
     });
 
     expect(overall.rate).toBeCloseTo(0.3413);
@@ -21,12 +20,11 @@ describe('Pokemon Production (Cooking) / Extra Tasty Info', () => {
   // Check #863 for details
   it('is correct using some realistic data', () => {
     const {overall} = getExtraTastyInfo({
-      triggersPerMeal: {
-        breakfast: 1,
-        lunch: 0.7,
-        dinner: 0.3,
+      skillBoostPercentByMeal: {
+        breakfast: 10,
+        lunch: 7,
+        dinner: 3,
       },
-      percentBoostPerSkill: 10,
     });
 
     expect(overall.rate).toBeCloseTo(0.2948);

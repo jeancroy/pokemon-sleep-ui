@@ -7,7 +7,10 @@ import {NumberInputRequired} from '@/components/shared/input/number/required/mai
 import {mealOfDayIcon} from '@/const/game/cooking';
 import {cookingMeals} from '@/types/userData/config/cooking/meal';
 import {getExtraTastyInfo} from '@/utils/game/cooking/extraTasty/main';
-import {GetExtraTastySkillBoostPercentByMealOpts} from '@/utils/game/cooking/extraTasty/skillBoosts';
+import {
+  getExtraTastySkillBoostPercentByMeal,
+  GetExtraTastySkillBoostPercentByMealOpts,
+} from '@/utils/game/cooking/extraTasty/skillBoosts';
 import {formatFloat} from '@/utils/number/format/regular';
 import {cloneMerge} from '@/utils/object/cloneMerge';
 
@@ -24,7 +27,9 @@ export const SandboxClient = () => {
 
   const {triggersPerMeal, percentBoostPerSkill} = state;
 
-  const extraTastyInfo = getExtraTastyInfo(state);
+  const extraTastyInfo = getExtraTastyInfo({
+    skillBoostPercentByMeal: getExtraTastySkillBoostPercentByMeal(state),
+  });
 
   return (
     <Flex className="gap-2 md:flex-row">
