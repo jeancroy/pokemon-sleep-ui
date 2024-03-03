@@ -2,6 +2,7 @@ import {describe, expect, it} from '@jest/globals';
 
 import {StaminaEventLog} from '@/types/game/stamina/event';
 import {getStaminaEventLogsFlattened} from '@/utils/game/stamina/flatten';
+import {generateRangeOfNumber} from '@/utils/number/range';
 
 
 describe('Stamina / Event Log Flattening', () => {
@@ -135,7 +136,7 @@ describe('Stamina / Event Log Flattening', () => {
   it('is sorted by timing', () => {
     const logs = getStaminaEventLogsFlattened(originalLogs);
 
-    const timingDiff = [...new Array(logs.length - 1).keys()]
+    const timingDiff = generateRangeOfNumber({max: logs.length - 1})
       .map((idx) => logs[idx + 1].timing - logs[idx].timing);
 
     expect(timingDiff.some((diff) => diff < 0)).toBeFalsy();

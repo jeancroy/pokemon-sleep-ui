@@ -1,3 +1,6 @@
+import {generateRangeOfNumber} from '@/utils/number/range';
+
+
 type ToBucketedOpts<TData> = {
   data: TData[],
   getBasis: (data: TData) => number,
@@ -31,7 +34,7 @@ export const toBucketed = <TData>({
 
   const divisor = Math.abs(basisMax - basisMin) / count;
 
-  const ret: TData[][] = [...new Array(count)].map(() => []);
+  const ret: TData[][] = generateRangeOfNumber({max: count}).map(() => []);
   for (const {basis, dataIdx} of basisList) {
     const bucketIdx = Math.max(
       Math.min(

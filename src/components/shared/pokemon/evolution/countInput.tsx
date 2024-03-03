@@ -6,6 +6,7 @@ import {FilterExpandedInput} from '@/components/input/filter/expanded/main';
 import {Flex} from '@/components/layout/flex/common';
 import {GenericIconLarger} from '@/components/shared/icon/common/larger';
 import {textFilterButtonStyle} from '@/styles/input';
+import {generateRangeOfNumber} from '@/utils/number/range';
 
 
 type Props = {
@@ -37,7 +38,7 @@ export const PokemonEvolutionCountInput = ({
           {id}
         </span>
       )}
-      ids={[...new Array(maxEvolutionCount).keys()]}
+      ids={generateRangeOfNumber({max: maxEvolutionCount})}
       onClick={setEvolutionCount}
       isActive={(id) => evolutionCount === id}
       className={textFilterButtonStyle}
