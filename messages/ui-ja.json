@@ -69,9 +69,9 @@
       "Cooking": {
         "IngredientMultiplier": "食材の実質ボーナス倍率",
         "ExtraTasty": {
-          "Name": "Extra Tasty",
-          "Average": "Average",
-          "ByMeal": "By Meal"
+          "Name": "料理大成功",
+          "Average": "平均",
+          "ByMeal": "レシピ"
         }
       }
     },
@@ -591,8 +591,8 @@
         "Secondary": "所持上限に達するまでの時間 (寝 2)"
       },
       "ExtraTasty": {
-        "Rate": "Avg. Extra Tasty Rate (%)",
-        "Multiplier": "Avg. Strength Multiplier"
+        "Rate": "平均大成功率 (%)",
+        "Multiplier": "エナジーの平均実質倍率"
       }
     },
     "Info": {
@@ -624,8 +624,8 @@
       "NatureEffect": "せいかく効果"
     },
     "MainSkillLevel": {
-      "Base": "Base",
-      "Max": "Max"
+      "Base": "基礎レベル",
+      "Max": "最大レベル"
     }
   },
   "Producing": {
