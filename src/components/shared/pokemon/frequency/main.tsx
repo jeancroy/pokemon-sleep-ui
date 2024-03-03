@@ -14,14 +14,14 @@ type Props = PokemonFrequencyProps & {
   frequency: number,
 };
 
-export const PokemonFrequency = ({frequency, noIcon, normalText}: Props) => {
+export const PokemonFrequency = ({frequency, noIcon, noDailyCount, normalText}: Props) => {
   const dailyCount = durationOfDay / frequency;
 
   return (
     <Flex direction="row" center noFullWidth className={clsx('gap-0.5', !normalText && 'text-sm')}>
       {!noIcon && <ClockIcon className={normalText ? 'size-5' : 'size-4'}/>}
       <div>{formatSeconds({seconds: frequency})}</div>
-      <div>({formatFloat(dailyCount)}x)</div>
+      {!noDailyCount && <div>({formatFloat(dailyCount)}x)</div>}
     </Flex>
   );
 };
