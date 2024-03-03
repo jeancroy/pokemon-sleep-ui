@@ -4,9 +4,8 @@ import {clsx} from 'clsx';
 import {useTranslations} from 'next-intl';
 
 import {Flex} from '@/components/layout/flex/common';
+import {ExtraTastyInfoUnitUI} from '@/components/shared/cooking/extraTasty/infoUnit/main';
 import {EnergyIcon} from '@/components/shared/icon/energy';
-import {ExtraTastyIcon} from '@/components/shared/icon/extraTasty';
-import {StrengthIcon} from '@/components/shared/icon/strength';
 import {PokemonFrequencyFromProduction} from '@/components/shared/pokemon/frequency/fromRate';
 import {PokemonFrequency} from '@/components/shared/pokemon/frequency/main';
 import {PokemonCarryLimit} from '@/components/shared/pokemon/inventory/carryLimit/main';
@@ -24,7 +23,6 @@ import {specialtyIdMap} from '@/const/game/pokemon';
 import {useCommonServerData} from '@/contexts/data/common/hook';
 import {TeamMemberStatsType} from '@/types/game/team/statsType';
 import {toProductionOfState} from '@/utils/game/producing/convert';
-import {formatFloat, formatFloat4} from '@/utils/number/format/regular';
 
 
 type Props = TeamMemberProps & {
@@ -119,16 +117,7 @@ export const TeamMemberStats = ({
   }
 
   if (type === 'cooking') {
-    const {rate, multiplier} = extraTastyInfo.overall;
-
-    return (
-      <Flex direction="row" center className="items-center gap-0.5 text-sm">
-        <ExtraTastyIcon alt={t('ExtraTasty.Rate')} dimension="size-4"/>
-        <span>{formatFloat(rate * 100)}%</span>
-        <StrengthIcon alt={t2('Stamina')} dimension="size-4" className="scale-110"/>
-        <span>{formatFloat4(multiplier)}x</span>
-      </Flex>
-    );
+    return <ExtraTastyInfoUnitUI unit={extraTastyInfo.overall} size="small"/>;
   }
 
   if (type === 'skill') {
