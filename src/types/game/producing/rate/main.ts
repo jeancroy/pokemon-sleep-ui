@@ -63,7 +63,7 @@ export type GroupedProductionByType = {
   skill: GroupedProduction<MainSkillId>,
 };
 
-export type PokemonProductionFinal<TPayload> = {
+export type PokemonProductionFinalCollection<TPayload> = {
   rates: PokemonProductionWithPayload<TPayload>[],
   grouped: GroupedProductionByType,
 };

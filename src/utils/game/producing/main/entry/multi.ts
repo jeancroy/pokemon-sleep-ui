@@ -38,7 +38,7 @@ export const getPokemonProductionMulti = <TPayload>({
   sharedOpts,
   groupingState,
   calculatedCookingConfig,
-}: GetPokemonProductionMultiOpts<TPayload>): PokemonProductionFinal<TPayload> => {
+}: GetPokemonProductionMultiOpts<TPayload>): PokemonProductionFinalCollection<TPayload> => {
   let {
     period,
     calcBehavior,
