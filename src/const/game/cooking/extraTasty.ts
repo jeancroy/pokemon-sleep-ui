@@ -1,4 +1,5 @@
-import {ExtraTastyTiming} from '@/types/game/cooking/extraTasty';
+import {ExtraTastyInfo, ExtraTastyTiming} from '@/types/game/cooking/extraTasty';
+import {generateDefaultExtraTastyInfo} from '@/utils/game/cooking/extraTasty/default';
 
 // Intentionally keeping this as integer for easier calculation regarding extra tasty rate
 export const extraTastyBasePercent: {
@@ -16,3 +17,5 @@ export const extraTastyMultiplier: {
 };
 
 export const extraTastySkillPercentMax = 70;
+
+export const defaultExtraTastyInfo: ExtraTastyInfo = generateDefaultExtraTastyInfo();
