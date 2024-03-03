@@ -1,4 +1,4 @@
-import {extraTastyMultiplier} from '@/const/game/cooking/extraTasty';
+import {extraTastyMultiplier, extraTastySkillPercentMax} from '@/const/game/cooking/extraTasty';
 import {ExtraTastyTiming} from '@/types/game/cooking/extraTasty';
 import {cookingMeals} from '@/types/userData/config/cooking/meal';
 import {ExtraTastySkillBoostPercentByMeal} from '@/utils/game/cooking/extraTasty/type';
@@ -27,5 +27,8 @@ export const getCurrentExtraTastySkillBoostPercent = ({
   skillBoostPercentByMeal,
   mealIdx,
 }: GetCurrentExtraTastySkillBoostPercentOpts): number => {
-  return skillBoostPercentByMeal[cookingMeals[mealIdx % cookingMeals.length]];
+  return Math.min(
+    skillBoostPercentByMeal[cookingMeals[mealIdx % cookingMeals.length]],
+    extraTastySkillPercentMax,
+  );
 };
