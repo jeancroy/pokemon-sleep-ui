@@ -1006,7 +1006,7 @@
     "useBiscuit": "Donnez {num} biscuits",
     "useCandy": "Utilisez {num} bonbons",
     "useIncense": "Utilisez {num} Encens",
-    "rank": "Faites monter Ronflexau rang",
+    "rank": "Faites monter Ronflexau rang <SnorlaxRank></SnorlaxRank>",
     "cook": "Cuisinez {num} fois",
     "berry": "Donner {num} Baies à Ronflex",
     "berryFavorite": "Donnez à Ronflex {num} deses Baies préférées",
