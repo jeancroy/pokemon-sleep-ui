@@ -6,6 +6,7 @@ import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getSnorlaxData} from '@/controller/snorlax';
 import {getUserTeamAnalysisContent} from '@/controller/user/teamAnalysis/merged';
+import {detailedProductionI18nNamespaces} from '@/i18n/namespaces';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {TeamAnalysisClient} from '@/ui/team/analysis/client';
@@ -39,17 +40,13 @@ export const TeamAnalysis = async ({params}: DefaultPageProps) => {
         'UI.Component.Collapsible',
         'UI.Component.MealCoverageCombo',
         'UI.Component.PokemonFilter',
-        'UI.Component.PokemonDetailedProduction',
         'UI.Component.Team',
         'UI.InPage.Cooking',
         'UI.Metadata',
         'UI.MainSkill.EffectType',
-        'UI.Pokemon',
-        'UI.Producing',
-        'UI.Stamina',
         'UI.Rating',
         'UI.UserConfig',
-        'UI.WeekOfDay',
+        ...detailedProductionI18nNamespaces,
       ]}>
         <TeamAnalysisClient {...props}/>
       </I18nProvider>

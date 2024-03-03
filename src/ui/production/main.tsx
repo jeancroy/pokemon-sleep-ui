@@ -5,6 +5,7 @@ import {getServerSession} from 'next-auth';
 import {I18nProvider} from '@/components/i18n/provider';
 import {authOptions} from '@/const/auth';
 import {getUserProductionComparisonContent} from '@/controller/user/productionComparison/main';
+import {detailedProductionI18nNamespaces} from '@/i18n/namespaces';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PublicPageLayout} from '@/ui/base/layout/public';
 import {ProductionComparisonClient} from '@/ui/production/client/main';
@@ -37,16 +38,12 @@ export const ProductionComparison = async ({params}: DefaultPageProps) => {
         'UI.Component.Collapsible',
         'UI.Component.Team',
         'UI.Component.PokemonFilter',
-        'UI.Component.PokemonDetailedProduction',
         'UI.InPage.Cooking',
         'UI.Metadata',
         'UI.MainSkill.EffectType',
-        'UI.Pokemon',
-        'UI.Producing',
-        'UI.Stamina',
         'UI.Rating',
         'UI.UserConfig',
-        'UI.WeekOfDay',
+        ...detailedProductionI18nNamespaces,
       ]}>
         <ProductionComparisonClient {...props}/>
       </I18nProvider>

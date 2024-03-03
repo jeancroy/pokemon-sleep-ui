@@ -3,6 +3,7 @@ import React from 'react';
 
 import {I18nProvider} from '@/components/i18n/provider';
 import {getSnorlaxData} from '@/controller/snorlax';
+import {detailedProductionI18nNamespaces} from '@/i18n/namespaces';
 import {Locale} from '@/types/next/locale';
 import {DefaultPageProps} from '@/types/next/page/common';
 import {PremiumOnlyPageLayout} from '@/ui/base/layout/premiumOnly/main';
@@ -31,14 +32,10 @@ const TeamMaker = async ({locale}: TeamMakerProps) => {
       'UI.Common',
       'UI.Component.MealCoverageCombo',
       'UI.Component.PokemonFilter',
-      'UI.Component.PokemonDetailedProduction',
       'UI.InPage.Cooking',
       'UI.InPage.Team',
       'UI.Metadata',
-      'UI.Pokemon',
-      'UI.Producing',
-      'UI.Stamina',
-      'UI.WeekOfDay',
+      ...detailedProductionI18nNamespaces,
     ]}>
       <TeamMakerClient {...props}/>
     </I18nProvider>
