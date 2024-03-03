@@ -69,9 +69,9 @@
       "Cooking": {
         "IngredientMultiplier": "Zutaten-Multiplikator",
         "ExtraTasty": {
-          "Name": "Extra Tasty",
-          "Average": "Average",
-          "ByMeal": "By Meal"
+          "Name": "Köstlich",
+          "Average": "Durchschnitt",
+          "ByMeal": "Nach Gericht"
         }
       }
     },
@@ -591,8 +591,8 @@
         "Secondary": "Zeit bis Inventar voll ist (Sleep 2)"
       },
       "ExtraTasty": {
-        "Rate": "Avg. Extra Tasty Rate (%)",
-        "Multiplier": "Avg. Strength Multiplier"
+        "Rate": "Durchsch. Köstlichkeitsrate (%)",
+        "Multiplier": "Durchsch. Stärke-Multiplikator"
       }
     },
     "Info": {
@@ -624,8 +624,8 @@
       "NatureEffect": "Effekt des Wesens"
     },
     "MainSkillLevel": {
-      "Base": "Base",
-      "Max": "Max"
+      "Base": "Basis",
+      "Max": "Maximal"
     }
   },
   "Producing": {
@@ -776,12 +776,12 @@
     "Logout": "Ausloggen"
   },
   "WeekOfDay": {
-    "Monday": "Monday",
-    "Tuesday": "Tuesday",
-    "Wednesday": "Wednesday",
-    "Thursday": "Thursday",
-    "Friday": "Friday",
-    "Saturday": "Saturday",
-    "Sunday": "Sunday"
+    "Monday": "Montag",
+    "Tuesday": "Dienstag",
+    "Wednesday": "Mittwoch",
+    "Thursday": "Donnerstag",
+    "Friday": "Freitag",
+    "Saturday": "Samstag",
+    "Sunday": "Sonntag"
   }
 }

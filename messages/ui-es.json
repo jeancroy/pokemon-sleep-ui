@@ -61,17 +61,17 @@
     },
     "PokemonDetailedProduction": {
       "Tab": {
-        "DailyBreakdown": "Production Breakdown",
-        "EnergyCurve": "Energy Curve",
-        "AtEnergy": "Production at Energy Level",
-        "Cooking": "Cooking"
+        "DailyBreakdown": "Desglose de Producción",
+        "EnergyCurve": "Curva de Energía",
+        "AtEnergy": "Producción según Nivel de Energía",
+        "Cooking": "Cocina"
       },
       "Cooking": {
-        "IngredientMultiplier": "Ingredient Multiplier",
+        "IngredientMultiplier": "Multiplicador de Ingrediente",
         "ExtraTasty": {
-          "Name": "Extra Tasty",
-          "Average": "Average",
-          "ByMeal": "By Meal"
+          "Name": "Riquísimo",
+          "Average": "Promedio",
+          "ByMeal": "Por comida"
         }
       }
     },
@@ -591,8 +591,8 @@
         "Secondary": "Tiempo para Capacidad Completa (Sueño 2)"
       },
       "ExtraTasty": {
-        "Rate": "Avg. Extra Tasty Rate (%)",
-        "Multiplier": "Avg. Strength Multiplier"
+        "Rate": "Promedio Tasa Riquísimo (%)",
+        "Multiplier": "Promedio Multiplicador de Vigor"
       }
     },
     "Info": {
@@ -776,12 +776,12 @@
     "Logout": "Logout"
   },
   "WeekOfDay": {
-    "Monday": "Monday",
-    "Tuesday": "Tuesday",
-    "Wednesday": "Wednesday",
-    "Thursday": "Thursday",
-    "Friday": "Friday",
-    "Saturday": "Saturday",
-    "Sunday": "Sunday"
+    "Monday": "Lunes",
+    "Tuesday": "Martes",
+    "Wednesday": "Miércoles",
+    "Thursday": "Jueves",
+    "Friday": "Viernes",
+    "Saturday": "Sábado",
+    "Sunday": "Domingo"
   }
 }
