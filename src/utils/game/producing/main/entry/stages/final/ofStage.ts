@@ -2,7 +2,7 @@ import {PokemonProduction, PokemonProductionInitial} from '@/types/game/producin
 import {PokemonIndirectSkillEffects} from '@/types/game/producing/rate/skill';
 import {
   getPokemonIndirectSkillProductionFromInitial,
-} from '@/utils/game/producing/main/entry/components/indirectSkill/production';
+} from '@/utils/game/producing/main/entry/parts/indirectSkill/production';
 
 
 type GetPokemonProductionFinalAtStageOpts = {

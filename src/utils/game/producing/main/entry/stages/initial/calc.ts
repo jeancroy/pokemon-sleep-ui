@@ -2,8 +2,8 @@ import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
 import {StaminaSkillTriggerOverride} from '@/types/game/stamina/skill';
 import {
   GetPokemonProductionInitialRateCommonOpts,
-} from '@/utils/game/producing/main/entry/components/rates/initial/type';
-import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/components/rates/type';
+} from '@/utils/game/producing/main/entry/stages/initial/type';
+import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/stages/type';
 import {getPokemonProductionInitial} from '@/utils/game/producing/main/unit/main';
 import {toRecoveryRate} from '@/utils/game/stamina/recovery';
 import {Nullable} from '@/utils/type';

@@ -5,8 +5,8 @@ import {applyExtraTastyInfo} from '@/utils/game/producing/apply/extraTasty';
 import {applyIngredientMultiplier} from '@/utils/game/producing/apply/ingredient';
 import {
   getPokemonProductionExtraTastyInfo,
-} from '@/utils/game/producing/main/entry/components/rates/postMultiplier/extraTasty';
-import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/components/rates/type';
+} from '@/utils/game/producing/main/entry/stages/postMultiplier/extraTasty';
+import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/stages/type';
 
 
 type GetPokemonProductionPostMultiplierOpts<TPayload> = {

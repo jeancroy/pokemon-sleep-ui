@@ -1,6 +1,6 @@
 import {PokemonProductionInitial, PokemonProductionWithPayload} from '@/types/game/producing/rate/main';
-import {getPokemonIndirectSkillEffects} from '@/utils/game/producing/main/entry/components/indirectSkill/effects';
-import {getPokemonProductionFinalOfStage} from '@/utils/game/producing/main/entry/components/rates/final/ofStage';
+import {getPokemonIndirectSkillEffects} from '@/utils/game/producing/main/entry/parts/indirectSkill/effects';
+import {getPokemonProductionFinalOfStage} from '@/utils/game/producing/main/entry/stages/final/ofStage';
 
 
 type GetPokemonProductionFinalOpts<TPayload> = {
@@ -13,6 +13,7 @@ export const getPokemonProductionFinal = <TPayload>({
   targetCount,
 }: GetPokemonProductionFinalOpts<TPayload>): PokemonProductionWithPayload<TPayload>[] => {
   const skillEffects = getPokemonIndirectSkillEffects({
+    // Using `final` or `original` will not cause any difference here
     initialRates: postMultiplierRates.map(({atStage}) => atStage.final),
   });
 

@@ -6,7 +6,7 @@ import {
   getMergedExtraTastySkillBoostPercentByMeal,
 } from '@/utils/game/cooking/extraTasty/skillBoosts';
 import {getHelpCountBetweenMeals} from '@/utils/game/producing/helpCount/betweenMeals/main';
-import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/components/rates/type';
+import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/stages/type';
 
 
 type GetPokemonProductionExtraTastyInfoOpts<TPayload> = {

@@ -2,11 +2,11 @@ import {ProductionCalcBehavior} from '@/types/game/producing/behavior/type';
 import {PokemonProductionInitial} from '@/types/game/producing/rate/main';
 import {
   getPokemonProductionInitialCalculated,
-} from '@/utils/game/producing/main/entry/components/rates/initial/calc';
+} from '@/utils/game/producing/main/entry/stages/initial/calc';
 import {
   GetPokemonProductionInitialRateCommonOpts,
-} from '@/utils/game/producing/main/entry/components/rates/initial/type';
-import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/components/rates/type';
+} from '@/utils/game/producing/main/entry/stages/initial/type';
+import {PokemonProductionInCalcWithPayload} from '@/utils/game/producing/main/entry/stages/type';
 import {getPokemonSkillRecoveryFromProduction} from '@/utils/game/producing/skill/skillRecovery';
 
 

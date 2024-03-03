@@ -6,15 +6,15 @@ import {PokemonProductionFinalCollection} from '@/types/game/producing/rate/main
 import {ProducingStateCalculated} from '@/types/game/producing/state';
 import {CalculatedCookingConfig} from '@/types/userData/config/cooking/main';
 import {groupPokemonProduction} from '@/utils/game/producing/group';
-import {getPokemonProductionHelpingBonusEffect} from '@/utils/game/producing/main/entry/components/helpingBonus';
+import {getPokemonProductionHelpingBonusEffect} from '@/utils/game/producing/main/entry/parts/helpingBonus';
 import {
   getPokemonProductionIngredientMultiplier,
-} from '@/utils/game/producing/main/entry/components/ingredientMultiplier';
-import {getPokemonProductionFinal} from '@/utils/game/producing/main/entry/components/rates/final/main';
-import {getPokemonProductionInitialRates} from '@/utils/game/producing/main/entry/components/rates/initial/main';
+} from '@/utils/game/producing/main/entry/parts/ingredientMultiplier';
+import {getPokemonProductionFinal} from '@/utils/game/producing/main/entry/stages/final/main';
+import {getPokemonProductionInitialRates} from '@/utils/game/producing/main/entry/stages/initial/main';
 import {
   getPokemonProductionPostMultiplier,
-} from '@/utils/game/producing/main/entry/components/rates/postMultiplier/main';
+} from '@/utils/game/producing/main/entry/stages/postMultiplier/main';
 import {
   GetPokemonProductionSharedOpts,
   GetPokemonProductionUnitOptsWithPayload,
