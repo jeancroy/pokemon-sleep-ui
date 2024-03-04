@@ -1,3 +1,4 @@
+import {specialtyIdMap} from '@/const/game/pokemon';
 import {PokemonInfo} from '@/types/game/pokemon';
 import {Production} from '@/types/game/producing/rate/base';
 import {TeamMemberProduction} from '@/types/game/team/production';
@@ -24,7 +25,7 @@ export const getProductionComparisonTargetStats = ({
   target,
   ...opts
 }: GetProductionComparisonTargetStatsOpts): TeamMemberProduction => {
-  const {id, berry, skill} = pokemon;
+  const {id, berry, skill, specialty} = pokemon;
 
   const level = overrideLevel ?? target.level;
 
@@ -32,7 +33,6 @@ export const getProductionComparisonTargetStats = ({
     metadata,
     atStage,
   } = getPokemonProductionSingle({
-    // `opts` has to be the first because `pokemon`, `berryData`, `ingredients` have to be overridden
     ...opts,
     pokemon,
     pokemonProducingParams: getPokemonProducingParams({
@@ -51,6 +51,9 @@ export const getProductionComparisonTargetStats = ({
       subSkillMap,
     }),
     alwaysFullPack: target.alwaysFullPack,
+    calcBehavior: {
+      asSingle: specialty !== specialtyIdMap.skill,
+    },
   });
   const rate = atStage.final;
 
