@@ -8,18 +8,23 @@ import {FlexForm} from '@/components/layout/flex/form';
 import {TeamMemberCloudPullProps} from '@/components/shared/team/memberView/type';
 import {UserActionStatusIcon} from '@/components/shared/userData/statusIcon';
 import {useUserDataActor} from '@/hooks/userData/actor/main';
-import {TeamMemberData} from '@/types/game/team/member';
+import {TeamMemberData, TeamMemberKey} from '@/types/game/team/member';
 import {Nullable} from '@/utils/type';
 
 
-type Props<TMember extends Nullable<TeamMemberData>> = TeamMemberCloudPullProps<TMember> & {
+type Props<
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>
+> = TeamMemberCloudPullProps<TKey, TMember> & {
+  memberKey: TKey,
   onCloudPulled: (member: TMember) => void,
 };
 
-export const TeamMemberCloudPull = <TMember extends Nullable<TeamMemberData>>({
+export const TeamMemberCloudPull = <TKey extends TeamMemberKey, TMember extends Nullable<TeamMemberData>>({
   getTeamMemberFromCloud,
+  memberKey,
   onCloudPulled,
-}: Props<TMember>) => {
+}: Props<TKey, TMember>) => {
   const [identifier, setIdentifier] = React.useState('');
   const {actAsync, status} = useUserDataActor();
 
@@ -38,7 +43,7 @@ export const TeamMemberCloudPull = <TMember extends Nullable<TeamMemberData>>({
       </Flex>
       <Flex className="items-end">
         <button type="submit" className="button-clickable-bg size-9 p-1" onClick={async () => {
-          const member = await getTeamMemberFromCloud(identifier);
+          const member = await getTeamMemberFromCloud(identifier, memberKey);
           if (!member) {
             return;
           }

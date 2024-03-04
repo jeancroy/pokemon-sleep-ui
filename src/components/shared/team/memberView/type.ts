@@ -56,6 +56,9 @@ export type TeamMemberEmptySlotProps<
 
 export type TeamMemberEmptySlotPopupType = 'vanilla' | 'pokebox' | 'cloudPull';
 
-export type TeamMemberCloudPullProps<TMember extends Nullable<TeamMemberData>> = {
-  getTeamMemberFromCloud: (identifier: string) => Promise<Nullable<TMember>>,
+export type TeamMemberCloudPullProps<
+  TKey extends TeamMemberKey,
+  TMember extends Nullable<TeamMemberData>
+> = {
+  getTeamMemberFromCloud: (identifierOnCloud: string, memberKey: TKey) => Promise<Nullable<TMember>>,
 };

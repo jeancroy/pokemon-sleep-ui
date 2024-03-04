@@ -19,7 +19,10 @@ const getCollection = async (): Promise<Collection<ProductionComparisonPresetDat
 export const getProductionComparisonTargetById = async (
   targetUuid: string,
 ): Promise<ProductionComparisonTarget | null> => {
-  const preset = await getSingleData(getCollection(), {'members.uuid': targetUuid});
+  const preset = await getSingleData(
+    getCollection(),
+    {[`members.${targetUuid}`]: {$exists: true}},
+  );
 
   if (!preset || preset.version !== productionComparisonPresetMigrators.length) {
     return null;

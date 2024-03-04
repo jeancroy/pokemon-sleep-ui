@@ -3,7 +3,11 @@ import React from 'react';
 import {Grid} from '@/components/layout/grid';
 import {TeamMemberEmptySlot} from '@/components/shared/team/memberView/empty';
 import {TeamMemberFilledSlot} from '@/components/shared/team/memberView/filled';
-import {TeamMemberEmptySlotProps, TeamMemberFilledProps} from '@/components/shared/team/memberView/type';
+import {
+  TeamMemberCloudPullProps,
+  TeamMemberEmptySlotProps,
+  TeamMemberFilledProps,
+} from '@/components/shared/team/memberView/type';
 import {useCommonServerData} from '@/contexts/data/common/hook';
 import {UseUserDataActorReturn} from '@/hooks/userData/actor/type';
 import {TeamSetupConfig} from '@/types/game/team/config';
@@ -23,13 +27,13 @@ type Props<
   TTeam extends TeamData<TKey, TMember>,
   TSetup extends TeamSetup<TKey, TMember, TConfig, TTeam>,
 > =
+  TeamMemberCloudPullProps<TKey, TMember> &
   TeamMemberEmptySlotProps<TKey, TMember> &
   TeamMemberFilledProps<TKey, TMember, TConfig, TTeam, TSetup> & {
     memberKeys: TKey[],
     actorReturn: UseUserDataActorReturn,
     // Returning `null` means to show an empty slot while `undefined` means just hide it
     getMemberProduction: (memberKey: TKey) => Nullable<TeamMemberProduction>,
-    getTeamMemberFromCloud: (identifier: string) => Promise<Nullable<TMember>>,
     getMemberIdForShare: (currentTeam: TTeam, memberKey: TKey) => string,
     generateKeyForEmptySlot?: () => TKey,
     productionSorter?: TeamMemberProductionSorter,

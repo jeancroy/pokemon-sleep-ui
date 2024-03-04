@@ -25,7 +25,7 @@ import {Nullable} from '@/utils/type';
 type Props<
   TKey extends TeamMemberKey,
   TMember extends Nullable<TeamMemberData>
-> = TeamMemberCloudPullProps<TMember> & TeamMemberEmptySlotProps<TKey, TMember> & {
+> = TeamMemberCloudPullProps<TKey, TMember> & TeamMemberEmptySlotProps<TKey, TMember> & {
   pokemonList: PokemonInfo[],
   memberKey: TKey,
   sessionStatus: SessionStatus,
@@ -65,6 +65,7 @@ export const TeamMemberEmptySlot = <TKey extends TeamMemberKey, TMember extends 
         setShow={(show) => setPopup(show ? 'cloudPull' : null)}
       >
         <TeamMemberCloudPull
+          memberKey={memberKey}
           onCloudPulled={(member) => {
             setCurrentMember({key: memberKey, member});
             setPopup(null);

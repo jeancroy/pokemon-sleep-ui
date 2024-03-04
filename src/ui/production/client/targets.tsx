@@ -85,7 +85,7 @@ export const ProductionComparisonTargets = ({
         ...toTeamMemberFromPokeInBox(pokeInBox),
         uuid: memberKey,
       })}
-      getTeamMemberFromCloud={async (targetUuid) => {
+      getTeamMemberFromCloud={async (targetUuid, uuid) => {
         if (!actAsync) {
           return null;
         }
@@ -101,9 +101,14 @@ export const ProductionComparisonTargets = ({
           ),
         });
 
-        return updated?.user.lazyLoaded.productionComparisonTarget ?? null;
+        const target = updated?.user.lazyLoaded.productionComparisonTarget;
+        if (!target) {
+          return null;
+        }
+
+        return {...target, uuid};
       }}
-      getMemberIdForShare={({uuid}) => uuid}
+      getMemberIdForShare={(_, memberKey) => memberKey}
       generateKeyForEmptySlot={v4}
       productionSorter={currentTeam.sort === null ? undefined : sortTeamMemberProduction(currentTeam.sort)}
       {...props}
