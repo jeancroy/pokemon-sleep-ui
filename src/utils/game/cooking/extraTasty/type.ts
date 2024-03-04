@@ -6,6 +6,10 @@ export type ExtraTastyBranch = {
   probability: number,
 };
 
-export type ExtraTastyLookup = Map<ExtraTastyBranch['extraTastyPercentFromSkill'], ExtraTastyBranch>;
+export type ExtraTastyLookup = Map<number, ExtraTastyBranch>;
+
+export type ExtraTastyLookupOptions = {
+  lookupStepSize: number,
+};
 
 export type ExtraTastySkillBoostPercentByMeal = {[meal in CookingMeal]: number};

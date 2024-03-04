@@ -10,7 +10,12 @@ export type ExtraTastyInfoUnit = {
   multiplier: number,
 };
 
+export type ExtraTastyByMealAlgorithmInfo = {
+  sizeOfState: number,
+};
+
 export type ExtraTastyInfo = {
   byMeal: ExtraTastyInfoUnit[],
   overall: ExtraTastyInfoUnit,
+  byMealAlgorithmInfo: ExtraTastyByMealAlgorithmInfo[],
 };
